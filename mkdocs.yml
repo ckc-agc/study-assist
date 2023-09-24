@@ -77,3 +77,25 @@ extra_javascript:
 
 plugins:
   - search
+
+
+nav:
+  - 首页: index.md
+  - 微积分:
+    - calculus/index.md
+  - 数学分析:
+    - analysis/index.md
+    - 历年卷整理: analysis/exam.md
+    - 2023 年辅学资料: analysis/2023/index.md
+  - 线性代数:
+    - algebra/index.md
+  - 程设:
+    - programming/index.md
+    - FAQ: programming/faq.md
+    - 历年卷:
+      - programming/exam/index.md
+      - C 小历年卷常见问题总结: programming/exam/fp.md
+      - C 大历年卷常见问题总结: programming/exam/lcp.md
+    - 2023 年辅学资料: programming/2023/index.md
+  - 普通化学:
+    - chemistry/index.md
