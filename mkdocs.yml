@@ -2,12 +2,36 @@ site_name: 竺院辅学计划站点
 site_url: https://ckc-agc.pages.zjusct.io/study-assist/
 repo_url: https://github.com/ckc-agc/study-assist
 repo_name: 竺院辅学计划站点
-edit_uri: "-/edit/main/docs/"
+edit_uri: tree/master/docs
 site_description: 竺院辅学计划站点
 site_author: 竺可桢学院学业指导中心
 
+nav:
+  - 首页: index.md
+  - 微积分:
+    - calculus/index.md
+  - 数学分析:
+    - analysis/index.md
+    - 历年卷整理: analysis/exam.md
+    - 2023 年辅学资料: analysis/2023/index.md
+  - 线性代数:
+    - algebra/index.md
+  - 程设:
+    - programming/index.md
+    - FAQ: programming/faq.md
+    - 历年卷:
+      - programming/exam/index.md
+      - C 小历年卷常见问题总结: programming/exam/fp.md
+      - C 大历年卷常见问题总结: programming/exam/lcp.md
+    - 2023 年辅学资料: programming/2023/index.md
+  - 普通化学:
+    - chemistry/index.md
+
 theme:
   name: material
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
   features:
     - search.highlight
     - navigation.instant
@@ -18,6 +42,7 @@ theme:
     - header.autohide
     - content.code.copy
     - content.code.annotate
+    - content.action.edit
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -35,41 +60,42 @@ theme:
 
 markdown_extensions:
   # Python Markdown
-  - abbr
-  - admonition
-  - attr_list
-  - def_list
-  - footnotes
-  - md_in_html
   - toc:
       permalink: true
       toc_depth: 2
+  - abbr
+  - def_list
+  - attr_list
+  - footnotes
+  - md_in_html
+  - admonition
+  - sane_lists
   # Python Markdown Extensions
-  - pymdownx.arithmatex:
-      generic: true
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
   - pymdownx.caret
   - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.smartsymbols
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
-  - pymdownx.snippets:
-      auto_append:
-        - includes/abbreviations.md
   - neoteroi.cards # install using `pip install neoteroi-mkdocs`
 extra_javascript:
   - javascripts/mathjax.js
@@ -77,10 +103,15 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 extra_css:
   - stylesheets/neoteroi-mkdocs.css
+  - stylesheets/custom.css
 
 plugins:
   - search
   - glightbox # install using `pip install mkdocs-glightbox`
+  - heti:
+      extra_skipped_class:
+        - arithmatex
+      disable_serve: false
 
 
 nav:
