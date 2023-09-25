@@ -1,4 +1,4 @@
-# [竺院辅学计划站点](https://ckc-agc.pages.zjusct.io/study-assist/)
+# [竺院辅学计划站点](https://ckc-agc.github.io/study-assist/)
 
 😉你好~
 

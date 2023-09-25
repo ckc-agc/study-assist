@@ -1,9 +1,9 @@
-site_name: 竺院辅学计划校内站点
+site_name: 竺院辅学计划站点
 site_url: https://ckc-agc.pages.zjusct.io/study-assist/
 repo_url: https://github.com/ckc-agc/study-assist
-repo_name: 竺院辅学计划校内站点
+repo_name: 竺院辅学计划站点
 edit_uri: "-/edit/main/docs/"
-site_description: 竺院辅学计划校内站点
+site_description: 竺院辅学计划站点
 site_author: 竺可桢学院学业指导中心
 
 theme:
