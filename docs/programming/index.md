@@ -14,6 +14,6 @@
 
 - [图灵班学习指南：程序设计与算法基础](https://zju-turing.github.io/TuringCourses/major_basic/programming/)
 - [TimeMachine：C-review](https://zhoutimemachine.github.io/2022/07/07/2021/C-review/)
-- [鹤翔万里：C 语言杂项¶](https://note.tonycrane.cc/cs/pl/c_cpp/c/)
+- [鹤翔万里：C 语言杂项](https://note.tonycrane.cc/cs/pl/c_cpp/c/)
 - [Isshiki修：C小程 琐碎知识点整理](https://note.isshikih.top/cour_note/D1QD_CXiaoCheng/)
 - [源虹翼：ZJU秋程设学习笔记](https://www.cnblogs.com/yuanhongyi/p/17329921.html)
