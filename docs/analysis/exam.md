@@ -3,6 +3,7 @@
 ## 数学分析 I（H）
 
 -   2022-2023 学年
+    -   [小测1](analysis1_paper/22test1.pdf)
     -   [小测2](analysis1_paper/22test2.pdf)
     -   [期末试卷](analysis1_paper/22exam.pdf)
 -   2021-2022 学年
