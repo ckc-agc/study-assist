@@ -70,17 +70,23 @@ markdown_extensions:
   - pymdownx.snippets:
       auto_append:
         - includes/abbreviations.md
+  - neoteroi.cards # install using `pip install neoteroi-mkdocs`
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+extra_css:
+  - stylesheets/neoteroi-mkdocs.css
 
 plugins:
   - search
+  - glightbox # install using `pip install mkdocs-glightbox`
 
 
 nav:
   - 首页: index.md
+  - 程设线下辅学:
+    - programming_lecture/index.md
   - 微积分:
     - calculus/index.md
   - 数学分析:
