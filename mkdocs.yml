@@ -118,6 +118,9 @@ nav:
   - 首页: index.md
   - 程设线下辅学:
     - programming_lecture/index.md
+    - 1. 程序编译过程与调试:
+      - 准备开发与调试环境: programming_lecture/lecture1/pre_class.md
+      - 课程讲义: programming_lecture/lecture1/lecture1.md
   - 微积分:
     - calculus/index.md
   - 数学分析:
@@ -131,8 +134,8 @@ nav:
     - FAQ: programming/faq.md
     - 历年卷:
       - programming/exam/index.md
-      - C 小历年卷常见问题总结: programming/exam/fp.md
-      - C 大历年卷常见问题总结: programming/exam/lcp.md
-    - 2023 年辅学资料: programming/2023/index.md
+#      - C 小历年卷常见问题总结: programming/exam/fp.md
+#      - C 大历年卷常见问题总结: programming/exam/lcp.md
+#    - 2023 年辅学资料: programming/2023/index.md
   - 普通化学:
     - chemistry/index.md

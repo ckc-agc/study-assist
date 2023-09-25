@@ -12,11 +12,12 @@
 
 - [neoteroi.cards](https://www.neoteroi.dev/mkdocs-plugins/cards/)
 - [GLightbox](https://github.com/blueswen/mkdocs-glightbox)
+- [mkdocs-heti-plugin](https://github.com/TonyCrane/mkdocs-heti-plugin)
 
 安装 MkDocs 及相关插件：
 
 ```bash
-pip install mkdocs mkdocs-material neoteroi-mkdocs mkdocs-glightbox
+pip install mkdocs mkdocs-material neoteroi-mkdocs mkdocs-glightbox mkdocs-heti-plugin
 ```
 
 本地构建与查看：
