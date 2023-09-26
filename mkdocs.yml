@@ -118,7 +118,7 @@ nav:
   - 首页: index.md
   - 程设线下辅学:
     - programming_lecture/index.md
-    - 1. 程序编译过程与调试:
+    - 1. 程序编译过程与调试技术:
       - 准备开发与调试环境: programming_lecture/lecture1/pre_class.md
       - 课程讲义: programming_lecture/lecture1/lecture1.md
   - 微积分:
