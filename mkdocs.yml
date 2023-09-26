@@ -115,21 +115,20 @@ plugins:
 
 
 nav:
-  - 首页: index.md
-  - 程设线下辅学:
-    - programming_lecture/index.md
-    - 1. 程序编译过程与调试技术:
-      - 准备开发与调试环境: programming_lecture/lecture1/pre_class.md
-      - 课程讲义: programming_lecture/lecture1/lecture1.md
-  - 微积分:
+  - 首页: 
+    - index.md
+    - 测试: test.md
+  - 📚微积分:
     - calculus/index.md
-  - 数学分析:
+  - 📚数学分析:
     - analysis/index.md
     - 历年卷整理: analysis/exam.md
     - 2023 年辅学资料: analysis/2023/index.md
-  - 线性代数:
+  - 📚线性代数:
     - algebra/index.md
-  - 程设:
+  - 🏫线性代数：未竟之美:
+    - lalu/index.md
+  - 📚程设:
     - programming/index.md
     - FAQ: programming/faq.md
     - 历年卷:
@@ -137,5 +136,14 @@ nav:
 #      - C 小历年卷常见问题总结: programming/exam/fp.md
 #      - C 大历年卷常见问题总结: programming/exam/lcp.md
 #    - 2023 年辅学资料: programming/2023/index.md
-  - 普通化学:
+  - 🏫实用技能拾遗:
+    - PracticalSkillsTutorial/index.md
+  - 🏫系统知识拾遗:
+    - programming_lecture/index.md
+    - 1. 程序编译过程与调试技术:
+      - 准备开发与调试环境: programming_lecture/lecture1/pre_class.md
+      - 课程讲义: programming_lecture/lecture1/lecture1.md
+  - 📚普通化学:
     - chemistry/index.md
+  - 📚普通物理学:
+    - physics/index.md

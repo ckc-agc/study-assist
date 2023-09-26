@@ -8,6 +8,8 @@
 
 ## 构建
 
+该仓库已经设置了 GitHub Action，您的每次推送都会自动触发构建与部署，无需在本地执行 `mkdocs gh-deploy` 等操作。
+
 本网站基于 MkDocs Material 构建，额外使用的插件有：
 
 - [neoteroi.cards](https://www.neoteroi.dev/mkdocs-plugins/cards/)
@@ -26,7 +28,7 @@ pip install mkdocs mkdocs-material neoteroi-mkdocs mkdocs-glightbox mkdocs-heti-
 mkdocs serve
 ```
 
-部署到 GitHub Pages：
+手动部署到 GitHub Pages：
 
 ```bash
 mkdocs gh-deploy

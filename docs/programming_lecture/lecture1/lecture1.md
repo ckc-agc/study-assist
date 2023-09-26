@@ -75,16 +75,17 @@ CPU 还有自己的小工作区——由若干寄存器（Register）组成的�
   {
     "title": "机器语言 <br> Machine Code",
     "content": "这是第一代编程语言，也是计算机唯一能识别的语言。上图展示了世界上第一个计算机程序，它用来找出一个数最大的因数。",
-    "image": "https://cdn.bowling233.top/images/2023/07/202307142052574.png"
+    "image": "graph/machine_code.png"
   },
   {
     "title": "汇编语言 <br> Assembly Language",
     "content": "这是第二代编程语言，其实就是机器语言的助记符。它使得程序员不用再直接与 0 和 1 打交道，程序的可读性也更强了。上图显示了将两个整数相加的汇编代码。",
-    "image": "https://cdn.bowling233.top/images/2023/07/202307142105177.png"
+    "image": "graph/assembly.png"
   },
   {
     "title": "高级语言 <br> High-level Language",
     "content": "这是第三代编程语言，它让程序员们不用再关注计算机结构上的细节，而是将注意力转移到要解决的问题上来。",
+    "image": "graph/high_level_language.png"
   },
 
 ]
@@ -92,13 +93,62 @@ CPU 还有自己的小工作区——由若干寄存器（Register）组成的�
 ::/cards::
 <!-- prettier-ignore-end -->
 
+下面三行代码分别是用 C 语言、汇编语言和机器语言（十六进制）描述的同一件事：
 
+<!-- prettier-ignore-start -->
+=== "简单的例子"
+    
+    ```c
+    c = a + b;
+    ```
 
+    ```asm
+    add $t0, $t1, $t2
+    ```
 
+    ```
+    01 2a 40 20
+    ```
+=== "复杂的例子"
+
+    ```c
+    void multstore(long x, long y, long *dest) {
+        long t = mult2(x, y);
+        *dest = t;
+    }
+    ```
+
+    ```asm
+    multstore:
+        pushq   %rbx
+        movq    %rdx, %rbx
+        call    mult2
+        movq    %rax, (%rbx)
+        popq    %rbx
+        ret
+    ```
+
+    ```
+    53 48 89 d3 48 83 ec 08 e8 00 00 00 00 48 89 03 5b c3
+    ```
+<!-- prettier-ignore-end -->
+
+<!-- prettier-ignore-start -->
+!!! question "为什么需要高级语言？"
+
+    1. 机器语言和汇编语言都是非常底层的语言，程序员需要关注计算机的细节，这使得程序的**可读性很差**。使用高级语言，程序员能**将注意力转移到要解决的问题上来**。
+    2. 机器语言和汇编语言都是与具体 CPU 相关的，程序员需要为不同的 CPU 编写不同的程序，**可移植性差**。使用高级语言，程序员只需要写一次程序，再使用编译器就能将其翻译成能在特定 CPU 的机器语言。
+<!-- prettier-ignore-end -->
+
+<!-- prettier-ignore-start -->
+??? info "对机器语言有兴趣？"
+
+    [这里](https://eng.libretexts.org/Bookshelves/Computer_Science/Programming_Languages/Introduction_To_MIPS_Assembly_Language_Programming_(Kann)/04%3A_Translating_Assembly_Language_into_Machine_Code)提供了一些将汇编语言转换为 MIPS 指令集机器语言的基础例子，有兴趣可以了解一下。
+<!-- prettier-ignore-end -->
 
 ## 程序的编译过程
 
-
+接下来，我们将了解编译器和汇编器是如何一步步把你的程序编译成机器码的。
 
 GCC 是最经典的 C 语言编译器。当我们使用命令 `gcc -o test test.c` 编译一个 C 语言程序时，GCC 会调用一系列的程序将源代码翻译成汇编语言、再翻译成机器语言，最后经过链接产生可执行文件。下图展示了这个过程。
 
@@ -109,7 +159,7 @@ GCC 是最经典的 C 语言编译器。当我们使用命令 `gcc -o test test.
 3. 汇编：由汇编器（Assembler）完成，它将汇编代码翻译成机器语言。汇编后得到的机器代码文件以 `.o` 为后缀。
 4. 链接：由链接器（Linker）完成，它将多个目标文件链接成一个可执行文件。链接后得到的可执行文件以 `.exe` 为后缀。
 
-这里解释一下链接步骤。为什么要链接？模块化思想在程序设计中很重要。比如我写了一个在屏幕上显示图像的函数，把它编译成了机器码。你的程序需要使用这个图形库，你不用把我的源代码搬过去，或者我不想让你知道我的源代码。你只需要使用链接器把我的机器码和你的机器码链接起来就能生成一个功能完整的源程序了。
+
 
 ## 参考资料
 
