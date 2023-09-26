@@ -1,5 +1,11 @@
 # 准备开发与调试环境
 
+<!-- prettier-ignore-start -->
+!!! danger "施工中"
+
+    本页面正在编辑中。
+<!-- prettier-ignore-end -->
+
 在参与线下授课前，同学们最好能够安装好相关的开发环境，以便能够更好的跟随老师的讲解。我们在这里提供了一些安装指南和 Windows 上 Shell 基础的讲解，希望能够帮助到大家。
 
 > 本文档更改自周健均学长为图灵程算课程准备的[资料](https://zhoutimemachine.github.io/2023_FPA/)，感谢周健均学长的付出。
