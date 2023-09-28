@@ -22,7 +22,7 @@
   },
   {
     "title": "[线性代数](algebra/index.md)",
-    "content": "[【线下课程】线性代数：未尽之美](lalu/index.md)",
+    "content": "[【线下课程】线性代数：未竟之美](lalu/index.md)",
     "image": "graph/algebra.jpg"
   },
   {

@@ -20,17 +20,17 @@ Hi，欢迎各位同学来到竺院程设辅学线下授课的第一节课。
 
 在前几周的程序设计课程中，老师们应该已经为同学们讲解了 C 语言的基础语法等知识。但是同学们或许会有下面这些疑问：
 
--  计算机是如何读懂我写的代码的？
--  现在我在终端中运行程序，终端到底是什么？什么时候我的程序能具有图形界面？
--  我的程序总是出问题，我该如何快速找到错误的根源？
+-   计算机是如何读懂我写的代码的？
+-   现在我在终端中运行程序，终端到底是什么？什么时候我的程序能具有图形界面？
+-   我的程序总是出问题，我该如何快速找到错误的根源？
 
-辅学课程的目的就是帮助同学们解决这些“为什么”的问题。实质上C语言是一门很难的编程语言，不懂编译原理、操作系统和计算机体系结构无法获得深入的理解。我们希望通过线下授课，为具有 C 语言基础或愿意深入学习 C 语言的同学提供进一步的知识扩展，让同学们在计算机（而非算法题）的语境下理解 C 语言、理解程序设计。
+辅学课程的目的就是帮助同学们解决这些“为什么”的问题。实质上 C 语言是一门很难的编程语言，不懂编译原理、操作系统和计算机体系结构无法获得深入的理解。我们希望通过线下授课，为具有 C 语言基础或愿意深入学习 C 语言的同学提供语言之外的进一步的知识扩展，让同学们在计算机（而非算法题）的语境下理解 C 语言、理解程序设计。
 
 那么在本节课，我们将为大家系统讲解程序编译过程与调试技术，为后续的课程做铺垫。接下来，让我们一起进入计算机的世界吧！
 
 ## 基础知识
 
-首先，我们来了解一下计算机的基本知识。
+首先，我们来了解一下我们学习的对象——计算机的基本知识。它是如何工作的？我们如何与它交流？
 
 ### 计算机能做什么？
 
@@ -56,23 +56,23 @@ Hi，欢迎各位同学来到竺院程设辅学线下授课的第一节课。
 ::/cards::
 <!-- prettier-ignore-end -->
 
-- CPU 能读懂什么？
+-   CPU 能读懂什么？
 
 CPU 无法直接读懂你写的 C 语言代码，它是由数字电路构成的。**数字电路只能处理 0 和 1，因此计算机中的任何数据都必须使用二进制表示，程序也是如此。**
 
 在计算机刚刚诞生的阶段，工程师们不得不使用 0 和 1 构成的指令序列和计算机打交道，这就是**机器语言**。因为具体电路设计不同，每种 CPU 所能理解的指令有限，这些指令的集合叫做**指令集**。
 
-- CPU 都做些什么？
+-   CPU 都做些什么？
 
 CPU 的工作非常简单：从内存中读取并执行一条指令，再从内存中读取并执行下一条指令……1 GHz 的 CPU 每秒能重复这一操作约十亿次。
 
-这些指令都相当具体，比如把一个数字从一个位置移动到另一个位置，把两个数字相加并把结果存储再某个地方。是的，你的 CPU 也在疯狂做着这些事情。但是通过精巧的设计，这些简单的指令就能构建起程序的控制逻辑，实现复杂的功能。
+这些指令都相当具体，比如把一个数字从一个位置移动到另一个位置，把两个数字相加并把结果存储再某个地方。是的，你的 CPU 也在疯狂做着这些事情。但是**通过精巧的设计，这些简单的指令就能构建起程序的控制逻辑，实现复杂的功能**。
 
 CPU 还有自己的小工作区——由若干寄存器（Register）组成的寄存器组。每个寄存器能存储一个数字。
 
 ### 高级计算机语言和编译器
 
-现代计算机的结构与 70 年前并没有本质上的不同，但是程序设计语言取得了很大的发展，产生了汇编语言和高级语言。我们仍然不能直接对 CPU 说：为我计算 $1 + 1$，但我们可以用高级语言简洁的表达它，让**编译器（compiler）和汇编器（assembler）**将其翻译成 `0101`` 的机器语言。下图展示了程序设计语言的发展历史，编译过程其实就是这一历史的反向。
+现代计算机的结构与 70 年前并没有本质上的不同，但是程序设计语言取得了很大的发展，产生了汇编语言和高级语言。我们仍然不能直接对 CPU 说：为我计算 $1 + 1$，但我们可以用高级语言简洁的表达它，让**编译器（compiler）和汇编器（assembler）**将其翻译成 `0101` 的机器语言。下图展示了程序设计语言的发展历史，编译过程其实就是这一历史的反向。
 
 <!-- prettier-ignore-start -->
 ::cards::
@@ -154,11 +154,17 @@ CPU 还有自己的小工作区——由若干寄存器（Register）组成的�
 
 ## 程序的编译过程
 
-接下来，我们将了解编译器和汇编器是如何一步步把你的程序编译成机器码的。
+接下来，我们将了解编译器和汇编器是如何一步步把你的程序编译成机器码的。我们以最经典的 C 语言编译系统 GCC 为例。
 
-GCC 是最经典的 C 语言编译器。当我们使用命令 `gcc -o test test.c` 编译一个 C 语言程序时，GCC 会调用一系列的程序将源代码翻译成汇编语言、再翻译成机器语言，最后经过链接产生可执行文件。下图展示了这个过程。
+<!-- prettier-ignore-start -->
+??? note "什么是 GCC？"
 
-![](https://cdn.bowling233.top/images/2023/07/202307142109343.png)
+    简单地说，GNU 项目旨在开发一个完全自由的操作系统以及配套的软件。GCC 最早是 GNU C Compiler 的简称，现在**代表 GNU Compiler Collection**。这表明它不是单个程序，而是一系列编译工具的集合，包括了 C、C++、Objective-C、Fortran、Ada、Go、D 等语言的前端，以及汇编器、链接器等后端，和这些语言的库文件。
+<!-- prettier-ignore-end -->
+
+当我们使用命令 `gcc -o test test.c` 编译一个 C 语言程序时，GCC 会调用一系列的程序将源代码翻译成汇编语言、再翻译成机器语言，最后经过链接产生可执行文件。下图展示了这个过程。
+
+![](graph/gcc_process.png)
 
 1. 预处理：由 C 预处理器（C Preprocessor）完成，它将源代码中的宏定义展开，将头文件中的内容插入到源代码中，删除注释等。预处理后的代码文件以 `.i` 为后缀。
 2. 编译：由 C 编译器（C Compiler）完成，它将预处理后的文件翻译成汇编语言。编译后得到的汇编代码文件以 `.s` 为后缀。
@@ -167,95 +173,363 @@ GCC 是最经典的 C 语言编译器。当我们使用命令 `gcc -o test test.
 
 ### 解读 `gcc` 显示的详细信息
 
-下面这些文本是 `gcc -Og -o prog main.c sum.c` 命令的输出结果。点击文本中带圆圈的 `+` 号可以展开详细信息，高亮的行是运行某个编译器组件的具体命令。
-
-```html hl_lines="12 33 36 57 62"
-<!--(1)!-->Using built-in specs. 
-COLLECT_GCC=gcc
-COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper
-OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
-OFFLOAD_TARGET_DEFAULT=1
-Target: x86_64-linux-gnu
-Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-1ubuntu1~23.04' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-DAPbBt/gcc-12-12.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-12-DAPbBt/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
-Thread model: posix
-Supported LTO compression algorithms: zlib zstd
-gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~23.04) 
-COLLECT_GCC_OPTIONS='-Og' '-o' 'prog' '-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
-<!--(2)!--> /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu main.c -quiet -dumpdir prog- -dumpbase main.c -dumpbase-ext .c -mtune=generic -march=x86-64 -Og -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccCWi0p2.s
-GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
-
-GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
-ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"
-ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"
-<!--(3)!-->#include "..." search starts here:
-#include <...> search starts here:
- /usr/lib/gcc/x86_64-linux-gnu/12/include
- /usr/local/include
- /usr/include/x86_64-linux-gnu
- /usr/include
-End of search list.
-GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
-
-GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-Compiler executable checksum: d9353c3f0a32d3e91a16ba312e2a9024
-COLLECT_GCC_OPTIONS='-Og' '-o' 'prog' '-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
-<!--(4)!--> as -v --64 -o /tmp/ccAnKDEo.o /tmp/ccCWi0p2.s
-GNU assembler version 2.40 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.40
-COLLECT_GCC_OPTIONS='-Og' '-o' 'prog' '-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
-<!--(5)!--> /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu sum.c -quiet -dumpdir prog- -dumpbase sum.c -dumpbase-ext .c -mtune=generic -march=x86-64 -Og -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccCWi0p2.s
-GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
-
-GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
-ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"
-ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"
-#include "..." search starts here:
-#include <...> search starts here:
- /usr/lib/gcc/x86_64-linux-gnu/12/include
- /usr/local/include
- /usr/include/x86_64-linux-gnu
- /usr/include
-End of search list.
-GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
-
-GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-Compiler executable checksum: d9353c3f0a32d3e91a16ba312e2a9024
-COLLECT_GCC_OPTIONS='-Og' '-o' 'prog' '-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
- as -v --64 -o /tmp/ccgMFTqK.o /tmp/ccCWi0p2.s
-GNU assembler version 2.40 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.40
-COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/
-LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-Og' '-o' 'prog' '-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog.'
-<!--(6)!--> /usr/lib/gcc/x86_64-linux-gnu/12/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccFqz8G9.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o prog /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. /tmp/ccAnKDEo.o /tmp/ccgMFTqK.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-Og' '-o' 'prog' '-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog.'
-
-```
-
-1.  最开头是 `gcc` 的相关信息，包括它运行的平台、配置的选项等。
-2.  这里调用了 `cc1` 完成预处理和编译阶段，将源代码文件 `main.c` 编译成了 ASCII 编码的汇编文件 `/tmp/ccCWi0p2.s`。
-3.  这里显示了头文件搜索路径，如果你编译时报错缺少头文件，可以检查一下这里有没有包含对应的路径。
-4.  这里调用了 `as` 完成汇编阶段，将汇编文件 `/tmp/ccCWi0p2.s` 翻译成了机器语言文件 `/tmp/ccAnKDEo.o`。
-5.  接下来又对 `sum.c` 重复预处理、编译和汇编的过程，得到了 `/tmp/ccgMFTqK.o`。
-6.  最后调用 `collect2` 完成链接阶段，将两个源代码生成的目标文件 `/tmp/ccAnKDEo.o` 和 `/tmp/ccgMFTqK.o` 与其他很多目标文件链接成了可执行文件 `prog`。这就是你能在操作系统上运行的程序。
-
+下面这些文本是 `gcc -v -o prog main.c sum.c` 命令的输出结果。
 
 <!-- prettier-ignore-start -->
-??? question "我怎么没有看见运行了 `cpp` 呢？"
 
-    某些版本的 `gcc` 会将预处理器 `cpp` 和编译器 `cc1` 合并成一个程序，这样就不会显示预处理阶段的信息了。
+??? info "gcc 的输出信息"
+
+    点击文本中带圆圈的 `+` 号可以展开详细信息，高亮的行是运行某个编译工具的具体命令。
+
+    ```html hl_lines="12 33 36 57 62"
+    <!--(1)!-->Using built-in specs.
+    COLLECT_GCC=gcc
+    COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper
+    OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+    OFFLOAD_TARGET_DEFAULT=1
+    Target: x86_64-linux-gnu
+    Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-1ubuntu1~23.04' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-DAPbBt/gcc-12-12.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-12-DAPbBt/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+    Thread model: posix
+    Supported LTO compression algorithms: zlib zstd
+    gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~23.04) 
+    COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
+    <!--(2)!--> /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu main.c -quiet -dumpdir prog- -dumpbase main.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccClT5M4.s
+    GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
+    	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+
+    GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+    ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+    ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"
+    ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"
+    <!--(3)!-->#include "..." search starts here:
+    #include <...> search starts here:
+     /usr/lib/gcc/x86_64-linux-gnu/12/include
+     /usr/local/include
+     /usr/include/x86_64-linux-gnu
+     /usr/include
+    End of search list.
+    GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
+    	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+
+    GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+    Compiler executable checksum: d9353c3f0a32d3e91a16ba312e2a9024
+    COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
+    <!--(4)!--> as -v --64 -o /tmp/ccEgqpgY.o /tmp/ccClT5M4.s
+    GNU assembler version 2.40 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.40
+    COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
+    <!--(5)!--> /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu sum.c -quiet -dumpdir prog- -dumpbase sum.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccClT5M4.s
+    GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
+    	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+
+    GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+    ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+    ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"
+    ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"
+    #include "..." search starts here:
+    #include <...> search starts here:
+     /usr/lib/gcc/x86_64-linux-gnu/12/include
+     /usr/local/include
+     /usr/include/x86_64-linux-gnu
+     /usr/include
+    End of search list.
+    GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
+    	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+
+    GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+    Compiler executable checksum: d9353c3f0a32d3e91a16ba312e2a9024
+    COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
+     as -v --64 -o /tmp/ccxMA26W.o /tmp/ccClT5M4.s
+    GNU assembler version 2.40 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.40
+    COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/
+    LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/
+    COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog.'
+    <!--(6)!--> /usr/lib/gcc/x86_64-linux-gnu/12/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccyzC2ZB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o prog /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. /tmp/ccEgqpgY.o /tmp/ccxMA26W.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o
+    COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog.'
+    ```
+
+    1.  最开头是 `gcc` 的相关信息，包括它运行的平台、配置的选项等。
+    2.  这里调用了 `cc1` 完成预处理和编译阶段，将源代码文件 `main.c` 编译成了 ASCII 编码的汇编文件 `/tmp/ccCWi0p2.s`。
+    3.  这里显示了头文件搜索路径，如果你编译时报错缺少头文件，可以检查一下这里有没有包含对应的路径。
+    4.  这里调用了 `as` 完成汇编阶段，将汇编文件 `/tmp/ccCWi0p2.s` 翻译成了机器语言文件 `/tmp/ccAnKDEo.o`。
+    5.  接下来又对 `sum.c` 重复预处理、编译和汇编的过程，得到了 `/tmp/ccgMFTqK.o`。
+    6.  最后调用 `collect2` （这是 `ld` 的包装程序）完成链接阶段，将两个源代码生成的目标文件 `/tmp/ccAnKDEo.o` 和 `/tmp/ccgMFTqK.o` 与其他很多目标文件链接成了可执行文件 `prog`。这就是你能在操作系统上运行的程序。
 <!-- prettier-ignore-end -->
+
+<!-- prettier-ignore-start -->
+??? question "为什么没有看见预处理器 `cpp` 的执行呢？"
+
+    某些版本的 `gcc` 会将预处理器 `cpp` 和编译器 `gcc` 合并成一个指令，比如上面的 `cc1`，这样就不用单独调用 `cpp` 了。
+<!-- prettier-ignore-end -->
+
+接下来，我们详解其中的每一个阶段以及可能会发生的问题。
+
+### 预处理
+
+执行以下命令，查看预处理后的文件 `hello.i`：
+
+```bash
+cpp hello.c > hello.i
+```
+
+你会发现，原来 `hello.c` 中 `#include` 预处理指令的地方被替换为完整的 `stdio.h` 文件内容，这些内容包括 `printf` 等函数的原型。其他预处理指令（在后续课程会学习到）比如 `#define` 也会在这一阶段生效。至于为什么只插入了函数原型而没有定义，接下来的链接阶段会解答。
+
+预处理阶段最经常产生的问题是**找不到头文件**。C 语言头文件搜索规则如下：
+
+-   用双引号 `#include "..."` 包含的头文件，编译器会先在当前目录下查找，再在系统目录下查找。
+-   用尖括号 `#include <...>` 包含的头文件，编译器只会在系统目录下查找。
+
+如果你的头文件不在当前目录下，那么你需要使用 `-I` 选项告诉编译器头文件的位置。比如你的头文件在 `include` 目录下：
+
+```text
+.
+├── hello.c
+└── include
+    └── header.h
+```
+
+你可以使用以下命令编译：
+
+```bash
+gcc -Iinclude -o hello hello.c
+```
+
+路径可以是相对路径或绝对路径，比如：
+
+```bash
+gcc -I../include -o hello hello.c
+gcc -I/home/user/include -o hello hello.c
+```
+
+另一种方式是设置环境变量 `CPATH` 指定搜索路径。
+
+```bash
+export CPATH="$HOME/.local:$CPATH"
+```
+
+设置后，你应当能在编译器的输出信息中看到新增的路径。
+
+```text
+#include <...> search starts here:
+ /home/bowling/.local
+```
+
+### 编译
+
+执行以下命令，查看编译后的文件 `hello.s`：
+
+```bash
+gcc -S hello.i
+```
+
+所有高级语言层面的类型、控制结构等，都被与特定 CPU 指令集相关的汇编指令代替。在汇编语言中，所有数据都是字节块，没有类型的概念。
+
+在这个阶段，编译器会检查一些问题，并抛出不同等级的信息：
+
+-   错误（Error）：编译器无法继续进行编译。比如：提供的参数列表不匹配、使用了未定义的变量、函数等。
+
+```text
+error.c: In function ‘main’:
+error.c:9:5: error: too many arguments to function ‘my_print’
+    9 |     my_print(1);
+      |     ^~~~~~~~
+error.c:4:6: note: declared here
+    4 | void my_print(void)
+      |      ^~~~~~~~
+```
+
+-   警告（Warning）：违反了语法，但能够继续编译，编译出来的程序运行结果很可能与你想象的不一样。比如：转义字符与数据类型不匹配、发生了隐式转换等。
+
+```text
+warning.c: In function ‘main’:
+warning.c:8:18: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘double’ [-Wformat=]
+    8 |     printf("a = %d\n", a);
+      |                 ~^     ~
+      |                  |     |
+      |                  int   double
+      |                 %f
+```
+
+大部分警告信息默认不会输出，使用 `-Wall` 和 `-Wextra` 选项可以打开更多的警告信息。你也可以使用 `-Werror` 选项将警告信息视为错误，这样编译器就会停止编译。在编译时带上这些参数是一个好习惯。
+
+```bash
+gcc -Wall -Wextra -Werror -o hello hello.c
+```
+
+### 汇编
+
+执行以下命令，汇编器将汇编指令翻译为机器码，产生**可重定位目标文件** `hello.o`：
+
+```bash
+as -o hello.o hello.s
+```
+
+<!-- prettier-ignore-start -->
+!!! note "目标文件"
+
+    目标文件中包含计算机能读懂的机器代码和数据，有三种形式：
+
+    | 形式 | 由谁产生 | 有什么用 |
+    | ---- | -------- | -------- |
+    | 可重定位目标文件 | 编译器或汇编器 | 只包含编译器为你编写的代码翻译的机器语言代码，需要与其他目标文件链接合并为可执行目标文件 |
+    | 可执行目标文件 | 链接器 | 包含你编写的程序中使用的库函数和启动代码的机器代码，能够被操作系统正确运行 |
+    | 共享目标文件 | 编译器或汇编器 | 给其他程序用的代码，可以在程序加载或运行时链接 |
+<!-- prettier-ignore-end -->
+
+`hello.o` 中包含了 `hello.c` 中的 C 语言代码翻译成的**二进制代码以及一些数据**，比如字符串 `Hello, world.\n`。如果使用文本编辑器打开 `hello.o`，你会看见一堆乱码，其中夹杂着一些字符。因为字符在源文件和内存中都是用 ASCII 编码的，所以 ASCII 字符仍能被文本编辑器识别，但其他的机器指令和数据只会被解读为乱码。
+
+![](graph/object_file.png)
+
+如果运行 `./hello.o`，终端会告诉你这个文件**不能被操作系统执行**。
+
+```text
+exec: Failed to execute process: './hello.o' the file could not be run by the operating system.
+```
+
+它还缺少一些东西，如：
+
+-   启动代码：启动程序时，操作系统会将控制权交给程序的入口点，但这个入口点不是 `main` 函数，而是一些启动代码。启动代码在执行 `main` 前进行一些初始化工作，并在退出 `main` 后做一些扫尾工作。
+
+<!-- prettier-ignore-start -->
+!!! note "一个不带启动代码的例子"
+
+    Linux 程序的入口点一般是 `_start`，它完成一些内存初始化的工作，然后跳转到 `main` 函数。我们在链接阶段不带上含有启动代码的目标文件，看看在缺少 `_start` 的情况下会发生什么。
+
+    ```text
+    $ ld hello.o -o hello -lc --dynamic-linker /lib64/ld-linux-x86-64.so.2
+    ld: warning: cannot find entry symbol _start; defaulting to 0000000000401030
+    $ ./hello
+    Hello World.
+    fish: Job 1, './hello' terminated by signal SIGSEGV (Address boundary error)
+    ```
+
+    这个程序源代码正常，为什么会出现段错误呢？
+
+    在链接阶段，`ld` 的输出表明找不到入口点 `_start`，因此把入口点默认放在了 `0000000000401030` 处的函数。这个函数是 `main` 函数。因此，当程序执行到 `main` 函数的最后一条指令时，会继续往下执行，但此时栈已经被清空，因此会发生段错误。
+
+    使用 `gdb` 查看错误位置：
+
+    ```text
+    Program received signal SIGSEGV, Segmentation fault.
+    0x0000000000000001 in ?? ()
+    ```
+
+    证实了上面的分析。
+
+    `crt` 是 C Runtime 的缩写。C 语言相关启动代码在这些目标文件中：
+
+    - `crt1.o`：负责启动，包含 `_start` 和未定义的 `__libc_start_main` 和 `main`。
+    - `crti.o`：初始化
+    - `crtbegin.o`：构造（C++依赖）
+    - `crtend.o`：析构（C++依赖）
+    - `crtn.o`：结束
+
+    Linux 平台下，它们的链接顺序为：
+
+    ```bash
+    ld crt1.o crti.o [user_objects] [system_libraries] crtn.o
+    ```
+<!-- prettier-ignore-end -->
+
+-   库函数：几乎所有 C 程序都会用到标准库中的函数，比如 `printf`。标准库中的代码已经被预编译成目标文件，附在编译器的安装目录下。
+
+在接下来的链接步骤，我们将这些目标文件链接到我们的程序中，生成可以执行的程序。
 
 ### 链接
 
-你会注意到，这参与链接的 `.o` 文件非常之多，其中很多位于 `x86_64-linux-gnu` 这样的文件夹下，这一般是操作系统提供的库文件。这些库文件包含了很多常用的函数，比如 `printf`、`malloc` 等。如果你的程序中使用了这些函数，那么链接器就会将这些库文件链接到你的程序中。
+链接有两种类型：静态链接和动态链接。
 
+<!-- prettier-ignore-start -->
+!!! note "静态链接"
 
+    如果你的程序与静态库链接，那么链接器会将静态库中的代码复制到你的程序中。这样，你的程序就不再依赖静态库了，可以在任何地方运行。但是，如果静态库中的代码发生了变化，你的程序并不会自动更新，你需要重新编译你的程序。
 
+    在 Linux 系统上，静态库的文件名以 `.a` 结尾，比如 `libm.a`。在 Window 上，静态库的文件名以 `.lib` 结尾，比如 `libm.lib`。静态库可以使用 `ar` （archive program）工具创建。
+
+!!! note "动态链接"
+
+    当你的程序与动态库链接时，程序中创建了一个表。在程序运行前，操作系统将需要的外部函数的机器码加载到内存中，这就是**动态链接过程**。
+
+    与静态链接相比，动态链接使程序文件更小，因为一个动态库可以被多个程序共享，节省磁盘空间。部分操作系统还允许动态库代码在内存中的共享，还能够节省内存。动态库升级时，也不需要重写编译你的程序。
+
+    在 Linux 系统上，动态库的文件名以 `.so` 结尾，比如 `libm.so`。在 Window 上，动态库的文件名以 `.dll` 结尾，比如 `libm.dll`。
+<!-- prettier-ignore-end -->
+
+动态链接具有上面描述的优点，因此 GCC 尽可能地执行动态链接。
+
+链接相关的问题可能出现在链接时（静态链接）、程序运行前和运行中（动态链接）。下面时一些常见的问题。
+
+<!-- prettier-ignore-start -->
+::cards:: 
+
+[
+  {
+    "title": "未定义的引用",
+    "content": "当同学们开始使用其他库构建大型项目时，这或许会成为最头疼的问题。首先应当阅读库的使用说明，接下来搜索缺失的符号可能位于哪些库文件中。",
+    "image": "graph/undefined_reference.png"
+  },
+  {
+    "title": "缺失 `.dll`",
+    "content": "常用 Windows 的同学多多少少见过这个报错，可以去网上搜索相应 `.dll` 文件放置到正确的目录。",
+    "image": "graph/lose_dll.png"
+  },
+  {
+    "title": "缺失 `.so`",
+    "content": "Linux 上的动态库一般通过 `apt` 管理，[搜索相应的包](https://fostips.com/tell-package-name-contains-specific-file-ubuntu-linux-mint/)并安装即可。",
+    "image": "graph/missing_library.webp"
+  },
+]
+
+::/cards::
+<!-- prettier-ignore-end -->
+
+下面这行命令在我的系统上完成了 `hello` 程序的正确链接，不一定能在你的系统上运行。你可以尝试查找库文件的路径，让它成功运行。
+
+```bash
+ld --output hello --dynamic-linker /lib64/ld-linux-x86-64.so.2  /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o -lc hello.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o
+```
+
+#### 动态链接过程
+
+如果一个可执行文件依赖于动态库，那么程序运行前，动态链接器（interpreter）会被先加载运行。它将寻找需要的动态库，加载到内存中，然后将控制权交给程序的入口点。
+
+`ld` 的选项 `--dynamic-linker` 就指定了动态链接器的路径。目前 Linux 系统使用的动态链接器一般是 `/lib64/ld-linux-x86-64.so.2`。它也是一个可以直接运行的程序，你可以试试运行它：
+
+```text
+$ /lib64/ld-linux-x86-64.so.2 --help
+You have invoked 'ld.so', the program interpreter for dynamically-linked ELF programs.  Usually, the program interpreter is invoked automatically when a dynamically-linked executable is started.
+
+You may invoke the program interpreter program directly from the command line to load and run an ELF executable file; this is like executing that file itself, but always uses the program interpreter you invoked, instead of the program interpreter specified in the executable file you run.  Invoking the program interpreter directly provides access to additional diagnostics, and changing the dynamic linker behavior without setting environment variables (which would be inherited by subprocesses).
+```
+
+该选项将会在可执行目标文件前面加上对动态链接器的请求。使用 readelf 可以查看 ELF 格式可执行目标文件的头部信息。
+
+```text hl_lines="14"
+$ readelf -l /usr/bin/ls | head -20
+
+Elf file type is DYN (Shared object file)
+Entry point 0x6b10
+There are 13 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+                 0x00000000000002d8 0x00000000000002d8  R      0x8
+  INTERP         0x0000000000000318 0x0000000000000318 0x0000000000000318
+                 0x000000000000001c 0x000000000000001c  R      0x1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000003510 0x0000000000003510  R      0x1000
+  LOAD           0x0000000000004000 0x0000000000004000 0x0000000000004000
+                 0x0000000000013111 0x0000000000013111  R E    0x1000
+  LOAD           0x0000000000018000 0x0000000000018000 0x0000000000018000
+                 0x0000000000007530 0x0000000000007530  R      0x1000
+  LOAD           0x000000000001ff70 0x0000000000020f70 0x0000000000020f70
+```
+
+#### 静态链接过程
+
+## 程序调试技术
 
 ## 参考资料
 
@@ -263,5 +537,7 @@ COLLECT_GCC_OPTIONS='-Og' '-o' 'prog' '-v' '-mtune=generic' '-march=x86-64' '-du
 !!! info "参考资料"
 
     - [GCC and Make - A Tutorial on how to compile, link and build C/C++ applications](https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html)
-
+    - [Understanding GCC warnings](https://developers.redhat.com/blog/2019/03/13/understanding-gcc-warnings)
+    - [The GCC warning flags every C programmer should know about](https://medium.com/@costaparas/the-gcc-warning-flags-every-c-programmer-should-know-about-8846c4a9bc94)
+    - [What Is /lib64/ld-linux-x86-64.so.2?](https://www.baeldung.com/linux/dynamic-linker)
 <!-- prettier-ignore-end -->
