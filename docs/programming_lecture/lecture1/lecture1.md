@@ -21,10 +21,9 @@ Hi，欢迎各位同学来到竺院程设辅学线下授课的第一节课。
 在前几周的程序设计课程中，老师们应该已经为同学们讲解了 C 语言的基础语法等知识。但是同学们或许会有下面这些疑问：
 
 -   计算机是如何读懂我写的代码的？
--   现在我在终端中运行程序，终端到底是什么？什么时候我的程序能具有图形界面？
 -   我的程序总是出问题，我该如何快速找到错误的根源？
 
-辅学课程的目的就是帮助同学们解决这些“为什么”的问题。实质上 C 语言是一门很难的编程语言，不懂编译原理、操作系统和计算机体系结构无法获得深入的理解。我们希望通过线下授课，为具有 C 语言基础或愿意深入学习 C 语言的同学提供语言之外的进一步的知识扩展，让同学们在计算机（而非算法题）的语境下理解 C 语言、理解程序设计。
+辅学课程的目的就是帮助同学们解决这些“为什么”的问题。实质上 C 语言是一门很难的编程语言，不懂编译原理、操作系统和计算机体系结构无法获得深入的理解。我们希望通过线下授课，为同学们提供语言之外的进一步的知识扩展和技能训练。让同学们在计算机（而非算法题）的语境下理解 C 语言，理解程序设计。
 
 那么在本节课，我们将为大家系统讲解程序编译过程与调试技术，为后续的课程做铺垫。接下来，让我们一起进入计算机的世界吧！
 
@@ -529,7 +528,256 @@ Program Headers:
 
 #### 静态链接过程
 
+进行静态链接时需要注意命令行中文件的顺序。
+
+- 如果是目标文件，链接器将记录其中的符号定义和引用。
+- 如果是库文件，链接器将尝试匹配前面记录的未解析的符号定义和引用。解析完成后，该库中没有被使用的符号将被丢弃。
+
+看看下面的命令行发生了什么？
+
+```text
+$ gcc -static ./libvector.a main2.c
+/tmp/cc9XH6Rp.o: In function `main':
+main2.c:(.text+0x1a): undefined reference to `vector_add'
+```
+
+链接器检查 `libvector.a` 库文件时，还没有记录任何符号定义和引用，因此它被整个丢弃了。当链接器开始检查 `main2.c` 时，不会再回去找 `libvector.a` 了。
+
+总而言之，静态链接时，库文件一般放在末尾。如果库文件之间有相互依赖，也需要对它们进行排序。
+
 ## 程序调试技术
+
+最后我们简单讲解一些调试程序的技巧。
+
+### `fprintf(stderr)` 是你最好的朋友
+
+虽然接下来要介绍的 `gdb` 功能强大，但大多数情况下简单地打印变量就能帮你定位问题所在。
+
+在程序中使用 `fprintf(stderr, ...)` 打印调试信息，可以帮助你定位到程序中的错误。`fprintf` 向指定的流输出格式化字符串，`stderr` 是标准错误流，它不会被缓冲，因此你可以在程序崩溃时看到最后的调试信息（这些输入输出的知识会在后面的课程中学到）。
+
+以一个异常终止的程序为例：
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    printf("printf ");
+    fprintf(stderr, "fprintf ");
+    abort();
+}
+```
+
+运行结果如下：
+
+```text
+$ ./debug
+fprintf fish: Job 1, './debug' terminated by signal SIGABRT (Abort)
+```
+
+可以看到只有 `fprintf` 函数的输出。如果在 `printf` 语句后面加上换行符，你会发现 `printf` 的输出也被打印出来了。因为当输出缓冲区遇到 `\n` 时也会立即输出。
+
+此外，将错误信息导向标准错误流还有另一个好处，就是你可以分别收集调试信息和正常输出。比如你可以将调试信息重定向到一个文件，而将正常输出重定向到另一个文件。
+
+```text
+$ ./debug 2> debug.log 1> output.log
+```
+
+### 使用 `assert` 断言
+
+`assert` 是一个宏，它接受一个表达式作为参数。如果表达式的值为假，`assert` 会输出一条错误信息，并终止程序的执行。它一般用在函数的最开头，核验某些信息是否正确。你也会经常在各种裁判程序的源码中看见。
+
+```c
+#include <assert.h>
+int resetBufferSize(int nNewSize)
+{
+    assert(nNewSize > 0);
+    // ...
+}
+```
+
+使用 `assert` 有几个值得注意的地方：
+
+1. 每个 `assert` 语句只检查一个条件。否则无法判断是哪个条件失败。
+2. `assert` 语句只在调试模式下生效。在发布版本中，`assert` 语句会被编译器移除。
+3. `assert` 判断的表达式不应带有 `++` 等运算符，否则也会引起困惑。
+4. `assert` 是用于避免错误的，而非用于异常处理的。
+
+### 使用 gdb 调试程序
+
+接下来，我们以被 C 标准弃用的库函数 `gets` 为例，用 `gdb` 对其进行调试：
+
+```c title="gets.c"
+char *gets(char *s)
+{
+    int c;
+    char *dest = s;
+    while((c = getchar()) != '\n' && c != EOF)
+        *dest++ = c;
+    if(c == EOF && dest == s)
+        return NULL;
+    *dest++ = '\0';
+    return s;
+}
+
+void echo()
+{
+    char buf[8];
+    gets(buf);
+    puts(buf);
+}
+```
+
+#### 编译时开启调试信息
+
+在编译时，使用 `-g` 选项开启调试信息。这样，编译器会在目标文件中插入调试信息，包括源代码文件名、行号、变量名、函数名等。这些信息可以帮助调试器定位到源代码的位置。
+
+```bash
+gcc -g -o gets gets.c
+```
+
+有时，因为 GCC 的特性，可能导致允许某些不符合 C 标准的事情发生。这时你可以使用 `-ansi -pedantic-errors` 来关闭 GCC 特性，严格遵守 ANSI C。这构成了常用的编译选项。
+
+```bash
+gcc -Wall -Werror -ansi -pedantic-errors -g prog1.c -o prog1
+```
+
+#### `gdb` 的基本使用
+
+启动 `gdb` 程序：
+
+```text
+GNU gdb (Ubuntu 10.2-6ubuntu1) 10.2
+...
+Reading symbols from ./hello...
+(gdb)
+```
+
+命令行的提示符从 `$` 变成了 `(gdb)`，这意味着你已经进入了 `gdb` 的交互界面。`gdb` 中常用的命令如下：
+
+-   `file <filename>`：加载可执行文件。
+-   `r` 或 `run [args]`：运行程序。`[args]` 是可选的命令行参数。
+-   `b` 或 `break <line>`：在指定行设置断点。
+-   `b` 或 `break <function>`：在指定函数设置断点。
+-   `b` 或 `break *<address>`：在指定地址设置断点。
+-   `info breakpoints`：查看断点信息。
+-   `delete breakpoints <number>`：删除指定编号的断点。
+-   `continue`：继续执行程序。
+-   `next`：执行下一行。
+-   `step`：执行下一行，如果遇到函数调用，进入函数内部。
+-   `print <variable>`：打印变量的值。
+-   `print <expression>`：打印表达式的值。
+-   `watch <expression>`：监视表达式的值，当值发生变化时，程序会停下来。
+-   `backtrace`：查看函数调用栈。
+-   `finish`：执行完当前函数后停下来。
+-   `q` 或 `quit`：退出 `gdb`。
+-   `help`：查看帮助信息。
+
+#### 检查程序情况
+
+Linux 系统有一个特殊的设备文件 `/dev/zero`，它能够作为输入，提供无穷无尽的 `0` 字节。我们将它作为输入，看看程序会发生什么。
+
+```text
+(gdb) file gets
+Reading symbols from gets...
+(gdb) run < /dev/zero
+Starting program: /mnt/f/Code/_repo/study-assist/docs/programming_lecture/lecture1/code/gets < /dev/zero
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00005555555551b2 in gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+```
+
+因为程序访问了非法的地址空间，系统向程序发送信号 `SIGSEGV`，程序终止运行。`gdb` 会自动停在发生错误的位置，这里是 `gets.c` 的第 8 行。你可以使用 `backtrace` 命令查看函数调用栈。
+
+```text
+(gdb) backtrace
+#0  0x00005555555551b2 in gets (s=0x7fffffffd760 "") at gets.c:8
+#1  0x000055555555521b in echo () at gets.c:18
+#2  0x0000000000000000 in ?? ()
+```
+
+使用 `print` 命令查看各个变量的值。`print/x` 能够指定以十六进制的形式打印变量的值。
+
+```text
+(gdb) print dest
+$1 = 0x7ffffffff001 <error: Cannot access memory at address 0x7ffffffff001>
+(gdb) print s
+$2 = 0x7fffffffd760 ""
+(gdb) print dest - s
+$3 = 6305
+(gdb) print c
+$4 = 0
+```
+
+`gdb` 为你做了一些提示，比如 `dest` 现在所指向的地址 `0x7ffffffff001` 是程序无法访问的。检查 `dest - s` 的值我们知道此时 `dest` 指向的地址已经是 `s` 后 6305 个字节，远远超出了数组 `s` 的空间。我们也可以检查当前输入的字符 `c`，它显然是 `0`。
+
+#### 断点调试
+
+使用 `break <filename>:<line>` 可以在指定文件指定行设置断点。对于单文件程序，可以省略源代码文件名。`break` 还可以接收函数名和地址作为参数，还可以使用条件表达式，请使用 `help break` 查看详细用法。
+
+我们在程序第 8 行 `*dest++=c` 处设置一个断点，然后运行程序。
+
+```text
+(gdb) b 8
+Breakpoint 1 at 0x11a3: file gets.c, line 8.
+(gdb) r < /dev/zero
+Starting program: /mnt/f/Code/_repo/study-assist/docs/programming_lecture/lecture1/code/gets < /dev/zero
+
+Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+(gdb) print dest - s
+$1 = 0
+```
+
+`next` 命令将会单行执行程序，且不会进入函数内部（即把整个函数当作一行）。`step` 会进入函数内部一行一行执行。`continue` 命令将继续执行程序，直到下一个断点。
+
+```html 
+(gdb) next
+7           while((c = getchar()) != '\n' && c != EOF)
+(gdb) next
+Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+(gdb) print dest - s
+$2 = 1
+
+(gdb) continue
+Continuing.
+
+Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+(gdb) print dest - s
+$3 = 2
+```
+
+`next` 和 `step` 命令都可以接受一个参数，表示执行多少行，且会在断点处停下。`continue` 命令也可以接受一个参数，表示忽略接下来地多少个断点。
+
+```
+(gdb) next 20
+
+Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+(gdb) print dest - s
+$4 = 3
+(gdb) continue 20
+Will ignore next 19 crossings of breakpoint 1.  Continuing.
+
+Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+(gdb) print dest - s
+$5 = 23
+```
+
+<!-- prettier-ignore-start -->
+!!! tip "调试技巧"
+
+    直接按 ++enter++ 键，`gdb` 会重复上一条命令。这样就不用一直输入 `next` 或 `step` 了。
+<!-- prettier-ignore-end -->
+
+在一些更为复杂的程序中，使用 `gdb` 调试的优越性就逐渐显现出来了。你不用频繁更改源代码插入 `printf` 语句，只需要在 `gdb` 中设置断点，然后逐步执行程序，查看变量的值，就能找到错误所在。
 
 ## 参考资料
 
@@ -540,4 +788,5 @@ Program Headers:
     - [Understanding GCC warnings](https://developers.redhat.com/blog/2019/03/13/understanding-gcc-warnings)
     - [The GCC warning flags every C programmer should know about](https://medium.com/@costaparas/the-gcc-warning-flags-every-c-programmer-should-know-about-8846c4a9bc94)
     - [What Is /lib64/ld-linux-x86-64.so.2?](https://www.baeldung.com/linux/dynamic-linker)
+    - [GDB Tutorial: A Walkthrough with Examples](https://www.cs.umd.edu/~srhuang/teaching/cmsc212/gdb-tutorial-handout.pdf)
 <!-- prettier-ignore-end -->
