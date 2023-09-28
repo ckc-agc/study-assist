@@ -584,26 +584,6 @@ fprintf fish: Job 1, './debug' terminated by signal SIGABRT (Abort)
 $ ./debug 2> debug.log 1> output.log
 ```
 
-### 使用 `assert` 断言
-
-`assert` 是一个宏，它接受一个表达式作为参数。如果表达式的值为假，`assert` 会输出一条错误信息，并终止程序的执行。它一般用在函数的最开头，核验某些信息是否正确。你也会经常在各种裁判程序的源码中看见。
-
-```c
-#include <assert.h>
-int resetBufferSize(int nNewSize)
-{
-    assert(nNewSize > 0);
-    // ...
-}
-```
-
-使用 `assert` 有几个值得注意的地方：
-
-1. 每个 `assert` 语句只检查一个条件。否则无法判断是哪个条件失败。
-2. `assert` 语句只在调试模式下生效。在发布版本中，`assert` 语句会被编译器移除。
-3. `assert` 判断的表达式不应带有 `++` 等运算符，否则也会引起困惑。
-4. `assert` 是用于避免错误的，而非用于异常处理的。
-
 ### 使用 gdb 调试程序
 
 接下来，我们以被 C 标准弃用的库函数 `gets` 为例，用 `gdb` 对其进行调试：
