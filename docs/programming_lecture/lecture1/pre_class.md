@@ -111,7 +111,7 @@ Ubuntu config --default-user zhou
 使用终端的一大好处是方便打开 WSL。如下图所示，点击 Ubuntu 22.04.2 LTS 或者使用 Ctrl + Shift + 5 组合键就可以方便地打开 Ubuntu 22.04。当然这是因为我安装的是 `Ubuntu 22.04` 的缘故，在你们的电脑中显示的应该就是 `Ubuntu`。
 
 <div style="text-align:center;">
-<img src="graph/wsl_terminal.png" alt="wsl_terminal" style="margin: 0 auto; zoom: 80%;"/>
+<img src="../graph/wsl_terminal.png" alt="wsl_terminal" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 其他 WSL 的使用方法留待你们慢慢探索了，在此不再赘述。
@@ -143,7 +143,7 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
     点击 Win 键，输入“关于”，如下图所示。打开“关于你的电脑”后就可以看到电脑是不是 64 位了，新电脑一般都是 64 位。
     
     <div style="text-align:center;">
-        <img src="graph/win11_about.png" alt="win11_about" style="margin: 0 auto; zoom: 60%;"/>
+        <img src="../graph/win11_about.png" alt="win11_about" style="margin: 0 auto; zoom: 60%;"/>
     </div>
 
 === "Windows 10"
@@ -151,30 +151,30 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
     桌面找到“此电脑”，右键属性
     
     <div style="text-align:center;">
-        <img src="graph/pc_right_attr.png" alt="pc_right_attr" style="margin: 0 auto; zoom: 80%;"/>
+        <img src="../graph/pc_right_attr.png" alt="pc_right_attr" style="margin: 0 auto; zoom: 80%;"/>
     </div>
     
     可以看到是 64 位系统还是 32 位系统。
     
     <div style="text-align:center;">
-        <img src="graph/win10_x64.png" alt="win10_x64" style="margin: 0 auto; zoom: 60%;"/>
+        <img src="../graph/win10_x64.png" alt="win10_x64" style="margin: 0 auto; zoom: 60%;"/>
     </div>
 
 64 位系统直接下载 tdm64-gcc-10.3.0-2.exe 安装即可，32 位则选择 tdm-gcc-10.3.0.exe。
 
 准备安装。对于零基础的同学，电脑里应该还没装过 tdm-gcc，选择 create 即可。
 <div style="text-align:center;">
-    <img src="graph/tdmgcc_create.png" alt="tdmgcc_create" style="margin: 0 auto; zoom: 40%;"/>
+    <img src="../graph/tdmgcc_create.png" alt="tdmgcc_create" style="margin: 0 auto; zoom: 40%;"/>
 </div>
 接下来就是根据 64/32 位系统选择对应的版本
 
 <div style="text-align:center;">
-    <img src="graph/tdm32_or_64.png" alt="tdm32_or_64" style="margin: 0 auto; zoom: 40%;"/>
+    <img src="../graph/tdm32_or_64.png" alt="tdm32_or_64" style="margin: 0 auto; zoom: 40%;"/>
 </div>
 选择安装路径，推荐零基础同学选择默认路径（如 64 位的 `C:\TDM-GCC-64`）
 
 <div style="text-align:center;">
-    <img src="graph/tdmgcc_path.png" alt="tdmgcc_path" style="margin: 0 auto; zoom: 40%;"/>
+    <img src="../graph/tdmgcc_path.png" alt="tdmgcc_path" style="margin: 0 auto; zoom: 40%;"/>
 </div>
 
 接下来是要认真考虑的页面。
@@ -187,7 +187,7 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
     - **建议选上**。如果不选或者忘选了，将会需要自己配置 tdm-gcc 的环境变量路径。
 
 <div style="text-align:center;">
-    <img src="graph/tdmgcc_install_items.png" alt="tdmgcc_install_items" style="margin: 0 auto; zoom: 40%;"/>
+    <img src="../graph/tdmgcc_install_items.png" alt="tdmgcc_install_items" style="margin: 0 auto; zoom: 40%;"/>
 </div>
 
 > 如果希望用更新版本的 gcc 可以使用 [winlibs 编译的 mingw-gcc](https://winlibs.com/)，或者你可以自己选择。
@@ -257,7 +257,7 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
 检查一下环境变量，Win + R 键输入 `sysdm.cpl` 后回车，会出现 “系统属性” 界面，选择 “高级”，如下图所示：
 
 <div style="text-align:center;">
-<img src="graph/env_var.png" alt="env_var" style="margin: 0 auto; zoom: 80%;"/>
+<img src="../graph/env_var.png" alt="env_var" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 打开环境变量，在 “系统变量” 或者 “用户变量” 中找到 PATH 变量，在其中增加一项 tdm-gcc 的路径。例如你如果默认安装 tdm-gcc，那么路径可能就是 `C:\TDM-GCC-64\bin`。
@@ -301,7 +301,7 @@ VSCode 直接从[官网](https://code.visualstudio.com/)选择自己平台对应
 打开 VSCode 后，在左侧竖栏寻找下面这个图标：
 
 <div style="text-align:center;">
-<img src="graph/plugin.png" alt="plugin" style="margin: 0 auto; zoom: 80%;"/>
+<img src="../graph/plugin.png" alt="plugin" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 点击这个图标就进入了插件管理。建议可以安装下面两个插件：
@@ -309,25 +309,25 @@ VSCode 直接从[官网](https://code.visualstudio.com/)选择自己平台对应
 - C/C++: 微软自家的插件，可用于**语法识别、代码高亮**
 
 <div style="text-align:center;">
-<img src="graph/plugin_ccpp.png" alt="plugin_ccpp" style="margin: 0 auto; zoom: 80%;"/>
+<img src="../graph/plugin_ccpp.png" alt="plugin_ccpp" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 - Chinese(Simplified): 界面汉化插件（可选）
 
 <div style="text-align:center;">
-<img src="graph/plugin_chinese.png" alt="plugin_chinese" style="margin: 0 auto; zoom: 80%;"/>
+<img src="../graph/plugin_chinese.png" alt="plugin_chinese" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 安装汉化插件后可能需要你手动切换显示语言。Ctrl + Shift + P，出现的搜索框中输入 Configure，选择 Configure Display Language。
 
 <div style="text-align:center;">
-    <img src="graph/config_language.png" alt="config_language" style="margin: 0 auto; zoom: 50%;"/>
+    <img src="../graph/config_language.png" alt="config_language" style="margin: 0 auto; zoom: 50%;"/>
 </div>
 
 随后再选择“中文(简体)”就可以完成界面汉化了。
 
 <div style="text-align:center;">
-    <img src="graph/chinese_english.png" alt="chinese_english" style="margin: 0 auto; zoom: 50%;"/>
+    <img src="../graph/chinese_english.png" alt="chinese_english" style="margin: 0 auto; zoom: 50%;"/>
 </div>
 
 > 英语基础不太好的同学有困难可以使用，英语基础比较好以及想要在日常实践中学习英语的同学建议跳过这一步。
@@ -353,7 +353,7 @@ VSCode 直接从[官网](https://code.visualstudio.com/)选择自己平台对应
 鼠标移动到工作区，按 `New File` 键可以新建文件，旁边有新建文件夹按键。当然，直接在左侧工作目录右键也可以新建文件/文件夹。
 
 <div style="text-align:center;">
-<img src="graph/newfile.png" alt="newfile" style="margin: 0 auto; zoom: 60%;"/>
+<img src="../graph/newfile.png" alt="newfile" style="margin: 0 auto; zoom: 60%;"/>
 </div>
 
 创建 `test.c`，输入 Hello World 的代码并**保存文件**。然后在终端输入以下命令并执行：
@@ -408,13 +408,13 @@ gcc test.c -o hello.exe
 安装 WSL 插件，如下图所示：
 
 <div style="text-align:center;">
-<img src="graph/plugin_WSL.png" alt="plugin_WSL" style="margin: 0 auto; zoom: 80%;"/>
+<img src="../graph/plugin_WSL.png" alt="plugin_WSL" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 或者你也可以像官方文档那样，直接安装整个 Remote Development 扩展包：
 
 <div style="text-align:center;">
-<img src="graph/plugin_remote.png" alt="plugin_remote" style="margin: 0 auto; zoom: 80%;"/>
+<img src="../graph/plugin_remote.png" alt="plugin_remote" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
 其中不仅有 WSL，还包括另外三个非常有用的远程开发插件。
