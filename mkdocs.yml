@@ -15,7 +15,7 @@ theme:
     edit: material/pencil
   features:
     - search.highlight
-    - navigation.instant
+#    - navigation.instant
     - navigation.tracking
     - navigation.tabs
     - navigation.prune
