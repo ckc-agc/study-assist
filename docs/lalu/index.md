@@ -44,6 +44,8 @@ LALU 课程的讲义存放在下面的仓库中，你可以点击图片跳转到
 
 - [点击下载](http://github.com/yhwu-is/Linear-Algebra-Left-Undone/releases/latest/download/LALU.pdf)
 
+![](graph/lalu.png)
+
 <!--<iframe src="http://docs.google.com/gview?url=http://github.com/yhwu-is/Linear-Algebra-Left-Undone/releases/latest/download/LALU.pdf&embedded=true" 
 style="width:100%; height:1000px;" frameborder="0"></iframe>-->
 
