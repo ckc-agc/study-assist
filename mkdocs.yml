@@ -78,9 +78,8 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - neoteroi.cards # install using `pip install neoteroi-mkdocs`
-#  - tools.collapse_code:
-#      expand_text: ''
-#      collapse_text: ''
+
+
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
@@ -120,8 +119,7 @@ nav:
 #      - C 小历年卷常见问题总结: programming/exam/fp.md
 #      - C 大历年卷常见问题总结: programming/exam/lcp.md
 #    - 2023 年辅学资料: programming/2023/index.md
-  - 🏫实用技能拾遗:
-    - PracticalSkillsTutorial/index.md
+  - 🏫实用技能拾遗: https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/
   - 🏫系统知识拾遗:
     - programming_lecture/index.md
     - 1. 程序编译过程与调试技术:
