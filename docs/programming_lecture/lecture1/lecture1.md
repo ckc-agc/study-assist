@@ -1,12 +1,6 @@
 # 程序编译过程与调试技术
 
 <!-- prettier-ignore-start -->
-!!! danger "施工中"
-
-    本页面正在编辑中。
-<!-- prettier-ignore-end -->
-
-<!-- prettier-ignore-start -->
 !!! abstract "内容提要"
 
     - 编译过程：从源代码到可执行文件

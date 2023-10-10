@@ -10,11 +10,54 @@
 
 > 本文档更改自周健均学长为图灵程算课程准备的[资料](https://zhoutimemachine.github.io/2023_FPA/)，感谢周健均学长的付出。
 
-## Windows 使用拾遗
+## Shell 使用拾遗
 
 !!! info "Mac 用户和已经对 Windows Terminal 和 WSL 比较熟练的同学可以跳过这一节"
 
+本节我们要认识一个即将成为你的老朋友的东西——Shell。下面是同学们接下来会经常见到的几个名词：
+
+- Terminal 终端：下图中，这个窗口就是 Windows Terminal。它负责接收你的输入，把输入传递给 Shell，然后把 Shell 的输出显示给你。你可以从图中看到，一个 Terminal 可以连接到多个 Shell，就像一台显示器可以连接到多台电脑一样。把 Terminal 理解为键盘和显示器就好。
+- Shell 命令解释器：接收你给出的命令、执行并给出响应的，就是 Shell。如果把 Terminal 理解为键盘和显示器，那么 Shell 就是主机。
+- Prompt 提示符：Shell 会给你一个提示符，告诉你它已经准备好接收你的命令了。在 Linux 中，提示符一般是 `$`。下面的图中，`bowling` 那一块就是提示符（我做了一些美化）。
+- Command Line Interface 命令行交互界面：当我们使用文本命令与计算机交互时，我们就在使用 CLI。这与我们日常生活中使用鼠标的图形交互界面（Graphical User Interface，GUI）不同。
+
+<!-- prettier-ignore-start -->
+::cards:: cols=2
+
+[
+  {
+    "title": "Terminal 和 Shell 的例子",
+    "content": "",
+    "image": "graph/win_and_pwsh.png"
+  },
+  {
+    "title": "Terminal 和 Shell 的关系",
+    "content": "",
+    "image": "graph/you_and_shell.png"
+  },
+
+]
+
+::/cards::
+<!-- prettier-ignore-end -->
+
+<!-- prettier-ignore-start -->
+!!! info "为什么要使用命令行交互界面呢？"
+
+    很简单，因为我们不仅是在使用计算机，而且是在**学习计算机**。GUI 自然是最适合与人交互的，但它也是由 CLI 搭建起来的。比如，你可能在使用 Dev-C++ 或 Visual Studio 等 IDE 进行编程，只需要点一下按钮就能自动完成程序编译步骤。这固然方便，但是它本质上是帮你写好并执行了一系列编译命令，帮你完成了命令行的操作。当你开始构建大型项目时，这当然是最适合的方法。但作为初学者，我们应当趁此机会了解其背后的原理。
+    
+    总之：如果要**学习**计算机，那么就需要学习使用命令与计算机交互，这样才能更好地理解计算机是如何工作的。此外，命令行交互界面也有许多有点，比如：
+
+    -  速度快：在命令行中，你可以快速地输入命令，而不需要使用鼠标点击菜单。
+    -  可编程：你可以编写脚本，让计算机自动执行一系列命令。
+    -  可远程：你可以通过网络连接到远程计算机，使用命令行与其交互。
+
+    最主要的是，你今后会用到的很多工具不一定会提供图形界面，但一定会提供命令行界面。学习 CLI 一开始确实有些难度，但只要学了，就会受益无穷。
+<!-- prettier-ignore-end -->
+
 ### 运行与终端
+
+在 Windows 上如何打开 Terminal 呢？
 
 <!-- prettier-ignore-start -->
 ::cards::
@@ -27,22 +70,20 @@
   },
   {
     "title": "命令提示符 CMD",
-    "content": "在其中输入 `cmd` 后回车，就会出现**命令提示符**，如下图所示",
+    "content": "在运行窗口中输入 `cmd` 后回车，就会出现**命令提示符**，如下图所示",
     "image": "graph/cmd.png"
   },
   {
     "title": "Windows Terminal",
-    "content": "但是命令提示符功能有限，也不是很美观，推荐安装 **Windows Terminal**（终端）。在 Microsoft Store 中搜索 terminal，出现如下的选项，然后选择安装即可。",
+    "content": "但是命令提示符功能有限，也不是很美观，推荐安装 **Windows Terminal**（终端）。在 Microsoft Store 中搜索 terminal，出现图中的选项，然后选择安装即可。",
     "image": "graph/windows_terminal.png"
   },
-
-
 ]
 
 ::/cards::
 <!-- prettier-ignore-end -->
 
-在比较新版本的 Windows 中，Win 键打开菜单之后输入字符能够搜索到对应程序，除了常用的应用程序以外，启动 cmd.exe 和 sysdm.cpl 也可以这样进行，效果和 Win + R 相同。
+在比较新版本的 Windows 中，Win 键打开菜单之后输入字符能够搜索到对应程序，除了常用的应用程序以外，启动 `cmd.exe` 也可以这样进行，效果和 Win + R 相同。
 
 ### WSL 安装简单引导（可选）
 
@@ -78,36 +119,6 @@ wsl --install
 
 这样就完成了 WSL2 Ubuntu 的安装。
 
-#### 简单的设置
-
-> 上面已经完成了安装，这里是为了方便未来的使用而进行的一些说明
-
-Linux 的发行版本默认安装在 C 盘，推荐将其导出到其他数据盘，避免占用 C 盘太多空间。例如完成了 Ubuntu 的安装，可以在 D 盘建立目录 `D:\wsl\ubuntu`（按个人喜好定义目录），随后在命令提示符/终端执行：
-```
-wsl --export Ubuntu D:\wsl\ubuntu\ubuntu.tar
-```
-
-将导出 ubuntu.tar，随后进行注销：
-```
-wsl --unregister Ubuntu
-```
-
-最后重新导入。
-```
-wsl --import Ubuntu D:\wsl\ubuntu D:\wsl\ubuntu\ubuntu.tar
-```
-
-以上操作完成后，登录 Ubuntu 将会默认以 root 用户打开。但是 root 用户具有最高权限，胡乱操作容易出问题，以及 root 用户的颜色是白色的，不是特别好看，因此可以修改默认的登录用户。首先**在 WSL 外**输入以下指令以停止 WSL：
-
-```
-wsl --shutdown
-```
-
-然后对 Ubuntu 进行默认用户配置的修改，假设你设定的用户名为 zhou：
-```
-Ubuntu config --default-user zhou
-```
-
 使用终端的一大好处是方便打开 WSL。如下图所示，点击 Ubuntu 22.04.2 LTS 或者使用 Ctrl + Shift + 5 组合键就可以方便地打开 Ubuntu 22.04。当然这是因为我安装的是 `Ubuntu 22.04` 的缘故，在你们的电脑中显示的应该就是 `Ubuntu`。
 
 <div style="text-align:center;">
@@ -117,6 +128,8 @@ Ubuntu config --default-user zhou
 其他 WSL 的使用方法留待你们慢慢探索了，在此不再赘述。
 
 ## 安装 C 语言编译器
+
+!!! info "如果已经安装好 WSL，那么可以跳过本节，因为基本上不需要在 Windows 上再安装编译环境了。"
 
 !!! info "本篇相对比较复杂，如果在本篇配置遇到难以解决的困难，而作业/实验截止日期快要到了，可以跳过本篇安装 Dev-C++ 进行临时开发。"
 
@@ -138,27 +151,33 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
 
 需要判断自己的 Windows 是 64 位系统还是 32 位系统（现在一般都是 64 位系统）。
 
-=== "Windows 11"
+<!-- prettier-ignore-start -->
+!!! note ""
 
-    点击 Win 键，输入“关于”，如下图所示。打开“关于你的电脑”后就可以看到电脑是不是 64 位了，新电脑一般都是 64 位。
-    
-    <div style="text-align:center;">
-        <img src="../graph/win11_about.png" alt="win11_about" style="margin: 0 auto; zoom: 60%;"/>
-    </div>
+    === "Windows 11"
 
-=== "Windows 10"
+        点击 Win 键，输入“关于”，如下图所示。打开“关于你的电脑”后就可以看到电脑是不是 64 位了，新电脑一般都是 64 位。
 
-    桌面找到“此电脑”，右键属性
-    
-    <div style="text-align:center;">
-        <img src="../graph/pc_right_attr.png" alt="pc_right_attr" style="margin: 0 auto; zoom: 80%;"/>
-    </div>
-    
-    可以看到是 64 位系统还是 32 位系统。
-    
-    <div style="text-align:center;">
-        <img src="../graph/win10_x64.png" alt="win10_x64" style="margin: 0 auto; zoom: 60%;"/>
-    </div>
+        <div style="text-align:center;">
+            <img src="../graph/win11_about.png" alt="win11_about" style="margin: 0 auto; zoom: 60%;"/>
+        </div>
+
+    === "Windows 10"
+
+        桌面找到“此电脑”，右键属性
+
+        <div style="text-align:center;">
+            <img src="../graph/pc_right_attr.png" alt="pc_right_attr" style="margin: 0 auto; zoom: 80%;"/>
+        </div>
+
+        可以看到是 64 位系统还是 32 位系统。
+
+        <div style="text-align:center;">
+            <img src="../graph/win10_x64.png" alt="win10_x64" style="margin: 0 auto; zoom: 60%;"/>
+        </div>
+
+<!-- prettier-ignore-end -->
+
 
 64 位系统直接下载 tdm64-gcc-10.3.0-2.exe 安装即可，32 位则选择 tdm-gcc-10.3.0.exe。
 
@@ -194,62 +213,68 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
 
 ### 测试 gcc 是否正确安装
 
-=== "Windows"
-    在命令提示符/终端中输入 `gcc`，应当出现如下信息：
-    ```
-    gcc: fatal error: no input files
-    compilation terminated.
-    ```
+<!-- prettier-ignore-start -->
+!!! note ""
 
-    如果没有，可能是你还没有安装 gcc，或者你前一步 `Add to PATH` 没有正常进行，可能需要参照 [Windows 修改环境变量](#windows)进行环境变量的检查。
-    
-    命令提示符/终端中输入 `gcc --version`，应当出现类似如下的信息。
-    ```
-    gcc.exe (tdm64-1) 9.2.0
-    Copyright (C) 2019 Free Software Foundation, Inc.
-    This is free software; see the source for copying conditions.  There is NO
-    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    ```
-    
-    我的版本显示是 `9.2.0`，是因为装了旧版本的 tdm-gcc，你们的显示将会是 `10.3.0`。
+    === "Windows"
+        在命令提示符/终端中输入 `gcc`，应当出现如下信息：
+        ```
+        gcc: fatal error: no input files
+        compilation terminated.
+        ```
 
-=== "WSL"
-    如下命令安装 `gcc`。如果错误，尝试 `sudo apt-get update` 后再重新执行下面的命令。
-    ```
-    sudo apt install gcc
-    ```
+        如果没有，可能是你还没有安装 gcc，或者你前一步 `Add to PATH` 没有正常进行，可能需要参照 [Windows 修改环境变量](#windows)进行环境变量的检查。
 
-    终端中输入 `gcc`，应当出现如下信息：
-    ```
-    gcc: fatal error: no input files
-    compilation terminated.
-    ```
+        命令提示符/终端中输入 `gcc --version`，应当出现类似如下的信息。
+        ```
+        gcc.exe (tdm64-1) 9.2.0
+        Copyright (C) 2019 Free Software Foundation, Inc.
+        This is free software; see the source for copying conditions.  There is NO
+        warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+        ```
 
-    终端中输入 `gcc --version`，可能会出现类似如下的信息：
-    ```
-    gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0
-    Copyright (C) 2021 Free Software Foundation, Inc.
-    This is free software; see the source for copying conditions.  There is NO
-    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    ```
+        我的版本显示是 `9.2.0`，是因为装了旧版本的 tdm-gcc，你们的显示将会是 `10.3.0`。
 
-=== "macOS"
-    Mac 用户直接使用 `gcc -v` （或者 `xcode-select --install`）会提示你安装开发者工具，然后就会自动安装 XCode 在内的一系列开发支持，最后告诉你你安装的 gcc 其实是 clang，本质上是它将 gcc 作为 clang 的别名 (alias) 了。
+    === "WSL"
+        如下命令安装 `gcc`。如果错误，尝试 `sudo apt-get update` 后再重新执行下面的命令。
+        ```
+        sudo apt install gcc
+        ```
 
-    成功安装后，终端输入 gcc 会出现如下信息：
-    ```
-    clang: error: no input files
-    ```
-    
-    使用 `gcc --version` 可能出现以下信息：
-    ```
-    Apple clang version 14.0.3 (clang-1403.0.22.14.1)
-    Target: x86_64-apple-darwin22.6.0
-    Thread model: posix
-    InstalledDir: /Library/Developer/CommandLineTools/usr/bin
-    ```
-    
-    gcc 和 clang 都是 C 语言编译器，只是特性上存在差异。在作业和实验中，一个好的遵从标准的 C 代码，由不同的编译器编译后不应当产生不同的运行结果。因此如果你使用 clang 编译 C 代码运行不符合预期，代码出问题的概率比 clang 特性出问题的概率大很多。
+        终端中输入 `gcc`，应当出现如下信息：
+        ```
+        gcc: fatal error: no input files
+        compilation terminated.
+        ```
+
+        终端中输入 `gcc --version`，可能会出现类似如下的信息：
+        ```
+        gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0
+        Copyright (C) 2021 Free Software Foundation, Inc.
+        This is free software; see the source for copying conditions.  There is NO
+        warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+        ```
+
+    === "macOS"
+        Mac 用户直接使用 `gcc -v` （或者 `xcode-select --install`）会提示你安装开发者工具，然后就会自动安装 XCode 在内的一系列开发支持，最后告诉你你安装的 gcc 其实是 clang，本质上是它将 gcc 作为 clang 的别名 (alias) 了。
+
+        成功安装后，终端输入 gcc 会出现如下信息：
+        ```
+        clang: error: no input files
+        ```
+
+        使用 `gcc --version` 可能出现以下信息：
+        ```
+        Apple clang version 14.0.3 (clang-1403.0.22.14.1)
+        Target: x86_64-apple-darwin22.6.0
+        Thread model: posix
+        InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+        ```
+
+        gcc 和 clang 都是 C 语言编译器，只是特性上存在差异。在作业和实验中，一个好的遵从标准的 C 代码，由不同的编译器编译后不应当产生不同的运行结果。因此如果你使用 clang 编译 C 代码运行不符合预期，代码出问题的概率比 clang 特性出问题的概率大很多。
+
+<!-- prettier-ignore-end -->
+
 ### Windows 修改环境变量
 
 > Windows 用户环境变量配置出现问题了才需要看这一小节
@@ -274,27 +299,32 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
 
 VSCode 直接从[官网](https://code.visualstudio.com/)选择自己平台对应的安装包下载就行
 
-=== "Windows"
-    Windows 的 exe 安装可以全选默认选项一路 Next，比较熟悉的同学可以自定义选项：
+<!-- prettier-ignore-start -->
+!!! note ""
 
-    - 安装目录
-        - 推荐默认 C 盘，可能运行速度更快，也可以避免一些权限问题
-    - 将 “通过 Code 打开” 操作添加到 Windows 资源管理器文件/目录上下文菜单
-        - 选中该项后，选中文件或者文件夹，右键菜单中会出现 `通过 Code 打开` 的选项
-        - 如果希望右键菜单不那么臃肿的话可以不选这一项
-        - 本人没有选择该选项，可以自行思考选择
-    - 将 Code 注册为受支持的文件类型的编辑器（推荐）
-        - 打开受支持的文件类型时，VSCode 将会成为可选项
-    - 添加到 PATH（推荐）
-        - 在命令行窗口/终端可以用 `code` 命令打开 VSCode
+    === "Windows"
+        Windows 的 exe 安装可以全选默认选项一路 Next，比较熟悉的同学可以自定义选项：
+    
+        - 安装目录
+            - 推荐默认 C 盘，可能运行速度更快，也可以避免一些权限问题
+        - 将 “通过 Code 打开” 操作添加到 Windows 资源管理器文件/目录上下文菜单
+            - 选中该项后，选中文件或者文件夹，右键菜单中会出现 `通过 Code 打开` 的选项
+            - 如果希望右键菜单不那么臃肿的话可以不选这一项
+            - 本人没有选择该选项，可以自行思考选择
+        - 将 Code 注册为受支持的文件类型的编辑器（推荐）
+            - 打开受支持的文件类型时，VSCode 将会成为可选项
+        - 添加到 PATH（推荐）
+            - 在命令行窗口/终端可以用 `code` 命令打开 VSCode
+    
+    === "Mac"
+        Mac 的包下载下来之后拖入 `Application` 文件夹可以直接运行
+    
+        - 添加到 PATH：如果需要在命令行窗口/终端用 `code` 命令打开 VSCode，那么需要如下操作
+            - 打开 VSCode 界面
+            - 使用 Shift + Command + P 打开命令面板
+            - 输入 `shell command`，选择 `Shell Command: Install ‘code’ command in PATH` 回车执行
 
-=== "Mac"
-    Mac 的包下载下来之后拖入 `Application` 文件夹可以直接运行
-
-    - 添加到 PATH：如果需要在命令行窗口/终端用 `code` 命令打开 VSCode，那么需要如下操作
-        - 打开 VSCode 界面
-        - 使用 Shift + Command + P 打开命令面板
-        - 输入 `shell command`，选择 `Shell Command: Install ‘code’ command in PATH` 回车执行
+<!-- prettier-ignore-end -->
 
 ### 插件安装
 
