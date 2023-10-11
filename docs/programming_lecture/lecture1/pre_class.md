@@ -44,7 +44,8 @@
 
 !!! tip "温馨提示"
 
-    点击页面中的图片可以放大查看。
+    - 点击页面中的图片可以放大查看。
+    - 如果安装过程遇到困难，可以在辅学群提问，或私戳授课学长～
 <!-- prettier-ignore-end -->
 
 ## Shell 使用拾遗
@@ -160,6 +161,13 @@ wsl --install
     - 确认密码与输入密码一致才会设置成功
 
 这样就完成了 WSL2 Ubuntu 的安装。
+
+<!-- prettier-ignore-start -->
+!!! failure "错误：0x80370114"
+
+    - 首先检查自己是否为 Windows 10 或者 Windows 11 家庭版。这两个版本可能缺失 Hyper-V 服务（WSL 背后的虚拟化支持技术）。请按照[知乎：如何在 Windows 11 Home 中启用 Hyper-V](https://zhuanlan.zhihu.com/p/558063980)这篇文章的方法启用 Hyper-V。
+    - 如果仍无法解决，再按照[知乎：win10使用wsl2安装ubuntu遇到0x80370114问题的解决方法](https://zhuanlan.zhihu.com/p/361310073)这篇文章重新启动虚拟机平台。
+<!-- prettier-ignore-end -->
 
 使用终端的一大好处是方便打开 WSL。如下图所示，点击 Ubuntu 22.04.2 LTS 或者使用 Ctrl + Shift + 5 组合键就可以方便地打开 Ubuntu 22.04。当然这是因为我安装的是 `Ubuntu 22.04` 的缘故，在你们的电脑中显示的应该就是 `Ubuntu`。
 
