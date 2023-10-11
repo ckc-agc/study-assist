@@ -95,7 +95,7 @@ plugins:
       extra_skipped_class:
         - arithmatex
       disable_serve: false
-#  - git-revision-date-localized
+  - git-revision-date-localized
 #  - git-authors
 #  - git-committers
 

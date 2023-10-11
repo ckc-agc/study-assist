@@ -3,3 +3,4 @@ mkdocs-heti-plugin
 neoteroi-mkdocs
 mkdocs-glightbox
 mkdocs-material-extensions
+mkdocs-git-revision-date-localized-plugin
