@@ -6,7 +6,7 @@
 
 第一次授课：
 
-- [数学分析第一次授课讲义](analysis_lecture/23lecture1_note.pdf)
+- [数学分析第一次授课讲义](analysis_lecture/lecture1_note_site.pdf)
 
 ## 资源整理
 
