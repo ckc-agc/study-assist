@@ -61,13 +61,18 @@
 
 [
   {
+    "title": "真正意义上的 Terminal",
+    "content": "在计算机发展的早期阶段，还没有像现在的 Windows 这样的图形用户界面。那时人们使用终端（terminal）与计算机交互。",
+    "image": "graph/terminal.jpg"
+  },
+  {
     "title": "Terminal 和 Shell 的例子",
-    "content": "",
+    "content": "这张图展示了 Windows Terminal 和 Powershell。",
     "image": "graph/win_and_pwsh.png"
   },
   {
     "title": "Terminal 和 Shell 的关系",
-    "content": "",
+    "content": "可以将 Terminal 理解成",
     "image": "graph/you_and_shell.png"
   },
 
@@ -136,9 +141,11 @@ WSL，全称 Windows Subsystem for Linux（适用于 Linux 的 Windows 子系统
 
 !!! info "可以使用 `winver` 命令查询 Windows 版本，Win + R 输入 `winver` 或者在 Win 键出现的菜单栏中直接输入 `winver` 都可以启动。新买的电脑可能 Windows 11 居多，如果是 Windows 10 的电脑版本显示可能是 21H2（操作系统内部版本 19044.3086），这样也是符合先决条件的。"
 
-直接使用如下命令自动安装：
+在 Powershell（管理员）中直接使用如下命令自动安装（注意，每一行命令分别执行，不要多行粘贴执行）：
 
 ```
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 wsl --install
 ```
 

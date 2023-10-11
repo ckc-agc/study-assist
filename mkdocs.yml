@@ -105,6 +105,8 @@ nav:
     - calculus/index.md
   - 📚数学分析:
     - analysis/index.md
+    - 今年辅学资料:
+      - analysis/2024/analysis_lecture1_sequence_limits.md
     - 历年卷整理: analysis/exam.md
     - 2023 年辅学资料: analysis/2023/index.md
   - 📚线性代数:
@@ -123,16 +125,16 @@ nav:
   - 🏫系统知识拾遗:
     - programming_lecture/index.md
     - 1. 程序编译过程与调试技术:
-      - 准备开发与调试环境: programming_lecture/lecture1/pre_class.md
-      - 课程讲义: programming_lecture/lecture1/lecture1.md
+      - programming_lecture/lecture1/pre_class.md
+      - programming_lecture/lecture1/lecture1.md
     - 2. 类型系统与内存模型:
-      - 课程讲义: programming_lecture/lecture2/lecture2.md
+      - programming_lecture/lecture2/lecture2.md
     - 3. I/O 与文件:
-      - 课程讲义: programming_lecture/lecture3/lecture3.md
+      - programming_lecture/lecture3/lecture3.md
     - 4. C 标准库:
-      - 课程讲义: programming_lecture/lecture4/lecture4.md
+      - programming_lecture/lecture4/lecture4.md
     - 5. 数据结构与算法:
-      - 课程讲义: programming_lecture/lecture5/lecture5.md
+      - programming_lecture/lecture5/lecture5.md
   - 📚普通化学:
     - chemistry/index.md
   - 📚普通物理学:
