@@ -45,7 +45,3 @@ h6:before {
   font-weight: 500;
 }
 
-/* collapse_code */
-code {
-  white-space : pre-wrap !important;
-}

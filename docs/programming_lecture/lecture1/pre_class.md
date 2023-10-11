@@ -58,12 +58,12 @@
 - Command Line Interface 命令行交互界面：当我们使用文本命令与计算机交互时，我们就在使用 CLI。这与我们日常生活中使用鼠标的图形交互界面（Graphical User Interface，GUI）不同。
 
 <!-- prettier-ignore-start -->
-::cards:: cols=2
+::cards:: cols=3
 
 [
   {
     "title": "真正意义上的 Terminal",
-    "content": "在计算机发展的早期阶段，还没有像现在的 Windows 这样的图形用户界面。那时人们使用终端（terminal）与计算机交互。",
+    "content": "在计算机发展的早期阶段，还没有像现在的 Windows 这样的图形用户界面。那时人们使用终端与计算机交互。",
     "image": "graph/terminal.jpg"
   },
   {
@@ -73,7 +73,7 @@
   },
   {
     "title": "Terminal 和 Shell 的关系",
-    "content": "可以将 Terminal 理解成",
+    "content": "可以将 Terminal 理解成显示器，将 Shell 理解成电脑主机。",
     "image": "graph/you_and_shell.png"
   },
 
@@ -83,9 +83,9 @@
 <!-- prettier-ignore-end -->
 
 <!-- prettier-ignore-start -->
-!!! info "为什么要使用命令行交互界面呢？"
+!!! tip "杂谈：为什么要使用命令行交互界面呢？"
 
-    很简单，因为我们不仅是在使用计算机，而且是在**学习计算机**。GUI 自然是最适合与人交互的，但它也是由 CLI 搭建起来的。比如，你可能在使用 Dev-C++ 或 Visual Studio 等 IDE 进行编程，只需要点一下按钮就能自动完成程序编译步骤。这固然方便，但是它本质上是帮你写好并执行了一系列编译命令，帮你完成了命令行的操作。当你开始构建大型项目时，这当然是最适合的方法。但作为初学者，我们应当趁此机会了解其背后的原理。
+    很简单，因为我们不仅是在使用计算机，而且是在**学习计算机**。GUI 自然是最适合与人交互的，但它也是由 CLI 搭建起来的。比如，你可能在使用 Dev-C++ 或 Visual Studio 等 IDE 进行编程，只需要点一下按钮就能自动完成程序编译步骤。这固然方便，但是它本质上是帮你写好并执行了一系列编译命令，帮你完成了命令行的操作。**当你开始构建大型项目时，这当然是最适合的方法。但作为初学者，我们应当趁此机会了解其背后的原理。**
     
     总之：如果要**学习**计算机，那么就需要学习使用命令与计算机交互，这样才能更好地理解计算机是如何工作的。此外，命令行交互界面也有许多有点，比如：
 
@@ -101,22 +101,27 @@
 在 Windows 上如何打开 Terminal 呢？
 
 <!-- prettier-ignore-start -->
-::cards::
+::cards:: cols=2
 
 [
   {
     "title": "运行窗口",
-    "content": "使用 Win + R 组合键，将会出现如下窗口。这就是运行窗口，可以在其中输入命令运行，即使是 Windows XP 都可以使用。",
+    "content": "使用 ++win+r++ 组合键，将会出现图中的窗口。可以在其中输入命令运行，即使是 Windows XP 都可以使用。",
     "image": "graph/WinR.png"
   },
   {
     "title": "命令提示符 CMD",
-    "content": "在运行窗口中输入 `cmd` 后回车，就会出现**命令提示符**，如下图所示",
+    "content": "在运行窗口中输入 `cmd` 后回车，就会出现**命令提示符**。命令提示符是 Windows 最基本的 Shell（与 Linux 的 bash 同等地位），但是功能及其有限，一般不用。",
     "image": "graph/cmd.png"
   },
   {
+    "title": "Powershell",
+    "content": "Powershell 简称 `pwsh`，是 Windows 的新一代命令解释器。它的功能强大，但语法和我们将要学习且最常用的 Linux Shell 大不相同。我们在 Windows 上经常使用 `pwsh`，但不用花时间去学习它。",
+    "image": "graph/pwsh.jpeg"
+  },
+  {
     "title": "Windows Terminal",
-    "content": "但是命令提示符功能有限，也不是很美观，推荐安装 **Windows Terminal**（终端）。在 Microsoft Store 中搜索 terminal，出现图中的选项，然后选择安装即可。",
+    "content": "这是 Windows 上最好的 Terminal，对各种 Shell 的显示效果都支持的很好。在 Microsoft Store 中搜索 Terminal，出现图中的选项，然后选择安装即可。它对应于 macOS 上的 iTerm。今后学习 `ssh` 时，你还可能会接触到 Termius。",
     "image": "graph/windows_terminal.png"
   },
 ]
@@ -144,7 +149,7 @@ WSL，全称 Windows Subsystem for Linux（适用于 Linux 的 Windows 子系统
 
 在 Powershell（管理员）中直接使用如下命令自动安装（注意，每一行命令分别执行，不要多行粘贴执行）：
 
-```
+```pwsh linenums="1"
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 wsl --install

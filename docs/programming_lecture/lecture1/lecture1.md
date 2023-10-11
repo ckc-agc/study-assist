@@ -1,5 +1,11 @@
 # 讲义：程序编译过程与调试技术
 
+<style>
+    code {
+      white-space : pre-wrap !important;
+    }
+</style>
+
 <!-- prettier-ignore-start -->
 !!! danger "本页面正在施工中"
 
@@ -532,8 +538,8 @@ Program Headers:
 
 进行静态链接时需要注意命令行中文件的顺序。
 
-- 如果是目标文件，链接器将记录其中的符号定义和引用。
-- 如果是库文件，链接器将尝试匹配前面记录的未解析的符号定义和引用。解析完成后，该库中没有被使用的符号将被丢弃。
+-   如果是目标文件，链接器将记录其中的符号定义和引用。
+-   如果是库文件，链接器将尝试匹配前面记录的未解析的符号定义和引用。解析完成后，该库中没有被使用的符号将被丢弃。
 
 看看下面的命令行发生了什么？
 
@@ -717,21 +723,19 @@ $1 = 0
 
 `next` 命令将会单行执行程序，且不会进入函数内部（即把整个函数当作一行）。`step` 会进入函数内部一行一行执行。`continue` 命令将继续执行程序，直到下一个断点。
 
-```html 
-(gdb) next
-7           while((c = getchar()) != '\n' && c != EOF)
-(gdb) next
-Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
-8               *dest++ = c;
-(gdb) print dest - s
-$2 = 1
-
-(gdb) continue
-Continuing.
-
-Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
-8               *dest++ = c;
-(gdb) print dest - s
+```text
+(gdb) next 
+7               while((c = getchar()) != '\n' && c != EOF) 
+(gdb) next 
+Breakpoint 1,gets (s=0x7fffffffd760 "") at gets.c:8 
+8               *dest++ = c; 
+(gdb) print dest - s 
+$2 =1 
+(gdb) continue 
+Continuing. 
+Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8 
+8               *dest++ = c; 
+(gdb) print dest - s 
 $3 = 2
 ```
 
