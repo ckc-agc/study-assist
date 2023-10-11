@@ -15,7 +15,8 @@
   },
   {
     "title": "[数学分析](analysis/index.md)",
-    "content": "23-24辅学群：618962803",
+    "content": "23-24辅学群：618962803<br>
+                [第一讲：数列极限](analysis/2024/analysis_lecture1_sequence_limits.md)",
     "image": "graph/analysis.jpg"
   },
   {
