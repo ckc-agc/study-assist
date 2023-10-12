@@ -7,8 +7,6 @@
 </style>
 
 <!-- prettier-ignore-start -->
-???+ danger "本页面正在施工中"
-
 ???+ abstract "内容提要"
 
     - C 语言程序基本结构
