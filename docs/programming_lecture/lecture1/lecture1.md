@@ -7,6 +7,11 @@
 </style>
 
 <!-- prettier-ignore-start -->
+???+ info "直播回放"
+
+    [Bilibili](https://www.bilibili.com/video/BV1Pu411T7GT/)
+
+
 ???+ abstract "内容提要"
 
     - C 语言程序基本结构
