@@ -118,7 +118,8 @@ nav:
     - lalu/index.md
   - 📚程设:
     - programming/index.md
-    - FAQ: programming/faq.md
+    - 每日一题: programming/2023_daily_problem.md
+    - 常见问题: programming/faq.md
     - 历年卷:
       - programming/exam/index.md
 #      - C 小历年卷常见问题总结: programming/exam/fp.md
