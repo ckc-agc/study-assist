@@ -13,6 +13,33 @@ h5:before {content: unset;}
 
 ## October
 
+### 「18」 Bad if-else
+
+After executing the following code fragment, the output is ______.
+
+```c
+int x = 0;
+int y = -2;
+if(x > 0) y = 1;
+else if(x < 0) y = -1;
+else if(x = 0) y = 0;
+printf("%d", y);
+```
+
+<div style="display: flex">
+    <div style="width: 100%">A. 1</div>
+    <div style="width: 100%">B. 0</div>
+    <div style="width: 100%">C. -1</div>
+    <div style="width: 100%">D. -2</div>
+</div>
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    `D`.
+
+    Notice that the condition of `if` in line 5 is `x = 0`, not `x == 0`. The former means "0 is assigned to x", and then the if sentence won't be executed since it is equivalent to `if(0)`. Thus the value of `y` is its initial value, -2.
+<!-- prettier-ignore-end -->
 ### 「17」 Character
 
 Given: `char c = '@';`, the value of expression `'A' <= c <= 'Z'` is ______.
