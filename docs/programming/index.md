@@ -4,11 +4,7 @@
 
 ## FAQ
 
-我们为各个模块同学们经常遇到的问题整理了一些 FAQ：
-
-| 知识模块 | FAQ |
-| :---: | :---: |
-| 暂无 | 暂无 |
+我们为各个模块同学们经常遇到的问题整理了一些 FAQ，参见 [FAQ](faq.md)。
 
 ## 历年卷
 
@@ -18,7 +14,7 @@
 
 ### 常用网站
 
-- [CPPReference](https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5)：C/C++ 参考手册，可以查找 C/C++ 语法和标准库的用法等。
+- [CPPReference](https://zh.cppreference.com/w/)：C/C++ 参考手册，可以查找 C/C++ 语法和标准库的用法等。
 
 ### 学长学姐的笔记本
 
