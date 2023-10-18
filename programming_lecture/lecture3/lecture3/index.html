@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="浙江大学竺可桢学院辅学计划站点" name="description"/>
+<meta content="竺可桢学院学业指导中心" name="author"/>
+<link href="https://ckc-agc.pages.zjusct.io/study-assist/programming_lecture/lecture3/lecture3/" rel="canonical"/>
+<link href="../../lecture2/lecture2/" rel="prev"/>
+<link href="../../lecture4/lecture4/" rel="next"/>
+<link href="../../../graph/ckc.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator"/>
+<title>I/O 与文件 - 浙江大学竺可桢学院辅学计划站点</title>
+<link href="../../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../css/heti.css" rel="stylesheet"/>
+<link href="../../../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
+<link href="../../../stylesheets/custom.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#io">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../graph/ckc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            浙江大学竺可桢学院辅学计划站点
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              I/O 与文件
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    浙江大学竺可桢学院辅学计划站点
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+          
+  
+    
+  
+  首页
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../calculus/">
+          
+  
+    
+  
+  📚微积分
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../analysis/">
+          
+  
+    
+  
+  📚数学分析
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../algebra/">
+          
+  
+    
+  
+  📚线性代数
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../lalu/">
+          
+  
+    
+  
+  🏫线性代数：未竟之美
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../programming/">
+          
+  
+    
+  
+  📚程设
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/">
+        
+  
+    
+  
+  🏫实用技能拾遗
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../">
+          
+  
+    
+  
+  🏫系统知识拾遗
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chemistry/">
+          
+  
+    
+  
+  📚普通化学
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../physics/">
+          
+  
+    
+  
+  📚普通物理学
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../graph/ckc.png"/>
+</a>
+    浙江大学竺可桢学院辅学计划站点
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    浙江大学竺可桢学院辅学计划站点
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    首页
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../test/">
+<span class="md-ellipsis">
+    测试
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../calculus/">
+<span class="md-ellipsis">
+    📚微积分
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            📚微积分
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../analysis/">
+<span class="md-ellipsis">
+    📚数学分析
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            📚数学分析
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../analysis/2024/analysis_lecture1_sequence_limits/">
+<span class="md-ellipsis">
+    今年辅学资料
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../analysis/exam/">
+<span class="md-ellipsis">
+    历年卷整理
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../analysis/2023/">
+<span class="md-ellipsis">
+    2023 年辅学资料
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../algebra/">
+<span class="md-ellipsis">
+    📚线性代数
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            📚线性代数
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../lalu/">
+<span class="md-ellipsis">
+    🏫线性代数：未竟之美
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            🏫线性代数：未竟之美
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../programming/">
+<span class="md-ellipsis">
+    📚程设
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            📚程设
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../programming/2023_daily_problem/">
+<span class="md-ellipsis">
+    每日一题
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../programming/faq/">
+<span class="md-ellipsis">
+    常见问题
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../programming/exam/">
+<span class="md-ellipsis">
+    历年卷
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/">
+<span class="md-ellipsis">
+    🏫实用技能拾遗
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    🏫系统知识拾遗
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            🏫系统知识拾遗
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../lecture1/pre_class/">
+<span class="md-ellipsis">
+    1. 程序编译过程与调试技术
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../lecture2/lecture2/">
+<span class="md-ellipsis">
+    2. 类型系统与内存模型
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_4" id="__nav_8_4_label" tabindex="0">
+<span class="md-ellipsis">
+    3. I/O 与文件
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_8_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_4">
+<span class="md-nav__icon md-icon"></span>
+            3. I/O 与文件
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    I/O 与文件
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    I/O 与文件
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c">
+    C 的输入输出模型
+  </a>
+<nav aria-label="C 的输入输出模型" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    缓冲
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    流
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    字符输入输出
+  </a>
+<nav aria-label="字符输入输出" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    换行符问题
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    检查输入
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    文件输入输出
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    标准库
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c-standard-library">
+    C standard library
+  </a>
+<nav aria-label="C standard library" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#history-of-io-model">
+    History of I/O model
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-ioctl-is-used-to-edit-text-stream-for-output">
+    - ioctl is used to edit text stream for output.
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    字符串的艺术
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    文件
+  </a>
+<nav aria-label="文件" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    基础概念
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    类型和宏
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    函数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    流和文件
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+    在文件中移动
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+    二进制文件
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../lecture4/lecture4/">
+<span class="md-ellipsis">
+    4. C 标准库
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../lecture5/lecture5/">
+<span class="md-ellipsis">
+    5. 数据结构与算法
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../chemistry/">
+<span class="md-ellipsis">
+    📚普通化学
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            📚普通化学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../physics/">
+<span class="md-ellipsis">
+    📚普通物理学
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            📚普通物理学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c">
+    C 的输入输出模型
+  </a>
+<nav aria-label="C 的输入输出模型" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    缓冲
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    流
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    字符输入输出
+  </a>
+<nav aria-label="字符输入输出" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    换行符问题
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    检查输入
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    文件输入输出
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    标准库
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c-standard-library">
+    C standard library
+  </a>
+<nav aria-label="C standard library" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#history-of-io-model">
+    History of I/O model
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-ioctl-is-used-to-edit-text-stream-for-output">
+    - ioctl is used to edit text stream for output.
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    字符串的艺术
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    文件
+  </a>
+<nav aria-label="文件" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    基础概念
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    类型和宏
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    函数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    流和文件
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+    在文件中移动
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+    二进制文件
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming_lecture/lecture3/lecture3.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="io"><span>I/O<span class="heti-spacing"> </span></span>与文件<a class="headerlink" href="#io" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<!-- prettier-ignore-start -->
+<div class="admonition danger">
+<p class="admonition-title">施工中</p>
+<p>本页面正在编辑中。</p>
+</div>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<div class="admonition abstract">
+<p class="admonition-title">内容提要</p>
+<ul>
+<li><span>C<span class="heti-spacing"> </span></span>的输入输出模型：缓冲与流的概念</li>
+<li><span>C<span class="heti-spacing"> </span></span>标准<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>函数</li>
+<li>文件编码</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+<h2 id="c"><span>C<span class="heti-spacing"> </span></span>的输入输出模型<a class="headerlink" href="#c" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_1">缓冲<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">缓冲输入</p>
+<p>用户输入的字符被收集并储存在缓冲区（buffer）中，<strong>按下<span class="keys"><kbd class="key-enter"><span class="heti-skip"><span class="heti-spacing"> </span>Enter<span class="heti-spacing"> </span></span></kbd></span>键后</strong>程序才能使用用户输入的字符。</p>
+<ul>
+<li>完全缓冲：仅缓冲区填满时才发送内容、刷新缓冲区，通常用于<strong>文件输入</strong>。</li>
+<li>行缓冲：出现换行符时刷新缓冲区，通常用于<strong>键盘输入</strong>。</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+<p>与之对应地，无缓冲输入的程序能够立即使用用户输入的内容。</p>
+<p><span>C<span class="heti-spacing"> </span></span>标准规定：<strong>输入是缓冲的</strong>。</p>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>我可以更改输入方式吗？</summary>
+<p><span>UNIX<span class="heti-spacing"> </span></span>库中有 <code>ioctl()</code> 函数用于指定待输入的类型，但这不属于<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准。</p>
+<p><span>ANSI C<span class="heti-spacing"> </span></span>中，可以使用 <code>setbuf()</code> 和 <code>setvbuf()</code> 控制缓冲，但受限于系统的设置。</p>
+</details>
+<!-- prettier-ignore-end -->
+<h3 id="_2">流<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>C<span class="heti-spacing"> </span></span>库提供的输入输出方式称为<strong>标准<span><span class="heti-spacing"> </span>I/O</span></strong>，它们是建立在操作系统提供的<strong>底层<span><span class="heti-spacing"> </span>I/O</span></strong> 上的。底层<span class="heti-skip"><span class="heti-spacing"> </span>I/O<span class="heti-spacing"> </span></span>之间常常会有一些差异：</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">各个系统的文件差异</p>
+<table>
+<thead>
+<tr>
+<th>差异</th>
+<th>UNIX</th>
+<th>Windows</th>
+<th>MacOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>换行符</td>
+<td><code>\n</code><br/> LF</td>
+<td><code>\r\n</code> <br/>CRLF</td>
+<td><code>\n</code> <span>(<span class="heti-spacing"> </span></span>较早的<span class="heti-skip"><span class="heti-spacing"> </span>MacOS<span class="heti-spacing"> </span></span>使用<code>\r</code><span><span class="heti-spacing"> </span>)</span><br/>LF</td>
+</tr>
+<tr>
+<td>文件结束符</td>
+<td><code>^D</code></td>
+<td><code>^Z</code></td>
+<td><code>^D</code></td>
+</tr>
+</tbody>
+</table>
+<p>注：如 <code>^Z</code> 代表 <code>Ctrl+Z</code>，你可以使用该组合键结束键盘输入。</p>
+<p>文件结尾也不一定由文件结束符标记。事实上，<span>UNIX<span class="heti-spacing"> </span></span>系统储存文件大小信息，依据文件大小信息决定文件末尾。</p>
+</div>
+<!-- prettier-ignore-end -->
+<p>从概念上看，<span>C<span class="heti-spacing"> </span></span>处理的是<strong>流</strong>而不是文件。不同属性和不同种类的输入，由属性更统一的<strong>流</strong>来表示。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">流</p>
+<p>流就是一系列连续的字节。</p>
+<p>打开文件的过程就是把<strong>流与文件相关联</strong>，读写都通过流来完成。</p>
+</div>
+<!-- prettier-ignore-end -->
+<p><code>getchar()</code> 和 <code>scanf()</code> 等函数读取到文件结尾时会返回一个特殊的值 <code>EOF</code>，在 <code>stdio.h</code> 中定义了：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define EOF (-1)</span>
+</code></pre></div>
+<p>你能解释为什么要把它定为 <code>-1</code> 吗？</p>
+<h2 id="_3">字符输入输出<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">函数和它们的功能</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>函数</th>
+<th>失败返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int getchar(void)</code><br/> <code>int getc(FILE *stream)</code> <br/> <code>int fgetc(FILE *stream)</code></td>
+<td>单字符输入</td>
+<td>EOF</td>
+</tr>
+<tr>
+<td><code>char *fgets(char *s, int size, FILE *stream)</code></td>
+<td>字符串输入</td>
+<td>NULL</td>
+</tr>
+<tr>
+<td><code>int ungetc(int c, FILE *stream)</code></td>
+<td>放回缓冲输入</td>
+<td>EOF</td>
+</tr>
+</tbody>
+</table>
+<p>注意：以上函数都将字符从缓冲区中的 <code>unsigned char</code> 类型转换为 <code>int</code> 类型。</p>
+<p>那么这是否会造成<span class="heti-skip"><span class="heti-spacing"> </span>EOF<span class="heti-spacing"> </span></span>不能被识别，而是被看作字符呢？</p>
+</div>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">关于 <code>getchar()</code> 函数</p>
+<p>它的返回值是 <code>int</code> 类型而非 <code>char</code> 类型，值得注意。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="_4">换行符问题<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>这是一个典型的问题：<code>scanf()</code> 函数，除了 <code>%c</code> 以外的转换说明，都不会读取空白字符（空格、制表符和回车<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">写一个安全的输入函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">s_gets</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">st</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ret_val</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">ret_val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fgets</span><span class="p">(</span><span class="n">st</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">stdin</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret_val</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\n'</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="err">'\</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">            </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">)</span>
+<span class="w">            </span><span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">;</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="c1">//must have words[i] == '\0'</span>
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">getchar</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">)</span>
+<span class="w">                </span><span class="k">continue</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret_val</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>这个函数来自《C Primer Plus<heti-adjacent class="heti-adjacent-half">》</heti-adjacent>，也是书中<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>章以后一直使用的输入函数。这个函数示范了如何使用安全的 <code>fgets()</code> 函数，并<strong>将输入统一</strong>，并处理剩余的字符。</p>
+<p>在涉及行的输入时，一定要注意统一行结尾的形式。这对于换行符，特别是<strong>文件结尾处薛定谔的换行符</strong>，有很大作用。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="_5">检查输入<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>可以用于检查输入的方式有以下几种：</p>
+<ol>
+<li><code>scanf()</code> 的返回值。</li>
+</ol>
+<h2 id="_6">文件输入输出<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_7">标准库<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="c-standard-library">C standard library<a class="headerlink" href="#c-standard-library" title="Permanent link">¶</a></h2>
+<h3 id="history-of-io-model">History of I/O model<a class="headerlink" href="#history-of-io-model" title="Permanent link">¶</a></h3>
+<ul>
+<li>
+<p>Before the UNIX system, </p>
+</li>
+<li>
+<p>UNIX system designed I/O method isolated about devices. It treats all text stream using standard internal format.</p>
+<h2 id="-ioctl-is-used-to-edit-text-stream-for-output">- <code>ioctl</code> is used to edit text stream for output.<a class="headerlink" href="#-ioctl-is-used-to-edit-text-stream-for-output" title="Permanent link">¶</a></h2>
+</li>
+</ul>
+<h2 id="_8">字符串的艺术<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_9">文件<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>本节结合 <code>&lt;stdio.h&gt;</code> 库和<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准内容。</p>
+<h3 id="_10">基础概念<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>C<span class="heti-spacing"> </span></span>把文件看作连续的字节，每个字节都能被单独读取。<span>C<span class="heti-spacing"> </span></span>提供两种文件模式，已经在开头介绍。</p>
+<h3 id="_11">类型和宏<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>在 <code>&lt;stdio.h&gt;</code> 中有如下与文件相关的类型和宏：</p>
+<ul>
+<li><code>FILE</code> 对象类型，记录控制<strong>流</strong>所需要的所有信息，包括：文件定位符、指向相关缓冲的指针、错误指示符和文件结束符。<ul>
+<li>不要试图探索 <code>FILE *</code> 数据对象的内部，即使实现给出了某些可见域。不要修改对象、不要拷贝对象并代替使用，因为<strong>实现假定知道流数据对象的所有地址</strong>。</li>
+</ul>
+</li>
+<li><code>fpos_t</code> 对象类型，含有唯一指定文件中每个位置所需的所有信息。</li>
+<li><code>stderr</code><span>,<span class="heti-spacing"> </span></span><code>stdin</code><span>,<span class="heti-spacing"> </span></span><code>stdout</code>都是 <code>FILE*</code> 类型的表达式。</li>
+<li><code>EOF</code> 展开为一个负的整值常量。</li>
+<li><code>NULL</code></li>
+<li><code>SEEK_CUR</code> 文件当前位置</li>
+<li><code>SEEK_END</code> 文件结束位置</li>
+<li><code>SEEK_SET</code> 文件开始位置</li>
+</ul>
+<h3 id="_12">函数<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>文件操作：</p>
+<ul>
+<li><code>int remove (const char *filename)</code></li>
+<li><code>int rename (const char *old, const char *new)</code></li>
+<li><code>FILE *tmpfile(void)</code></li>
+<li><code>char * tmpnam(char *s)</code></li>
+</ul>
+<p>文件访问：</p>
+<ul>
+<li><code>int fclose(FILE *stream)</code> <ul>
+<li>关闭文件，清空流（清空流就是传递缓冲数据<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，释放缓冲。</li>
+</ul>
+</li>
+<li><code>int fflush(FILE *stream)</code><ul>
+<li>立即写入（要求上一次操作是输出<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+</ul>
+</li>
+<li><code>FILE *fopen(const char *filename, const char *mode)</code></li>
+<li><code>FILE *freopen(const char *filename, const char *mode, FILE *stream)</code></li>
+<li><code>void setbuf(FILE *stream, char *buf)</code></li>
+<li><code>int setvbuf(FILE *stream, char *buf, int mode, size_t size)</code></li>
+</ul>
+<p><span>mode<span class="heti-spacing"> </span></span>字符串的含义：</p>
+<table>
+<thead>
+<tr>
+<th>flag</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>read</td>
+</tr>
+<tr>
+<td>w</td>
+<td>write (new or cut)</td>
+</tr>
+<tr>
+<td>a</td>
+<td>append (new or append)</td>
+</tr>
+<tr>
+<td>b</td>
+<td>binary</td>
+</tr>
+<tr>
+<td>+</td>
+<td>update</td>
+</tr>
+</tbody>
+</table>
+<p>注意一下上面词语的含义，<span>update<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>append<span class="heti-spacing"> </span></span>能写入的范围应该是不同的。</p>
+<ul>
+<li><span>append<span class="heti-spacing"> </span></span>模式下<strong>所有写操作</strong>强制加到文件结束处。</li>
+<li><span>update<span class="heti-spacing"> </span></span>模式下，若不调用文件定位函数，输入输出不一定相互紧跟。</li>
+</ul>
+<p>对于<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>这种只有一种文件类型的系统，带 <code>b</code> 与否的模式是相同的。</p>
+<p><span>C11<span class="heti-spacing"> </span></span>中新增了 <code>x</code>，带该字母的写模式打开存在文件会失败（相当于加了保护<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，且允许独占。</p>
+<p>格式化输入输出：</p>
+<ul>
+<li><code>fprintf</code></li>
+<li><code>fscanf</code></li>
+<li><code>vfprintf</code></li>
+<li><code>vprintf</code></li>
+<li><code>vsprintf</code></li>
+</ul>
+<p>字符输入输出：</p>
+<ul>
+<li><code>fgetc</code></li>
+<li><code>fgets</code></li>
+<li><code>fputc</code></li>
+<li><code>fputs</code></li>
+<li><code>getc</code></li>
+<li><code>getchar</code></li>
+<li>[DECPRATED] <code>gets</code></li>
+<li><code>putc</code></li>
+<li><code>putchar</code></li>
+<li><code>puts</code></li>
+<li><code>ungetc</code></li>
+</ul>
+<p>其中，<code>fgetc()</code> 与 <code>getc()</code> 这类函数的不同是后者可能被实现为宏。</p>
+<p>直接<span><span class="heti-spacing"> </span>I/O</span>：</p>
+<ul>
+<li><code>size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream)</code></li>
+<li><code>size_t fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)</code></li>
+</ul>
+<p>文件定位：</p>
+<ul>
+<li><code>int fseek(FILE *stream, long int offset, int whence)</code></li>
+<li><code>long int ftell(FILE *stream)</code></li>
+<li><code>void rewind(FILE *stream)</code></li>
+</ul>
+<p>以下两个函数用于处理更大型的文件（<code>long</code> 无法表示的偏移值）</p>
+<ul>
+<li><code>int fgetpos(FILE *stream, fpos_t *pos)</code></li>
+<li><code>int fsetpos(FILE *stream, const fpos_t *pos)</code></li>
+</ul>
+<p>错误处理：略</p>
+<h3 id="_13">流和文件<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>C<span class="heti-spacing"> </span></span>标准是这样描述两种流的：</p>
+<ul>
+<li>文本流：组成文本行的有序字符序列，每一行由零个或多个字符加上标志结束的换行符组成。<ul>
+<li>实现定义：最后一行是否需要换行符、换行符正前面的空格是否在读取时出现等。</li>
+</ul>
+</li>
+<li>二进制流：字符的有序序列。</li>
+</ul>
+<p>关于文件动作：</p>
+<ul>
+<li>打开文件：流打开一个文件，就是与该文件<strong>关联</strong>。<ul>
+<li>创建文件会丢弃内容。</li>
+<li>和流相关的文件定位符定位在文件起始位置。</li>
+<li>附加模式下定位位置由实现决定。</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h3 id="_14">在文件中移动<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li><span>offset<span class="heti-spacing"> </span></span>应该由<span class="heti-skip"><span class="heti-spacing"> </span>ftell<span class="heti-spacing"> </span></span>来决定。</li>
+</ul>
+<h3 id="_15">二进制文件<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

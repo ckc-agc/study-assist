@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="浙江大学竺可桢学院辅学计划站点" name="description"/>
+<meta content="竺可桢学院学业指导中心" name="author"/>
+<link href="https://ckc-agc.pages.zjusct.io/study-assist/analysis/2024/analysis_lecture1_sequence_limits/" rel="canonical"/>
+<link href="../../" rel="prev"/>
+<link href="../../exam/" rel="next"/>
+<link href="../../../graph/ckc.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator"/>
+<title>第一讲 数列极限 - 浙江大学竺可桢学院辅学计划站点</title>
+<link href="../../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../css/heti.css" rel="stylesheet"/>
+<link href="../../../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
+<link href="../../../stylesheets/custom.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../graph/ckc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            浙江大学竺可桢学院辅学计划站点
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              第一讲 数列极限
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    浙江大学竺可桢学院辅学计划站点
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+          
+  
+    
+  
+  首页
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../calculus/">
+          
+  
+    
+  
+  📚微积分
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../">
+          
+  
+    
+  
+  📚数学分析
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../algebra/">
+          
+  
+    
+  
+  📚线性代数
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../lalu/">
+          
+  
+    
+  
+  🏫线性代数：未竟之美
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../programming/">
+          
+  
+    
+  
+  📚程设
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/">
+        
+  
+    
+  
+  🏫实用技能拾遗
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../programming_lecture/">
+          
+  
+    
+  
+  🏫系统知识拾遗
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chemistry/">
+          
+  
+    
+  
+  📚普通化学
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../physics/">
+          
+  
+    
+  
+  📚普通物理学
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../graph/ckc.png"/>
+</a>
+    浙江大学竺可桢学院辅学计划站点
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    浙江大学竺可桢学院辅学计划站点
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    首页
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../test/">
+<span class="md-ellipsis">
+    测试
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../calculus/">
+<span class="md-ellipsis">
+    📚微积分
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            📚微积分
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    📚数学分析
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            📚数学分析
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    今年辅学资料
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            今年辅学资料
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    第一讲 数列极限
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    第一讲 数列极限
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    实数完备性定理
+  </a>
+<nav aria-label="实数完备性定理" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    要求
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    概念叙述
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    定理叙述
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    常用技巧
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    例题&amp;习题
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    数列极限
+  </a>
+<nav aria-label="数列极限" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    要求
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    概念叙述
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    定理叙述
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    常用技巧
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    例题&amp;习题
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../exam/">
+<span class="md-ellipsis">
+    历年卷整理
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../2023/">
+<span class="md-ellipsis">
+    2023 年辅学资料
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../algebra/">
+<span class="md-ellipsis">
+    📚线性代数
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            📚线性代数
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../lalu/">
+<span class="md-ellipsis">
+    🏫线性代数：未竟之美
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            🏫线性代数：未竟之美
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../programming/">
+<span class="md-ellipsis">
+    📚程设
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            📚程设
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../programming/2023_daily_problem/">
+<span class="md-ellipsis">
+    每日一题
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../programming/faq/">
+<span class="md-ellipsis">
+    常见问题
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../programming/exam/">
+<span class="md-ellipsis">
+    历年卷
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/">
+<span class="md-ellipsis">
+    🏫实用技能拾遗
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../programming_lecture/">
+<span class="md-ellipsis">
+    🏫系统知识拾遗
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            🏫系统知识拾遗
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../programming_lecture/lecture1/pre_class/">
+<span class="md-ellipsis">
+    1. 程序编译过程与调试技术
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../programming_lecture/lecture2/lecture2/">
+<span class="md-ellipsis">
+    2. 类型系统与内存模型
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../programming_lecture/lecture3/lecture3/">
+<span class="md-ellipsis">
+    3. I/O 与文件
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../programming_lecture/lecture4/lecture4/">
+<span class="md-ellipsis">
+    4. C 标准库
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../programming_lecture/lecture5/lecture5/">
+<span class="md-ellipsis">
+    5. 数据结构与算法
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../chemistry/">
+<span class="md-ellipsis">
+    📚普通化学
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            📚普通化学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../physics/">
+<span class="md-ellipsis">
+    📚普通物理学
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            📚普通物理学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    实数完备性定理
+  </a>
+<nav aria-label="实数完备性定理" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    要求
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    概念叙述
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    定理叙述
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    常用技巧
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    例题&amp;习题
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    数列极限
+  </a>
+<nav aria-label="数列极限" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    要求
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    概念叙述
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    定理叙述
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    常用技巧
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    例题&amp;习题
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/analysis/2024/analysis_lecture1_sequence_limits.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="_1">第一讲 数列极限<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<ul>
+<li><a href="../analysis_lecture1_sequence_limits.pdf"><span>PDF<span class="heti-spacing"> </span></span>版</a></li>
+</ul>
+<h2 id="_2">实数完备性定理<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_3">要求<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ol>
+<li>
+<p>给出概念、定理的名字可以使用数学语言准确叙述。</p>
+</li>
+<li>
+<p>掌握基本的定理证明链（详细参考<span><span class="heti-spacing"> </span>1.4.1 1.4.2</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<ul>
+<li>
+<p>确界原理<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\rightarrow\)</span><span class="heti-spacing"> </span></span>单调有界定理<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\rightarrow\)</span><span class="heti-spacing"> </span></span>致密性定理<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\rightarrow\)</span>Cauchy<span class="heti-spacing"> </span></span>准则</p>
+</li>
+<li>
+<p>单调有界定理<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\rightarrow\)</span><span class="heti-spacing"> </span></span>闭区间套定理<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\rightarrow\)</span><span class="heti-spacing"> </span></span>有限覆盖定理（聚点原理和<span class="heti-skip"><span class="heti-spacing"> </span>Dedekind<span class="heti-spacing"> </span></span>分割定理不要求）</p>
+</li>
+<li>
+<p>确界原理<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\rightarrow\)</span><span class="heti-spacing"> </span></span>各个定理</p>
+</li>
+</ul>
+</li>
+<li>
+<p>期末考试会在这几个定理里出叙述题和证明题；小测会考各个定理的数学叙述细节。</p>
+</li>
+</ol>
+<h3 id="_4">概念叙述<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ol>
+<li>
+<p>有界，无界</p>
+<div class="arithmatex">\[
+\begin{align}
+数列有界: &amp;\quad\forall n&gt;0,\exists M\in \text{R},使|x_n|&lt;M恒成立\\
+数列无界: &amp;\quad\forall M\in \text{R},\exists n&gt;0,使|x_n|&gt;M \\
+错误(?): &amp;\quad\exists n&gt;0,\forall M\in \text{R},使x_n&gt;M
+\end{align}
+\]</div>
+<p>数学语言的否定：转换全称量词和存在量词，<strong>注意量词顺序</strong>，改变符号</p>
+</li>
+<li>
+<p>最大数，最小数</p>
+<div class="arithmatex">\[
+\begin{align}
+\max\{S\}=a &amp;\iff a\in S且\forall x\in S,a\ge x\\
+\min\{S\}=b &amp;\iff b\in S且\forall x\in S,b\le x
+\end{align}
+\]</div>
+</li>
+<li>
+<p>上确界，下确界</p>
+<div class="arithmatex">\[
+\begin{align}
+M=\sup\{S\}\iff&amp; \forall x\in S,x\le M且\forall\epsilon&gt;0,\exists x'\in S有x'&gt;M-\epsilon\\
+m=\inf\{S\}\iff&amp; \forall x\in S,x\ge m且\forall\epsilon&gt;0,\exists x'\in S有x'&lt;M+\epsilon
+\end{align}
+\]</div>
+</li>
+</ol>
+<h3 id="_5">定理叙述<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ol>
+<li>
+<p>确界原理</p>
+<p><strong>非空有界</strong>集必有上下确界</p>
+</li>
+<li>
+<p>单调有界定理</p>
+<p>单调有界数列必收敛</p>
+</li>
+<li>
+<p>致密性定理</p>
+<p>任何有界数列必有收敛子列</p>
+</li>
+<li>
+<p><span>Cauchy<span class="heti-spacing"> </span></span>准则</p>
+<div class="arithmatex">\[
+a_n收敛\iff\forall \epsilon&gt;0,\exists N&gt;0,\forall m,n&gt;N,均有|a_m-a_n|&lt;\epsilon \\
+\iff \forall \epsilon&gt;0,\exists N&gt;0,\forall n&gt;N,p&gt;0,均有|a_{n+p}-a_n|&lt;\epsilon
+\]</div>
+</li>
+<li>
+<p>区间套定理</p>
+<div class="arithmatex">\[
+\begin{align}
+&amp; 设闭区间列\{[a_n,b_n]\}满足:\\
+&amp; 1.[a_{n+1},b_{n+1}]\subset[a_n,b_n],n=1,2,3..\\
+&amp; 2.\lim_{n\to\infty}(b_n-a_n)=0 \\
+&amp; 则存在唯一实数\xi，满足\xi\in[a_n,b_n],n=1,2..
+\end{align}
+\]</div>
+</li>
+<li>
+<p>有限覆盖定理</p>
+<div class="arithmatex">\[
+\begin{align}
+&amp; 设[a,b]是一个闭区间，\{E_\lambda\}_{\lambda\in\Lambda}是[a,b]的任意一个开覆盖，\\
+&amp; 则必存在\{E_\lambda\}_{\lambda\in\Lambda}的一个子集构成[a,b]的一个有限覆盖。 \\
+\iff &amp; 在\{E_\lambda\}_{\lambda\in\Lambda}必有有限个开区间E_1,E_2..E_N使[a,b]\subset\cup_{j=1}^NE_j
+\end{align}
+\]</div>
+</li>
+</ol>
+<h3 id="_6">常用技巧<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ol>
+<li>
+<p>证明集合相等的常用方法：相互包含</p>
+<!-- prettier-ignore-start -->
+<div class="admonition example">
+<p class="admonition-title">例题：确界的关系式</p>
+<p>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(A,B\)</span><span class="heti-spacing"> </span></span>是两个由非负数组成的任意数集<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>试证明<span><span class="heti-spacing"> </span><span class="arithmatex">\(\sup_{x\in A}\{x\}\cdot \sup_{y\in B}\{y\}=\sup_{x\in A,y\in B}\{xy\}\)</span></span></p>
+</div>
+<!-- prettier-ignore-end -->
+</li>
+<li>
+<p>对于实数完备性定理的证明题，首先将给的条件和证明内容均翻译成数学语言（方便骗分<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，再观察条件和证明内容的联系。</p>
+</li>
+</ol>
+<h3 id="_7">例题<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>习题<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ol>
+<li>用确界原理证明单调有界原理、致密性定理、<span>Cauchy<span class="heti-spacing"> </span></span>准则、闭区间套定理、有限覆盖定理。</li>
+<li>用单调有界定理证明闭区间套定理，用闭区间套定理证明有限覆盖定理；用致密性定理证明<span class="heti-skip"><span class="heti-spacing"> </span>Cauchy<span class="heti-spacing"> </span></span>收敛准则。</li>
+<li><span class="arithmatex">\(f,g为D上有界函数,\text{pf:}\inf\{f(x)+g(x)\}\le\inf{f(x)}+\sup{g(x)}\)</span></li>
+<li>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)在[0,1]上递增,f(0)&gt;0,f(1)&lt;1,求证:\exists x_0\in(0,1),使得f(x_0)=x_0^2\)</span> (Hint:<span class="heti-spacing"> </span></span>确界原理<span class="heti-skip"><span class="heti-spacing"> </span>or<span class="heti-spacing"> </span></span>区间套定理<span><span class="heti-spacing"> </span>)</span></li>
+<li>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\([a,b]\)</span><span class="heti-spacing"> </span></span>上有定义且在每一点处函数的极限存在，求证<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(f(x)\)</span><span class="heti-spacing"> </span></span>在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\([a,b]\)</span><span class="heti-spacing"> </span></span>上有界<span class="heti-skip"><span class="heti-spacing"> </span>(Hint:<span class="heti-spacing"> </span></span>有限覆盖<span><span class="heti-spacing"> </span>)</span></li>
+<li><span><span class="arithmatex">\(设f(x)在(a,b)内有定义，\forall\xi\in(a,b),\exists\delta&gt;0,当x\in(\xi-\delta,\xi+\delta)\cap(a,b)时,\)</span><span class="heti-spacing"> </span></span>有当<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(x&lt;\xi\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="arithmatex">\(f(x)&lt;f(\xi), 当x&gt;\xi\)</span><span class="heti-spacing"> </span></span>时<span class="heti-skip"><span class="heti-spacing"> </span>,<span class="arithmatex">\(f(x)&gt;f(\xi)\)</span>.<span class="heti-spacing"> </span></span>请证明<span class="heti-skip"><span class="heti-spacing"> </span>:<span class="arithmatex">\(f(x)在(a,b)\)</span><span class="heti-spacing"> </span></span>内严格递增<span class="heti-skip"><span class="heti-spacing"> </span>(Hint:<span class="heti-spacing"> </span></span>有限覆盖<span><span class="heti-spacing"> </span>)</span></li>
+</ol>
+<h2 id="_8">数列极限<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_9">要求<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ol>
+<li>从小测的角度来说，概念，定理以及判断题是比较重要（搞脑子）的，当然也会有计算题</li>
+<li>期末考试可能会出<span class="heti-skip"><span class="heti-spacing"> </span>1-2<span class="heti-spacing"> </span></span>道求极限，<span>1<span class="heti-spacing"> </span></span>道非常简单的极限证明题（附在定理叙述上）</li>
+<li>计算也需要掌握，但是技巧性强的可以不掌握</li>
+<li>学好数列极限对函数极限和级数都很有帮助，而学好了函数极限就可以学好导数和积分，然后你就学会了数分<span><span class="heti-spacing"> </span>1</span></li>
+</ol>
+<h3 id="_10">概念叙述<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ol>
+<li>数列极限（<span><span class="arithmatex">\(\epsilon-N\)</span><span class="heti-spacing"> </span></span>语言）</li>
+</ol>
+<div class="arithmatex">\[
+\forall\epsilon&gt;0,\exists N&gt;0,\forall n&gt;N,|x_n-A|&lt;\epsilon称\lim_{x\rightarrow\infty}x_n=A\\
+  *:|x_n-A|&lt;f(\epsilon),f(x)满足\lim _{x\rightarrow0}f(x)=0即可
+\]</div>
+<ol start="2">
+<li>数列发散</li>
+</ol>
+<div class="arithmatex">\[
+\forall A\in R,\exists\epsilon_0&gt;0,\forall N&gt;0,\exists n_N&gt;N,|x_n-A|\ge\epsilon_0
+\]</div>
+<ol>
+<li>
+<p>子列</p>
+<div class="arithmatex">\[
+\{a_n\}收敛\iff \{a_n\}的任意子列都收敛于A(请注意减弱命题)
+\]</div>
+</li>
+<li>
+<p>无穷小量和无穷大量</p>
+<div class="arithmatex">\[
+\begin{align}
+&amp; 无穷小量 : \lim_{x\rightarrow\infty}= 0 \\
+&amp; 无穷大量 : \forall M&gt;0,\exists N,\forall n&gt;N,|x_n|&gt;M
+\end{align}
+\]</div>
+</li>
+</ol>
+<h3 id="_11">定理叙述<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ol>
+<li>
+<p><span>Stolz<span class="heti-spacing"> </span></span>定理</p>
+<p>常用于计算形式需要洛必达的极限</p>
+</li>
+<li>
+<p><span>Cauchy<span class="heti-spacing"> </span></span>收敛准则、等价形式及否定</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+\begin{align}
+  a_n收敛&amp; \iff\forall \epsilon&gt;0,\exists N&gt;0,\forall m,n&gt;N,均有|a_m-a_n|&lt;\epsilon \\
+  &amp; \iff \forall \epsilon&gt;0,\exists N&gt;0,\forall n&gt;N,p&gt;0,均有|a_{n+p}-a_n|&lt;\epsilon \\
+  否定形式:a_n发散&amp; \iff\exists\epsilon_0&gt;0,\forall N,\exists n_0&gt;N,p&gt;0,|x_{n_0+p}-x_{n_0}|\ge\epsilon_0
+  \end{align}
+\]</div>
+<h3 id="_12">常用技巧<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ol>
+<li>
+<p>一些关系链：</p>
+<ol>
+<li><span class="arithmatex">\(n\rightarrow\infty时\)</span></li>
+</ol>
+<div class="arithmatex">\[
+  \log\log n\ll \log n \ll n^a\ll b^n\ll n!\ll n^n\quad(a,b&gt;0)
+\]</div>
+<ol start="2">
+<li><span class="arithmatex">\(x\rightarrow0时\)</span></li>
+</ol>
+<div class="arithmatex">\[
+\begin{align}
+  x  \sim &amp;\sin x\sim \tan x \sim \arcsin x\sim \arctan x \\
+     \sim &amp;\ln{(1+x)} \sim \text{e}^x-1 \sim \frac{a^x-1}{\ln a}\sim \frac{(1+x)^b-1}b \quad(a&gt;0,b\neq0)\\
+    &amp; 1-\cos x \sim \frac12 x^2
+  \end{align}
+\]</div>
+</li>
+<li>
+<p>证明数列极限存在：</p>
+<ol>
+<li>定义（<span><span class="arithmatex">\(\epsilon-N\)</span><span class="heti-spacing"> </span></span>方法）</li>
+</ol>
+<p>技巧：放大法<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>常用<span class="heti-skip"><span class="heti-spacing"> </span>)/<span class="heti-spacing"> </span></span>分步法<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>构造形式类似的项<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>拟合法<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>技巧性较强<span><span class="heti-spacing"> </span>)</span></p>
+<ol start="2">
+<li>
+<p><span>Cauchy<span class="heti-spacing"> </span></span>准则：不需要知道极限值</p>
+</li>
+<li>
+<p><span>Cauchy<span class="heti-spacing"> </span></span>准则的推论：常用于判断数项级数是否收敛<span><span class="heti-spacing"> </span>(<span class="arithmatex">\(a_n=\sum_{n=1}^{\infty}f(n)\)</span>)</span></p>
+</li>
+<li>
+<p>单调有界原理：不动点，递推式考虑</p>
+</li>
+<li>
+<p>极限的运算性质：本身存在极限 有限项运算</p>
+</li>
+</ol>
+</li>
+<li>
+<p>证明数列极限不存在：</p>
+<ol>
+<li><span>Cauchy<span class="heti-spacing"> </span></span>命题的否定形式</li>
+<li>子列不收敛或收敛于不同的数</li>
+</ol>
+</li>
+<li>
+<p>求数列<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>函数<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>极限：</p>
+<ol>
+<li>极限的运算性质</li>
+</ol>
+<p>一些重要极限：<span class="arithmatex">\(\lim\limits_{n\rightarrow\infty}n^\frac1n=1\)</span>，<span class="arithmatex">\(\lim\limits_{n\rightarrow\infty}(1+\frac1n)^n=e\)</span></p>
+<ol start="2">
+<li>
+<p><span>Stolz<span class="heti-spacing"> </span></span>定理</p>
+</li>
+<li>
+<p>夹逼定理</p>
+</li>
+<li>
+<p>等价代换与初等变形</p>
+</li>
+<li>
+<p>递推形式的极限：单调有界原理<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>证明<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>压缩映像<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>略难<span class="heti-skip"><span class="heti-spacing"> </span>)/Stolz<span class="heti-spacing"> </span></span>公式的应用</p>
+</li>
+<li>
+<p><span>Taylor/L'Hospital/<span class="heti-spacing"> </span></span>积分定义<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>数项级数<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>级数的连续性<span><span class="heti-spacing"> </span>...</span>：
+很重要，但这是后事了</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="_13">例题<span class="heti-skip"><span class="heti-spacing"> </span>&amp;<span class="heti-spacing"> </span></span>习题<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ol>
+<li>
+<p>判断下列关于子列的命题</p>
+<ol>
+<li>设<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{a_n\}\)</span><span class="heti-spacing"> </span></span>是一个数列，若在任一子列<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(\{a_{n_k}\}\)</span><span class="heti-spacing"> </span></span>中均存在收敛子列<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(<span class="arithmatex">\(\{a_{n_{k_r}}\}\)</span>\),<span class="heti-spacing"> </span></span>则<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(<span class="arithmatex">\(\{a_n\}\)</span>\)<span class="heti-spacing"> </span></span>必收敛</li>
+<li><span class="arithmatex">\(\{a_n\}单调递增，\{a_{n_k}\}为其中一个子列，\lim\limits_{k\rightarrow\infty}a_{n_k}=a,则\lim\limits_{n\rightarrow\infty}{a_n}=a\)</span></li>
+<li><span class="arithmatex">\(\{a_{2k}\}\{a_{2p+1}\}\{a_{2023t+2024}\}均收敛，则\{a_n\}收敛\)</span></li>
+<li><span class="arithmatex">\(\{a_{2k}\}\{a_{2t+1}\}\{a_{6p+5}\}均收敛，则\{a_n\}收敛\)</span></li>
+</ol>
+</li>
+<li>
+<p>判断下列关于无穷小量的命题</p>
+<ol>
+<li>无穷多个无穷小量之和是无穷小量</li>
+<li>无穷多个无穷小量之积是无穷小量</li>
+<li>无穷小量与有界量之积为无穷小量</li>
+</ol>
+</li>
+<li>
+<p>判断下列关于数列极限的命题</p>
+<ol>
+<li>数列<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(a_n\)</span><span class="heti-spacing"> </span></span>收敛<span><span class="heti-spacing"> </span><span class="arithmatex">\(\iff \forall p\in N,\lim\limits_{n\rightarrow+\infty}{|a_{n+p}-a_n|=0}\)</span></span></li>
+<li><span class="arithmatex">\(\lim\limits_{n\rightarrow\infty}x_n=A\iff\forall k\in \text{N},\exists N&gt;0,\forall n&gt;N,|x_n-A|&lt;\frac1k\)</span></li>
+<li><span class="arithmatex">\(a_n收敛 \iff \exists N&gt;0,\forall \epsilon&gt;0,\forall m,n&gt;N,均有|a_m-a_n|&lt;\epsilon\)</span></li>
+</ol>
+</li>
+<li>
+<p>重要的二级结论：</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+Cauchy定理:\lim_{n\rightarrow\infty}x_n=A,则\lim_{n\rightarrow\infty}\frac{x_1+x_2+...+x_n}{n}=A
+\]</div>
+<ol start="5">
+<li>
+<p><span><span class="arithmatex">\(x_n=\sum_{i=1}^n\sin(\frac{2i-1}{n^2}a),\text{pf:}\lim\limits_{n\rightarrow\infty}x_n=a\)</span> (Hint:<span class="heti-spacing"> </span></span>拟合法<span><span class="heti-spacing"> </span>)</span></p>
+</li>
+<li>
+<p>求极限<span><span class="heti-spacing"> </span><span class="arithmatex">\(\lim\limits_{n\rightarrow\infty}x_n\)</span></span>：</p>
+<ol>
+<li><span class="arithmatex">\(x_n=\cos\frac x2\cos\frac x{2^2}\cdots\cos\frac x{2^n}\)</span></li>
+<li><span class="arithmatex">\(x_n=(\frac{\sqrt[n]a+\sqrt[n]b}{2})^n\)</span></li>
+<li><span class="arithmatex">\(x_n=\frac 1{\sqrt[n]{n!}}\)</span></li>
+<li><span class="arithmatex">\(x_n={(n!)}^{\frac1{n^2}}\)</span></li>
+<li><span class="arithmatex">\(x_n=\sqrt[6]{x^6+x^5}-\sqrt[6]{x^6-x^5}\)</span></li>
+</ol>
+</li>
+<li>
+<p><span>(2019(?)<span class="heti-spacing"> </span></span>年数分<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>期末<span><span class="heti-spacing"> </span>)</span></p>
+</li>
+</ol>
+<div class="arithmatex">\[
+\begin{align}
+  &amp; 对于数列x_0=a,0&lt;a&lt;\frac\pi2,x_n=\sin x_{n-1}(n=1,2,\cdots). \\ &amp;\text{pf:}(1)\lim\limits_{n\rightarrow\infty}x_n=0;(2)\lim\limits_{n\rightarrow\infty}{\sqrt\frac n3}x_n=1
+  \end{align}
+\]</div>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

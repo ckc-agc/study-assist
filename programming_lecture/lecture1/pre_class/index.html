@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="浙江大学竺可桢学院辅学计划站点" name="description"/>
+<meta content="竺可桢学院学业指导中心" name="author"/>
+<link href="https://ckc-agc.pages.zjusct.io/study-assist/programming_lecture/lecture1/pre_class/" rel="canonical"/>
+<link href="../../" rel="prev"/>
+<link href="../lecture1/" rel="next"/>
+<link href="../../../graph/ckc.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator"/>
+<title>课前：准备开发与调试环境 - 浙江大学竺可桢学院辅学计划站点</title>
+<link href="../../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../css/heti.css" rel="stylesheet"/>
+<link href="../../../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
+<link href="../../../stylesheets/custom.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../graph/ckc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            浙江大学竺可桢学院辅学计划站点
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              课前：准备开发与调试环境
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    浙江大学竺可桢学院辅学计划站点
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+          
+  
+    
+  
+  首页
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../calculus/">
+          
+  
+    
+  
+  📚微积分
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../analysis/">
+          
+  
+    
+  
+  📚数学分析
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../algebra/">
+          
+  
+    
+  
+  📚线性代数
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../lalu/">
+          
+  
+    
+  
+  🏫线性代数：未竟之美
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../programming/">
+          
+  
+    
+  
+  📚程设
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/">
+        
+  
+    
+  
+  🏫实用技能拾遗
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../">
+          
+  
+    
+  
+  🏫系统知识拾遗
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../chemistry/">
+          
+  
+    
+  
+  📚普通化学
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../physics/">
+          
+  
+    
+  
+  📚普通物理学
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../graph/ckc.png"/>
+</a>
+    浙江大学竺可桢学院辅学计划站点
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    浙江大学竺可桢学院辅学计划站点
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    首页
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../test/">
+<span class="md-ellipsis">
+    测试
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../calculus/">
+<span class="md-ellipsis">
+    📚微积分
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            📚微积分
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../analysis/">
+<span class="md-ellipsis">
+    📚数学分析
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            📚数学分析
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../analysis/2024/analysis_lecture1_sequence_limits/">
+<span class="md-ellipsis">
+    今年辅学资料
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../analysis/exam/">
+<span class="md-ellipsis">
+    历年卷整理
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../analysis/2023/">
+<span class="md-ellipsis">
+    2023 年辅学资料
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../algebra/">
+<span class="md-ellipsis">
+    📚线性代数
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            📚线性代数
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../lalu/">
+<span class="md-ellipsis">
+    🏫线性代数：未竟之美
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            🏫线性代数：未竟之美
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../programming/">
+<span class="md-ellipsis">
+    📚程设
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            📚程设
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../programming/2023_daily_problem/">
+<span class="md-ellipsis">
+    每日一题
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../programming/faq/">
+<span class="md-ellipsis">
+    常见问题
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../../programming/exam/">
+<span class="md-ellipsis">
+    历年卷
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/">
+<span class="md-ellipsis">
+    🏫实用技能拾遗
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    🏫系统知识拾遗
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            🏫系统知识拾遗
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+<span class="md-ellipsis">
+    1. 程序编译过程与调试技术
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_8_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_2">
+<span class="md-nav__icon md-icon"></span>
+            1. 程序编译过程与调试技术
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    课前：准备开发与调试环境
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    课前：准备开发与调试环境
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#shell">
+    Shell 使用拾遗
+  </a>
+<nav aria-label="Shell 使用拾遗" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    运行与终端
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wsl">
+    WSL 安装简单引导（可选）
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c">
+    安装 C 语言编译器
+  </a>
+<nav aria-label="安装 C 语言编译器" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gcc">
+    就决定是你了，gcc！
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows-tdm-gcc">
+    Windows 小白教程之 tdm-gcc
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gcc_1">
+    测试 gcc 是否正确安装
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows">
+    Windows 修改环境变量
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vscode">
+    VSCode 安装与配置
+  </a>
+<nav aria-label="VSCode 安装与配置" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    安装
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    插件安装
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vscode_1">
+    VSCode 使用的一个简单示例
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vscode-wsl">
+    VSCode + WSL（可选）
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lecture1/">
+<span class="md-ellipsis">
+    讲义：程序编译过程与调试技术
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../lecture2/lecture2/">
+<span class="md-ellipsis">
+    2. 类型系统与内存模型
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../lecture3/lecture3/">
+<span class="md-ellipsis">
+    3. I/O 与文件
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../lecture4/lecture4/">
+<span class="md-ellipsis">
+    4. C 标准库
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../lecture5/lecture5/">
+<span class="md-ellipsis">
+    5. 数据结构与算法
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../chemistry/">
+<span class="md-ellipsis">
+    📚普通化学
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            📚普通化学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../physics/">
+<span class="md-ellipsis">
+    📚普通物理学
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            📚普通物理学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#shell">
+    Shell 使用拾遗
+  </a>
+<nav aria-label="Shell 使用拾遗" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    运行与终端
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wsl">
+    WSL 安装简单引导（可选）
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c">
+    安装 C 语言编译器
+  </a>
+<nav aria-label="安装 C 语言编译器" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gcc">
+    就决定是你了，gcc！
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows-tdm-gcc">
+    Windows 小白教程之 tdm-gcc
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gcc_1">
+    测试 gcc 是否正确安装
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows">
+    Windows 修改环境变量
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vscode">
+    VSCode 安装与配置
+  </a>
+<nav aria-label="VSCode 安装与配置" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    安装
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    插件安装
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vscode_1">
+    VSCode 使用的一个简单示例
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vscode-wsl">
+    VSCode + WSL（可选）
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming_lecture/lecture1/pre_class.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="_1">课前：准备开发与调试环境<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>本文档更改自周健均学长为图灵程算课程准备的<a href="https://zhoutimemachine.github.io/2023_FPA/">资料</a>，感谢周健均学长的付出。</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">内容提要</p>
+<p>在参与线下授课前，同学们最好能够安装好相关的开发环境，以便能够更好的跟随老师的讲解。</p>
+<ul>
+<li>命令行简介</li>
+<li><span>WSL<span class="heti-spacing"> </span></span>安装引导</li>
+<li>在<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>上安装<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编译器</li>
+<li><span>VSCode<span class="heti-spacing"> </span></span>安装与配置</li>
+</ul>
+<p>同学们可以从右侧（电脑端）或左侧（手机端）目录跳转到自己需要的章节。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">非计算机专业同学，使用<span class="heti-skip"><span class="heti-spacing"> </span>Dev-C++<span class="heti-spacing"> </span></span>等<span class="heti-skip"><span class="heti-spacing"> </span>IDE<span class="heti-spacing"> </span></span>或在线<span class="heti-skip"><span class="heti-spacing"> </span>IDE<span class="heti-spacing"> </span></span>即可。</p>
+<p>本篇文章描述的内容适用于计算机专业的同学。非计算机专业的同学，不需要掌握命令行的使用，使用<span class="heti-skip"><span class="heti-spacing"> </span>IDE<span class="heti-spacing"> </span></span>即可。并且更加推荐在线<span><span class="heti-spacing"> </span>IDE</span>，因为本地<span class="heti-skip"><span class="heti-spacing"> </span>IDE<span class="heti-spacing"> </span></span>有时也会出错。最常见的一个例子是：运行了一次程序，没有以恰当的方式结束进程，再次点击编译时编译器 <code>ld</code> 就会因为 <code>.exe</code> 被占用无法写入而报错，但报错信息并不会表明是上一个程序没关，搞不懂是怎么回事。我还见过有同学，每次编译完运行程序，都要被<span class="heti-skip"><span class="heti-spacing"> </span>360<span class="heti-spacing"> </span></span>先扫描一遍，等个半分钟才能显示窗口。在线<span class="heti-skip"><span class="heti-spacing"> </span>IDE<span class="heti-spacing"> </span></span>不受你电脑的影响，不会产生这些问题。</p>
+</div>
+<p>下面的块以<span class="heti-skip"><span class="heti-spacing"> </span>Online GDB<span class="heti-spacing"> </span></span>为例，展示在线<span class="heti-skip"><span class="heti-spacing"> </span>IDE<span class="heti-spacing"> </span></span>的用法。配好环境的同学也可以看一看，因为你可能偶尔临时用到一个没有配置环境的电脑，这时使用在线<span class="heti-skip"><span class="heti-spacing"> </span>IDE<span class="heti-spacing"> </span></span>最为便捷。</p>
+<div class="admonition note">
+<p class="admonition-title"><span>Online GDB<span class="heti-spacing"> </span></span>的使用</p>
+<ul>
+<li>打开这个网址：<a href="https://www.onlinegdb.com/">www.onlinegdb.com</a>。</li>
+<li>它已经为你写好<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的<span class="heti-skip"><span class="heti-spacing"> </span>Hello World<span class="heti-spacing"> </span></span>程序源码。</li>
+<li>在右上角选择<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言，然后点击左上角的 <code>Run</code>。</li>
+<li>在下方，你就可以看见程序的输出。</li>
+<li>按下<span class="keys"><kbd class="key-enter"><span class="heti-skip"><span class="heti-spacing"> </span>Enter<span class="heti-spacing"> </span></span></kbd></span>键离开终端。下方会显示几个选项：<ul>
+<li>Command Line Arguments：命令行参数，你们应该不会学到？</li>
+<li>Standard Input：标准输入。你可以选择<span><span class="heti-spacing"> </span>Interactive Console</span>（就是正常地用键盘和程序交互）或者<span><span class="heti-spacing"> </span>Text</span>（预先准备一些文本自动输入，通常用于测试<span class="heti-skip"><span class="heti-spacing"> </span>PTA<span class="heti-spacing"> </span></span>的样例数据<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">可以跳过本篇文章的同学</p>
+<p>符合以下描述的同学可以跳过本篇文章：</p>
+<ul>
+<li><span>Mac<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>用户</li>
+<li>安装好了<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>用户</li>
+<li>安装好了<span><span class="heti-spacing"> </span>MinGW</span>、MSVC、Cygwin、<span>tdm-gcc<span class="heti-spacing"> </span></span>等编译器的<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>用户</li>
+</ul>
+<p>使用集成开发环境的同学，也请看一下<span class="heti-skip"><span class="heti-spacing"> </span>Shell<span class="heti-spacing"> </span></span>部分。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">温馨提示</p>
+<ul>
+<li>点击页面中的图片可以放大查看。</li>
+<li>如果安装过程遇到困难，可以在辅学群提问，或私戳授课学长～</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+<h2 id="shell"><span>Shell<span class="heti-spacing"> </span></span>使用拾遗<a class="headerlink" href="#shell" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>本节我们要认识一个即将成为你的老朋友的东西——Shell。下面是同学们接下来会经常见到的几个名词：</p>
+<ul>
+<li><span>Terminal<span class="heti-spacing"> </span></span>终端：下图中，这个窗口就是<span><span class="heti-spacing"> </span>Windows Terminal</span>。它负责接收你的输入，把输入传递给<span><span class="heti-spacing"> </span>Shell</span>，然后把<span class="heti-skip"><span class="heti-spacing"> </span>Shell<span class="heti-spacing"> </span></span>的输出显示给你。你可以从图中看到，一个<span class="heti-skip"><span class="heti-spacing"> </span>Terminal<span class="heti-spacing"> </span></span>可以连接到多个<span><span class="heti-spacing"> </span>Shell</span>，就像一台显示器可以连接到多台电脑一样。把<span class="heti-skip"><span class="heti-spacing"> </span>Terminal<span class="heti-spacing"> </span></span>理解为键盘和显示器就好。</li>
+<li><span>Shell<span class="heti-spacing"> </span></span>命令解释器：接收你给出的命令、执行并给出响应的，就是<span><span class="heti-spacing"> </span>Shell</span>。如果把<span class="heti-skip"><span class="heti-spacing"> </span>Terminal<span class="heti-spacing"> </span></span>理解为键盘和显示器，那么<span class="heti-skip"><span class="heti-spacing"> </span>Shell<span class="heti-spacing"> </span></span>就是主机。</li>
+<li><span>Prompt<span class="heti-spacing"> </span></span>提示符：<span>Shell<span class="heti-spacing"> </span></span>会给你一个提示符，告诉你它已经准备好接收你的命令了。在<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>中，提示符一般是 <code>$</code>。下面的图中，<code>bowling</code> 那一块就是提示符（我做了一些美化<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+<li><span>Command Line Interface<span class="heti-spacing"> </span></span>命令行交互界面：当我们使用文本命令与计算机交互时，我们就在使用<span><span class="heti-spacing"> </span>CLI</span>。这与我们日常生活中使用鼠标的图形交互界面（Graphical User Interface，GUI）不同。</li>
+</ul>
+<!-- prettier-ignore-start -->
+<div class="nt-cards nt-grid cols-3">
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/terminal.jpg"><img src="../graph/terminal.jpg"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">真正意义上的<span><span class="heti-spacing"> </span>Terminal</span></p>
+<p class="nt-card-text">在计算机发展的早期阶段，还没有像现在的<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>这样的图形用户界面。那时人们使用终端与计算机交互。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/win_and_pwsh.png"><img src="../graph/win_and_pwsh.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title"><span>Terminal<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Shell<span class="heti-spacing"> </span></span>的例子</p>
+<p class="nt-card-text">这张图展示了<span class="heti-skip"><span class="heti-spacing"> </span>Windows Terminal<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>Powershell</span>。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/you_and_shell.png"><img src="../graph/you_and_shell.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title"><span>Terminal<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Shell<span class="heti-spacing"> </span></span>的关系</p>
+<p class="nt-card-text">可以将<span class="heti-skip"><span class="heti-spacing"> </span>Terminal<span class="heti-spacing"> </span></span>理解成显示器，将<span class="heti-skip"><span class="heti-spacing"> </span>Shell<span class="heti-spacing"> </span></span>理解成电脑主机。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<div class="admonition tip">
+<p class="admonition-title">杂谈：为什么要使用命令行交互界面呢？</p>
+<p>很简单，因为我们不仅是在使用计算机，而且是在<strong>学习计算机</strong>。<span>GUI<span class="heti-spacing"> </span></span>自然是最适合与人交互的，但它也是由<span class="heti-skip"><span class="heti-spacing"> </span>CLI<span class="heti-spacing"> </span></span>搭建起来的。比如，你可能在使用<span class="heti-skip"><span class="heti-spacing"> </span>Dev-C++<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>Visual Studio<span class="heti-spacing"> </span></span>等<span class="heti-skip"><span class="heti-spacing"> </span>IDE<span class="heti-spacing"> </span></span>进行编程，只需要点一下按钮就能自动完成程序编译步骤。这固然方便，但是它本质上是帮你写好并执行了一系列编译命令，帮你完成了命令行的操作。<strong>当你开始构建大型项目时，这当然是最适合的方法。但作为初学者，我们应当趁此机会了解其背后的原理。</strong></p>
+<p>总之：如果要<strong>学习</strong>计算机，那么就需要学习使用命令与计算机交互，这样才能更好地理解计算机是如何工作的。此外，命令行交互界面也有许多有点，比如：</p>
+<ul>
+<li>速度快：在命令行中，你可以快速地输入命令，而不需要使用鼠标点击菜单。</li>
+<li>可编程：你可以编写脚本，让计算机自动执行一系列命令。</li>
+<li>可远程：你可以通过网络连接到远程计算机，使用命令行与其交互。</li>
+</ul>
+<p>最主要的是，你今后会用到的很多工具不一定会提供图形界面，但一定会提供命令行界面。学习<span class="heti-skip"><span class="heti-spacing"> </span>CLI<span class="heti-spacing"> </span></span>一开始确实有些难度，但只要学了，就会受益无穷。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="_2">运行与终端<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>上如何打开<span class="heti-skip"><span class="heti-spacing"> </span>Terminal<span class="heti-spacing"> </span></span>呢？</p>
+<!-- prettier-ignore-start -->
+<div class="nt-cards nt-grid cols-2">
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/WinR.png"><img src="../graph/WinR.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">运行窗口</p>
+<p class="nt-card-text">使用<span class="keys"><kbd class="key-windows"><span class="heti-skip"><span class="heti-spacing"> </span>Win<span class="heti-spacing"> </span></span></kbd><span><span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span></span><kbd class="key-r"><span class="heti-skip"><span class="heti-spacing"> </span>R<span class="heti-spacing"> </span></span></kbd></span>组合键，将会出现图中的窗口。可以在其中输入命令运行，即使是<span class="heti-skip"><span class="heti-spacing"> </span>Windows XP<span class="heti-spacing"> </span></span>都可以使用。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/cmd.png"><img src="../graph/cmd.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">命令提示符<span><span class="heti-spacing"> </span>CMD</span></p>
+<p class="nt-card-text">在运行窗口中输入 <code>cmd</code> 后回车，就会出现<strong>命令提示符</strong>。命令提示符是<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>最基本的<span><span class="heti-spacing"> </span>Shell</span>（与<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>bash<span class="heti-spacing"> </span></span>同等地位<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，但是功能及其有限，一般不用。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/pwsh.jpeg"><img src="../graph/pwsh.jpeg"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">Powershell</p>
+<p class="nt-card-text"><span>Powershell<span class="heti-spacing"> </span></span>简称 <code>pwsh</code>，是<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>的新一代命令解释器。它的功能强大，但语法和我们将要学习且最常用的<span class="heti-skip"><span class="heti-spacing"> </span>Linux Shell<span class="heti-spacing"> </span></span>大不相同。我们在<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>上经常使用 <code>pwsh</code>，但不用花时间去学习它。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/windows_terminal.png"><img src="../graph/windows_terminal.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">Windows Terminal</p>
+<p class="nt-card-text">这是<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>上最好的<span><span class="heti-spacing"> </span>Terminal</span>，对各种<span class="heti-skip"><span class="heti-spacing"> </span>Shell<span class="heti-spacing"> </span></span>的显示效果都支持的很好。在<span class="heti-skip"><span class="heti-spacing"> </span>Microsoft Store<span class="heti-spacing"> </span></span>中搜索<span><span class="heti-spacing"> </span>Terminal</span>，出现图中的选项，然后选择安装即可。它对应于<span class="heti-skip"><span class="heti-spacing"> </span>macOS<span class="heti-spacing"> </span></span>上的<span><span class="heti-spacing"> </span>iTerm</span>。今后学习 <code>ssh</code> 时，你还可能会接触到<span><span class="heti-spacing"> </span>Termius</span>。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- prettier-ignore-end -->
+<p>在比较新版本的<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>中，<span>Win<span class="heti-spacing"> </span></span>键打开菜单之后输入字符能够搜索到对应程序，除了常用的应用程序以外，启动 <code>cmd.exe</code> 也可以这样进行，效果和<span class="heti-skip"><span class="heti-spacing"> </span>Win + R<span class="heti-spacing"> </span></span>相同。</p>
+<h3 id="wsl"><span>WSL<span class="heti-spacing"> </span></span>安装简单引导（可选）<a class="headerlink" href="#wsl" title="Permanent link">¶</a></h3>
+<blockquote>
+<p>推荐装一装，如果主力机是<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>在以后将对<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>有较大需求</p>
+</blockquote>
+<p>WSL，全称<span><span class="heti-spacing"> </span>Windows Subsystem for Linux</span>（适用于<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>子系统<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，是一项允许开发者不依靠单独的虚拟机或双启动<span class="heti-skip"><span class="heti-spacing"> </span>(dual booting)<span class="heti-spacing"> </span></span>而在<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>上运行<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>环境的功能。</p>
+<h4 id="ubuntu">安装：以<span class="heti-skip"><span class="heti-spacing"> </span>Ubuntu<span class="heti-spacing"> </span></span>为例<a class="headerlink" href="#ubuntu" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>在这里以在<span class="heti-skip"><span class="heti-spacing"> </span>Windows11<span class="heti-spacing"> </span></span>上安装<span class="heti-skip"><span class="heti-spacing"> </span>WSL2 Ubuntu<span class="heti-spacing"> </span></span>为例介绍最简单的安装流程，详细的信息可以参考<a href="https://learn.microsoft.com/en-us/windows/wsl/install">官方文档<span class="heti-skip"><span class="heti-spacing"> </span>Install Linux on Windows with WSL<span class="heti-spacing"> </span></span></a>或者它的<a href="https://learn.microsoft.com/zh-cn/windows/wsl/install">中文版</a>。</p>
+<blockquote>
+<p><span>Ubuntu<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>的一种发行版本，在这里就不对<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>的众多发行版本进行介绍和评价了。有能力和想法的同学可以自己对照教程安装其他发行版，比如在终端输入 <code>wsl --list --online</code> 可以看到所有可以选择的<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>发行版</p>
+</blockquote>
+<p>注意安装<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>的先决条件：<span>Windows<span class="heti-spacing"> </span></span>版本<strong>不低于</strong> Windows 10 20H2（Build 19042）或者<span><span class="heti-spacing"> </span>Windows 11</span>。如果版本太老，请更新到最新版本，如果无法更新可以考虑重装系统。</p>
+<div class="admonition info">
+<p class="admonition-title">可以使用 <code>winver</code> 命令查询<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>版本，<span>Win + R<span class="heti-spacing"> </span></span>输入 <code>winver</code> 或者在<span class="heti-skip"><span class="heti-spacing"> </span>Win<span class="heti-spacing"> </span></span>键出现的菜单栏中直接输入 <code>winver</code> 都可以启动。新买的电脑可能<span class="heti-skip"><span class="heti-spacing"> </span>Windows 11<span class="heti-spacing"> </span></span>居多，如果是<span class="heti-skip"><span class="heti-spacing"> </span>Windows 10<span class="heti-spacing"> </span></span>的电脑版本显示可能是<span><span class="heti-spacing"> </span>21H2</span>（操作系统内部版本<span><span class="heti-spacing"> </span>19044.3086</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，这样也是符合先决条件的。</p>
+</div>
+<p>在<span><span class="heti-spacing"> </span>Powershell</span>（管理员）中直接使用如下命令自动安装（注意，每一行命令分别执行，不要多行粘贴执行<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">dism</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">online</span> <span class="p">/</span><span class="nb">enable-feature</span> <span class="p">/</span><span class="n">featurename</span><span class="p">:</span><span class="n">Microsoft-Windows-Subsystem-Linux</span> <span class="p">/</span><span class="n">all</span> <span class="p">/</span><span class="n">norestart</span>
+<span class="n">dism</span><span class="p">.</span><span class="n">exe</span> <span class="p">/</span><span class="n">online</span> <span class="p">/</span><span class="nb">enable-feature</span> <span class="p">/</span><span class="n">featurename</span><span class="p">:</span><span class="n">VirtualMachinePlatform</span> <span class="p">/</span><span class="n">all</span> <span class="p">/</span><span class="n">norestart</span>
+<span class="n">wsl</span> <span class="p">-</span><span class="n">-install</span>
+</code></pre></div></td></tr></table></div>
+<p>中途可能会弹出两个窗口，显示正在修改什么东西，统统选择“是”。安装完成后，将出现如下界面</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/wsl_ubuntu_set.png"><img alt="wsl_ubuntu_set" src="../graph/wsl_ubuntu_set.png"/></a></p>
+<ul>
+<li>设置一个用户名，建议全英文无空格<ul>
+<li>若有空格，将会只取第一个空格前面的内容作为你的用户名</li>
+</ul>
+</li>
+<li>输入密码，注意你输入的字符不会在屏幕上显示，需要盲打<ul>
+<li>如果打了乱七八糟的字符不要慌，确认密码时故意打错会重新让你设置密码</li>
+<li>确认密码与输入密码一致才会设置成功</li>
+</ul>
+</li>
+</ul>
+<p>这样就完成了<span class="heti-skip"><span class="heti-spacing"> </span>WSL2 Ubuntu<span class="heti-spacing"> </span></span>的安装。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition failure">
+<p class="admonition-title">错误：0x80370114</p>
+<ul>
+<li>首先检查自己是否为<span class="heti-skip"><span class="heti-spacing"> </span>Windows 10<span class="heti-spacing"> </span></span>或者<span class="heti-skip"><span class="heti-spacing"> </span>Windows 11<span class="heti-spacing"> </span></span>家庭版。这两个版本可能缺失<span class="heti-skip"><span class="heti-spacing"> </span>Hyper-V<span class="heti-spacing"> </span></span>服务（<span>WSL<span class="heti-spacing"> </span></span>背后的虚拟化支持技术<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。请按照<a href="https://zhuanlan.zhihu.com/p/558063980">知乎：如何在<span class="heti-skip"><span class="heti-spacing"> </span>Windows 11 Home<span class="heti-spacing"> </span></span>中启用<span class="heti-skip"><span class="heti-spacing"> </span>Hyper-V<span class="heti-spacing"> </span></span></a>这篇文章的方法启用<span><span class="heti-spacing"> </span>Hyper-V</span>。</li>
+<li>如果仍无法解决，再按照<a href="https://zhuanlan.zhihu.com/p/361310073">知乎：<span>win10<span class="heti-spacing"> </span></span>使用<span class="heti-skip"><span class="heti-spacing"> </span>wsl2<span class="heti-spacing"> </span></span>安装<span class="heti-skip"><span class="heti-spacing"> </span>ubuntu<span class="heti-spacing"> </span></span>遇到<span class="heti-skip"><span class="heti-spacing"> </span>0x80370114<span class="heti-spacing"> </span></span>问题的解决方法</a>这篇文章重新启动虚拟机平台。</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+<p>使用终端的一大好处是方便打开<span><span class="heti-spacing"> </span>WSL</span>。如下图所示，点击<span class="heti-skip"><span class="heti-spacing"> </span>Ubuntu 22.04.2 LTS<span class="heti-spacing"> </span></span>或者使用<span class="heti-skip"><span class="heti-spacing"> </span>Ctrl + Shift + 5<span class="heti-spacing"> </span></span>组合键就可以方便地打开<span><span class="heti-spacing"> </span>Ubuntu 22.04</span>。当然这是因为我安装的是 <code>Ubuntu 22.04</code> 的缘故，在你们的电脑中显示的应该就是 <code>Ubuntu</code>。</p>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/wsl_terminal.png"><img alt="wsl_terminal" src="../graph/wsl_terminal.png" style="margin: 0 auto; zoom: 80%;"/></a>
+</div>
+<p>其他<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>的使用方法留待你们慢慢探索了，在此不再赘述。</p>
+<h2 id="c">安装<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编译器<a class="headerlink" href="#c" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<div class="admonition info">
+<p class="admonition-title">如果已经安装好<span><span class="heti-spacing"> </span>WSL</span>，那么可以跳过本节，因为基本上不需要在<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>上再安装编译环境了。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">本篇相对比较复杂，如果在本篇配置遇到难以解决的困难，而作业<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>实验截止日期快要到了，可以跳过本篇安装<span class="heti-skip"><span class="heti-spacing"> </span>Dev-C++<span class="heti-spacing"> </span></span>进行临时开发。</p>
+</div>
+<p>写完了<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言代码，我们需要让它变成能跑的程序，这就需要准备<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的编译器支持。以下主要介绍<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>系统的配置。</p>
+<h3 id="gcc">就决定是你了，gcc！<a class="headerlink" href="#gcc" title="Permanent link">¶</a></h3>
+<blockquote>
+<p>自由软件<span><span class="heti-spacing"> </span>(free software)</span>，根据自由软件基金会对其的定义，是一类可以不受限制地自由使用、复制、研究、修改和分发的，尊重用户自由的软件。——维基百科</p>
+</blockquote>
+<p>gcc，全称<span><span class="heti-spacing"> </span>GNU Compiler Collection</span>，著名的自由软件，被许多现代类<span class="heti-skip"><span class="heti-spacing"> </span>Unix<span class="heti-spacing"> </span></span>操作系统采用为标准编译器，但是<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>上并不直接支持。我们想要在<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>系统上使用，一般得依赖<span class="heti-skip"><span class="heti-spacing"> </span>MinGW<span class="heti-spacing"> </span></span>的<span><span class="heti-spacing"> </span>gcc</span>，<span>tdm-gcc<span class="heti-spacing"> </span></span>也是基于<span class="heti-skip"><span class="heti-spacing"> </span>MinGW<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>gcc<span class="heti-spacing"> </span></span>来的。</p>
+<div class="admonition info">
+<p class="admonition-title">有能力的同学推荐在<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>上开启<span><span class="heti-spacing"> </span>WSL</span>，使用<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>进行<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言开发。<span>WSL<span class="heti-spacing"> </span></span>可以理解为在<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>的电脑中模拟一个<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>的小系统，从而能方便地控制环境。</p>
+</div>
+<h3 id="windows-tdm-gcc"><span>Windows<span class="heti-spacing"> </span></span>小白教程之<span><span class="heti-spacing"> </span>tdm-gcc</span><a class="headerlink" href="#windows-tdm-gcc" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<blockquote>
+<p>前面选择了<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>的同学可以自行配置，然后再看<a href="#gcc_1">第<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>节</a>。<span>Mac<span class="heti-spacing"> </span></span>用户可以直接看<a href="#gcc_1">第<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>节</a>。</p>
+</blockquote>
+<p>可以按照老师的视频教程下载<a href="https://jmeubank.github.io/tdm-gcc/download/"><span><span class="heti-spacing"> </span>tdm-gcc</span></a>，目前最新版为<span><span class="heti-spacing"> </span>gcc 10.3.0</span>。</p>
+<p>需要判断自己的<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统还是<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位系统（现在一般都是<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Windows 11</label><label for="__tabbed_1_2">Windows 10</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>点击<span class="heti-skip"><span class="heti-spacing"> </span>Win<span class="heti-spacing"> </span></span>键，输入“关于”，如下图所示。打开“关于你的电脑”后就可以看到电脑是不是<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位了，新电脑一般都是<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位。</p>
+<p></p><div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/win11_about.png"><img alt="win11_about" src="../graph/win11_about.png" style="margin: 0 auto; zoom: 60%;"/></a>
+</div>
+</div>
+<div class="tabbed-block">
+<p>桌面找到“此电脑”，右键属性</p>
+<p></p><div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/pc_right_attr.png"><img alt="pc_right_attr" src="../graph/pc_right_attr.png" style="margin: 0 auto; zoom: 80%;"/></a>
+</div>
+<p>可以看到是<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统还是<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位系统。</p>
+<p></p><div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/win10_x64.png"><img alt="win10_x64" src="../graph/win10_x64.png" style="margin: 0 auto; zoom: 60%;"/></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- prettier-ignore-end -->
+<p><span>64<span class="heti-spacing"> </span></span>位系统直接下载<span class="heti-skip"><span class="heti-spacing"> </span>tdm64-gcc-10.3.0-2.exe<span class="heti-spacing"> </span></span>安装即可，<span>32<span class="heti-spacing"> </span></span>位则选择<span><span class="heti-spacing"> </span>tdm-gcc-10.3.0.exe</span>。</p>
+<p>准备安装。对于零基础的同学，电脑里应该还没装过<span><span class="heti-spacing"> </span>tdm-gcc</span>，选择<span class="heti-skip"><span class="heti-spacing"> </span>create<span class="heti-spacing"> </span></span>即可。</p>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/tdmgcc_create.png"><img alt="tdmgcc_create" src="../graph/tdmgcc_create.png" style="margin: 0 auto; zoom: 40%;"/></a>
+</div>
+<p>接下来就是根据<span class="heti-skip"><span class="heti-spacing"> </span>64/32<span class="heti-spacing"> </span></span>位系统选择对应的版本</p>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/tdm32_or_64.png"><img alt="tdm32_or_64" src="../graph/tdm32_or_64.png" style="margin: 0 auto; zoom: 40%;"/></a>
+</div>
+<p>选择安装路径，推荐零基础同学选择默认路径（如<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位的 <code>C:\TDM-GCC-64</code>）</p>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/tdmgcc_path.png"><img alt="tdmgcc_path" src="../graph/tdmgcc_path.png" style="margin: 0 auto; zoom: 40%;"/></a>
+</div>
+<p>接下来是要认真考虑的页面。</p>
+<ul>
+<li>可选的安装项<ul>
+<li>可以全选。如果确定不需要一些东西可以不选，比如确定自己不会再需要调试<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位程序的话可以不选<span><span class="heti-spacing"> </span>gdb32</span>。</li>
+</ul>
+</li>
+<li>Start Menu items<ul>
+<li>看个人意愿，可以不选</li>
+</ul>
+</li>
+<li>Add to PATH<ul>
+<li><strong>建议选上</strong>。如果不选或者忘选了，将会需要自己配置<span class="heti-skip"><span class="heti-spacing"> </span>tdm-gcc<span class="heti-spacing"> </span></span>的环境变量路径。</li>
+</ul>
+</li>
+</ul>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/tdmgcc_install_items.png"><img alt="tdmgcc_install_items" src="../graph/tdmgcc_install_items.png" style="margin: 0 auto; zoom: 40%;"/></a>
+</div>
+<blockquote>
+<p>如果希望用更新版本的<span class="heti-skip"><span class="heti-spacing"> </span>gcc<span class="heti-spacing"> </span></span>可以使用<a href="https://winlibs.com/"><span class="heti-skip"><span class="heti-spacing"> </span>winlibs<span class="heti-spacing"> </span></span>编译的<span><span class="heti-spacing"> </span>mingw-gcc</span></a>，或者你可以自己选择。</p>
+</blockquote>
+<h3 id="gcc_1">测试<span class="heti-skip"><span class="heti-spacing"> </span>gcc<span class="heti-spacing"> </span></span>是否正确安装<a class="headerlink" href="#gcc_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Windows</label><label for="__tabbed_2_2">WSL</label><label for="__tabbed_2_3">macOS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>在命令提示符<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>终端中输入 <code>gcc</code>，应当出现如下信息：
+</p><div class="highlight"><pre><span></span><code>gcc: fatal error: no input files
+compilation terminated.
+</code></pre></div>
+<p>如果没有，可能是你还没有安装<span><span class="heti-spacing"> </span>gcc</span>，或者你前一步 <code>Add to PATH</code> 没有正常进行，可能需要参照<a href="#windows"><span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>修改环境变量</a>进行环境变量的检查。</p>
+<p>命令提示符<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>终端中输入 <code>gcc --version</code>，应当出现类似如下的信息。
+</p><div class="highlight"><pre><span></span><code>gcc.exe (tdm64-1) 9.2.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</code></pre></div>
+<p>我的版本显示是 <code>9.2.0</code>，是因为装了旧版本的<span><span class="heti-spacing"> </span>tdm-gcc</span>，你们的显示将会是 <code>10.3.0</code>。</p>
+</div>
+<div class="tabbed-block">
+<p>如下命令安装 <code>gcc</code>。如果错误，尝试 <code>sudo apt-get update</code> 后再重新执行下面的命令。
+</p><div class="highlight"><pre><span></span><code>sudo apt install gcc
+</code></pre></div>
+<p>终端中输入 <code>gcc</code>，应当出现如下信息：
+</p><div class="highlight"><pre><span></span><code>gcc: fatal error: no input files
+compilation terminated.
+</code></pre></div>
+<p>终端中输入 <code>gcc --version</code>，可能会出现类似如下的信息：
+</p><div class="highlight"><pre><span></span><code>gcc (Ubuntu 11.2.0-19ubuntu1) 11.2.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><span>Mac<span class="heti-spacing"> </span></span>用户直接使用 <code>gcc -v</code> （或者 <code>xcode-select --install</code>）会提示你安装开发者工具，然后就会自动安装<span class="heti-skip"><span class="heti-spacing"> </span>XCode<span class="heti-spacing"> </span></span>在内的一系列开发支持，最后告诉你你安装的<span class="heti-skip"><span class="heti-spacing"> </span>gcc<span class="heti-spacing"> </span></span>其实是<span><span class="heti-spacing"> </span>clang</span>，本质上是它将<span class="heti-skip"><span class="heti-spacing"> </span>gcc<span class="heti-spacing"> </span></span>作为<span class="heti-skip"><span class="heti-spacing"> </span>clang<span class="heti-spacing"> </span></span>的别名<span class="heti-skip"><span class="heti-spacing"> </span>(alias)<span class="heti-spacing"> </span></span>了。</p>
+<p>成功安装后，终端输入<span class="heti-skip"><span class="heti-spacing"> </span>gcc<span class="heti-spacing"> </span></span>会出现如下信息：
+</p><div class="highlight"><pre><span></span><code>clang: error: no input files
+</code></pre></div>
+<p>使用 <code>gcc --version</code> 可能出现以下信息：
+</p><div class="highlight"><pre><span></span><code>Apple clang version 14.0.3 (clang-1403.0.22.14.1)
+Target: x86_64-apple-darwin22.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+</code></pre></div>
+<p><span>gcc<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>clang<span class="heti-spacing"> </span></span>都是<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编译器，只是特性上存在差异。在作业和实验中，一个好的遵从标准的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>代码，由不同的编译器编译后不应当产生不同的运行结果。因此如果你使用<span class="heti-skip"><span class="heti-spacing"> </span>clang<span class="heti-spacing"> </span></span>编译<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>代码运行不符合预期，代码出问题的概率比<span class="heti-skip"><span class="heti-spacing"> </span>clang<span class="heti-spacing"> </span></span>特性出问题的概率大很多。</p>
+</div>
+</div>
+</div>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="windows"><span>Windows<span class="heti-spacing"> </span></span>修改环境变量<a class="headerlink" href="#windows" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<blockquote>
+<p><span>Windows<span class="heti-spacing"> </span></span>用户环境变量配置出现问题了才需要看这一小节</p>
+</blockquote>
+<p>检查一下环境变量，<span>Win + R<span class="heti-spacing"> </span></span>键输入 <code>sysdm.cpl</code> 后回车，会出现 “系统属性” 界面，选择 “高级”，如下图所示：</p>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/env_var.png"><img alt="env_var" src="../graph/env_var.png" style="margin: 0 auto; zoom: 80%;"/></a>
+</div>
+<p>打开环境变量，在 “系统变量” 或者 “用户变量” 中找到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>变量，在其中增加一项<span class="heti-skip"><span class="heti-spacing"> </span>tdm-gcc<span class="heti-spacing"> </span></span>的路径。例如你如果默认安装<span><span class="heti-spacing"> </span>tdm-gcc</span>，那么路径可能就是 <code>C:\TDM-GCC-64\bin</code>。</p>
+<h2 id="vscode"><span>VSCode<span class="heti-spacing"> </span></span>安装与配置<a class="headerlink" href="#vscode" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<blockquote>
+<p><span>VSCode<span class="heti-spacing"> </span></span>的全称是<span><span class="heti-spacing"> </span>Visual Studio Code</span>，注意它和<span class="heti-skip"><span class="heti-spacing"> </span>Visual Studio<span class="heti-spacing"> </span></span>完全是两个东西</p>
+</blockquote>
+<div class="admonition warning">
+<p class="admonition-title"><strong>不建议</strong>安装<span><span class="heti-spacing"> </span>Visual Studio</span>，除非你清楚你安装它是为了什么</p>
+</div>
+<p>在这里仅介绍<span class="heti-skip"><span class="heti-spacing"> </span>Visual Studio Code<span class="heti-spacing"> </span></span>的安装。除了老师的视频之外，大家安装配置时还可以参考<a href="https://blog.gztime.cc/posts/2020/6b9b4626/"><span class="heti-skip"><span class="heti-spacing"> </span>GZTime<span class="heti-spacing"> </span></span>的教程</a>，对于初学者来说还不错。</p>
+<h3 id="_3">安装<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>VSCode<span class="heti-spacing"> </span></span>直接从<a href="https://code.visualstudio.com/">官网</a>选择自己平台对应的安装包下载就行</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Windows</label><label for="__tabbed_3_2">Mac</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><span>Windows<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>exe<span class="heti-spacing"> </span></span>安装可以全选默认选项一路<span><span class="heti-spacing"> </span>Next</span>，比较熟悉的同学可以自定义选项：</p>
+<ul>
+<li>安装目录<ul>
+<li>推荐默认<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>盘，可能运行速度更快，也可以避免一些权限问题</li>
+</ul>
+</li>
+<li>将 “通过<span class="heti-skip"><span class="heti-spacing"> </span>Code<span class="heti-spacing"> </span></span>打开” 操作添加到<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>资源管理器文件<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>目录上下文菜单<ul>
+<li>选中该项后，选中文件或者文件夹，右键菜单中会出现 <code>通过 Code 打开</code> 的选项</li>
+<li>如果希望右键菜单不那么臃肿的话可以不选这一项</li>
+<li>本人没有选择该选项，可以自行思考选择</li>
+</ul>
+</li>
+<li>将<span class="heti-skip"><span class="heti-spacing"> </span>Code<span class="heti-spacing"> </span></span>注册为受支持的文件类型的编辑器（推荐）<ul>
+<li>打开受支持的文件类型时，<span>VSCode<span class="heti-spacing"> </span></span>将会成为可选项</li>
+</ul>
+</li>
+<li>添加到<span><span class="heti-spacing"> </span>PATH</span>（推荐）<ul>
+<li>在命令行窗口<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>终端可以用 <code>code</code> 命令打开<span><span class="heti-spacing"> </span>VSCode</span></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p><span>Mac<span class="heti-spacing"> </span></span>的包下载下来之后拖入 <code>Application</code> 文件夹可以直接运行</p>
+<ul>
+<li>添加到<span><span class="heti-spacing"> </span>PATH</span>：如果需要在命令行窗口<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>终端用 <code>code</code> 命令打开<span><span class="heti-spacing"> </span>VSCode</span>，那么需要如下操作<ul>
+<li>打开<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>界面</li>
+<li>使用<span class="heti-skip"><span class="heti-spacing"> </span>Shift + Command + P<span class="heti-spacing"> </span></span>打开命令面板</li>
+<li>输入 <code>shell command</code>，选择 <code>Shell Command: Install ‘code’ command in PATH</code> 回车执行</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="_4">插件安装<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>打开<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>后，在左侧竖栏寻找下面这个图标：</p>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/plugin.png"><img alt="plugin" src="../graph/plugin.png" style="margin: 0 auto; zoom: 80%;"/></a>
+</div>
+<p>点击这个图标就进入了插件管理。建议可以安装下面两个插件：</p>
+<ul>
+<li><span>C/C++:<span class="heti-spacing"> </span></span>微软自家的插件，可用于<strong>语法识别、代码高亮</strong></li>
+</ul>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/plugin_ccpp.png"><img alt="plugin_ccpp" src="../graph/plugin_ccpp.png" style="margin: 0 auto; zoom: 80%;"/></a>
+</div>
+<ul>
+<li><span>Chinese(Simplified):<span class="heti-spacing"> </span></span>界面汉化插件（可选）</li>
+</ul>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/plugin_chinese.png"><img alt="plugin_chinese" src="../graph/plugin_chinese.png" style="margin: 0 auto; zoom: 80%;"/></a>
+</div>
+<p>安装汉化插件后可能需要你手动切换显示语言。Ctrl + Shift + P，出现的搜索框中输入<span><span class="heti-spacing"> </span>Configure</span>，选择<span><span class="heti-spacing"> </span>Configure Display Language</span>。</p>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/config_language.png"><img alt="config_language" src="../graph/config_language.png" style="margin: 0 auto; zoom: 50%;"/></a>
+</div>
+<p>随后再选择“中文<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>简体<span><span class="heti-spacing"> </span>)</span>”就可以完成界面汉化了。</p>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/chinese_english.png"><img alt="chinese_english" src="../graph/chinese_english.png" style="margin: 0 auto; zoom: 50%;"/></a>
+</div>
+<blockquote>
+<p>英语基础不太好的同学有困难可以使用，英语基础比较好以及想要在日常实践中学习英语的同学建议跳过这一步。</p>
+</blockquote>
+<div class="admonition info">
+<p class="admonition-title">这里只提供最基本的插件和使用示例，复杂的配置与使用大家可以参考<a href="https://blog.gztime.cc/posts/2020/6b9b4626/"><span class="heti-skip"><span class="heti-spacing"> </span>GZTime<span class="heti-spacing"> </span></span>的教程</a></p>
+</div>
+<h3 id="vscode_1"><span>VSCode<span class="heti-spacing"> </span></span>使用的一个简单示例<a class="headerlink" href="#vscode_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>这里为想要尽快上手的同学提供一个简单的使用示例。打开<span><span class="heti-spacing"> </span>VSCode</span>（打开时没有指定工作目录<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，将会出现如下的窗口：</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/vscode_initUI.png"><img alt="vscode_initUI" src="../graph/vscode_initUI.png"/></a></p>
+<blockquote>
+<p>工作目录，指某个专门存放你用于某个目的的文件的文件夹。例如你可能会建立一个文件夹，专门存放所有与第一次作业相关的代码、文档、配置文件等，在你为完成第一次作业而工作时，这个文件夹就是你的工作目录</p>
+</blockquote>
+<p>点击左侧的 <code>Open Folder</code>，选择一个目录作为你的工作目录，一般会把你这个窗口所要处理的所有文件放置在这里。顶栏<span><span class="heti-spacing"> </span>Terminal &gt; New Terminal</span>（或终端<span class="heti-skip"><span class="heti-spacing"> </span>&gt;<span class="heti-spacing"> </span></span>新建终端）打开<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>的内部终端，功能大致与命令提示符<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>终端相同。</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/vscode_newterminal.png"><img alt="vscode_newterminal" src="../graph/vscode_newterminal.png"/></a></p>
+<p>下图就是打开了工作目录并新建了终端的界面状态。</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/vscode_workdir_terminal.png"><img alt="vscode_workdir_terminal" src="../graph/vscode_workdir_terminal.png"/></a></p>
+<p>鼠标移动到工作区，按 <code>New File</code> 键可以新建文件，旁边有新建文件夹按键。当然，直接在左侧工作目录右键也可以新建文件<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>文件夹。</p>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/newfile.png"><img alt="newfile" src="../graph/newfile.png" style="margin: 0 auto; zoom: 60%;"/></a>
+</div>
+<p>创建 <code>test.c</code>，输入<span class="heti-skip"><span class="heti-spacing"> </span>Hello World<span class="heti-spacing"> </span></span>的代码并<strong>保存文件</strong>。然后在终端输入以下命令并执行：
+</p><div class="highlight"><pre><span></span><code>gcc test.c
+</code></pre></div>
+<p>在不同的系统将会生成不同的编译产物。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Windows</label><label for="__tabbed_4_2">WSL/macOS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>将会在和 <code>test.c</code> 同目录下生成 <code>a.exe</code>，随后在终端输入以下命令进行执行
+</p><div class="highlight"><pre><span></span><code>./a.exe
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>将会在和 <code>test.c</code> 同目录下生成 <code>a.out</code>，随后在终端输入以下命令进行执行
+</p><div class="highlight"><pre><span></span><code>./a.out
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>以下展示在<span class="heti-skip"><span class="heti-spacing"> </span>macOS<span class="heti-spacing"> </span></span>上的执行结果：</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/vscode_gccout_mac.png"><img alt="vscode_gccout_mac" src="../graph/vscode_gccout_mac.png"/></a></p>
+<p>这里有几个注意点：</p>
+<ul>
+<li>记得保存文件后再<span class="heti-skip"><span class="heti-spacing"> </span>gcc<span class="heti-spacing"> </span></span>编译，可以考虑开启自动保存<ul>
+<li>如下图所示，找到左下角的齿轮点击后选择<span class="heti-skip"><span class="heti-spacing"> </span>Setting<span class="heti-spacing"> </span></span>或者设置，出现的设置页面中搜索 <code>auto</code> 可以找到如图所示的 <code>Auto Save</code> 设置项，设置为<span class="heti-skip"><span class="heti-spacing"> </span>afterDelay<span class="heti-spacing"> </span></span>即可</li>
+<li><span>afterDelay<span class="heti-spacing"> </span></span>是对文件做出修改就实时保存，如果嫌保存频率过高可以选择<span class="heti-skip"><span class="heti-spacing"> </span>onFocusChange<span class="heti-spacing"> </span></span>或者<span><span class="heti-spacing"> </span>onWindowsChange</span></li>
+<li>我本人使用的是<span><span class="heti-spacing"> </span>onFocusChange</span>，这样移动到终端准备编译运行时源代码文件就会自动保存，既自动保存又不会保存太频繁</li>
+</ul>
+</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/vscode_autosave.png"><img alt="vscode_autosave" src="../graph/vscode_autosave.png"/></a></p>
+<ul>
+<li>建议工作目录和文件名全英文，给出以下几个<strong>反面案例</strong>：<ul>
+<li>文件名 <code>作业.c</code></li>
+<li>工作目录 <code>编程</code></li>
+<li>工作目录叫 <code>Coding</code>，但是绝对路径是 <code>D:/学习资料/Coding</code></li>
+</ul>
+</li>
+<li>可以指定编译生成的文件名，比如你想要输出文件名为 <code>hello.exe</code>，就可以执行
+<div class="highlight"><pre><span></span><code>gcc test.c -o hello.exe
+</code></pre></div></li>
+<li>更多的<span class="heti-skip"><span class="heti-spacing"> </span>gcc<span class="heti-spacing"> </span></span>选项和<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>扩展功能留待你们探索</li>
+</ul>
+<h3 id="vscode-wsl">VSCode + WSL（可选）<a class="headerlink" href="#vscode-wsl" title="Permanent link">¶</a></h3>
+<blockquote>
+<p>前面选择安装了<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>的使用<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>主力机的同学可以参考一下，非常有用的功能</p>
+</blockquote>
+<p>以下引导主要按照<a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode"><span class="heti-skip"><span class="heti-spacing"> </span>Microsoft<span class="heti-spacing"> </span></span>的官方文档</a>，也可以参考其<a href="https://learn.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode">中文版</a>。</p>
+<h4 id="vscode-wsl_1">从<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>连接到<span><span class="heti-spacing"> </span>WSL</span><a class="headerlink" href="#vscode-wsl_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>安装<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>插件，如下图所示：</p>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/plugin_WSL.png"><img alt="plugin_WSL" src="../graph/plugin_WSL.png" style="margin: 0 auto; zoom: 80%;"/></a>
+</div>
+<p>或者你也可以像官方文档那样，直接安装整个<span class="heti-skip"><span class="heti-spacing"> </span>Remote Development<span class="heti-spacing"> </span></span>扩展包：</p>
+<div style="text-align:center;">
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/plugin_remote.png"><img alt="plugin_remote" src="../graph/plugin_remote.png" style="margin: 0 auto; zoom: 80%;"/></a>
+</div>
+<p>其中不仅有<span><span class="heti-spacing"> </span>WSL</span>，还包括另外三个非常有用的远程开发插件。</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/plugin_remote_detail.png"><img alt="plugin_remote_detail" src="../graph/plugin_remote_detail.png"/></a></p>
+<ul>
+<li>Ctrl + Shift + P，在出现的命令框中输入<span><span class="heti-spacing"> </span>WSL</span>，选择 <code>WSL: Connect to WSL in New Window</code>（或 <code>WSL: 在新窗口中连接到 WSL</code>）</li>
+<li>将打开一个新的<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>窗口，里面已经连接到默认的<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>环境</li>
+</ul>
+<blockquote>
+<p>如果需要在本窗口连接到<span><span class="heti-spacing"> </span>WSL</span>，或连接到非默认的<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>所安装的其他<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>发行版，可以选择其他<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>的命令</p>
+</blockquote>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/vscode_wsl_connected.png"><img alt="vscode_wsl_connected" src="../graph/vscode_wsl_connected.png"/></a></p>
+<p>注意上图左下角所显示的状态，表明已经连接到<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>所安装的<span><span class="heti-spacing"> </span>Ubuntu-22.04</span>，接下来的开发操作和<a href="#vscode_1">上一节</a>就区别不大了。</p>
+<h4 id="wsl-vscode">从<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>启动<span><span class="heti-spacing"> </span>VSCode</span><a class="headerlink" href="#wsl-vscode" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p><strong>确保你已经将<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>添加到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>环境变量中</strong>。如果已经添加，那么直接在<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>的命令行中你所希望作为工作目录的位置执行
+</p><div class="highlight"><pre><span></span><code>code .
+</code></pre></div>
+<p>就可以打开<span><span class="heti-spacing"> </span>VSCode</span>，连接到<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>并且打开该目录作为工作目录。<code>.</code> 在这里表示当前目录即 <code>pwd</code>，如果将它替换成其他目录的路径也是可以将其打开作为工作目录的。</p>
+<p>如果你还未将<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>添加到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>环境变量中，那该功能将无法使用，需要你手动添加<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>环境变量。例如你的<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>用户名是<span><span class="heti-spacing"> </span>ZTM</span>，并把<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>安装在默认目录，那么需要将 <code>C:\Users\ZTM\AppData\Local\Programs\Microsoft VS Code\bin</code> 加入到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>环境变量，参考<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>修改环境变量章节。</p>
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
