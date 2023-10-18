@@ -10,28 +10,18 @@
 
 该仓库已经设置了 GitHub Action，您的每次推送都会自动触发构建与部署，无需在本地执行 `mkdocs gh-deploy` 等操作。
 
-本网站基于 MkDocs Material 构建，额外使用的插件有：
-
-- [neoteroi.cards](https://www.neoteroi.dev/mkdocs-plugins/cards/)
-- [GLightbox](https://github.com/blueswen/mkdocs-glightbox)
-- [mkdocs-heti-plugin](https://github.com/TonyCrane/mkdocs-heti-plugin)
+本网站基于 MkDocs Material 构建，额外使用的插件见 `requirements.txt`。
 
 安装 MkDocs 及相关插件：
 
 ```bash
-pip install mkdocs mkdocs-material neoteroi-mkdocs mkdocs-glightbox mkdocs-heti-plugin
+pip install -r requirements.txt
 ```
 
 本地构建与查看：
 
 ```bash
 mkdocs serve
-```
-
-手动部署到 GitHub Pages：
-
-```bash
-mkdocs gh-deploy
 ```
 
 ## 贡献
