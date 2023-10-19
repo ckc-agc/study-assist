@@ -12,6 +12,34 @@ h5:before {content: unset;}
 
 ## October
 
+### 「20」 Bad for
+
+After executing the following code fragment, the output should be ______.
+
+```c
+unsigned int x , y; // 'int' occupies 4 bytes
+for (x = 2, y = 1; x = y; y++)
+    ;
+printf("%d", x-1);
+```
+
+<!-- prettier-ignore-start -->
+???+ note "Hint"
+
+    Review Oct.「18」 & 「16」 may help you get right answer.
+
+<!-- prettier-ignore-end -->
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    `-1`.
+
+    Notice that the condition of `for` is `x = y`, not `x == y`. So `for` loop will terminate until `y = 0`. You should consider [overflow](https://zh.cppreference.com/w/c/language/operator_arithmetic#Overflows) in `unsigned int` variable.
+
+    When we execute `++` for `unsigned int y` in `for` loop, we will get `0x111...1`($2^{32}-1$) as the max `unsigned int`, and then we will get `0x00...0` as `0` because of overflow. So `x` gets the value of `y(0)` and terminates `for`. In `printf`, `x-1` is `0x11...1`. When you use `%d` to print, it will be considered as a signed interger, so the answer is `-1`, not $2^{32}-1$.
+<!-- prettier-ignore-end -->
+
 ### 「19」 IsPrime?
 
 What's wrong with this code snippet?
