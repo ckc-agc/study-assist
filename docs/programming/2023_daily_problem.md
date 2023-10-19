@@ -8,10 +8,34 @@ h4:before {content: unset;}
 h5:before {content: unset;}
 </style>
 
-
 为了让同学们适应期末考试，每日一题的题面都将使用英文描述。
 
 ## October
+
+### 「19」 IsPrime?
+
+What's wrong with this code snippet?
+
+```c
+int d;
+scanf("%d", &d);
+
+// determine if d is a prime number
+for (int i = 2; i <= d; i++) {
+  if (d % i == 0) {
+    printf("%d is a composite\n", d);
+    exit(0);
+  }
+}
+printf("%d is a prime\n", d);
+```
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    Notice the *condition* of the `for` loop: `i <= d`, which means `i` will eventually be equal to `d`.
+    Therefore `d % i == 0` evaluates to 1, reporting composite for every input greater than 1.
+<!-- prettier-ignore-end -->
 
 ### 「18」 Bad if-else
 
@@ -40,6 +64,7 @@ printf("%d", y);
 
     Notice that the condition of `if` in line 5 is `x = 0`, not `x == 0`. The former means "0 is assigned to x", and then the if sentence won't be executed since it is equivalent to `if(0)`. Thus the value of `y` is its initial value, -2.
 <!-- prettier-ignore-end -->
+
 ### 「17」 Character
 
 Given: `char c = '@';`, the value of expression `'A' <= c <= 'Z'` is ______.
@@ -87,6 +112,3 @@ What will be the value of `sht` after the execution?
 
     Remember that `unsigned short` is an unsigned integer type, so it will not be negative. Instead, it will be the largest value of `unsigned short` type. The largest value of `unsigned short` type is `65535`, because `unsigned short` is 16-bit long.
 <!-- prettier-ignore-end -->
-
-
-
