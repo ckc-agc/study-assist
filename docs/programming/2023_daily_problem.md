@@ -12,6 +12,32 @@ h5:before {content: unset;}
 
 ## October
 
+### 「21」 Addition
+
+After executing the following code fragment, the output should be ______.
+
+```c
+double a = 0.1, b = 0.2;
+if (a + b == 0.3)
+    printf("Equal.\n");
+else
+    printf("Not equal.\n");
+```
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    `Not equal.`
+
+    In C (and many other programming languages), [floating-point](https://zh.wikipedia.org/wiki/%E6%B5%AE%E7%82%B9%E6%95%B0) arithmetic is not always exact due to the way numbers are represented in binary. This means that sometimes, tiny errors can be introduced and accumulated when performing mathematical operations on floating-point numbers.
+
+    In this case, when adding 0.1 and 0.2 together, the result is not precisely 0.3 due to these inaccuracies. Thus, directly comparing floating-point numbers with `==` can lead to unexpected results.
+    
+    To deal with such issues in real programs, check if the difference between two floating-point numbers is smaller than a tiny threshold.
+
+    For more information about floating-point numbers, search for [IEEE 754](https://zh.wikipedia.org/wiki/IEEE_754).
+<!-- prettier-ignore-end -->
+
 ### 「20」 Bad for
 
 After executing the following code fragment, the output should be ______.
