@@ -12,6 +12,31 @@ h5:before {content: unset;}
 
 ## October
 
+### 「22」 String Comparison
+
+What's wrong with this code snippet?
+
+```c
+char a[] = {"abcd"};
+char b[] = {"abcd"};
+char c[] = {"ABCD"};
+
+if(a > b) printf("[1] YES\n");
+else printf("[1] NO\n");
+if(a > c) printf("[2] YES\n");
+else printf("[2] NO\n");
+```
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    Actually, the output of this program is unpredictable.
+
+    1. To compare two strings, you should use `strcmp` function in `<string.h>` header file. Learn how to use the function by yourself.
+    2. In the code snippet above, `a`, `b` and `c` are all arrays of `char`, so `a > b` and `a > c` are actually comparing the addresses of these arrays. You may think that the array declared later has a larger address, but this is not always true. It depends on the design of the architecture that the stack grows towards higher memory addresses or towards lower memory addresses. So the output of this program is unpredictable. For more information on this, see [StackOverflow: Is the order of memory addresses of successively declared variables always descending?](https://stackoverflow.com/questions/12438216/is-the-order-of-memory-addresses-of-successively-declared-variables-always-desce)
+
+> 供题人：杨琳玥
+
 ### 「21」 Addition
 
 After executing the following code fragment, the output should be ______.

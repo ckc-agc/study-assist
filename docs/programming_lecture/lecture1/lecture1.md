@@ -467,7 +467,7 @@ void print_logarithm(double x)
 
 ## Lap：关于做题目
 
-如果想做题的话，有基础的同学可以早点开始做[历年卷](../../programming/exam/index.md)，了解一下程设考试都考些啥。
+如果想做题的话，有基础的同学可以早点开始做[历年卷](../../programming/index.md#历年卷)，了解一下程设考试都考些啥。
 
 简单提一些 Tips：
 
