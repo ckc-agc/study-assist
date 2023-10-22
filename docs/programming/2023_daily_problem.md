@@ -38,6 +38,8 @@ else
     For more information about floating-point numbers, search for [IEEE 754](https://zh.wikipedia.org/wiki/IEEE_754).
 <!-- prettier-ignore-end -->
 
+> 供题人：孙兆江
+
 ### 「20」 Bad for
 
 After executing the following code fragment, the output should be ______.
@@ -66,6 +68,8 @@ printf("%d", x-1);
     When we execute `++` for `unsigned int y` in `for` loop, we will get `0x111...1`($2^{32}-1$) as the max `unsigned int`, and then we will get `0x00...0` as `0` because of overflow. So `x` gets the value of `y(0)` and terminates `for`. In `printf`, `x-1` is `0x11...1`. When you use `%d` to print, it will be considered as a signed interger, so the answer is `-1`, not $2^{32}-1$.
 <!-- prettier-ignore-end -->
 
+> 供题人：胡育玮
+
 ### 「19」 IsPrime?
 
 What's wrong with this code snippet?
@@ -90,6 +94,8 @@ printf("%d is a prime\n", d);
     Notice the *condition* of the `for` loop: `i <= d`, which means `i` will eventually be equal to `d`.
     Therefore `d % i == 0` evaluates to 1, reporting composite for every input greater than 1.
 <!-- prettier-ignore-end -->
+
+> 供题人：李英琦
 
 ### 「18」 Bad if-else
 
@@ -119,6 +125,8 @@ printf("%d", y);
     Notice that the condition of `if` in line 5 is `x = 0`, not `x == 0`. The former means "0 is assigned to x", and then the if sentence won't be executed since it is equivalent to `if(0)`. Thus the value of `y` is its initial value, -2.
 <!-- prettier-ignore-end -->
 
+> 供题人：梅敏炫
+
 ### 「17」 Character
 
 Given: `char c = '@';`, the value of expression `'A' <= c <= 'Z'` is ______.
@@ -140,6 +148,8 @@ Given: `char c = '@';`, the value of expression `'A' <= c <= 'Z'` is ______.
 
     Upper case is prior to lower case. The difference between `'A'` and `'a'` is `32`. So if you want to convert a lowercase letter to uppercase, you can use `c - 32`. Or an easier way: `c - 'a' + 'A'`.
 <!-- prettier-ignore-end -->
+
+> 来自：C 大 13 年期末
 
 ### 「16」 Overflow
 
@@ -166,3 +176,5 @@ What will be the value of `sht` after the execution?
 
     Remember that `unsigned short` is an unsigned integer type, so it will not be negative. Instead, it will be the largest value of `unsigned short` type. The largest value of `unsigned short` type is `65535`, because `unsigned short` is 16-bit long.
 <!-- prettier-ignore-end -->
+
+> 来自：C 大 13 年期末
