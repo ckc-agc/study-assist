@@ -624,8 +624,8 @@
 <p>这里分模块汇总了程设辅学群中的常见问题及其解答。</p>
 <h2 id="_2">基本数据类型、运算符、表达式和语句<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <!-- prettier-ignore-start -->
-<div class="admonition question">
-<p class="admonition-title">有布尔类型吗？</p>
+<details class="question" open="open">
+<summary>有布尔类型吗？</summary>
 <p>布尔类型的历史：</p>
 <ul>
 <li>最早的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言规范中没有布尔类型。</li>
@@ -641,7 +641,21 @@
 <ul>
 <li>到 <code>bool</code> 的转换与到其他整数类型的转换不同： <code>(bool)0.5</code>求值为 <code>1</code> ，然而 <code>(int)0.5</code> 求值为 <code>​0</code>​。在给 <code>_Bool</code> 类型赋值时需要注意这一点。</li>
 </ul>
-</div>
+</details>
+<details class="question" open="open">
+<summary>浮点数是如何存储的？为什么它不精确？</summary>
+<p>下面的内容来自《计算机科学导论<heti-adjacent class="heti-adjacent-half">》</heti-adjacent>，请完整阅读以了解浮点数的存储方式。</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/faq_float.jpg"><img alt="" src="../graph/faq_float.jpg"/></a></p>
+<p>如果你读完了上面的内容，你应该能理解浮点数存储不精确的原因：</p>
+<ul>
+<li>浮点数的尾数部分长度有限，无法存储无限的小数。</li>
+</ul>
+<p>有一个经典的例子：<code>0.1 + 0.2 == 0.3</code> 是错的。这一例子在每日一题中也有提及。那么如何解决这个问题呢？只要将误差控制在一定范围内即认为正确，比如：</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">1e-6</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// a 和 b 相等</span>
+<span class="p">}</span>
+</code></pre></div>
+</details>
 <!-- prettier-ignore-end -->
 <h2 id="_3">数组、字符串<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h2 id="_4">循环、分支和跳转<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
@@ -654,7 +668,7 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 19, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 22, 2023</span>
 </small>
 </div>
 </article>
