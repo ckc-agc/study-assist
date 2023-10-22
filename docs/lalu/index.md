@@ -38,7 +38,7 @@
 
 LALU 课程的讲义存放在下面的仓库中，你可以点击图片跳转到仓库页面。欢迎提出 issue 和 pull request。
 
-[![](graph/pixel.jpg#only-light)![](graph/code.jpg#only-dark)](http://github.com/yhwu-is/Linear-Algebra-Left-Undone/)
+[![](graph/pixel.jpg#only-light)![](graph/code.jpg#only-dark)](https://github.com/yhwu-is/Linear-Algebra-Left-Undone/)
 
 点击下面的链接可以下载讲义的最新 Release 版本：
 
@@ -46,6 +46,6 @@ LALU 课程的讲义存放在下面的仓库中，你可以点击图片跳转到
 
 ![](graph/lalu.png)
 
-<!--<iframe src="http://docs.google.com/gview?url=http://github.com/yhwu-is/Linear-Algebra-Left-Undone/releases/latest/download/LALU.pdf&embedded=true" 
+<!--<iframe src="https://docs.google.com/gview?url=https://github.com/yhwu-is/Linear-Algebra-Left-Undone/releases/latest/download/LALU.pdf&embedded=true" 
 style="width:100%; height:1000px;" frameborder="0"></iframe>-->
 

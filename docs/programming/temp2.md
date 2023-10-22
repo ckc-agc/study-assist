@@ -125,7 +125,7 @@
 
 > -   C 项 或许通过上面的讲解，你能理解 `(*cmd)` 与 `cmd` 的等价之处。下面是 StackOverflow 中的讨论：[c++ - What does `void f(void())` mean? - Stack Overflow](https://stackoverflow.com/questions/39440970/what-does-void-fvoid-mean)。
 >
-> > As mentioned in [_dcl.fct_](http://eel.is/c++draft/dcl.fct#5) of the working draft (emphasis mine):
+> > As mentioned in [_dcl.fct_](https://eel.is/c++draft/dcl.fct#5) of the working draft (emphasis mine):
 > >
 > > > The type of a function is determined using the following rules. [...] After determining the type of each parameter, **any parameter** of type “array of T” or **of function type T is adjusted to be “pointer to T”**. [...]
 > >

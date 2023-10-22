@@ -8,7 +8,7 @@
 
 ### 怎么读声明？
 
--   详见：[Reading C type declarations (unixwiz.net)](http://unixwiz.net/techtips/reading-cdecl.html)
+-   详见：[Reading C type declarations (unixwiz.net)](https://unixwiz.net/techtips/reading-cdecl.html)
 
 ### 函数与函数指针
 
