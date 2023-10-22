@@ -41,10 +41,10 @@
 
 ### 2022-2023学年 辅学资料
 
-| 资料 | 贡献者 |
+| 授课内容 | 主讲人 |
 | --- | --- |
-| [不定积分](2023/indefinite_integral.pdf) | 陆晶宇 |
-| [数学分析I 考前复习1](2023/analysis1_review1.pdf) | 邱日宏 |
-| [数学分析I 考前复习2](2023/analysis1_review2.pdf) \| [答案](2023/analysis1_review2_answer.pdf) | 潘昶皓 |
-| [级数](2023/series.pdf) \| [答案](2023/series_answer.pdf) | 刘志炜 |
-| [曲线、曲面、含参变量积分](2023/curves_surfaces_integrals.pdf) | 王宸昊 |
+| [不定积分](2023/indefinite_integral.pdf) | 图灵2101 陆晶宇 |
+| [数学分析I 考前复习1](2023/analysis1_review1.pdf) | 混合2003 邱日宏 |
+| [数学分析I 考前复习2](2023/analysis1_review2.pdf) <br> [答案](2023/analysis1_review2_answer.pdf) | 图灵2102 潘昶皓 |
+| [级数](2023/series.pdf) <br> [答案](2023/series_answer.pdf) | 混合2102 刘志炜 |
+| [曲线、曲面、含参变量积分](2023/curves_surfaces_integrals.pdf) | 强物2101 王宸昊 |
