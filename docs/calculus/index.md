@@ -6,4 +6,4 @@
 
 | 节次 |  时间  |   内容   |  主讲  |                         讲义                          | 录播地址 |
 | :--: | :----: | :------: | :----: | :---------------------------------------------------: | :------: |
-|  1   | Oct.22 | 极限与函数的连续性 | 张志心 | [第一讲：极限与函数的连续性](2024/calculus_lecture1.pdf) | [Bilibili](https://www.bilibili.com/video/BV1Qw411c7bM) |
+|  1   | Oct.22 | 极限与函数的连续性 | 张志心 | [讲义](2024/calculus_lecture1.pdf) <br> [答案](2024/calculus_lecture1_answer.pdf) | [Bilibili]() |
