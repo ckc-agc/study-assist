@@ -32,7 +32,7 @@
 | 2016 | [试卷](exam/fundamentals_of_programming/fp16test.pdf) | [答案](exam/fundamentals_of_programming/fp16answer.pdf) |
 | 2017 | [试卷](exam/fundamentals_of_programming/fp17test.pdf) | [答案](exam/fundamentals_of_programming/fp17answer.pdf) |
 | 2018 | [试卷](exam/fundamentals_of_programming/fp18test.pdf) | [答案](exam/fundamentals_of_programming/fp18answer.pdf) |
-| 2020 | [模拟卷 1 及答案](exam/fundamentals_of_programming/fp20simulation1.pdf) [模拟卷 2 及答案](exam/fundamentals_of_programming/fp20simulation2.pdf) [模拟卷 3 及答案](exam/fundamentals_of_programming/fp20simulation3.pdf) |  |
+| 2020 | [模拟卷 1 及答案](exam/fundamentals_of_programming/fp20simulation1.pdf) <br> [模拟卷 2 及答案](exam/fundamentals_of_programming/fp20simulation2.pdf) <br> [模拟卷 3 及答案](exam/fundamentals_of_programming/fp20simulation3.pdf) |  |
 
 ### 【已停开】C 程序设计专题（2013-2019）
 
