@@ -667,6 +667,9 @@ h5:before {content: unset;}
 <p>For more information about floating-point numbers, search for <a href="https://zh.wikipedia.org/wiki/IEEE_754">IEEE 754</a>.</p>
 </details>
 <!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：孙兆江</p>
+</blockquote>
 <h3 id="20-bad-for">「20」 Bad for<a class="headerlink" href="#20-bad-for" title="Permanent link">¶</a></h3>
 <p>After executing the following code fragment, the output should be ______.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// 'int' occupies 4 bytes</span>
@@ -688,6 +691,9 @@ h5:before {content: unset;}
 <p>When we execute <code>++</code> for <code>unsigned int y</code> in <code>for</code> loop, we will get <code>0x111...1</code>(<span class="arithmatex">\(2^{32}-1\)</span>) as the max <code>unsigned int</code>, and then we will get <code>0x00...0</code> as <code>0</code> because of overflow. So <code>x</code> gets the value of <code>y(0)</code> and terminates <code>for</code>. In <code>printf</code>, <code>x-1</code> is <code>0x11...1</code>. When you use <code>%d</code> to print, it will be considered as a signed interger, so the answer is <code>-1</code>, not <span class="arithmatex">\(2^{32}-1\)</span>.</p>
 </details>
 <!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：胡育玮</p>
+</blockquote>
 <h3 id="19-isprime">「19」 IsPrime?<a class="headerlink" href="#19-isprime" title="Permanent link">¶</a></h3>
 <p>What's wrong with this code snippet?</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
@@ -709,6 +715,9 @@ h5:before {content: unset;}
 Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every input greater than 1.</p>
 </details>
 <!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：李英琦</p>
+</blockquote>
 <h3 id="18-bad-if-else">「18」 Bad if-else<a class="headerlink" href="#18-bad-if-else" title="Permanent link">¶</a></h3>
 <p>After executing the following code fragment, the output is ______.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -731,6 +740,9 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <p>Notice that the condition of <code>if</code> in line 5 is <code>x = 0</code>, not <code>x == 0</code>. The former means "0 is assigned to x", and then the if sentence won't be executed since it is equivalent to <code>if(0)</code>. Thus the value of <code>y</code> is its initial value, -2.</p>
 </details>
 <!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：梅敏炫</p>
+</blockquote>
 <h3 id="17-character">「17」 Character<a class="headerlink" href="#17-character" title="Permanent link">¶</a></h3>
 <p>Given: <code>char c = '@';</code>, the value of expression <code>'A' &lt;= c &lt;= 'Z'</code> is ______.</p>
 <!-- prettier-ignore-start -->
@@ -764,6 +776,9 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <p>Upper case is prior to lower case. The difference between <code>'A'</code> and <code>'a'</code> is <code>32</code>. So if you want to convert a lowercase letter to uppercase, you can use <code>c - 32</code>. Or an easier way: <code>c - 'a' + 'A'</code>.</p>
 </details>
 <!-- prettier-ignore-end -->
+<blockquote>
+<p>来自：<span>C<span class="heti-spacing"> </span></span>大<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>年期末</p>
+</blockquote>
 <h3 id="16-overflow">「16」 Overflow<a class="headerlink" href="#16-overflow" title="Permanent link">¶</a></h3>
 <p>For code below:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">sht</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -783,12 +798,15 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <p>Remember that <code>unsigned short</code> is an unsigned integer type, so it will not be negative. Instead, it will be the largest value of <code>unsigned short</code> type. The largest value of <code>unsigned short</code> type is <code>65535</code>, because <code>unsigned short</code> is 16-bit long.</p>
 </details>
 <!-- prettier-ignore-end -->
+<blockquote>
+<p>来自：<span>C<span class="heti-spacing"> </span></span>大<span class="heti-skip"><span class="heti-spacing"> </span>13<span class="heti-spacing"> </span></span>年期末</p>
+</blockquote>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 21, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 22, 2023</span>
 </small>
 </div>
 </article>
