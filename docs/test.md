@@ -9,7 +9,7 @@
 <script type="module">
   // If absolute URL from the remote server is provided, configure the CORS
   // header on that server.
-  var url = 'https://raw.githubusercontent.com/mozilla/pdf.js/ba2edeae/examples/learning/helloworld.pdf';
+  var url = 'https://github.com/yhwu-is/Linear-Algebra-Left-Undone/releases/latest/download/LALU.pdf';
 
   // Loaded via <script> tag, create shortcut to access PDF.js exports.
   var { pdfjsLib } = globalThis;
