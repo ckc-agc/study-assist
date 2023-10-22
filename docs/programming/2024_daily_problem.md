@@ -12,6 +12,45 @@ h5:before {content: unset;}
 
 ## October
 
+### 「23」 Prefix OR Postfix
+
+After executing the following code fragment, the value of variable `x` is ______.
+
+```c
+int x;
+for (x = 0; x-- < 9 || ++x < 10; ++x) {
+    x++;
+}
+```
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+    `11`
+
+    1. The result of the increment and decrement operators
+
+        Increment and decrement operators have postfix form `x++` (or `x--`), and prefix form `++x` (or `--x`).
+
+        * The result of the postfix forms is the value of `x`.
+        * The result of the prefix forms is the value of `x + 1` for `++x` (or `x - 1` for `--x`).
+
+        For more information, see [cppreference-Increment/decrement operators](https://en.cppreference.com/w/c/language/operator_incdec)
+
+    2. Logical OR `||`
+
+        The logical OR expression has the form `lhs || rhs`, in which `rhs` is only evaluated if `lhs` compares equal to `​0`​.
+        
+        For more information, see [cppreference-Logical operators](https://en.cppreference.com/w/c/language/operator_logical)
+
+    When `x < 9`, each loop will cause `x` to increase by `1`. Note that only `x-- < 9` is evaluated in each loop now.
+    
+    Now `x` is equal to `9` before the cond-expression of the for loop. First, `x-- < 9` is evaluated, which compares equal to `0`, and causes `x` to decrease by `1`. Then `x` is equal to `8` and `++x < 10` is evaluated, which compares equal to `1` and causes `x` to increase by `1`. Loop continues.
+
+    Then, `x` is equal to `11` before the cond-expression of the for loop. Now `x-- < 9` and `++x < 10` both compare equal to `0`, so the loop ends. `x` firstly decreases by `1` and then increases by `1`, so the final value of `x` is `11`.
+<!-- prettier-ignore-end -->
+
+> 供题人：苏煜程
+
 ### 「22」 String Comparison
 
 What's wrong with this code snippet?
