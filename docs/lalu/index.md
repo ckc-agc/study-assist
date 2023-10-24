@@ -39,11 +39,11 @@
 <!-- prettier-ignore-start -->
 === "讲义（v0.3）"
 
-    <embed src="../LALU_v0.3_answer.pdf" style="width:100%; height:80vh;" type="application/pdf"> 
+    <embed src="./LALU_v0.3.pdf" style="width:100%; height:80vh;" type="application/pdf">     
     
 === "答案（v0.3）"
     
-    <embed src="../LALU_v0.3.pdf" style="width:100%; height:80vh;" type="application/pdf"> 
+    <embed src="./LALU_v0.3_answer.pdf" style="width:100%; height:80vh;" type="application/pdf"> 
     
 <!-- prettier-ignore-end -->
 
