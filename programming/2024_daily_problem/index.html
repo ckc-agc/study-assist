@@ -405,6 +405,11 @@
 <nav aria-label="October" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#24-nested-switch-confusing-default-and-break">
+    「24」 Nested Switch, Confusing Default and Break
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#23-prefix-or-postfix">
     「23」 Prefix OR Postfix
   </a>
@@ -585,6 +590,11 @@
 <nav aria-label="October" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#24-nested-switch-confusing-default-and-break">
+    「24」 Nested Switch, Confusing Default and Break
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#23-prefix-or-postfix">
     「23」 Prefix OR Postfix
   </a>
@@ -647,8 +657,51 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="october">October<a class="headerlink" href="#october" title="Permanent link">¶</a></h2>
+<h3 id="24-nested-switch-confusing-default-and-break">「24」 Nested Switch, Confusing Default and Break<a class="headerlink" href="#24-nested-switch-confusing-default-and-break" title="Permanent link">¶</a></h3>
+<p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">default</span><span class="o">:</span>
+<span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">"three "</span><span class="p">);</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">"one "</span><span class="p">);</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">                </span><span class="n">printf</span><span class="p">(</span><span class="s">"two "</span><span class="p">);</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"four "</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"five "</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<p><code>one two four</code></p>
+<p>The syntax of <code>switch</code> statement is:</p>
+<div class="highlight"><pre><span></span><code><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">expression</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">constant</span><span class="o">-</span><span class="no">expression</span><span class="p">:</span>
+<span class="w">        </span><span class="n">statements</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="no">constant</span><span class="o">-</span><span class="no">expression</span><span class="p">:</span>
+<span class="w">        </span><span class="n">statements</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="n">statements</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The <code>expression</code> must have an integral or enumerated type, or be of a class type in which the class has a single conversion function to an integral or enumerated type. The <code>constant-expression</code> for each <code>case</code> must be a constant expression of the same type as the expression, and no two of the constant expressions associated with the same <code>switch</code> statement shall have the same value after conversion.</p>
+<p>The <code>switch</code> statement evaluates <code>expression</code>, then looks for the <code>case</code> constant-expression whose value is equal to the value of <code>expression</code> (after conversion). If such a <code>case</code> is found, the statements following that <code>case</code> are executed <strong>until a <code>break</code> statement is encountered</strong>. If no <code>case</code> is found whose value is equal to the value of the expression, and if there is a <code>default</code> label, the statements following the <code>default</code> label are executed. Otherwise, the statements of the <code>switch</code> statement are skipped.</p>
+<p>If some <code>case</code> labels are not followed by <code>break</code> statements, the execution of the <code>switch</code> statement falls through to the next <code>case</code> label. You can use this behavior to execute multiple statements for a particular <code>case</code> label or to execute statements for more than one <code>case</code> label.</p>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：朱宝林</p>
+</blockquote>
 <h3 id="23-prefix-or-postfix">「23」 Prefix OR Postfix<a class="headerlink" href="#23-prefix-or-postfix" title="Permanent link">¶</a></h3>
-<p>After executing the following code fragment, the value of variable <code>x</code> is ______.</p>
+<p>After executing the following code fragment, the value of variable <code>x</code> is <strong>__</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="o">--</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
@@ -727,7 +780,7 @@ h5:before {content: unset;}
 <p>供题人：孙兆江</p>
 </blockquote>
 <h3 id="20-bad-for">「20」 Bad for<a class="headerlink" href="#20-bad-for" title="Permanent link">¶</a></h3>
-<p>After executing the following code fragment, the output should be ______.</p>
+<p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// 'int' occupies 4 bytes</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">)</span>
 <span class="w">    </span><span class="p">;</span>
@@ -775,7 +828,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <p>供题人：李英琦</p>
 </blockquote>
 <h3 id="18-bad-if-else">「18」 Bad if-else<a class="headerlink" href="#18-bad-if-else" title="Permanent link">¶</a></h3>
-<p>After executing the following code fragment, the output is ______.</p>
+<p>After executing the following code fragment, the output is <strong>__</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-2</span><span class="p">;</span>
 <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -800,7 +853,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <p>供题人：梅敏炫</p>
 </blockquote>
 <h3 id="17-character">「17」 Character<a class="headerlink" href="#17-character" title="Permanent link">¶</a></h3>
-<p>Given: <code>char c = '@';</code>, the value of expression <code>'A' &lt;= c &lt;= 'Z'</code> is ______.</p>
+<p>Given: <code>char c = '@';</code>, the value of expression <code>'A' &lt;= c &lt;= 'Z'</code> is <strong>__</strong>.</p>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -862,7 +915,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 22, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2023</span>
 </small>
 </div>
 </article>
