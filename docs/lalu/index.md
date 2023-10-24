@@ -1,6 +1,6 @@
 # 线性代数：未竟之美
 
-欢迎来到竺院线性代数辅学精品课程版块 🤗。你可以在左侧导航栏中详细浏览本模块的内容。
+欢迎来到竺院线性代数辅学精品课程版块 🤗。
 
 ## 课程简介
 
@@ -35,6 +35,17 @@
     -   期末复习部分整理本学期完整思路，结合历年卷和讲义讲解最核心的题型
 
 ## 课程讲义
+
+<!-- prettier-ignore-start -->
+=== "讲义（v0.3）"
+
+    <embed src="../LALU_v0.3_answer.pdf" style="width:100%; height:80vh;" type="application/pdf"> 
+    
+=== "答案（v0.3）"
+    
+    <embed src="../LALU_v0.3.pdf" style="width:100%; height:80vh;" type="application/pdf"> 
+    
+<!-- prettier-ignore-end -->
 
 LALU 课程的讲义存放在下面的仓库中，你可以点击图片跳转到仓库页面。欢迎提出 issue 和 pull request。
 
