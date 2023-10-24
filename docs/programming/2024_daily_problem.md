@@ -12,9 +12,62 @@ h5:before {content: unset;}
 
 ## October
 
+### 「24」 Nested Switch, Confusing Default and Break
+
+After executing the following code fragment, the output should be **\_\_**.
+
+```c
+int x = 1, y = 1;
+switch (x) {
+    case 1:
+        switch (y) {
+            default:
+                printf("three ");
+            case 1:
+                printf("one ");
+            case 2:
+                printf("two ");
+                break;
+        }
+    case 2: case 3:
+        printf("four ");
+        break;
+    default:
+        printf("five ");
+}
+```
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    `one two four`
+
+    The syntax of `switch` statement is:
+
+    ```c
+    switch (expression) {
+        case constant-expression:
+            statements
+        case constant-expression:
+            statements
+        default:
+            statements
+    }
+    ```
+
+    The `expression` must have an integral or enumerated type, or be of a class type in which the class has a single conversion function to an integral or enumerated type. The `constant-expression` for each `case` must be a constant expression of the same type as the expression, and no two of the constant expressions associated with the same `switch` statement shall have the same value after conversion.
+
+    The `switch` statement evaluates `expression`, then looks for the `case` constant-expression whose value is equal to the value of `expression` (after conversion). If such a `case` is found, the statements following that `case` are executed **until a `break` statement is encountered**. If no `case` is found whose value is equal to the value of the expression, and if there is a `default` label, the statements following the `default` label are executed. Otherwise, the statements of the `switch` statement are skipped.
+
+    If some `case` labels are not followed by `break` statements, the execution of the `switch` statement falls through to the next `case` label. You can use this behavior to execute multiple statements for a particular `case` label or to execute statements for more than one `case` label.
+
+<!-- prettier-ignore-end -->
+
+> 供题人：朱宝林
+
 ### 「23」 Prefix OR Postfix
 
-After executing the following code fragment, the value of variable `x` is ______.
+After executing the following code fragment, the value of variable `x` is **\_\_**.
 
 ```c
 int x;
@@ -106,7 +159,7 @@ else
 
 ### 「20」 Bad for
 
-After executing the following code fragment, the output should be ______.
+After executing the following code fragment, the output should be **\_\_**.
 
 ```c
 unsigned int x , y; // 'int' occupies 4 bytes
@@ -163,7 +216,7 @@ printf("%d is a prime\n", d);
 
 ### 「18」 Bad if-else
 
-After executing the following code fragment, the output is ______.
+After executing the following code fragment, the output is **\_\_**.
 
 ```c
 int x = 0;
@@ -193,7 +246,7 @@ printf("%d", y);
 
 ### 「17」 Character
 
-Given: `char c = '@';`, the value of expression `'A' <= c <= 'Z'` is ______.
+Given: `char c = '@';`, the value of expression `'A' <= c <= 'Z'` is **\_\_**.
 
 <!-- prettier-ignore-start -->
 ??? note "Answer"
