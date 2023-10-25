@@ -405,6 +405,11 @@
 <nav aria-label="October" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#25-eternal-binary-search">
+    「25」 Eternal Binary-Search
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#24-nested-switch-confusing-default-and-break">
     「24」 Nested Switch, Confusing Default and Break
   </a>
@@ -590,6 +595,11 @@
 <nav aria-label="October" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#25-eternal-binary-search">
+    「25」 Eternal Binary-Search
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#24-nested-switch-confusing-default-and-break">
     「24」 Nested Switch, Confusing Default and Break
   </a>
@@ -657,6 +667,29 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="october">October<a class="headerlink" href="#october" title="Permanent link">¶</a></h2>
+<h3 id="25-eternal-binary-search">「25」 Eternal Binary-Search<a class="headerlink" href="#25-eternal-binary-search" title="Permanent link">¶</a></h3>
+<p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ok</span><span class="p">[</span><span class="mi">50000</span><span class="p">];</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">19268</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">ok</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">19269</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">49999</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">ok</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">49999</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">){</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ok</span><span class="p">[</span><span class="n">mid</span><span class="p">])</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
+<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">"the ok_maximum is %d"</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">);</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<p>In fact, this code fragment has no output because it is stuck in an endless loop. Let's see what happens: At first the code executes perfectly, <code>l</code> increasing and <code>r</code> decreasing constantly. However, when the value of <code>r-l</code> reduce to '1', the value of 'l' and 'r' will never change again. That's because <code>mid</code> equals to <code>l</code> and <code>ok[mid]</code> is <code>true</code> (Think about it. why?), so <code>l = mid</code> will be execute, again and again with no value change.</p>
+<p>Binary Search is a very simple, common and useful algorithm that you will learn soon. However, when using Binary Search, it is easy to write a wrong code. It is said that only 10% of the programmers can write a exactly correct code. Hence, you need to pay special attention to this algorithm. A small change can possibly change the code correctness. For example, modifying the <code>int mid = (l + r) / 2;</code> to <code>int mid = (l + r + 1) / 2;</code> makes the code correct.</p>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：郑涵文</p>
+</blockquote>
 <h3 id="24-nested-switch-confusing-default-and-break">「24」 Nested Switch, Confusing Default and Break<a class="headerlink" href="#24-nested-switch-confusing-default-and-break" title="Permanent link">¶</a></h3>
 <p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -915,7 +948,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 24, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 25, 2023</span>
 </small>
 </div>
 </article>
