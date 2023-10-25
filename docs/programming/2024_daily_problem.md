@@ -12,6 +12,34 @@ h5:before {content: unset;}
 
 ## October
 
+### 「25」 Eternal Binary-Search
+
+After executing the following code fragment, the output should be **\_\_**.
+
+```c
+    int ok[50000];
+    for (int i = 0; i <= 19268; ++i) ok[i] = 1;
+    for (int i = 19269; i <= 49999; ++i) ok[i] = 0;
+    int l = 0, r = 49999;
+    while (l < r){
+        int mid = (l + r) / 2;
+        if (ok[mid]) l = mid;
+        else r = mid - 1;
+    }
+    printf ("the ok_maximum is %d", l);
+```
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    In fact, this code fragment has no output because it is stuck in an endless loop. Let's see what happens: At first the code executes perfectly, `l` increasing and `r` decreasing constantly. However, when the value of `r-l` reduce to '1', the value of 'l' and 'r' will never change again. That's because `mid` equals to `l` and `ok[mid]` is `true` (Think about it. why?), so `l = mid` will be execute, again and again with no value change.
+
+    Binary Search is a very simple, common and useful algorithm that you will learn soon. However, when using Binary Search, it is easy to write a wrong code. It is said that only 10% of the programmers can write a exactly correct code. Hence, you need to pay special attention to this algorithm. A small change can possibly change the code correctness. For example, modifying the `int mid = (l + r) / 2;` to `int mid = (l + r + 1) / 2;` makes the code correct.
+
+<!-- prettier-ignore-end -->
+
+> 供题人：郑涵文
+
 ### 「24」 Nested Switch, Confusing Default and Break
 
 After executing the following code fragment, the output should be **\_\_**.
