@@ -405,6 +405,11 @@
 <nav aria-label="October" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#26-bitwize-operator">
+    「26」 Bitwize Operator
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#25-eternal-binary-search">
     「25」 Eternal Binary-Search
   </a>
@@ -595,6 +600,11 @@
 <nav aria-label="October" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#26-bitwize-operator">
+    「26」 Bitwize Operator
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#25-eternal-binary-search">
     「25」 Eternal Binary-Search
   </a>
@@ -667,6 +677,26 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="october">October<a class="headerlink" href="#october" title="Permanent link">¶</a></h2>
+<h3 id="26-bitwize-operator">「26」 Bitwize Operator<a class="headerlink" href="#26-bitwize-operator" title="Permanent link">¶</a></h3>
+<p>Which of the following options can achieve a swapping effect for <code>pair(*,*)</code>? 
+Note that <code>^</code> represents <code>XOR</code> operation. For binary numbers, <code>0 XOR 0 = 0</code>, <code>0 XOR 1 = 1</code>, <code>1 XOR 0 = 1</code>, <code>1 XOR 1 = 0</code>.</p>
+<p>A. <code>(x, y)</code>: <code>x ^= y ^= x ^= y;</code></p>
+<p>B. <code>(a[x], a[y])</code>: <code>a[x] ^= a[y] ^= a[x] ^= a[y];</code></p>
+<p>C. <code>(x, y)</code>: <code>x -= y += x -= y;</code></p>
+<p>D. <code>(a[x], a[y])</code>: <code>a[x] -= a[y] += a[x] -= a[y];</code></p>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<p><code>A</code>.</p>
+<ul>
+<li><code>B</code> will always be <code>0</code> when <code>x==y</code>. </li>
+<li><code>C</code> and <code>D</code> is not logically correct.</li>
+</ul>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：程昕宇</p>
+</blockquote>
 <h3 id="25-eternal-binary-search">「25」 Eternal Binary-Search<a class="headerlink" href="#25-eternal-binary-search" title="Permanent link">¶</a></h3>
 <p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">ok</span><span class="p">[</span><span class="mi">50000</span><span class="p">];</span>
@@ -792,7 +822,7 @@ h5:before {content: unset;}
 <p>供题人：杨琳玥</p>
 </blockquote>
 <h3 id="21-addition">「21」 Addition<a class="headerlink" href="#21-addition" title="Permanent link">¶</a></h3>
-<p>After executing the following code fragment, the output should be ______.</p>
+<p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Equal.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
@@ -948,7 +978,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 25, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 26, 2023</span>
 </small>
 </div>
 </article>
