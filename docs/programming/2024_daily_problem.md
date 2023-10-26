@@ -12,6 +12,56 @@ h5:before {content: unset;}
 
 ## October
 
+### 「27」 Or in Switch
+
+What will happen when compiling and executing the following code fragment with input `5`?
+
+```c
+char ch;
+scanf("%c", &ch);
+switch (ch) {
+    case 0 || 2 || 4 || 6 || 8:
+        printf("even digit ");
+    case 1 || 3 || 5 || 7 || 9:
+        printf("odd digit ");
+    default:
+        printf("not a digit ");
+}
+```
+
+A. It will print `odd digit `.
+
+B. It will print `odd digit not a digit`.
+
+C. It will print `not a digit`.
+
+D. It cannot be compiled.
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    `D`.
+
+    The compiler will tell you that `case label value has already appeared in this switch`.  
+    There are many problems in this code fragment, and the most important one is that `0 || 2 || 4 || 6 || 8` will not behave as expected in `case` statement. It will be evaluated as `1` because `0 || 2 || 4 || 6 || 8` is equivalent to `((((0 || 2) || 4) || 6) || 8)`. The result of `0 || 2` is `1`, so the result of `0 || 2 || 4` is `1`, and so on. Therefore, the `case` statement will be evaluated as `case 1`. The same problem exists in `case 1 || 3 || 5 || 7 || 9`, which will also be evaluated as `case 1`.  
+    The correct way to write this code fragment is:
+
+    ```c
+    char ch;
+    scanf("%c", &ch);
+    switch (ch) {
+        case '0': case '2': case '4': case '6': case '8':
+            printf("even digit "); break;
+        case '1': case '3': case '5': case '7': case '9':
+            printf("odd digit "); break;
+        default:
+            printf("not a digit ");
+    }
+    ```
+
+    For more information about `switch` statement, see [cppreference-Switch statement](https://en.cppreference.com/w/c/language/switch).
+<!-- prettier-ignore-end -->
+
 ### 「26」 Bitwize Operator
 
 Which of the following options can achieve a swapping effect for `pair(*,*)`? 
