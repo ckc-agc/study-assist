@@ -12,6 +12,31 @@ h5:before {content: unset;}
 
 ## October
 
+### 「26」 Bitwize Operator
+
+Which of the following options can achieve a swapping effect for `pair(*,*)`? 
+Note that `^` represents `XOR` operation. For binary numbers, `0 XOR 0 = 0`, `0 XOR 1 = 1`, `1 XOR 0 = 1`, `1 XOR 1 = 0`.
+
+A. `(x, y)`: `x ^= y ^= x ^= y;`
+
+B. `(a[x], a[y])`: `a[x] ^= a[y] ^= a[x] ^= a[y];`
+
+C. `(x, y)`: `x -= y += x -= y;`
+
+D. `(a[x], a[y])`: `a[x] -= a[y] += a[x] -= a[y];`
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    `A`.
+
+    - `B` will always be `0` when `x==y`. 
+    - `C` and `D` is not logically correct.
+
+<!-- prettier-ignore-end -->
+
+> 供题人：程昕宇
+
 ### 「25」 Eternal Binary-Search
 
 After executing the following code fragment, the output should be **\_\_**.
@@ -159,7 +184,7 @@ else printf("[2] NO\n");
 
 ### 「21」 Addition
 
-After executing the following code fragment, the output should be ______.
+After executing the following code fragment, the output should be **\_\_**.
 
 ```c
 double a = 0.1, b = 0.2;
