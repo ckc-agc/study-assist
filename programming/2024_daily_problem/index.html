@@ -9,9 +9,9 @@
 <link href="../" rel="prev"/>
 <link href="../faq/" rel="next"/>
 <link href="../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.6" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.7" name="generator"/>
 <title>每日一题 - 浙江大学竺可桢学院辅学计划站点</title>
-<link href="../../assets/stylesheets/main.35e1ed30.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -405,6 +405,11 @@
 <nav aria-label="October" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#29-precedence">
+    「29」 Precedence
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#27-or-in-switch">
     「27」 Or in Switch
   </a>
@@ -605,6 +610,11 @@
 <nav aria-label="October" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#29-precedence">
+    「29」 Precedence
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#27-or-in-switch">
     「27」 Or in Switch
   </a>
@@ -687,6 +697,42 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="october">October<a class="headerlink" href="#october" title="Permanent link">¶</a></h2>
+<h3 id="29-precedence">「29」 Precedence<a class="headerlink" href="#29-precedence" title="Permanent link">¶</a></h3>
+<p>The output of the following code fragment is __.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<p>The answer is 2.</p>
+<p>Several operators appear in this problem, listed in order of operation precedence from top to bottom:</p>
+<ul>
+<li><em>Suffix increacement and decreacement:</em> <code>a++</code></li>
+<li><em>Logical NOT:</em> <code>!</code></li>
+<li><em>Prefix increacement and decreacement:</em> <code>--a</code></li>
+<li><em>Subtraction:</em> <code>-</code></li>
+<li><em>Bitwise left shift:</em> <code>&lt;&lt;</code></li>
+<li><em>Comparison:</em> <code>&lt;</code>, <code>&gt;</code></li>
+<li><em>Logical OR:</em> <code>||</code></li>
+<li><em>Ternary conditional:</em> <code>a ? b : c</code></li>
+</ul>
+<p>See more about operator precedence at <a href="[C++ Operator Precedence - cppreference.com](https://en.cppreference.com/w/cpp/language/operator_precedence)">cppreference.com</a>.</p>
+<p>Knowing this, let's break down the expression from the innermost to the outermost parts.</p>
+<ol>
+<li><code>1 - 1</code> evaluates to 0, and <code>y &lt;&lt; 0</code> has the value 2.</li>
+<li><code>2 &gt; 2</code> is false, thus the value of the Logical OR depends on the right part.</li>
+<li><code>x++</code> assigns the value of <code>x</code> (1) to the expression and then increments <code>x</code> by 1, making <code>x</code> equal to 2.</li>
+<li><code>--y</code> decreases the value of <code>y</code> (2) by 1, so <code>y</code> becomes 1.</li>
+<li><code>x++ &gt; --y</code> is equivalent to 1 &gt; 1, which is false, so this part equals 0.</li>
+<li><code>!(x++ &gt; --y)</code> negates false, so this part equals 1, making the condition of the Ternary conditional true.</li>
+<li>Since <code>x</code> has the value of 2 and <code>y</code> has the value of 1, the output will be 2.</li>
+</ol>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：徐若禺</p>
+</blockquote>
 <h3 id="27-or-in-switch">「27」 Or in Switch<a class="headerlink" href="#27-or-in-switch" title="Permanent link">¶</a></h3>
 <p>What will happen when compiling and executing the following code fragment with input <code>5</code>?</p>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">;</span>
@@ -1026,7 +1072,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 28, 2023</span>
 </small>
 </div>
 </article>
