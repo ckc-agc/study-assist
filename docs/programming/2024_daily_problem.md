@@ -12,6 +12,47 @@ h5:before {content: unset;}
 
 ## October
 
+### 「29」 Precedence
+
+The output of the following code fragment is __.
+
+```c
+int x = 1, y = 2;
+printf("%d\n", y << 1 - 1 > 2 || !(x++ > --y) ? x : y);
+```
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    The answer is 2.
+
+    Several operators appear in this problem, listed in order of operation precedence from top to bottom:
+
+    * *Suffix increacement and decreacement:* `a++`
+    * *Logical NOT:* `!`
+    * *Prefix increacement and decreacement:* `--a`
+    * *Subtraction:* `-`
+    * *Bitwise left shift:* `<<`
+    * *Comparison:* `<`, `>`
+    * *Logical OR:* `||`
+    * *Ternary conditional:* `a ? b : c`
+    
+    See more about operator precedence at [cppreference.com]([C++ Operator Precedence - cppreference.com](https://en.cppreference.com/w/cpp/language/operator_precedence)).
+    
+    Knowing this, let's break down the expression from the innermost to the outermost parts.
+    
+    1. `1 - 1` evaluates to 0, and `y << 0` has the value 2.
+    2. `2 > 2` is false, thus the value of the Logical OR depends on the right part.
+    3. `x++` assigns the value of `x` (1) to the expression and then increments `x` by 1, making `x` equal to 2.
+    4. `--y` decreases the value of `y` (2) by 1, so `y` becomes 1.
+    5. `x++ > --y` is equivalent to 1 > 1, which is false, so this part equals 0.
+    6. `!(x++ > --y)` negates false, so this part equals 1, making the condition of the Ternary conditional true.
+    7. Since `x` has the value of 2 and `y` has the value of 1, the output will be 2.
+<!-- prettier-ignore-end -->
+
+> 供题人：徐若禺
+
+
 ### 「27」 Or in Switch
 
 What will happen when compiling and executing the following code fragment with input `5`?
