@@ -102,7 +102,7 @@ plugins:
 
 
 nav:
-  - 首页: 
+  - 首页:
     - index.md
     - 测试: test.md
   - 📚微积分:
@@ -129,6 +129,7 @@ nav:
       - programming_lecture/lecture1/pre_class.md
       - programming_lecture/lecture1/lecture1.md
     - 2. 类型系统与内存模型:
+      - programming_lecture/lecture2/pre_class.md
       - programming_lecture/lecture2/lecture2.md
     - 3. I/O 与文件:
       - programming_lecture/lecture3/lecture3.md
