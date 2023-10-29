@@ -5,21 +5,22 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="浙江大学竺可桢学院辅学计划站点" name="description"/>
 <meta content="竺可桢学院学业指导中心" name="author"/>
-<link href="https://ckc-agc.pages.zjusct.io/study-assist/" rel="canonical"/>
-<link href="test/" rel="next"/>
-<link href="graph/ckc.png" rel="icon"/>
+<link href="https://ckc-agc.pages.zjusct.io/study-assist/programming_lecture/lecture2/pre_class/" rel="canonical"/>
+<link href="../../lecture1/lecture1/" rel="prev"/>
+<link href="../lecture2/" rel="next"/>
+<link href="../../../graph/ckc.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.7" name="generator"/>
-<title>欢迎来到竺院辅学计划网站 - 浙江大学竺可桢学院辅学计划站点</title>
-<link href="assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<title>课前：MAGIC 函数 - 浙江大学竺可桢学院辅学计划站点</title>
+<link href="../../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="css/heti.css" rel="stylesheet"/>
-<link href="stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
-<link href="stylesheets/custom.css" rel="stylesheet"/>
-<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<link href="../../../css/heti.css" rel="stylesheet"/>
+<link href="../../../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
+<link href="../../../stylesheets/custom.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
@@ -30,14 +31,14 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="assets/javascripts/glightbox.min.js"></script></head>
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#magic">
           Skip to content
         </a>
 </div>
@@ -45,8 +46,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-header__button md-logo" data-md-component="logo" href="." title="浙江大学竺可桢学院辅学计划站点">
-<img alt="logo" src="graph/ckc.png"/>
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../graph/ckc.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -61,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              欢迎来到竺院辅学计划网站
+              课前：MAGIC 函数
             
           </span>
 </div>
@@ -123,8 +124,8 @@
 <nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
 <div class="md-grid">
 <ul class="md-tabs__list">
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href=".">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
           
   
     
@@ -134,7 +135,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="calculus/">
+<a class="md-tabs__link" href="../../../calculus/">
           
   
     
@@ -144,7 +145,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="analysis/">
+<a class="md-tabs__link" href="../../../analysis/">
           
   
     
@@ -154,7 +155,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="algebra/">
+<a class="md-tabs__link" href="../../../algebra/">
           
   
     
@@ -164,7 +165,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="lalu/">
+<a class="md-tabs__link" href="../../../lalu/">
           
   
     
@@ -174,7 +175,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="programming/">
+<a class="md-tabs__link" href="../../../programming/">
           
   
     
@@ -193,8 +194,8 @@
 
       </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="programming_lecture/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../">
           
   
     
@@ -204,7 +205,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="chemistry/">
+<a class="md-tabs__link" href="../../../chemistry/">
           
   
     
@@ -214,7 +215,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="physics/">
+<a class="md-tabs__link" href="../../../physics/">
           
   
     
@@ -233,8 +234,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-nav__button md-logo" data-md-component="logo" href="." title="浙江大学竺可桢学院辅学计划站点">
-<img alt="logo" src="graph/ckc.png"/>
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../graph/ckc.png"/>
 </a>
     浙江大学竺可桢学院辅学计划站点
   </label>
@@ -249,26 +250,26 @@
 </a>
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link md-nav__link--active" href=".">
+<a class="md-nav__link" href="../../..">
 <span class="md-ellipsis">
     首页
   </span>
 </a>
-<label class="md-nav__link md-nav__link--active" for="__nav_1" id="__nav_1_label" tabindex="">
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_1">
 <span class="md-nav__icon md-icon"></span>
             首页
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="test/">
+<a class="md-nav__link" href="../../../test/">
 <span class="md-ellipsis">
     测试
   </span>
@@ -280,7 +281,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="calculus/">
+<a class="md-nav__link" href="../../../calculus/">
 <span class="md-ellipsis">
     📚微积分
   </span>
@@ -298,7 +299,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="analysis/">
+<a class="md-nav__link" href="../../../analysis/">
 <span class="md-ellipsis">
     📚数学分析
   </span>
@@ -314,7 +315,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="analysis/2024/analysis_lecture1_sequence_limits/">
+<a class="md-nav__link" href="../../../analysis/2024/analysis_lecture1_sequence_limits/">
 <span class="md-ellipsis">
     2023-2024学年
   </span>
@@ -327,7 +328,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="algebra/">
+<a class="md-nav__link" href="../../../algebra/">
 <span class="md-ellipsis">
     📚线性代数
   </span>
@@ -345,7 +346,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="lalu/">
+<a class="md-nav__link" href="../../../lalu/">
 <span class="md-ellipsis">
     🏫线性代数：未竟之美
   </span>
@@ -363,7 +364,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="programming/">
+<a class="md-nav__link" href="../../../programming/">
 <span class="md-ellipsis">
     📚程设
   </span>
@@ -379,14 +380,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="programming/2024_daily_problem/">
+<a class="md-nav__link" href="../../../programming/2024_daily_problem/">
 <span class="md-ellipsis">
     每日一题
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="programming/faq/">
+<a class="md-nav__link" href="../../../programming/faq/">
 <span class="md-ellipsis">
     常见问题
   </span>
@@ -402,10 +403,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="programming_lecture/">
+<a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     🏫系统知识拾遗
   </span>
@@ -414,30 +415,54 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_8">
 <span class="md-nav__icon md-icon"></span>
             🏫系统知识拾遗
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="programming_lecture/lecture1/pre_class/">
+<a class="md-nav__link" href="../../lecture1/pre_class/">
 <span class="md-ellipsis">
     1. 程序编译过程与调试技术
   </span>
 <span class="md-nav__icon md-icon"></span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="programming_lecture/lecture2/pre_class/">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_3" id="__nav_8_3_label" tabindex="0">
 <span class="md-ellipsis">
     2. 类型系统与内存模型
   </span>
 <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_8_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_3">
+<span class="md-nav__icon md-icon"></span>
+            2. 类型系统与内存模型
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    课前：MAGIC 函数
+  </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lecture2/">
+<span class="md-ellipsis">
+    类型系统与内存模型
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="programming_lecture/lecture3/lecture3/">
+<a class="md-nav__link" href="../../lecture3/lecture3/">
 <span class="md-ellipsis">
     3. I/O 与文件
   </span>
@@ -445,7 +470,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="programming_lecture/lecture4/lecture4/">
+<a class="md-nav__link" href="../../lecture4/lecture4/">
 <span class="md-ellipsis">
     4. C 标准库
   </span>
@@ -453,7 +478,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="programming_lecture/lecture5/lecture5/">
+<a class="md-nav__link" href="../../lecture5/lecture5/">
 <span class="md-ellipsis">
     5. 数据结构与算法
   </span>
@@ -466,7 +491,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="chemistry/">
+<a class="md-nav__link" href="../../../chemistry/">
 <span class="md-ellipsis">
     📚普通化学
   </span>
@@ -484,7 +509,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="physics/">
+<a class="md-nav__link" href="../../../physics/">
 <span class="md-ellipsis">
     📚普通物理学
   </span>
@@ -508,145 +533,52 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    辅学简介
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    大文件存放处
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    相关网站
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    贡献
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/index.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming_lecture/lecture2/pre_class.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="_1">欢迎来到竺院辅学计划网站<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<p>😉 你好<span><span class="heti-spacing"> </span>~</span></p>
-<p>这里是竺可桢学院学业指导中心辅学计划的站点。辅学计划为竺院大一新生提供数学分析（H<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、线性代数（H<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、微积分（H<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、普通物理学（H<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、普通化学（H<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、程序设计基础等<strong>荣誉课程</strong>的学习指导与帮助。</p>
-<p>你可以通过网站上方或左侧的导航栏浏览我们的网站。普通辅学版块使用 📚 标注，精品课程版块使用 🏫 标注。</p>
-<!-- prettier-ignore-start -->
-<div class="nt-cards nt-grid cols-3">
-<div class="nt-card">
-<div class="nt-card-wrap">
-<div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="graph/calculus.webp"><img src="graph/calculus.webp"/></a></div>
-<div class="nt-card-content">
-<p class="nt-card-title"><a href="calculus/">微积分</a></p>
-<p class="nt-card-text"><span>23-24<span class="heti-spacing"> </span></span>辅学群：204755170</p>
-</div>
-</div>
-</div>
-</div>
-<div class="nt-card">
-<div class="nt-card-wrap">
-<div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="graph/analysis.jpg"><img src="graph/analysis.jpg"/></a></div>
-<div class="nt-card-content">
-<p class="nt-card-title"><a href="analysis/">数学分析</a></p>
-<p class="nt-card-text"><span>23-24<span class="heti-spacing"> </span></span>辅学群：618962803<br/> <a href="analysis/2024/analysis_lecture1_sequence_limits/">第一讲：数列极限</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="nt-card">
-<div class="nt-card-wrap">
-<div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="graph/algebra.jpg"><img src="graph/algebra.jpg"/></a></div>
-<div class="nt-card-content">
-<p class="nt-card-title"><a href="algebra/">线性代数</a></p>
-<p class="nt-card-text"><span>23-24<span class="heti-spacing"> </span></span>辅学群：913067714<br/> <a href="lalu/">【精品课程】线性代数：未竟之美</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="nt-card">
-<div class="nt-card-wrap">
-<div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="graph/programming.jpg"><img src="graph/programming.jpg"/></a></div>
-<div class="nt-card-content">
-<p class="nt-card-title"><a href="programming/">程序设计</a></p>
-<p class="nt-card-text"><span>23-24<span class="heti-spacing"> </span></span>辅学群：728919863<br/> <a href="programming/2024_daily_problem/">每日一题</a><br/> <a href="programming_lecture/">【精品课程】系统知识拾遗</a><br/> <a href="https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/">【精品课程】实用技能拾遗</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="nt-card">
-<div class="nt-card-wrap">
-<div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="graph/chem.jpg"><img src="graph/chem.jpg"/></a></div>
-<div class="nt-card-content">
-<p class="nt-card-title"><a href="chemistry/">普通化学</a></p>
-<p class="nt-card-text"><span>23-24<span class="heti-spacing"> </span></span>辅学群：635023447</p>
-</div>
-</div>
-</div>
-</div>
-<div class="nt-card">
-<div class="nt-card-wrap">
-<div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="graph/physics.png"><img src="graph/physics.png"/></a></div>
-<div class="nt-card-content">
-<p class="nt-card-title"><a href="physics/">普通物理学</a></p>
-<p class="nt-card-text"><span>22-23<span class="heti-spacing"> </span></span>辅学群：727382522 </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- prettier-ignore-end -->
-<h2 id="_2">辅学简介<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<ul>
-<li>
-<p>每个长学期初，我们会招募优秀的学长学姐作为辅学学长。所有辅学学长都会在辅学群内进行<strong>答疑</strong>，部分辅学学长会进行<strong>授课</strong>。</p>
-</li>
-<li>
-<p>授课一般依照课程进度进行，对专题的知识进行总结复习，或是在期中期末考前进行复习和习题讲解。<strong>开展授课前一周，辅学群内会发布授课信息和报名问卷</strong>，同学们可以根据自己的需求选择参加。</p>
-</li>
-<li>
-<p>此外，部分课程开设了<strong>辅学精品课程</strong>。授课学长学姐以课程组的形式组织起来，编写系统的配套的讲义，进行连贯的授课，深度契合竺院荣誉课程的内容。我们希望能携手优秀的学长学姐，为竺院学子打造高质量的辅学课程。</p>
-</li>
-</ul>
-<h2 id="_3">大文件存放处<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>超过<span class="heti-skip"><span class="heti-spacing"> </span>20MB<span class="heti-spacing"> </span></span>的大文件都放置在学业指导中心公共网盘的分享链接中，同学们可以点击下面的链接查看。如果有需要放置的大文件，请联系学业指导中心的同学上传。</p>
-<ul>
-<li><a href="https://pan.baidu.com/s/1OB8pDdSDJ_718Fx2nelyVg?pwd=c6mx">百度网盘<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>竺院辅学资料</a></li>
-</ul>
-<h2 id="_4">相关网站<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<ul>
-<li><a href="https://github.com/ZJU-Turing/TuringCourses">浙江大学图灵班课程学习指南</a></li>
-<li><a href="https://qsctech.github.io/zju-icicles/">浙江大学课程攻略共享计划</a></li>
-</ul>
-<h2 id="_5">贡献<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>如果您愿意参与该网站的建设，请到<span class="heti-skip"><span class="heti-spacing"> </span>GitHub<span class="heti-spacing"> </span></span>中本项目的<a href="https://github.com/ckc-agc/study-assist">仓库</a>进行贡献。</p>
+<h1 id="magic">课前：<span>MAGIC<span class="heti-spacing"> </span></span>函数<a class="headerlink" href="#magic" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<p>请复制此份程序到你的编辑器中。我们将会直接在这份程序的基础上进行授课。</p>
+<p>不需要读懂并理解这段程序的意义。感兴趣的同学可自行研究。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define _STR0(x) #x</span>
+<span class="cp">#define _STR(x) _STR0(x)</span>
+<span class="cp">#define _MAGIC0(name, val, size) _magic_print((name), (const uint8_t *)(val), (size))</span>
+<span class="cp">#define MAGIC(v) _MAGIC0(_STR(v), (&amp;v), sizeof(v));</span>
+<span class="cp">#define MAGIC_R(v)                      \</span>
+<span class="cp">  ({                                    \</span>
+<span class="cp">    __typeof__(v) _v = v;               \</span>
+<span class="cp">    _MAGIC0(_STR(v), (&amp;_v), sizeof(v)); \</span>
+<span class="cp">  });</span>
+<span class="cp">#define MAGIC_SIZED(v, size) _MAGIC0(_STR(v), (&amp;v), (size));</span>
+<span class="cp">#define MAGIC_PTR(v) fprintf(stderr, "%s: %p\n", _STR(v), (void *)(v));</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">_magic_print</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"=====</span><span class="se">\n</span><span class="s">%s: %zu (%#zx) byte%s"</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="s">"s"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">      </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">%0*zx "</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">" %02hhx"</span><span class="p">,</span><span class="w"> </span><span class="n">ptr</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// start our journey here...</span>
+<span class="w">  </span><span class="n">MAGIC_R</span><span class="p">(</span><span class="mh">0x12345678</span><span class="p">);</span>
+
+<span class="p">}</span>
+</code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 22, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2023</span>
 </small>
 </div>
 </article>
@@ -675,9 +607,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="assets/javascripts/bundle.aecac24b.min.js"></script>
-<script src="javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.aecac24b.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

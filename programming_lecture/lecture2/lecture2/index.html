@@ -6,7 +6,7 @@
 <meta content="浙江大学竺可桢学院辅学计划站点" name="description"/>
 <meta content="竺可桢学院学业指导中心" name="author"/>
 <link href="https://ckc-agc.pages.zjusct.io/study-assist/programming_lecture/lecture2/lecture2/" rel="canonical"/>
-<link href="../../lecture1/lecture1/" rel="prev"/>
+<link href="../pre_class/" rel="prev"/>
 <link href="../../lecture3/lecture3/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.7" name="generator"/>
@@ -443,6 +443,13 @@
             2. 类型系统与内存模型
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pre_class/">
+<span class="md-ellipsis">
+    课前：MAGIC 函数
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -464,56 +471,110 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
+    前置：数、进制与数据
+  </a>
+<nav aria-label="前置：数、进制与数据" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    如何阅读它们？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ascii">
+    ASCII
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
     类型系统
   </a>
 <nav aria-label="类型系统" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    数据是什么？
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#c">
-    C 语言的类型系统
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    结构与其他数据类型
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
+    计算机如何存储数据？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    大端序与小端序
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    先来练练手！
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    基本类型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    定长整数类型与其他整数类型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    结构体、联合体、枚举类型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    字符串，数组，函数，指针类型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#void">
+    void 类型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#typedef">
+    使用 typedef 为现有的类型定义别名
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    内存模型
+  </a>
+<nav aria-label="内存模型" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    地址和指针
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+    对象和标识符
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+    内存管理
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_16">
+    存储期、作用域和链接
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_24">
     阅读和撰写类型声明
   </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    内存管理
-  </a>
-<nav aria-label="内存管理" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-    对象和标识符
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
-    存储期、作用域和链接
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-auto-c">
-    - 可以使用 auto 显式说明自动存储期。但在 C++ 中它有不同含义，因此不要使用该限定符。
-  </a>
 </li>
 </ul>
 </nav>
@@ -600,56 +661,110 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
+    前置：数、进制与数据
+  </a>
+<nav aria-label="前置：数、进制与数据" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    如何阅读它们？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ascii">
+    ASCII
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
     类型系统
   </a>
 <nav aria-label="类型系统" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    数据是什么？
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#c">
-    C 语言的类型系统
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    结构与其他数据类型
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
+    计算机如何存储数据？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    大端序与小端序
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    先来练练手！
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    基本类型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    定长整数类型与其他整数类型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    结构体、联合体、枚举类型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    字符串，数组，函数，指针类型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#void">
+    void 类型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#typedef">
+    使用 typedef 为现有的类型定义别名
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    内存模型
+  </a>
+<nav aria-label="内存模型" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    地址和指针
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+    对象和标识符
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+    内存管理
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_16">
+    存储期、作用域和链接
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_24">
     阅读和撰写类型声明
   </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    内存管理
-  </a>
-<nav aria-label="内存管理" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-    对象和标识符
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
-    存储期、作用域和链接
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-auto-c">
-    - 可以使用 auto 显式说明自动存储期。但在 C++ 中它有不同含义，因此不要使用该限定符。
-  </a>
 </li>
 </ul>
 </nav>
@@ -663,200 +778,480 @@
 </a>
 <h1 id="_1">类型系统与内存模型<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <!-- prettier-ignore-start -->
-<div class="admonition danger">
-<p class="admonition-title">施工中</p>
-<p>本页面正在编辑中。</p>
-</div>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
 <ul>
-<li><span>C<span class="heti-spacing"> </span></span>类型系统的完整描述</li>
-<li>如何阅读声明</li>
 <li>程序内存空间的布局</li>
+<li><span>C<span class="heti-spacing"> </span></span>类型系统的描述</li>
+<li>如何阅读声明</li>
 <li>如何管理内存</li>
 </ul>
 </div>
-<!-- prettier-ignore-end -->
-<h2 id="_2">类型系统<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<!-- prettier-ignore-start -->
-<div class="admonition abstract">
-<p class="admonition-title">Abstract</p>
-<p>该部分在课堂上有较为详细的讲解，你应当已经了解下面这些<strong>基本数据类型</strong>的使用：</p>
-<ul>
-<li>整型：<code>int</code>、<code>long</code>、<code>short</code>、<code>char</code>、<code>unsigned</code>、<code>signed</code> 等。</li>
-<li>结构</li>
-</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>在本节讲义中，若无特别说明，我们默认采用<span class="heti-skip"><span class="heti-spacing"> </span>C99<span class="heti-spacing"> </span></span>标准。</p>
 </div>
 <!-- prettier-ignore-end -->
-<h3 id="_3">数据是什么？<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p><span>todo:<span class="heti-spacing"> </span></span>数据与类型的基本概念</p>
-<h3 id="c"><span>C<span class="heti-spacing"> </span></span>语言的类型系统<a class="headerlink" href="#c" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h2 id="_2">前置：数、进制与数据<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ul>
+<li>十进制：<code>20231029</code></li>
+<li>二进制：<code>[0b] 1001101001011001101110101</code></li>
+<li>八进制：<code>[0o] 115131565</code></li>
+<li>十六进制：<code>[0x] 134b375</code></li>
+</ul>
+<p>你可以通过 <code>%x</code> 格式化字符串来打印十六进制数。</p>
+<div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">20231029</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mh">0x20231029</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="_3">如何阅读它们？<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<p>这些都是“十”：<code>0b1010</code>，<code>0o12</code>，<code>0xa</code>，<code>10</code>。</p>
+<ul>
+<li><code>0x18</code><ul>
+<li>❌ <em>零埃克斯十八</em>，<em>零叉十八</em>，<em>零乘十八</em></li>
+<li>✅ <em>零埃克斯一八</em>，<em>零叉一八</em></li>
+</ul>
+</li>
+<li><code>0o23</code><ul>
+<li>❌ <em>零欧二十三</em></li>
+<li>✅ <em>零欧二三</em></li>
+</ul>
+</li>
+<li><code>0b1010</code><ul>
+<li>❌ <em>零币一千零一十</em></li>
+<li>✅ <em>零币一零一零</em></li>
+</ul>
+</li>
+<li><code>0x10000</code><ul>
+<li>❌ <em>零埃克斯一万</em>，<em>零叉一万</em>，<em>零乘一万</em></li>
+<li>✅ <em>零埃克斯一零零零零</em>，<em>零叉一零零零零</em></li>
+</ul>
+</li>
+</ul>
+<h3 id="ascii">ASCII<a class="headerlink" href="#ascii" title="Permanent link">¶</a></h3>
+<p>每个字符对应一个数字，即其<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码。如 <code>A</code> 的<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码为 <code>65</code>，<code>a</code> 的<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码为 <code>97</code>。</p>
+<h2 id="_4">类型系统<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>类型是与数据相关的属性，它决定了数据的<strong>存储方式</strong>和<strong>可进行的操作</strong>。</p>
+<p>变量是数据的<strong>载体</strong>，它是<strong>存储在内存中的一块空间</strong>，有<strong>类型</strong>和<strong>值</strong>。</p>
+<h3 id="_5">计算机如何存储数据？<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<p>在一台<span class="heti-skip"><span class="heti-spacing"> </span>s390x<span class="heti-spacing"> </span></span>架构的计算机上：</p>
+<div class="highlight"><pre><span></span><code><span class="n">MAGIC_R</span><span class="p">(</span><span class="mh">0x20231029</span><span class="p">);</span>
+<span class="c1">// =====</span>
+<span class="c1">// 0x20231029: 4 (0x4) byte(s)</span>
+<span class="c1">// 0000  20 23 10 29</span>
+</code></pre></div>
+<h3 id="_6">大端序与小端序<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<blockquote>
+<p>我下面要告诉你的是，<span>Lilliput<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Blefuscu<span class="heti-spacing"> </span></span>这两大强国在过去<span class="heti-skip"><span class="heti-spacing"> </span>36<span class="heti-spacing"> </span></span>个月里一直在苦战。战争开始是由于以下的原因：我们大家都认为，吃鸡蛋前，原始的方法是打破鸡蛋较大的一端，可是当今皇帝的祖父小时候吃鸡蛋，一次按古法打鸡蛋时碰巧将一个手指弄破了。因此他的父亲，当时的皇帝，就下了一道敕令，命令全体臣民吃鸡蛋时打破鸡蛋较小的一端，违令者重罚。老百姓们对这项命令极其反感。历史告诉我们，由此曾经发生过<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>次叛乱，其中一个皇帝送了命，另一个丢了王位。这些叛乱大多都是由<span class="heti-skip"><span class="heti-spacing"> </span>Blefuscu<span class="heti-spacing"> </span></span>的国王大臣们煽动起来的。叛乱平息后，流亡的人总是逃到那个帝国去寻求避难。据估计，先后几次有<span class="heti-skip"><span class="heti-spacing"> </span>11000<span class="heti-spacing"> </span></span>人情愿受死也不肯去打破鸡蛋较小的一端。关于这一争端，曾出版过几百本大部著作，不过大端派的书一直是受禁的，法律也规定该派任何人不得做官<heti-adjacent class="heti-adjacent-quarter">。</heti-adjacent>”</p>
+<p>—— 《格列佛游记<heti-adjacent class="heti-adjacent-half">》</heti-adjacent>，<a href="https://zh.wikipedia.org/wiki/字节序"><span>https://zh.wikipedia.org/wiki/<span class="heti-spacing"> </span></span>字节序</a></p>
+</blockquote>
+<p>主流架构（如<span><span class="heti-spacing"> </span>x86</span>、AMD64、ARM）使用<strong>小端序</strong>。一些不常见的架构（如<span><span class="heti-spacing"> </span>SPARC</span>）使用<strong>大端序</strong>。网络协议使用<strong>大端序</strong>。</p>
+<h3 id="_7">先来练练手！<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<p>你应当已经知道，不同类型的变量一般占据不同的字节数。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x12345678</span><span class="p">;</span>
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+
+<span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xfedcba9876543210LL</span><span class="p">;</span>
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">ll</span><span class="p">);</span>
+
+<span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159265358979323</span><span class="p">;</span>
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+
+<span class="kt">float</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">f</span><span class="p">);</span>
+
+<span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'A'</span><span class="p">;</span>
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+
+<span class="n">MAGIC_R</span><span class="p">(</span><span class="sc">'A'</span><span class="p">);</span>
+
+<span class="n">MAGIC_R</span><span class="p">((</span><span class="kt">short</span><span class="p">)</span><span class="n">ll</span><span class="p">);</span>
+
+<span class="n">MAGIC</span><span class="p">(</span><span class="s">"Hello world! I am a l"</span><span class="w"> </span><span class="s">"ong string."</span><span class="p">);</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>在小端序计算机上可能的运行结果</summary>
+<div class="highlight"><pre><span></span><code>=====
+i: 4 (0x4) byte
+0000  78 56 34 12
+=====
+ll: 8 (0x8) byte
+0000  10 32 54 76 98 ba dc fe
+=====
+d: 8 (0x8) byte
+0000  18 2d 44 54 fb 21 09 40
+=====
+f: 4 (0x4) byte
+0000  db 0f 49 40
+=====
+c: 1 (0x1) bytes
+0000  41
+=====
+'A': 4 (0x4) byte <span class="cm">&lt;!--(1)!--&gt;</span>
+0000  41 00 00 00
+=====
+(short)ll: 2 (0x2) byte
+0000  10 32
+=====
+"Hello world! I am a l" "ong string.": 33 (0x21) byte
+0000  48 65 6c 6c 6f 20 77 6f 72 6c 64 21 20 49 20 61
+0010  6d 20 61 20 6c 6f 6e 67 20 73 74 72 69 6e 67 2e
+0020  00
+</code></pre></div>
+<ol>
+<li>其类型为 <code class="highlight"><span class="kt">int</span></code>，故占用<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>字节。</li>
+</ol>
+</details>
+<!-- prettier-ignore-end -->
+<h3 id="_8">基本类型<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><a href="https://zh.cppreference.com/w/c/language/types">类型<span><span class="heti-spacing"> </span>- cppreference.com</span></a></p>
+<p>整数类型：<code class="highlight"><span class="kt">char</span></code> <code class="highlight"><span class="kt">short</span></code> <code class="highlight"><span class="kt">int</span></code> <code class="highlight"><span class="kt">long</span></code> <code class="highlight"><span class="kt">long</span><span class="w"> </span><span class="kt">long</span></code></p>
+<p>其中，除了 <code class="highlight"><span class="kt">char</span></code> 以外的类型默认为 <code class="highlight"><span class="kt">signed</span></code>，即有符号数。也就是说，<code class="highlight"><span class="kt">int</span></code> 就是 <code class="highlight"><span class="kt">signed</span><span class="w"> </span><span class="kt">int</span></code>。将 <code class="highlight"><span class="kt">signed</span></code> 换为 <code class="highlight"><span class="kt">unsigned</span></code>，就得到了无符号数。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition tip">
+<p class="admonition-title">那么 <code class="highlight"><span class="kt">char</span></code> 呢？</p>
+<p><code class="highlight"><span class="kt">char</span></code> <code class="highlight"><span class="kt">signed</span><span class="w"> </span><span class="kt">char</span></code> <code class="highlight"><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span></code> 是<strong>三个不同的类型</strong>，尽管在大多数实现中，<code class="highlight"><span class="kt">char</span></code> 表现为有符号数。</p>
+</div>
+<!-- prettier-ignore-end -->
 <!-- prettier-ignore-start -->
 <details class="tip">
 <summary>字符类型解惑</summary>
 <p>或许你会和我同样对以下几个问题感到困惑：</p>
 <ul>
-<li>为什么<strong>字符常量</strong>的类型是 <code>int</code> 且长度是<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个字节？</li>
-<li>为什么 <code>getchar()</code> 等函数返回 <code>int</code> 而不是 <code>char</code>？</li>
+<li>为什么<strong>字符常量</strong>的类型是 <code class="highlight"><span class="kt">int</span></code> 且长度是<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个字节？</li>
+<li>为什么 <code class="highlight"><span class="n">getchar</span><span class="p">()</span></code> 等函数返回 <code class="highlight"><span class="kt">int</span></code> 而不是 <code class="highlight"><span class="kt">char</span></code>？</li>
 <li>宽字符、多字节字符和<span class="heti-skip"><span class="heti-spacing"> </span>Unicode<span class="heti-spacing"> </span></span>究竟如何使用？</li>
 </ul>
 <p>这里将解释前两个问题，第三个问题不做要求，有兴趣可以参看中的相关内容。</p>
 <ul>
-<li>字符常量的类型为什么是 <code>int</code>？</li>
+<li>字符常量的类型为什么是 <code class="highlight"><span class="kt">int</span></code>？</li>
 </ul>
-<p>多字符常量（Multicharacter constants）继承于<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的前身<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>语言。它们的主要用途是用于编写汇编语言，因为汇编语言中的指令通常是多字节的。例如，<code>'abcd'</code> 可以用于表示一个<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位的指令。</p>
-<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准中，<strong>多字符常量被定义为 <code>int</code> 类型</strong>，长度是<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个字节。在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的实际使用中，多字符常量通常是出于<strong>调试目的</strong>而嵌入结构中的<strong>魔数（Magic Numbers）</strong>，就像有些人会使用 <code>0xfeedbeef</code> 和 <code>0xdeadbeef</code> 而不是 <code>NULL</code> 来标记指针的<strong>未初始化</strong>和<strong>已删除</strong>状态。这样做的好处是，如果程序出现了错误，我们可以通过打印出这些魔数来定位错误的位置。</p>
-<p>我们使用时<strong>应当避免将多字符常量从 <code>int</code> 类型转换为 <code>char</code> 类型，因为这一转换过程是由编译器实现决定的。</strong>比如 <code>char a = 'ABCD'</code>，在<span><span class="heti-spacing"> </span>gcc</span>、clang、<span>msvc<span class="heti-spacing"> </span></span>上均为 <code>a = 'D'</code>，但是在<span class="heti-skip"><span class="heti-spacing"> </span>armcc<span class="heti-spacing"> </span></span>上为 <code>a = 'A'</code>。</p>
+<p>多字符常量（Multicharacter constants）继承于<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的前身<span class="heti-skip"><span class="heti-spacing"> </span>B<span class="heti-spacing"> </span></span>语言。它们的主要用途是用于编写汇编语言，因为汇编语言中的指令通常是多字节的。例如，<code class="highlight"><span class="err">'</span><span class="n">abcd</span><span class="err">'</span></code> 可以用于表示一个<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位的指令。</p>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准中，<strong>多字符常量被定义为 <code class="highlight"><span class="kt">int</span></code> 类型</strong>，长度是<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个字节。在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的实际使用中，多字符常量通常是出于<strong>调试目的</strong>而嵌入结构中的<strong>魔数（Magic Numbers）</strong>，就像有些人会使用 <code class="highlight"><span class="mh">0xfeedbeef</span></code> 和 <code class="highlight"><span class="mh">0xdeadbeef</span></code> 而不是 <code class="highlight"><span class="nb">NULL</span></code> 来标记指针的<strong>未初始化</strong>和<strong>已删除</strong>状态。这样做的好处是，如果程序出现了错误，我们可以通过打印出这些魔数来定位错误的位置。</p>
+<p>我们使用时<strong>应当避免将多字符常量从 <code class="highlight"><span class="kt">int</span></code> 类型转换为 <code class="highlight"><span class="kt">char</span></code> 类型，因为这一转换过程是由编译器实现决定的。</strong>比如 <code class="highlight"><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">'</span><span class="n">ABCD</span><span class="err">'</span></code>，在<span><span class="heti-spacing"> </span>gcc</span>、clang、<span>msvc<span class="heti-spacing"> </span></span>上均为 <code class="highlight"><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'D'</span></code>，但是在<span class="heti-skip"><span class="heti-spacing"> </span>armcc<span class="heti-spacing"> </span></span>上为 <code class="highlight"><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'A'</span></code>。</p>
 <ul>
-<li><code>getchar()</code> 为什么要返回 <code>int</code> 类型？</li>
+<li><code class="highlight"><span class="n">getchar</span><span class="p">()</span></code> 为什么要返回 <code class="highlight"><span class="kt">int</span></code> 类型？</li>
 </ul>
-<p>因为它会返回 <code>EOF</code>，而 <code>EOF</code> 在标准中定义为 <code>int</code> 类型，通常为 <code>(int)-1</code>。</p>
+<p>因为它会返回 <code>EOF</code>，而 <code>EOF</code> 在标准中定义为 <code class="highlight"><span class="kt">int</span></code> 类型，通常为 <code class="highlight"><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="mi">-1</span></code>。</p>
 <blockquote>
 <p>This macro is an integer value that is returned by a number of narrow stream functions to indicate an end-of-file condition, or some other error situation.</p>
 </blockquote>
-<p>为什么要这么定义？从逻辑上说，<code>EOF</code> 应当<strong>与任何一个字符值都不同</strong>。<code>(char)-1</code> 也是一个合法的字符（因为它是 <code>char</code> 类型，<code>char</code> 类型的每个值都能表示字符<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，所以不能用作 <code>EOF</code>，必须使用 <code>(int)-1</code>，它与前者宽度不同，因此是不同的值。</p>
-<p>还记得的在类型转换中提到的<strong>整形提升</strong>吗？如果我们让 <code>getchar()</code> 返回 <code>(char)-1</code>，当函数接收到 <code>(char)-1</code> 时，它会执行从无符号数到有符号数的转换（即使实现为有符号的 <code>char</code><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，从而返回 <code>(int)255</code>，这与 <code>EOF</code> 的定义不符。</p>
-<p>此外，<code>char</code>、<code>signed char</code> 与 <code>unsigned char</code> 直接两两不同，尽管 <code>char</code> 具体实现为有符号数还是无符号数由实现决定。</p>
+<p>为什么要这么定义？从逻辑上说，<code>EOF</code> 应当<strong>与任何一个字符值都不同</strong>。<code class="highlight"><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="mi">-1</span></code> 也是一个合法的字符（因为它是 <code class="highlight"><span class="kt">char</span></code> 类型，根据<span class="heti-skip"><span class="heti-spacing"> </span>Latin-1<span class="heti-spacing"> </span></span>编码，<code class="highlight"><span class="kt">char</span></code> 类型的每个可能值都表示一个字符<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，所以不能用作 <code>EOF</code>，必须使用 <code class="highlight"><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="mi">-1</span></code>，它与前者宽度不同，因此是不同的值。</p>
+<p>还记得的在类型转换中提到的<strong>整形提升</strong>吗？如果我们让 <code class="highlight"><span class="n">getchar</span><span class="p">()</span></code> 返回 <code class="highlight"><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="mi">-1</span></code>，当函数接收到 <code class="highlight"><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="mi">-1</span></code> 时，它会执行从无符号数到有符号数的转换（即使实现为有符号的 <code class="highlight"><span class="kt">char</span></code><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，从而返回 <code class="highlight"><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="mi">255</span></code>，这与 <code>EOF</code> 的定义不符。</p>
 <blockquote>
 <p>参考资料：</p>
 <ul>
 <li><a href="https://www.quora.com/What-is-the-purpose-of-multi-character-constants-in-C">What is the purpose of multi character constants in C? - Quora</a></li>
-<li><a href="https://en.cppreference.com/w/c/language/character_constant">Character constant - cppreference.com</a></li>
-<li><a href="https://www.reddit.com/r/C_Programming/comments/5a9sv1/int_c_getchar_why_int">int c = getchar()? Why int? : C_Programming (reddit.com)</a></li>
-<li><a href="https://en.cppreference.com/w/c/language/conversion">Implicit conversions - cppreference.com</a></li>
+<li><a href="https://zh.cppreference.com/w/c/language/character_constant">字符常量<span><span class="heti-spacing"> </span>- cppreference.com</span></a></li>
+<li><a href="https://www.reddit.com/r/C_Programming/comments/5a9sv1/int_c_getchar_why_int"><code class="highlight"><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">()</span></code>? Why <code class="highlight"><span class="kt">int</span></code>? : C_Programming (reddit.com)</a></li>
+<li><a href="https://zh.cppreference.com/w/c/language/conversion">隐式转换<span><span class="heti-spacing"> </span>- cppreference.com</span></a></li>
 </ul>
 </blockquote>
 </details>
 <!-- prettier-ignore-end -->
-<h3 id="_4">结构与其他数据类型<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<h3 id="_5">阅读和撰写类型声明<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<!-- prettier-ignore-start -->
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>本节内容主要来自《<span>C<span class="heti-spacing"> </span></span>专家编程》第<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>章“分析<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的声明”。</p>
-</div>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
+<p>浮点类型：<code class="highlight"><span class="kt">float</span></code> <code class="highlight"><span class="kt">double</span></code> <code class="highlight"><span class="kt">long</span><span class="w"> </span><span class="kt">double</span></code></p>
 <div class="admonition tip">
-<p class="admonition-title">在实际工作中最好使用 <code>typedef</code> 逐步合成声明。</p>
-<p>One good way to synthesize declarations is in small steps with <code>typedef</code>. <em>K&amp;R C, 5.12</em>.</p>
+<p class="admonition-title">复数类型</p>
+<p>在其后加上 <code class="highlight"><span class="kt">_Complex</span></code> 即为复数类型，如 <code class="highlight"><span class="kt">double</span><span class="w"> </span><span class="kt">_Complex</span></code>。相同的，有 <code class="highlight"><span class="k">_Imaginary</span></code>。</p>
+<p>是的，<span>C<span class="heti-spacing"> </span></span>在语言层面上支持复数和虚数，但并不是所有的编译器都支持这一特性。例如，<span>gcc<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>clang<span class="heti-spacing"> </span></span>目前均不支持 <code class="highlight"><span class="k">_Imaginary</span></code>。</p>
 </div>
-<!-- prettier-ignore-end -->
-<p>《<span>C<span class="heti-spacing"> </span></span>专家编程》和《<span>C<span class="heti-spacing"> </span></span>陷阱与缺陷》都提出用下面这种方法理解复杂的类型声明，它们本质是一样的，分别表述为：</p>
-<ul>
-<li><strong><em>声明的形式与使用的形式相似</em></strong>。</li>
-<li><strong><em>声明是类型<span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span>表达式</em></strong>，对该表达式求值将<strong><em>得到该类型</em></strong>。</li>
-</ul>
+<h3 id="_9">定长整数类型与其他整数类型<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>在 <code>stdint.h</code> 中定义，如 <code class="highlight"><span class="kt">int8_t</span></code> <code class="highlight"><span class="kt">uint8_t</span></code> <code class="highlight"><span class="kt">int16_t</span></code> <code class="highlight"><span class="kt">uint16_t</span></code> <code class="highlight"><span class="kt">int32_t</span></code> <code class="highlight"><span class="kt">uint32_t</span></code> <code class="highlight"><span class="kt">int64_t</span></code> <code class="highlight"><span class="kt">uint64_t</span></code>。</p>
+<p><code class="highlight"><span class="k">sizeof</span></code> 运算符与 <code class="highlight"><span class="n">offsetof</span></code> 宏的结果：<code class="highlight"><span class="kt">size_t</span></code>，足够表示任何对象的<strong>大小</strong>。常被定义为 <code class="highlight"><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span></code>。</p>
+<p>在 <code>stddef.h</code> 中定义，<code class="highlight"><span class="kt">ptrdiff_t</span></code> 表示两个指针相减的结果。常被定义为 <code class="highlight"><span class="kt">long</span></code>。</p>
 <!-- prettier-ignore-start -->
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">简单的例子</label><label for="__tabbed_1_2">复杂的例子</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<p>看看这个声明：<code>int *p</code></p>
-<ul>
-<li><code>p</code> 是一个指针。我们声明它的形式与使用它的形式 <code>*p</code> （解引用 <code>p</code>）类似。</li>
-<li><code>p</code> 是一个指针，对它求值得到一个 <code>int</code> 类型的值。</li>
-</ul>
-</div>
-<div class="tabbed-block">
-<p>再看看这个声明：<code>char (*(*x[3])())[5]</code></p>
-<ul>
-<li><code>x</code> 是一个数组。我们声明它的形式与使用它的形式 <code>x[3]</code> 类似。</li>
-<li>把 <code>(*(*x[3])())[5]</code> 看作一个表达式，从内向外按照运算符和结合律对其求值，最终会得到一个 <code>char</code> 类型。求值的过程中，我们依次得到了数组、函数指针、数组指针，最后得到了 <code>char</code> 类型。</li>
-</ul>
-</div>
-</div>
-</div>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
-<details class="note">
-<summary><span>K&amp;R<span class="heti-spacing"> </span></span>对<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言类型声明的解读</summary>
-<p>Todo</p>
+<details class="tip">
+<summary>如何输出这些整数类型？</summary>
+<p>在 <code>inttypes.h</code> 中定义了一系列格式化字符串，如 <code>PRId32</code> 一般展开为 <code class="highlight"><span class="s">"d"</span></code>，而 <code>PRIu64</code> 可能展开为 <code class="highlight"><span class="s">"llu"</span></code>。</p>
+<p>这些定义在不同的平台上可能有所不同。使用这些格式化字符串可以保证在不同平台上输出正确的结果（且不会引发编译器警告<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">uint64_t</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xdeadbeefcafebabe</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%"</span><span class="w"> </span><span class="n">PRIu64</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">// 应当包含 inttypes.h</span>
+</code></pre></div>
+<p>对于 <code class="highlight"><span class="kt">size_t</span></code> 和 <code class="highlight"><span class="kt">ptrdiff_t</span></code>，可以使用 <code class="highlight"><span class="o">%</span><span class="n">zu</span></code> 和 <code class="highlight"><span class="o">%</span><span class="n">td</span></code>。</p>
 </details>
 <!-- prettier-ignore-end -->
-<p>对于<strong>声明</strong>来说，上面的方法已经足够了，因为<strong>总是容易找到变量的名字在哪里</strong>。但是对于<strong>形式参数</strong>、<code>typedef</code>、<code>sizeof</code> 和强制类型转换符等情况来说，<strong>找不到变量的名字</strong>，上面的方法就不够了。这时有一个更好的办法：从最内层括号开始读。</p>
-<p>看看这个表达式：</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="kt">void</span><span class="p">(</span><span class="o">*</span><span class="p">)())</span><span class="mi">0</span><span class="p">)();</span>
+<h3 id="_10">结构体、联合体、枚举类型<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>枚举类型实质上是整数类型。它的值是由编译器自动分配的（一般从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，也可手动指定。</p>
+<p>结构体的大小是其成员大小的总和，加上<strong>对齐</strong>所需的填充字节。</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1234</span><span class="p">,</span><span class="w"> </span><span class="mi">-5678</span><span class="p">};</span>
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+
+<span class="k">union</span><span class="w"> </span><span class="nc">un_t</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">union</span><span class="w"> </span><span class="nc">un_t</span><span class="w"> </span><span class="n">un</span><span class="p">;</span>
+<span class="n">un</span><span class="p">.</span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14159265358979323</span><span class="p">;</span>
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">un</span><span class="p">);</span>
+
+<span class="k">enum</span><span class="w"> </span><span class="n">en_t</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ENA</span><span class="p">,</span><span class="w"> </span><span class="n">ENB</span><span class="p">,</span><span class="w"> </span><span class="n">ENC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">114514</span><span class="w"> </span><span class="p">};</span>
+<span class="n">MAGIC_R</span><span class="p">(</span><span class="n">ENA</span><span class="p">);</span>
+<span class="n">MAGIC_R</span><span class="p">(</span><span class="n">ENC</span><span class="p">);</span>
+
+<span class="n">MAGIC_PTR</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
+<span class="n">MAGIC_PTR</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+<span class="n">MAGIC_PTR</span><span class="p">(</span><span class="o">&amp;</span><span class="n">un</span><span class="p">.</span><span class="n">l</span><span class="p">);</span>
+<span class="n">MAGIC_PTR</span><span class="p">(</span><span class="o">&amp;</span><span class="n">un</span><span class="p">.</span><span class="n">d</span><span class="p">);</span>
 </code></pre></div>
-<ul>
-<li>从最内层括号开始读：<code>void(*)()</code> 显然是一个函数指针，指向的函数的返回类型是 <code>void</code>，参数列表为空。</li>
-<li>一层括号把 <code>void(*)()</code> 包起来，这是<strong>强制类型转换</strong>的用法，把 <code>0</code> 转换为 <code>void(*)()</code> 类型的指针。</li>
-<li>最后就剩下 <code>(*fp)()</code> 形式的函数调用了。</li>
-</ul>
-<p>综上所述，这个表达式的目的是调用首地址为 <code>0</code> 的函数。实际工作中，我们可以这样分解这个函数声明：</p>
-<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">funcptr</span><span class="p">)();</span>
-<span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">funcptr</span><span class="p">)</span><span class="mi">0</span><span class="p">)();</span>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>在小端序计算机上可能的运行结果</summary>
+<div class="highlight"><pre><span></span><code>=====
+p: 16 (0x10) byte
+0000  d2 04 00 00 00 00 00 00 d2 e9 ff ff ff ff ff ff
+=====
+un: 8 (0x8) byte
+0000  18 2d 44 54 fb 21 09 40
+=====
+ENA: 4 (0x4) bytes
+0000  00 00 00 00
+=====
+ENC: 4 (0x4) bytes
+0000  52 bf 01 00
+&amp;p.x: 0x16d3cee18
+&amp;p.y: 0x16d3cee20
+&amp;un.l: 0x16d3cee10
+&amp;un.d: 0x16d3cee10
 </code></pre></div>
-<p><span>C<span class="heti-spacing"> </span></span>语言考试中还会要求你阅读代码片段，为形参等位置填写类型声明。请参考历年卷总结中的例题。</p>
-<hr/>
-<p>分割线下方的内容还未整理</p>
-<h2 id="_6">内存管理<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p><span>C<span class="heti-spacing"> </span></span>的内存管理是一大痛点，因为它本身并不提供检查机制，一切都依赖于程序员自己。因此，好好掌握内存管理对于写出安全、稳定的程序是非常必要的。</p>
-<h3 id="_7">对象和标识符<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>让我们来了解几个概念：对象、标识符</p>
-<ul>
-<li>每个被存储的值都占用一定的物理内存，这样的一块内存称为<strong>对象</strong>。对象可以储存一个或多个值。</li>
-</ul>
+</details>
+<!-- prettier-ignore-end -->
+<h3 id="_11">字符串，数组，函数，指针类型<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>数组是一系列相同类型的对象的集合。数组的大小是其元素大小的总和。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mh">0xbeef</span><span class="p">,</span><span class="w"> </span><span class="mh">0xcafe</span><span class="p">,</span><span class="w"> </span><span class="mh">0xdead</span><span class="p">,</span><span class="w"> </span><span class="mh">0xface</span><span class="p">,</span><span class="w"> </span><span class="mh">0xfeed</span><span class="w"> </span><span class="p">};</span>
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+
+<span class="kt">char</span><span class="w"> </span><span class="n">str1</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello world!"</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello world!"</span><span class="p">;</span>
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">str1</span><span class="p">);</span>
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">str2</span><span class="p">);</span>
+</code></pre></div>
+<p>以 <code>main</code> 函数为例，其有两种（标准规定的）形式：
+</p><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w">                   </span><span class="c1">// 类型为 int(void)</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]);</span><span class="w"> </span><span class="c1">// 类型为 int(int, char *[])</span>
+</code></pre></div>
+<p><span>C<span class="heti-spacing"> </span></span>标准不允许对函数类型应用 <code>sizeof</code> 运算符。</p>
+<p>所有的指针类型都拥有相同的大小。我们将在后面的章节中讨论指针类型。</p>
+<div class="admonition note">
+<p class="admonition-title">数组到指针退化</p>
+</div>
+<h3 id="void"><code class="highlight"><span class="kt">void</span></code> 类型<a class="headerlink" href="#void" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><code class="highlight"><span class="kt">void</span></code> 是一个<strong>不完整类型</strong>，即不存在 <code class="highlight"><span class="kt">void</span></code> 类型的变量。它作为函数的返回类型，表示函数没有返回值。它作为函数的参数类型，表示函数不接受参数。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* 实现略去 */</span><span class="w"> </span><span class="p">}</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// 仅当 f 的返回类型为 void 时才能这样写</span>
+<span class="p">}</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>那么 <code class="highlight"><span class="kt">void</span><span class="w"> </span><span class="o">*</span></code> 呢？</summary>
+<p><code class="highlight"><span class="kt">void</span><span class="w"> </span><span class="o">*</span></code> 是一个<strong>完整类型</strong>，它表示一个指针，指向未知类型的对象（即<heti-adjacent class="heti-adjacent-quarter">，</heti-adjacent>“舍弃”了类型信息的指针<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<p>任何类型的指针均可隐式转换为 <code class="highlight"><span class="kt">void</span><span class="w"> </span><span class="o">*</span></code> 类型，但是反过来不行。这是因为 <code class="highlight"><span class="kt">void</span><span class="w"> </span><span class="o">*</span></code> 类型的指针不知道指向的对象的大小，因此不能进行解引用操作。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x12345678</span><span class="p">;</span>
+<span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%p</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">p</span><span class="p">);</span>
+</code></pre></div>
+</details>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<details class="tip">
+<summary>什么是不完整类型？</summary>
+<p><strong>不完整类型</strong>是指<strong>只知道其存在，但无法知道其大小</strong>的类型。比如：</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">incomp</span><span class="p">;</span>
+</code></pre></div>
+<p>我们只知道 <code class="highlight"><span class="k">struct</span><span class="w"> </span><span class="nc">incomp</span></code> 存在，但是不知道它的大小（因为没有给出其定义<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。因此，<code class="highlight"><span class="k">struct</span><span class="w"> </span><span class="nc">incomp</span></code> 是一个<strong>不完整类型</strong>。但是可以声明指向 <code class="highlight"><span class="k">struct</span><span class="w"> </span><span class="nc">incomp</span></code> 类型的指针。</p>
+<p><strong><code class="highlight"><span class="kt">void</span></code> 类型是唯一可作为函数返回类型的不完整类型。</strong>这是<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语法的一条特殊规定，其意义就是标定“函数没有返回值”。</p>
+</details>
+<!-- prettier-ignore-end -->
+<h3 id="typedef">使用 <code class="highlight"><span class="k">typedef</span></code> 为现有的类型定义别名<a class="headerlink" href="#typedef" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</code></pre></div>
+<p>你已经很熟悉这样的声明了，对吧？<code>a</code> 是一个 <code class="highlight"><span class="kt">int</span></code> 类型的变量。</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</code></pre></div>
+<p>这就是说，<code>a</code> 现在就是 <code class="highlight"><span class="kt">int</span></code> 的别名。你可以这样使用它：</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// 等价于 int b;</span>
+</code></pre></div>
+<p>我们之前提到过的 <code class="highlight"><span class="kt">size_t</span></code>、<code class="highlight"><span class="kt">ptrdiff_t</span></code>、<code class="highlight"><span class="kt">int8_t</span></code> 等类型，就是通过 <code class="highlight"><span class="k">typedef</span></code> 定义的。</p>
+<p>考试中还会要求你阅读代码片段，为形参等位置填写类型声明。请参考历年卷总结中的例题。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title"><span>C<span class="heti-spacing"> </span></span>与<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>的 <code class="highlight"><span class="k">struct</span></code> 并不完全一致</p>
+<p>对于结构体</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>中，此声明引入的新类型名为 <code>point</code>，而在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>中，此声明引入的新类型名为 <code class="highlight"><span class="k">struct</span><span class="w"> </span><span class="nc">point</span></code>。<code>point</code> 本身不是一个类型名。</p>
+<p>下面的写法是常见的：</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="n">point</span><span class="p">;</span>
+</code></pre></div>
+<p>此即定义了一个类型名 <code>point</code>，其为 <code class="highlight"><span class="k">struct</span><span class="w"> </span><span class="nc">point</span></code> 的别名。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h2 id="_12">内存模型<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的内存模型中，<strong>字节</strong>（byte）是最小的可寻址的内存单元，其被定义为一系列连续的<strong>位</strong>（bit<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。<strong>可寻址</strong>意味着每个字节都拥有其编号，即<strong>地址</strong>。</p>
+<div class="highlight"><pre><span></span><code>MAGIC_PTR(&amp;i);
+MAGIC_PTR(&amp;ll);
+MAGIC_PTR(&amp;d);
+MAGIC_PTR(&amp;f);
+
+MAGIC_SIZED(f, 0x20);
+</code></pre></div>
+<h3 id="_13">地址和指针<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong>地址</strong>是一个<strong>无符号整数</strong>，它表示内存中的一个字节。<strong>指针</strong>是一个<strong>变量</strong>，其存储了一个地址。由于这个原因，所有指针类型的大小都是相同的。</p>
+<div class="highlight"><pre><span></span><code><span class="n">MAGIC_R</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+<span class="n">MAGIC_PTR</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="_14">对象和标识符<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>每个被存储的值都占用一定的物理内存，这样的一块内存称为<strong>对象</strong>。对象可以储存一个或多个值。声明变量时，创建了一个<strong>标识符</strong>（identifier<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，其与对象相关联。</p>
+<p>所以，定义一个变量时实际上做了两件事：
+- 为对象分配内存
+- 将标识符与对象关联</p>
 <!-- prettier-ignore-start -->
 <div class="admonition tip">
 <p class="admonition-title">对象的其他含义</p>
-<p>“面向对象编程”中的对象指的是“类对象”。</p>
+<p>“面向对象编程”中的对象指的是“类对象”。<span>C<span class="heti-spacing"> </span></span>语言中没有“类对象”这一概念。</p>
 </div>
 <!-- prettier-ignore-end -->
+<p>思维训练：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">psi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="n">MAGIC_R</span><span class="p">(</span><span class="o">*</span><span class="n">psi</span><span class="p">);</span>
+<span class="n">MAGIC</span><span class="p">(</span><span class="n">psi</span><span class="p">);</span>
+<span class="n">MAGIC_PTR</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
+<span class="n">MAGIC_PTR</span><span class="p">(</span><span class="o">&amp;</span><span class="n">psi</span><span class="p">);</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>在小端序计算机上可能的运行结果</summary>
+<div class="highlight"><pre><span></span><code>=====
+i: 4 (0x4) bytes
+<span class="hll">0000  78 56 34 12
+</span>=====
+*psi: 4 (0x4) bytes
+<span class="hll">0000  78 56 34 12
+</span>=====
+<span class="hll">psi: 8 (0x8) bytes
+</span><span class="hll">0000  4c ae db 6f 01 00 00 00
+</span><span class="hll">&amp;i: 0x16fdbae4c
+</span>&amp;psi: 0x16fdbae08
+</code></pre></div>
+</details>
+<!-- prettier-ignore-end -->
+<p>我们可以观察到什么？</p>
 <ul>
-<li>声明变量创建了一个<strong>标识符</strong>，标识符用于指定硬件内存中的对象。</li>
-<li><strong>指针</strong>与标识符不同，它是另一种指定对象的途径。</li>
+<li><code>psi</code> 变量的值就是 <code>i</code> 关联的对象的地址（<code>0x16fdbae4c</code>）</li>
+<li>通过 <code>psi</code> 可以访问 <code>i</code> 关联的对象（<code>*psi</code>）</li>
+<li><code>psi</code> 本身作为一个变量，也有自己的地址（<code>0x16fdbae08</code>）</li>
 </ul>
 <!-- prettier-ignore-start -->
 <div class="admonition note">
-<p class="admonition-title">左值</p>
-<p>指定对象的表达式被称为<strong>左值</strong>。</p>
-<ul>
-<li><code>entity</code> 标识符，是左值</li>
-<li><code>*pt</code> 是表达式，也是左值</li>
-<li><code>2 * entity</code> 不是标识符，也不是左值</li>
-<li><code>*(pt + 2)</code> 是表达式，也是左值</li>
-</ul>
+<p class="admonition-title">左值与右值</p>
+<p>指代对象的表达式被称为<strong>左值</strong>。这个术语来自于赋值语句，因为赋值语句的左边必须是一个对象。</p>
 <p>如果可以使用左值改变对象中的值，那么称为<strong>可修改的左值</strong>。</p>
-<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"xxxx"</span><span class="p">;</span>
+<ul>
+<li><code>i</code> 是标识符，是可修改的左值</li>
+<li><code>*psi</code> 或 <code>arr[3]</code> 是表达式，是可修改的左值</li>
+<li><code>2 * i</code> 或 <code>&amp;i</code> 或 <code>&amp;psi</code>，不是标识符，是右值</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">pc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Good morning my neighbors"</span><span class="p">;</span>
 </code></pre></div>
 <ul>
 <li><code>pc</code> 是可修改的左值</li>
 <li><code>*pc</code> 是不可修改的左值</li>
 </ul>
+<p>参考：<a href="https://zh.cppreference.com/w/c/language/value_category">值类别<span><span class="heti-spacing"> </span>- cppreference.com</span></a></p>
 </div>
 <!-- prettier-ignore-end -->
-<h3 id="_8">存储期、作用域和链接<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_15">内存管理<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>C<span class="heti-spacing"> </span></span>的内存管理是一大痛点，因为它本身并不提供检查机制，一切都依赖于程序员自己。因此，好好掌握内存管理对于写出安全、稳定的程序是非常必要的。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">dangling</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xdeadbeef</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">pfi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dangling</span><span class="p">();</span>
+<span class="w">  </span><span class="n">MAGIC</span><span class="p">(</span><span class="n">pfi</span><span class="p">);</span>
+<span class="w">  </span><span class="n">MAGIC</span><span class="p">(</span><span class="o">*</span><span class="n">pfi</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>在这里 <code>pfi</code> 称为<strong>悬垂指针</strong>（dangling pointer<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，它指向了一个已经被销毁的对象。使用悬垂指针是未定义行为，可能会导致程序崩溃。</p>
 <!-- prettier-ignore-start -->
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>存储期</strong>描述对象，表明在内存中存储的时间。</p>
-<p><strong>作用域和链接</strong>描述标识符，表明程序的哪些部分可以使用它。</p>
+<p class="admonition-title">常见变式</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">get_a_string</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello world!"</span><span class="p">;</span>
+</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">str</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_a_string</span><span class="p">();</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>问题出在哪？</p>
+<p><code>str</code> 作为一个数组，其生命周期在 <code>get_a_string</code> 函数返回时结束。</p>
+<p>它与下面的程序有什么区别？</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">get_a_string</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello world!"</span><span class="p">;</span>
+</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">str</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_a_string</span><span class="p">();</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 </div>
 <!-- prettier-ignore-end -->
-<h4 id="_9">作用域<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><span>C<span class="heti-spacing"> </span></span>中的变量作用域有以下几种类型：</p>
+<hr/>
+<h3 id="_16">存储期、作用域和链接<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong>存储期</strong>描述对象，表明在内存中存储的时间。</p>
+<p><strong>作用域和链接性</strong>描述标识符，表明程序的哪些部分可以使用它。</p>
+<h4 id="_17">存储期<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
-<li>块作用域</li>
+<li>静态存储期（static）
+  在程序开始时创建，在程序结束时销毁。如全局变量和静态变量。</li>
+<li>自动存储期（automatic）
+  在程序进入作用域时创建，在程序离开作用域时销毁。如局部变量。</li>
+<li>动态分配存储期（allocated）
+  在程序显式地分配内存时创建，在程序显式地释放内存时销毁。如 <code class="highlight"><span class="n">malloc</span><span class="p">()</span></code> 分配的内存。</li>
 </ul>
-<p>大多数变量。从定义处到块末尾。</p>
-<p>函数形参（即使它在花括号外部<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">global</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">automatic</span><span class="p">;</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">allocated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+
+<span class="w">  </span><span class="n">MAGIC_PTR</span><span class="p">(</span><span class="o">&amp;</span><span class="n">global</span><span class="p">);</span>
+<span class="w">  </span><span class="n">MAGIC_PTR</span><span class="p">(</span><span class="o">&amp;</span><span class="n">automatic</span><span class="p">);</span>
+<span class="w">  </span><span class="n">MAGIC_PTR</span><span class="p">(</span><span class="n">allocated</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_18">作用域<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p><a href="https://zh.cppreference.com/w/c/language/scope">作用域<span><span class="heti-spacing"> </span>- cppreference.com</span></a></p>
+<h5 id="_19">块作用域<a class="headerlink" href="#_19" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Note</summary>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>C99<span class="heti-spacing"> </span></span>之前，块作用域的变量必须在块的开头声明。</p>
-<p>也是在<span><span class="heti-spacing"> </span>C99</span>，<strong>块</strong>的概念被放宽：控制语句（条件、循环）也是块（即使没有使用花括号<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。比如：</p>
+<p>在<span><span class="heti-spacing"> </span>C99</span>，<strong>块</strong>的概念被放宽：控制语句（条件、循环）也是块（即使没有使用花括号<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。比如：</p>
 <div class="highlight"><pre><span></span><code><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;;)</span>
-<span class="w">    </span><span class="n">function</span><span class="p">();</span>
+<span class="w">  </span><span class="n">function</span><span class="p">();</span>
 </code></pre></div>
 <p><code>i</code> 具有块作用域，是循环的一部分。</p>
 <p>更精细的定义：循环体是整个循环的子块。你可以这样想它：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;;)</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;;)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>上面的两个同名变量 <code>i</code> 不在同一个块中，因此不是重复定义。</p>
@@ -866,20 +1261,14 @@
 <p>同名的变量，内部覆盖外部。</p>
 </div>
 <!-- prettier-ignore-end -->
-<ul>
-<li>函数作用域</li>
-</ul>
+<h5 id="_20">函数作用域<a class="headerlink" href="#_20" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p><code>goto</code> 语句的标签。这意味着，即使标签在内层的块中，它的作用域也延伸至整个函数。</p>
-<ul>
-<li>函数原型作用域</li>
-</ul>
+<h5 id="_21">函数原型作用域<a class="headerlink" href="#_21" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>函数原型中的变量名。从定义处到函数原型结束。</p>
 <p>只在你使用<span class="heti-skip"><span class="heti-spacing"> </span>VLA<span class="heti-spacing"> </span></span>时需要注意这一顺序：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">use_VLA</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">ar</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">m</span><span class="p">]);</span>
 </code></pre></div>
-<ul>
-<li>文件作用域</li>
-</ul>
+<h5 id="_22">文件作用域<a class="headerlink" href="#_22" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>在任何函数外定义的变量。从定义处到文件末尾。</p>
 <p>这样的变量称为全局变量。</p>
 <!-- prettier-ignore-start -->
@@ -890,77 +1279,16 @@
 <p>刚才我们说的<strong>文件作用域</strong>其实是在<strong>整个翻译单元可见</strong>。</p>
 </div>
 <!-- prettier-ignore-end -->
-<h4 id="_10">链接<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<ul>
-<li>外部链接</li>
-</ul>
-<p>可以在多文件程序中的任何地方使用。</p>
-<ul>
-<li>内部链接</li>
-</ul>
-<p>只能在一个翻译单元中使用。由 <code>static</code> 关键字说明。</p>
-<!-- prettier-ignore-start -->
-<details class="tip">
-<summary>用语</summary>
-<p>程序员们通常用<strong>全局作用域或程序作用域</strong>指代外部链接，用<strong>文件作用域</strong>指代内部链接。</p>
-</details>
-<!-- prettier-ignore-end -->
-<ul>
-<li>无链接</li>
-</ul>
-<p>块作用域、函数作用域、函数原型作用域。</p>
-<h4 id="_11">存储期<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<ul>
-<li>静态存储期</li>
-</ul>
-<p>整个程序执行期间。文件作用域的变量。</p>
-<p>块作用域的变量也能具有静态存储期，使用 <code>static</code> 限定符声明即可。</p>
-<ul>
-<li>线程存储期</li>
-</ul>
-<p>从声明处到线程结束。对文件作用域的声明使用 <code>_Thread_local</code> 限定符说明。每个线程有这个变量的私有拷贝。</p>
-<ul>
-<li>自动存储期</li>
-</ul>
-<p>程序进入块时分配，离开块时释放。块作用域的变量。</p>
-<blockquote>
-<p><span>VLA<span class="heti-spacing"> </span></span>是一个例外，它从定义处到块末尾存在<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（毕竟到定义处才能知道其大小<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
-</blockquote>
-<ul>
-<li>动态分配存储期</li>
-</ul>
-<h4 id="_12">总结<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>不考虑并发编程，<span>C<span class="heti-spacing"> </span></span>语言有五种存储类型。请描述它们的存储期、作用域、链接和定义方式。</p>
-<ul>
-<li>自动</li>
-<li>寄存器</li>
-</ul>
-<p>寄存器变量存放在可用的最快的内存中。由于它可能存放在寄存器中，因此不能取得它的地址。其他方面与自动变量相同。</p>
-<p>能够被声明为寄存器类型的变量类型可能受到限制。比如在某些处理器中，比 <code>double</code> 长的类型不能声明为寄存器变量。</p>
-<ul>
-<li>静态外部链接</li>
-</ul>
-<p><code>extern</code> 声明常常是不必要的，只是能够更好地说明使用了其他地方的变量。</p>
-<blockquote>
-<p>但是如果在块中，再次声明一个同名的变量，则会覆盖静态外部链接的变量。如果出现这种重名的情况，建议使用 <code>auto</code> 注明。</p>
-</blockquote>
-<ul>
-<li>静态内部链接</li>
-<li>静态无链接</li>
-</ul>
-<p>仅在初始化时编译一次，若未指定值，则为 <code>0</code>。如果你用调试器调试，常常会发现好像“跳过”了这一步。</p>
-<!-- prettier-ignore-start -->
-<details class="note">
-<summary>Note</summary>
-<h2 id="-auto-c"><span>-<span class="heti-spacing"> </span></span>可以使用 <code>auto</code> 显式说明自动存储期。但在<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>中它有不同含义，因此不要使用该限定符。<a class="headerlink" href="#-auto-c" title="Permanent link">¶</a></h2>
-</details>
-<!-- prettier-ignore-end -->
+<hr/>
+<p>由于讲义中涉及到的内容较多，无法在一节课内全部讲解。后续的讲义将会随回放链接更新而更新。</p>
+<h4 id="_23">链接<a class="headerlink" href="#_23" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h3 id="_24">阅读和撰写类型声明<a class="headerlink" href="#_24" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 10, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2023</span>
 </small>
 </div>
 </article>
