@@ -618,12 +618,19 @@
 <!-- prettier-ignore-end -->
 <h2 id="_2">底层概念<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_3">内存模型<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的内存模型中，<strong>字节（Byte）</strong>是内存的最小可寻址单元，它被定义为一系列连续的<strong>位（bit）</strong>，这与一般印象相符。虽然<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言标准仅规定字节长度不得少于<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位，不过对当前的大部分计算机而言，一个字节的长度为<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位。我们的讨论也基于这一事实标准。</p>
-<p>字节定义中的“可寻址”，意味着所有字节都拥有一个唯一编号，也即<strong>内存地址</strong>。习惯上，内存地址由长度一定的、从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始递增的无符号整数表示，其长度由处理器架构决定。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note inline end">
+<p class="admonition-title">内存模型</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/pointers_addr.jpg"><img alt="" src="../graph/pointers_addr.jpg"/></a></p>
+<p>存储在内存中的一个字符串，其每个字节的索引、值与内存地址。</p>
+</div>
+<!-- prettier-ignore-end -->
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的内存模型中，<strong>字节（Byte）</strong>是内存的最小可寻址单元，它被定义为一系列连续的<strong>位（bit）</strong>。在几乎所有现代计算机上，一个字节的长度都是<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位，我们的讨论也基于这一标准。</p>
+<p>所谓“可寻址”指的是内存中的所有字节都拥有一个唯一编号，也即<strong>内存地址</strong>。习惯上，内存地址由长度一定的、从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始递增的无符号整数表示，其长度由操作系统决定。</p>
 <!-- prettier-ignore-start -->
 <details class="info">
 <summary>常见架构中内存地址的长度</summary>
-<p>我们经常接触的处理器架构中，x86（又称<span><span class="heti-spacing"> </span>IA-32</span>）架构使用<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位长的内存地址，x86-64（又称<span><span class="heti-spacing"> </span>x64</span>、AMD64、Intel 64）与<span><span class="heti-spacing"> </span>ARM64</span>（又称<span><span class="heti-spacing"> </span>AArch64</span>）架构使用<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位长的内存地址。容易看出，<span>x86<span class="heti-spacing"> </span></span>架构支持的最大内存空间仅为<span><span class="heti-spacing"> </span>4 MB</span>，而后两个架构支持的最大内存空间则远超前者。</p>
+<p>我们经常接触的处理器架构中，x86（又称<span><span class="heti-spacing"> </span>IA-32</span>）架构使用<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位长的内存地址，x86-64（又称<span><span class="heti-spacing"> </span>x64</span>、AMD64、Intel 64）与<span><span class="heti-spacing"> </span>ARM64</span>（又称<span><span class="heti-spacing"> </span>AArch64</span>）架构使用<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位长的内存地址。容易看出，<span>x86<span class="heti-spacing"> </span></span>架构支持的最大内存空间仅为<span><span class="heti-spacing"> </span>4 GB</span>，而后两个架构支持的最大内存空间则远超前者。</p>
 </details>
 <!-- prettier-ignore-end -->
 <h3 id="_4">对象<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -648,9 +655,9 @@
 <p>相对应地，不同指针类型间是否兼容，取决于被引用对象的类型是否兼容。</p>
 <h3 id="_7">声明<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>指针类型对象的声明语法如下：</p>
-<p></p><div class="highlight"><pre><span></span><code><span class="n">type</span><span class="o">-</span><span class="n">specifier</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">qualifiers</span><span class="w"> </span><span class="n">declarator</span>
+<div class="highlight"><pre><span></span><code><span class="n">type</span><span class="o">-</span><span class="n">specifier</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">qualifiers</span><span class="w"> </span><span class="n">declarator</span>
 </code></pre></div>
-其中，<code>type-specifier</code> 为<em>被引用对象的类型</em>，<code>qualifiers</code> 为<em>对指针类型对象的限定</em>，<code>declarator</code>为<em>指针类型对象的标识符</em>（名称<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。
+<p>其中，<code>type-specifier</code> 为<em>被引用对象的类型</em>，<code>qualifiers</code> 为<em>对指针类型对象的限定</em>，<code>declarator</code>为<em>指针类型对象的标识符</em>（名称<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
 <p>需要注意的是，声明中 <code>*</code> 只对直接结合的标识符生效。举例来说，如果通过语句 <code>int * a, b;</code> 声明变量 <code>a</code> 与 <code>b</code>，那么只有 <code>a</code> 会被认定为指针类型。</p>
 <p>在声明指向某些类型对象的指针时，可通过括号使 <code>*</code> 优先与标识符结合，以避免运算符优先级差异导致的歧义。举例来说，语句 <code>int *arr[3];</code> 声明了一个<strong>元素类型为 <code>int *</code></strong> 且长度为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的数组 <code>arr</code>；语句 <code>int (*ptr)[3];</code> 则声明了一个指针 <code>ptr</code>，它指向一个<strong>元素类型为 <code>int</code></strong> 且长度为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的数组。</p>
 <p>此外，被引用对象的类型可以是不完整类型。举例来说，语句 <code>int (*p)[];</code> 表明指针 <code>p</code> 指向一个元素类型为 <code>int</code>，且<strong>长度未知</strong>的数组。这意味着我们不关心数组长度，或者数组长度需要在之后的程序中通过某些方法确定。相对应地，无法对解引用 <code>p</code> 的结果使用 <code>sizeof</code> 运算符。</p>
@@ -776,6 +783,12 @@
 <!-- prettier-ignore-end -->
 <h4 id="_13">多维数组<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>与指针类似，数组也是派生类型。不同之处在于，为了正确访问数组元素，需要知道数组元素的长度，即数组元素的类型必须是完整的。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note inline end">
+<p class="admonition-title">多维数组</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/pointers_multi_dim_array.jpg"><img alt="" src="../graph/pointers_multi_dim_array.jpg"/></a></p>
+</div>
+<!-- prettier-ignore-end -->
 <p>我们称元素类型为数组的数组为<strong>多维数组</strong>。需要注意的是，<code>[]</code> 运算符是从右往左结合的。举例来说，语句 <code>int a[2][3];</code> 声明了一个<strong>长度为<span><span class="heti-spacing"> </span>2</span> </strong>的数组 <code>a</code>，它的元素类型为 <code>int [3]</code>；对应地，通过表达式 <code>a[x][y]</code> 访问数组元素时，<code>x</code> 与 <code>y</code> 的取值范围分别为<span class="heti-skip"><span class="heti-spacing"> </span>0~1<span class="heti-spacing"> </span></span>与<span><span class="heti-spacing"> </span>0~2</span>。</p>
 <p>当应用数组到指针转换时，多维数组被转换成指向其首元素的指针。我们称这种指向数组的指针为<strong>数组指针</strong>。举例来说，<code>int [2][3]</code> 类型的二维数组会被转换为 <code>int (*)[3]</code> 类型的数组指针。</p>
 <!-- prettier-ignore-start -->
@@ -795,6 +808,12 @@
 </ol>
 <p>有必要说明，以上分析过程对所有整数 <code>i</code>、<code>j</code> 均成立。这意味着，你可以使用表达式 <code>a[1][-1]</code> 访问 <code>a[0]</code> 中的最后一个元素。然而，此类表达式可读性不强，最好在实际程序中避免。</p>
 </details>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<div class="admonition note inline end">
+<p class="admonition-title">指针数组</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/pointers_pointer_array.jpg"><img alt="" src="../graph/pointers_pointer_array.jpg"/></a></p>
+</div>
 <!-- prettier-ignore-end -->
 <p>我们称元素类型为指针的数组为<strong>指针数组</strong>。容易想到，指针数组其实是个一维数组；不过由于其元素类型为指针，访问元素的形式与多维数组有部分相似之处。指针数组的一个典型用法是存储并传递命令行参数，即一种 <code>main</code> 函数声明 <code>int main(int argc, char *argv[])</code> 中的 <code>argv</code> 参数。</p>
 <p>类似地，我们称指向某个指针的指针为<strong>多级指针</strong>。二级指针常见于链表操作中，更高级的指针则很少出现。</p>
