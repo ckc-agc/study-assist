@@ -7,10 +7,10 @@
 <meta content="竺可桢学院学业指导中心" name="author"/>
 <link href="https://ckc-agc.pages.zjusct.io/study-assist/programming_lecture/lecture2/lecture2/" rel="canonical"/>
 <link href="../pre_class/" rel="prev"/>
-<link href="../../lecture3/lecture3/" rel="next"/>
+<link href="../after_class/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.7" name="generator"/>
-<title>类型系统与内存模型 - 浙江大学竺可桢学院辅学计划站点</title>
+<title>讲义：C 语言的类型系统与内存模型 - 浙江大学竺可桢学院辅学计划站点</title>
 <link href="../../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -38,7 +38,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#c">
           Skip to content
         </a>
 </div>
@@ -62,7 +62,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              类型系统与内存模型
+              讲义：C 语言的类型系统与内存模型
             
           </span>
 </div>
@@ -454,13 +454,13 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    类型系统与内存模型
+    讲义：C 语言的类型系统与内存模型
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    类型系统与内存模型
+    讲义：C 语言的类型系统与内存模型
   </span>
 </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
@@ -470,13 +470,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#_1">
     前置：数、进制与数据
   </a>
 <nav aria-label="前置：数、进制与数据" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_2">
     如何阅读它们？
   </a>
 </li>
@@ -489,43 +489,43 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#_3">
     类型系统
   </a>
 <nav aria-label="类型系统" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_4">
     计算机如何存储数据？
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_5">
     大端序与小端序
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_6">
     先来练练手！
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_7">
     基本类型
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#_8">
     定长整数类型与其他整数类型
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
+<a class="md-nav__link" href="#_9">
     结构体、联合体、枚举类型
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
+<a class="md-nav__link" href="#_10">
     字符串，数组，函数，指针类型
   </a>
 </li>
@@ -543,33 +543,33 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
+<a class="md-nav__link" href="#_11">
     内存模型
   </a>
 <nav aria-label="内存模型" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_13">
+<a class="md-nav__link" href="#_12">
     地址和指针
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_14">
+<a class="md-nav__link" href="#_13">
     对象和标识符
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
+<a class="md-nav__link" href="#_14">
     内存管理
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_16">
+<a class="md-nav__link" href="#_15">
     存储期、作用域和链接
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_24">
+<a class="md-nav__link" href="#_23">
     阅读和撰写类型声明
   </a>
 </li>
@@ -578,6 +578,13 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../after_class/">
+<span class="md-ellipsis">
+    课后拓展：程序和数据在计算机中是如何存储的？
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -660,13 +667,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#_1">
     前置：数、进制与数据
   </a>
 <nav aria-label="前置：数、进制与数据" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_2">
     如何阅读它们？
   </a>
 </li>
@@ -679,43 +686,43 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#_3">
     类型系统
   </a>
 <nav aria-label="类型系统" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_4">
     计算机如何存储数据？
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_5">
     大端序与小端序
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_6">
     先来练练手！
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_7">
     基本类型
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#_8">
     定长整数类型与其他整数类型
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
+<a class="md-nav__link" href="#_9">
     结构体、联合体、枚举类型
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
+<a class="md-nav__link" href="#_10">
     字符串，数组，函数，指针类型
   </a>
 </li>
@@ -733,33 +740,33 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
+<a class="md-nav__link" href="#_11">
     内存模型
   </a>
 <nav aria-label="内存模型" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_13">
+<a class="md-nav__link" href="#_12">
     地址和指针
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_14">
+<a class="md-nav__link" href="#_13">
     对象和标识符
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_15">
+<a class="md-nav__link" href="#_14">
     内存管理
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_16">
+<a class="md-nav__link" href="#_15">
     存储期、作用域和链接
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_24">
+<a class="md-nav__link" href="#_23">
     阅读和撰写类型声明
   </a>
 </li>
@@ -776,8 +783,16 @@
 <a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming_lecture/lecture2/lecture2.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="_1">类型系统与内存模型<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h1 id="c">讲义：<span>C<span class="heti-spacing"> </span></span>语言的类型系统与内存模型<a class="headerlink" href="#c" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <!-- prettier-ignore-start -->
+<div class="admonition danger">
+<p class="admonition-title">施工中</p>
+<p>本页面正在施工：</p>
+<ul>
+<li>将较难内容迁移到课后模块。就程序设计这门课来说，需要讲述的内容抽象程度较高，如大端法、小端法等具体内容则无需讲解。与计算机系统有关的内容应当迁移到扩展模块</li>
+<li>优化讲义结构</li>
+</ul>
+</div>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
 <ul>
@@ -792,7 +807,7 @@
 <p>在本节讲义中，若无特别说明，我们默认采用<span class="heti-skip"><span class="heti-spacing"> </span>C99<span class="heti-spacing"> </span></span>标准。</p>
 </div>
 <!-- prettier-ignore-end -->
-<h2 id="_2">前置：数、进制与数据<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_1">前置：数、进制与数据<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
 <li>十进制：<code>20231029</code></li>
 <li>二进制：<code>[0b] 1001101001011001101110101</code></li>
@@ -803,7 +818,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mi">20231029</span><span class="p">);</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="mh">0x20231029</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="_3">如何阅读它们？<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<h3 id="_2">如何阅读它们？<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <p>这些都是“十”：<code>0b1010</code>，<code>0o12</code>，<code>0xa</code>，<code>10</code>。</p>
 <ul>
 <li><code>0x18</code><ul>
@@ -829,23 +844,28 @@
 </ul>
 <h3 id="ascii">ASCII<a class="headerlink" href="#ascii" title="Permanent link">¶</a></h3>
 <p>每个字符对应一个数字，即其<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码。如 <code>A</code> 的<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码为 <code>65</code>，<code>a</code> 的<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码为 <code>97</code>。</p>
-<h2 id="_4">类型系统<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_3">类型系统<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>类型是与数据相关的属性，它决定了数据的<strong>存储方式</strong>和<strong>可进行的操作</strong>。</p>
 <p>变量是数据的<strong>载体</strong>，它是<strong>存储在内存中的一块空间</strong>，有<strong>类型</strong>和<strong>值</strong>。</p>
-<h3 id="_5">计算机如何存储数据？<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<h3 id="_4">计算机如何存储数据？<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <p>在一台<span class="heti-skip"><span class="heti-spacing"> </span>s390x<span class="heti-spacing"> </span></span>架构的计算机上：</p>
 <div class="highlight"><pre><span></span><code><span class="n">MAGIC_R</span><span class="p">(</span><span class="mh">0x20231029</span><span class="p">);</span>
 <span class="c1">// =====</span>
 <span class="c1">// 0x20231029: 4 (0x4) byte(s)</span>
 <span class="c1">// 0000  20 23 10 29</span>
 </code></pre></div>
-<h3 id="_6">大端序与小端序<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_5">大端序与小端序<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>大端和小端名称的来源</summary>
+<p>来源于《格列佛游记》中的大小端之争：</p>
 <blockquote>
 <p>我下面要告诉你的是，<span>Lilliput<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Blefuscu<span class="heti-spacing"> </span></span>这两大强国在过去<span class="heti-skip"><span class="heti-spacing"> </span>36<span class="heti-spacing"> </span></span>个月里一直在苦战。战争开始是由于以下的原因：我们大家都认为，吃鸡蛋前，原始的方法是打破鸡蛋较大的一端，可是当今皇帝的祖父小时候吃鸡蛋，一次按古法打鸡蛋时碰巧将一个手指弄破了。因此他的父亲，当时的皇帝，就下了一道敕令，命令全体臣民吃鸡蛋时打破鸡蛋较小的一端，违令者重罚。老百姓们对这项命令极其反感。历史告诉我们，由此曾经发生过<span class="heti-skip"><span class="heti-spacing"> </span>6<span class="heti-spacing"> </span></span>次叛乱，其中一个皇帝送了命，另一个丢了王位。这些叛乱大多都是由<span class="heti-skip"><span class="heti-spacing"> </span>Blefuscu<span class="heti-spacing"> </span></span>的国王大臣们煽动起来的。叛乱平息后，流亡的人总是逃到那个帝国去寻求避难。据估计，先后几次有<span class="heti-skip"><span class="heti-spacing"> </span>11000<span class="heti-spacing"> </span></span>人情愿受死也不肯去打破鸡蛋较小的一端。关于这一争端，曾出版过几百本大部著作，不过大端派的书一直是受禁的，法律也规定该派任何人不得做官<heti-adjacent class="heti-adjacent-quarter">。</heti-adjacent>”</p>
-<p>—— 《格列佛游记<heti-adjacent class="heti-adjacent-half">》</heti-adjacent>，<a href="https://zh.wikipedia.org/wiki/字节序"><span>https://zh.wikipedia.org/wiki/<span class="heti-spacing"> </span></span>字节序</a></p>
 </blockquote>
+</details>
+<!-- prettier-ignore-end -->
 <p>主流架构（如<span><span class="heti-spacing"> </span>x86</span>、AMD64、ARM）使用<strong>小端序</strong>。一些不常见的架构（如<span><span class="heti-spacing"> </span>SPARC</span>）使用<strong>大端序</strong>。网络协议使用<strong>大端序</strong>。</p>
-<h3 id="_7">先来练练手！<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<h3 id="_6">先来练练手！<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <p>你应当已经知道，不同类型的变量一般占据不同的字节数。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x12345678</span><span class="p">;</span>
 <span class="n">MAGIC</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
@@ -903,7 +923,7 @@ c: 1 (0x1) bytes
 </ol>
 </details>
 <!-- prettier-ignore-end -->
-<h3 id="_8">基本类型<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_7">基本类型<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><a href="https://zh.cppreference.com/w/c/language/types">类型<span><span class="heti-spacing"> </span>- cppreference.com</span></a></p>
 <p>整数类型：<code class="highlight"><span class="kt">char</span></code> <code class="highlight"><span class="kt">short</span></code> <code class="highlight"><span class="kt">int</span></code> <code class="highlight"><span class="kt">long</span></code> <code class="highlight"><span class="kt">long</span><span class="w"> </span><span class="kt">long</span></code></p>
 <p>其中，除了 <code class="highlight"><span class="kt">char</span></code> 以外的类型默认为 <code class="highlight"><span class="kt">signed</span></code>，即有符号数。也就是说，<code class="highlight"><span class="kt">int</span></code> 就是 <code class="highlight"><span class="kt">signed</span><span class="w"> </span><span class="kt">int</span></code>。将 <code class="highlight"><span class="kt">signed</span></code> 换为 <code class="highlight"><span class="kt">unsigned</span></code>，就得到了无符号数。</p>
@@ -955,7 +975,7 @@ c: 1 (0x1) bytes
 <p>在其后加上 <code class="highlight"><span class="kt">_Complex</span></code> 即为复数类型，如 <code class="highlight"><span class="kt">double</span><span class="w"> </span><span class="kt">_Complex</span></code>。相同的，有 <code class="highlight"><span class="k">_Imaginary</span></code>。</p>
 <p>是的，<span>C<span class="heti-spacing"> </span></span>在语言层面上支持复数和虚数，但并不是所有的编译器都支持这一特性。例如，<span>gcc<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>clang<span class="heti-spacing"> </span></span>目前均不支持 <code class="highlight"><span class="k">_Imaginary</span></code>。</p>
 </div>
-<h3 id="_9">定长整数类型与其他整数类型<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_8">定长整数类型与其他整数类型<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在 <code>stdint.h</code> 中定义，如 <code class="highlight"><span class="kt">int8_t</span></code> <code class="highlight"><span class="kt">uint8_t</span></code> <code class="highlight"><span class="kt">int16_t</span></code> <code class="highlight"><span class="kt">uint16_t</span></code> <code class="highlight"><span class="kt">int32_t</span></code> <code class="highlight"><span class="kt">uint32_t</span></code> <code class="highlight"><span class="kt">int64_t</span></code> <code class="highlight"><span class="kt">uint64_t</span></code>。</p>
 <p><code class="highlight"><span class="k">sizeof</span></code> 运算符与 <code class="highlight"><span class="n">offsetof</span></code> 宏的结果：<code class="highlight"><span class="kt">size_t</span></code>，足够表示任何对象的<strong>大小</strong>。常被定义为 <code class="highlight"><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span></code>。</p>
 <p>在 <code>stddef.h</code> 中定义，<code class="highlight"><span class="kt">ptrdiff_t</span></code> 表示两个指针相减的结果。常被定义为 <code class="highlight"><span class="kt">long</span></code>。</p>
@@ -970,7 +990,7 @@ c: 1 (0x1) bytes
 <p>对于 <code class="highlight"><span class="kt">size_t</span></code> 和 <code class="highlight"><span class="kt">ptrdiff_t</span></code>，可以使用 <code class="highlight"><span class="o">%</span><span class="n">zu</span></code> 和 <code class="highlight"><span class="o">%</span><span class="n">td</span></code>。</p>
 </details>
 <!-- prettier-ignore-end -->
-<h3 id="_10">结构体、联合体、枚举类型<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_9">结构体、联合体、枚举类型<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>枚举类型实质上是整数类型。它的值是由编译器自动分配的（一般从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，也可手动指定。</p>
 <p>结构体的大小是其成员大小的总和，加上<strong>对齐</strong>所需的填充字节。</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">point</span><span class="w"> </span><span class="p">{</span>
@@ -1019,7 +1039,7 @@ ENC: 4 (0x4) bytes
 </code></pre></div>
 </details>
 <!-- prettier-ignore-end -->
-<h3 id="_11">字符串，数组，函数，指针类型<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_10">字符串，数组，函数，指针类型<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>数组是一系列相同类型的对象的集合。数组的大小是其元素大小的总和。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mh">0xbeef</span><span class="p">,</span><span class="w"> </span><span class="mh">0xcafe</span><span class="p">,</span><span class="w"> </span><span class="mh">0xdead</span><span class="p">,</span><span class="w"> </span><span class="mh">0xface</span><span class="p">,</span><span class="w"> </span><span class="mh">0xfeed</span><span class="w"> </span><span class="p">};</span>
 <span class="n">MAGIC</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
@@ -1094,7 +1114,7 @@ ENC: 4 (0x4) bytes
 <p>此即定义了一个类型名 <code>point</code>，其为 <code class="highlight"><span class="k">struct</span><span class="w"> </span><span class="nc">point</span></code> 的别名。</p>
 </div>
 <!-- prettier-ignore-end -->
-<h2 id="_12">内存模型<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_11">内存模型<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的内存模型中，<strong>字节</strong>（byte）是最小的可寻址的内存单元，其被定义为一系列连续的<strong>位</strong>（bit<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。<strong>可寻址</strong>意味着每个字节都拥有其编号，即<strong>地址</strong>。</p>
 <div class="highlight"><pre><span></span><code>MAGIC_PTR(&amp;i);
 MAGIC_PTR(&amp;ll);
@@ -1103,12 +1123,12 @@ MAGIC_PTR(&amp;f);
 
 MAGIC_SIZED(f, 0x20);
 </code></pre></div>
-<h3 id="_13">地址和指针<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_12">地址和指针<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>地址</strong>是一个<strong>无符号整数</strong>，它表示内存中的一个字节。<strong>指针</strong>是一个<strong>变量</strong>，其存储了一个地址。由于这个原因，所有指针类型的大小都是相同的。</p>
 <div class="highlight"><pre><span></span><code><span class="n">MAGIC_R</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
 <span class="n">MAGIC_PTR</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="_14">对象和标识符<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_13">对象和标识符<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>每个被存储的值都占用一定的物理内存，这样的一块内存称为<strong>对象</strong>。对象可以储存一个或多个值。声明变量时，创建了一个<strong>标识符</strong>（identifier<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，其与对象相关联。</p>
 <p>所以，定义一个变量时实际上做了两件事：
 - 为对象分配内存
@@ -1170,7 +1190,7 @@ i: 4 (0x4) bytes
 <p>参考：<a href="https://zh.cppreference.com/w/c/language/value_category">值类别<span><span class="heti-spacing"> </span>- cppreference.com</span></a></p>
 </div>
 <!-- prettier-ignore-end -->
-<h3 id="_15">内存管理<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_14">内存管理<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>C<span class="heti-spacing"> </span></span>的内存管理是一大痛点，因为它本身并不提供检查机制，一切都依赖于程序员自己。因此，好好掌握内存管理对于写出安全、稳定的程序是非常必要的。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="nf">dangling</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xdeadbeef</span><span class="p">;</span>
@@ -1212,10 +1232,10 @@ i: 4 (0x4) bytes
 </div>
 <!-- prettier-ignore-end -->
 <hr/>
-<h3 id="_16">存储期、作用域和链接<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_15">存储期、作用域和链接<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>存储期</strong>描述对象，表明在内存中存储的时间。</p>
 <p><strong>作用域和链接性</strong>描述标识符，表明程序的哪些部分可以使用它。</p>
-<h4 id="_17">存储期<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_16">存储期<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <ul>
 <li>静态存储期（static）
   在程序开始时创建，在程序结束时销毁。如全局变量和静态变量。</li>
@@ -1235,9 +1255,9 @@ i: 4 (0x4) bytes
 <span class="w">  </span><span class="n">MAGIC_PTR</span><span class="p">(</span><span class="n">allocated</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<h4 id="_18">作用域<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_17">作用域<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><a href="https://zh.cppreference.com/w/c/language/scope">作用域<span><span class="heti-spacing"> </span>- cppreference.com</span></a></p>
-<h5 id="_19">块作用域<a class="headerlink" href="#_19" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
+<h5 id="_18">块作用域<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Note</summary>
@@ -1261,14 +1281,14 @@ i: 4 (0x4) bytes
 <p>同名的变量，内部覆盖外部。</p>
 </div>
 <!-- prettier-ignore-end -->
-<h5 id="_20">函数作用域<a class="headerlink" href="#_20" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
+<h5 id="_19">函数作用域<a class="headerlink" href="#_19" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p><code>goto</code> 语句的标签。这意味着，即使标签在内层的块中，它的作用域也延伸至整个函数。</p>
-<h5 id="_21">函数原型作用域<a class="headerlink" href="#_21" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
+<h5 id="_20">函数原型作用域<a class="headerlink" href="#_20" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>函数原型中的变量名。从定义处到函数原型结束。</p>
 <p>只在你使用<span class="heti-skip"><span class="heti-spacing"> </span>VLA<span class="heti-spacing"> </span></span>时需要注意这一顺序：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">use_VLA</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">ar</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">m</span><span class="p">]);</span>
 </code></pre></div>
-<h5 id="_22">文件作用域<a class="headerlink" href="#_22" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
+<h5 id="_21">文件作用域<a class="headerlink" href="#_21" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h5>
 <p>在任何函数外定义的变量。从定义处到文件末尾。</p>
 <p>这样的变量称为全局变量。</p>
 <!-- prettier-ignore-start -->
@@ -1281,8 +1301,8 @@ i: 4 (0x4) bytes
 <!-- prettier-ignore-end -->
 <hr/>
 <p>由于讲义中涉及到的内容较多，无法在一节课内全部讲解。后续的讲义将会随回放链接更新而更新。</p>
-<h4 id="_23">链接<a class="headerlink" href="#_23" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<h3 id="_24">阅读和撰写类型声明<a class="headerlink" href="#_24" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="_22">链接<a class="headerlink" href="#_22" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h3 id="_23">阅读和撰写类型声明<a class="headerlink" href="#_23" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <hr/>
 <div class="md-source-file">
 <small>
