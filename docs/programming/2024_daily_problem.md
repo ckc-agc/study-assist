@@ -37,7 +37,7 @@ printf("%d\n", y << 1 - 1 > 2 || !(x++ > --y) ? x : y);
     * *Logical OR:* `||`
     * *Ternary conditional:* `a ? b : c`
     
-    See more about operator precedence at [cppreference.com]([C++ Operator Precedence - cppreference.com](https://en.cppreference.com/w/cpp/language/operator_precedence)).
+    See more about operator precedence at [cppreference.com](https://en.cppreference.com/w/cpp/language/operator_precedence).
     
     Knowing this, let's break down the expression from the innermost to the outermost parts.
     
