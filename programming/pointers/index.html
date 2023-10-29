@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="浙江大学竺可桢学院辅学计划站点" name="description"/>
+<meta content="竺可桢学院学业指导中心" name="author"/>
+<link href="https://ckc-agc.pages.zjusct.io/study-assist/programming/pointers/" rel="canonical"/>
+<link href="../../graph/ckc.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.7" name="generator"/>
+<title>指针概览 - 浙江大学竺可桢学院辅学计划站点</title>
+<link href="../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../css/heti.css" rel="stylesheet"/>
+<link href="../../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
+<link href="../../stylesheets/custom.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-header__button md-logo" data-md-component="logo" href="../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../graph/ckc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            浙江大学竺可桢学院辅学计划站点
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              指针概览
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    浙江大学竺可桢学院辅学计划站点
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+          
+  
+    
+  
+  首页
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../calculus/">
+          
+  
+    
+  
+  📚微积分
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../analysis/">
+          
+  
+    
+  
+  📚数学分析
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../algebra/">
+          
+  
+    
+  
+  📚线性代数
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../lalu/">
+          
+  
+    
+  
+  🏫线性代数：未竟之美
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../">
+          
+  
+    
+  
+  📚程设
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/">
+        
+  
+    
+  
+  🏫实用技能拾遗
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../programming_lecture/">
+          
+  
+    
+  
+  🏫系统知识拾遗
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../chemistry/">
+          
+  
+    
+  
+  📚普通化学
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../physics/">
+          
+  
+    
+  
+  📚普通物理学
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../graph/ckc.png"/>
+</a>
+    浙江大学竺可桢学院辅学计划站点
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    浙江大学竺可桢学院辅学计划站点
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    首页
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../test/">
+<span class="md-ellipsis">
+    测试
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../calculus/">
+<span class="md-ellipsis">
+    📚微积分
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            📚微积分
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../analysis/">
+<span class="md-ellipsis">
+    📚数学分析
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            📚数学分析
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../analysis/2024/analysis_lecture1_sequence_limits/">
+<span class="md-ellipsis">
+    2023-2024学年
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../algebra/">
+<span class="md-ellipsis">
+    📚线性代数
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            📚线性代数
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../lalu/">
+<span class="md-ellipsis">
+    🏫线性代数：未竟之美
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            🏫线性代数：未竟之美
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    📚程设
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            📚程设
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2024_daily_problem/">
+<span class="md-ellipsis">
+    每日一题
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../faq/">
+<span class="md-ellipsis">
+    常见问题
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/">
+<span class="md-ellipsis">
+    🏫实用技能拾遗
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../programming_lecture/">
+<span class="md-ellipsis">
+    🏫系统知识拾遗
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            🏫系统知识拾遗
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../programming_lecture/lecture1/pre_class/">
+<span class="md-ellipsis">
+    1. 程序编译过程与调试技术
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../programming_lecture/lecture2/pre_class/">
+<span class="md-ellipsis">
+    2. 类型系统与内存模型
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../programming_lecture/lecture3/lecture3/">
+<span class="md-ellipsis">
+    3. I/O 与文件
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../programming_lecture/lecture4/lecture4/">
+<span class="md-ellipsis">
+    4. C 标准库
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../programming_lecture/lecture5/lecture5/">
+<span class="md-ellipsis">
+    5. 数据结构与算法
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../chemistry/">
+<span class="md-ellipsis">
+    📚普通化学
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_9_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_9">
+<span class="md-nav__icon md-icon"></span>
+            📚普通化学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../physics/">
+<span class="md-ellipsis">
+    📚普通物理学
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_10_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_10">
+<span class="md-nav__icon md-icon"></span>
+            📚普通物理学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    底层概念
+  </a>
+<nav aria-label="底层概念" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    内存模型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    对象
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    基本语法
+  </a>
+<nav aria-label="基本语法" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    指针类型
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    声明
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    值与运算
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    用法概述
+  </a>
+<nav aria-label="用法概述" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    指针与参数传递
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    指针与数组
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+    指针与函数
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_16">
+    指针与结构体
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_17">
+    高级技巧
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming/pointers.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+</a>
+<h1 id="_1">指针概览<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">预览中</p>
+<p>本文档仍在编写中，部分内容可能不完整或不准确。如果你发现了错误，欢迎提交<span><span class="heti-spacing"> </span>Issues</span>。</p>
+</div>
+<!-- prettier-ignore-end -->
+<p>你们可能已经听说过，<span>C<span class="heti-spacing"> </span></span>语言是贴近底层的编程语言。这是因为，<span>C<span class="heti-spacing"> </span></span>语言未对计算机硬件作过多抽象，它方便而又灵活的语言特性为与硬件交互提供了极大便利。</p>
+<p>指针是<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的核心特性之一，它的灵活性与强大性，使得<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言成为与硬件交互的首选语言。但是，指针也是<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中最容易引发错误的特性之一，它要求使用者正确理解内存模型，并对指针的使用严加约束。</p>
+<p>本文将尽量全面地讲解指针的定义与特性，并梳理部分使用技巧。在此之前，为了准确理解指针，我们需要先了解<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的内存模型与对象模型。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition tip">
+<p class="admonition-title">阅读提示</p>
+<p>程算课程中学习的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言语法均在<span class="heti-skip"><span class="heti-spacing"> </span>C99<span class="heti-spacing"> </span></span>标准规定的范围内。下文中，如果未作额外说明，所有内容均基于<span class="heti-skip"><span class="heti-spacing"> </span>C99<span class="heti-spacing"> </span></span>标准。</p>
+<p>下文中的部分提示默认被折叠，此类提示为拓展内容，对知识积累与理解能力的要求较高，请酌情阅读。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h2 id="_2">底层概念<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_3">内存模型<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的内存模型中，<strong>字节（Byte）</strong>是内存的最小可寻址单元，它被定义为一系列连续的<strong>位（bit）</strong>，这与一般印象相符。虽然<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言标准仅规定字节长度不得少于<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位，不过对当前的大部分计算机而言，一个字节的长度为<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位。我们的讨论也基于这一事实标准。</p>
+<p>字节定义中的“可寻址”，意味着所有字节都拥有一个唯一编号，也即<strong>内存地址</strong>。习惯上，内存地址由长度一定的、从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始递增的无符号整数表示，其长度由处理器架构决定。</p>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>常见架构中内存地址的长度</summary>
+<p>我们经常接触的处理器架构中，x86（又称<span><span class="heti-spacing"> </span>IA-32</span>）架构使用<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位长的内存地址，x86-64（又称<span><span class="heti-spacing"> </span>x64</span>、AMD64、Intel 64）与<span><span class="heti-spacing"> </span>ARM64</span>（又称<span><span class="heti-spacing"> </span>AArch64</span>）架构使用<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位长的内存地址。容易看出，<span>x86<span class="heti-spacing"> </span></span>架构支持的最大内存空间仅为<span><span class="heti-spacing"> </span>4 MB</span>，而后两个架构支持的最大内存空间则远超前者。</p>
+</details>
+<!-- prettier-ignore-end -->
+<h3 id="_4">对象<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><span>C<span class="heti-spacing"> </span></span>语言将程序使用的数据抽象为<strong>对象</strong>，它被定义为执行环境中内存的一个区域，其内容可以表示<em>特定类型的值</em>。根据数据类型与长度的不同，一个对象可占据一个或多个字节，并称起始字节为该对象的内存地址。除了直接使用<strong>字面量</strong>（常量的一种）创建对象外，还可以通过声明语句创建，并为其分配一个<strong>标识符</strong>（变量名<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，以掩盖分配内存空间与访问内存地址的细节过程，并增强程序可读性。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition warning">
+<p class="admonition-title">区分对象概念</p>
+<p>如果你学习过或将要学习其他编程语言，请严格区分不同语言中的对象概念，尤其是面向对象语言中的“对象”。</p>
+</div>
+<!-- prettier-ignore-end -->
+<p>因此，声明一个变量实际上包括两步：首先，为对象申请一块对应大小的内存空间；其次，将标识符与对象相关联。</p>
+<p>当程序尝试读取或修改对象的内容时，我们称程序<em>访问</em>了该对象或该内存地址。</p>
+<h2 id="_5">基本语法<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_6">指针类型<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>一般而言，提到“指针”时，我们实际讨论的是<strong>指针类型</strong>对象。</p>
+<p><span>C<span class="heti-spacing"> </span></span>标准对指针类型的定义如下：</p>
+<blockquote>
+<p>A pointer type may be derived from a function type, an object type, or an incomplete type, called the referenced type. A pointer type describes an object whose value provides a reference to an entity of the referenced type. A pointer type derived from the referenced type <span class="arithmatex">\(T\)</span> is sometimes called "pointer to <span class="arithmatex">\(T\)</span>".</p>
+</blockquote>
+<p><span>C<span class="heti-spacing"> </span></span>语言中，指针类型与其他类型拥有相同的对象模型，指针类型的对象同样需要申请内存空间以存储值。不同之处在于，指针类型对象的值为“另一个对象的引用”，也即其内存地址。我们称指针类型的对象<em>指向</em>被引用对象。</p>
+<p>指针类型是一种<strong>派生类型</strong>，这意味着完整的指针类型包括<em>被引用对象的类型</em>。由于在内存中所有数据均以一系列连续位的形式存储，为正确读取数据，这种额外的记录显然是必要的。</p>
+<p>相对应地，不同指针类型间是否兼容，取决于被引用对象的类型是否兼容。</p>
+<h3 id="_7">声明<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>指针类型对象的声明语法如下：</p>
+<p></p><div class="highlight"><pre><span></span><code><span class="n">type</span><span class="o">-</span><span class="n">specifier</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">qualifiers</span><span class="w"> </span><span class="n">declarator</span>
+</code></pre></div>
+其中，<code>type-specifier</code> 为<em>被引用对象的类型</em>，<code>qualifiers</code> 为<em>对指针类型对象的限定</em>，<code>declarator</code>为<em>指针类型对象的标识符</em>（名称<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。
+<p>需要注意的是，声明中 <code>*</code> 只对直接结合的标识符生效。举例来说，如果通过语句 <code>int * a, b;</code> 声明变量 <code>a</code> 与 <code>b</code>，那么只有 <code>a</code> 会被认定为指针类型。</p>
+<p>在声明指向某些类型对象的指针时，可通过括号使 <code>*</code> 优先与标识符结合，以避免运算符优先级差异导致的歧义。举例来说，语句 <code>int *arr[3];</code> 声明了一个<strong>元素类型为 <code>int *</code></strong> 且长度为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的数组 <code>arr</code>；语句 <code>int (*ptr)[3];</code> 则声明了一个指针 <code>ptr</code>，它指向一个<strong>元素类型为 <code>int</code></strong> 且长度为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的数组。</p>
+<p>此外，被引用对象的类型可以是不完整类型。举例来说，语句 <code>int (*p)[];</code> 表明指针 <code>p</code> 指向一个元素类型为 <code>int</code>，且<strong>长度未知</strong>的数组。这意味着我们不关心数组长度，或者数组长度需要在之后的程序中通过某些方法确定。相对应地，无法对解引用 <code>p</code> 的结果使用 <code>sizeof</code> 运算符。</p>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>通用指针类型 <code>void *</code></summary>
+<p>由于 <code>void</code> 也属于不完整类型，<code>void *</code> 同样是合法的指针类型。它的实际含义是指针指向一个<strong>类型未知</strong>的对象，也即指针可以指向任何类型的对象。自然地，我们无法解引用该类型的指针对象。不过，它可被隐式转换为任意其他类型的指针，反之亦然。</p>
+<p>虽然<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言在<span class="heti-skip"><span class="heti-spacing"> </span>C11<span class="heti-spacing"> </span></span>标准前并未提供泛型特性，但通过引入 <code>void *</code> 类型参数，我们仍然可以设计通用接口，使用相同代码处理不同类型的数据。一个典型的例子是，<code>stdlib.h</code> 中定义的 <code>qsort</code> 与 <code>bsearch</code> 方法都通过将数组指针 <code>ptr</code> 的类型规定为 <code>void *</code>，实现了无视数组元素类型重用排序代码的效果。</p>
+<p>当然，因为被引用对象的类型未知，此时<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编译器无法帮你检查类型兼容问题，所以使用 <code>void *</code> 类型指针时需万分小心。</p>
+</details>
+<!-- prettier-ignore-end -->
+<h3 id="_8">值与运算<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>通过指针获得被引用对象的过程称为<strong>解引用</strong>，由运算符 <code>*</code> 完成；通过某个对象获得指向该对象指针的过程称为<strong>取址</strong>，由运算符 <code>&amp;</code> 完成。结合赋值操作，可根据需要通过指针访问并修改指向的对象，或令指针指向不同的对象。</p>
+<p>不过，在编写表达式时，需要注意运算符优先级的影响。举例来说，表达式 <code>*p++</code> 将使指针 <code>p</code> 的值自增<span><span class="heti-spacing"> </span>1</span>，而表达式 <code>(*p)++</code> 将使指针 <code>p</code> 指向对象的值自增<span><span class="heti-spacing"> </span>1</span>。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">理解初始化语句中的 <code>*</code> 运算符</p>
+<blockquote>
+<p><span>C<span class="heti-spacing"> </span></span>语言的语法力图使声明和使用相一致。</p>
+</blockquote>
+<p>在阅读指针初始化语句时，你可能常常混淆 <code>*</code> 的声明与解引用语法。正确的要点在于，初始化语句分为声明和初始化器两部分，其中赋值号 <code>=</code> 前的部分为声明，赋值号及其后的部分为初始化器。</p>
+<p>举例来说，在语句 <code>int *ip = ipp;</code> 中，<code>int *p</code> 为声明，<code>= *ipp</code> 为初始化器，这条语句的含义是：声明一个指向 <code>int</code> 类型对象的指针 <code>ip</code>，并将它的初始值设为 <code>ipp</code> 指向对象的值。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">野指针</p>
+<p>声明自动作用域的对象后，<span>C<span class="heti-spacing"> </span></span>语言仅保证可以正常访问并修改该对象，而不保证其初始内容，这点对指针同样成立。如果声明了一个指针却没有赋值，这个指针的指向便无法确定，我们称它为<strong>野指针</strong>。</p>
+<p>因为野指针可能指向任意内存段，不加鉴别的随意使用可能导致访问非法内存、损坏正常数据，甚至造成其他未知后果。<strong>尝试解引用野指针是段错误（Segmentation Fault）的主要诱因之一。</strong>因此，声明指针时务必完成初始化。</p>
+</div>
+<!-- prettier-ignore-end -->
+<p>每种类型的指针都含有一个该类型的特殊值，称为<strong>空指针值</strong>。值为空的指针不指向任何对象，且解引用空指针是未定义行为。可使用空指针符号常量 <code>NULL</code> 为指针赋空值，它在 <code>stdio.h</code>、<code>stdlib.h</code>、<code>string.h</code>、<code>stddef.h</code> 等常用库中均有定义。根据<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言标准，<code>NULL</code> 的值为<span><span class="heti-spacing"> </span>0</span>。</p>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>空指针常量 <code>NULL</code> 的值</summary>
+<p>根据<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准定义，宏 <code>NULL</code> 是实现定义的空指针常量，它可以是值为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的整数常量表达式，或者被转换为 <code>void *</code> 类型的此类表达式。</p>
+<p>那么，为什么 <code>NULL</code> 的值被规定为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>呢？你可能会猜想，这是因为内存地址<span class="heti-skip"><span class="heti-spacing"> </span>0x0<span class="heti-spacing"> </span></span>被系统预留，但 <code>NULL</code> 的值其实与物理内存地址无关。在现代分页操作系统中，<code>0x0</code> 所在的内存页不会被分配给用户态程序。同时，无论 <code>NULL</code> 的值被如何定义，链接器都应将空指针的值改为目标系统内的空指针预留地址。</p>
+<p>将<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>视作特殊值的习惯是一个比较有说服力的理由。此外，将 <code>NULL</code> 定义为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>也可以简化表达式，即利用<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言将<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>视为<span class="heti-skip"><span class="heti-spacing"> </span>false<span class="heti-spacing"> </span></span>的特性，简化对指针是否为空的判断。</p>
+</details>
+<!-- prettier-ignore-end -->
+<p>两个类型兼容的指针间的赋值运算、比较运算与减法运算是有效的。若指针类型不兼容，则需要进行强制类型转换。这种运算仅在少数情形下有意义，如两个指针位于同一数组内时。</p>
+<p>指针与整数间的加法或减法运算也是有效的，其含义是令指针前移或后移若干个指向对象的长度。举例来说，表达式 <code>p + n</code> 的值，代表指针 <code>p</code> 当前指向的对象之后第<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>个对象的地址。这种运算在数组与字符串操作中十分常见。</p>
+<p>虽然内存地址往往是一个非负整数，但是指针与整数之间不能相互转换，<span>0<span class="heti-spacing"> </span></span>是唯一的例外：常量<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>可以赋值给指针，指针也可与常量<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>进行比较。</p>
+<p>除以上运算外，其他形式的指针运算都是非法的。</p>
+<h2 id="_9">用法概述<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_10">指针与参数传递<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中，调用函数时以<strong>值传递</strong>形式传递参数；具体而言，每次调用函数时会重新创建形参，并将实参的值复制到对应的形参。函数可以修改自身形参，但是实参的值不会随之改变。这种设计将函数与数据隔离，避免产生意料之外的副作用。</p>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary><span>C<span class="heti-spacing"> </span></span>语言中只有值传递</summary>
+<p>如果你学习过<span><span class="heti-spacing"> </span>C++</span>，你可能会想到在形参类型中添加 <code>&amp;</code> 运算符，以将其声明为实参的引用。然而，<span>C<span class="heti-spacing"> </span></span>语言中并没有引用语法，<code>&amp;</code> 运算符在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中仅用于取址。</p>
+</details>
+<!-- prettier-ignore-end -->
+<p>不过，如果我们期望函数产生副作用，值传递的方式便无法满足需求。为解决这一问题，我们可以引入指针类型的参数，以达到修改其他对象的目的。</p>
+<!-- prettier-ignore-start -->
+<details class="example">
+<summary>案例：交换函数</summary>
+<p>让我们从交换函数开始，理解指针参数的使用技巧。</p>
+<p>假设 <code>fake_swap</code> 函数定义如下：
+</p><div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">fake_swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>调用部分如下：
+</p><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="n">fake_swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+<p>在调用 <code>fake_swap</code> 函数后检查 <code>a</code>、<code>b</code> 的值，可发现它们的值并没有交换。这是因为，调用 <code>fake_swap</code> 函数时，实参 <code>a</code>、<code>b</code> 的值被复制给形参 <code>x</code>、<code>y</code>，函数仅修改了形参的值，并未影响函数外部的实参。</p>
+<p>现在，我们将 <code>fake_swap</code> 函数修改为：
+</p><div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>调用部分如下：
+</p><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+<p>在调用 <code>swap</code> 函数后检查 <code>a</code>、<code>b</code> 的值，可发现它们的值已经交换。这是因为，调用 <code>swap</code> 函数时，实参 <code>a</code>、<code>b</code> 的地址被复制给形参 <code>x</code>、<code>y</code>，也就是说，<code>x</code>、<code>y</code> 分别指向 <code>a</code>、<code>b</code>。函数修改了 <code>x</code>、<code>y</code> 指向对象的值，也就是 <code>a</code>、<code>b</code> 的值，因此虽然 <code>a</code>、<code>b</code> 在函数外部，但它们的值已被成功修改。</p>
+</details>
+<!-- prettier-ignore-end -->
+<p><span>C<span class="heti-spacing"> </span></span>语言中的函数只有一个返回值。若要返回多个值，可将所有返回值放入结构体中；但是，这需要额外声明一个临时使用的结构体类型，拆解结构体的过程也耗时耗力。一个更好的方案是，向函数传递指针参数，由函数通过指针将结果写入目标对象。我们经常使用的 <code>scanf</code> 函数便是一个典型例子。</p>
+<h3 id="_11">指针与数组<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>一般而言，提到“数组”时，我们讨论的既可以是<strong>数组类型</strong>，也可以是<strong>数组类型的对象</strong>。</p>
+<p>指针与数组的关系十分密切，它们之间的转换也是<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中最常见的类型转换之一。一般来说，用指针编写的程序比用数组编写的程序执行速度快，但可读性相对较差。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition tip">
+<p class="admonition-title">阅读建议</p>
+<p>下文的讨论中会讲解数组的部分特性，不过仍然建议在熟悉数组后阅读。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h4 id="_12">数组退化<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>数组的值就是该数组第一个元素的地址；实际使用中，数组也经常可被看作指向其首元素指针。事实上，<span>C<span class="heti-spacing"> </span></span>标准对此作如下规定：</p>
+<blockquote>
+<p>任何数组类型的左值表达式，当用于<strong>异于</strong></p>
+<ul>
+<li>作为取地址运算符的操作数</li>
+<li>作为<span class="heti-skip"><span class="heti-spacing"> </span>sizeof<span class="heti-spacing"> </span></span>的操作数</li>
+<li>作为用于数组初始化的字符串字面量</li>
+</ul>
+<p>的语境时，会经历到指向其<em>首元素</em>的指针的隐式转换。</p>
+</blockquote>
+<p>习惯上，我们将数组到指针的隐式转换过程，称为数组<em>退化</em>为指针。</p>
+<p><span>C<span class="heti-spacing"> </span></span>标准规定，表达式 <code>E1[E2]</code> 等价于 <code>(*((E1) + (E2)))</code>。这意味着，数组元素在内存中连续。另外，如果确信相应元素存在，可以通过指定超出数组范围的下标，访问数组前后的元素。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition warning">
+<p class="admonition-title">数组访问越界</p>
+<p><span>C<span class="heti-spacing"> </span></span>语言不会检查数组下标是否超过数组长度，对指针也几乎没有限制措施。尝试访问超出数组边界的内存地址，可能导致与尝试解引用野指针等同的危害。<strong>数组访问越界是段错误的主要诱因之一。</strong>因此，访问数组元素前，务必充分检查指定的下标与指针偏移量是否在数组范围内。</p>
+</div>
+<!-- prettier-ignore-end -->
+<p>根据标准规定，作为参数传递时，数组应被隐式转换为其首元素指针，这是因为复制数组的开销经常大到不可接受。所以，在语法层面上，函数定义中（即参数类型与返回值类型处）<code>char []</code> 类型声明与 <code>char *</code> 类型声明是等价的，不过前者可以提醒函数编写者与使用者留意 <code>s</code> 的实际含义。当然，你也可以传入指向其他元素的指针，这对函数而言没有语义区别。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">数组类型与指针类型的区别</p>
+<p>尽管在程序中数组经常退化为指针，我们仍应该区分这两个类型。举例来说，考虑如下的程序片段（其中 <code>%llu</code> 代表以十进制输出 <code>unsigned long long</code> 类型数据<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%llu %llu"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">));</span>
+</code></pre></div>
+<p>它将会输出 <code>12 8</code>。这是因为，<code>a</code> 是一个元素类型为 <code>long</code> 且长度为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的数组对象，在多数系统中 <code>long</code> 类型长度为<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>字节，因此 <code>a</code> 的长度为<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>字节；而 <code>p</code> 是一个指针，在常用的<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统中长度为<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>字节。</p>
+<p>另外，指针的值可在任意时刻通过赋值修改，而数组不能被赋值。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h4 id="_13">多维数组<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>与指针类似，数组也是派生类型。不同之处在于，为了正确访问数组元素，需要知道数组元素的长度，即数组元素的类型必须是完整的。</p>
+<p>我们称元素类型为数组的数组为<strong>多维数组</strong>。需要注意的是，<code>[]</code> 运算符是从右往左结合的。举例来说，语句 <code>int a[2][3];</code> 声明了一个<strong>长度为<span><span class="heti-spacing"> </span>2</span> </strong>的数组 <code>a</code>，它的元素类型为 <code>int [3]</code>；对应地，通过表达式 <code>a[x][y]</code> 访问数组元素时，<code>x</code> 与 <code>y</code> 的取值范围分别为<span class="heti-skip"><span class="heti-spacing"> </span>0~1<span class="heti-spacing"> </span></span>与<span><span class="heti-spacing"> </span>0~2</span>。</p>
+<p>当应用数组到指针转换时，多维数组被转换成指向其首元素的指针。我们称这种指向数组的指针为<strong>数组指针</strong>。举例来说，<code>int [2][3]</code> 类型的二维数组会被转换为 <code>int (*)[3]</code> 类型的数组指针。</p>
+<!-- prettier-ignore-start -->
+<details class="example">
+<summary>案例：通过指针访问多维数组元素</summary>
+<p>让我们从表达式 <code>*(*(a + i) + j)</code> 开始，理解与多维数组相关的指针运算。</p>
+<ol>
+<li>
+<p>假设 <code>a</code> 的类型为 <code>int [2][3]</code>。我们知道，此处数组 <code>a</code> 会被隐式转换为 <code>int (*)[3]</code> 类型的指针。回忆一下指针与整数的加减法运算，<code>p + i</code> 并非简单地将指针 <code>p</code> 的值增加 <code>i</code> 字节，而是增加 <code>i</code> 个 <code>int [3]</code> 类型对象的长度，即 <code>i * sizeof(int [3])</code> 字节。</p>
+</li>
+<li>
+<p>不妨称数组 <code>a</code> 隐式转换的指针为 <code>ap</code>。那么，内层表达式可改写为 <code>*(ap + i)</code>，其含义是从 <code>a</code> 开始，向后移动 <code>i * sizeof(int [3])</code> 个字节，并获得该内存地址存储的 <code>int [3]</code> 类型的数组。此时，我们得到了数组 <code>a[i]</code>。</p>
+</li>
+<li>
+<p>不妨称上一步得到的数组为 <code>a_i</code>。那么，下一层表达式可以改写为 <code>*(a_i + j)</code>，其含义是从 <code>a_i</code> 开始，向后移动 <code>j * sizeof(int)</code> 个字节，并获得该内存地址存储的 <code>int</code> 类型对象的值。不难看出，我们得到的结果正是 <code>a[i][j]</code> 的值。</p>
+</li>
+</ol>
+<p>有必要说明，以上分析过程对所有整数 <code>i</code>、<code>j</code> 均成立。这意味着，你可以使用表达式 <code>a[1][-1]</code> 访问 <code>a[0]</code> 中的最后一个元素。然而，此类表达式可读性不强，最好在实际程序中避免。</p>
+</details>
+<!-- prettier-ignore-end -->
+<p>我们称元素类型为指针的数组为<strong>指针数组</strong>。容易想到，指针数组其实是个一维数组；不过由于其元素类型为指针，访问元素的形式与多维数组有部分相似之处。指针数组的一个典型用法是存储并传递命令行参数，即一种 <code>main</code> 函数声明 <code>int main(int argc, char *argv[])</code> 中的 <code>argv</code> 参数。</p>
+<p>类似地，我们称指向某个指针的指针为<strong>多级指针</strong>。二级指针常见于链表操作中，更高级的指针则很少出现。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">数组退化的限度</p>
+<p>回忆上文引用的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准规定，若语境满足条件，数组将会隐式转换为指向其首元素的指针。这意味着，数组退化的限度是将指针级数增加一级。我们可以想到，这一限度是为了确保运算符 <code>[]</code> 的正确性，即保证按标准与其等价的指针运算可以正确计算偏移量。因此，<strong>二维数组不能隐式转换为二级指针</strong>。编译器对此将会给出警告。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h4 id="_14">字符串<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>我们知道，<span>C<span class="heti-spacing"> </span></span>语言中的字符串实际上是一个空字符（称为<strong>中止字符</strong>）结尾的字符数组。因此，上一小节的讨论同样适用于这一小节。下面，我们将专注于字符串特有的部分。</p>
+<p>与数组初始化不同的是，我们可以使用字符串字面量完成对字符数组的初始化。举例来说，语句 <code>char str[] = "abc";</code> 声明了一个长度为<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>的字符数组 <code>str</code>，并将其元素的值分别设为 <code>'a'</code>、<code>'b'</code>、<code>'c'</code> 与 <code>'\0'</code>。其中，<code>'\0</code> 代表<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码值为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的字符，也即空字符。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition warning">
+<p class="admonition-title">使用字符串字面量初始化</p>
+<p>数组与指针均可通过字符串字面量进行初始化，但是它们的语义不同。初始化数组时，字符串字面量的内容会被复制到数组中，之后可修改数组中存放的字符串；而初始化指针时，它会指向通字符串字面量创建的字符串常量，此时尝试通过指针修改字符串会导致程序错误。</p>
+</div>
+<!-- prettier-ignore-end -->
+<p>由于字符串操作十分常见却又相对复杂，我们往往将这些操作封装为函数，以便重复使用。作为函数参数传递时，数组会退化为指针，长度信息将会丢失。可以想到，字符串末尾的空字符正是为这种情形设计的。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition tip">
+<p class="admonition-title">简化字符串操作函数</p>
+<p>关于利用指针编写字符串操作函数的技巧，你可以参考《<span>C<span class="heti-spacing"> </span></span>程序设计语言<heti-adjacent class="heti-adjacent-half">》</heti-adjacent>（也就是程设课程使用的课本）中给出的 <code>strcpy</code> 与 <code>strcmp</code> 函数的实现迭代。本文对此不再赘述。</p>
+</div>
+<!-- prettier-ignore-end -->
+<p><span>C<span class="heti-spacing"> </span></span>语言标准库中提供了一系列字符串操作函数，它们大多被定义在 <code>string.h</code> 头文件中。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition warning">
+<p class="admonition-title">中止字符缺失</p>
+<p>标准库中的多数字符串操作函数通过检查中止字符判断是否到达字符串末尾。因此，在修改字符串时务必注意保留中止字符。<strong>如果中止字符缺失，使用这些函数将会导致数组访问越界问题。</strong></p>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="_15">指针与函数<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>有时，我们希望函数可以遵循指定的规则，或者完成指定操作，但是又不希望或无法实现一系列高度相似的函数，因此我们希望在参数中引入另一个函数。<span>C<span class="heti-spacing"> </span></span>语言为此提供了指向函数的指针，称为<strong>函数指针</strong>。</p>
+<p>在编译得到的可执行文件中，程序中的指令与数据被分别存储，以供<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>访问并使用。函数指针的值，实际上是函数的第一条指令，也即函数的入口地址。</p>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>函数的内存布局</summary>
+<p>在可执行文件中，指令与数据被分别存储在代码段与数据段中。每个函数的指令往往被存储在代码段中的一段连续内存空间中，因此，函数可被视为一种特殊的对象。</p>
+</details>
+<!-- prettier-ignore-end -->
+<p>与数组类似，函数也会退化为指针。<span>C<span class="heti-spacing"> </span></span>标准对此作如下规定：</p>
+<blockquote>
+<p>任何函数指代器表达式，在用于<strong>异于下列语境</strong>时</p>
+<ul>
+<li>作为取址运算符的操作数</li>
+<li>作为 <code>sizeof</code> 的操作数</li>
+</ul>
+<p>会经历到指向<em>表达式所指代函数</em>的指针的转换。</p>
+</blockquote>
+<p>利用这个规则，我们可以使用函数名为函数指针赋值，也可以写出复杂的表达式。需要注意的是，<code>()</code> 运算符也是从右往左结合的，且优先级高于 <code>*</code> 运算符。举例而言，语句 <code>int *f(void);</code> 声明了一个函数 <code>f</code>，它的返回值类型为 <code>int *</code>；而语句 <code>int (*fp)(void);</code> 声明了一个函数指针 <code>fp</code>，它指向一个返回值类型为 <code>int</code> 的函数。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition tip">
+<p class="admonition-title">函数指针语句阅读练习</p>
+<p>另一篇文章将会细致讲解如何阅读并理解包含函数指针的语句，本文对此不再赘述。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="_16">指针与结构体<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<!-- prettier-ignore-start -->
+<div class="admonition tip">
+<p class="admonition-title">阅读建议</p>
+<p>下文的讨论中会讲解结构体的部分特性，不过仍然建议在熟悉结构体后阅读。</p>
+</div>
+<!-- prettier-ignore-end -->
+<p>结构体是一种<strong>聚合类型</strong>，它将多个不同类型的对象组合成一个对象。结构体经常被用于给一个复杂概念建立模型。</p>
+<p>在复杂数据结构中，线性的数组往往无法展示数据间的逻辑关系，因此，我们往往会大量使用结构体与结构体指针。由于通过结构体指针访问其成员的情形十分常见，<span>C<span class="heti-spacing"> </span></span>语言提供了 <code>-&gt;</code> 运算符以简化表达式。举例来说，表达式 <code>p-&gt;x</code> 等价于 <code>(*p).x</code>。</p>
+<p>由于建立过程比较繁琐，我们希望一直存储完成建立的数据结构，以供程序中的其他部分使用；另一方面，它们往往会占用比较多的内存空间，因此我们也希望在需要时立刻销毁。对于这些需求，无论是全局变量还是静态局部变量都仍然不够灵活。为此，<span>C<span class="heti-spacing"> </span></span>语言在 <code>stdlib.h</code> 中提供了<strong>动态内存管理</strong>函数。</p>
+<p>常用的动态内存管理函数包括 <code>malloc</code> 与 <code>free</code>，它们分别负责申请与释放内存空间。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition warning">
+<p class="admonition-title">内存泄露</p>
+<p>通过动态内存管理接口申请的内存空间将会一直被占用，直到程序结束或手动释放。如果你没有及时释放它们，未释放内存将无法被再分配。堆积的未释放内存最终可能导致程序占用的内存空间超过系统限额，我们称为<strong>内存泄露</strong>，此时程序将会被系统强制终止。因此，务必在不再使用动态内存时及时释放。</p>
+</div>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<div class="admonition warning">
+<p class="admonition-title">悬垂指针</p>
+<p>释放申请得到的内存空间后，指向该内存空间的指针将会变成<strong>悬垂指针</strong>。尝试继续使用悬垂指针是未定义行为，<strong>可能会导致程序崩溃。</strong></p>
+<p>另外，尝试释放悬垂指针，即<strong>二次释放</strong>同一块内存地址，是未定义行为。<strong>二次释放可能导致程序崩溃</strong>。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h2 id="_17">高级技巧<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition tip">
+<p class="admonition-title">阅读建议</p>
+<p>本节为拓展内容，不在程算课程要求范围内。如果你能够熟练使用指针，可以尝试阅读并理解以下内容。</p>
+</div>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<details class="example">
+<summary>输出浮点数的二进制表示</summary>
+<p>一个典型的输出整数二进制表示的程序如下。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+<p>由于浮点数不能进行位运算，我们无法像以上程序一样直接输出每一位（bit<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。不过，我们可以通过指针类型转换，改变对内存数据的读取方式，再输出转换后整数的二进制表示，来实现输出浮点数二进制表示的目的。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%llu"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">63</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div>
+<p>需要注意的是，如果将浮点数强制转换成整数，将会直接对浮点数取整，导致精度丢失。另外，这种指针转换严格来说属于未定义行为。</p>
+</details>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<details class="example">
+<summary>使用二级指针删除链表节点</summary>
+<p>此处仅讨论没有头节点的单向无环链表。链表节点定义如下。</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
+</code></pre></div>
+<p>一个典型的删除链表节点的程序如下。</p>
+<div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">remove</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="n">curr</span><span class="p">;</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">curr</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prev</span><span class="p">)</span>
+<span class="w">                </span><span class="n">prev</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">                </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="n">free</span><span class="p">(</span><span class="n">curr</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">curr</span><span class="p">;</span>
+<span class="w">        </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>但是，在<span class="heti-skip"><span class="heti-spacing"> </span>Linus<span class="heti-spacing"> </span></span>看来，这是不懂指针的人的做法。他推崇的做法是使用二级指针，避免对移除第一个节点的特判。一个典型程序如下。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">**</span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="o">*</span><span class="n">curr</span><span class="p">;</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">entry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">curr</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="o">*</span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">            </span><span class="n">free</span><span class="p">(</span><span class="n">entry</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">else</span>
+<span class="w">            </span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">entry</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>我们可以看到，这个版本的 <code>remove</code> 函数不再需要额外维护一个 <code>prev</code> 指针，也不需要判断需要移除的节点是否为第一个节点。另外，这个版本的 <code>remove</code> 函数也不再需要返回值。</p>
+<p>这是因为，现在二级指针 <code>curr</code> 指向上一个节点的 <code>next</code> 成员，而不是直接指向当前节点。移除节点时，通过 <code>curr</code> 修改 <code>next</code> 成员起到了和修改 <code>prev-&gt;next</code> 相同的效果。这对于第一个节点也是成立的，因为此时二级指针 <code>curr</code> 指向 <code>head</code>，可以直接通过 <code>curr</code> 修改 <code>head</code> 指向的节点。</p>
+</details>
+<!-- prettier-ignore-end -->
+<hr/>
+<div class="md-source-file">
+<small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2023</span>
+</small>
+</div>
+</article>
+</div>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["search.highlight", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
