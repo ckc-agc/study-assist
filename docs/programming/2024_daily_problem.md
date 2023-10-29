@@ -103,6 +103,8 @@ D. It cannot be compiled.
     For more information about `switch` statement, see [cppreference-Switch statement](https://en.cppreference.com/w/c/language/switch).
 <!-- prettier-ignore-end -->
 
+> 供题人：郑俊达
+
 ### 「26」 Bitwize Operator
 
 Which of the following options can achieve a swapping effect for `pair(*,*)`? 
