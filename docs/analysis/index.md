@@ -9,14 +9,14 @@
 | 节次 |  时间  |   内容   |  主讲  |                         讲义                          | 录播地址 |
 | :--: | :----: | :------: | :----: | :---------------------------------------------------: | :------: |
 |  1   | Oct.14 | 数列极限 | 胡育玮 | [第一讲：数列极限](2024/analysis_lecture1_sequence_limits.md) | [Bilibili](https://www.bilibili.com/video/BV1Qw411c7bM) |
+|  2   | Oct.
 
 ## 历年卷
 
 ### 数学分析 I（H）
 
 -   2022-2023 学年
-    -   [小测1](analysis1_paper/22test1.pdf)
-    -   [小测1答案](analysis1_paper/22test1_answer.md)
+    -   [小测1](analysis1_paper/22test1.pdf) | [答案](analysis1_paper/22test1_answer.md)
     -   [小测2](analysis1_paper/22test2.pdf)
     -   [期末试卷](analysis1_paper/22exam.pdf)
 -   2021-2022 学年

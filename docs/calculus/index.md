@@ -7,3 +7,4 @@
 | 节次 |  时间  |   内容   |  主讲  |                         讲义                          | 录播地址 |
 | :--: | :----: | :------: | :----: | :---------------------------------------------------: | :------: |
 |  1   | Oct.22 | 极限与函数的连续性 | 混合2106 张志心 | [讲义](2024/calculus_lecture1.pdf) <br> [答案](2024/calculus_lecture1_answer.pdf) | [Bilibili](https://www.bilibili.com/video/BV1aw411X7wT) |
+|  2   | Nov.5 | 期中复习 | 求化2201 刘子涵 | [讲义](2024/calculus_lecture2.pdf) |  |
