@@ -6,12 +6,26 @@
 
 线性代数作为大学数学的基础课，与数学分析不同，这门课的一开始就与中学数学的风格有着很大的差距，许多同学在此门课的入门与进阶方面都遇见了很大的困难。为解决此困难，本课程希望深入浅出地剖析概念与定理，帮助同学们了解线性代数“干的是什么事”，理解线性代数的本质，以及更好掌握后续的计算技巧，学好线代这门大学的入门课！
 
+!!! note inline end ""
+
+    ![](graph/lalu.png){ align=right }
+
 ## 课题组成员
 
 -   吴一航 图灵2001
 -   梅敏炫 图灵2201
 -   潘邹纬 强物2101
 -   薛辰立 图灵2203
+
+## 课程录播
+
+W 代表适配吴志祥班，T 代表适配谈之奕班。
+
+| 节次 | 时间 | 内容 | 主讲人 | 录播地址 |
+| :--: | :--: | :--: | :----: | :------: |
+| W1 | Oct.29 | 引入：线性空间 | 梅敏炫 | [Bilibili](https://www.bilibili.com/video/BV1qz4y1A7h7/) |
+| T1 | Oct.29 | 引入：线性空间 | 吴一航 | [Bilibili](https://www.bilibili.com/video/BV1iG411X7Bv) |
+
 
 ## 课程安排
 
@@ -47,15 +61,16 @@
     
 <!-- prettier-ignore-end -->
 
-LALU 课程的讲义存放在下面的仓库中，你可以点击图片跳转到仓库页面。欢迎提出 issue 和 pull request。
+LALU 课程的讲义存放在下面的仓库中，你可以**点击图片**跳转到仓库页面。欢迎提出 issue 和 pull request。
 
 [![](graph/pixel.jpg#only-light)![](graph/code.jpg#only-dark)](https://github.com/yhwu-is/Linear-Algebra-Left-Undone/)
 
 点击下面的链接可以下载讲义的最新 Release 版本：
 
-- [点击下载](https://github.com/yhwu-is/Linear-Algebra-Left-Undone/releases/latest/download/LALU.pdf)
+- [点击下载讲义](https://github.com/yhwu-is/Linear-Algebra-Left-Undone/releases/latest/download/LALU.pdf)
+- [点击下载讲义答案](https://github.com/yhwu-is/Linear-Algebra-Left-Undone/releases/latest/download/LALU-answer.pdf)
 
-![](graph/lalu.png)
+
 
 <!--<iframe src="https://docs.google.com/gview?url=https://github.com/yhwu-is/Linear-Algebra-Left-Undone/releases/latest/download/LALU.pdf&embedded=true" 
 style="width:100%; height:1000px;" frameborder="0"></iframe>-->
