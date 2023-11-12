@@ -2,9 +2,18 @@
 
 本页面用于测试各类组件显示测试。
 
-## PDF Viewer
+## Bilibili Stats
 
-<embed src="../test.pdf" style="width:100%; height:80vh;" type="application/pdf"> 
+[这里](https://github.com/zmh-program/bilibili-stats)和[这里](https://github.com/lonelyion/bilibili-stats-badges)的两个项目功能都残缺了，考虑后续部署到服务器上。
+
+[![BiliBili Stats](https://b.deeptrain.net/user/3546574332365752/)](https://space.bilibili.com/3546574332365752)
+
+[![Fans](https://bilistats.lonelyion.com/followers?uid=3546574332365752&style=for-the-badge)](https://space.bilibili.com/3546574332365752)
+
+![Video Views](https://bilistats.lonelyion.com/views?uid=3546574332365752)
+![Likes](https://bilistats.lonelyion.com/views?uid=3546574332365752&type=likes)
+![Level](https://bilistats.lonelyion.com/level?uid=3546574332365752)
+
 
 ## LaTeX
 
