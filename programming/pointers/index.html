@@ -552,22 +552,22 @@
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_10">
-    指针与参数传递
+    参数传递
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_11">
-    指针与数组
+    操作数组
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_15">
-    指针与函数
+    函数指针
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_16">
-    指针与结构体
+    结构体与内存管理
   </a>
 </li>
 </ul>
@@ -575,7 +575,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_17">
-    高级技巧
+    进阶技巧
   </a>
 </li>
 </ul>
@@ -595,14 +595,14 @@
 <p>本文档仍在编写中，部分内容可能不完整或不准确。如果你发现了错误，欢迎提交<span><span class="heti-spacing"> </span>Issues</span>。</p>
 </div>
 <!-- prettier-ignore-end -->
-<p>你们可能已经听说过，<span>C<span class="heti-spacing"> </span></span>语言是贴近底层的编程语言。这是因为，<span>C<span class="heti-spacing"> </span></span>语言未对计算机硬件作过多抽象，它方便而又灵活的语言特性为与硬件交互提供了极大便利。</p>
+<p>你可能已经听说过，<span>C<span class="heti-spacing"> </span></span>语言是贴近底层的编程语言。这是因为，<span>C<span class="heti-spacing"> </span></span>语言未对计算机硬件作过多抽象，它方便而又灵活的语言特性为与硬件交互提供了极大便利。</p>
 <p>指针是<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的核心特性之一，它的灵活性与强大性，使得<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言成为与硬件交互的首选语言。但是，指针也是<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中最容易引发错误的特性之一，它要求使用者正确理解内存模型，并对指针的使用严加约束。</p>
 <p>本文将尽量全面地讲解指针的定义与特性，并梳理部分使用技巧。在此之前，为了准确理解指针，我们需要先了解<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的内存模型与对象模型。</p>
 <!-- prettier-ignore-start -->
 <div class="admonition tip">
 <p class="admonition-title">阅读提示</p>
 <p>程算课程中学习的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言语法均在<span class="heti-skip"><span class="heti-spacing"> </span>C99<span class="heti-spacing"> </span></span>标准规定的范围内。下文中，如果未作额外说明，所有内容均基于<span class="heti-skip"><span class="heti-spacing"> </span>C99<span class="heti-spacing"> </span></span>标准。</p>
-<p>下文中的部分提示默认被折叠，此类提示为拓展内容，对知识积累与理解能力的要求较高，请酌情阅读。</p>
+<p>下文中部分提示默认被折叠。此类提示为拓展内容，对知识积累与理解能力有一定要求，但有助于理解一些细节问题，请酌情阅读。</p>
 </div>
 <!-- prettier-ignore-end -->
 <h2 id="_2">底层概念<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
@@ -612,18 +612,44 @@
 <p class="admonition-title">内存模型</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/pointers_addr.jpg"><img alt="" src="../graph/pointers_addr.jpg"/></a></p>
 <p>存储在内存中的一个字符串，其每个字节的索引、值与内存地址。</p>
+<p>（单击图片可放大）</p>
 </div>
 <!-- prettier-ignore-end -->
-<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的内存模型中，<strong>字节（Byte）</strong>是内存的最小可寻址单元，它被定义为一系列连续的<strong>位（bit）</strong>。在几乎所有现代计算机上，一个字节的长度都是<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位，我们的讨论也基于这一标准。</p>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的内存模型中，<strong>字节（Byte）</strong>定义为一系列连续的<strong>位（bit）</strong>，是内存的最小可寻址单元。在几乎所有现代计算机上，一个字节的长度都是<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>位，我们的讨论也基于这一标准。</p>
 <p>所谓“可寻址”指的是内存中的所有字节都拥有一个唯一编号，也即<strong>内存地址</strong>。习惯上，内存地址由长度一定的、从<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>开始递增的无符号整数表示，其长度由操作系统决定。</p>
 <!-- prettier-ignore-start -->
 <details class="info">
 <summary>常见架构中内存地址的长度</summary>
-<p>我们经常接触的处理器架构中，x86（又称<span><span class="heti-spacing"> </span>IA-32</span>）架构使用<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位长的内存地址，x86-64（又称<span><span class="heti-spacing"> </span>x64</span>、AMD64、Intel 64）与<span><span class="heti-spacing"> </span>ARM64</span>（又称<span><span class="heti-spacing"> </span>AArch64</span>）架构使用<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位长的内存地址。容易看出，<span>x86<span class="heti-spacing"> </span></span>架构支持的最大内存空间仅为<span><span class="heti-spacing"> </span>4 GB</span>，而后两个架构支持的最大内存空间则远超前者。</p>
+<p>我们经常接触的处理器架构中，x86（又称<span><span class="heti-spacing"> </span>IA-32</span>）架构使用<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位长的内存地址，x86-64（又称<span><span class="heti-spacing"> </span>x64</span>、AMD64、Intel 64）与<span><span class="heti-spacing"> </span>ARM64</span>（又称<span><span class="heti-spacing"> </span>AArch64</span>）架构使用<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位长的内存地址。容易看出，<span>x86<span class="heti-spacing"> </span></span>架构支持的最大内存空间只有<span><span class="heti-spacing"> </span>4 GB</span>，而后两个架构支持的最大内存空间则远超前者。</p>
 </details>
 <!-- prettier-ignore-end -->
 <h3 id="_4">对象<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p><span>C<span class="heti-spacing"> </span></span>语言将程序使用的数据抽象为<strong>对象</strong>，它被定义为执行环境中内存的一个区域，其内容可以表示<em>特定类型的值</em>。根据数据类型与长度的不同，一个对象可占据一个或多个字节，并称起始字节为该对象的内存地址。除了直接使用<strong>字面量</strong>（常量的一种）创建对象外，还可以通过声明语句创建，并为其分配一个<strong>标识符</strong>（变量名<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，以掩盖分配内存空间与访问内存地址的细节过程，并增强程序可读性。</p>
+<p><span>C<span class="heti-spacing"> </span></span>语言将程序使用的数据抽象为<strong>对象</strong>，它被定义为执行环境中内存的一个区域，其内容可以表示<em>特定类型的值</em>。根据数据类型与长度的不同，一个对象可占据一个或多个字节，我们称起始字节的内存地址为<em>该对象的内存地址</em>。</p>
+<p>每个对象可以用 <code>memcpy</code> 复制到 <code>unsigned char[n]</code> 类型的对象中，我们称生成的数组内容为<em>对象表示</em>。方便起见，我们通常以十六进制整数序列形式展示对象表示，每两位十六进制数代表一个字节。举例来说，<code>int</code> 类型常量 <code>1</code> 在小端序计算机上的对象表示为 <code>0x01 00 00 00</code>。</p>
+<p>另外，对象表示和值并不要求一一对应，两个值相等的对象可以拥有不同的对象表示。</p>
+<p>除了直接使用<strong>字面量</strong>（常量的一种）创建对象外，还可以通过声明语句创建，并为其分配一个<strong>标识符</strong>，以掩盖分配内存空间与访问内存地址的细节过程，并增强程序可读性。</p>
+<!-- prettier-ignore-start -->
+<details class="info">
+<summary>标识符</summary>
+<p><span>C<span class="heti-spacing"> </span></span>标准定义，标识符是数字、下划线、小写及大写拉丁字母的任意长度序列（不讨论<span class="heti-skip"><span class="heti-spacing"> </span>Unicode<span class="heti-spacing"> </span></span>字符<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。合法的标识符必须以非数字字符开始，以区别于整数常量或浮点常量。</p>
+<blockquote>
+<p>标识符能指代下列类型的实体：</p>
+<ul>
+<li>对象</li>
+<li>函数</li>
+<li>标签（struct、<span>union<span class="heti-spacing"> </span></span>或枚举）</li>
+<li>结构体或联合体成员</li>
+<li>枚举常量</li>
+<li><span>typedef<span class="heti-spacing"> </span></span>名</li>
+<li>标号名</li>
+<li>宏名</li>
+<li>宏形参名</li>
+</ul>
+<p>宏名或宏形参名以外的每个标识符都拥有作用域，并可以拥有链接。相同的标识符可以在程序的相异点指代相异实体。</p>
+</blockquote>
+<p><strong>关键字也属于标识符</strong>，但它们被保留，不可在程序中声明。以一个或多个下划线开始的标识符也不应在程序中出现；根据约定，这些标识符应由库的内部实现使用。另外，还有一些标识符被指定保留，此处不再展开。</p>
+</details>
+<!-- prettier-ignore-end -->
 <!-- prettier-ignore-start -->
 <div class="admonition warning">
 <p class="admonition-title">区分对象概念</p>
@@ -647,6 +673,13 @@
 <div class="highlight"><pre><span></span><code><span class="n">type</span><span class="o">-</span><span class="n">specifier</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">qualifiers</span><span class="w"> </span><span class="n">declarator</span>
 </code></pre></div>
 <p>其中，<code>type-specifier</code> 为<em>被引用对象的类型</em>，<code>qualifiers</code> 为<em>对指针类型对象的限定</em>，<code>declarator</code>为<em>指针类型对象的标识符</em>（名称<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<!-- prettier-ignore-begin -->
+<details class="info">
+<summary>正确添加限定与存储类型说明</summary>
+<p>需要注意的是，只有出现在 <code>*</code> 与标识符之间的限定才会被赋予指针类型。举例来说，语句 <code>char * const p;</code> 声明了一个类型为 <code>char *</code> 的、值不可变的指针 <code>p</code>，它指向的对象类型为 <code>char</code>，值可通过指针 <code>p</code> 改变；而语句 <code>const char * p;</code> 声明了一个类型为 <code>const char *</code> 的、值可变的指针 <code>p</code>，它指向的对象类型为 <code>const char</code>，值不可通过指针 <code>p</code> 改变。</p>
+<p>另外，存储类型说明符并没有类似的语义，它必须置于 <code>*</code> 之前。从语法上说，它们属于<em>说明符</em>而非<em>限定符</em>，不应置于 <code>*</code> 与标识符之间；从语义上来说，记录被引用对象类型的目的是从目标内存地址正确读取数据，而了解指向对象的存储类型对这一目的毫无帮助。</p>
+</details>
+<!-- prettier-ignore-end -->
 <p>需要注意的是，声明中 <code>*</code> 只对直接结合的标识符生效。举例来说，如果通过语句 <code>int * a, b;</code> 声明变量 <code>a</code> 与 <code>b</code>，那么只有 <code>a</code> 会被认定为指针类型。</p>
 <p>在声明指向某些类型对象的指针时，可通过括号使 <code>*</code> 优先与标识符结合，以避免运算符优先级差异导致的歧义。举例来说，语句 <code>int *arr[3];</code> 声明了一个<strong>元素类型为 <code>int *</code></strong> 且长度为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的数组 <code>arr</code>；语句 <code>int (*ptr)[3];</code> 则声明了一个指针 <code>ptr</code>，它指向一个<strong>元素类型为 <code>int</code></strong> 且长度为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的数组。</p>
 <p>此外，被引用对象的类型可以是不完整类型。举例来说，语句 <code>int (*p)[];</code> 表明指针 <code>p</code> 指向一个元素类型为 <code>int</code>，且<strong>长度未知</strong>的数组。这意味着我们不关心数组长度，或者数组长度需要在之后的程序中通过某些方法确定。相对应地，无法对解引用 <code>p</code> 的结果使用 <code>sizeof</code> 运算符。</p>
@@ -659,7 +692,8 @@
 </details>
 <!-- prettier-ignore-end -->
 <h3 id="_8">值与运算<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<p>通过指针获得被引用对象的过程称为<strong>解引用</strong>，由运算符 <code>*</code> 完成；通过某个对象获得指向该对象指针的过程称为<strong>取址</strong>，由运算符 <code>&amp;</code> 完成。结合赋值操作，可根据需要通过指针访问并修改指向的对象，或令指针指向不同的对象。</p>
+<p>通过指针获得被引用对象的过程称为<strong>解引用</strong>，由运算符 <code>*</code> 完成；通过某个对象获得指向该对象指针的过程称为<strong>取址</strong>，由运算符 <code>&amp;</code> 完成。</p>
+<p>结合赋值操作，可根据需要通过指针访问并修改指向的对象，或令指针指向不同的对象。举例来说，对于 <code>int</code> 类型变量 <code>a</code>，语句 <code>p = &amp;a;</code> 将使指针 <code>p</code> 的值设为 <code>a</code> 的内存地址，也即令 <code>p</code> 指向 <code>a</code>；在此基础上，语句 <code>*p = 1;</code> 将改变<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>指向的对象，也即变量 <code>a</code> 的值。</p>
 <p>不过，在编写表达式时，需要注意运算符优先级的影响。举例来说，表达式 <code>*p++</code> 将使指针 <code>p</code> 的值自增<span><span class="heti-spacing"> </span>1</span>，而表达式 <code>(*p)++</code> 将使指针 <code>p</code> 指向对象的值自增<span><span class="heti-spacing"> </span>1</span>。</p>
 <!-- prettier-ignore-start -->
 <div class="admonition note">
@@ -668,7 +702,7 @@
 <p><span>C<span class="heti-spacing"> </span></span>语言的语法力图使声明和使用相一致。</p>
 </blockquote>
 <p>在阅读指针初始化语句时，你可能常常混淆 <code>*</code> 的声明与解引用语法。正确的要点在于，初始化语句分为声明和初始化器两部分，其中赋值号 <code>=</code> 前的部分为声明，赋值号及其后的部分为初始化器。</p>
-<p>举例来说，在语句 <code>int *ip = ipp;</code> 中，<code>int *p</code> 为声明，<code>= *ipp</code> 为初始化器，这条语句的含义是：声明一个指向 <code>int</code> 类型对象的指针 <code>ip</code>，并将它的初始值设为 <code>ipp</code> 指向对象的值。</p>
+<p>举例来说，在语句 <code>int *ip = *ipp;</code> 中，<code>int *p</code> 为声明，<code>= *ipp</code> 为初始化器，这条语句的含义是：声明一个指向 <code>int</code> 类型对象的指针 <code>ip</code>，并将它的初始值设为 <code>ipp</code> 指向对象的值。</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">野指针</p>
@@ -681,16 +715,17 @@
 <details class="info">
 <summary>空指针常量 <code>NULL</code> 的值</summary>
 <p>根据<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准定义，宏 <code>NULL</code> 是实现定义的空指针常量，它可以是值为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的整数常量表达式，或者被转换为 <code>void *</code> 类型的此类表达式。</p>
-<p>那么，为什么 <code>NULL</code> 的值被规定为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>呢？你可能会猜想，这是因为内存地址<span class="heti-skip"><span class="heti-spacing"> </span>0x0<span class="heti-spacing"> </span></span>被系统预留，但 <code>NULL</code> 的值其实与物理内存地址无关。在现代分页操作系统中，<code>0x0</code> 所在的内存页不会被分配给用户态程序。同时，无论 <code>NULL</code> 的值被如何定义，链接器都应将空指针的值改为目标系统内的空指针预留地址。</p>
-<p>将<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>视作特殊值的习惯是一个比较有说服力的理由。此外，将 <code>NULL</code> 定义为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>也可以简化表达式，即利用<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言将<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>视为<span class="heti-skip"><span class="heti-spacing"> </span>false<span class="heti-spacing"> </span></span>的特性，简化对指针是否为空的判断。</p>
+<p>那么，为什么 <code>NULL</code> 的值被规定为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>呢？</p>
+<p>你可能会猜想，这是因为内存地址<span class="heti-skip"><span class="heti-spacing"> </span>0x0<span class="heti-spacing"> </span></span>被系统预留。对早期操作系统而言，这种说法是成立的；但是现在，不同平台对空指针的值已经有许多不同的规定。无论 <code>NULL</code> 的值被如何定义，链接器都应将空指针的值改为目标平台指定的空指针值。为了强调这一点，<span>C++11<span class="heti-spacing"> </span></span>引入了 <code>nullptr</code> 关键字，但<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准并未对此作任何修改。</p>
+<p>回到问题本身，将<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>视作特殊值的习惯是一个比较有说服力的理由。此外，将 <code>NULL</code> 定义为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>也可以简化表达式，即利用<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言将<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>视为<span class="heti-skip"><span class="heti-spacing"> </span>false<span class="heti-spacing"> </span></span>的特性，简化对指针是否为空的判断。</p>
 </details>
 <!-- prettier-ignore-end -->
 <p>两个类型兼容的指针间的赋值运算、比较运算与减法运算是有效的。若指针类型不兼容，则需要进行强制类型转换。这种运算仅在少数情形下有意义，如两个指针位于同一数组内时。</p>
 <p>指针与整数间的加法或减法运算也是有效的，其含义是令指针前移或后移若干个指向对象的长度。举例来说，表达式 <code>p + n</code> 的值，代表指针 <code>p</code> 当前指向的对象之后第<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>个对象的地址。这种运算在数组与字符串操作中十分常见。</p>
-<p>虽然内存地址往往是一个非负整数，但是指针与整数之间不能相互转换，<span>0<span class="heti-spacing"> </span></span>是唯一的例外：常量<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>可以赋值给指针，指针也可与常量<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>进行比较。</p>
+<p>虽然内存地址往往是一个非负整数，但是指针与整数之间不能相互转换，<span>0<span class="heti-spacing"> </span></span>是唯一的例外：常量<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>可以赋值给指针，指针也可与常量<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>进行比较。显然，此时常量<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>将被视为空指针 <code>NULL</code>。</p>
 <p>除以上运算外，其他形式的指针运算都是非法的。</p>
 <h2 id="_9">用法概述<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_10">指针与参数传递<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_10">参数传递<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中，调用函数时以<strong>值传递</strong>形式传递参数；具体而言，每次调用函数时会重新创建形参，并将实参的值复制到对应的形参。函数可以修改自身形参，但是实参的值不会随之改变。这种设计将函数与数据隔离，避免产生意料之外的副作用。</p>
 <!-- prettier-ignore-start -->
 <details class="info">
@@ -700,9 +735,8 @@
 <!-- prettier-ignore-end -->
 <p>不过，如果我们期望函数产生副作用，值传递的方式便无法满足需求。为解决这一问题，我们可以引入指针类型的参数，以达到修改其他对象的目的。</p>
 <!-- prettier-ignore-start -->
-<details class="example">
+<details class="example" open="open">
 <summary>案例：交换函数</summary>
-<p>让我们从交换函数开始，理解指针参数的使用技巧。</p>
 <p>假设 <code>fake_swap</code> 函数定义如下：
 </p><div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">fake_swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
@@ -730,7 +764,7 @@
 </details>
 <!-- prettier-ignore-end -->
 <p><span>C<span class="heti-spacing"> </span></span>语言中的函数只有一个返回值。若要返回多个值，可将所有返回值放入结构体中；但是，这需要额外声明一个临时使用的结构体类型，拆解结构体的过程也耗时耗力。一个更好的方案是，向函数传递指针参数，由函数通过指针将结果写入目标对象。我们经常使用的 <code>scanf</code> 函数便是一个典型例子。</p>
-<h3 id="_11">指针与数组<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_11">操作数组<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>一般而言，提到“数组”时，我们讨论的既可以是<strong>数组类型</strong>，也可以是<strong>数组类型的对象</strong>。</p>
 <p>指针与数组的关系十分密切，它们之间的转换也是<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中最常见的类型转换之一。一般来说，用指针编写的程序比用数组编写的程序执行速度快，但可读性相对较差。</p>
 <!-- prettier-ignore-start -->
@@ -781,9 +815,9 @@
 <p>我们称元素类型为数组的数组为<strong>多维数组</strong>。需要注意的是，<code>[]</code> 运算符是从右往左结合的。举例来说，语句 <code>int a[2][3];</code> 声明了一个<strong>长度为<span><span class="heti-spacing"> </span>2</span> </strong>的数组 <code>a</code>，它的元素类型为 <code>int [3]</code>；对应地，通过表达式 <code>a[x][y]</code> 访问数组元素时，<code>x</code> 与 <code>y</code> 的取值范围分别为<span class="heti-skip"><span class="heti-spacing"> </span>0~1<span class="heti-spacing"> </span></span>与<span><span class="heti-spacing"> </span>0~2</span>。</p>
 <p>当应用数组到指针转换时，多维数组被转换成指向其首元素的指针。我们称这种指向数组的指针为<strong>数组指针</strong>。举例来说，<code>int [2][3]</code> 类型的二维数组会被转换为 <code>int (*)[3]</code> 类型的数组指针。</p>
 <!-- prettier-ignore-start -->
-<details class="example">
+<details class="example" open="open">
 <summary>案例：通过指针访问多维数组元素</summary>
-<p>让我们从表达式 <code>*(*(a + i) + j)</code> 开始，理解与多维数组相关的指针运算。</p>
+<p>根据<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准规定，表达式 <code>a[i][j]</code> 与表达式 <code>*(*(a + i) + j)</code> 等价。不过，后者的求值过程相比前者更加抽象。下面，我们将以此为例逐步分析其求值过程。</p>
 <ol>
 <li>
 <p>假设 <code>a</code> 的类型为 <code>int [2][3]</code>。我们知道，此处数组 <code>a</code> 会被隐式转换为 <code>int (*)[3]</code> 类型的指针。回忆一下指针与整数的加减法运算，<code>p + i</code> 并非简单地将指针 <code>p</code> 的值增加 <code>i</code> 字节，而是增加 <code>i</code> 个 <code>int [3]</code> 类型对象的长度，即 <code>i * sizeof(int [3])</code> 字节。</p>
@@ -835,13 +869,13 @@
 <p>标准库中的多数字符串操作函数通过检查中止字符判断是否到达字符串末尾。因此，在修改字符串时务必注意保留中止字符。<strong>如果中止字符缺失，使用这些函数将会导致数组访问越界问题。</strong></p>
 </div>
 <!-- prettier-ignore-end -->
-<h3 id="_15">指针与函数<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_15">函数指针<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>有时，我们希望函数可以遵循指定的规则，或者完成指定操作，但是又不希望或无法实现一系列高度相似的函数，因此我们希望在参数中引入另一个函数。<span>C<span class="heti-spacing"> </span></span>语言为此提供了指向函数的指针，称为<strong>函数指针</strong>。</p>
-<p>在编译得到的可执行文件中，程序中的指令与数据被分别存储，以供<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>访问并使用。函数指针的值，实际上是函数的第一条指令，也即函数的入口地址。</p>
+<p>在编译得到的可执行文件中，程序中的指令与数据被分别存储，以供<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>访问并使用。函数指针的值，实际上是函数第一条指令的地址，也即函数的入口地址。</p>
 <!-- prettier-ignore-start -->
 <details class="info">
 <summary>函数的内存布局</summary>
-<p>在可执行文件中，指令与数据被分别存储在代码段与数据段中。每个函数的指令往往被存储在代码段中的一段连续内存空间中，因此，函数可被视为一种特殊的对象。</p>
+<p>在可执行文件中，指令与数据被分别存储在代码段与数据段中。每个函数的指令往往被存储在代码段中的一段连续内存空间中，根据这一特点，我们可以将函数看作一种特殊的对象。</p>
 </details>
 <!-- prettier-ignore-end -->
 <p>与数组类似，函数也会退化为指针。<span>C<span class="heti-spacing"> </span></span>标准对此作如下规定：</p>
@@ -860,7 +894,7 @@
 <p>另一篇文章将会细致讲解如何阅读并理解包含函数指针的语句，本文对此不再赘述。</p>
 </div>
 <!-- prettier-ignore-end -->
-<h3 id="_16">指针与结构体<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_16">结构体与内存管理<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <!-- prettier-ignore-start -->
 <div class="admonition tip">
 <p class="admonition-title">阅读建议</p>
@@ -881,10 +915,10 @@
 <div class="admonition warning">
 <p class="admonition-title">悬垂指针</p>
 <p>释放申请得到的内存空间后，指向该内存空间的指针将会变成<strong>悬垂指针</strong>。尝试继续使用悬垂指针是未定义行为，<strong>可能会导致程序崩溃。</strong></p>
-<p>另外，尝试释放悬垂指针，即<strong>二次释放</strong>同一块内存地址，是未定义行为。<strong>二次释放可能导致程序崩溃</strong>。</p>
+<p>另外，尝试释放悬垂指针，即<strong>二次释放</strong>同一块内存地址，同样是未定义行为。<strong>二次释放可能导致程序崩溃</strong>。</p>
 </div>
 <!-- prettier-ignore-end -->
-<h2 id="_17">高级技巧<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h2 id="_17">进阶技巧<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <!-- prettier-ignore-start -->
 <div class="admonition tip">
 <p class="admonition-title">阅读建议</p>
@@ -892,24 +926,25 @@
 </div>
 <!-- prettier-ignore-end -->
 <!-- prettier-ignore-start -->
-<details class="example">
+<details class="example" open="open">
 <summary>输出浮点数的二进制表示</summary>
 <p>一个典型的输出整数二进制表示的程序如下。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 </code></pre></div>
-<p>由于浮点数不能进行位运算，我们无法像以上程序一样直接输出每一位（bit<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。不过，我们可以通过指针类型转换，改变对内存数据的读取方式，再输出转换后整数的二进制表示，来实现输出浮点数二进制表示的目的。</p>
+<p>由于浮点数不能进行位运算，我们无法像以上程序一样直接输出每一位（bit<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。如果将浮点数强制转换成整数，将会直接对浮点数取整，导致精度丢失。</p>
+<p>为了规避这一问题，我们可以通过指针类型转换，改变对内存数据的读取方式。具体而言，我们指定以整数形式读取浮点数对象所在的内存地址，以避免修改对象表示，再输出转换后整数的二进制表示，来实现输出浮点数二进制表示的目的。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
 <span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">64</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%llu"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">63</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 </code></pre></div>
-<p>需要注意的是，如果将浮点数强制转换成整数，将会直接对浮点数取整，导致精度丢失。另外，这种指针转换严格来说属于未定义行为。</p>
+<p>需要注意的是，这种指针转换严格来说属于未定义行为。But it just works :P</p>
 </details>
 <!-- prettier-ignore-end -->
 <!-- prettier-ignore-start -->
-<details class="example">
+<details class="example" open="open">
 <summary>使用二级指针删除链表节点</summary>
 <p>此处仅讨论没有头节点的单向无环链表。链表节点定义如下。</p>
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span>
@@ -964,7 +999,7 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 13, 2023</span>
 </small>
 </div>
 </article>
