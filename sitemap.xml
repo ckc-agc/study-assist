@@ -66,17 +66,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ckc-agc.pages.zjusct.io/study-assist/programming/pointers/</loc>
-         <lastmod>2023-11-14</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://ckc-agc.pages.zjusct.io/study-assist/programming/temp/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ckc-agc.pages.zjusct.io/study-assist/programming/temp2/</loc>
+         <lastmod>2023-11-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ckc-agc.pages.zjusct.io/study-assist/programming/topic/pointers/</loc>
          <lastmod>2023-11-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
