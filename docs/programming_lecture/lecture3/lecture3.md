@@ -1,11 +1,4 @@
 # I/O 与文件
-
-<!-- prettier-ignore-start -->
-!!! danger "施工中"
-
-    本页面正在编辑中。
-<!-- prettier-ignore-end -->
-
 <!-- prettier-ignore-start -->
 !!! abstract "内容提要"
 
@@ -342,7 +335,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 1. `scanf()`要将读取的内容存储到对应变量地址中，而不是变量名。因此，`scanf()`的参数应该是变量的地址。
 
     <!-- prettier-ignore-start -->
-    !!! info "e.g."
+    ??? info "e.g."
 
         ```C title="scanf.c"
         #include <stdio.h>
