@@ -456,6 +456,31 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
 对操作系统而言，文件更加复杂。文件是具有符号名的，在逻辑上具有完整意义的一组相关信息项的序列。文件还包括了一些额外数据，便于操作系统确定文件的种类。
 
+    ```C title="c_file.c"
+    #include<stdio.h>
+    #include<string.h>
+
+    int main(int argc, char *argv[]){
+        const char *str = "ckc-agc programming lec3";
+
+        FILE *fp1 = fopen("test1.txt", "wb+");
+        FILE *fp2 = fopen("test2.txt", "w+");
+        fprintf(fp1, "%s\n%s\n", str, argv[0]);
+        fprintf(fp2, "%s\n%s\n", str, argv[0]);
+        fwrite(str, sizeof(char), strlen(str), fp1);
+
+        // fseek(fp1, 0, SEEK_SET);
+        // fprintf(fp1, "%s\n", "SEEK_SET");
+        fseek(fp1, 0, SEEK_END);
+        fprintf(fp1, "%s\n", "SEEK_END");
+
+        rewind(fp1);
+        fprintf(fp1, "%s\n", "rewind");
+
+        fclose(fp1);
+        fclose(fp2);
+    }
+    ```
     ```bash
     $ file c_file.c
     $ file c_file.o
