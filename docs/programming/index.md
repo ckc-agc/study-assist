@@ -11,6 +11,7 @@
 我们为程序设计中的一些重难点整理了专题笔记，现有如下专题笔记：
 
 - [指针](topic/pointers.md)
+- [函数指针认读](topic/funcptr.md)
 
 ## FAQ
 
