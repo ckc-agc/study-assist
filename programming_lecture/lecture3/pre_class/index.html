@@ -7,9 +7,9 @@
 <meta content="竺可桢学院学业指导中心" name="author"/>
 <link href="https://ckc-agc.pages.zjusct.io/study-assist/programming_lecture/lecture3/pre_class/" rel="canonical"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
 <title>课前 - 浙江大学竺可桢学院辅学计划站点</title>
-<link href="../../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -511,6 +511,43 @@
 </code></pre></div>
 </li>
 <li>
+<p>关于<code>格式化字符串</code></p>
+<p>```C title="printf.c"</p>
+<h1 id="include">include <stdio.h><a class="headerlink" href="#include" title="Permanent link">¶</a></stdio.h></h1>
+<p>int main()
+{
+    // 类型
+    printf("%5d\n", 1000);  // 默认右对齐,左边补空格
+    printf("%-5d\n", 1000); // 左对齐,右边补空格
+    printf("%+d %+d\n", 1000, -1000); // 输出正负号
+    printf("% d % d\n", 1000, -1000); // 正号用空格替代，负号输出
+    printf("%x %#x\n", 1000, 1000); // 输出0x
+    printf("%.0f %#.0f\n", 1000.0, 1000.0); // 当小数点后不输出值时依然输出小数点
+    printf("%g %#g\n", 1000.0, 1000.0); // 保留小数点后后的0
+    printf("%05d\n", 1000); // 前面补0</p>
+<div class="highlight"><pre><span></span><code>// 宽度
+double a = 3.141592653589;
+int x = 5;
+printf("%.*f", x, a);
+
+// 精度
+printf("%.8d\n", 1000);           // 不足指定宽度补前导0，效果等同于%06d
+printf("%.8f\n", 1000.123456789); // 超过精度，截断
+printf("%.8f\n", 1000.123456);    // 不足精度，补后置0
+printf("%.8g\n", 1000.123456);    // 最大有效数字为8位
+printf("%.8s\n", "abcdefghij");   // 超过指定长度截断
+
+// 类型长度
+printf("%hhd\n", 'A');               // 输出有符号char
+printf("%hhu\n", 'A' + 128);         // 输出无符号char
+printf("%hd\n", 32767);              // 输出有符号短整型short int
+printf("%hu\n", 65535);              // 输出无符号短整型unsigned short int
+printf("%ld\n", 0x7fffffffffffffff); // 输出有符号长整型long int
+printf("%lu\n", 0xffffffffffffffff); // 输出有符号长整型unsigned long int
+</code></pre></div>
+<p>}```</p>
+</li>
+<li>
 <p>关于<code>printf()</code></p>
 <div class="highlight"><span class="filename">wrong_cnv.c</span><pre><span></span><code><span class="w">    </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="w">    </span><span class="cp">#define num 336</span>
@@ -594,7 +631,7 @@ $<span class="w"> </span>objdump<span class="w"> </span>-h<span class="w"> </spa
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 14, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 18, 2023</span>
 </small>
 </div>
 </article>
@@ -624,7 +661,7 @@ $<span class="w"> </span>objdump<span class="w"> </span>-h<span class="w"> </spa
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+<script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
 <script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

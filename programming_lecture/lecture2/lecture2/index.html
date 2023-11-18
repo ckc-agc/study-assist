@@ -9,9 +9,9 @@
 <link href="../pre_class/" rel="prev"/>
 <link href="../after_class/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.8" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
 <title>讲义：C 语言的类型系统与内存模型 - 浙江大学竺可桢学院辅学计划站点</title>
-<link href="../../../assets/stylesheets/main.4b4a2bd9.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -443,107 +443,145 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    前置：数、进制与数据
-  </a>
+<span class="md-ellipsis">
+      前置：数、进制与数据
+    </span>
+</a>
 <nav aria-label="前置：数、进制与数据" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    如何阅读它们？
-  </a>
+<span class="md-ellipsis">
+      如何阅读它们？
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ascii">
-    ASCII
-  </a>
+<span class="md-ellipsis">
+      ASCII
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    类型系统
-  </a>
+<span class="md-ellipsis">
+      类型系统
+    </span>
+</a>
 <nav aria-label="类型系统" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-    计算机如何存储数据？
-  </a>
+<span class="md-ellipsis">
+      计算机如何存储数据？
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
-    大端序与小端序
-  </a>
+<span class="md-ellipsis">
+      大端序与小端序
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
-    先来练练手！
-  </a>
+<span class="md-ellipsis">
+      先来练练手！
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_7">
-    基本类型
-  </a>
+<span class="md-ellipsis">
+      基本类型
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_8">
-    定长整数类型与其他整数类型
-  </a>
+<span class="md-ellipsis">
+      定长整数类型与其他整数类型
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_9">
-    结构体、联合体、枚举类型
-  </a>
+<span class="md-ellipsis">
+      结构体、联合体、枚举类型
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_10">
-    字符串，数组，函数，指针类型
-  </a>
+<span class="md-ellipsis">
+      字符串，数组，函数，指针类型
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#void">
-    void 类型
-  </a>
+<span class="md-ellipsis">
+      void 类型
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#typedef">
-    使用 typedef 为现有的类型定义别名
-  </a>
+<span class="md-ellipsis">
+      使用 typedef 为现有的类型定义别名
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_11">
-    内存模型
-  </a>
+<span class="md-ellipsis">
+      内存模型
+    </span>
+</a>
 <nav aria-label="内存模型" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_12">
-    地址和指针
-  </a>
+<span class="md-ellipsis">
+      地址和指针
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_13">
-    对象和标识符
-  </a>
+<span class="md-ellipsis">
+      对象和标识符
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_14">
-    内存管理
-  </a>
+<span class="md-ellipsis">
+      内存管理
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_15">
-    存储期、作用域和链接
-  </a>
+<span class="md-ellipsis">
+      存储期、作用域和链接
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_23">
-    阅读和撰写类型声明
-  </a>
+<span class="md-ellipsis">
+      阅读和撰写类型声明
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -640,107 +678,145 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    前置：数、进制与数据
-  </a>
+<span class="md-ellipsis">
+      前置：数、进制与数据
+    </span>
+</a>
 <nav aria-label="前置：数、进制与数据" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    如何阅读它们？
-  </a>
+<span class="md-ellipsis">
+      如何阅读它们？
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ascii">
-    ASCII
-  </a>
+<span class="md-ellipsis">
+      ASCII
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    类型系统
-  </a>
+<span class="md-ellipsis">
+      类型系统
+    </span>
+</a>
 <nav aria-label="类型系统" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-    计算机如何存储数据？
-  </a>
+<span class="md-ellipsis">
+      计算机如何存储数据？
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
-    大端序与小端序
-  </a>
+<span class="md-ellipsis">
+      大端序与小端序
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
-    先来练练手！
-  </a>
+<span class="md-ellipsis">
+      先来练练手！
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_7">
-    基本类型
-  </a>
+<span class="md-ellipsis">
+      基本类型
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_8">
-    定长整数类型与其他整数类型
-  </a>
+<span class="md-ellipsis">
+      定长整数类型与其他整数类型
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_9">
-    结构体、联合体、枚举类型
-  </a>
+<span class="md-ellipsis">
+      结构体、联合体、枚举类型
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_10">
-    字符串，数组，函数，指针类型
-  </a>
+<span class="md-ellipsis">
+      字符串，数组，函数，指针类型
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#void">
-    void 类型
-  </a>
+<span class="md-ellipsis">
+      void 类型
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#typedef">
-    使用 typedef 为现有的类型定义别名
-  </a>
+<span class="md-ellipsis">
+      使用 typedef 为现有的类型定义别名
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_11">
-    内存模型
-  </a>
+<span class="md-ellipsis">
+      内存模型
+    </span>
+</a>
 <nav aria-label="内存模型" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_12">
-    地址和指针
-  </a>
+<span class="md-ellipsis">
+      地址和指针
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_13">
-    对象和标识符
-  </a>
+<span class="md-ellipsis">
+      对象和标识符
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_14">
-    内存管理
-  </a>
+<span class="md-ellipsis">
+      内存管理
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_15">
-    存储期、作用域和链接
-  </a>
+<span class="md-ellipsis">
+      存储期、作用域和链接
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_23">
-    阅读和撰写类型声明
-  </a>
+<span class="md-ellipsis">
+      阅读和撰写类型声明
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -1310,7 +1386,7 @@ i: 4 (0x4) bytes
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.81fa17fe.min.js"></script>
+<script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
 <script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
