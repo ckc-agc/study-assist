@@ -214,8 +214,6 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
 <!-- prettier-ignore-end -->
 
-<!-- prettier-ignore-start -->
-???+ note "宽字符“
 宽字符输入输出定义于 `<wchar.h>` 头文件中，区别在于其一个字符的长度不同。C语言中有一种类型`wchar_t`,其长度取决于编译器：
 
 - 在msvc中，`wchar_t`为16位，即`unsigned short`类型。
@@ -231,7 +229,6 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 | `int ungetwc(int c, FILE *stream)` | 放回文件流 | EOF |
 | `int putwchar(int c)`<br /> int fputwc(int c, FILE *stream)` | 单字符输出 | EOF |
 |`int fputws(const char *s, FILE *stream)` | 字符串输出 | EOF |
-<!-- prettier-ignore-end -->
 
 ### 格式化输入输出
 
