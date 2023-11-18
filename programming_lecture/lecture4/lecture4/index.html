@@ -410,7 +410,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../lecture3/lecture3/">
+<a class="md-nav__link" href="../../lecture3/pre_class/">
 <span class="md-ellipsis">
     3. I/O 与文件
   </span>
@@ -433,11 +433,75 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    C 标准库
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     C 标准库
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c_1">
+<span class="md-ellipsis">
+      前半：C 标准库的使用
+    </span>
+</a>
+<nav aria-label="前半：C 标准库的使用" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ctypeh">
+<span class="md-ellipsis">
+      ctype.h
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c_2">
+<span class="md-ellipsis">
+      后半：C 标准库的实现
+    </span>
+</a>
+<nav aria-label="后半：C 标准库的实现" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c_3">
+<span class="md-ellipsis">
+      杂项：C 标准对库的实现要求
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ctypeh_1">
+<span class="md-ellipsis">
+      &lt;ctype.h&gt; 的实现：宏与位运算
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stdioh">
+<span class="md-ellipsis">
+      &lt;stdio.h&gt; 的实现：系统调用与内核编程
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -498,6 +562,62 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c_1">
+<span class="md-ellipsis">
+      前半：C 标准库的使用
+    </span>
+</a>
+<nav aria-label="前半：C 标准库的使用" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ctypeh">
+<span class="md-ellipsis">
+      ctype.h
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c_2">
+<span class="md-ellipsis">
+      后半：C 标准库的实现
+    </span>
+</a>
+<nav aria-label="后半：C 标准库的实现" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c_3">
+<span class="md-ellipsis">
+      杂项：C 标准对库的实现要求
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ctypeh_1">
+<span class="md-ellipsis">
+      &lt;ctype.h&gt; 的实现：宏与位运算
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stdioh">
+<span class="md-ellipsis">
+      &lt;stdio.h&gt; 的实现：系统调用与内核编程
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -513,13 +633,234 @@
 <p class="admonition-title">施工中</p>
 <p>本页面正在编辑中。</p>
 </div>
+<div class="admonition abstract">
+<p class="admonition-title">摘要</p>
+<ul>
+<li>
+<p>前半：<span>C<span class="heti-spacing"> </span></span>标准库的使用（简单）</p>
+<p>前半部分的内容要求仅限于考试。从历年卷中看，考察内容仅限于：</p>
+<ul>
+<li><code>ctype.h</code>：在第二讲「类型系统与内存模型」提及</li>
+<li><code>stdio.h</code>：已在第三讲「<span>I/O<span class="heti-spacing"> </span></span>与文件」介绍其中部分</li>
+<li><code>string.h</code>：字符串相关操作</li>
+<li><code>stdlib.h</code>：常用工具库</li>
+<li><code>math.h</code>：数学库</li>
+</ul>
+<p>前半节课我们将对考试必备的标准库函数作介绍，用一个个案例展示它们的用法。</p>
+</li>
+<li>
+<p>后半：<span>C<span class="heti-spacing"> </span></span>标准库的实现（较难）</p>
+<p>后半部分我们将认识一下<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库这类应用于生产环境的代码的组织方式，挑选一些经典的函数看看它的实现。这部分内容不会出现在考试中，但是对于理解<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的底层实现有很大的帮助。或许它是你从未了解过的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的另一面。</p>
+</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+<h2 id="c_1">前半：<span>C<span class="heti-spacing"> </span></span>标准库的使用<a class="headerlink" href="#c_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>「内容」 模块中代码段内被注释掉的内容，表示不作要求。</p>
+<h3 id="ctypeh"><code>ctype.h</code><a class="headerlink" href="#ctypeh" title="Permanent link">¶</a></h3>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">背景知识</p>
+<p><span>ASCII<span class="heti-spacing"> </span></span>中：</p>
+<ul>
+<li>打印字符：<code>0x20</code> ~ <code>0x7E</code></li>
+<li>控制字符：<code>0x00</code> <span>~<span class="heti-spacing"> </span></span><code>0x1F</code>和 <code>0x7F</code></li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+<p>头文件 <code>&lt;ctype.h&gt;</code> 声明了几个可以用于<strong>识别和转换字符</strong>的函数。</p>
+<h4 id="_1">内容<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<ul>
+<li>字符判断函数
+    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">isalnum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">isalpha</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="c1">// int iscntrl(int c);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">isdigit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="c1">// int isgraph(int c);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">islower</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="c1">// int isprint(int c);</span>
+<span class="c1">// int ispunct(int c);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">isspace</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">isupper</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="c1">// int isxdigit(int c);</span>
+</code></pre></div></li>
+<li>字符转换函数
+    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">tolower</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">toupper</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</code></pre></div></li>
+</ul>
+<h4 id="_2">使用<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p><code>&lt;ctype.h&gt;</code> 中的函数对<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>字符大致作了如下划分：</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/character_types.png"><img alt="" src="../graph/character_types.png"/></a></p>
+<h2 id="c_2">后半：<span>C<span class="heti-spacing"> </span></span>标准库的实现<a class="headerlink" href="#c_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">杂谈：为什么要学习<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库？</p>
+<p>理论上，学习完任何编程语言的基本语法后，我们就可以用它来编程解决任何实际问题了。但是，语言所衍生出的任何能提高生产力的库，其重要性往往会远远超过该语言本身。学习一门语言并学习其库的实现，这样才能熟练地驾驭语言工具，了解库所提供的功能和局限性，进而在特定的应用要求下扩展库。</p>
+<p>尽管<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言及其所附带的标准库中隐藏着太多的晦涩陷阱，但我们不得不花大力气“过分钻研”它。学习<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库本身的实现，就是学习<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言最好的教材，因为其实现过程将会把使用<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编写具有工业强度的健壮代码所需的技巧展现得淋漓尽致。</p>
+<p><span>C<span class="heti-spacing"> </span></span>标准库可以分为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>组。如何正确和熟练地使用它们，可以相应地区分出<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>种层次的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>程序员：</p>
+<ul>
+<li>合格程序员：
+    <div class="highlight"><pre><span></span><code>&lt;ctype.h&gt; &lt;stdio.h&gt; &lt;stdlib.h&gt; &lt;string.h&gt;
+</code></pre></div></li>
+<li>熟练程序员：
+    <div class="highlight"><pre><span></span><code>&lt;assert.h&gt; &lt;limits.h&gt; &lt;stddef.h&gt; &lt;time.h&gt;
+</code></pre></div></li>
+<li>优秀程序员：
+    <div class="highlight"><pre><span></span><code>&lt;float.h&gt; &lt;math.h&gt; &lt;error.h&gt; &lt;locale.h&gt; &lt;setjmp.h&gt; &lt;signal.h&gt; &lt;stdarg.h&gt;
+</code></pre></div></li>
+</ul>
+<p>可以看到，<span>C<span class="heti-spacing"> </span></span>程序设计这门课程对大家的要求就是「合格程序员<heti-adjacent class="heti-adjacent-half">」</heti-adjacent>。我们在课程中的极少部分代码会看见 <code>&lt;assert.h&gt;</code> 和 <code>&lt;time.h&gt;</code>，这两个库也会对你的编程有所帮助，优秀的同学可以以「熟练程序员」来要求自己。今后大多数同学或许都会转向学习<span><span class="heti-spacing"> </span>C++</span>，大概只有做安全、系统、嵌入式之类的同学会需要做到「优秀程序员」的地步。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">学习<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库前你应该具备的知识</p>
+<ul>
+<li>字符串、数组、指针等操作</li>
+<li>命名空间：库中定义了<span class="heti-skip"><span class="heti-spacing"> </span>200<span class="heti-spacing"> </span></span>个以上的名字，你应当知道<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>中各种名字会如何被解析。</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/namespace.png"><img alt="" src="../graph/namespace.png"/></a></p>
+</div>
+<!-- prettier-ignore-end -->
+<p>学习<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库时，我们会接触到很多<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准中的规范性的严谨地语句，初读时可能让你觉得非常拗口和难以理解，让我们来读几条。</p>
+<h3 id="c_3">杂项：<span>C<span class="heti-spacing"> </span></span>标准对库的实现要求<a class="headerlink" href="#c_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>标准库中的一些函数，可能同时提供了宏和函数的版本。</p>
+<ul>
+<li>一个实现必须为每一个库函数提供一个实际的函数，即使它已经为该函数提供了一个宏。</li>
+<li>一个函数的任何宏定义都可以通过用括号把函数的名字括住来局部地抑制它。因为这个名字后面没有跟着指示一个宏函数名展开地左括号。</li>
+<li>用来移除任何宏定义的 <code>#undef</code> 预处理指令的使用也可以保证实际函数的引用。</li>
+</ul>
+<!-- prettier-ignore-start -->
+<div class="admonition example">
+<p class="admonition-title"><code>atoi()</code> 的使用方式</p>
+<ol>
+<li>可能生成一个宏函数：
+    <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">;</span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</code></pre></div></li>
+<li>生成一个实际函数引用：
+    <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#undef atoi</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">;</span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</code></pre></div>
+    或者
+    <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">;</span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">atoi</span><span class="p">)(</span><span class="n">str</span><span class="p">);</span>
+</code></pre></div></li>
+</ol>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="ctypeh_1"><code>&lt;ctype.h&gt;</code> 的实现：宏与位运算<a class="headerlink" href="#ctypeh_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">🤚停一停，先别看下面的内容。思考一下，你会怎么实现上面的那些函数？</p>
+<p>你会不会在想这样的代码：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">isalnum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="cm">/* test for alphanumeric character */</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">((</span><span class="sc">'0'</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">'9'</span><span class="p">)</span><span class="w"> </span><span class="o">||</span>
+<span class="w">            </span><span class="p">(</span><span class="sc">'a'</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">'z'</span><span class="p">)</span><span class="w"> </span><span class="o">||</span>
+<span class="w">            </span><span class="p">(</span><span class="sc">'A'</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="sc">'Z'</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+</div>
+<!-- prettier-ignore-end -->
+<p><code>&lt;ctype.h&gt;</code> 中的函数通常使用宏来实现。使用宏实现时需要注意以下因素：</p>
+<ul>
+<li>虽然宏可能比函数快，但是它们通常会产生更大的代码。如果在很多地方扩展，这个程序可能大到让你无法想象。</li>
+<li>
+<p>宏的参数可能会被求值多次，具有副作用的宏参数会导致意外。
+    <!-- prettier-ignore-start --></p>
+<div class="admonition warning">
+<p class="admonition-title">会产生不安全行为的宏</p>
+<p>标准库中，只有 <code>getc</code> 和 <code>putc</code> 可能会产生这种不安全行为。</p>
+</div>
+<!-- prettier-ignore-end -->
+</li>
+</ul>
+<p><code>&lt;ctype.h&gt;</code> 中定义了一个查找表 <code>_Ctype</code>，两个映射表 <code>_Tolower</code> 和 <code>_Toupper</code>。每个字符都被编入查找表中，使用位运算就能判断出字符的类型。</p>
+<div class="highlight"><span class="filename">ctype.h</span><pre><span></span><code><span class="cp">#define _DI 0x20 </span><span class="cm">/* '0'-'9' */</span>
+<span class="cp">#define _LO 0x10 </span><span class="cm">/* 'a'-'z' */</span>
+<span class="cp">#define _UP 0x02 </span><span class="cm">/* 'A'-'Z' */</span>
+<span class="cp">#define _XA 0x200 </span><span class="cm">/* 'a'-'z', 'A'-'Z' */</span>
+<span class="k">extern</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="o">*</span><span class="n">_Ctype</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">_Tolower</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">_Toupper</span><span class="p">;</span>
+<span class="cp">#define isalnum(c) (_Ctype[(int)(c)] &amp; (_DI|_LO|_UP|_XA))</span>
+<span class="cp">#define tolower(c) _ToLower[(int)(c)]</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">读一下上面的代码，想象一下 <code>_Ctype</code> 这个查找表的样子。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">考考你，对于<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>字符集，这个查找表有多大？</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">你能想一想映射表的实现吗？</p>
+</div>
+<!-- prettier-ignore-end -->
+<p>同样，给出函数版本的实现：</p>
+<div class="highlight"><span class="filename">isalnum.c</span><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctype.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">isalnum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="cm">/* test for alphanumeric character */</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">_Ctype</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">_DI</span><span class="o">|</span><span class="n">_LO</span><span class="o">|</span><span class="n">_UP</span><span class="o">|</span><span class="n">_XA</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<p>下面两幅图分别展示了 <code>_Ctype</code> 和 <code>_Toupper</code> 的样子：</p>
+<!-- prettier-ignore-start -->
+<div class="nt-cards nt-grid cols-2">
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/ctype.png"><img src="../graph/ctype.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title"><code>_Ctype</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/toupper.png"><img src="../graph/toupper.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title"><code>_Toupper</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- prettier-ignore-end -->
+<p>非常地简单，对吧？这可比 <code>'a' &lt;= c &amp;&amp; c &lt;= 'z'</code> 这样的判断要快得多。于是我们学完了 <code>&lt;ctype.h&gt;</code> 的实现。</p>
+<h3 id="stdioh"><code>&lt;stdio.h&gt;</code> 的实现：系统调用与内核编程<a class="headerlink" href="#stdioh" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>在我个人看来，<code>&lt;stdio.h&gt;</code> 的实现最具挑战性。你需要对实现对应的操作系统有一定的了解，才能编写出完善的代码。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition tip">
+<p class="admonition-title">本节以<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>POSIX<span class="heti-spacing"> </span></span>规范的系统调用为准。</p>
+</div>
+<details class="info">
+<summary>一些历史的背景：文件、设备和 <code>ioctl</code></summary>
+<ol>
+<li>混乱的磁盘文件系统</li>
+</ol>
+<p>或许你很难想象，<span>UNIX<span class="heti-spacing"> </span></span>之前的磁盘文件系统为文件赋予了很多类型上的概念和、作了很多区分，而不是我们现在所广泛接受的「文件就是一系列连续的字节」的概念。这边有一段描述，你可以看看：</p>
+<blockquote>
+<p>Typically source code was a distinguished type, different from data. Compilers could read source, compiled programs could read and write 'data.' Thus the creation and inspection of Fortran programs was often walled off from the creation and inspection of other files, with completely different ways to edit and print them. This ruled out the use of programs to generate (or even simply copy) Fortran programs.</p>
+</blockquote>
+<ol start="2">
+<li>不统一的文本表示和设备交互</li>
+</ol>
+<p>早期程序的输入输出无法独立于设备。比如，在上个世纪<span class="heti-skip"><span class="heti-spacing"> </span>60<span class="heti-spacing"> </span></span>年代的<span class="heti-skip"><span class="heti-spacing"> </span>FORTRAN IV<span class="heti-spacing"> </span></span>中，在磁带机上需要用 <code>READ INPUT TAPE 5</code>，读取磁盘上需要用 <code>READ INPUT DISK 1</code>。这样的代码在不同的设备上需要修改，非常不方便。<span>UNIX<span class="heti-spacing"> </span></span>将这些混乱的设备交互封装在<strong>设备处理程序</strong>中。在<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>系统看来，外围设备有三种类型：字符设备（Character devices<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、块设备（Block devices）和网络设备（Network devices<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。这三种设备都被抽象为文件，使用统一的文件操作接口。</p>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>Ken Thompson<span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>设计统一的内部文本形式前，文本表示也是十分混乱的。结束一行是使用回车还是回车加换行，还是换行符，还是更神奇的字符？终端能不能识别和展开制表符？怎样用键盘标志文件结束？这些问题的答案和终端的生产厂商一样多。<span>UNIX<span class="heti-spacing"> </span></span>使用系统调用 <code>ioctl</code> 来设置一个设备的各种参数，负责对内部换行约定和各种终端之间的需要转换的字符进行处理。</p>
+</details>
 <!-- prettier-ignore-end -->
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 18, 2023</span>
 </small>
 </div>
 </article>
