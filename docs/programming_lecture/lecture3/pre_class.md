@@ -24,7 +24,45 @@
         $ echo_eof < echo_eof.c | cat
     ```
 
-2. 关于`printf()`
+2. 关于`格式化字符串`
+
+    ```C title="printf.c"
+    #include <stdio.h>
+
+    int main()
+    {
+        // 类型
+        printf("%5d\n", 1000);  // 默认右对齐,左边补空格
+        printf("%-5d\n", 1000); // 左对齐,右边补空格
+        printf("%+d %+d\n", 1000, -1000); // 输出正负号
+        printf("% d % d\n", 1000, -1000); // 正号用空格替代，负号输出
+        printf("%x %#x\n", 1000, 1000); // 输出0x
+        printf("%.0f %#.0f\n", 1000.0, 1000.0); // 当小数点后不输出值时依然输出小数点
+        printf("%g %#g\n", 1000.0, 1000.0); // 保留小数点后后的0
+        printf("%05d\n", 1000); // 前面补0
+
+        // 宽度
+        double a = 3.141592653589;
+        int x = 5;
+        printf("%.*f", x, a);
+
+        // 精度
+        printf("%.8d\n", 1000);           // 不足指定宽度补前导0，效果等同于%06d
+        printf("%.8f\n", 1000.123456789); // 超过精度，截断
+        printf("%.8f\n", 1000.123456);    // 不足精度，补后置0
+        printf("%.8g\n", 1000.123456);    // 最大有效数字为8位
+        printf("%.8s\n", "abcdefghij");   // 超过指定长度截断
+
+        // 类型长度
+        printf("%hhd\n", 'A');               // 输出有符号char
+        printf("%hhu\n", 'A' + 128);         // 输出无符号char
+        printf("%hd\n", 32767);              // 输出有符号短整型short int
+        printf("%hu\n", 65535);              // 输出无符号短整型unsigned short int
+        printf("%ld\n", 0x7fffffffffffffff); // 输出有符号长整型long int
+        printf("%lu\n", 0xffffffffffffffff); // 输出有符号长整型unsigned long int
+    }```
+
+3. 关于`printf()`
 
     ```C title="wrong_cnv.c"
         #include <stdio.h>
@@ -62,7 +100,7 @@
 
     你能解释为什么使用%ld输出long类型的值时，也会出现错误吗？
 
-3. 关于`scanf()`
+4. 关于`scanf()`
 
     ```C title="confusing_scanf.c"
         #include <stdio.h>
@@ -76,7 +114,7 @@
 
     这个程序为什么这么奇怪？
 
-4. 文件
+5. 文件
 
     ```C title="c_file.c"
     #include<stdio.h>

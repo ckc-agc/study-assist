@@ -128,6 +128,15 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 2. 与标准输出流关联，用于写入传统的输出。程序启动时，当且仅当能确定流不引用交互式设备时该流为完全缓冲。
 3. 与标准错误流关联，用于写入诊断输出。程序启动时，该流不为完全缓冲。
 
+<!-- prettier-ignore-start -->
+!!! note "文件描述符"
+当一个程序成功向操作系统请求访问一个打开的文件, 内核会返回一个指向内核中全局文件表(global file table)中的入口点(entry)的文件描述符. 文件表入口点包含如: 文件的inode(硬盘中的位置), 字节偏移量(byte offset), 以及对这个数据流的访问限制(只读, 只写等)。
+
+文件描述符: 是计算机操作系统中被打开文件的唯一标识. 它用来描述一种数据资源, 以及这个数据资源可以如何被访问到。
+
+在 Unix 系统当中, 前三个文件描述符0, 1, 2 默认为 stdin stdout stderr
+<!-- prettier-ignore-end -->
+
 ## 字符输入输出
 
 ### 重定向
@@ -138,16 +147,13 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
 > 例如，`ls > ls.txt` 将`ls`的输出重定向到`ls.txt`文件中，`cat < ls.txt`将`ls.txt`文件的内容重定向到`cat`命令中。
 
-在使用两个重定向运算符时，要遵循一下原则：
-
-- 重定向运算符不能读取多个文件的输入，也不能把输出定向至多个文件。
-  > 例如，不能使用`ls > ls.txt > echo.txt`
-- 在一条命令中，输入文件名和输出文件名不能相同
-  > 例如，不能使用`ls < ls.txt > ls.txt`
-
 重定向的目的地可以是文件，也可以是其他程序。
 
 > 例如，`ls | cat`将`ls`的输出重定向到`cat`命令中。
+
+更进一步，我们可以使用`>>`来追加输出重定向，`<<`来追加输入重定向。
+
+结合上一节讲的内容，你可以说出`2>`和`2>>`的作用吗？
 
 ### 无格式输入/输出
 
@@ -206,6 +212,8 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
 <!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
+???+ note "宽字符“
 宽字符输入输出定义于 `<wchar.h>` 头文件中，区别在于其一个字符的长度不同。C语言中有一种类型`wchar_t`,其长度取决于编译器：
 
 - 在msvc中，`wchar_t`为16位，即`unsigned short`类型。
@@ -221,6 +229,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 | `int ungetwc(int c, FILE *stream)` | 放回文件流 | EOF |
 | `int putwchar(int c)`<br /> int fputwc(int c, FILE *stream)` | 单字符输出 | EOF |
 |`int fputws(const char *s, FILE *stream)` | 字符串输出 | EOF |
+<!-- prettier-ignore-end -->
 
 ### 格式化输入输出
 
@@ -238,10 +247,9 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
     - \# ：进行替用形式的转换。准确的效果见下表，其他情况下行为未定义。
     - 0 ：对于整数和浮点数转换，使用前导零代替空格字符填充域。对于整数，若显式指定精度，则忽略此标签。对于其他转换，使用此标签导致未定义行为。若存在 - 标签则忽略 0 。
 - (可选)指定最小域宽的整数值或 `*` 。若有要求，则结果会以空格字符（默认情况）填充，在右校正时于左，左校正时于右。使用 `*` 的情况下，以一个额外的`int`类型参数指定宽度。若参数值为负数，则它导致指定 - 标签和正域宽。（注意：这是最小宽度：决不被截断值）。
-- (可选)后随整数或 * 或两者皆无的 `.` 指示转换的精度。在使用 `*` 的情况下，精度由额外的 int 类型参数指定。若此参数的值为负数，则它被忽略。若既不使用数字亦不使用 `*` ，则精度采用零。精度的准确效果见下表。
+- (可选)后随整数或 `*` 或两者皆无的 `.` 指示转换的精度。在使用 `*` 的情况下，精度由额外的 int 类型参数指定。若此参数的值为负数，则它被忽略。若既不使用数字亦不使用 `*` ，则精度采用零。精度的准确效果见下表。
 - (可选)指定参数大小的长度修饰符
 - 转换格式指示符
-
 
 ![printf](graph/printf.png)
 
@@ -267,7 +275,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
         int main(void)
         {
             printf("num as short and unsigned short:  %hd %hu\n", num,num);
-            printf("-num as short and unsigned short: %hd %hu\n", -mnum,-mnum);
+            printf("-num as short and unsigned short: %hd %hu\n", -num,-num);
             printf("num as int and char: %d %c\n", num, num);
             printf("b as int, short, and char: %d %hd %c\n",b, b, b);
 
@@ -286,7 +294,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
             num as short and unsigned short:  336 336
             -num as short and unsigned short: -336 65200
             num as int and char: 336 P
-            b as int, short, and char: 65618 336 R
+            b as int, short, and char: 65618 82 R
             3.0e+00 3.0e+00 2.0e+09 1.2e+09
             2000000000 1234567890
             0 1074266112 0 1074266112
@@ -339,16 +347,17 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
         ```C title="scanf.c"
         #include <stdio.h>
+        #include <stdio.h>
         int main(void)
         {
-            int age;
-            float assets;
-            char pet[30];
+            int a;
+            float b;
+            char str[30];
+            int c[10];
 
-            printf("Enter your age, assets, and favorite pet.\n");
-            scanf("%d %f", &age, &assets); // 读取整数和浮点数
-            scanf("%s", pet); // 读取字符串
-            printf("%d $%.2f %s\n", age, assets, pet);
+            scanf("%d %f", &a, &b); // 读取整数和浮点数
+            scanf("%s", str);       // 读取字符串
+            scanf("%d", c);        // 读取整数数组
             return 0;
         }
         ```
@@ -372,7 +381,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
     <!-- prettier-ignore-end -->
 
 3. `scanf()`中的输入过程
-    
+
     假设`scanf()`根据`%d`转换读取一个整数,`scanf()`函数每次读取一个字符，跳过所有的空白字符，直到遇到第一个非空白字符才开始读取。`scanf()`希望找到一个数字字符或者一个符号，若找到，则会继续寻找下一个数字字符或者符号，直到遇到一个非数字字符，此时`scanf()`会将读取的字符放回输入流中，然后将读取的字符转换成整数。
 
     如果第一个非空白字符不是数字或者正负号，`scanf()`会停在那里，并把字符放回输入中，不会把值赋给相应变量。C语言规定了在第1个出错的地方停止读取输入。
@@ -380,7 +389,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
     如果使用`%s`转换说明，`scanf()`会跳过空白开始读取除空白以外的所有字符，直到遇到空白字符之后将空白符重新放回输入后结束。
 
 4. 格式字符串中的普通字符
-    
+
     `scanf()`中格式化字符串中的空白意味着跳过下一个输入项前的所有空白。
 
     除了`%c`其他转换说明都会自动跳过待输入值前面的所有空白。
@@ -449,38 +458,39 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
 对操作系统而言，文件更加复杂。文件是具有符号名的，在逻辑上具有完整意义的一组相关信息项的序列。文件还包括了一些额外数据，便于操作系统确定文件的种类。
 
-    ```C title="c_file.c"
-    #include<stdio.h>
-    #include<string.h>
+```C title="c_file.c"
+#include<stdio.h>
+#include<string.h>
 
-    int main(int argc, char *argv[]){
-        const char *str = "ckc-agc programming lec3";
+int main(int argc, char *argv[]){
+    const char *str = "ckc-agc programming lec3";
 
-        FILE *fp1 = fopen("test1.txt", "wb+");
-        FILE *fp2 = fopen("test2.txt", "w+");
-        fprintf(fp1, "%s\n%s\n", str, argv[0]);
-        fprintf(fp2, "%s\n%s\n", str, argv[0]);
-        fwrite(str, sizeof(char), strlen(str), fp1);
+    FILE *fp1 = fopen("test1.txt", "wb+");
+    FILE *fp2 = fopen("test2.txt", "w+");
+    fprintf(fp1, "%s\n%s\n", str, argv[0]);
+    fprintf(fp2, "%s\n%s\n", str, argv[0]);
+    fwrite(str, sizeof(char), strlen(str), fp1);
 
-        // fseek(fp1, 0, SEEK_SET);
-        // fprintf(fp1, "%s\n", "SEEK_SET");
-        fseek(fp1, 0, SEEK_END);
-        fprintf(fp1, "%s\n", "SEEK_END");
+    // fseek(fp1, 0, SEEK_SET);
+    // fprintf(fp1, "%s\n", "SEEK_SET");
+    fseek(fp1, 0, SEEK_END);
+    fprintf(fp1, "%s\n", "SEEK_END");
 
-        rewind(fp1);
-        fprintf(fp1, "%s\n", "rewind");
+    rewind(fp1);
+    fprintf(fp1, "%s\n", "rewind");
 
-        fclose(fp1);
-        fclose(fp2);
-    }
-    ```
-    ```bash
-    $ file c_file.c
-    $ file c_file.o
-    $ file c_file
-    $ objdump -h -s -d c_file.o
-    $ objdump -h -s c_file
-    ```
+    fclose(fp1);
+    fclose(fp2);
+}
+```
+
+```bash
+$ file c_file.c
+$ file c_file.o
+$ file c_file
+$ objdump -h -s -d c_file.o
+$ objdump -h -s c_file
+```
 
 对于C语言来说，C把文件看作连续的字节，每个字节都能被单独读取。这与UNIX环境中的文件结构相对应。便于其他操作系统，C提供两种文件模式：文本模式和二进制模式。
 
@@ -488,22 +498,24 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
 字符编码是把字符集中的字符编码为指定集合中某一对象（例如：bit流），以便文本在计算机中存储和通过通信网络的传递。
 
-常见的文件编码：
+常见的文件字符集/编码：
 
-- ASCII编码：
-    8bit（一个字节），能表示的最大的整数就是255（2^8-1=255），而ASCII编码，占用0 - 127用来表示大小写英文字母、数字和一些符号，这个编码表被称为ASCII编码，比如大写字母A的编码是65，小写字母z的编码是122。 还对一些如'\n'，'\t'，'#'，'@'等字符进行了编码。
+- ASCII字符集：
+    8bit（一个字节），能表示的最大的整数就是255（2^8-1=255）。ASCII编码，占用0 - 127用来表示大小写英文字母、数字和一些符号，这个编码表被称为ASCII编码，比如大写字母A的编码是65，小写字母z的编码是122。 还对一些如'\n'，'\t'，'#'，'@'等字符进行了编码。
+- base家族编码:(base16/base32/base64/base58/base85/base100)
+    使用对应数量的字符编码二进制数据
 - GB2312编码：
     16bit（2个字节），适用于汉字处理、汉字通信等系统之间的信息交换，通行于中国大陆。中国大陆几乎所有的中文系统和国际化的软件都支持GB2312。
 - GBK编码：
     16bit（2个字节），兼容GB2312，收录21003 个汉字，共有 23940 个码位，与Unicode组织的Unicode编码完全兼容。
-- Unicode 编码：
-    通常16bit（2个字节），为了统一所有文字的编码，Unicode应运而生，这是一种所有符号的编码。
-- UTF-8：
+- Unicode字符集：
+    为了统一所有文字的编码，Unicode应运而生，这是一种所有符号的编码。Unicode 是国际标准字符集，它将世界各种语言的每个字符定义一个唯一的编码，以满足跨语言、跨平台的文本信息转换Unicode 字符集的编码范围是 0x0000 - 0x10FFFF , 可以容纳一百多万个字符， 每个字符都有一个独一无二的编码，也即每个字符都有一个二进制数值和它对应，这里的二进制数值也叫**码点**
+- UTF(UTF-8,UTF-16等)：
     Unicode Transformation Format，可变长度编码，通常使用1~4字节为每个字符编码，兼容ASCII编码，这是一种Unicode的一种转换格式。
 
 ![utf-8](graph/utf-8.png)
 
-现在在内存中通常以UTF-16来储存，保存到文件中替换为UTF-8等格式，可以压缩空间。
+现在在内存中通常以UTF-16(Windows API大量偏好UTF-16 LE编码的字符串作为参数)来储存，保存到文件中替换为UTF-8等格式，可以压缩空间。
 
 #### 文本模式和二进制模式
 
