@@ -978,9 +978,7 @@ $<span class="w"> </span>echo_eof<span class="w"> </span>&lt;<span class="w"> </
 </code></pre></div>
 </details>
 <!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
-<p><span>???+ note "<span class="heti-spacing"> </span></span>宽字符“
-宽字符输入输出定义于 <code>&lt;wchar.h&gt;</code> 头文件中，区别在于其一个字符的长度不同。C语言中有一种类型<code>wchar_t</code>,其长度取决于编译器：</p>
+<p>宽字符输入输出定义于 <code>&lt;wchar.h&gt;</code> 头文件中，区别在于其一个字符的长度不同。<span>C<span class="heti-spacing"> </span></span>语言中有一种类型<code>wchar_t</code><span class="heti-skip"><span class="heti-spacing"> </span>,<span class="heti-spacing"> </span></span>其长度取决于编译器：</p>
 <ul>
 <li>在<span class="heti-skip"><span class="heti-spacing"> </span>msvc<span class="heti-spacing"> </span></span>中，<code>wchar_t</code>为<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>位，即<code>unsigned short</code>类型。</li>
 <li>在<span class="heti-skip"><span class="heti-spacing"> </span>gcc/Clang<span class="heti-spacing"> </span></span>中，<code>wchar_t</code>为<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位，即<code>unsigned int</code>类型。</li>
@@ -1023,7 +1021,6 @@ $<span class="w"> </span>echo_eof<span class="w"> </span>&lt;<span class="w"> </
 </tr>
 </tbody>
 </table>
-<!-- prettier-ignore-end -->
 <h3 id="_7">格式化输入输出<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在标头<code>&lt;stdio.h&gt;</code>和<code>&lt;wchar.h&gt;</code>中，定义了一系列格式化输入输出函数，这些函数可以用于读写格式化的数据。</p>
 <h4 id="_8"><a href="https://zh.cppreference.com/w/c/io/fprintf">格式字符串</a><a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
