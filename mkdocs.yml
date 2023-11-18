@@ -126,6 +126,7 @@ nav:
       - programming_lecture/lecture2/lecture2.md
       - programming_lecture/lecture2/after_class.md
     - 3. I/O 与文件:
+      - programming_lecture/lecture3/pre_class.md
       - programming_lecture/lecture3/lecture3.md
     - 4. C 标准库:
       - programming_lecture/lecture4/lecture4.md
