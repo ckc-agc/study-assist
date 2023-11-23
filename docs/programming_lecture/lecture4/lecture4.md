@@ -26,9 +26,34 @@
 
 ## 前半：C 标准库的使用
 
-「内容」 模块中代码段内被注释掉的内容，表示不作要求。
+### 说明
 
-### `ctype.h`
+<!-- prettier-ignore-start -->
+!!! question "💡在你的印象中，标准库是什么样的？里面有什么东西？"
+<!-- prettier-ignore-end -->
+
+每一个标准库会定义这些内容：
+
+-   类型定义
+-   宏
+-   函数
+
+对接下来的每个标准库，我们都会按照这个顺序介绍。「内容」 模块中代码段内被注释掉的内容，表示不作要求。因为某些标准库中的内容过于庞大，我们也不会列出其中的全部内容。
+
+在使用时不必在意，但需要知道的一个点是：标准库中的某些函数可能被作为宏实现了。但无论如何，标准库一定会提供一个函数版本的实现。
+
+<!-- prettier-ignore-start -->
+!!! question "如果一个函数既提供了宏版本又提供了函数版本，你知道如何使用指定的版本吗？"
+
+    例如，对于以下两种版本，你知道你在使用的是宏还是函数吗？
+    
+    ```c
+    #define isalnum(c) ...
+    int isalnum(int c);
+    ```
+<!-- prettier-ignore-end -->
+
+### `<ctype.h>`
 
 <!-- prettier-ignore-start -->
 !!! info "背景知识"
@@ -42,6 +67,8 @@
 头文件 `<ctype.h>` 声明了几个可以用于**识别和转换字符**的函数。
 
 #### 内容
+
+这个头文件中只有函数，没有特别的类型和宏。
 
 -   字符判断函数
     ```c
@@ -67,7 +94,150 @@
 
 `<ctype.h>` 中的函数对 ASCII 字符大致作了如下划分：
 
-![](graph/character_types.png)
+<!-- prettier-ignore-start -->
+!!! note ""
+
+    ![](graph/character_types.png)
+<!-- prettier-ignore-end -->
+
+### `<stdio.h>`
+
+<!-- prettier-ignore-start -->
+!!! info "背景知识"
+
+    - 对字符编码（至少是 ASCII）的了解
+    - 文本文件是怎么存储在计算机上的
+    - 流的概念
+    - 二进制和文本模式的区别（为什么还要分这两个模式？）
+<!-- prettier-ignore-end -->
+
+#### 内容
+
+-   类型
+    ```c
+    size_t
+    FILE
+    fpos_t
+    ```
+-   宏
+    ```c
+    stderr
+    stdin
+    stdout
+    NULL
+    EOF
+    SEEK_CUR
+    SEEK_END
+    SEEK_SET
+    // BUFSIZ
+    // FOPEN_MAX
+    // FILENAME_MAX
+    ```
+-   函数
+    -   文件操作函数（不做要求）
+    ```c
+    // int remove(const char *filename);
+    // int rename(const char *old, const char *new);
+    // FILE *tmpfile(void);
+    ```
+    -   文件访问函数
+    ```c
+    int fclose(FILE *stream);
+    // int fflush(FILE *stream);
+    FILE *fopen(const char *filename, const char *mode);
+    FILE *freopen(const char *filename, const char *mode, FILE *stream);
+    // void setbuf(FILE *stream, char *buf);
+    // int setvbuf(FILE *stream, char *buf, int mode, size_t size);
+    ```
+    -   格式化的输入输出函数
+    ```c
+    int fprintf(FILE *stream, const char *format, ...);
+    int fscanf(FILE *stream, const char *format, ...);
+    int printf(const char *format, ...);
+    int scanf(const char *format, ...);
+    int sprintf(char *str, const char *format, ...);
+    int sscanf(const char *str, const char *format, ...);
+    // int vfprintf(FILE *stream, const char *format, va_list arg);
+    ```
+    -   字符输入输出函数
+    ```c
+    // int fgetc(FILE *stream);
+    // char *fgets(char *str, int n, FILE *stream);
+    // int fputc(int c, FILE *stream);
+    int fputs(const char *str, FILE *stream);
+    // int getc(FILE *stream);
+    int getchar(void);
+    // char *gets(char *str);
+    // int putc(int c, FILE *stream);
+    int putchar(int c);
+    int puts(const char *str);
+    // int ungetc(int c, FILE *stream);
+    ```
+    - 直接输入输出函数
+    ```c
+    size_t fread(void *ptr, size_t size, size_t nobj, FILE *stream);
+    size_t fwrite(const void *ptr, size_t size, size_t nobj, FILE *stream);
+    ```
+    - 文件定位函数
+    ```c
+    int fgetpos(FILE *stream, fpos_t *pos);
+    int fseek(FILE *stream, long offset, int origin);
+    int fsetpos(FILE *stream, const fpos_t *pos);
+    long ftell(FILE *stream);
+    void rewind(FILE *stream);
+    ```
+    - 错误处理函数（不做要求）
+    ```c
+    // void clearerr(FILE *stream);
+    // int feof(FILE *stream);
+    // int ferror(FILE *stream);
+    // void perror(const char *str);
+    ```
+
+#### 使用
+
+以下是课内内容，仅列出，不做详细介绍：
+
+-  `printf`/`scanf` 这几个格式化输入/输出函数的使用。
+-  `%d`、`%p` 等转换说明的使用。
+-  `\n`、`\r` 等常见转义序列的使用。
+-  基本的打开、关闭文件 `fopen`、`fclose` 的使用。
+-  `r`、`w`、`a` 等模式的使用。
+-  在一个 `FILE` 中用 `fscanf`、`fprintf` 读写数据。
+
+下面对几个知识点作一点规范介绍：
+
+<!-- prettier-ignore-start -->
+!!! note "转换说明"
+
+    转换说明中，`%` 后面要跟 4 个组成部分。除了最后一个部分，其他都是可选的：
+
+    -   零或更多个**标志**，说明转换中的变化。
+        | char | meaning |
+        | :--: | :-----: |
+        | `-`  | left-justified |
+        | `+`  | always print sign |
+        | ` `  | print space if no sign |
+        | `#`  | 改变某些转换的行为 |
+        | `0`  | pad with zeros |
+    -   一个可选的**最小字段宽度**，指定了转换的最小宽度。
+    -   一个可选的**精度**，指定了转换的最大宽度。
+
+!!! note "文件定位"
+
+    - 三种修改文件定位符的可能：
+        - `ungetc` 将字符退回流中（不要在 PTA 等 OJ 系统上使用！不要在生产环境中使用！）。总之，就是不建议碰这个东西。
+        - `fseek`、`ftell`、`rewind`：较老的传统的文件定位函数
+        - `fgetpos`、`fsetpos`、`rewind`：任意大小、结构的文件，使用 `fpos_t` 类型，它不能进行任何计算。
+<!-- prettier-ignore-end -->
+
+
+
+### `<string.h>`
+
+### `<stdlib.h>`
+
+### `<math.h>`
 
 ## 后半：C 标准库的实现
 
@@ -236,6 +406,8 @@ int isalnum(int c)
 
     在 Ken Thompson 为 UNIX 设计统一的内部文本形式前，文本表示也是十分混乱的。结束一行是使用回车还是回车加换行，还是换行符，还是更神奇的字符？终端能不能识别和展开制表符？怎样用键盘标志文件结束？这些问题的答案和终端的生产厂商一样多。UNIX 使用系统调用 `ioctl` 来设置一个设备的各种参数，负责对内部换行约定和各种终端之间的需要转换的字符进行处理。
 
+    > [UNIX Devices Drivers](https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch01s03.html)
+!!! note "预备知识：UNIX 系统调用"
 
+    
 <!-- prettier-ignore-end -->
-

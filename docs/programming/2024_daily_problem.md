@@ -10,11 +10,107 @@ h5:before {content: unset;}
 
 为了让同学们适应期末考试，每日一题的题面都将使用英文描述。
 
+## November
+
+### 「23」 `typedef` and String
+
+The preprocessing of this program is as follows：
+
+```c
+#define MAX_SIZE 10000
+
+typedef struct Bookcase{
+    char* book[10];
+} *PtrToBookcase;
+
+typedef PtrToBookcase Lib_data_base[MAX_SIZE];
+```
+
+After executing the following code fragment, the output should be **\_\_**.
+
+```c
+Lib_data_base library;
+*(library) = (PtrToBookcase)malloc(sizeof(struct Bookcase));
+(*library)->book[0] = "C Programming Book";
+for(int i = 0; i < 3; i++)
+    printf("%.2s\n", library[0]->book[0] + strlen(library[0]->book[0]) - i - 1));
+free(library[0]);
+```
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    Output is:
+
+    ```text
+    k
+    ok
+    oo
+    ```
+
+    The address pointed to by `library[0]->book[0]` plus `(strlen(library[0]->book[0])-i-1) * sizeof(char)` will be eventually passed to `%.2s` and placed into the output stream. 
+    
+    Thus, when `i=0`, `i=1`, and `i=2`, the strings passed to `%.2s` are "k\0", "ok\0", and "ook\0", respectively. Among these, the length of the third string "ook\0" exceeds 2, so only the first two characters "oo" will be output. 
+
+    This question involves multiple concepts, primarily focusing on both the proper usage of `typedef` and issues related to pointer output with `char*` in C. The analysis will be divided into two parts: `typedef` and `char*`. If you are already familiar with `typedef`, you can directly skip this section.
+
+    ??? note "`typedef`"
+    
+        In the C language, `typedef` is used to create new names for existing data types.
+        
+        When using `typedef`, errors can occur in the specification of its usage. One common misunderstanding is to interpret `typedef (type_name) (new_name)`, which is correct only in a few cases, such as `typedef int Integer`.
+
+        However, the correct understanding should be: if you need to redefine a type, first write the declaration statement of that type: `type variable_name`, then replace `variable_name` with the alias you want, and finally add `typedef` in front of the entire statement. 
+        
+        For example, after `int array[10]`, where the type of the variable `array` is `int [10]`, you can rename `array` to the alias `IntegerList` and add `typedef` at the front, resulting in `typedef int IntegerList[10]`.
+
+        After this, you can directly use the alias `IntegerList` to define variables of type `int [10]`, such as `IntegerList a;`, which is equivalent to decelaration: `int a[10]`.
+
+        Returning to the question, let's analyze the two `typedef` statements in the question. 
+
+        The first one creates an alias for a structure variable. If we initially want to declare a variable of type `struct Bookcase*`, we would write it like this:
+
+        ```c
+        struct Bookcase {
+            char* book[10];
+        } *Bookcase1;
+        ```
+
+        Following the rules of `typedef`, replace the variable name `Bookcase1` with the alias `PtrToBookcase` and add `typedef` at the beginning of the entire statement, resulting in the form seen in the question:
+
+        ```c
+        typedef struct Bookcase {
+            char* book[10];
+        } *PtrToBookcase;
+        ```
+
+        This statement means giving an alias, `PtrToBookcase`, to the type `struct Bookcase*`.
+
+        The second `typedef` is very similar to the example we mentioned earlier, `typedef int IntegerList[10];`. 
+        It first declares `PtrToBookcase Ptr1[MAX_SIZE]`, then replaces the variable name `Ptr1` with the alias `Lib_data_base`, and adds `typedef` at the front.
+        Therefore, its meaning is to give an alias, `Lib_data_base`, to the type `PtrToBookcase [MAX_SIZE]`. 
+        Consequently, the subsequent `Lib_data_base library` actually creates an array of `PtrToBookcase`, named `library`, with `MAX_SIZE` elements.
+
+    ??? note "`char*`"
+
+        After understanding `typedef`, let's now explore the issue related to string output in this program. 
+        There are two potentially confusing elements in this code: `%.2s` and `library[0]->book[0]+strlen(library[0]->book[0])-i-1`.
+
+        `%.2s` is relatively straightforward: It is used to control the output of strings. `%s` would directly output the characters stored at the memory location pointed to by a `char*` type pointer and all characters in consecutive memory until encountering the '\0' character. 
+        The additional `.2` in `%.2s` is used to limit the length of the output string. If the string length is less than or equal to 2, it will be output normally. If it exceeds 2, only the first two characters will be output.
+
+        `library[0]->book[0]+strlen(library[0]->book[0])-i-1` involves operations on a `char*` type pointer. 
+        `library[0]->book[0]` is a `char*` type pointer. Adding `n` to it effectively shifts the pointer to a position `n * sizeof(char)` bytes forward from the current address. Subtracting `n` from it shifts the pointer to a position `n * sizeof(char)` bytes backward from the current address. 
+
+<!-- prettier-ignore-end -->
+
+> 供题人：姚雪涛
+
 ## October
 
 ### 「29」 Precedence
 
-The output of the following code fragment is __.
+The output of the following code fragment is **\_\_**.
 
 ```c
 int x = 1, y = 2;
@@ -51,7 +147,6 @@ printf("%d\n", y << 1 - 1 > 2 || !(x++ > --y) ? x : y);
 <!-- prettier-ignore-end -->
 
 > 供题人：徐若禺
-
 
 ### 「27」 Or in Switch
 
@@ -107,7 +202,7 @@ D. It cannot be compiled.
 
 ### 「26」 Bitwize Operator
 
-Which of the following options can achieve a swapping effect for `pair(*,*)`? 
+Which of the following options can achieve a swapping effect for `pair(*,*)`?
 Note that `^` represents `XOR` operation. For binary numbers, `0 XOR 0 = 0`, `0 XOR 1 = 1`, `1 XOR 0 = 1`, `1 XOR 1 = 0`.
 
 A. `(x, y)`: `x ^= y ^= x ^= y;`
