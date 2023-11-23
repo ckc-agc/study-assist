@@ -9,9 +9,9 @@
 <link href="../../lecture3/lecture3/" rel="prev"/>
 <link href="../../lecture5/lecture5/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.10" name="generator"/>
 <title>C 标准库 - 浙江大学竺可桢学院辅学计划站点</title>
-<link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.fad675c6.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -459,9 +459,44 @@
 <nav aria-label="前半：C 标准库的使用" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      说明
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ctypeh">
 <span class="md-ellipsis">
-      ctype.h
+      &lt;ctype.h&gt;
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stdioh">
+<span class="md-ellipsis">
+      &lt;stdio.h&gt;
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stringh">
+<span class="md-ellipsis">
+      &lt;string.h&gt;
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stdlibh">
+<span class="md-ellipsis">
+      &lt;stdlib.h&gt;
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mathh">
+<span class="md-ellipsis">
+      &lt;math.h&gt;
     </span>
 </a>
 </li>
@@ -491,7 +526,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#stdioh">
+<a class="md-nav__link" href="#stdioh_1">
 <span class="md-ellipsis">
       &lt;stdio.h&gt; 的实现：系统调用与内核编程
     </span>
@@ -576,9 +611,44 @@
 <nav aria-label="前半：C 标准库的使用" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      说明
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ctypeh">
 <span class="md-ellipsis">
-      ctype.h
+      &lt;ctype.h&gt;
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stdioh">
+<span class="md-ellipsis">
+      &lt;stdio.h&gt;
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stringh">
+<span class="md-ellipsis">
+      &lt;string.h&gt;
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stdlibh">
+<span class="md-ellipsis">
+      &lt;stdlib.h&gt;
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mathh">
+<span class="md-ellipsis">
+      &lt;math.h&gt;
     </span>
 </a>
 </li>
@@ -608,7 +678,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#stdioh">
+<a class="md-nav__link" href="#stdioh_1">
 <span class="md-ellipsis">
       &lt;stdio.h&gt; 的实现：系统调用与内核编程
     </span>
@@ -656,8 +726,30 @@
 </div>
 <!-- prettier-ignore-end -->
 <h2 id="c_1">前半：<span>C<span class="heti-spacing"> </span></span>标准库的使用<a class="headerlink" href="#c_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<p>「内容」 模块中代码段内被注释掉的内容，表示不作要求。</p>
-<h3 id="ctypeh"><code>ctype.h</code><a class="headerlink" href="#ctypeh" title="Permanent link">¶</a></h3>
+<h3 id="_1">说明<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">💡在你的印象中，标准库是什么样的？里面有什么东西？</p>
+</div>
+<!-- prettier-ignore-end -->
+<p>每一个标准库会定义这些内容：</p>
+<ul>
+<li>类型定义</li>
+<li>宏</li>
+<li>函数</li>
+</ul>
+<p>对接下来的每个标准库，我们都会按照这个顺序介绍<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>「内容」 模块中代码段内被注释掉的内容，表示不作要求。因为某些标准库中的内容过于庞大，我们也不会列出其中的全部内容。</p>
+<p>在使用时不必在意，但需要知道的一个点是：标准库中的某些函数可能被作为宏实现了。但无论如何，标准库一定会提供一个函数版本的实现。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">如果一个函数既提供了宏版本又提供了函数版本，你知道如何使用指定的版本吗？</p>
+<p>例如，对于以下两种版本，你知道你在使用的是宏还是函数吗？</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define isalnum(c) ...</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">isalnum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="ctypeh"><code>&lt;ctype.h&gt;</code><a class="headerlink" href="#ctypeh" title="Permanent link">¶</a></h3>
 <!-- prettier-ignore-start -->
 <div class="admonition info">
 <p class="admonition-title">背景知识</p>
@@ -669,7 +761,8 @@
 </div>
 <!-- prettier-ignore-end -->
 <p>头文件 <code>&lt;ctype.h&gt;</code> 声明了几个可以用于<strong>识别和转换字符</strong>的函数。</p>
-<h4 id="_1">内容<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_2">内容<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>这个头文件中只有函数，没有特别的类型和宏。</p>
 <ul>
 <li>字符判断函数
     <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">isalnum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
@@ -689,9 +782,144 @@
 <span class="kt">int</span><span class="w"> </span><span class="nf">toupper</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 </code></pre></div></li>
 </ul>
-<h4 id="_2">使用<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_3">使用<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><code>&lt;ctype.h&gt;</code> 中的函数对<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>字符大致作了如下划分：</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/character_types.png"><img alt="" src="../graph/character_types.png"/></a></p>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="stdioh"><code>&lt;stdio.h&gt;</code><a class="headerlink" href="#stdioh" title="Permanent link">¶</a></h3>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">背景知识</p>
+<ul>
+<li>对字符编码（至少是<span><span class="heti-spacing"> </span>ASCII</span>）的了解</li>
+<li>文本文件是怎么存储在计算机上的</li>
+<li>流的概念</li>
+<li>二进制和文本模式的区别（为什么还要分这两个模式<heti-adjacent class="heti-adjacent-half">？</heti-adjacent>）</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+<h4 id="_4">内容<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<ul>
+<li>类型
+    <div class="highlight"><pre><span></span><code><span class="kt">size_t</span>
+<span class="kt">FILE</span>
+<span class="kt">fpos_t</span>
+</code></pre></div></li>
+<li>宏
+    <div class="highlight"><pre><span></span><code><span class="n">stderr</span>
+<span class="n">stdin</span>
+<span class="n">stdout</span>
+<span class="nb">NULL</span>
+<span class="n">EOF</span>
+<span class="n">SEEK_CUR</span>
+<span class="n">SEEK_END</span>
+<span class="n">SEEK_SET</span>
+<span class="c1">// BUFSIZ</span>
+<span class="c1">// FOPEN_MAX</span>
+<span class="c1">// FILENAME_MAX</span>
+</code></pre></div></li>
+<li>函数<ul>
+<li>文件操作函数（不做要求）
+<div class="highlight"><pre><span></span><code><span class="c1">// int remove(const char *filename);</span>
+<span class="c1">// int rename(const char *old, const char *new);</span>
+<span class="c1">// FILE *tmpfile(void);</span>
+</code></pre></div></li>
+<li>文件访问函数
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">fclose</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+<span class="c1">// int fflush(FILE *stream);</span>
+<span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="nf">fopen</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">mode</span><span class="p">);</span>
+<span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="nf">freopen</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+<span class="c1">// void setbuf(FILE *stream, char *buf);</span>
+<span class="c1">// int setvbuf(FILE *stream, char *buf, int mode, size_t size);</span>
+</code></pre></div></li>
+<li>格式化的输入输出函数
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">fprintf</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">fscanf</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">printf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">scanf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">sprintf</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">sscanf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
+<span class="c1">// int vfprintf(FILE *stream, const char *format, va_list arg);</span>
+</code></pre></div></li>
+<li>字符输入输出函数
+<div class="highlight"><pre><span></span><code><span class="c1">// int fgetc(FILE *stream);</span>
+<span class="c1">// char *fgets(char *str, int n, FILE *stream);</span>
+<span class="c1">// int fputc(int c, FILE *stream);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">fputs</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+<span class="c1">// int getc(FILE *stream);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">getchar</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="c1">// char *gets(char *str);</span>
+<span class="c1">// int putc(int c, FILE *stream);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">putchar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">puts</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
+<span class="c1">// int ungetc(int c, FILE *stream);</span>
+</code></pre></div></li>
+<li>直接输入输出函数
+<div class="highlight"><pre><span></span><code><span class="kt">size_t</span><span class="w"> </span><span class="nf">fread</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">nobj</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+<span class="kt">size_t</span><span class="w"> </span><span class="nf">fwrite</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">nobj</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+</code></pre></div></li>
+<li>文件定位函数
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">fgetpos</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="kt">fpos_t</span><span class="w"> </span><span class="o">*</span><span class="n">pos</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">fseek</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">origin</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">fsetpos</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">fpos_t</span><span class="w"> </span><span class="o">*</span><span class="n">pos</span><span class="p">);</span>
+<span class="kt">long</span><span class="w"> </span><span class="nf">ftell</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">rewind</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
+</code></pre></div></li>
+<li>错误处理函数（不做要求）
+<div class="highlight"><pre><span></span><code><span class="c1">// void clearerr(FILE *stream);</span>
+<span class="c1">// int feof(FILE *stream);</span>
+<span class="c1">// int ferror(FILE *stream);</span>
+<span class="c1">// void perror(const char *str);</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h4 id="_5">使用<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>以下是课内内容，仅列出，不做详细介绍：</p>
+<ul>
+<li><code>printf</code><span>/<span class="heti-spacing"> </span></span><code>scanf</code>这几个格式化输入<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>输出函数的使用。</li>
+<li><code>%d</code>、<code>%p</code> 等转换说明的使用。</li>
+<li><code>\n</code>、<code>\r</code> 等常见转义序列的使用。</li>
+<li>基本的打开、关闭文件 <code>fopen</code>、<code>fclose</code> 的使用。</li>
+<li><code>r</code>、<code>w</code>、<code>a</code> 等模式的使用。</li>
+<li>在一个 <code>FILE</code> 中用 <code>fscanf</code>、<code>fprintf</code> 读写数据。</li>
+</ul>
+<p>下面对几个知识点作一点规范介绍：</p>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">转换说明</p>
+<p>转换说明中，<code>%</code> 后面要跟<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>个组成部分。除了最后一个部分，其他都是可选的：</p>
+<ul>
+<li>零或更多个<strong>标志</strong>，说明转换中的变化。
+    | char | meaning |
+    | :--: | :-----: |
+    | <code>-</code>  | left-justified |
+    | <code>+</code>  | always print sign |
+    | <code></code>  | print space if no sign |
+    | <code>#</code>  | 改变某些转换的行为 |
+    | <code>0</code>  | pad with zeros |</li>
+<li>一个可选的<strong>最小字段宽度</strong>，指定了转换的最小宽度。</li>
+<li>一个可选的<strong>精度</strong>，指定了转换的最大宽度。</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">文件定位</p>
+<ul>
+<li>三种修改文件定位符的可能：<ul>
+<li><code>ungetc</code> 将字符退回流中（不要在<span class="heti-skip"><span class="heti-spacing"> </span>PTA<span class="heti-spacing"> </span></span>等<span class="heti-skip"><span class="heti-spacing"> </span>OJ<span class="heti-spacing"> </span></span>系统上使用！不要在生产环境中使用<heti-adjacent class="heti-adjacent-half">！</heti-adjacent><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。总之，就是不建议碰这个东西。</li>
+<li><code>fseek</code>、<code>ftell</code>、<code>rewind</code>：较老的传统的文件定位函数</li>
+<li><code>fgetpos</code>、<code>fsetpos</code>、<code>rewind</code>：任意大小、结构的文件，使用 <code>fpos_t</code> 类型，它不能进行任何计算。</li>
+</ul>
+</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="stringh"><code>&lt;string.h&gt;</code><a class="headerlink" href="#stringh" title="Permanent link">¶</a></h3>
+<h3 id="stdlibh"><code>&lt;stdlib.h&gt;</code><a class="headerlink" href="#stdlibh" title="Permanent link">¶</a></h3>
+<h3 id="mathh"><code>&lt;math.h&gt;</code><a class="headerlink" href="#mathh" title="Permanent link">¶</a></h3>
 <h2 id="c_2">后半：<span>C<span class="heti-spacing"> </span></span>标准库的实现<a class="headerlink" href="#c_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <!-- prettier-ignore-start -->
 <div class="admonition info">
@@ -833,7 +1061,7 @@
 </div>
 <!-- prettier-ignore-end -->
 <p>非常地简单，对吧？这可比 <code>'a' &lt;= c &amp;&amp; c &lt;= 'z'</code> 这样的判断要快得多。于是我们学完了 <code>&lt;ctype.h&gt;</code> 的实现。</p>
-<h3 id="stdioh"><code>&lt;stdio.h&gt;</code> 的实现：系统调用与内核编程<a class="headerlink" href="#stdioh" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="stdioh_1"><code>&lt;stdio.h&gt;</code> 的实现：系统调用与内核编程<a class="headerlink" href="#stdioh_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在我个人看来，<code>&lt;stdio.h&gt;</code> 的实现最具挑战性。你需要对实现对应的操作系统有一定的了解，才能编写出完善的代码。</p>
 <!-- prettier-ignore-start -->
 <div class="admonition tip">
@@ -853,14 +1081,20 @@
 </ol>
 <p>早期程序的输入输出无法独立于设备。比如，在上个世纪<span class="heti-skip"><span class="heti-spacing"> </span>60<span class="heti-spacing"> </span></span>年代的<span class="heti-skip"><span class="heti-spacing"> </span>FORTRAN IV<span class="heti-spacing"> </span></span>中，在磁带机上需要用 <code>READ INPUT TAPE 5</code>，读取磁盘上需要用 <code>READ INPUT DISK 1</code>。这样的代码在不同的设备上需要修改，非常不方便。<span>UNIX<span class="heti-spacing"> </span></span>将这些混乱的设备交互封装在<strong>设备处理程序</strong>中。在<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>系统看来，外围设备有三种类型：字符设备（Character devices<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、块设备（Block devices）和网络设备（Network devices<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。这三种设备都被抽象为文件，使用统一的文件操作接口。</p>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>Ken Thompson<span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>设计统一的内部文本形式前，文本表示也是十分混乱的。结束一行是使用回车还是回车加换行，还是换行符，还是更神奇的字符？终端能不能识别和展开制表符？怎样用键盘标志文件结束？这些问题的答案和终端的生产厂商一样多。<span>UNIX<span class="heti-spacing"> </span></span>使用系统调用 <code>ioctl</code> 来设置一个设备的各种参数，负责对内部换行约定和各种终端之间的需要转换的字符进行处理。</p>
+<blockquote>
+<p><a href="https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch01s03.html">UNIX Devices Drivers</a></p>
+</blockquote>
 </details>
+<div class="admonition note">
+<p class="admonition-title">预备知识：<span>UNIX<span class="heti-spacing"> </span></span>系统调用</p>
+</div>
 <!-- prettier-ignore-end -->
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 18, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 23, 2023</span>
 </small>
 </div>
 </article>
