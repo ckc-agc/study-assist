@@ -7,26 +7,72 @@
 
 !!! abstract "摘要"
 
-    -   前半：C 标准库的使用（简单）
-        
-        前半部分的内容要求仅限于考试。从历年卷中看，考察内容仅限于：
+    考虑到课程教学进度，本节课不再讲解 C 标准库的实现。
+    
+    本次辅学的目的是：
+    
+    -   按照考试要求，把标准库中大家应该知道的内容介绍一遍。
+    -   结合一些应用的例子，串讲一下之前的语法重点。
 
-        -   `ctype.h`：在第二讲「类型系统与内存模型」提及
-        -   `stdio.h`：已在第三讲「I/O与文件」介绍其中部分
-        -   `string.h`：字符串相关操作
-        -   `stdlib.h`：常用工具库
-        -   `math.h`：数学库
+    从历年卷来看，对标准库的考察内容仅限于下面的这些库，本节课也仅叙述下面这些库：
 
-        前半节课我们将对考试必备的标准库函数作介绍，用一个个案例展示它们的用法。
-
-    -   后半：C 标准库的实现（较难）
-        
-        后半部分我们将认识一下 C 标准库这类应用于生产环境的代码的组织方式，挑选一些经典的函数看看它的实现。这部分内容不会出现在考试中，但是对于理解 C 语言的底层实现有很大的帮助。或许它是你从未了解过的 C 语言的另一面。
+    -   `ctype.h`
+    -   `stdio.h`
+    -   `string.h`
+    -   `stdlib.h`
+    -   `math.h`
 <!-- prettier-ignore-end -->
 
-## 前半：C 标准库的使用
+## 导引：C 标准库，学些什么？
 
-### 说明
+### 为什么要学标准库？
+
+有一个粗浅的理由，就是图方便。假设有下面这个声明在 `main` 函数中数组：
+
+```c
+int a[100];
+```
+
+我们知道，这个数组不会被初始化。如果想要把这个数组全部置为 0，你会怎么写呢？
+
+首先会有的想法肯定是：
+
+```c
+for (int i = 0; i < 100; ++i)
+    a[i] = 0;
+```
+
+其实标准库提供了一个函数 `memset`，用来设置一段内存的值：
+
+```c
+memset(a, 0, sizeof(a));
+```
+
+是不是很方便呢？
+
+再来一个例子，把输入中所有的小写字母转换成大写字母。假设输入已经存储在 `char` 数组 `str` 中，根据现有的知识，你会不会这样写：
+
+```c
+for(int i = 0; i < strlen(str); ++i)
+    if ('a' <= str[i] && str[i] <= 'z')
+        str[i] -= 'a' - 'A';
+```
+
+其实标准库提供了判断字符大小写的函数，也提供了转换大小写的函数：
+
+```c
+for(int i = 0; i < strlen(str); ++i)
+    if (islower(str[i]))
+        str[i] = toupper(str[i]);
+```
+
+下面的这段代码，是不是比上面的代码简洁，并且一眼看过去就能明白意思呢？
+
+<!-- prettier-ignore-start -->
+!!! note "总而言之，C 标准库功能强大，它的重要性和语言本身一样。学会使用标准库，让你少造轮子，提高代码的可读性、简洁性和正确性。"
+<!-- prettier-ignore-end -->
+
+### 标准库里有什么？
 
 <!-- prettier-ignore-start -->
 !!! question "💡在你的印象中，标准库是什么样的？里面有什么东西？"
@@ -38,37 +84,51 @@
 -   宏
 -   函数
 
-对接下来的每个标准库，我们都会按照这个顺序介绍。「内容」 模块中代码段内被注释掉的内容，表示不作要求。因为某些标准库中的内容过于庞大，我们也不会列出其中的全部内容。
-
-在使用时不必在意，但需要知道的一个点是：标准库中的某些函数可能被作为宏实现了。但无论如何，标准库一定会提供一个函数版本的实现。
-
 <!-- prettier-ignore-start -->
-!!! question "如果一个函数既提供了宏版本又提供了函数版本，你知道如何使用指定的版本吗？"
+!!! example "几个耳熟能详的例子，你能说说它们是什么吗？"
 
-    例如，对于以下两种版本，你知道你在使用的是宏还是函数吗？
-    
+    - `NULL`、`EOF`
+    - `printf`、`scanf`
+    - `FILE`
+<!-- prettier-ignore-end -->
+
+接下来的每一节是一个标准库，会分为**背景、内容、使用**三个部分。其中「背景」部分会介绍一些前置知识，「内容」部分会介绍标准库中的内容，「使用」部分会介绍一些使用的例子。「内容」 模块中代码段内被注释掉的内容，表示不作要求。
+
+### 背景知识
+
+为了能跟上接下来的内容，确认一下大家都有的知识：
+
+-   会阅读函数原型/函数声明/函数签名（它们说的是一个东西）：
     ```c
-    #define isalnum(c) ...
-    int isalnum(int c);
+    int main(void);
     ```
-<!-- prettier-ignore-end -->
 
-### `<ctype.h>`
-
-<!-- prettier-ignore-start -->
-!!! info "背景知识"
-
-    ASCII 中：
-
-    - 打印字符：`0x20` ~ `0x7E`
-    - 控制字符：`0x00` ~ `0x1F` 和 `0x7F`
-<!-- prettier-ignore-end -->
+## `<ctype.h>`
 
 头文件 `<ctype.h>` 声明了几个可以用于**识别和转换字符**的函数。
 
-#### 内容
+### 背景：ASCII 字符集
+
+ASCII 字符集中的数字和字母大家应该都很熟了，这边再对两类大家接触比较少的字符分类简单做个介绍。
+
+-   打印字符：`0x20` ~ `0x7E`
+-   控制字符：`0x00` ~ `0x1F` 和 `0x7F`
+
+![](graph/ascii.png)
+
+<!-- prettier-ignore-start -->
+!!! tip "小提示"
+
+    你真的需要去记这些字符的编码吗？
+
+    选择填空之类的题目可能会考到，但也是有技巧的。你最多需要记忆的是大小写字母之间相差 32，但只要题目不是让你必须填数字，你就可以用 `'a' - 'A'` 来代替。
+<!-- prettier-ignore-end -->
+
+### 内容
 
 这个头文件中只有函数，没有特别的类型和宏。
+
+这些函数的意义和用法非常显然，因此我也不做注释。
 
 -   字符判断函数
     ```c
@@ -90,7 +150,7 @@
     int toupper(int c);
     ```
 
-#### 使用
+### 使用
 
 `<ctype.h>` 中的函数对 ASCII 字符大致作了如下划分：
 
@@ -100,216 +160,49 @@
     ![](graph/character_types.png)
 <!-- prettier-ignore-end -->
 
-### `<stdio.h>`
+控制字符那些不用管，不要求的函数不用管。只要记得 `isspace` 和 `isblank` 的区别就行了。
 
 <!-- prettier-ignore-start -->
-!!! info "背景知识"
+!!! note "`isspace` 和 `isblank` 的区别"
 
-    - 对字符编码（至少是 ASCII）的了解
-    - 文本文件是怎么存储在计算机上的
-    - 流的概念
-    - 二进制和文本模式的区别（为什么还要分这两个模式？）
-<!-- prettier-ignore-end -->
-
-#### 内容
-
--   类型
-    ```c
-    size_t
-    FILE
-    fpos_t
-    ```
--   宏
-    ```c
-    stderr
-    stdin
-    stdout
-    NULL
-    EOF
-    SEEK_CUR
-    SEEK_END
-    SEEK_SET
-    // BUFSIZ
-    // FOPEN_MAX
-    // FILENAME_MAX
-    ```
--   函数
-    -   文件操作函数（不做要求）
-    ```c
-    // int remove(const char *filename);
-    // int rename(const char *old, const char *new);
-    // FILE *tmpfile(void);
-    ```
-    -   文件访问函数
-    ```c
-    int fclose(FILE *stream);
-    // int fflush(FILE *stream);
-    FILE *fopen(const char *filename, const char *mode);
-    FILE *freopen(const char *filename, const char *mode, FILE *stream);
-    // void setbuf(FILE *stream, char *buf);
-    // int setvbuf(FILE *stream, char *buf, int mode, size_t size);
-    ```
-    -   格式化的输入输出函数
-    ```c
-    int fprintf(FILE *stream, const char *format, ...);
-    int fscanf(FILE *stream, const char *format, ...);
-    int printf(const char *format, ...);
-    int scanf(const char *format, ...);
-    int sprintf(char *str, const char *format, ...);
-    int sscanf(const char *str, const char *format, ...);
-    // int vfprintf(FILE *stream, const char *format, va_list arg);
-    ```
-    -   字符输入输出函数
-    ```c
-    // int fgetc(FILE *stream);
-    // char *fgets(char *str, int n, FILE *stream);
-    // int fputc(int c, FILE *stream);
-    int fputs(const char *str, FILE *stream);
-    // int getc(FILE *stream);
-    int getchar(void);
-    // char *gets(char *str);
-    // int putc(int c, FILE *stream);
-    int putchar(int c);
-    int puts(const char *str);
-    // int ungetc(int c, FILE *stream);
-    ```
-    - 直接输入输出函数
-    ```c
-    size_t fread(void *ptr, size_t size, size_t nobj, FILE *stream);
-    size_t fwrite(const void *ptr, size_t size, size_t nobj, FILE *stream);
-    ```
-    - 文件定位函数
-    ```c
-    int fgetpos(FILE *stream, fpos_t *pos);
-    int fseek(FILE *stream, long offset, int origin);
-    int fsetpos(FILE *stream, const fpos_t *pos);
-    long ftell(FILE *stream);
-    void rewind(FILE *stream);
-    ```
-    - 错误处理函数（不做要求）
-    ```c
-    // void clearerr(FILE *stream);
-    // int feof(FILE *stream);
-    // int ferror(FILE *stream);
-    // void perror(const char *str);
-    ```
-
-#### 使用
-
-以下是课内内容，仅列出，不做详细介绍：
-
--  `printf`/`scanf` 这几个格式化输入/输出函数的使用。
--  `%d`、`%p` 等转换说明的使用。
--  `\n`、`\r` 等常见转义序列的使用。
--  基本的打开、关闭文件 `fopen`、`fclose` 的使用。
--  `r`、`w`、`a` 等模式的使用。
--  在一个 `FILE` 中用 `fscanf`、`fprintf` 读写数据。
-
-下面对几个知识点作一点规范介绍：
-
-<!-- prettier-ignore-start -->
-!!! note "转换说明"
-
-    转换说明中，`%` 后面要跟 4 个组成部分。除了最后一个部分，其他都是可选的：
-
-    -   零或更多个**标志**，说明转换中的变化。
-        | char | meaning |
-        | :--: | :-----: |
-        | `-`  | left-justified |
-        | `+`  | always print sign |
-        | ` `  | print space if no sign |
-        | `#`  | 改变某些转换的行为 |
-        | `0`  | pad with zeros |
-    -   一个可选的**最小字段宽度**，指定了转换的最小宽度。
-    -   一个可选的**精度**，指定了转换的最大宽度。
-
-!!! note "文件定位"
-
-    - 三种修改文件定位符的可能：
-        - `ungetc` 将字符退回流中（不要在 PTA 等 OJ 系统上使用！不要在生产环境中使用！）。总之，就是不建议碰这个东西。
-        - `fseek`、`ftell`、`rewind`：较老的传统的文件定位函数
-        - `fgetpos`、`fsetpos`、`rewind`：任意大小、结构的文件，使用 `fpos_t` 类型，它不能进行任何计算。
-<!-- prettier-ignore-end -->
-
-
-
-### `<string.h>`
-
-### `<stdlib.h>`
-
-### `<math.h>`
-
-## 后半：C 标准库的实现
-
-<!-- prettier-ignore-start -->
-!!! info "杂谈：为什么要学习 C 标准库？"
-
-    理论上，学习完任何编程语言的基本语法后，我们就可以用它来编程解决任何实际问题了。但是，语言所衍生出的任何能提高生产力的库，其重要性往往会远远超过该语言本身。学习一门语言并学习其库的实现，这样才能熟练地驾驭语言工具，了解库所提供的功能和局限性，进而在特定的应用要求下扩展库。
-
-    尽管 C 语言及其所附带的标准库中隐藏着太多的晦涩陷阱，但我们不得不花大力气“过分钻研”它。学习 C 标准库本身的实现，就是学习 C 语言最好的教材，因为其实现过程将会把使用 C 语言编写具有工业强度的健壮代码所需的技巧展现得淋漓尽致。
-
-    C 标准库可以分为 3 组。如何正确和熟练地使用它们，可以相应地区分出 3 种层次的 C 程序员：
-
-    -   合格程序员：
-        ```text
-        <ctype.h> <stdio.h> <stdlib.h> <string.h>
-        ```
-    -   熟练程序员：
-        ```text
-        <assert.h> <limits.h> <stddef.h> <time.h>
-        ```
-    -   优秀程序员：
-        ```text
-        <float.h> <math.h> <error.h> <locale.h> <setjmp.h> <signal.h> <stdarg.h>
-        ```
-    
-    可以看到，C 程序设计这门课程对大家的要求就是「合格程序员」。我们在课程中的极少部分代码会看见 `<assert.h>` 和 `<time.h>`，这两个库也会对你的编程有所帮助，优秀的同学可以以「熟练程序员」来要求自己。今后大多数同学或许都会转向学习 C++，大概只有做安全、系统、嵌入式之类的同学会需要做到「优秀程序员」的地步。
-
-!!! tip "学习 C 标准库前你应该具备的知识"
-
-    -   字符串、数组、指针等操作
-    -   命名空间：库中定义了 200 个以上的名字，你应当知道 C 中各种名字会如何被解析。
-
-    ![](graph/namespace.png)
-<!-- prettier-ignore-end -->
-
-学习 C 标准库时，我们会接触到很多 C 标准中的规范性的严谨地语句，初读时可能让你觉得非常拗口和难以理解，让我们来读几条。
-
-### 杂项：C 标准对库的实现要求
-
-标准库中的一些函数，可能同时提供了宏和函数的版本。
-
--   一个实现必须为每一个库函数提供一个实际的函数，即使它已经为该函数提供了一个宏。
--   一个函数的任何宏定义都可以通过用括号把函数的名字括住来局部地抑制它。因为这个名字后面没有跟着指示一个宏函数名展开地左括号。
--   用来移除任何宏定义的 `#undef` 预处理指令的使用也可以保证实际函数的引用。
-
-<!-- prettier-ignore-start -->
-!!! example "`atoi()` 的使用方式"
-
-    1.  可能生成一个宏函数：
-        ```c
-        #include <stdlib.h>
-        const char *str;
-        i = atoi(str);
-        ```
-    2.  生成一个实际函数引用：
-        ```c
-        #include <stdlib.h>
-        #undef atoi
-        const char *str;
-        i = atoi(str);
-        ```
-        或者
-        ```c
-        #include <stdlib.h>
-        const char *str;
-        i = (atoi)(str);
-        ```
+    - **空格**字符：`isblank` 仅判断空格 ` ` 和水平制表符 `\t`。
+    - **空白**字符：`isspace` 判断空格 ` `、水平制表符 `\t`、换行符 `\n`、回车符 `\r`、换页符 `\f`、垂直制表符 `\v`。
 <!-- prettier-ignore-end -->
 
 ### `<ctype.h>` 的实现：宏与位运算
 
 <!-- prettier-ignore-start -->
+!!! tip "阅读本节需要具备的知识"
+
+    -   位运算
+    
+    知道可以用位来标志某些状态。与或非等位运算的概念。
+
+    -   宏
+
+    知道宏函数是怎么展开的。
+
+    ??? note "不知道？速通一下！"
+
+        首先你应该对二进制有一定概念。假如我们有 4 个二进制位 `0000`，我们就可以用它来标记 4 种状态。我们不妨设：
+
+        -  第一位表示是否是数字
+        -  第二位表示是否是小写字母
+        -  第三位表示是否是大写字母
+        -  第四位表示是否是字母
+
+        （注意，最右侧的位是最低位，最左侧的位是最高位。）
+
+        那么对于字符 `c`，我们可以用二进制串 `1010` 来表示它的属性。
+        
+        使用位运算和**掩码**可以判断属性。比如，我们要判断一个字符是否是数字，把它的串与掩码 `0001` 进行与运算。因为 `0001` 中前三位都是 `0`，结果肯定也是 `0`。而最后一位是 `1`，结果将由参与运算的串决定。掩码中的前三位好像把那些无关的位“掩盖”掉了。最后结果如果是零，那么就说明不具有该属性；如果非零，就说明具有该属性。
+
+        接下来是宏。宏是纯粹的字符替换。如果宏使用了圆括号，那么它就是一个函数宏：
+
+        ```c
+        #define MEAN(X, Y) (((X) + (Y)) / 2)
+        ```
+
 !!! question "🤚停一停，先别看下面的内容。思考一下，你会怎么实现上面的那些函数？"
 
     你会不会在想这样的代码：
@@ -386,28 +279,255 @@ int isalnum(int c)
 
 非常地简单，对吧？这可比 `'a' <= c && c <= 'z'` 这样的判断要快得多。于是我们学完了 `<ctype.h>` 的实现。
 
-### `<stdio.h>` 的实现：系统调用与内核编程
-
-在我个人看来，`<stdio.h>` 的实现最具挑战性。你需要对实现对应的操作系统有一定的了解，才能编写出完善的代码。
+## `<stdio.h>`
 
 <!-- prettier-ignore-start -->
-!!! tip "本节以 UNIX 和 POSIX 规范的系统调用为准。"
-??? info "一些历史的背景：文件、设备和 `ioctl`"
+!!! warning "关于文件输入输出......"
 
-    1. 混乱的磁盘文件系统
-
-    或许你很难想象，UNIX 之前的磁盘文件系统为文件赋予了很多类型上的概念和、作了很多区分，而不是我们现在所广泛接受的「文件就是一系列连续的字节」的概念。这边有一段描述，你可以看看：
-
-    > Typically source code was a distinguished type, different from data. Compilers could read source, compiled programs could read and write 'data.' Thus the creation and inspection of Fortran programs was often walled off from the creation and inspection of other files, with completely different ways to edit and print them. This ruled out the use of programs to generate (or even simply copy) Fortran programs.
-
-    2. 不统一的文本表示和设备交互
-
-    早期程序的输入输出无法独立于设备。比如，在上个世纪 60 年代的 FORTRAN IV 中，在磁带机上需要用 `READ INPUT TAPE 5`，读取磁盘上需要用 `READ INPUT DISK 1`。这样的代码在不同的设备上需要修改，非常不方便。UNIX 将这些混乱的设备交互封装在**设备处理程序**中。在 UNIX 系统看来，外围设备有三种类型：字符设备（Character devices）、块设备（Block devices）和网络设备（Network devices）。这三种设备都被抽象为文件，使用统一的文件操作接口。
-
-    在 Ken Thompson 为 UNIX 设计统一的内部文本形式前，文本表示也是十分混乱的。结束一行是使用回车还是回车加换行，还是换行符，还是更神奇的字符？终端能不能识别和展开制表符？怎样用键盘标志文件结束？这些问题的答案和终端的生产厂商一样多。UNIX 使用系统调用 `ioctl` 来设置一个设备的各种参数，负责对内部换行约定和各种终端之间的需要转换的字符进行处理。
-
-    > [UNIX Devices Drivers](https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch01s03.html)
-!!! note "预备知识：UNIX 系统调用"
-
-    
+    这边列出了文件输入输出的内容，给大家复习的时候参考用。咱们这节课不讲。
 <!-- prettier-ignore-end -->
+
+### 背景知识：流
+
+<!-- prettier-ignore-start -->
+??? info "背景故事：早期计算机混乱的输入输出模型"
+
+    早期程序的**输入输出无法独立于设备**。比如，在上个世纪 60 年代的 FORTRAN IV 中，在磁带机上需要用 `READ INPUT TAPE 5`，读取磁盘上需要用 `READ INPUT DISK 1`。这样的**代码在不同的设备上需要修改**，非常不方便。UNIX 系统将这些**混乱的设备交互封装**在设备处理程序中。在 UNIX 系统看来，外围设备有三种类型：字符设备（Character devices）、块设备（Block devices）和网络设备（Network devices）。这三种设备都被抽象为**文件**，使用统一的文件操作接口。
+
+    在 Ken Thompson 为 UNIX 设计统一的内部文本形式前，文本表示也是十分混乱的。结束一行是使用回车还是回车加换行，还是换行符，还是更神奇的字符？终端能不能识别和展开制表符？怎样用键盘标志文件结束？**这些问题的答案和终端的生产厂商一样多**。UNIX 使用系统调用 `ioctl` 来设置一个设备的各种参数，负责**对内部换行约定和各种终端之间的需要转换的字符进行处理**。
+<!-- prettier-ignore-end -->
+
+#### 流的概念
+
+各种输入输出设备实在是太多了（终端、磁带驱动器、结构化存储设备......）。为了统一概念，C 语言中的输入和输出设备全都和逻辑数据**流**相对应。
+
+<!-- prettier-ignore-start -->
+!!! note "流就是字符序列。"
+
+    不管系统、硬件是怎么实现的。输入输出到了 C 程序这里，就统一为逻辑上的**流**了。
+<!-- prettier-ignore-end -->
+
+**流**关联到一个特定的文件。
+
+#### 操作系统中的文件
+
+计算机系统中的文件可以分为两类：
+
+-   文本文件：如果一个文件中的二进制值都是用来表示字符的，那么这个文件就是文本文件。
+-   二进制文件：如果一个文件中的二进制值代表其他数据，比如机器语言代码或者数值数据、图片或音乐，这个文件就是二进制文件。
+
+二进制文件存储的内容比较复杂，操作系统不敢随意变动。但文本文件内容简单，各类操作系统早就有了自己的处理方式。
+
+即使到今天，不同操作系统处理文本文件的方式仍然具有差异。
+
+| 差异 | UNIX | Windows | MacOS |
+| - | - | - | - |
+| 换行符 | `\n`<br /> LF | `\r\n` <br />CRLF | `\n` (较早的 MacOS 使用 `\r`)<br />LF |
+| 文件结束符 | `^D`<br />++ctrl+d++ | `^Z`<br />++ctrl+z++ | `^D`<br />++ctrl+d++ |
+
+<!-- prettier-ignore-start -->
+!!! danger "都是历史的锅！"
+
+    甚至有的操作系统这样处理文本文件：
+
+    -   要求文本文件中每一行的长度相同，否则用空白字符填充。
+    -   在每行开始标出行的长度。
+<!-- prettier-ignore-end -->
+
+#### 流的类型
+
+C 语言提供两种流：文本流和二进制流。
+
+-   文本流：程序所见的内容可能和实际内容不同。如果将文件以文本模式打开，那么在读取文件时，会把本地环境表示的换行符或文件结尾映射为 C 语言中的 `\n` 和 `EOF`。
+-   二进制流：程序所见的内容和实际内容一致。如果将文件以二进制模式打开，那么在读取文件时，会把文件中的每一个字节都映射为 C 语言中的 `char`。
+
+<!-- prettier-ignore-start -->
+!!! example "举个例子"
+
+    这是一个 MS-DOS 上的文本文件。如果作为二进制流打开，程序会看见以下字节：
+
+    ```text
+    Rebecca clutched the\r\n
+    jewel-encrusted scarab\r\n
+    to her heaving bosom.\r\n
+    ^Z
+    ```
+
+    如果作为文本流打开，程序会看见以下字节：
+    
+    ```text
+    Rebecca clutched the\n
+    jewel-encrusted scarab\n
+    to her heaving bosom.\n
+    ```
+<!-- prettier-ignore-end -->
+
+
+
+### 内容
+
+-   类型
+    ```c
+    size_t
+    FILE
+    fpos_t
+    ```
+-   宏
+    ```c
+    stderr
+    stdin
+    stdout
+    NULL
+    EOF
+    SEEK_CUR
+    SEEK_END
+    SEEK_SET
+    // BUFSIZ
+    // FOPEN_MAX
+    // FILENAME_MAX
+    ```
+-   函数
+    -   文件操作函数（不做要求）
+    ```c
+    // int remove(const char *filename);
+    // int rename(const char *old, const char *new);
+    // FILE *tmpfile(void);
+    ```
+    -   文件访问函数
+    ```c
+    int fclose(FILE *stream);
+    // int fflush(FILE *stream);
+    FILE *fopen(const char *filename, const char *mode);
+    FILE *freopen(const char *filename, const char *mode, FILE *stream);
+    // void setbuf(FILE *stream, char *buf);
+    // int setvbuf(FILE *stream, char *buf, int mode, size_t size);
+    ```
+    -   格式化的输入输出函数
+    ```c
+    int fprintf(FILE *stream, const char *format, ...);
+    int fscanf(FILE *stream, const char *format, ...);
+    int printf(const char *format, ...);
+    int scanf(const char *format, ...);
+    int sprintf(char *str, const char *format, ...);
+    int sscanf(const char *str, const char *format, ...);
+    // int vfprintf(FILE *stream, const char *format, va_list arg);
+    ```
+    -   字符输入输出函数
+    ```c
+    // int fgetc(FILE *stream);
+    // char *fgets(char *str, int n, FILE *stream);
+    // int fputc(int c, FILE *stream);
+    int fputs(const char *str, FILE *stream);
+    // int getc(FILE *stream);
+    int getchar(void);
+    // char *gets(char *str);
+    // int putc(int c, FILE *stream);
+    int putchar(int c);
+    int puts(const char *str);
+    // int ungetc(int c, FILE *stream);
+    ```
+    -   直接输入输出函数（考试不管）
+    ```c
+    size_t fread(void *ptr, size_t size, size_t nobj, FILE *stream);
+    size_t fwrite(const void *ptr, size_t size, size_t nobj, FILE *stream);
+    ```
+    -   文件定位函数（考试不管）
+    ```c
+    //int fgetpos(FILE *stream, fpos_t *pos);
+    int fseek(FILE *stream, long offset, int origin);
+    //int fsetpos(FILE *stream, const fpos_t *pos);
+    long ftell(FILE *stream);
+    void rewind(FILE *stream);
+    ```
+    -   错误处理函数（不做要求）
+    ```c
+    // void clearerr(FILE *stream);
+    // int feof(FILE *stream);
+    // int ferror(FILE *stream);
+    // void perror(const char *str);
+    ```
+
+### 使用
+
+以下是课内内容，仅列出，不做详细介绍：
+
+-   `printf`/`scanf` 这几个格式化输入/输出函数的使用。
+-   `%d`、`%p` 等转换说明的使用。
+-   `\n`、`\r` 等常见转义序列的使用。
+-   基本的打开、关闭文件 `fopen`、`fclose` 的使用。
+-   `r`、`w`、`a` 等模式的使用。
+-   在一个 `FILE` 中用 `fscanf`、`fprintf` 读写数据。
+    -   `fread` 和 `fwrite` 课上应该会讲，但是编程也不会要求的。
+
+下面对几个知识点作一点规范介绍：
+
+<!-- prettier-ignore-start -->
+!!! note "转换说明"
+
+    规范的说明请看这里：
+    
+    -   [`printf`](https://zh.cppreference.com/w/c/io/fprintf)
+    -   [`scanf`](https://zh.cppreference.com/w/c/io/fscanf)
+
+    ??? note "`printf` 的转换说明"
+
+        转换说明中，`%` 后面要跟 4 个组成部分。除了最后一个部分，其他都是可选的：
+
+        ```c
+        %[标志][最小字段宽度][.精度][h/l/L]指定转换类型的字符
+        ```
+
+        -   零或更多个**标志**，说明转换中的变化。
+
+            | char | meaning |
+            | :--: | :-----: |
+            | `-`  | 左对齐（右侧填充空白） |
+            | `+`  | 总是打印符号（包括正号） |
+            | ` `  | 如果无符号，打印空格 |
+            | `0`  | 用 0 填充 |
+        -   一个可选的**最小字段宽度**：一个星号或者一个十进制整数。
+        -   一个可选的**精度**：小数点后跟一个星号或一个十进制整数。
+            -   如果是整数，表示最小数字位数。
+            -   如果是浮点数，表示小数点后的最大位数。
+
+        !!! example "举个例子"
+        
+    ??? note "`scanf` 的转换说明"
+
+!!! tip "普遍误区"
+
+    针对同学们普遍的误区做几点强调说明：
+
+    -   `scanf`
+        -   `%s` 只读取非空白字符，遇到空白字符就结束。
+        -   `%c` 只读取一个字符，遇到空白字符也会读取。
+        !!! note "还记得上面 `<ctype.h>` 刚刚讲的空白字符吗？"
+        -   如果转换与字符匹配失败，**这个输入字符会留在输入流中**。在你下一次读取字符时，它可能会捣乱！
+        -   这个函数的参数是什么类型？什么时候该加取值符 `&`？
+
+
+!!! note "输入输出函数的返回值"
+
+    大家平常使用可能不太关注。但还是有考察的可能：
+
+    -   `printf`、`fprintf`、`sprintf`、`snprintf`
+        -   正常：返回传输的字符数
+        -   异常：返回负数
+    -   `scanf`、`fscanf`、`sscanf`
+        -   正常：返回成功匹配并赋值的输入项数
+        -   异常：返回 `EOF`
+
+
+??? note "文件定位"
+
+    - 三种修改文件定位符的可能：
+        - `ungetc` 将字符退回流中（不要在 PTA 等 OJ 系统上使用！不要在生产环境中使用！）。总之，就是不建议碰这个东西。
+        - `fseek`、`ftell`、`rewind`：较老的传统的文件定位函数
+        - `fgetpos`、`fsetpos`、`rewind`：任意大小、结构的文件，使用 `fpos_t` 类型，它不能进行任何计算。
+<!-- prettier-ignore-end -->
+
+## `<string.h>`
+
+## `<stdlib.h>`
+
+## `<math.h>`

@@ -12,6 +12,45 @@ h5:before {content: unset;}
 
 ## November
 
+### 「24」 
+
+The following code fragment prints out **\_\_**.
+
+```c
+#include <stdio.h>
+int main()
+{
+	char* a[] = { "the","one","is","unknown" };
+	char** pa = a;
+	pa++;
+	printf("%c%s\n", *(*pa + 1), *pa);
+	return 0;
+}
+```
+
+<div style="display: flex">
+    <div style="width: 100%">A. none</div>
+    <div style="width: 100%">B. tone</div>
+    <div style="width: 100%">C. tthe</div>
+    <div style="width: 100%">D. nis</div>
+</div>
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    A.
+
+    `a[]` is an array of pointers, which stores the addresses of three strings, and `pa` points to the address of the first element of `a`, as shown below:
+
+    ![](24daily_nov24.jpg)
+
+    Pointer operations take precedence over addition, so `*(*pa + 1)` equals to `n`.
+
+    In summary, the code fragment prints out `none`.
+<!-- prettier-ignore-end -->
+
+> 供题人：华展辉
+
 ### 「23」 `typedef` and String
 
 The preprocessing of this program is as follows：
