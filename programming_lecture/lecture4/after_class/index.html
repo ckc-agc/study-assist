@@ -5,22 +5,20 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="浙江大学竺可桢学院辅学计划站点" name="description"/>
 <meta content="竺可桢学院学业指导中心" name="author"/>
-<link href="https://ckc-agc.pages.zjusct.io/study-assist/analysis/" rel="canonical"/>
-<link href="../calculus/" rel="prev"/>
-<link href="../algebra/" rel="next"/>
-<link href="../graph/ckc.png" rel="icon"/>
+<link href="https://ckc-agc.pages.zjusct.io/study-assist/programming_lecture/lecture4/after_class/" rel="canonical"/>
+<link href="../../../graph/ckc.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.12" name="generator"/>
-<title>数学分析辅学 - 浙江大学竺可桢学院辅学计划站点</title>
-<link href="../assets/stylesheets/main.fad675c6.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<title>课后扩展：C 标准库的实现 - 浙江大学竺可桢学院辅学计划站点</title>
+<link href="../../../assets/stylesheets/main.fad675c6.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../css/heti.css" rel="stylesheet"/>
-<link href="../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
-<link href="../stylesheets/custom.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<link href="../../../css/heti.css" rel="stylesheet"/>
+<link href="../../../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
+<link href="../../../stylesheets/custom.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
         html.glightbox-open { overflow: initial; height: 100%; }
         .gslide-title { margin-top: 0px; user-select: text; }
         .gslide-desc { color: #666; user-select: text; }
@@ -31,14 +29,14 @@
             body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
             body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
             body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-            </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#c">
           Skip to content
         </a>
 </div>
@@ -46,8 +44,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-header__button md-logo" data-md-component="logo" href=".." title="浙江大学竺可桢学院辅学计划站点">
-<img alt="logo" src="../graph/ckc.png"/>
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../graph/ckc.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
@@ -62,7 +60,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              数学分析辅学
+              课后扩展：C 标准库的实现
             
           </span>
 </div>
@@ -125,7 +123,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="..">
+<a class="md-tabs__link" href="../../..">
           
   
     
@@ -135,7 +133,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../calculus/">
+<a class="md-tabs__link" href="../../../calculus/">
           
   
     
@@ -144,8 +142,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="./">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../analysis/">
           
   
     
@@ -155,7 +153,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../algebra/">
+<a class="md-tabs__link" href="../../../algebra/">
           
   
     
@@ -165,7 +163,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../lalu/">
+<a class="md-tabs__link" href="../../../lalu/">
           
   
     
@@ -175,7 +173,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../programming/">
+<a class="md-tabs__link" href="../../../programming/">
           
   
     
@@ -195,7 +193,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../programming_lecture/">
+<a class="md-tabs__link" href="../../">
           
   
     
@@ -205,7 +203,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../chemistry/">
+<a class="md-tabs__link" href="../../../chemistry/">
           
   
     
@@ -215,7 +213,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../physics/">
+<a class="md-tabs__link" href="../../../physics/">
           
   
     
@@ -234,8 +232,8 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-nav__button md-logo" data-md-component="logo" href=".." title="浙江大学竺可桢学院辅学计划站点">
-<img alt="logo" src="../graph/ckc.png"/>
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../graph/ckc.png"/>
 </a>
     浙江大学竺可桢学院辅学计划站点
   </label>
@@ -253,7 +251,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="..">
+<a class="md-nav__link" href="../../..">
 <span class="md-ellipsis">
     首页
   </span>
@@ -269,7 +267,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../test/">
+<a class="md-nav__link" href="../../../test/">
 <span class="md-ellipsis">
     测试
   </span>
@@ -281,7 +279,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../calculus/">
+<a class="md-nav__link" href="../../../calculus/">
 <span class="md-ellipsis">
     📚微积分
   </span>
@@ -296,16 +294,16 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link md-nav__link--active" href="./">
+<a class="md-nav__link" href="../../../analysis/">
 <span class="md-ellipsis">
     📚数学分析
   </span>
 </a>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
             📚数学分析
@@ -317,7 +315,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../algebra/">
+<a class="md-nav__link" href="../../../algebra/">
 <span class="md-ellipsis">
     📚线性代数
   </span>
@@ -335,7 +333,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../lalu/">
+<a class="md-nav__link" href="../../../lalu/">
 <span class="md-ellipsis">
     🏫线性代数：未竟之美
   </span>
@@ -353,7 +351,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../programming/">
+<a class="md-nav__link" href="../../../programming/">
 <span class="md-ellipsis">
     📚程序设计
   </span>
@@ -378,7 +376,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../programming_lecture/">
+<a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     🏫系统知识拾遗
   </span>
@@ -394,7 +392,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../programming_lecture/lecture1/pre_class/">
+<a class="md-nav__link" href="../../lecture1/pre_class/">
 <span class="md-ellipsis">
     1. 程序编译过程与调试技术
   </span>
@@ -402,7 +400,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../programming_lecture/lecture2/pre_class/">
+<a class="md-nav__link" href="../../lecture2/pre_class/">
 <span class="md-ellipsis">
     2. 类型系统与内存模型
   </span>
@@ -410,7 +408,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../programming_lecture/lecture3/pre_class/">
+<a class="md-nav__link" href="../../lecture3/pre_class/">
 <span class="md-ellipsis">
     3. I/O 与文件
   </span>
@@ -418,7 +416,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../programming_lecture/lecture4/lecture4/">
+<a class="md-nav__link" href="../lecture4/">
 <span class="md-ellipsis">
     4. C 标准库
   </span>
@@ -426,7 +424,7 @@
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../programming_lecture/lecture5/lecture5/">
+<a class="md-nav__link" href="../../lecture5/lecture5/">
 <span class="md-ellipsis">
     5. 数据结构与算法
   </span>
@@ -439,7 +437,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_9" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../chemistry/">
+<a class="md-nav__link" href="../../../chemistry/">
 <span class="md-ellipsis">
     📚普通化学
   </span>
@@ -457,7 +455,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_10" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../physics/">
+<a class="md-nav__link" href="../../../physics/">
 <span class="md-ellipsis">
     📚普通物理学
   </span>
@@ -487,17 +485,17 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2023-2024">
+<a class="md-nav__link" href="#c_1">
 <span class="md-ellipsis">
-      2023-2024 学年 辅学资料
+      后半：C 标准库的实现
     </span>
 </a>
-<nav aria-label="2023-2024 学年 辅学资料" class="md-nav">
+<nav aria-label="后半：C 标准库的实现" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#c_2">
 <span class="md-ellipsis">
-      授课
+      杂项：C 标准对库的实现要求
     </span>
 </a>
 </li>
@@ -505,47 +503,11 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#stdioh">
 <span class="md-ellipsis">
-      历年卷
+      &lt;stdio.h&gt; 的实现：系统调用与内核编程
     </span>
 </a>
-<nav aria-label="历年卷" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ih">
-<span class="md-ellipsis">
-      数学分析 I（H）
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#iih">
-<span class="md-ellipsis">
-      数学分析 II（H）
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-<span class="md-ellipsis">
-      历年资料归档
-    </span>
-</a>
-<nav aria-label="历年资料归档" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#2022-2023">
-<span class="md-ellipsis">
-      2022-2023 学年 辅学资料
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -554,125 +516,120 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/analysis/index.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming_lecture/lecture4/after_class.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="_1">数学分析辅学<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<p>欢迎来到竺院辅学数学分析版块 🤗。本页面汇总了数学分析的辅学资料，包括历年试卷、讲义、录播等。</p>
-<h2 id="2023-2024"><span>2023-2024<span class="heti-spacing"> </span></span>学年 辅学资料<a class="headerlink" href="#2023-2024" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="_2">授课<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">节次</th>
-<th style="text-align: center;">时间</th>
-<th style="text-align: center;">内容</th>
-<th style="text-align: center;">主讲</th>
-<th style="text-align: center;">讲义</th>
-<th style="text-align: center;">录播地址</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">Oct.14</td>
-<td style="text-align: center;">数列极限</td>
-<td style="text-align: center;">混合<span class="heti-skip"><span class="heti-spacing"> </span>2206<span class="heti-spacing"> </span></span>胡育玮</td>
-<td style="text-align: center;"><a href="2024/analysis_lecture1_sequence_limits/">第一讲：数列极限</a></td>
-<td style="text-align: center;"><a href="https://www.bilibili.com/video/BV1Qw411c7bM">Bilibili</a></td>
-</tr>
-<tr>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">Oct.28</td>
-<td style="text-align: center;">一元函数的极限与连续性</td>
-<td style="text-align: center;">图灵<span class="heti-skip"><span class="heti-spacing"> </span>2102<span class="heti-spacing"> </span></span>潘昶皓</td>
-<td style="text-align: center;"><a href="2024/analysis_lecture2_function.pdf">第二讲：一元函数的极限与连续性</a></td>
-<td style="text-align: center;"><a href="https://www.bilibili.com/video/BV1BM411D7rJ">Bilibili</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="_3">历年卷<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="ih">数学分析<span><span class="heti-spacing"> </span>I</span>（H）<a class="headerlink" href="#ih" title="Permanent link">¶</a></h3>
+<h1 id="c">课后扩展：<span>C<span class="heti-spacing"> </span></span>标准库的实现<a class="headerlink" href="#c" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<!-- prettier-ignore-start -->
+<div class="admonition danger">
+<p class="admonition-title">施工中</p>
+<p>本页面正在编辑中。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h2 id="c_1">后半：<span>C<span class="heti-spacing"> </span></span>标准库的实现<a class="headerlink" href="#c_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">杂谈：为什么要学习<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库？</p>
+<p>理论上，学习完任何编程语言的基本语法后，我们就可以用它来编程解决任何实际问题了。但是，语言所衍生出的任何能提高生产力的库，其重要性往往会远远超过该语言本身。学习一门语言并学习其库的实现，这样才能熟练地驾驭语言工具，了解库所提供的功能和局限性，进而在特定的应用要求下扩展库。</p>
+<p>尽管<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言及其所附带的标准库中隐藏着太多的晦涩陷阱，但我们不得不花大力气“过分钻研”它。学习<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库本身的实现，就是学习<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言最好的教材，因为其实现过程将会把使用<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编写具有工业强度的健壮代码所需的技巧展现得淋漓尽致。</p>
+<p><span>C<span class="heti-spacing"> </span></span>标准库可以分为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>组。如何正确和熟练地使用它们，可以相应地区分出<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>种层次的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>程序员：</p>
 <ul>
-<li><span>2023-2024<span class="heti-spacing"> </span></span>学年<ul>
-<li><a href="analysis1_paper/23test1.pdf">小测<span><span class="heti-spacing"> </span>1</span></a></li>
+<li>合格程序员：
+    <div class="highlight"><pre><span></span><code>&lt;ctype.h&gt; &lt;stdio.h&gt; &lt;stdlib.h&gt; &lt;string.h&gt;
+</code></pre></div></li>
+<li>熟练程序员：
+    <div class="highlight"><pre><span></span><code>&lt;assert.h&gt; &lt;limits.h&gt; &lt;stddef.h&gt; &lt;time.h&gt;
+</code></pre></div></li>
+<li>优秀程序员：
+    <div class="highlight"><pre><span></span><code>&lt;float.h&gt; &lt;math.h&gt; &lt;error.h&gt; &lt;locale.h&gt; &lt;setjmp.h&gt; &lt;signal.h&gt; &lt;stdarg.h&gt;
+</code></pre></div></li>
 </ul>
-</li>
-<li><span>2022-2023<span class="heti-spacing"> </span></span>学年<ul>
-<li><a href="analysis1_paper/22test1.pdf">小测<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span></a><span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span><a href="analysis1_paper/22test1_answer/">答案</a></li>
-<li><a href="analysis1_paper/22test2.pdf">小测<span><span class="heti-spacing"> </span>2</span></a></li>
-<li><a href="analysis1_paper/22exam.pdf">期末试卷</a></li>
-</ul>
-</li>
-<li><span>2021-2022<span class="heti-spacing"> </span></span>学年<ul>
-<li><a href="analysis1_paper/21test.pdf">小测</a><span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span><a href="analysis1_paper/21test_answer.pdf">答案</a></li>
-<li><a href="analysis1_paper/21exam.pdf">期末试卷</a><span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span><a href="analysis1_paper/21exam_answer.pdf">答案</a></li>
-</ul>
-</li>
-<li><span>2020-2021<span class="heti-spacing"> </span></span>学年<ul>
-<li><a href="analysis1_paper/20exam.pdf">期末试卷（部分）</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="iih">数学分析<span><span class="heti-spacing"> </span>II</span>（H）<a class="headerlink" href="#iih" title="Permanent link">¶</a></h3>
+<p>可以看到，<span>C<span class="heti-spacing"> </span></span>程序设计这门课程对大家的要求就是「合格程序员<heti-adjacent class="heti-adjacent-half">」</heti-adjacent>。我们在课程中的极少部分代码会看见 <code>&lt;assert.h&gt;</code> 和 <code>&lt;time.h&gt;</code>，这两个库也会对你的编程有所帮助，优秀的同学可以以「熟练程序员」来要求自己。今后大多数同学或许都会转向学习<span><span class="heti-spacing"> </span>C++</span>，大概只有做安全、系统、嵌入式之类的同学会需要做到「优秀程序员」的地步。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">学习<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库前你应该具备的知识</p>
 <ul>
-<li><span>2022-2023<span class="heti-spacing"> </span></span>学年<ul>
-<li><a href="analysis2_paper/22test1.pdf">小测<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span></a><span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span><a href="analysis2_paper/22test1_answer.pdf">答案</a></li>
-<li><a href="analysis2_paper/22test2.pdf">小测<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span></a><span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span><a href="analysis2_paper/22test2_answer.pdf">答案</a></li>
-<li><a href="analysis2_paper/22exam.pdf">期末试卷</a><span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span><a href="analysis2_paper/22exam_answer.pdf">答案</a></li>
+<li>字符串、数组、指针等操作</li>
+<li>命名空间：库中定义了<span class="heti-skip"><span class="heti-spacing"> </span>200<span class="heti-spacing"> </span></span>个以上的名字，你应当知道<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>中各种名字会如何被解析。</li>
 </ul>
-</li>
-<li><span>2021-2022<span class="heti-spacing"> </span></span>学年<ul>
-<li><a href="analysis2_paper/21exam.pdf">期末试卷</a><span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span><a href="analysis2_paper/21exam_answer.pdf">答案</a></li>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/namespace.png"><img alt="" src="../graph/namespace.png"/></a></p>
+</div>
+<!-- prettier-ignore-end -->
+<p>学习<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库时，我们会接触到很多<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准中的规范性的严谨地语句，初读时可能让你觉得非常拗口和难以理解，让我们来读几条。</p>
+<h3 id="c_2">杂项：<span>C<span class="heti-spacing"> </span></span>标准对库的实现要求<a class="headerlink" href="#c_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>在使用时不必在意，但需要知道的一个点是：标准库中的某些函数可能被作为宏实现了。但无论如何，标准库一定会提供一个函数版本的实现。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">如果一个函数既提供了宏版本又提供了函数版本，你知道如何使用指定的版本吗？</p>
+<p>例如，对于以下两种版本，你知道你在使用的是宏还是函数吗？</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define isalnum(c) ...</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">isalnum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<!-- prettier-ignore-end -->
+<p>标准库中的一些函数，可能同时提供了宏和函数的版本。</p>
+<ul>
+<li>一个实现必须为每一个库函数提供一个实际的函数，即使它已经为该函数提供了一个宏。</li>
+<li>一个函数的任何宏定义都可以通过用括号把函数的名字括住来局部地抑制它。因为这个名字后面没有跟着指示一个宏函数名展开地左括号。</li>
+<li>用来移除任何宏定义的 <code>#undef</code> 预处理指令的使用也可以保证实际函数的引用。</li>
 </ul>
-</li>
-<li><span>2020-2021<span class="heti-spacing"> </span></span>学年<ul>
-<li><a href="analysis2_paper/20exam.pdf">期末试卷</a></li>
-</ul>
-</li>
-<li>未知年份<ul>
-<li><a href="analysis2_paper/22test2_answer.pdf">小测及答案</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="_4">历年资料归档<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<h3 id="2022-2023"><span>2022-2023<span class="heti-spacing"> </span></span>学年 辅学资料<a class="headerlink" href="#2022-2023" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">授课内容</th>
-<th style="text-align: center;">主讲人</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;"><a href="2023/indefinite_integral.pdf">不定积分</a></td>
-<td style="text-align: center;">图灵<span class="heti-skip"><span class="heti-spacing"> </span>2101<span class="heti-spacing"> </span></span>陆晶宇</td>
-</tr>
-<tr>
-<td style="text-align: center;"><a href="2023/analysis1_review1.pdf">数学分析<span class="heti-skip"><span class="heti-spacing"> </span>I<span class="heti-spacing"> </span></span>考前复习<span><span class="heti-spacing"> </span>1</span></a></td>
-<td style="text-align: center;">混合<span class="heti-skip"><span class="heti-spacing"> </span>2003<span class="heti-spacing"> </span></span>邱日宏</td>
-</tr>
-<tr>
-<td style="text-align: center;"><a href="2023/analysis1_review2.pdf">数学分析<span class="heti-skip"><span class="heti-spacing"> </span>I<span class="heti-spacing"> </span></span>考前复习<span><span class="heti-spacing"> </span>2</span></a> <br/> <a href="2023/analysis1_review2_answer.pdf">讲义答案</a></td>
-<td style="text-align: center;">图灵<span class="heti-skip"><span class="heti-spacing"> </span>2102<span class="heti-spacing"> </span></span>潘昶皓</td>
-</tr>
-<tr>
-<td style="text-align: center;"><a href="2023/series.pdf">级数</a> <br/> <a href="2023/series_answer.pdf">讲义答案</a></td>
-<td style="text-align: center;">混合<span class="heti-skip"><span class="heti-spacing"> </span>2102<span class="heti-spacing"> </span></span>刘志炜</td>
-</tr>
-<tr>
-<td style="text-align: center;"><a href="2023/curves_surfaces_integrals.pdf">曲线、曲面、含参变量积分</a></td>
-<td style="text-align: center;">强物<span class="heti-skip"><span class="heti-spacing"> </span>2101<span class="heti-spacing"> </span></span>王宸昊</td>
-</tr>
-</tbody>
-</table>
+<!-- prettier-ignore-start -->
+<div class="admonition example">
+<p class="admonition-title"><code>atoi()</code> 的使用方式</p>
+<ol>
+<li>可能生成一个宏函数：
+    <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">;</span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</code></pre></div></li>
+<li>生成一个实际函数引用：
+    <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#undef atoi</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">;</span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</code></pre></div>
+    或者
+    <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">;</span>
+<span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">atoi</span><span class="p">)(</span><span class="n">str</span><span class="p">);</span>
+</code></pre></div></li>
+</ol>
+</div>
+<!-- prettier-ignore-end -->
+<h2 id="stdioh"><code>&lt;stdio.h&gt;</code> 的实现：系统调用与内核编程<a class="headerlink" href="#stdioh" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>在我个人看来，<code>&lt;stdio.h&gt;</code> 的实现最具挑战性。你需要对实现对应的操作系统有一定的了解，才能编写出完善的代码。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition tip">
+<p class="admonition-title">本节以<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>POSIX<span class="heti-spacing"> </span></span>规范的系统调用为准。</p>
+</div>
+<details class="info">
+<summary>一些历史的背景：文件、设备和 <code>ioctl</code></summary>
+<ol>
+<li>混乱的磁盘文件系统</li>
+</ol>
+<p>或许你很难想象，<span>UNIX<span class="heti-spacing"> </span></span>之前的磁盘文件系统为文件赋予了很多类型上的概念和、作了很多区分，而不是我们现在所广泛接受的「文件就是一系列连续的字节」的概念。这边有一段描述，你可以看看：</p>
+<blockquote>
+<p>Typically source code was a distinguished type, different from data. Compilers could read source, compiled programs could read and write 'data.' Thus the creation and inspection of Fortran programs was often walled off from the creation and inspection of other files, with completely different ways to edit and print them. This ruled out the use of programs to generate (or even simply copy) Fortran programs.</p>
+</blockquote>
+<ol start="2">
+<li>不统一的文本表示和设备交互</li>
+</ol>
+<p>早期程序的输入输出无法独立于设备。比如，在上个世纪<span class="heti-skip"><span class="heti-spacing"> </span>60<span class="heti-spacing"> </span></span>年代的<span class="heti-skip"><span class="heti-spacing"> </span>FORTRAN IV<span class="heti-spacing"> </span></span>中，在磁带机上需要用 <code>READ INPUT TAPE 5</code>，读取磁盘上需要用 <code>READ INPUT DISK 1</code>。这样的代码在不同的设备上需要修改，非常不方便。<span>UNIX<span class="heti-spacing"> </span></span>将这些混乱的设备交互封装在<strong>设备处理程序</strong>中。在<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>系统看来，外围设备有三种类型：字符设备（Character devices<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、块设备（Block devices）和网络设备（Network devices<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。这三种设备都被抽象为文件，使用统一的文件操作接口。</p>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>Ken Thompson<span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>设计统一的内部文本形式前，文本表示也是十分混乱的。结束一行是使用回车还是回车加换行，还是换行符，还是更神奇的字符？终端能不能识别和展开制表符？怎样用键盘标志文件结束？这些问题的答案和终端的生产厂商一样多。<span>UNIX<span class="heti-spacing"> </span></span>使用系统调用 <code>ioctl</code> 来设置一个设备的各种参数，负责对内部换行约定和各种终端之间的需要转换的字符进行处理。</p>
+<blockquote>
+<p><a href="https://www.oreilly.com/library/view/linux-device-drivers/0596000081/ch01s03.html">UNIX Devices Drivers</a></p>
+</blockquote>
+</details>
+<div class="admonition note">
+<p class="admonition-title">预备知识：<span>UNIX<span class="heti-spacing"> </span></span>系统调用</p>
+</div>
+<!-- prettier-ignore-end -->
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 24, 2023</span>
 </small>
 </div>
 </article>
@@ -701,9 +658,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.6c14ae12.min.js"></script>
-<script src="../javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
