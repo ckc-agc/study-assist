@@ -7,9 +7,9 @@
 <meta content="竺可桢学院学业指导中心" name="author"/>
 <link href="https://ckc-agc.pages.zjusct.io/study-assist/programming_lecture/lecture4/lecture4/" rel="canonical"/>
 <link href="../../lecture3/lecture3/" rel="prev"/>
-<link href="../../lecture5/lecture5/" rel="next"/>
+<link href="../after_class/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.12" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.13" name="generator"/>
 <title>C 标准库 - 浙江大学竺可桢学院辅学计划站点</title>
 <link href="../../../assets/stylesheets/main.fad675c6.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
@@ -522,17 +522,49 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#stdioh">
+<a class="md-nav__link" href="#mathh">
 <span class="md-ellipsis">
-      &lt;stdio.h&gt;
+      &lt;math.h&gt;
     </span>
 </a>
-<nav aria-label="&lt;stdio.h&gt;" class="md-nav">
+<nav aria-label="&lt;math.h&gt;" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
-      背景知识：流
+      背景知识：函数的定义域与值域
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      内容
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      使用
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stringh">
+<span class="md-ellipsis">
+      &lt;string.h&gt;
+    </span>
+</a>
+<nav aria-label="&lt;string.h&gt;" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      背景知识：字符串
     </span>
 </a>
 </li>
@@ -554,28 +586,78 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#stringh">
-<span class="md-ellipsis">
-      &lt;string.h&gt;
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#stdlibh">
 <span class="md-ellipsis">
       &lt;stdlib.h&gt;
     </span>
 </a>
+<nav aria-label="&lt;stdlib.h&gt;" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+<span class="md-ellipsis">
+      背景：指针的概念
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#mathh">
+<a class="md-nav__link" href="#_13">
 <span class="md-ellipsis">
-      &lt;math.h&gt;
+      内容
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      使用
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stdioh">
+<span class="md-ellipsis">
+      &lt;stdio.h&gt;
+    </span>
+</a>
+<nav aria-label="&lt;stdio.h&gt;" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+<span class="md-ellipsis">
+      背景知识：流
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_19">
+<span class="md-ellipsis">
+      内容
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_20">
+<span class="md-ellipsis">
+      使用
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../after_class/">
+<span class="md-ellipsis">
+    课后扩展：C 标准库的实现
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -713,17 +795,49 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#stdioh">
+<a class="md-nav__link" href="#mathh">
 <span class="md-ellipsis">
-      &lt;stdio.h&gt;
+      &lt;math.h&gt;
     </span>
 </a>
-<nav aria-label="&lt;stdio.h&gt;" class="md-nav">
+<nav aria-label="&lt;math.h&gt;" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_6">
 <span class="md-ellipsis">
-      背景知识：流
+      背景知识：函数的定义域与值域
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      内容
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      使用
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stringh">
+<span class="md-ellipsis">
+      &lt;string.h&gt;
+    </span>
+</a>
+<nav aria-label="&lt;string.h&gt;" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      背景知识：字符串
     </span>
 </a>
 </li>
@@ -745,25 +859,68 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#stringh">
-<span class="md-ellipsis">
-      &lt;string.h&gt;
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#stdlibh">
 <span class="md-ellipsis">
       &lt;stdlib.h&gt;
     </span>
 </a>
-</li>
+<nav aria-label="&lt;stdlib.h&gt;" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#mathh">
+<a class="md-nav__link" href="#_12">
 <span class="md-ellipsis">
-      &lt;math.h&gt;
+      背景：指针的概念
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+<span class="md-ellipsis">
+      内容
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      使用
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stdioh">
+<span class="md-ellipsis">
+      &lt;stdio.h&gt;
+    </span>
+</a>
+<nav aria-label="&lt;stdio.h&gt;" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+<span class="md-ellipsis">
+      背景知识：流
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_19">
+<span class="md-ellipsis">
+      内容
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_20">
+<span class="md-ellipsis">
+      使用
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -776,6 +933,11 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="c"><span>C<span class="heti-spacing"> </span></span>标准库<a class="headerlink" href="#c" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<style>
+    code {
+      white-space : pre-wrap !important;
+    }
+</style>
 <!-- prettier-ignore-start -->
 <div class="admonition danger">
 <p class="admonition-title">施工中</p>
@@ -941,6 +1103,7 @@
 <p>接下来是宏。宏是纯粹的字符替换。如果宏使用了圆括号，那么它就是一个函数宏：</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#define MEAN(X, Y) (((X) + (Y)) / 2)</span>
 </code></pre></div>
+<p>那么只要编译器看到代码中有 <code>MEAN</code> 后跟一个圆括号，就会开始匹配和替换。比如，<code>MEAN(1, 2)</code> 将被替换为 <code>(((1) + (2)) / 2)</code>、<code>MEAN(a, b)</code> 将被替换为 <code>(((a) + (b)) / 2)</code>。</p>
 </details>
 </div>
 <div class="admonition question">
@@ -960,7 +1123,15 @@
 <li>虽然宏可能比函数快，但是它们通常会产生更大的代码。如果在很多地方扩展，这个程序可能大到让你无法想象。</li>
 <li>
 <p>宏的参数可能会被求值多次，具有副作用的宏参数会导致意外。
-    <!-- prettier-ignore-start --></p>
+    <!-- prettier-ignore-start -->
+    !!! example "举个例子"</p>
+<div class="highlight"><pre><span></span><code>```c
+#define SQUARE(X) ((X) * (X))
+SQUARE(x++); // x++ * x++        
+```
+
+使用者以为它只会让 `x` 自增一次，但是实际上它会让 `x` 自增两次。
+</code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">会产生不安全行为的宏</p>
 <p>标准库中，只有 <code>getc</code> 和 <code>putc</code> 可能会产生这种不安全行为。</p>
@@ -1021,7 +1192,268 @@
 </div>
 </div>
 <!-- prettier-ignore-end -->
-<p>非常地简单，对吧？这可比 <code>'a' &lt;= c &amp;&amp; c &lt;= 'z'</code> 这样的判断要快得多。于是我们学完了 <code>&lt;ctype.h&gt;</code> 的实现。</p>
+<p>非常地简单，对吧？这可比 <code>'a' &lt;= c &amp;&amp; c &lt;= 'z'</code> 这样的判断要快得多。</p>
+<h2 id="mathh"><code>&lt;math.h&gt;</code><a class="headerlink" href="#mathh" title="Permanent link">¶</a></h2>
+<h3 id="_6">背景知识：函数的定义域与值域<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">还记得 <code>double</code> 表示的范围吗？</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/float_range.png"><img alt="" src="../graph/float_range.png"/></a></p>
+<p>从上图你可以看到，浮点数所能表示的数值，实际上是数轴上的一个个点。毕竟只有<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>个<span class="heti-skip"><span class="heti-spacing"> </span>bit<span class="heti-spacing"> </span></span>嘛，只能编码有限个点。</p>
+<p><code>double</code> 类型（<span>8<span class="heti-spacing"> </span></span>字节<span class="heti-skip"><span class="heti-spacing"> </span>IEEE<span class="heti-spacing"> </span></span>浮点数）所能表示的极限值为：</p>
+<ul>
+<li>最大正值：<span class="arithmatex">\(1.7976931348623157 \times 10^{308}\)</span></li>
+<li>最小正值：<span class="arithmatex">\(2.2250738585072014 \times 10^{-307}\)</span></li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+<p>我们都知道数学函数有定义域和值域，<code>&lt;math.h&gt;</code> 中的函数也有，只是大家平常使用的时候可能不太关注罢了。</p>
+<ul>
+<li>如果函数的输入参数位于定义域外（比如 <code>asin</code> 输入了不在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\([-1, 1]\)</span><span class="heti-spacing"> </span></span>的值<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，会发生定义域错误。</li>
+<li>如果结果不能被表示为 <code>double</code> 值，发生值域错误。上溢返回 <code>HUGE_VAL</code>，下溢返回 <code>0</code>。</li>
+</ul>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">因为我们没有学<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>的错误处理，所以我们不知道怎么捕获这些错误。有兴趣的同学可以学习 <code>&lt;error.h&gt;</code> 中的内容。</p>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="_7">内容<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>宏
+    <div class="highlight"><pre><span></span><code><span class="n">HUGE_VAL</span>
+</code></pre></div></li>
+</ul>
+<!-- prettier-ignore-start -->
+<div class="admonition danger">
+<p class="admonition-title"><span>GCC<span class="heti-spacing"> </span></span>定义的宏</p>
+<div class="highlight"><pre><span></span><code><span class="n">INFINITY</span>
+<span class="n">NAN</span>
+</code></pre></div>
+<p>上面这两个宏起初不在标准库中，由<span class="heti-skip"><span class="heti-spacing"> </span>GCC<span class="heti-spacing"> </span></span>定义。</p>
+<blockquote>
+<p>据说在<span class="heti-skip"><span class="heti-spacing"> </span>C99<span class="heti-spacing"> </span></span>以后，<code>INFINITY</code> 被标准库纳入，我没有查证。</p>
+</blockquote>
+</div>
+<!-- prettier-ignore-end -->
+<ul>
+<li>函数（仅举一些常用的
+    <div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">acos</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">asin</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">atan</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">cos</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">sin</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">tan</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">exp</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">log</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">log10</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">pow</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">sqrt</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">ceil</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">fabs</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">floor</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+</code></pre></div></li>
+</ul>
+<h3 id="_8">使用<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>输入输出全都是 <code>double</code> 类型（注意隐式类型转换带来的影响<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+<li>三角函数均为弧度制。角度到弧度的转换公式为：<span class="arithmatex">\(\theta = \frac{\pi}{180} \times \alpha\)</span>。</li>
+<li>没有 <code>PI</code> 这个宏。<ul>
+<li>可以使用 <code>atan(1)*4</code> 代替。</li>
+<li><span>GCC<span class="heti-spacing"> </span></span>定义了一些数值宏，它们都以 <code>M_</code> 开头，比如 <code>M_PI</code>。它们默认为 <code>double</code> 类型。如果你需要其他精度，可以添加 <code>l</code> 后缀，比如 <code>M_PIl</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="stringh"><code>&lt;string.h&gt;</code><a class="headerlink" href="#stringh" title="Permanent link">¶</a></h2>
+<h3 id="_9">背景知识：字符串<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p><strong>字符串</strong>和<strong>字符数组</strong>一定要区别开来。字符串是以空字符 <code>\0</code> 结尾的字符数组。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"StudyTonight"</span><span class="p">;</span><span class="w">        </span>
+<span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'c'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">'d'</span><span class="p">,</span><span class="sc">'e'</span><span class="p">,</span><span class="sc">'\0'</span><span class="p">};</span><span class="w"> </span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<div class="admonition danger">
+<p class="admonition-title"><code>&lt;string.h&gt;</code> 的函数只负责操作字符串，不负责操作字符数组！</p>
+<p>还记得数组传入函数的时候会退化成指针吗？函数无法获知数组的长度，因此空字符是帮助函数判断字符串结束、避免越界的<strong>唯一方法</strong>。</p>
+<p>当然，<code>strn</code> 系列函数提供了指定长度的参数。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">你能想起哪些东西是字符串吗？</p>
+<ul>
+<li>用双引号引起的字符序列是字符串。编译器会自动添加空字符。</li>
+<li><code>scanf</code> 使用 <code>%s</code> 读取的字符序列是字符串。<code>scanf</code> 会自动添加空字符。</li>
+<li>......</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="_10">内容<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>类型
+    <div class="highlight"><pre><span></span><code><span class="kt">size_t</span>
+</code></pre></div></li>
+<li>宏
+    <div class="highlight"><pre><span></span><code><span class="nb">NULL</span>
+</code></pre></div></li>
+<li>函数<ul>
+<li>复制函数
+    <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memmove</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strcpy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strncpy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</code></pre></div></li>
+<li>连接函数
+    <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strcat</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strncat</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</code></pre></div></li>
+<li>比较函数
+    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">memcmp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">strcmp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">strncmp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</code></pre></div></li>
+<li>查找函数
+    <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memchr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strchr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<span class="c1">// size_t strcspn(const char *s1, const char *s2);</span>
+<span class="c1">// char *strpbrk(const char *s1, const char *s2);</span>
+<span class="c1">// char *strrchr(const char *s, int c);</span>
+<span class="c1">// size_t strspn(const char *s1, const char *s2);</span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strstr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">);</span>
+<span class="c1">// char *strtok(char *s1, const char *s2);</span>
+</code></pre></div></li>
+<li>其他函数
+    <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memset</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="c1">// char *strerror(int errnum);</span>
+<span class="kt">size_t</span><span class="w"> </span><span class="nf">strlen</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">);</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h3 id="_11">使用<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<!-- prettier-ignore-start -->
+<div class="admonition warning">
+<p class="admonition-title">使用前，自己计算字符串长度和剩余空间，这是编程者的责任。或者使用带 <code>n</code> 的函数。</p>
+</div>
+<!-- prettier-ignore-end -->
+<ul>
+<li>有些函数可能返回空指针，记得测试返回的指针。</li>
+</ul>
+<h2 id="stdlibh"><code>&lt;stdlib.h&gt;</code><a class="headerlink" href="#stdlibh" title="Permanent link">¶</a></h2>
+<p>头文件 <code>&lt;stdlib.h&gt;</code> 是一个大杂烩，为了定义和声明那些没有明显归属的宏和函数。我们仅介绍常用的部分：整形数学、算法、文本转换、环境接口和存储分配。</p>
+<h3 id="_12">背景：指针的概念<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>请看<a href="../../../programming/topic/pointers/">指针笔记</a>。</p>
+<p>这里再强调一下声明和 <code>malloc</code> 的区别：</p>
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">你能解释一下声明的时候内存发生了什么变动吗？</p>
+<p>下面的代码段，每一行执行时，发生了什么？有内存被分配吗？</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">q</span><span class="p">;</span>
+<span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
+<span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+</code></pre></div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">有一位同学写出了下面这样错误的代码，你能指出错误吗？</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 一个错误的链表头插入函数</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">create_linked_list</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="p">));</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"请输入节点值（输入-1退出）："</span><span class="p">);</span>
+<span class="w">        </span><span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">data</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">        </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">head</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="_13">内容<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li>宏
+    <div class="highlight"><pre><span></span><code><span class="n">RAND_MAX</span>
+<span class="n">EXIT_FAILURE</span>
+<span class="n">EXIT_SUCCESS</span>
+</code></pre></div></li>
+<li>函数<ul>
+<li>伪随机序列产生函数
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">rand</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">srand</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">seed</span><span class="p">);</span>
+</code></pre></div></li>
+<li>整数算术函数
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="kt">div_t</span><span class="w"> </span><span class="nf">div</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numer</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denom</span><span class="p">);</span>
+<span class="kt">long</span><span class="w"> </span><span class="nf">labs</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<span class="kt">ldiv_t</span><span class="w"> </span><span class="nf">ldiv</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">numer</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">denom</span><span class="p">);</span>
+</code></pre></div></li>
+<li>查找和排序函数
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">bsearch</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">compar</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">));</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">qsort</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">compar</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">));</span>
+</code></pre></div></li>
+<li>文本转换（好用的）
+<div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">atof</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">atoi</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
+<span class="kt">long</span><span class="w"> </span><span class="nf">atol</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
+<span class="kt">double</span><span class="w"> </span><span class="nf">strtod</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">endptr</span><span class="p">);</span>
+<span class="kt">long</span><span class="w"> </span><span class="nf">strtol</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">endptr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">base</span><span class="p">);</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">strtoul</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">endptr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">base</span><span class="p">);</span>
+</code></pre></div></li>
+<li>环境通信（不介绍）
+<div class="highlight"><pre><span></span><code><span class="c1">// void abort(void);</span>
+<span class="c1">// int atexit(void (*func)(void));</span>
+<span class="c1">// void exit(int status);</span>
+<span class="c1">// char *getenv(const char *name);</span>
+<span class="c1">// int system(const char *string);</span>
+</code></pre></div></li>
+<li>内存管理（重难点）
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">calloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">nobj</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">free</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">malloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">realloc</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<!-- prettier-ignore-start -->
+<div class="admonition danger">
+<p class="admonition-title">注意，内存拷贝函数却在 <code>&lt;string.h&gt;</code> 中。</p>
+</div>
+<!-- prettier-ignore-end -->
+<ul>
+<li>类型
+    <div class="highlight"><pre><span></span><code><span class="kt">div_t</span><span class="w"> </span><span class="c1">// int quot, rem;</span>
+<span class="kt">ldiv_t</span><span class="w"> </span><span class="c1">// long quot, rem;</span>
+</code></pre></div></li>
+</ul>
+<h3 id="_14">使用<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li><code>rand</code> 和 <code>srand</code> 用于产生伪随机数。<code>srand</code> 用于设置随机数种子，<code>rand</code> 用于产生随机数。<code>rand</code> 产生的随机数范围是<span><span class="heti-spacing"> </span><span class="arithmatex">\([0, RAND\_MAX]\)</span></span>。</li>
+<li><code>abs</code> 和 <code>labs</code> 用于求绝对值。<code>div</code> 和 <code>ldiv</code> 用于求商和余数。</li>
+<li><code>qsort</code> 的用例：
+    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">cmpfunc</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">b</span><span class="w"> </span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">qsort</span><span class="p">(</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span><span class="w"> </span><span class="n">cmpfunc</span><span class="p">);</span>
+</code></pre></div></li>
+<li>文本转换函数非常好用。你再也不用写这样的代码了（当然 <code>atoi</code> 函数的具体实现要比这复杂得多<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：
+    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">atoi</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">'0'</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li><code>malloc</code> 记得参数是<strong>字节数</strong>，千万记得乘上 <code>sizeof</code>。为了防止自己忘记，也可以坚持使用 <code>calloc</code>。且它会自动初始化内存为<span><span class="heti-spacing"> </span>0</span>。</li>
+<li><code>realloc</code> 相当于结合了 <code>malloc</code>、<code>memcpy</code> 和 <code>free</code> 的功能。</li>
+</ul>
 <h2 id="stdioh"><code>&lt;stdio.h&gt;</code><a class="headerlink" href="#stdioh" title="Permanent link">¶</a></h2>
 <!-- prettier-ignore-start -->
 <div class="admonition warning">
@@ -1029,7 +1461,7 @@
 <p>这边列出了文件输入输出的内容，给大家复习的时候参考用。咱们这节课不讲。</p>
 </div>
 <!-- prettier-ignore-end -->
-<h3 id="_6">背景知识：流<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_15">背景知识：流<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <!-- prettier-ignore-start -->
 <details class="info">
 <summary>背景故事：早期计算机混乱的输入输出模型</summary>
@@ -1037,7 +1469,7 @@
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>Ken Thompson<span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>设计统一的内部文本形式前，文本表示也是十分混乱的。结束一行是使用回车还是回车加换行，还是换行符，还是更神奇的字符？终端能不能识别和展开制表符？怎样用键盘标志文件结束？<strong>这些问题的答案和终端的生产厂商一样多</strong>。<span>UNIX<span class="heti-spacing"> </span></span>使用系统调用 <code>ioctl</code> 来设置一个设备的各种参数，负责<strong>对内部换行约定和各种终端之间的需要转换的字符进行处理</strong>。</p>
 </details>
 <!-- prettier-ignore-end -->
-<h4 id="_7">流的概念<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_16">流的概念<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>各种输入输出设备实在是太多了（终端、磁带驱动器、结构化存储设备<span><span class="heti-spacing"> </span>......</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。为了统一概念，<span>C<span class="heti-spacing"> </span></span>语言中的输入和输出设备全都和逻辑数据<strong>流</strong>相对应。</p>
 <!-- prettier-ignore-start -->
 <div class="admonition note">
@@ -1046,7 +1478,7 @@
 </div>
 <!-- prettier-ignore-end -->
 <p><strong>流</strong>关联到一个特定的文件。</p>
-<h4 id="_8">操作系统中的文件<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_17">操作系统中的文件<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>计算机系统中的文件可以分为两类：</p>
 <ul>
 <li>文本文件：如果一个文件中的二进制值都是用来表示字符的，那么这个文件就是文本文件。</li>
@@ -1088,7 +1520,7 @@
 </ul>
 </div>
 <!-- prettier-ignore-end -->
-<h4 id="_9">流的类型<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<h4 id="_18">流的类型<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><span>C<span class="heti-spacing"> </span></span>语言提供两种流：文本流和二进制流。</p>
 <ul>
 <li>文本流：程序所见的内容可能和实际内容不同。如果将文件以文本模式打开，那么在读取文件时，会把本地环境表示的换行符或文件结尾映射为<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中的 <code>\n</code> 和 <code>EOF</code>。</li>
@@ -1110,7 +1542,7 @@ to her heaving bosom.\n
 </code></pre></div>
 </div>
 <!-- prettier-ignore-end -->
-<h3 id="_10">内容<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_19">内容<a class="headerlink" href="#_19" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>类型
     <div class="highlight"><pre><span></span><code><span class="kt">size_t</span>
@@ -1186,7 +1618,7 @@ to her heaving bosom.\n
 </ul>
 </li>
 </ul>
-<h3 id="_11">使用<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h3 id="_20">使用<a class="headerlink" href="#_20" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>以下是课内内容，仅列出，不做详细介绍：</p>
 <ul>
 <li><code>printf</code><span>/<span class="heti-spacing"> </span></span><code>scanf</code>这几个格式化输入<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>输出函数的使用。</li>
@@ -1295,7 +1727,7 @@ to her heaving bosom.\n
 </ul>
 </div>
 <details class="note">
-<summary>文件定位</summary>
+<summary>文件定位（不做介绍）</summary>
 <ul>
 <li>三种修改文件定位符的可能：<ul>
 <li><code>ungetc</code> 将字符退回流中（不要在<span class="heti-skip"><span class="heti-spacing"> </span>PTA<span class="heti-spacing"> </span></span>等<span class="heti-skip"><span class="heti-spacing"> </span>OJ<span class="heti-spacing"> </span></span>系统上使用！不要在生产环境中使用<heti-adjacent class="heti-adjacent-half">！</heti-adjacent><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。总之，就是不建议碰这个东西。</li>
@@ -1306,15 +1738,12 @@ to her heaving bosom.\n
 </ul>
 </details>
 <!-- prettier-ignore-end -->
-<h2 id="stringh"><code>&lt;string.h&gt;</code><a class="headerlink" href="#stringh" title="Permanent link">¶</a></h2>
-<h2 id="stdlibh"><code>&lt;stdlib.h&gt;</code><a class="headerlink" href="#stdlibh" title="Permanent link">¶</a></h2>
-<h2 id="mathh"><code>&lt;math.h&gt;</code><a class="headerlink" href="#mathh" title="Permanent link">¶</a></h2>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 24, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 26, 2023</span>
 </small>
 </div>
 </article>
@@ -1344,7 +1773,7 @@ to her heaving bosom.\n
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+<script src="../../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
 <script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
