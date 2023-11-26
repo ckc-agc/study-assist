@@ -7,7 +7,7 @@
 <meta content="竺可桢学院学业指导中心" name="author"/>
 <link href="https://ckc-agc.pages.zjusct.io/study-assist/programming/2024_daily_problem/" rel="canonical"/>
 <link href="../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.4.13" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.14" name="generator"/>
 <title>C Programming Daily Problem - 浙江大学竺可桢学院辅学计划站点</title>
 <link href="../../assets/stylesheets/main.fad675c6.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
@@ -662,14 +662,10 @@ h5:before {content: unset;}
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>A. <code>I love cats!\n</code><br/>
-<code>\n</code></p>
-<p>B.<code>\n</code><br/>
-<code>\n</code></p>
-<p>C. <code>\n</code><br/>
-<code>I love cats!\n</code></p>
-<p>D. <code>I love cats!\n</code><br/>
-<code>I love cats!\n</code></p>
+<p>A. <code>I love cats!\n\n</code></p>
+<p>B. <code>\n\n</code></p>
+<p>C. <code>\nI love cats!\n</code></p>
+<p>D. <code>I love cats!\nI love cats!\n</code></p>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -678,6 +674,9 @@ h5:before {content: unset;}
 <p>You may think that the problem can be solved by simply deleting the line <code>s3 = malloc(len1 + len2 + 1);</code>. However, this will cause another problem. <code>s3</code> is initialized as an empty string, which means that it is a pointer to a <code>char</code> array with only one element, the null character <code>\0</code>. The memory allocated for <code>s3</code> is not enough to store the concatenated string. Therefore, this will cause a buffer overflow.</p>
 </details>
 <!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：梅敏炫</p>
+</blockquote>
 <h3 id="24-pointer-array">「24」 Pointer Array<a class="headerlink" href="#24-pointer-array" title="Permanent link">¶</a></h3>
 <p>The output of the following code fragment is <strong>__</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
