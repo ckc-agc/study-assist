@@ -7,10 +7,6 @@
 </style>
 
 <!-- prettier-ignore-start -->
-!!! danger "施工中"
-
-    本页面正在编辑中。
-
 !!! abstract "摘要"
 
     考虑到课程教学进度，本节课不再讲解 C 标准库的实现。

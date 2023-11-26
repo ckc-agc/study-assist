@@ -40,17 +40,13 @@ int main() {
 }
 ```
 
-A. `I love cats!\n`  
-`\n`
+A. `I love cats!\n\n`
 
-B.`\n`  
-`\n`
+B. `\n\n`
 
-C. `\n`  
-`I love cats!\n`
+C. `\nI love cats!\n`
 
-D. `I love cats!\n`  
-`I love cats!\n`
+D. `I love cats!\nI love cats!\n`
 
 <!-- prettier-ignore-start -->
 ??? note "Answer"
@@ -62,6 +58,8 @@ D. `I love cats!\n`
     You may think that the problem can be solved by simply deleting the line `s3 = malloc(len1 + len2 + 1);`. However, this will cause another problem. `s3` is initialized as an empty string, which means that it is a pointer to a `char` array with only one element, the null character `\0`. The memory allocated for `s3` is not enough to store the concatenated string. Therefore, this will cause a buffer overflow.
 
 <!-- prettier-ignore-end -->
+
+> 供题人：梅敏炫
 
 ### 「24」 Pointer Array
 
