@@ -12,9 +12,60 @@ h5:before {content: unset;}
 
 ## November
 
-### 「24」 Pointer Array
+### 「25」 I Love Strcat!
 
 The following code fragment prints out **\_\_**.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void my_strcat(char *s1, char *s2, char *s3) {
+    size_t len1 = strlen(s1);
+    size_t len2 = strlen(s2);
+    s3 = malloc(len1 + len2 + 1);
+    memcpy(s3, s1, len1);
+    memcpy(s3 + len1, s2, len2);
+    s3[len1 + len2] = 0;
+    printf("%s\n", s3);
+}
+
+int main() {
+    char s1[] = "I love ";
+    char s2[] = "cats!";
+    char s3[] = "";
+    my_strcat(s1, s2, s3);
+    printf("%s\n", s3);
+}
+```
+
+A. `I love cats!\n`  
+`\n`
+
+B.`\n`  
+`\n`
+
+C. `\n`  
+`I love cats!\n`
+
+D. `I love cats!\n`  
+`I love cats!\n`
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    `A`.
+
+    The function `my_strcat` is supposed to concatenate `s1` and `s2` and store the result in `s3`. However, the function does not work as expected. The problem lies in the line `s3 = malloc(len1 + len2 + 1);`. The function `my_strcat` takes `s3` as a parameter, which is a pointer to a `char` array. When the function is called, the value of `s3` is copied to the function's local variable `s3`. Therefore, the `malloc` function allocates memory for the local variable `s3`, not the original `s3` in `main`. The memory allocated for the local variable `s3` is not used after the function returns, so it is a memory leak. The original `s3` in `main` is not modified, so it is still an empty string.
+
+    You may think that the problem can be solved by simply deleting the line `s3 = malloc(len1 + len2 + 1);`. However, this will cause another problem. `s3` is initialized as an empty string, which means that it is a pointer to a `char` array with only one element, the null character `\0`. The memory allocated for `s3` is not enough to store the concatenated string. Therefore, this will cause a buffer overflow.
+
+<!-- prettier-ignore-end -->
+
+### 「24」 Pointer Array
+
+The output of the following code fragment is **\_\_**.
 
 ```c
 #include <stdio.h>
