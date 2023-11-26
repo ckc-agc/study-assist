@@ -1,5 +1,11 @@
 # C 标准库
 
+<style>
+    code {
+      white-space : pre-wrap !important;
+    }
+</style>
+
 <!-- prettier-ignore-start -->
 !!! danger "施工中"
 
@@ -203,6 +209,8 @@ ASCII 字符集中的数字和字母大家应该都很熟了，这边再对两�
         #define MEAN(X, Y) (((X) + (Y)) / 2)
         ```
 
+        那么只要编译器看到代码中有 `MEAN` 后跟一个圆括号，就会开始匹配和替换。比如，`MEAN(1, 2)` 将被替换为 `(((1) + (2)) / 2)`、`MEAN(a, b)` 将被替换为 `(((a) + (b)) / 2)`。
+
 !!! question "🤚停一停，先别看下面的内容。思考一下，你会怎么实现上面的那些函数？"
 
     你会不会在想这样的代码：
@@ -222,11 +230,18 @@ ASCII 字符集中的数字和字母大家应该都很熟了，这边再对两�
 -   虽然宏可能比函数快，但是它们通常会产生更大的代码。如果在很多地方扩展，这个程序可能大到让你无法想象。
 -   宏的参数可能会被求值多次，具有副作用的宏参数会导致意外。
     <!-- prettier-ignore-start -->
+    !!! example "举个例子"
+
+        ```c
+        #define SQUARE(X) ((X) * (X))
+        SQUARE(x++); // x++ * x++        
+        ```
+
+        使用者以为它只会让 `x` 自增一次，但是实际上它会让 `x` 自增两次。
 
     !!! warning "会产生不安全行为的宏"
 
         标准库中，只有 `getc` 和 `putc` 可能会产生这种不安全行为。
-
     <!-- prettier-ignore-end -->
 
 `<ctype.h>` 中定义了一个查找表 `_Ctype`，两个映射表 `_Tolower` 和 `_Toupper`。每个字符都被编入查找表中，使用位运算就能判断出字符的类型。
@@ -277,7 +292,286 @@ int isalnum(int c)
 ::/cards::
 <!-- prettier-ignore-end -->
 
-非常地简单，对吧？这可比 `'a' <= c && c <= 'z'` 这样的判断要快得多。于是我们学完了 `<ctype.h>` 的实现。
+非常地简单，对吧？这可比 `'a' <= c && c <= 'z'` 这样的判断要快得多。
+
+## `<math.h>`
+
+### 背景知识：函数的定义域与值域
+
+<!-- prettier-ignore-start -->
+!!! question "还记得 `double` 表示的范围吗？"
+
+    ![](graph/float_range.png)
+
+    从上图你可以看到，浮点数所能表示的数值，实际上是数轴上的一个个点。毕竟只有 64 个 bit 嘛，只能编码有限个点。
+
+    `double` 类型（8 字节 IEEE 浮点数）所能表示的极限值为：
+
+    -   最大正值：$1.7976931348623157 \times 10^{308}$
+    -   最小正值：$2.2250738585072014 \times 10^{-307}$
+<!-- prettier-ignore-end -->
+
+我们都知道数学函数有定义域和值域，`<math.h>` 中的函数也有，只是大家平常使用的时候可能不太关注罢了。
+
+-   如果函数的输入参数位于定义域外（比如 `asin` 输入了不在 $[-1, 1]$ 的值），会发生定义域错误。
+-   如果结果不能被表示为 `double` 值，发生值域错误。上溢返回 `HUGE_VAL`，下溢返回 `0`。
+
+<!-- prettier-ignore-start -->
+!!! info "因为我们没有学 C 的错误处理，所以我们不知道怎么捕获这些错误。有兴趣的同学可以学习 `<error.h>` 中的内容。"
+<!-- prettier-ignore-end -->
+### 内容
+
+-   宏
+    ```c
+    HUGE_VAL
+    ```
+<!-- prettier-ignore-start -->
+!!! danger "GCC 定义的宏"
+    
+    ```c
+    INFINITY
+    NAN
+    ```
+
+    上面这两个宏起初不在标准库中，由 GCC 定义。
+    
+    > 据说在 C99 以后，`INFINITY` 被标准库纳入，我没有查证。
+<!-- prettier-ignore-end -->
+-   函数（仅举一些常用的
+    ```c
+    double acos(double x);
+    double asin(double x);
+    double atan(double x);
+    double cos(double x);
+    double sin(double x);
+    double tan(double x);
+    double exp(double x);
+    double log(double x);
+    double log10(double x);
+    double pow(double x, double y);
+    double sqrt(double x);
+    double ceil(double x);
+    double fabs(double x);
+    double floor(double x);
+    ```
+
+### 使用
+
+-   输入输出全都是 `double` 类型（注意隐式类型转换带来的影响）。
+-   三角函数均为弧度制。角度到弧度的转换公式为：$\theta = \frac{\pi}{180} \times \alpha$。
+-   没有 `PI` 这个宏。
+    -   可以使用 `atan(1)*4` 代替。
+    -   GCC 定义了一些数值宏，它们都以 `M_` 开头，比如 `M_PI`。它们默认为 `double` 类型。如果你需要其他精度，可以添加 `l` 后缀，比如 `M_PIl`。
+
+## `<string.h>`
+
+### 背景知识：字符串
+
+**字符串**和**字符数组**一定要区别开来。字符串是以空字符 `\0` 结尾的字符数组。
+
+```c
+char name[13] = "StudyTonight";        
+char name[10] = {'c','o','d','e','\0'}; 
+```
+
+<!-- prettier-ignore-start -->
+!!! danger "`<string.h>` 的函数只负责操作字符串，不负责操作字符数组！"
+
+    还记得数组传入函数的时候会退化成指针吗？函数无法获知数组的长度，因此空字符是帮助函数判断字符串结束、避免越界的**唯一方法**。
+
+    当然，`strn` 系列函数提供了指定长度的参数。
+
+!!! question "你能想起哪些东西是字符串吗？"
+
+    -   用双引号引起的字符序列是字符串。编译器会自动添加空字符。
+    -   `scanf` 使用 `%s` 读取的字符序列是字符串。`scanf` 会自动添加空字符。
+    -   ......
+<!-- prettier-ignore-end -->
+
+### 内容
+
+-   类型
+    ```c
+    size_t
+    ```
+-   宏
+    ```c
+    NULL
+    ```
+-   函数
+    -   复制函数
+        ```c
+        void *memcpy(void *dest, const void *src, size_t n);
+        void *memmove(void *dest, const void *src, size_t n);
+        char *strcpy(char *dest, const char *src);
+        char *strncpy(char *dest, const char *src, size_t n);
+        ```
+    -   连接函数
+        ```c
+        char *strcat(char *dest, const char *src);
+        char *strncat(char *dest, const char *src, size_t n);
+        ```
+    -   比较函数
+        ```c
+        int memcmp(const void *s1, const void *s2, size_t n);
+        int strcmp(const char *s1, const char *s2);
+        int strncmp(const char *s1, const char *s2, size_t n);
+        ```
+    -   查找函数
+        ```c
+        void *memchr(const void *s, int c, size_t n);
+        char *strchr(const char *s, int c);
+        // size_t strcspn(const char *s1, const char *s2);
+        // char *strpbrk(const char *s1, const char *s2);
+        // char *strrchr(const char *s, int c);
+        // size_t strspn(const char *s1, const char *s2);
+        char *strstr(const char *s1, const char *s2);
+        // char *strtok(char *s1, const char *s2);
+        ```
+    -   其他函数
+        ```c
+        void *memset(void *s, int c, size_t n);
+        // char *strerror(int errnum);
+        size_t strlen(const char *s);
+        ```
+
+### 使用
+
+<!-- prettier-ignore-start -->
+!!! warning "使用前，自己计算字符串长度和剩余空间，这是编程者的责任。或者使用带 `n` 的函数。"
+<!-- prettier-ignore-end -->
+
+-   有些函数可能返回空指针，记得测试返回的指针。
+
+## `<stdlib.h>`
+
+头文件 `<stdlib.h>` 是一个大杂烩，为了定义和声明那些没有明显归属的宏和函数。我们仅介绍常用的部分：整形数学、算法、文本转换、环境接口和存储分配。
+
+### 背景：指针的概念
+
+请看[指针笔记](../../programming/topic/pointers.md)。
+
+这里再强调一下声明和 `malloc` 的区别：
+
+<!-- prettier-ignore-start -->
+!!! question "你能解释一下声明的时候内存发生了什么变动吗？"
+
+    下面的代码段，每一行执行时，发生了什么？有内存被分配吗？
+
+    ```c
+    int p;
+    int *q;
+    q = &p;
+    q = (int *)malloc(sizeof(int));
+    ```
+!!! question "有一位同学写出了下面这样错误的代码，你能指出错误吗？"
+
+    ```c
+    // 一个错误的链表头插入函数
+    struct Node* create_linked_list() {
+        struct Node* head = NULL;
+        struct Node* current = (struct Node*)malloc(sizeof(struct Node));
+        while (1) {
+            int data;
+            printf("请输入节点值（输入-1退出）：");
+            scanf("%d", &data);
+            if (data == -1) {
+                break;
+            }
+            current->data = data;
+            current->next = NULL;
+            if (head == NULL) {
+                head = current;
+            } else {
+                head->next = current;
+            }
+        }
+        return head;
+    }
+    ```
+<!-- prettier-ignore-end -->
+
+### 内容
+
+-   宏
+    ```c
+    RAND_MAX
+    EXIT_FAILURE
+    EXIT_SUCCESS
+    ```
+-   函数
+    -   伪随机序列产生函数
+    ```c
+    int rand(void);
+    void srand(unsigned int seed);
+    ```
+    -   整数算术函数
+    ```c
+    int abs(int n);
+    div_t div(int numer, int denom);
+    long labs(long n);
+    ldiv_t ldiv(long numer, long denom);
+    ```
+    -   查找和排序函数
+    ```c
+    void *bsearch(const void *key, const void *base, size_t n, size_t size, int (*compar)(const void *, const void *));
+    void qsort(void *base, size_t n, size_t size, int (*compar)(const void *, const void *));
+    ```
+    -   文本转换（好用的）
+    ```c
+    double atof(const char *str);
+    int atoi(const char *str);
+    long atol(const char *str);
+    double strtod(const char *str, char **endptr);
+    long strtol(const char *str, char **endptr, int base);
+    unsigned long strtoul(const char *str, char **endptr, int base);
+    ```
+    -   环境通信（不介绍）
+    ```c
+    // void abort(void);
+    // int atexit(void (*func)(void));
+    // void exit(int status);
+    // char *getenv(const char *name);
+    // int system(const char *string);
+    ```
+    -   内存管理（重难点）
+    ```c
+    void *calloc(size_t nobj, size_t size);
+    void free(void *ptr);
+    void *malloc(size_t size);
+    void *realloc(void *ptr, size_t size);
+    ```
+<!-- prettier-ignore-start -->
+!!! danger "注意，内存拷贝函数却在 `<string.h>` 中。"
+<!-- prettier-ignore-end -->
+-   类型
+    ```c
+    div_t // int quot, rem;
+    ldiv_t // long quot, rem;
+    ```
+
+### 使用
+
+-   `rand` 和 `srand` 用于产生伪随机数。`srand` 用于设置随机数种子，`rand` 用于产生随机数。`rand` 产生的随机数范围是 $[0, RAND\_MAX]$。
+-   `abs` 和 `labs` 用于求绝对值。`div` 和 `ldiv` 用于求商和余数。
+-   `qsort` 的用例：
+    ```c
+    int cmpfunc (const void * a, const void * b) {
+        return ( *(int*)a - *(int*)b );
+    }
+    qsort(values, 5, sizeof(int), cmpfunc);
+    ```
+-   文本转换函数非常好用。你再也不用写这样的代码了（当然 `atoi` 函数的具体实现要比这复杂得多）：
+    ```c
+    int atoi(char *str) {
+        int res = 0;
+        for (int i = 0; str[i] != '\0'; ++i)
+            res = res * 10 + str[i] - '0';
+        return res;
+    }
+    ```
+-   `malloc` 记得参数是**字节数**，千万记得乘上 `sizeof`。为了防止自己忘记，也可以坚持使用 `calloc`。且它会自动初始化内存为 0。
+-   `realloc` 相当于结合了 `malloc`、`memcpy` 和 `free` 的功能。
 
 ## `<stdio.h>`
 
@@ -518,16 +812,10 @@ C 语言提供两种流：文本流和二进制流。
         -   异常：返回 `EOF`
 
 
-??? note "文件定位"
+??? note "文件定位（不做介绍）"
 
     - 三种修改文件定位符的可能：
         - `ungetc` 将字符退回流中（不要在 PTA 等 OJ 系统上使用！不要在生产环境中使用！）。总之，就是不建议碰这个东西。
         - `fseek`、`ftell`、`rewind`：较老的传统的文件定位函数
         - `fgetpos`、`fsetpos`、`rewind`：任意大小、结构的文件，使用 `fpos_t` 类型，它不能进行任何计算。
 <!-- prettier-ignore-end -->
-
-## `<string.h>`
-
-## `<stdlib.h>`
-
-## `<math.h>`

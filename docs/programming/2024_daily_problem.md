@@ -12,7 +12,7 @@ h5:before {content: unset;}
 
 ## November
 
-### 「24」 
+### 「24」 Pointer Array
 
 The following code fragment prints out **\_\_**.
 
@@ -187,7 +187,7 @@ printf("%d\n", y << 1 - 1 > 2 || !(x++ > --y) ? x : y);
 
 > 供题人：徐若禺
 
-### 「27」 Or in Switch
+### 「27」 Or in `switch`
 
 What will happen when compiling and executing the following code fragment with input `5`?
 
@@ -292,7 +292,7 @@ printf ("the ok_maximum is %d", l);
 
 > 供题人：郑涵文
 
-### 「24」 Nested Switch, Confusing Default and Break
+### 「24」 Nested `switch`, Confusing `default` and `break`
 
 After executing the following code fragment, the output should be **\_\_**.
 
@@ -494,7 +494,7 @@ printf("%d is a prime\n", d);
 
 > 供题人：李英琦
 
-### 「18」 Bad if-else
+### 「18」 Bad `if`-`else`
 
 After executing the following code fragment, the output is **\_\_**.
 
