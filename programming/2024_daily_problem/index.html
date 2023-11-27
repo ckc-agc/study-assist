@@ -493,6 +493,13 @@
 <nav aria-label="November" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#26-broken-strcpy">
+<span class="md-ellipsis">
+      「26」 Broken strcpy()
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#25-i-love-strcat">
 <span class="md-ellipsis">
       「25」 I Love Strcat!
@@ -638,6 +645,40 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="november">November<a class="headerlink" href="#november" title="Permanent link">¶</a></h2>
+<h3 id="26-broken-strcpy">「26」 Broken <code>strcpy()</code><a class="headerlink" href="#26-broken-strcpy" title="Permanent link">¶</a></h3>
+<p>Does this <code>strcpy()</code> implementation do its job?</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">my_strcpy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="o">*</span><span class="n">s</span><span class="o">++</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">t</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<p>No, it's broken. This implementation does not terminate the string pointed to by <code>s</code>. To correctly copy a string, the character used in assignment must be the same character used in loop condition.</p>
+<p>What does that mean? Suppose <code>t = "Hello"</code>, then:</p>
+<ul>
+<li><code>*t</code> is <code>'H'</code>, and is assigned to <code>*s</code>.</li>
+<li><code>s</code> and <code>t</code> increment.</li>
+<li><code>*t</code>, now being <code>'e'</code>, is used to evaluate the <code>while</code> condition.</li>
+<li>... this process repeats until <code>t</code> points to <code>'o'</code> and is assigned to <code>*s</code>.</li>
+<li><code>s</code> and <code>t</code> increment.</li>
+<li><code>*t</code>, now being <code>'\0'</code>, is used to evaluate the <code>while</code> condition. The loop ends.</li>
+</ul>
+<p>See the problem? The null byte <code>'\0'</code> is not copied to <code>s</code>, therefore it's left unterminated. Any attempt to use <code>s</code> as a string will result in undefined behavior.</p>
+<p>Worse still, what happens if <code>t</code> is an empty string i.e. <code>t = ""</code>?</p>
+<ul>
+<li><code>'\0'</code> is assigned to <code>*s</code>.</li>
+<li><code>s</code> and <code>t</code> increment. <code>t</code> gets past its end.</li>
+<li>Now we have a memory out-of-bounds. Accessing <code>*t</code> is undefined behavior.</li>
+<li>And it keeps copying garbage values until some arbitrary <code>'\0'</code>, or it goes too far and causes a segmentation fault.</li>
+</ul>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：李英琦</p>
+</blockquote>
 <h3 id="25-i-love-strcat">「25」 I Love Strcat!<a class="headerlink" href="#25-i-love-strcat" title="Permanent link">¶</a></h3>
 <p>The following code fragment prints out <strong>__</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -1154,7 +1195,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 26, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 27, 2023</span>
 </small>
 </div>
 </article>
