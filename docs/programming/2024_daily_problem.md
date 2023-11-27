@@ -12,6 +12,38 @@ h5:before {content: unset;}
 
 ## November
 
+### 「27」 I Love `scanf`!
+
+After entering the following inputs, does the program operate normally? If it does, what should be the output?
+
+```c
+int a;
+char c1, c2;
+char s[7];
+scanf("%d%c %c%s\n", &a, &c1, &c2, s);
+printf("%d#%c#%c#%s", a, c1, c2, s);
+```
+
+```bash
+#input: there is no space after the last character
+20231127
+ ckc-agc
+daily_problem
+```
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    The program operates normally and the output is:
+
+    ```text
+    20231127#
+    #c#kc-agc
+    ```
+
+    The `scanf` function reads input from the standard input stream, which is usually the keyboard. The format string of `scanf` is `"%d%c %c%s\n"`. The first `%d` matches the integer `20231127`, the second `%c` matches the character `'\n'` because `%c` won't miss any character including `' '` and `'\n'`. The space in formatting string will ignore every blank character, so the third `%c` matches the character `'c'`, and the fourth `%s` matches the string `"kc-agc"`, whose length is 7. When you print `\n` after line2,  `scanf` will not stop, because `'\n'` in formatting string will ignore every blank character. So until you enter a non-blank character and use enter to send it to the program from buffer, `scanf` will stop.
+
+<!-- prettier-ignore-end -->
+
 ### 「26」 Broken `strcpy()`
 
 Does this `strcpy()` implementation do its job?
