@@ -740,27 +740,27 @@
 <!-- prettier-ignore-start -->
 <details class="example" open="open">
 <summary>案例：交换函数</summary>
-<p>假设 <code>fake_swap</code> 函数定义如下：
-</p><div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">fake_swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<p>假设 <code>fake_swap</code> 函数定义如下：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">fake_swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
 <span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>调用部分如下：
-</p><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<p>调用部分如下：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="n">fake_swap</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </code></pre></div>
 <p>在调用 <code>fake_swap</code> 函数后检查 <code>a</code>、<code>b</code> 的值，可发现它们的值并没有交换。这是因为，调用 <code>fake_swap</code> 函数时，实参 <code>a</code>、<code>b</code> 的值被复制给形参 <code>x</code>、<code>y</code>，函数仅修改了形参的值，并未影响函数外部的实参。</p>
-<p>现在，我们将 <code>fake_swap</code> 函数修改为：
-</p><div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<p>现在，我们将 <code>fake_swap</code> 函数修改为：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
 <span class="w">    </span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
 <span class="w">    </span><span class="o">*</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>调用部分如下：
-</p><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<p>调用部分如下：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="n">swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
 </code></pre></div>
 <p>在调用 <code>swap</code> 函数后检查 <code>a</code>、<code>b</code> 的值，可发现它们的值已经交换。这是因为，调用 <code>swap</code> 函数时，实参 <code>a</code>、<code>b</code> 的地址被复制给形参 <code>x</code>、<code>y</code>，也就是说，<code>x</code>、<code>y</code> 分别指向 <code>a</code>、<code>b</code>。函数修改了 <code>x</code>、<code>y</code> 指向对象的值，也就是 <code>a</code>、<code>b</code> 的值，因此虽然 <code>a</code>、<code>b</code> 在函数外部，但它们的值已被成功修改。</p>
@@ -820,7 +820,7 @@
 <!-- prettier-ignore-start -->
 <details class="example" open="open">
 <summary>案例：通过指针访问多维数组元素</summary>
-<p>根据<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准规定，表达式 <code>a[i][j]</code> 与表达式 <code>*(*(a + i) + j)</code> 等价。不过，后者的求值过程相比前者更加抽象。下面，我们将以此为例逐步分析其求值过程。</p>
+<p>根据<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准规定，不难推断出表达式 <code>a[i][j]</code> 与表达式 <code>*(*(a + i) + j)</code> 等价。不过，后者的求值过程相比前者更加抽象。下面，我们将以此为例逐步分析其求值过程。</p>
 <ol>
 <li>
 <p>假设 <code>a</code> 的类型为 <code>int [2][3]</code>。我们知道，此处数组 <code>a</code> 会被隐式转换为 <code>int (*)[3]</code> 类型的指针。回忆一下指针与整数的加减法运算，<code>p + i</code> 并非简单地将指针 <code>p</code> 的值增加 <code>i</code> 字节，而是增加 <code>i</code> 个 <code>int [3]</code> 类型对象的长度，即 <code>i * sizeof(int [3])</code> 字节。</p>
@@ -850,26 +850,60 @@
 </div>
 <!-- prettier-ignore-end -->
 <h4 id="_14">字符串<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>我们知道，<span>C<span class="heti-spacing"> </span></span>语言中的字符串实际上是一个空字符（称为<strong>中止字符</strong>）结尾的字符数组。因此，上一小节的讨论同样适用于这一小节。下面，我们将专注于字符串特有的部分。</p>
-<p>与数组初始化不同的是，我们可以使用字符串字面量完成对字符数组的初始化。举例来说，语句 <code>char str[] = "abc";</code> 声明了一个长度为<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>的字符数组 <code>str</code>，并将其元素的值分别设为 <code>'a'</code>、<code>'b'</code>、<code>'c'</code> 与 <code>'\0'</code>。其中，<code>'\0</code> 代表<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码值为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>的字符，也即空字符。</p>
+<p>我们知道，<span>C<span class="heti-spacing"> </span></span>语言中的字符串实际上是一个空字符（称为<strong>中止字符</strong>）结尾的字符数组。因此，上一小节的讨论同样适用于这一小节。</p>
+<p>由于字符串同时具有数组的属性，讨论与内存空间有关的概念与操作时，为避免混淆，我们将数组对象占用的字节数称为其<em>大小</em>，将实际组成字符串的字符数称为其<em>长度</em>。一个直观理解是，字符串的大小计入中止字符，而其长度不计入。</p>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中，我们可以使用<strong>字符串字面量</strong>表示一个字符串。字符串字面量是由一对 <code>"</code> 包围的任意长度的字符序列，其中的字符可以是一般字符或转义字符，如 <code>"abc"</code>、<code>"x y\nz"</code>、<code>""</code>。字符串字面量的末尾隐式包含中止字符。举例来说，<code>""</code> 代表大小为<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>的字符数组，它的唯一元素为 <code>'\0'</code>。</p>
+<!-- prettier-ignore-start -->
+<details class="- info">
+<summary>含空字符的字符串字面量</summary>
+<p>若字符串字面量的字符序列内包含空字符，则它表示含有多于一条字符串的数组。举例来说，对于字符串字面量 <code>"abc\0"</code>，它包含 <code>"abc"</code> 和 <code>""</code> 两个字符串。</p>
+<p>你可以通过 <code>sizeof</code> 运算符和 <code>strlen</code> 函数验证程序行为。</p>
+</details>
+<!-- prettier-ignore-end -->
+<p>字符串字面量的类型为 <code>char [N]</code>，其中 <code>N</code> 是字符串的大小，包括隐式的中止字符。显然，字符串字面量也遵守数组到指针的隐式转换规则。</p>
 <!-- prettier-ignore-start -->
 <div class="admonition warning">
-<p class="admonition-title">使用字符串字面量初始化</p>
-<p>数组与指针均可通过字符串字面量进行初始化，但是它们的语义不同。初始化数组时，字符串字面量的内容会被复制到数组中，之后可修改数组中存放的字符串；而初始化指针时，它会指向通字符串字面量创建的字符串常量，此时尝试通过指针修改字符串会导致程序错误。</p>
+<p class="admonition-title">尝试修改字符串字面量</p>
+<p>虽然字符串字面量的类型没有指定为 <code>const</code>，但它实际上也是常量。<strong>尝试修改字符串字面量是未定义行为。</strong>一般而言，字符串字面量的内容会被放入只读内存中，因此尝试修改会导致程序错误。</p>
 </div>
 <!-- prettier-ignore-end -->
-<p>由于字符串操作十分常见却又相对复杂，我们往往将这些操作封装为函数，以便重复使用。作为函数参数传递时，数组会退化为指针，长度信息将会丢失。可以想到，字符串末尾的空字符正是为这种情形设计的。</p>
+<!-- prettier-ignore-start -->
+<details class="example" open="open">
+<summary>字符串字面量的未退化情形</summary>
+<p>考虑如下程序片段：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"abc"</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%llu %llu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="s">"abc"</span><span class="p">),</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+</code></pre></div>
+<p>它将会输出 <code>4 8</code>。这是因为，此时字符串字面量 <code>"abc"</code> 被作为 <code>sizeof</code> 的操作数，不会退化为指针，因此表达式 <code>sizeof("abc")</code> 的结果是字符串数组的大小。</p>
+</details>
+<!-- prettier-ignore-end -->
+<p>不难想到，我们可以使用字符串字面量初始化数组，其效果相当于使用对应的字符数组常量初始化。与一般的数组初始化类似，数组长度可由初始化器隐式指定。举例来说，语句 <code>char str[] = "abc";</code> 等价于语句 <code>char str[] = {'a', 'b', 'c', '\0'};</code>，它声明并初始化了一个长度为<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>的字符数组 <code>str</code>。</p>
+<p>数组的大小可以比字符串字面量的大小少<span><span class="heti-spacing"> </span>1</span>，此时<strong>中止字符将被忽略</strong>。举例来说，语句 <code>char str[3] = "abc";</code> 等价于语句 <code>char str[3] = {'a', 'b', 'c'};</code>。</p>
+<!-- prettier-ignore-start -->
+<details class="example" open="open">
+<summary>案例：错误的字符数组初始化</summary>
+<p>考虑如下程序片段：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"abc"</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">backdoor</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"xyz"</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span>
+</code></pre></div>
+<p>它将会输出 <code>abcxyz</code>。这是因为，字符串字面量 <code>"abc"</code> 的大小 <code>str</code> 的大小大<span><span class="heti-spacing"> </span>1</span>，初始化时中止字符被忽略，<code>str</code> 最终被初始化为 <code>{'a', 'b', 'c'}</code>。将其视为字符串并输出时，由于 <code>str</code> 内不含中止字符，输出函数将会继续访问 <code>str</code> 后的内存地址，即出现数组访问越界问题。</p>
+<p>由于<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准并未对字面量的内存排布作任何规定，在不同环境下字符串常量 <code>backdoor</code> 的内存地址可能位于 <code>str</code> 的内存地址之前。你可以尝试改变声明顺序以达到类似的输出效果。</p>
+</details>
+<!-- prettier-ignore-end -->
+<p>根据隐式转换规则，在多数表达式中，字符串字面量将会隐式转换为指向它的指针。也就是说，该指针的值是字符串字面量的内存地址。类似地，被用于对指针的初始化时，字符串字面量也会退化为指针。</p>
+<p>在函数内修改字符串时，传入的字符数组将会退化为指针，数组的大小信息因此丢失。可以想到，字符串末尾的空字符正是为这种情形设计的。</p>
 <!-- prettier-ignore-start -->
 <div class="admonition tip">
 <p class="admonition-title">简化字符串操作函数</p>
 <p>关于利用指针编写字符串操作函数的技巧，你可以参考《<span>C<span class="heti-spacing"> </span></span>程序设计语言<heti-adjacent class="heti-adjacent-half">》</heti-adjacent>（也就是程设课程使用的课本）中给出的 <code>strcpy</code> 与 <code>strcmp</code> 函数的实现迭代。本文对此不再赘述。</p>
 </div>
 <!-- prettier-ignore-end -->
-<p><span>C<span class="heti-spacing"> </span></span>语言标准库中提供了一系列字符串操作函数，它们大多被定义在 <code>string.h</code> 头文件中。</p>
+<p><span>C<span class="heti-spacing"> </span></span>语言标准库中提供了一系列字符串操作函数，它们大多被定义在 <code>string.h</code> 头文件中，使用时均需保证提供的字符串格式符合约定。</p>
 <!-- prettier-ignore-start -->
 <div class="admonition warning">
 <p class="admonition-title">中止字符缺失</p>
-<p>标准库中的多数字符串操作函数通过检查中止字符判断是否到达字符串末尾。因此，在修改字符串时务必注意保留中止字符。<strong>如果中止字符缺失，使用这些函数将会导致数组访问越界问题。</strong></p>
+<p>标准库中的字符串操作函数通过检查中止字符判断是否到达字符串末尾。因此，在修改字符串时务必注意保留中止字符。<strong>如果中止字符缺失，使用这些函数将会导致数组访问越界问题。</strong></p>
 </div>
 <!-- prettier-ignore-end -->
 <h3 id="_15">函数指针<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -918,7 +952,7 @@
 <div class="admonition warning">
 <p class="admonition-title">悬垂指针</p>
 <p>释放申请得到的内存空间后，指向该内存空间的指针将会变成<strong>悬垂指针</strong>。尝试继续使用悬垂指针是未定义行为，<strong>可能会导致程序崩溃。</strong></p>
-<p>另外，尝试释放悬垂指针，即<strong>二次释放</strong>同一块内存地址，同样是未定义行为。<strong>二次释放可能导致程序崩溃</strong>。</p>
+<p>另外，尝试释放悬垂指针，即<strong>二次释放</strong>同一块内存地址，同样是未定义行为。<strong>二次释放可能导致程序崩溃。</strong></p>
 </div>
 <!-- prettier-ignore-end -->
 <h2 id="_17">进阶技巧<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
@@ -930,8 +964,36 @@
 <!-- prettier-ignore-end -->
 <!-- prettier-ignore-start -->
 <details class="example" open="open">
+<summary>输出一系列空格分隔的数字，末尾无多余空格</summary>
+<p>这种情形常见于<span class="heti-skip"><span class="heti-spacing"> </span>OJ<span class="heti-spacing"> </span></span>的输出要求中。</p>
+<p>对于一个长度为<span class="heti-skip"><span class="heti-spacing"> </span>n<span class="heti-spacing"> </span></span>的数组 <code>a</code>，一个典型的实现程序如下。</p>
+<div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">" %d"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>不难看出，我们可以通过添加一次判断，将循环外的输出语句放入循环内。</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">((</span><span class="o">!</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"%d"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">" %d"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>这个版本的程序看起来更加整洁。同时，通过将表达式 <code>(!i)</code> 替换为其他标志，该程序可在需要时另起一行，并以相同格式输出剩余结果。这意味着输出的灵活性大大增强。</p>
+<p>不过，我们还可以给出更加炫技的写法。</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">" %d"</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">!</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>这个版本的程序通过指针运算，改变了字符串的起始位置，从而改变了输出格式。具体而言，<code>i</code> 为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>时，<code>printf</code> 实际接收的格式字符串为 <code>"%d"</code>，即不在行首输出空格。</p>
+<p>相比前一版本，这一版本只有减少字符串字面量数量这一意义不大的提升<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（但用来炫技再好不过了<span><span class="heti-spacing"> </span>:P</span>）</p>
+</details>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<details class="example" open="open">
 <summary>输出浮点数的二进制表示</summary>
-<p>一个典型的输出整数二进制表示的程序如下。</p>
+<p>一个典型的输出整数二进制表示的程序如下：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
@@ -949,14 +1011,15 @@
 <!-- prettier-ignore-start -->
 <details class="example" open="open">
 <summary>使用二级指针删除链表节点</summary>
-<p>此处仅讨论没有头节点的单向无环链表。链表节点定义如下。</p>
+<p>此处仅讨论没有头节点的单向无环链表。</p>
+<p>链表节点定义如下：</p>
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
 <span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">node</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
 </code></pre></div>
-<p>一个典型的删除链表节点的程序如下。</p>
+<p>一个典型的删除链表节点的程序如下：</p>
 <div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">remove</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="n">curr</span><span class="p">;</span><span class="w"> </span><span class="p">)</span>
@@ -977,7 +1040,7 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>但是，在<span class="heti-skip"><span class="heti-spacing"> </span>Linus<span class="heti-spacing"> </span></span>看来，这是不懂指针的人的做法。他推崇的做法是使用二级指针，避免对移除第一个节点的特判。一个典型程序如下。</p>
+<p>但是，在<span class="heti-skip"><span class="heti-spacing"> </span>Linus<span class="heti-spacing"> </span></span>看来，这是不懂指针的人的做法。他推崇的做法是使用二级指针，避免对移除第一个节点的特判。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">remove</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">**</span><span class="n">curr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">head</span><span class="p">;</span><span class="w"> </span><span class="o">*</span><span class="n">curr</span><span class="p">;</span><span class="w"> </span><span class="p">)</span>
@@ -1002,7 +1065,7 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 16, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 27, 2023</span>
 </small>
 </div>
 </article>
