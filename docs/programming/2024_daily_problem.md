@@ -12,6 +12,44 @@ h5:before {content: unset;}
 
 ## November
 
+### 「26」 Broken `strcpy()`
+
+Does this `strcpy()` implementation do its job?
+
+```c
+void my_strcpy(char *s, const char *t) {
+    do {
+        *s++ = *t++;
+    } while (*t);
+}
+```
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    No, it's broken. This implementation does not terminate the string pointed to by `s`. To correctly copy a string, the character used in assignment must be the same character used in loop condition.
+
+    What does that mean? Suppose `t = "Hello"`, then:
+
+    - `*t` is `'H'`, and is assigned to `*s`.
+    - `s` and `t` increment.
+    - `*t`, now being `'e'`, is used to evaluate the `while` condition.
+    - ... this process repeats until `t` points to `'o'` and is assigned to `*s`.
+    - `s` and `t` increment.
+    - `*t`, now being `'\0'`, is used to evaluate the `while` condition. The loop ends.
+
+    See the problem? The null byte `'\0'` is not copied to `s`, therefore it's left unterminated. Any attempt to use `s` as a string will result in undefined behavior.
+
+    Worse still, what happens if `t` is an empty string i.e. `t = ""`?
+
+    - `'\0'` is assigned to `*s`.
+    - `s` and `t` increment. `t` gets past its end.
+    - Now we have a memory out-of-bounds. Accessing `*t` is undefined behavior.
+    - And it keeps copying garbage values until some arbitrary `'\0'`, or it goes too far and causes a segmentation fault.
+<!-- prettier-ignore-end -->
+
+> 供题人：李英琦
+
 ### 「25」 I Love Strcat!
 
 The following code fragment prints out **\_\_**.
