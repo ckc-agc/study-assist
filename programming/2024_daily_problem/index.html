@@ -493,6 +493,13 @@
 <nav aria-label="November" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#28-naughty-pointer">
+<span class="md-ellipsis">
+      「28」 Naughty Pointer
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#27-i-love-scanf">
 <span class="md-ellipsis">
       「27」 I Love scanf!
@@ -652,6 +659,24 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="november">November<a class="headerlink" href="#november" title="Permanent link">¶</a></h2>
+<h3 id="28-naughty-pointer">「28」 Naughty Pointer<a class="headerlink" href="#28-naughty-pointer" title="Permanent link">¶</a></h3>
+<p>The following code fragment prints out <strong>__</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">};</span>
+<span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<p><code>6</code>.</p>
+<p>Obviously, the type of <code>p</code> is declared as <code>int (*)[3]</code>, which is a pointer to an array of 3 integers. We know that in the initializer, <code>a</code> will be converted to a pointer to its first element, so <code>*a</code> is equivalent to <code>a[0]</code>, which is an array of 3 integers. Then, the type of <code>*a</code> will be converted from <code>int [3]</code> to <code>int *</code> again. Therefore, adding 1 to <code>*a</code> will make it point to the next integer, which is <code>a[0][1]</code>.</p>
+<p>You may notice that the type of <code>*a + 1</code> is not the same as pointer <code>p</code>. In fact, its type is casted to <code>int (*)[3]</code> when assigned to <code>p</code>. Trying to figure out the "meaning" of <code>p</code> now may become more difficult. Instead, just remember the value of pointer <code>p</code> is the address of <code>a[0][1]</code>.</p>
+<p>Now consider the expression <code>*(*(p + 1) + 1)</code>. First, since the type of <code>p</code> is <code>int (*)[3]</code>, adding 1 to <code>p</code> will make it point to the next array of 3 integers; that is to say, the value of <code>p</code> will be the address of the third integer after <code>a[0][1]</code>, which is <code>a[1][1]</code>. So <code>*(p + 1)</code> is just equivalent to <code>&amp;a[1][1]</code>. Then, adding 1 to <code>*(p + 1)</code> will make it point to the next integer, which is <code>a[1][2]</code>. Thus, the value of <code>*(*(p + 1) + 1)</code> is <code>a[1][2]</code>, which is 6.</p>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：孙兆江</p>
+</blockquote>
 <h3 id="27-i-love-scanf">「27」 I Love <code>scanf</code>!<a class="headerlink" href="#27-i-love-scanf" title="Permanent link">¶</a></h3>
 <p>After entering the following inputs, does the program operate normally? If it does, what should be the output?</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
@@ -675,6 +700,9 @@ daily_problem
 <p>The <code>scanf</code> function reads input from the standard input stream, which is usually the keyboard. The format string of <code>scanf</code> is <code>"%d%c %c%s\n"</code>. The first <code>%d</code> matches the integer <code>20231127</code>, the second <code>%c</code> matches the character <code>'\n'</code> because <code>%c</code> won't miss any character including <code>' '</code> and <code>'\n'</code>. The space in formatting string will ignore every blank character, so the third <code>%c</code> matches the character <code>'c'</code>, and the fourth <code>%s</code> matches the string <code>"kc-agc"</code>, whose length is 7. When you print <code>\n</code> after line2,  <code>scanf</code> will not stop, because <code>'\n'</code> in formatting string will ignore every blank character. So until you enter a non-blank character and use enter to send it to the program from buffer, <code>scanf</code> will stop.</p>
 </details>
 <!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：胡育玮</p>
+</blockquote>
 <h3 id="26-broken-strcpy">「26」 Broken <code>strcpy()</code><a class="headerlink" href="#26-broken-strcpy" title="Permanent link">¶</a></h3>
 <p>Does this <code>strcpy()</code> implementation do its job?</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">my_strcpy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1225,7 +1253,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 27, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 28, 2023</span>
 </small>
 </div>
 </article>
