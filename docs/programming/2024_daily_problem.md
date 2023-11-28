@@ -12,6 +12,30 @@ h5:before {content: unset;}
 
 ## November
 
+### 「28」 Naughty Pointer
+
+The following code fragment prints out **\_\_**.
+
+```c
+int a[2][3] = {1, 2, 3, 4, 5, 6};
+int(*p)[3] = *a + 1;
+printf("%d", *(*(p + 1) + 1));
+```
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+
+    `6`.
+
+    Obviously, the type of `p` is declared as `int (*)[3]`, which is a pointer to an array of 3 integers. We know that in the initializer, `a` will be converted to a pointer to its first element, so `*a` is equivalent to `a[0]`, which is an array of 3 integers. Then, the type of `*a` will be converted from `int [3]` to `int *` again. Therefore, adding 1 to `*a` will make it point to the next integer, which is `a[0][1]`.
+
+    You may notice that the type of `*a + 1` is not the same as pointer `p`. In fact, its type is casted to `int (*)[3]` when assigned to `p`. Trying to figure out the "meaning" of `p` now may become more difficult. Instead, just remember the value of pointer `p` is the address of `a[0][1]`.
+
+    Now consider the expression `*(*(p + 1) + 1)`. First, since the type of `p` is `int (*)[3]`, adding 1 to `p` will make it point to the next array of 3 integers; that is to say, the value of `p` will be the address of the third integer after `a[0][1]`, which is `a[1][1]`. So `*(p + 1)` is just equivalent to `&a[1][1]`. Then, adding 1 to `*(p + 1)` will make it point to the next integer, which is `a[1][2]`. Thus, the value of `*(*(p + 1) + 1)` is `a[1][2]`, which is 6.
+<!-- prettier-ignore-end -->
+
+> 供题人：孙兆江
+
 ### 「27」 I Love `scanf`!
 
 After entering the following inputs, does the program operate normally? If it does, what should be the output?
@@ -41,8 +65,9 @@ daily_problem
     ```
 
     The `scanf` function reads input from the standard input stream, which is usually the keyboard. The format string of `scanf` is `"%d%c %c%s\n"`. The first `%d` matches the integer `20231127`, the second `%c` matches the character `'\n'` because `%c` won't miss any character including `' '` and `'\n'`. The space in formatting string will ignore every blank character, so the third `%c` matches the character `'c'`, and the fourth `%s` matches the string `"kc-agc"`, whose length is 7. When you print `\n` after line2,  `scanf` will not stop, because `'\n'` in formatting string will ignore every blank character. So until you enter a non-blank character and use enter to send it to the program from buffer, `scanf` will stop.
-
 <!-- prettier-ignore-end -->
+
+> 供题人：胡育玮
 
 ### 「26」 Broken `strcpy()`
 
