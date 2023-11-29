@@ -29,7 +29,7 @@
   {
     "title": "[程序设计](programming/index.md)",
     "content": "23-24辅学群：728919863<br>
-                [每日一题](programming/2024_daily_problem.md)<br>
+                [每日一题](programming/daily/2023.md)<br>
                 [【精品课程】系统知识拾遗](programming_lecture/index.md)<br>
                 [【精品课程】实用技能拾遗](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/)",
     "image": "graph/programming.jpg"

@@ -125,6 +125,12 @@ nav:
     - lalu/index.md
   - 📚程序设计:
     - programming/index.md
+    - 每日一题:
+      - programming/daily/2023.md
+    - 专题笔记:
+      - programming/topic/pointers.md
+      - programming/topic/funcptr.md
+    - programming/faq.md
   - 🏫实用技能拾遗: https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/
   - 🏫系统知识拾遗:
     - programming_lecture/index.md
