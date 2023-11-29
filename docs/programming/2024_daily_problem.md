@@ -12,6 +12,41 @@ h5:before {content: unset;}
 
 ## November
 
+### 「29」Soyo Size
+
+On a 64-bit machine, the output of the following code fragment is **\_\_**.
+
+```c
+void print_soyo(char soyo[]) {
+    printf("%lu\n", sizeof(soyo));
+}
+
+int main() {
+    char soyo[] = "Soyosan\0Love";
+    print_soyo(soyo);
+    return 0;
+}
+```
+
+<div style="display: flex">
+    <div style="width: 100%">A. 13</div>
+    <div style="width: 100%">B. 7</div>
+    <div style="width: 100%">C. 8</div>
+    <div style="width: 100%">D. 4</div>
+</div>
+
+
+<!-- prettier-ignore-start -->
+??? note "Answer"
+    C.
+
+    When an array type is used in a function parameter list, it is transformed to the corresponding pointer type: `int f(int a[])` and `int f(int *a)` declare the same function. See [cppreference-Array to pointer conversion](https://en.cppreference.com/w/c/language/array#Array_to_pointer_conversion) for more information.
+
+    So the parameter `soyo` in function `print_soyo` is actually a pointer, and the size of a pointer is variable depending on the architecture. On a 64-bit machine, the size of a pointer is 8 bytes, and on a 32-bit machine, the size of a pointer is 4 bytes. Therefore, the output of this program is `8`.
+<!-- prettier-ignore-end -->
+
+> 供题人：苏煜程
+
 ### 「28」 Naughty Pointer
 
 The following code fragment prints out **\_\_**.
