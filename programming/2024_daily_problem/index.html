@@ -493,6 +493,13 @@
 <nav aria-label="November" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#29soyo-size">
+<span class="md-ellipsis">
+      「29」Soyo Size
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#28-naughty-pointer">
 <span class="md-ellipsis">
       「28」 Naughty Pointer
@@ -659,6 +666,35 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="november">November<a class="headerlink" href="#november" title="Permanent link">¶</a></h2>
+<h3 id="29soyo-size">「29」Soyo Size<a class="headerlink" href="#29soyo-size" title="Permanent link">¶</a></h3>
+<p>On a 64-bit machine, the output of the following code fragment is <strong>__</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">print_soyo</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">soyo</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%lu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">soyo</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">soyo</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Soyosan</span><span class="se">\0</span><span class="s">Love"</span><span class="p">;</span>
+<span class="w">    </span><span class="n">print_soyo</span><span class="p">(</span><span class="n">soyo</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<div style="display: flex">
+<div style="width: 100%">A. 13</div>
+<div style="width: 100%">B. 7</div>
+<div style="width: 100%">C. 8</div>
+<div style="width: 100%">D. 4</div>
+</div>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<p>C.</p>
+<p>When an array type is used in a function parameter list, it is transformed to the corresponding pointer type: <code>int f(int a[])</code> and <code>int f(int *a)</code> declare the same function. See <a href="https://en.cppreference.com/w/c/language/array#Array_to_pointer_conversion">cppreference-Array to pointer conversion</a> for more information.</p>
+<p>So the parameter <code>soyo</code> in function <code>print_soyo</code> is actually a pointer, and the size of a pointer is variable depending on the architecture. On a 64-bit machine, the size of a pointer is 8 bytes, and on a 32-bit machine, the size of a pointer is 4 bytes. Therefore, the output of this program is <code>8</code>.</p>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：苏煜程</p>
+</blockquote>
 <h3 id="28-naughty-pointer">「28」 Naughty Pointer<a class="headerlink" href="#28-naughty-pointer" title="Permanent link">¶</a></h3>
 <p>The following code fragment prints out <strong>__</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">};</span>
@@ -1253,7 +1289,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 29, 2023</span>
 </small>
 </div>
 </article>
