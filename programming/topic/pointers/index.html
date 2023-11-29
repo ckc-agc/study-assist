@@ -799,16 +799,13 @@
 <!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">数组类型与指针类型的区别</p>
-<p>尽管在程序中数组经常退化为指针，我们仍应该区分这两个类型。举例来说，考虑如下的程序片段（<span>C<span class="heti-spacing"> </span></span>标准规定 <code>sizeof</code> 的返回值类型为 <code>size_t</code>，应使用 <code>%zu</code> 格式指示符输出<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<p>尽管在程序中数组经常退化为指针，我们仍应该区分这两个类型。举例来说，考虑如下的程序片段（<span>C<span class="heti-spacing"> </span></span>标准规定 <code>sizeof</code> 的返回值类型为 <code>size_t</code>，应使用 <code>%zd</code> 格式指示符输出<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%zd %zd"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">));</span>
+</code></pre></div>
+<p>它将会输出 <code>12 8</code>。这是因为，<code>a</code> 是一个元素类型为 <code>long</code> 且长度为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的数组对象，在多数系统中 <code>long</code> 类型长度为<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>字节，因此 <code>a</code> 的长度为<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>字节；而 <code>p</code> 是一个指针，在常用的<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统中长度为<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>字节。</p>
+<p>另外，指针的值可在任意时刻通过赋值修改，而数组不能被赋值。</p>
 </div>
-<p>uu
-    </p><div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%zu %zu"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">));</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>它将会输出 `12 8`。这是因为，`a` 是一个元素类型为 `long` 且长度为 3 的数组对象，在多数系统中 `long` 类型长度为 4 字节，因此 `a` 的长度为 12 字节；而 `p` 是一个指针，在常用的 64 位系统中长度为 8 字节。
-
-另外，指针的值可在任意时刻通过赋值修改，而数组不能被赋值。
-</code></pre></div>
 <!-- prettier-ignore-end -->
 <h4 id="_13">多维数组<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>与指针类似，数组也是派生类型。不同之处在于，为了正确访问数组元素，需要知道数组元素的长度，即数组元素的类型必须是完整的。</p>
@@ -1068,7 +1065,7 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 29, 2023</span>
 </small>
 </div>
 </article>
