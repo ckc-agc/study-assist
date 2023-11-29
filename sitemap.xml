@@ -56,11 +56,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ckc-agc.pages.zjusct.io/study-assist/programming/2024_daily_problem/</loc>
-         <lastmod>2023-11-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://ckc-agc.pages.zjusct.io/study-assist/programming/faq/</loc>
          <lastmod>2023-11-29</lastmod>
          <changefreq>daily</changefreq>
@@ -72,6 +67,11 @@
     </url>
     <url>
          <loc>https://ckc-agc.pages.zjusct.io/study-assist/programming/temp2/</loc>
+         <lastmod>2023-11-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ckc-agc.pages.zjusct.io/study-assist/programming/daily/2023/</loc>
          <lastmod>2023-11-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
