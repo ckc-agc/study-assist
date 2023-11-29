@@ -58,11 +58,12 @@
 
 ## 录播/回放
 
+[![](https://stats.justsong.cn/api/bilibili/?id=3546574332365752&lang=zh-CN&theme=vue#only-light){align=right}![](https://stats.justsong.cn/api/bilibili/?id=3546574332365752&lang=zh-CN&theme=dracula#only-dark){align=right}](https://space.bilibili.com/3546574332365752)
+
+
 > 致谢：竺可桢学院全媒体工作室
 
-在竺院全媒体的人员和设备支持下，大部分辅学授课都有了优质的录播。一般情况下录播都将上传到竺院学指的 Bilibili 账号中，点击下面的卡片即可跳转到 Bilibili 页面。
-
-[![](https://stats.justsong.cn/api/bilibili/?id=3546574332365752&lang=zh-CN&theme=vue#only-light)![](https://stats.justsong.cn/api/bilibili/?id=3546574332365752&lang=zh-CN&theme=dracula#only-dark)](https://space.bilibili.com/3546574332365752)
+在竺院全媒体的人员和设备支持下，大部分辅学授课都有了优质的录播。一般情况下录播都将上传到竺院学指的 Bilibili 账号中，点击卡片即可跳转到 Bilibili 页面。
 
 ## 大文件存放处
 

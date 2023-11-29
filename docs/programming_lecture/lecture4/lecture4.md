@@ -109,6 +109,24 @@ for(int i = 0; i < strlen(str); ++i)
     -   指针也是一个对象，它的值是一个内存地址
     -   指针具有类型信息，决定了指针的运算方式
     -   数组与指针
+    <!-- prettier-ignore-start -->
+    !!! example "例子"
+    
+        ```c
+        int a[10];
+        int *p;
+        ```
+
+        请问：`a`、`a[0]`、`&a[0]`、`*a`、`p`、`*p`、`&p` 的类型是什么？
+
+        请问，执行 `p = &a` 报告
+
+        ```text
+        warning: initialization of `int *` from incompatible pointer type `int (*)[10]`
+        ```
+
+        是什么原因？
+    <!-- prettier-ignore-end -->
     -   多维数组比较复杂，等正文讲完还有时间再回来讲
 
 ## `<ctype.h>`
