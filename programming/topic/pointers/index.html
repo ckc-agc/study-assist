@@ -873,8 +873,8 @@
 <blockquote>
 <p><span>C<span class="heti-spacing"> </span></span>语言的语法力图使声明和使用相一致。</p>
 </blockquote>
-<p>在阅读指针初始化语句时，你可能常常混淆 <code>*</code> 的声明与解引用语法。正确的要点在于，初始化语句分为声明和初始化器两部分，其中赋值号 <code>=</code> 前的部分为声明，赋值号及其后的部分为初始化器。</p>
-<p>举例来说，在语句 <code>int *ip = *ipp;</code> 中，<code>int *p</code> 为声明，<code>= *ipp</code> 为初始化器，这条语句的含义是：声明一个指向 <code>int</code> 类型对象的指针 <code>ip</code>，并将它的初始值设为 <code>ipp</code> 指向对象的值。</p>
+<p>在阅读指针初始化语句时，你可能常常混淆 <code>*</code> 的声明与解引用语法。正确分辨的要点在于，初始化语句分为声明和初始化器两部分，其中赋值号 <code>=</code> 前的部分为声明，赋值号及其后的部分为初始化器。</p>
+<p>举例来说，在语句 <code>int *ip = *ipp;</code> 中，<code>int *ip</code> 为声明，<code>= *ipp</code> 为初始化器，这条语句的含义是：声明一个指向 <code>int</code> 类型对象的指针 <code>ip</code>，并将它的初始值设为 <code>ipp</code> 指向对象的值。</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">野指针</p>
@@ -1234,7 +1234,7 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 30, 2023</span>
 </small>
 </div>
 </article>
