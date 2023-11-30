@@ -903,7 +903,39 @@ h5:before {content: unset;}
 <h2 id="november">November<a class="headerlink" href="#november" title="Permanent link">¶</a></h2>
 <h3 id="30-basic-doubly-linked-list">「30」 Basic Doubly Linked List<a class="headerlink" href="#30-basic-doubly-linked-list" title="Permanent link">¶</a></h3>
 <p>Please fill in the blanks to complete the following code fragment.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 
 <span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
@@ -921,22 +953,22 @@ h5:before {content: unset;}
 <span class="kt">void</span><span class="w"> </span><span class="nf">insertFront</span><span class="p">(</span><span class="n">List</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
 <span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
-<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 1 */</span><span class="p">;</span>
-<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 2 */</span><span class="p">;</span>
-<span class="w">    </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 3 */</span><span class="p">;</span>
-<span class="w">    </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 4 */</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="hll"><span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 1 */</span><span class="p">;</span>
+</span><span class="hll"><span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 2 */</span><span class="p">;</span>
+</span><span class="hll"><span class="w">    </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 3 */</span><span class="p">;</span>
+</span><span class="hll"><span class="w">    </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 4 */</span><span class="p">;</span>
+</span><span class="p">}</span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
 <span class="w">    </span><span class="n">List</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createEmptyList</span><span class="p">();</span>
 <span class="w">    </span><span class="n">insertFront</span><span class="p">(</span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <span class="w">    </span><span class="n">insertFront</span><span class="p">(</span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 <span class="w">    </span><span class="n">insertFront</span><span class="p">(</span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 5 */</span><span class="p">;</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+<span class="hll"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 5 */</span><span class="p">;</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
+</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -962,7 +994,15 @@ h5:before {content: unset;}
 </blockquote>
 <h3 id="29-soyo-size">「29」 Soyo Size<a class="headerlink" href="#29-soyo-size" title="Permanent link">¶</a></h3>
 <p>On a 64-bit machine, the output of the following code fragment is <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">print_soyo</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">soyo</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">print_soyo</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">soyo</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%lu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">soyo</span><span class="p">));</span>
 <span class="p">}</span>
 
@@ -971,7 +1011,7 @@ h5:before {content: unset;}
 <span class="w">    </span><span class="n">print_soyo</span><span class="p">(</span><span class="n">soyo</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <div style="display: flex">
 <div style="width: 100%">A. 13</div>
 <div style="width: 100%">B. 7</div>
@@ -991,10 +1031,12 @@ h5:before {content: unset;}
 </blockquote>
 <h3 id="28-naughty-pointer">「28」 Naughty Pointer<a class="headerlink" href="#28-naughty-pointer" title="Permanent link">¶</a></h3>
 <p>The following code fragment prints out <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">};</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">};</span>
 <span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -1009,17 +1051,24 @@ h5:before {content: unset;}
 </blockquote>
 <h3 id="27-i-love-scanf">「27」 I Love <code>scanf</code>!<a class="headerlink" href="#27-i-love-scanf" title="Permanent link">¶</a></h3>
 <p>After entering the following inputs, does the program operate normally? If it does, what should be the output?</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="p">;</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span>
 <span class="n">scanf</span><span class="p">(</span><span class="s">"%d%c %c%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">c2</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"%d#%c#%c#%s"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1">#input: there is no space after the last character</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#input: there is no space after the last character</span>
 <span class="m">20231127</span>
 <span class="w"> </span>ckc-agc
 daily_problem
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -1035,12 +1084,16 @@ daily_problem
 </blockquote>
 <h3 id="26-broken-strcpy">「26」 Broken <code>strcpy()</code><a class="headerlink" href="#26-broken-strcpy" title="Permanent link">¶</a></h3>
 <p>Does this <code>strcpy()</code> implementation do its job?</p>
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">my_strcpy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">my_strcpy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="o">*</span><span class="n">s</span><span class="o">++</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="o">++</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">t</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -1069,7 +1122,27 @@ daily_problem
 </blockquote>
 <h3 id="25-i-love-strcat">「25」 I Love Strcat!<a class="headerlink" href="#25-i-love-strcat" title="Permanent link">¶</a></h3>
 <p>The following code fragment prints out <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
 
@@ -1090,7 +1163,7 @@ daily_problem
 <span class="w">    </span><span class="n">my_strcat</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">s3</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>A. <code>I love cats!\n\n</code></p>
 <p>B. <code>\n\n</code></p>
 <p>C. <code>\nI love cats!\n</code></p>
@@ -1108,7 +1181,15 @@ daily_problem
 </blockquote>
 <h3 id="24-pointer-array">「24」 Pointer Array<a class="headerlink" href="#24-pointer-array" title="Permanent link">¶</a></h3>
 <p>The output of the following code fragment is <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s">"the"</span><span class="p">,</span><span class="s">"one"</span><span class="p">,</span><span class="s">"is"</span><span class="p">,</span><span class="s">"unknown"</span><span class="w"> </span><span class="p">};</span>
@@ -1117,7 +1198,7 @@ daily_problem
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%c%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="o">*</span><span class="n">pa</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="o">*</span><span class="n">pa</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <div style="display: flex">
 <div style="width: 100%">A. none</div>
 <div style="width: 100%">B. tone</div>
@@ -1139,14 +1220,20 @@ daily_problem
 </blockquote>
 <h3 id="23-typedef-and-string">「23」 <code>typedef</code> and String<a class="headerlink" href="#23-typedef-and-string" title="Permanent link">¶</a></h3>
 <p>The preprocessing of this program is as follows：</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#define MAX_SIZE 10000</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#define MAX_SIZE 10000</span>
 
 <span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Bookcase</span><span class="p">{</span>
 <span class="w">    </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">book</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
 <span class="p">}</span><span class="w"> </span><span class="o">*</span><span class="n">PtrToBookcase</span><span class="p">;</span>
 
 <span class="k">typedef</span><span class="w"> </span><span class="n">PtrToBookcase</span><span class="w"> </span><span class="n">Lib_data_base</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">Lib_data_base</span><span class="w"> </span><span class="n">library</span><span class="p">;</span>
 <span class="o">*</span><span class="p">(</span><span class="n">library</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">PtrToBookcase</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Bookcase</span><span class="p">));</span>
@@ -1207,9 +1294,10 @@ The additional <code>.2</code> in <code>%.2s</code> is used to limit the length 
 <h2 id="october">October<a class="headerlink" href="#october" title="Permanent link">¶</a></h2>
 <h3 id="29-precedence">「29」 Precedence<a class="headerlink" href="#29-precedence" title="Permanent link">¶</a></h3>
 <p>The output of the following code fragment is <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -1243,7 +1331,16 @@ The additional <code>.2</code> in <code>%.2s</code> is used to limit the length 
 </blockquote>
 <h3 id="27-or-in-switch">「27」 Or in <code>switch</code><a class="headerlink" href="#27-or-in-switch" title="Permanent link">¶</a></h3>
 <p>What will happen when compiling and executing the following code fragment with input <code>5</code>?</p>
-<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">;</span>
 <span class="n">scanf</span><span class="p">(</span><span class="s">"%c"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ch</span><span class="p">);</span>
 <span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">ch</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mi">8</span><span class="p">:</span>
@@ -1253,7 +1350,7 @@ The additional <code>.2</code> in <code>%.2s</code> is used to limit the length 
 <span class="w">    </span><span class="k">default</span><span class="o">:</span>
 <span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"not a digit "</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>A. It will print <code>odd digit</code>.</p>
 <p>B. It will print <code>odd digit not a digit</code>.</p>
 <p>C. It will print <code>not a digit</code>.</p>
@@ -1304,7 +1401,16 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 </blockquote>
 <h3 id="25-eternal-binary-search">「25」 Eternal Binary-Search<a class="headerlink" href="#25-eternal-binary-search" title="Permanent link">¶</a></h3>
 <p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">ok</span><span class="p">[</span><span class="mi">50000</span><span class="p">];</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">ok</span><span class="p">[</span><span class="mi">50000</span><span class="p">];</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">19268</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">ok</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">19269</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">49999</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">ok</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">49999</span><span class="p">;</span>
@@ -1314,7 +1420,7 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 <span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">"the ok_maximum is %d"</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -1327,7 +1433,24 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 </blockquote>
 <h3 id="24-nested-switch-confusing-default-and-break">「24」 Nested <code>switch</code>, Confusing <code>default</code> and <code>break</code><a class="headerlink" href="#24-nested-switch-confusing-default-and-break" title="Permanent link">¶</a></h3>
 <p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
 <span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1345,7 +1468,7 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 <span class="w">    </span><span class="k">default</span><span class="o">:</span>
 <span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"five "</span><span class="p">);</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -1370,11 +1493,14 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 </blockquote>
 <h3 id="23-prefix-or-postfix">「23」 Prefix OR Postfix<a class="headerlink" href="#23-prefix-or-postfix" title="Permanent link">¶</a></h3>
 <p>After executing the following code fragment, the value of variable <code>x</code> is <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="o">--</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -1405,7 +1531,14 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 </blockquote>
 <h3 id="22-string-comparison">「22」 String Comparison<a class="headerlink" href="#22-string-comparison" title="Permanent link">¶</a></h3>
 <p>What's wrong with this code snippet?</p>
-<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"abcd"</span><span class="p">};</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"abcd"</span><span class="p">};</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"abcd"</span><span class="p">};</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"ABCD"</span><span class="p">};</span>
 
@@ -1413,7 +1546,7 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 <span class="k">else</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"[1] NO</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"[2] YES</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="k">else</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"[2] NO</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -1428,12 +1561,16 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 </blockquote>
 <h3 id="21-addition">「21」 Addition<a class="headerlink" href="#21-addition" title="Permanent link">¶</a></h3>
 <p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="p">;</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Equal.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
 <span class="k">else</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"Not equal.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -1449,11 +1586,14 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 </blockquote>
 <h3 id="20-bad-for">「20」 Bad for<a class="headerlink" href="#20-bad-for" title="Permanent link">¶</a></h3>
 <p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// 'int' occupies 4 bytes</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="c1">// 'int' occupies 4 bytes</span>
 <span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">)</span>
 <span class="w">    </span><span class="p">;</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="mi">-1</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note" open="open">
 <summary>Hint</summary>
@@ -1473,7 +1613,17 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 </blockquote>
 <h3 id="19-isprime">「19」 IsPrime?<a class="headerlink" href="#19-isprime" title="Permanent link">¶</a></h3>
 <p>What's wrong with this code snippet?</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
 <span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">d</span><span class="p">);</span>
 
 <span class="c1">// determine if d is a prime number</span>
@@ -1484,7 +1634,7 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"%d is a prime</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -1497,13 +1647,18 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 </blockquote>
 <h3 id="18-bad-if-else">「18」 Bad <code>if</code>-<code>else</code><a class="headerlink" href="#18-bad-if-else" title="Permanent link">¶</a></h3>
 <p>After executing the following code fragment, the output is <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-2</span><span class="p">;</span>
 <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <div style="display: flex">
 <div style="width: 100%">A. 1</div>
 <div style="width: 100%">B. 0</div>
@@ -1558,9 +1713,10 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 </blockquote>
 <h3 id="16-overflow">「16」 Overflow<a class="headerlink" href="#16-overflow" title="Permanent link">¶</a></h3>
 <p>For code below:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">sht</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">sht</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="n">sht</span><span class="o">--</span><span class="p">;</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>What will be the value of <code>sht</code> after the execution?</p>
 <div style="display: flex">
 <div style="width: 100%">A. -1</div>
