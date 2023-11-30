@@ -410,9 +410,16 @@
 <nav aria-label="November" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#29soyo-size">
+<a class="md-nav__link" href="#30-basic-doubly-linked-list">
 <span class="md-ellipsis">
-      「29」Soyo Size
+      「30」 Basic Doubly Linked List
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#29-soyo-size">
+<span class="md-ellipsis">
+      「29」 Soyo Size
     </span>
 </a>
 </li>
@@ -714,9 +721,16 @@
 <nav aria-label="November" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#29soyo-size">
+<a class="md-nav__link" href="#30-basic-doubly-linked-list">
 <span class="md-ellipsis">
-      「29」Soyo Size
+      「30」 Basic Doubly Linked List
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#29-soyo-size">
+<span class="md-ellipsis">
+      「29」 Soyo Size
     </span>
 </a>
 </li>
@@ -887,7 +901,66 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="november">November<a class="headerlink" href="#november" title="Permanent link">¶</a></h2>
-<h3 id="29soyo-size">「29」Soyo Size<a class="headerlink" href="#29soyo-size" title="Permanent link">¶</a></h3>
+<h3 id="30-basic-doubly-linked-list">「30」 Basic Doubly Linked List<a class="headerlink" href="#30-basic-doubly-linked-list" title="Permanent link">¶</a></h3>
+<p>Please fill in the blanks to complete the following code fragment.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">prev</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="o">*</span><span class="n">List</span><span class="p">;</span>
+
+<span class="n">List</span><span class="w"> </span><span class="nf">createEmptyList</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">List</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">List</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+<span class="w">    </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">insertFront</span><span class="p">(</span><span class="n">List</span><span class="w"> </span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 1 */</span><span class="p">;</span>
+<span class="w">    </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 2 */</span><span class="p">;</span>
+<span class="w">    </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 3 */</span><span class="p">;</span>
+<span class="w">    </span><span class="n">list</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 4 */</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(){</span>
+<span class="w">    </span><span class="n">List</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createEmptyList</span><span class="p">();</span>
+<span class="w">    </span><span class="n">insertFront</span><span class="p">(</span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">insertFront</span><span class="p">(</span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">    </span><span class="n">insertFront</span><span class="p">(</span><span class="n">list</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="cm">/* 5 */</span><span class="p">;</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span>
+<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d "</span><span class="p">,</span><span class="w"> </span><span class="n">node</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.11.30.drawio.svg"><img align="right" alt="" src="../graph/23.11.30.drawio.svg"/></a></p>
+<ol>
+<li><code>list</code></li>
+<li><code>list-&gt;next</code></li>
+<li><code>node</code></li>
+<li><code>node</code></li>
+<li><code>list-&gt;next</code></li>
+</ol>
+<p>Notice this is a doubly linked list <strong>with a dummy node</strong>. The dummy node is a special node that does not store any data. It is used to simplify the implementation of the linked list. In this case, the dummy node is <code>list</code>.</p>
+<p>The <code>insertFront</code> function inserts a new node with <code>data</code> at the front of the list. The new node is inserted between the dummy node and the first node of the list. The <code>insertFront</code> function takes two steps:</p>
+<ol>
+<li>Create a new node and set its <code>data</code> to <code>data</code>.</li>
+<li>Insert the new node between the dummy node and the first node of the list.</li>
+</ol>
+<p>If you want to iterate over the list, you should start from the first node of the list, which is <code>list-&gt;next</code>.</p>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：朱宝林</p>
+</blockquote>
+<h3 id="29-soyo-size">「29」 Soyo Size<a class="headerlink" href="#29-soyo-size" title="Permanent link">¶</a></h3>
 <p>On a 64-bit machine, the output of the following code fragment is <strong>__</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">print_soyo</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">soyo</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%lu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">soyo</span><span class="p">));</span>
@@ -1056,7 +1129,7 @@ daily_problem
 <summary>Answer</summary>
 <p>A.</p>
 <p><code>a[]</code> is an array of pointers, which stores the addresses of three strings, and <code>pa</code> points to the address of the first element of <code>a</code>, as shown below:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23daily_nov24.jpg"><img alt="" src="../graph/23daily_nov24.jpg"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.11.24.jpg"><img alt="" src="../graph/23.11.24.jpg"/></a></p>
 <p>Pointer operations take precedence over addition, so <code>*(*pa + 1)</code> equals to <code>n</code>.</p>
 <p>In summary, the code fragment prints out <code>none</code>.</p>
 </details>
@@ -1510,7 +1583,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 30, 2023</span>
 </small>
 </div>
 </article>
