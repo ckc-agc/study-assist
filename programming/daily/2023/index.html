@@ -402,6 +402,24 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#december">
+<span class="md-ellipsis">
+      December
+    </span>
+</a>
+<nav aria-label="December" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-hello-cat">
+<span class="md-ellipsis">
+      「1」 Hello, Cat
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#november">
 <span class="md-ellipsis">
       November
@@ -713,6 +731,24 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#december">
+<span class="md-ellipsis">
+      December
+    </span>
+</a>
+<nav aria-label="December" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-hello-cat">
+<span class="md-ellipsis">
+      「1」 Hello, Cat
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#november">
 <span class="md-ellipsis">
       November
@@ -900,6 +936,46 @@ h4:before {content: unset;}
 h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
+<h2 id="december">December<a class="headerlink" href="#december" title="Permanent link">¶</a></h2>
+<h3 id="1-hello-cat">「1」 Hello, Cat<a class="headerlink" href="#1-hello-cat" title="Permanent link">¶</a></h3>
+<p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">s1</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Hello</span><span class="se">\0</span><span class="s">Ow&lt;"</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">s2</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"world"</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="n">strcat</span><span class="p">(</span><span class="n">s3</span><span class="p">,</span><span class="w"> </span><span class="n">s4</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s, %s; %s, %s.</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="n">s3</span><span class="p">,</span><span class="w"> </span><span class="n">s4</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>A. <code>Hello, world; llold, ld.</code></p>
+<p>B. <code>Hello, world; lloldw&lt;, ld.</code></p>
+<p>C. <code>Hellold, world; llold, ld.</code></p>
+<p>D. <code>Helloldw&lt;, world; lloldw&lt;, ld.</code></p>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<p><code>C</code>.</p>
+<p>The <code>strcat</code> function appends a copy of the string pointed to by <code>s4</code> to the end of the string pointed to by <code>s3</code>. The <code>s3</code> and <code>s4</code> pointers point to the third character of <code>s1</code> and the fourth character of <code>s2</code>, respectively. Therefore, the <code>strcat</code> function appends the string <code>"ld"</code> to the end of the string <code>"Hellold"</code>, resulting in <code>"Helloldld"</code>, and the <code>printf</code> function prints <code>"Hellold, world; llold, ld."</code>.</p>
+<p>When the <code>strcat</code> function appends the string <code>"ld"</code> after "Hello", it overwrites the null character <code>'\0'</code> at the end of the string <code>"Hello"</code> and write a new null character <code>'\0'</code> at the end of the string <code>"Helloldld"</code>. Therefore, the character <code>w</code> and <code>&lt;</code> after the null character <code>'\0'</code> in <code>s1</code> are not printed.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.12.1.png"><img alt="" src="../graph/23.12.1.png"/></a></p>
+</details>
+<!-- prettier-ignore-end -->
 <h2 id="november">November<a class="headerlink" href="#november" title="Permanent link">¶</a></h2>
 <h3 id="30-basic-doubly-linked-list">「30」 Basic Doubly Linked List<a class="headerlink" href="#30-basic-doubly-linked-list" title="Permanent link">¶</a></h3>
 <p>Please fill in the blanks to complete the following code fragment.</p>
@@ -1739,7 +1815,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 30, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 2, 2023</span>
 </small>
 </div>
 </article>
