@@ -105,28 +105,48 @@ for(int i = 0; i < strlen(str); ++i)
     int main(void);
     ```
 -   [指针](../../programming/topic/pointers.md) 的概念
+
     -   内存、内存地址、对象
     -   指针也是一个对象，它的值是一个内存地址
     -   指针具有类型信息，决定了指针的运算方式
+
+        <!-- prettier-ignore-start -->
+
+        !!! example "例子"
+
+            ```c
+            int p[10];
+            char q[10];
+            int *p1 = p, *p2 = &p[1];
+            char *q1 = q, *q2 = &q[1];
+            ```
+
+            请问，`p1 + 1`、`p2 - p1`、`q1 + 1`、`q2 - q1` 的值是多少？
+
+        <!-- prettier-ignore-end -->
+
     -   数组与指针
-    <!-- prettier-ignore-start -->
-    !!! example "例子"
-    
-        ```c
-        int a[10];
-        int *p;
-        ```
+        <!-- prettier-ignore-start -->
 
-        请问：`a`、`a[0]`、`&a[0]`、`*a`、`p`、`*p`、`&p` 的类型是什么？
+        !!! example "例子"
 
-        请问，执行 `p = &a` 报告
+            ```c
+            int a[10];
+            int *p;
+            ```
 
-        ```text
-        warning: initialization of `int *` from incompatible pointer type `int (*)[10]`
-        ```
+            请问：`a`、`a[0]`、`&a[0]`、`*a`、`p`、`*p`、`&p` 的类型是什么？
 
-        是什么原因？
-    <!-- prettier-ignore-end -->
+            请问，执行 `p = &a` 报告
+
+            ```text
+            warning: initialization of `int *` from incompatible pointer type `int (*)[10]`
+            ```
+
+            是什么原因？
+
+        <!-- prettier-ignore-end -->
+
     -   多维数组比较复杂，等正文讲完还有时间再回来讲
 
 ## `<ctype.h>`
@@ -250,11 +270,12 @@ ASCII 字符集中的数字和字母大家应该都很熟了，这边再对两�
 -   虽然宏可能比函数快，但是它们通常会产生更大的代码。如果在很多地方扩展，这个程序可能大到让你无法想象。
 -   宏的参数可能会被求值多次，具有副作用的宏参数会导致意外。
     <!-- prettier-ignore-start -->
+
     !!! example "举个例子"
 
         ```c
         #define SQUARE(X) ((X) * (X))
-        SQUARE(x++); // x++ * x++        
+        SQUARE(x++); // x++ * x++
         ```
 
         使用者以为它只会让 `x` 自增一次，但是实际上它会让 `x` 自增两次。
@@ -262,6 +283,7 @@ ASCII 字符集中的数字和字母大家应该都很熟了，这边再对两�
     !!! warning "会产生不安全行为的宏"
 
         标准库中，只有 `getc` 和 `putc` 可能会产生这种不安全行为。
+
     <!-- prettier-ignore-end -->
 
 `<ctype.h>` 中定义了一个查找表 `_Ctype`，两个映射表 `_Tolower` 和 `_Toupper`。每个字符都被编入查找表中，使用位运算就能判断出字符的类型。
@@ -339,24 +361,30 @@ int isalnum(int c)
 <!-- prettier-ignore-start -->
 !!! info "因为我们没有学 C 的错误处理，所以我们不知道怎么捕获这些错误。有兴趣的同学可以学习 `<error.h>` 中的内容。"
 <!-- prettier-ignore-end -->
+
 ### 内容
 
 -   宏
+
     ```c
     HUGE_VAL
     ```
-<!-- prettier-ignore-start -->
-!!! danger "GCC 定义的宏"
-    
-    ```c
-    INFINITY
-    NAN
-    ```
 
-    上面这两个宏起初不在标准库中，由 GCC 定义。
-    
-    > 据说在 C99 以后，`INFINITY` 被标准库纳入，我没有查证。
-<!-- prettier-ignore-end -->
+    <!-- prettier-ignore-start -->
+
+    !!! danger "GCC 定义的宏"
+
+        ```c
+        INFINITY
+        NAN
+        ```
+
+        上面这两个宏起初不在标准库中，由 GCC 定义。
+
+        > 据说在 C99 以后，`INFINITY` 被标准库纳入，我没有查证。
+
+    <!-- prettier-ignore-end -->
+
 -   函数（仅举一些常用的
     ```c
     double acos(double x);
@@ -390,8 +418,8 @@ int isalnum(int c)
 **字符串**和**字符数组**一定要区别开来。字符串是以空字符 `\0` 结尾的字符数组。
 
 ```c
-char name[13] = "StudyTonight";        
-char name[10] = {'c','o','d','e','\0'}; 
+char name[13] = "StudyTonight";
+char name[10] = {'c','o','d','e','\0'};
 ```
 
 <!-- prettier-ignore-start -->
@@ -521,49 +549,49 @@ char name[10] = {'c','o','d','e','\0'};
     ```
 -   函数
     -   伪随机序列产生函数
-    ```c
-    int rand(void);
-    void srand(unsigned int seed);
-    ```
+        ```c
+        int rand(void);
+        void srand(unsigned int seed);
+        ```
     -   整数算术函数
-    ```c
-    int abs(int n);
-    div_t div(int numer, int denom);
-    long labs(long n);
-    ldiv_t ldiv(long numer, long denom);
-    ```
+        ```c
+        int abs(int n);
+        div_t div(int numer, int denom);
+        long labs(long n);
+        ldiv_t ldiv(long numer, long denom);
+        ```
     -   查找和排序函数
-    ```c
-    void *bsearch(const void *key, const void *base, size_t n, size_t size, int (*compar)(const void *, const void *));
-    void qsort(void *base, size_t n, size_t size, int (*compar)(const void *, const void *));
-    ```
+        ```c
+        void *bsearch(const void *key, const void *base, size_t n, size_t size, int (*compar)(const void *, const void *));
+        void qsort(void *base, size_t n, size_t size, int (*compar)(const void *, const void *));
+        ```
     -   文本转换（好用的）
-    ```c
-    double atof(const char *str);
-    int atoi(const char *str);
-    long atol(const char *str);
-    double strtod(const char *str, char **endptr);
-    long strtol(const char *str, char **endptr, int base);
-    unsigned long strtoul(const char *str, char **endptr, int base);
-    ```
+        ```c
+        double atof(const char *str);
+        int atoi(const char *str);
+        long atol(const char *str);
+        double strtod(const char *str, char **endptr);
+        long strtol(const char *str, char **endptr, int base);
+        unsigned long strtoul(const char *str, char **endptr, int base);
+        ```
     -   环境通信（不介绍）
-    ```c
-    // void abort(void);
-    // int atexit(void (*func)(void));
-    // void exit(int status);
-    // char *getenv(const char *name);
-    // int system(const char *string);
-    ```
+        ```c
+        // void abort(void);
+        // int atexit(void (*func)(void));
+        // void exit(int status);
+        // char *getenv(const char *name);
+        // int system(const char *string);
+        ```
     -   内存管理（重难点）
-    ```c
-    void *calloc(size_t nobj, size_t size);
-    void free(void *ptr);
-    void *malloc(size_t size);
-    void *realloc(void *ptr, size_t size);
-    ```
-<!-- prettier-ignore-start -->
-!!! danger "注意，内存拷贝函数却在 `<string.h>` 中。"
-<!-- prettier-ignore-end -->
+        ```c
+        void *calloc(size_t nobj, size_t size);
+        void free(void *ptr);
+        void *malloc(size_t size);
+        void *realloc(void *ptr, size_t size);
+        ```
+        <!-- prettier-ignore-start -->
+        !!! danger "注意，内存拷贝函数却在 `<string.h>` 中。"
+        <!-- prettier-ignore-end -->
 -   类型
     ```c
     div_t // int quot, rem;
@@ -634,10 +662,10 @@ char name[10] = {'c','o','d','e','\0'};
 
 即使到今天，不同操作系统处理文本文件的方式仍然具有差异。
 
-| 差异 | UNIX | Windows | MacOS |
-| - | - | - | - |
-| 换行符 | `\n`<br /> LF | `\r\n` <br />CRLF | `\n` (较早的 MacOS 使用 `\r`)<br />LF |
-| 文件结束符 | `^D`<br />++ctrl+d++ | `^Z`<br />++ctrl+z++ | `^D`<br />++ctrl+d++ |
+| 差异       | UNIX                 | Windows              | MacOS                                 |
+| ---------- | -------------------- | -------------------- | ------------------------------------- |
+| 换行符     | `\n`<br /> LF        | `\r\n` <br />CRLF    | `\n` (较早的 MacOS 使用 `\r`)<br />LF |
+| 文件结束符 | `^D`<br />++ctrl+d++ | `^Z`<br />++ctrl+z++ | `^D`<br />++ctrl+d++                  |
 
 <!-- prettier-ignore-start -->
 !!! danger "都是历史的锅！"
@@ -675,8 +703,6 @@ C 语言提供两种流：文本流和二进制流。
     to her heaving bosom.\n
     ```
 <!-- prettier-ignore-end -->
-
-
 
 ### 内容
 

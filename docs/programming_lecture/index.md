@@ -41,5 +41,5 @@
 | 1    | 程序编译过程与调试技术 | 朱宝林         | 10.14 下午 2:30-4:30   | 东 1A-132                    | [课前准备](lecture1/pre_class.md)<br>[讲义](lecture1/lecture1.md) | [Bilibili](https://www.bilibili.com/video/BV1Pu411T7GT/) |
 | 2    | 类型系统与内存模型     | 李英琦         | 10.29 早 9:30-11:30    | 北 1-311                     | [课前准备](lecture2/pre_class.md)<br>[讲义](lecture2/lecture2.md) | [Bilibili](https://www.bilibili.com/video/BV1qN4y1S7ve/) |
 | 3    | I/O 与文件             | 胡育玮         | 11.18 下午 14:30-16:30 | 北 1-312                     | [课前准备](lecture3/pre_class.md)<br>[讲义](lecture3/lecture3.md) |                                                          |
-| 4    | C 标准库               | 朱宝林         | 12.1                   | [讲义](lecture4/lecture4.md) |                                                                   |                                                          |
+| 4    | C 标准库               | 朱宝林         | 12.2 早9:00-11:00         | 北2-225 |    [讲义](lecture4/lecture4.md)                                                               |                                                          |
 | 5    | 数据结构与算法         | 谢集<br>苏煜程 | 【暂定】12.15          |                              |                                                                   |                                                          |
