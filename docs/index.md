@@ -1,13 +1,20 @@
 # 欢迎来到竺院辅学计划网站
+<!-- prettier-ignore-start -->
+!!! note inline end ""
+
+    ![ckc-agc-card](graph/ckc-agc-card-light.png#only-light)
+    ![ckc-agc-card](graph/ckc-agc-card-black.png#only-dark)
+<!-- prettier-ignore-end -->
+
 
 😉 你好~
 
-这里是竺可桢学院学业指导中心辅学计划的站点。辅学计划为竺院大一新生提供数学分析（H）、线性代数（H）、微积分（H）、普通物理学（H）、普通化学（H）、程序设计基础等**荣誉课程**的学习指导与帮助。
+这里是竺可桢学院学业指导中心辅学计划的站点。辅学计划为竺院大一新生提供数学分析（H）、线性代数（H）、微积分（H）、普通物理学（H）、普通化学（H）、程序设计（H）等**荣誉课程**的学习指导与帮助。
 
 你可以通过网站上方或左侧的导航栏浏览我们的网站。普通辅学版块使用 📚 标注，精品课程版块使用 🏫 标注。
 
 <!-- prettier-ignore-start -->
-::cards:: cols=2
+::cards:: cols=3
 
 [
   {
@@ -23,15 +30,15 @@
   {
     "title": "[线性代数 I/II（H）](algebra/index.md)",
     "content": "23-24辅学群：913067714<br>
-                [【精品课程】线性代数：未竟之美](lalu/index.md)",
+                [🏫线性代数：未竟之美](lalu/index.md)",
     "image": "graph/algebra.jpg"
   },
   {
-    "title": "[程序设计](programming/index.md)",
+    "title": "[程序设计（H）](programming/index.md)",
     "content": "23-24辅学群：728919863<br>
                 [每日一题](programming/daily/2023.md)<br>
-                [【精品课程】系统知识拾遗](programming_lecture/index.md)<br>
-                [【精品课程】实用技能拾遗](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/)",
+                [🏫系统知识拾遗](programming_lecture/index.md)<br>
+                [🏫实用技能拾遗](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/)",
     "image": "graph/programming.jpg"
   },
   {
@@ -48,6 +55,8 @@
 
 ::/cards::
 <!-- prettier-ignore-end -->
+
+我们还在[其他资源](other/index.md)中整理了一些有用的资料，但这些资料并没有专人负责维护。我们欢迎大家的贡献～
 
 ## 辅学简介
 

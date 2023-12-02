@@ -25,7 +25,7 @@ W 代表适配吴志祥班，T 代表适配谈之奕班，H 代表合班上课�
 | :--: | :--: | :--: | :----: | :------: |
 | W1 | Oct.29 | 引入：线性空间 | 梅敏炫 | [Bilibili](https://www.bilibili.com/video/BV1qz4y1A7h7/) |
 | T1 | Oct.29 | 引入：线性空间 | 吴一航 | [Bilibili](https://www.bilibili.com/video/BV1iG411X7Bv) |
-| H2 | Nov.18 | 线性映射及其矩阵表示 | 吴一航 ｜ [Bilibili](https://www.bilibili.com/video/BV1ZC4y1j7kL/) |
+| H2 | Nov.18 | 线性映射及其矩阵表示 | 吴一航 | [Bilibili](https://www.bilibili.com/video/BV1ZC4y1j7kL/) |
 
 ## 课程安排
 
