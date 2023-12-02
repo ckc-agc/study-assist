@@ -1057,7 +1057,8 @@
 <span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">q1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">q2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 </code></pre></div>
-<p>请问，<code>p1 + 1</code>、<code>p2 - p1</code>、<code>q1 + 1</code>、<code>q2 - q1</code> 的值是多少？</p>
+<p>请问，<code>p1 + 1</code>、<code>p2 - p1</code>、<code>q1 + 1</code>、<code>q2 - q1</code> 的值是多少？类型是什么？</p>
+<p>如果直接对他们的值进行加减，结果应当是多少？</p>
 </div>
 <!-- prettier-ignore-end -->
 </li>
@@ -1069,7 +1070,7 @@
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
 <span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
 </code></pre></div>
-<p>请问：<code>a</code>、<code>a[0]</code>、<code>&amp;a[0]</code>、<code>*a</code>、<code>p</code>、<code>*p</code>、<code>&amp;p</code> 的类型是什么？</p>
+<p>请问：<code>a</code>、<code>a[0]</code>、<code>&amp;a[0]</code>、<code>&amp;a</code>、<code>*a</code>、<code>p</code>、<code>*p</code>、<code>&amp;p</code> 的类型是什么？</p>
 <p>请问，执行 <code>p = &amp;a</code> 报告</p>
 <div class="highlight"><pre><span></span><code>warning: initialization of `int *` from incompatible pointer type `int (*)[10]`
 </code></pre></div>
@@ -1446,7 +1447,9 @@
 <span class="n">EXIT_FAILURE</span>
 <span class="n">EXIT_SUCCESS</span>
 </code></pre></div></li>
-<li>函数<ul>
+<li>
+<p>函数</p>
+<ul>
 <li>伪随机序列产生函数
     <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">rand</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">srand</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">seed</span><span class="p">);</span>
@@ -1476,21 +1479,27 @@
 <span class="c1">// char *getenv(const char *name);</span>
 <span class="c1">// int system(const char *string);</span>
 </code></pre></div></li>
-<li>内存管理（重难点）
-    <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">calloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">nobj</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+<li>
+<p>内存管理（重难点）</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">calloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">nobj</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">free</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">malloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">realloc</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 </code></pre></div>
 <!-- prettier-ignore-start -->
-    !!! danger "注意，内存拷贝函数却在 <code>&lt;string.h&gt;</code> 中。"
-    <!-- prettier-ignore-end --></li>
+<div class="admonition danger">
+<p class="admonition-title">注意，内存拷贝函数却在 <code>&lt;string.h&gt;</code> 中。</p>
+</div>
+<!-- prettier-ignore-end -->
+</li>
 </ul>
 </li>
-<li>类型
-    <div class="highlight"><pre><span></span><code><span class="kt">div_t</span><span class="w"> </span><span class="c1">// int quot, rem;</span>
+<li>
+<p>类型</p>
+<div class="highlight"><pre><span></span><code><span class="kt">div_t</span><span class="w"> </span><span class="c1">// int quot, rem;</span>
 <span class="kt">ldiv_t</span><span class="w"> </span><span class="c1">// long quot, rem;</span>
-</code></pre></div></li>
+</code></pre></div>
+</li>
 </ul>
 <h3 id="_14">使用<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
@@ -1684,7 +1693,7 @@ to her heaving bosom.\n
 <li><code>%d</code>、<code>%p</code> 等转换说明的使用。</li>
 <li><code>\n</code>、<code>\r</code> 等常见转义序列的使用。</li>
 <li>基本的打开、关闭文件 <code>fopen</code>、<code>fclose</code> 的使用。</li>
-<li><code>r</code>、<code>w</code>、<code>a</code> 等模式的使用。</li>
+<li><code>r</code>、<code>w</code>、<code>a</code>、<code>b</code> 等模式的使用。</li>
 <li>在一个 <code>FILE</code> 中用 <code>fscanf</code>、<code>fprintf</code> 读写数据。<ul>
 <li><code>fread</code> 和 <code>fwrite</code> 课上应该会讲，但是编程也不会要求的。</li>
 </ul>
