@@ -1042,13 +1042,28 @@
 <li>会阅读函数原型<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>函数声明<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>函数签名（它们说的是一个东西<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：
     <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 </code></pre></div></li>
-<li><a href="../../../programming/topic/pointers/">指针</a> 的概念<ul>
+<li>
+<p><a href="../../../programming/topic/pointers/">指针</a> 的概念</p>
+<ul>
 <li>内存、内存地址、对象</li>
 <li>指针也是一个对象，它的值是一个内存地址</li>
-<li>指针具有类型信息，决定了指针的运算方式</li>
-<li>数组与指针
-<!-- prettier-ignore-start --></li>
-</ul>
+<li>
+<p>指针具有类型信息，决定了指针的运算方式</p>
+<!-- prettier-ignore-start -->
+<div class="admonition example">
+<p class="admonition-title">例子</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">q</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">q1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">q2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">q</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</code></pre></div>
+<p>请问，<code>p1 + 1</code>、<code>p2 - p1</code>、<code>q1 + 1</code>、<code>q2 - q1</code> 的值是多少？</p>
+</div>
+<!-- prettier-ignore-end -->
+</li>
+<li>
+<p>数组与指针
+    <!-- prettier-ignore-start --></p>
 <div class="admonition example">
 <p class="admonition-title">例子</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
@@ -1060,8 +1075,12 @@
 </code></pre></div>
 <p>是什么原因？</p>
 </div>
-<p><!-- prettier-ignore-end -->
--   多维数组比较复杂，等正文讲完还有时间再回来讲</p>
+<!-- prettier-ignore-end -->
+</li>
+<li>
+<p>多维数组比较复杂，等正文讲完还有时间再回来讲</p>
+</li>
+</ul>
 </li>
 </ul>
 <h2 id="ctypeh"><code>&lt;ctype.h&gt;</code><a class="headerlink" href="#ctypeh" title="Permanent link">¶</a></h2>
@@ -1166,15 +1185,14 @@
 <li>虽然宏可能比函数快，但是它们通常会产生更大的代码。如果在很多地方扩展，这个程序可能大到让你无法想象。</li>
 <li>
 <p>宏的参数可能会被求值多次，具有副作用的宏参数会导致意外。
-    <!-- prettier-ignore-start -->
-    !!! example "举个例子"</p>
-<div class="highlight"><pre><span></span><code>```c
-#define SQUARE(X) ((X) * (X))
-SQUARE(x++); // x++ * x++        
-```
-
-使用者以为它只会让 `x` 自增一次，但是实际上它会让 `x` 自增两次。
+    <!-- prettier-ignore-start --></p>
+<div class="admonition example">
+<p class="admonition-title">举个例子</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define SQUARE(X) ((X) * (X))</span>
+<span class="n">SQUARE</span><span class="p">(</span><span class="n">x</span><span class="o">++</span><span class="p">);</span><span class="w"> </span><span class="c1">// x++ * x++</span>
 </code></pre></div>
+<p>使用者以为它只会让 <code>x</code> 自增一次，但是实际上它会让 <code>x</code> 自增两次。</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">会产生不安全行为的宏</p>
 <p>标准库中，只有 <code>getc</code> 和 <code>putc</code> 可能会产生这种不安全行为。</p>
@@ -1262,10 +1280,10 @@ SQUARE(x++); // x++ * x++
 <!-- prettier-ignore-end -->
 <h3 id="_7">内容<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>宏
-    <div class="highlight"><pre><span></span><code><span class="n">HUGE_VAL</span>
-</code></pre></div></li>
-</ul>
+<li>
+<p>宏</p>
+<div class="highlight"><pre><span></span><code><span class="n">HUGE_VAL</span>
+</code></pre></div>
 <!-- prettier-ignore-start -->
 <div class="admonition danger">
 <p class="admonition-title"><span>GCC<span class="heti-spacing"> </span></span>定义的宏</p>
@@ -1278,9 +1296,10 @@ SQUARE(x++); // x++ * x++
 </blockquote>
 </div>
 <!-- prettier-ignore-end -->
-<ul>
-<li>函数（仅举一些常用的
-    <div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">acos</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+</li>
+<li>
+<p>函数（仅举一些常用的
+    </p><div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">acos</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 <span class="kt">double</span><span class="w"> </span><span class="nf">asin</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 <span class="kt">double</span><span class="w"> </span><span class="nf">atan</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 <span class="kt">double</span><span class="w"> </span><span class="nf">cos</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
@@ -1294,7 +1313,8 @@ SQUARE(x++); // x++ * x++
 <span class="kt">double</span><span class="w"> </span><span class="nf">ceil</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 <span class="kt">double</span><span class="w"> </span><span class="nf">fabs</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 <span class="kt">double</span><span class="w"> </span><span class="nf">floor</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
-</code></pre></div></li>
+</code></pre></div>
+</li>
 </ul>
 <h3 id="_8">使用<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
@@ -1309,8 +1329,8 @@ SQUARE(x++); // x++ * x++
 <h2 id="stringh"><code>&lt;string.h&gt;</code><a class="headerlink" href="#stringh" title="Permanent link">¶</a></h2>
 <h3 id="_9">背景知识：字符串<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><strong>字符串</strong>和<strong>字符数组</strong>一定要区别开来。字符串是以空字符 <code>\0</code> 结尾的字符数组。</p>
-<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"StudyTonight"</span><span class="p">;</span><span class="w">        </span>
-<span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'c'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">'d'</span><span class="p">,</span><span class="sc">'e'</span><span class="p">,</span><span class="sc">'\0'</span><span class="p">};</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"StudyTonight"</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'c'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">'d'</span><span class="p">,</span><span class="sc">'e'</span><span class="p">,</span><span class="sc">'\0'</span><span class="p">};</span>
 </code></pre></div>
 <!-- prettier-ignore-start -->
 <div class="admonition danger">
@@ -1428,21 +1448,21 @@ SQUARE(x++); // x++ * x++
 </code></pre></div></li>
 <li>函数<ul>
 <li>伪随机序列产生函数
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">rand</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">rand</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">srand</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">seed</span><span class="p">);</span>
 </code></pre></div></li>
 <li>整数算术函数
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="kt">div_t</span><span class="w"> </span><span class="nf">div</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numer</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denom</span><span class="p">);</span>
 <span class="kt">long</span><span class="w"> </span><span class="nf">labs</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="kt">ldiv_t</span><span class="w"> </span><span class="nf">ldiv</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">numer</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">denom</span><span class="p">);</span>
 </code></pre></div></li>
 <li>查找和排序函数
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">bsearch</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">compar</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">));</span>
+    <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">bsearch</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">compar</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">));</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">qsort</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">compar</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">));</span>
 </code></pre></div></li>
 <li>文本转换（好用的）
-<div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">atof</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
+    <div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">atof</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">atoi</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
 <span class="kt">long</span><span class="w"> </span><span class="nf">atol</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
 <span class="kt">double</span><span class="w"> </span><span class="nf">strtod</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">endptr</span><span class="p">);</span>
@@ -1450,27 +1470,23 @@ SQUARE(x++); // x++ * x++
 <span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">strtoul</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">endptr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">base</span><span class="p">);</span>
 </code></pre></div></li>
 <li>环境通信（不介绍）
-<div class="highlight"><pre><span></span><code><span class="c1">// void abort(void);</span>
+    <div class="highlight"><pre><span></span><code><span class="c1">// void abort(void);</span>
 <span class="c1">// int atexit(void (*func)(void));</span>
 <span class="c1">// void exit(int status);</span>
 <span class="c1">// char *getenv(const char *name);</span>
 <span class="c1">// int system(const char *string);</span>
 </code></pre></div></li>
 <li>内存管理（重难点）
-<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">calloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">nobj</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+    <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">calloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">nobj</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">free</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">malloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">realloc</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
-</code></pre></div></li>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+    !!! danger "注意，内存拷贝函数却在 <code>&lt;string.h&gt;</code> 中。"
+    <!-- prettier-ignore-end --></li>
 </ul>
 </li>
-</ul>
-<!-- prettier-ignore-start -->
-<div class="admonition danger">
-<p class="admonition-title">注意，内存拷贝函数却在 <code>&lt;string.h&gt;</code> 中。</p>
-</div>
-<!-- prettier-ignore-end -->
-<ul>
 <li>类型
     <div class="highlight"><pre><span></span><code><span class="kt">div_t</span><span class="w"> </span><span class="c1">// int quot, rem;</span>
 <span class="kt">ldiv_t</span><span class="w"> </span><span class="c1">// long quot, rem;</span>
@@ -1786,7 +1802,7 @@ to her heaving bosom.\n
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 29, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 2, 2023</span>
 </small>
 </div>
 </article>
