@@ -121,7 +121,9 @@ for(int i = 0; i < strlen(str); ++i)
             char *q1 = q, *q2 = &q[1];
             ```
 
-            请问，`p1 + 1`、`p2 - p1`、`q1 + 1`、`q2 - q1` 的值是多少？
+            请问，`p1 + 1`、`p2 - p1`、`q1 + 1`、`q2 - q1` 的值是多少？类型是什么？
+
+            如果直接对他们的值进行加减，结果应当是多少？
 
         <!-- prettier-ignore-end -->
 
@@ -135,7 +137,7 @@ for(int i = 0; i < strlen(str); ++i)
             int *p;
             ```
 
-            请问：`a`、`a[0]`、`&a[0]`、`*a`、`p`、`*p`、`&p` 的类型是什么？
+            请问：`a`、`a[0]`、`&a[0]`、`&a`、`*a`、`p`、`*p`、`&p` 的类型是什么？
 
             请问，执行 `p = &a` 报告
 
@@ -548,6 +550,7 @@ char name[10] = {'c','o','d','e','\0'};
     EXIT_SUCCESS
     ```
 -   函数
+
     -   伪随机序列产生函数
         ```c
         int rand(void);
@@ -583,16 +586,21 @@ char name[10] = {'c','o','d','e','\0'};
         // int system(const char *string);
         ```
     -   内存管理（重难点）
+
         ```c
         void *calloc(size_t nobj, size_t size);
         void free(void *ptr);
         void *malloc(size_t size);
         void *realloc(void *ptr, size_t size);
         ```
+
         <!-- prettier-ignore-start -->
+
         !!! danger "注意，内存拷贝函数却在 `<string.h>` 中。"
         <!-- prettier-ignore-end -->
+
 -   类型
+
     ```c
     div_t // int quot, rem;
     ldiv_t // long quot, rem;
@@ -795,7 +803,7 @@ C 语言提供两种流：文本流和二进制流。
 -   `%d`、`%p` 等转换说明的使用。
 -   `\n`、`\r` 等常见转义序列的使用。
 -   基本的打开、关闭文件 `fopen`、`fclose` 的使用。
--   `r`、`w`、`a` 等模式的使用。
+-   `r`、`w`、`a`、`b` 等模式的使用。
 -   在一个 `FILE` 中用 `fscanf`、`fprintf` 读写数据。
     -   `fread` 和 `fwrite` 课上应该会讲，但是编程也不会要求的。
 
