@@ -1063,14 +1063,16 @@ argv[4] = "test"
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
-<p><code>sizeof(A)</code> is 14, and <code>sizeof(B)</code> is 8 (on a 64-bit modern system).</p>
+<p><code>sizeof(A)</code> is 16, and <code>sizeof(B)</code> is 8 (on a 64-bit modern system).</p>
 <p>The <code>sizeof</code> operator returns the size of its operand in bytes. The size of a structure type is as large as the sum of the sizes of its members. </p>
-<p>The size of <code>A</code> is 14, because the size of <code>char[10]</code> is 10, and the size of <code>int</code> is 4. The size of <code>B</code> is 8, because <code>B</code> is a pointer and the size of pointer is 8. The size of type to which <code>B</code> points does not affect the size of <code>B</code>.</p>
+<p>You may think the size of <code>A</code> is 14, because the size of <code>char[10]</code> is 10, and the size of <code>int</code> is 4. However, to improve performance of memory access, C standard allows the compiler to add padding bytes after each member of a structure, and the padding strategy is <strong>implementation specific</strong>. A common strategy is to align each member to the size of its type, that is to say, make their memory address to be a multiple of the size of the member. For example, on a 64-bit system, the address of a 4-byte integer must be a multiple of 4.</p>
+<p>Therefore, The size of <code>A</code> is 16. The compiler will add 2 padding bytes after <code>char[10]</code>, to make the address of <code>int</code> a multiple of 4 in <code>struct A</code>.</p>
+<p>The size of <code>B</code> is 8, because <code>B</code> is a pointer and the size of pointer is 8. The size of type to which <code>B</code> points does not affect the size of <code>B</code>. Notice that type <code>B</code> is not equivalent to type <code>struct B</code>.</p>
 <p>For more information about <code>sizeof</code> operator, see <a href="https://en.cppreference.com/w/c/language/sizeof">cppreference-sizeof</a>.</p>
 </details>
 <!-- prettier-ignore-end -->
 <blockquote>
-<p>供题人：朱宝林</p>
+<p>供题人：朱宝林、孙兆江</p>
 </blockquote>
 <h3 id="2-print-non-printable-characters">「2」 Print Non-printable Characters<a class="headerlink" href="#2-print-non-printable-characters" title="Permanent link">¶</a></h3>
 <p>Write a program to convert unprintable characters (characters with ASCII codes between <code>0x00</code>~<code>0x1f</code> and <code>0x7f</code>) in the input string to hexadecimal format for output.</p>
