@@ -420,6 +420,27 @@
 <nav aria-label="December" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#4-command-line-arguments">
+<span class="md-ellipsis">
+      「4」 Command Line Arguments
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-sizeof-struct">
+<span class="md-ellipsis">
+      「3」 sizeof struct
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-print-non-printable-characters">
+<span class="md-ellipsis">
+      「2」 Print Non-printable Characters
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#1-hello-cat">
 <span class="md-ellipsis">
       「1」 Hello, Cat
@@ -767,6 +788,27 @@
 <nav aria-label="December" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#4-command-line-arguments">
+<span class="md-ellipsis">
+      「4」 Command Line Arguments
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-sizeof-struct">
+<span class="md-ellipsis">
+      「3」 sizeof struct
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-print-non-printable-characters">
+<span class="md-ellipsis">
+      「2」 Print Non-printable Characters
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#1-hello-cat">
 <span class="md-ellipsis">
       「1」 Hello, Cat
@@ -965,6 +1007,137 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="december">December<a class="headerlink" href="#december" title="Permanent link">¶</a></h2>
+<h3 id="4-command-line-arguments">「4」 Command Line Arguments<a class="headerlink" href="#4-command-line-arguments" title="Permanent link">¶</a></h3>
+<p>If you run the following command in the terminal:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./a.out this is a test
+</code></pre></div></td></tr></table></div>
+<p>Please describe what will the program see in <code>argv</code> and <code>argc</code>.</p>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<div class="admonition note inline end">
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.12.04.png"><img alt="" src="../graph/23.12.04.png"/></a></p>
+</div>
+<p><code>argv</code> is an array of pointers to strings, and <code>argc</code> is the number of strings in <code>argv</code>. The <code>argv</code> array contains the following strings:</p>
+<div class="highlight"><pre><span></span><code>argv[0] = "./a.out"
+argv[1] = "this"
+argv[2] = "is"
+argv[3] = "a"
+argv[4] = "test"
+</code></pre></div>
+<p>The <code>argc</code> is 5, because there are 5 strings in <code>argv</code>.</p>
+<p>The <code>argv</code> array is terminated by a null pointer, so <code>argv[5]</code> is a null pointer.</p>
+<p>For more information about <code>argv</code> and <code>argc</code>, see <a href="https://en.cppreference.com/w/c/language/main_function">cppreference-argc, argv</a>.</p>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：朱宝林</p>
+</blockquote>
+<h3 id="3-sizeof-struct">「3」 <code>sizeof</code> <code>struct</code><a class="headerlink" href="#3-sizeof-struct" title="Permanent link">¶</a></h3>
+<p>Consider the following code fragment:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+
+<span class="p">};</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="n">A</span><span class="p">;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">B</span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>What is the value of <code>sizeof(A)</code> and <code>sizeof(B)</code>?</p>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<p><code>sizeof(A)</code> is 14, and <code>sizeof(B)</code> is 8 (on a 64-bit modern system).</p>
+<p>The <code>sizeof</code> operator returns the size of its operand in bytes. The size of a structure type is as large as the sum of the sizes of its members. </p>
+<p>The size of <code>A</code> is 14, because the size of <code>char[10]</code> is 10, and the size of <code>int</code> is 4. The size of <code>B</code> is 8, because <code>B</code> is a pointer and the size of pointer is 8. The size of type to which <code>B</code> points does not affect the size of <code>B</code>.</p>
+<p>For more information about <code>sizeof</code> operator, see <a href="https://en.cppreference.com/w/c/language/sizeof">cppreference-sizeof</a>.</p>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：朱宝林</p>
+</blockquote>
+<h3 id="2-print-non-printable-characters">「2」 Print Non-printable Characters<a class="headerlink" href="#2-print-non-printable-characters" title="Permanent link">¶</a></h3>
+<p>Write a program to convert unprintable characters (characters with ASCII codes between <code>0x00</code>~<code>0x1f</code> and <code>0x7f</code>) in the input string to hexadecimal format for output.</p>
+<p>Requirements:</p>
+<ul>
+<li>Do not use the <code>printf</code> series of formatting output functions.</li>
+<li>The minimum field width for output is <code>2</code>, and if the hexadecimal number is less than 2 digits, pad it with leading zeros. For example, <code>0x0a</code>.</li>
+</ul>
+<p>Sample Input：</p>
+<div class="highlight"><pre><span></span><code>Hello
+World!
+</code></pre></div>
+<p>Sample Output：</p>
+<div class="highlight"><pre><span></span><code>Hello\0x0aWorld!
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctype.h&gt;</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">hex_digits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"0123456789abcdef"</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">((</span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isprint</span><span class="p">(</span><span class="n">temp</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">putchar</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'\\'</span><span class="p">);</span>
+<span class="w">            </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'0'</span><span class="p">);</span>
+<span class="w">            </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'x'</span><span class="p">);</span>
+<span class="w">            </span><span class="n">putchar</span><span class="p">(</span><span class="n">hex_digits</span><span class="p">[</span><span class="n">temp</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">]);</span>
+<span class="w">            </span><span class="n">putchar</span><span class="p">(</span><span class="n">hex_digits</span><span class="p">[</span><span class="n">temp</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xf</span><span class="p">]);</span><span class="w">                </span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>If you are not familiar with bitwise operations, the 14<sup>th</sup> and 15<sup>th</sup> lines in the above code fragment can be written in a more understandable form:</p>
+<div class="highlight"><pre><span></span><code><span class="n">putchar</span><span class="p">(</span><span class="n">hex_digits</span><span class="p">[</span><span class="n">temp</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">16</span><span class="p">]);</span>
+<span class="n">putchar</span><span class="p">(</span><span class="n">hex_digits</span><span class="p">[</span><span class="n">temp</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">16</span><span class="p">]);</span>
+</code></pre></div>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：朱宝林</p>
+</blockquote>
 <h3 id="1-hello-cat">「1」 Hello, Cat<a class="headerlink" href="#1-hello-cat" title="Permanent link">¶</a></h3>
 <p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1001,7 +1174,7 @@ h5:before {content: unset;}
 <p><code>C</code>.</p>
 <p>The <code>strcat</code> function appends a copy of the string pointed to by <code>s4</code> to the end of the string pointed to by <code>s3</code>. The <code>s3</code> and <code>s4</code> pointers point to the third character of <code>s1</code> and the fourth character of <code>s2</code>, respectively. Therefore, the <code>strcat</code> function appends the string <code>"ld"</code> to the end of the string <code>"Hellold"</code>, resulting in <code>"Helloldld"</code>, and the <code>printf</code> function prints <code>"Hellold, world; llold, ld."</code>.</p>
 <p>When the <code>strcat</code> function appends the string <code>"ld"</code> after "Hello", it overwrites the null character <code>'\0'</code> at the end of the string <code>"Hello"</code> and write a new null character <code>'\0'</code> at the end of the string <code>"Helloldld"</code>. Therefore, the character <code>w</code> and <code>&lt;</code> after the null character <code>'\0'</code> in <code>s1</code> are not printed.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.12.1.png"><img alt="" src="../graph/23.12.1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.12.01.png"><img alt="" src="../graph/23.12.01.png"/></a></p>
 </details>
 <!-- prettier-ignore-end -->
 <blockquote>
@@ -1342,13 +1515,18 @@ daily_problem
 <span class="k">typedef</span><span class="w"> </span><span class="n">PtrToBookcase</span><span class="w"> </span><span class="n">Lib_data_base</span><span class="p">[</span><span class="n">MAX_SIZE</span><span class="p">];</span>
 </code></pre></div></td></tr></table></div>
 <p>After executing the following code fragment, the output should be <strong>__</strong>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Lib_data_base</span><span class="w"> </span><span class="n">library</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Lib_data_base</span><span class="w"> </span><span class="n">library</span><span class="p">;</span>
 <span class="o">*</span><span class="p">(</span><span class="n">library</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">PtrToBookcase</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span><span class="w"> </span><span class="nc">Bookcase</span><span class="p">));</span>
 <span class="p">(</span><span class="o">*</span><span class="n">library</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">book</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"C Programming Book"</span><span class="p">;</span>
 <span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%.2s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">library</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">book</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">library</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">book</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
 <span class="n">free</span><span class="p">(</span><span class="n">library</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
@@ -1846,7 +2024,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 6, 2023</span>
 </small>
 </div>
 </article>
