@@ -1192,9 +1192,6 @@ h5:before {content: unset;}
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
-<div class="admonition note inline end">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.12.04.png"><img alt="" src="../graph/23.12.04.png"/></a></p>
-</div>
 <p><code>argv</code> is an array of pointers to strings, and <code>argc</code> is the number of strings in <code>argv</code>. The <code>argv</code> array contains the following strings:</p>
 <div class="highlight"><pre><span></span><code>argv[0] = "./a.out"
 argv[1] = "this"
@@ -1204,6 +1201,9 @@ argv[4] = "test"
 </code></pre></div>
 <p>The <code>argc</code> is 5, because there are 5 strings in <code>argv</code>.</p>
 <p>The <code>argv</code> array is terminated by a null pointer, so <code>argv[5]</code> is a null pointer.</p>
+<div class="admonition note inline end">
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.12.04.png"><img alt="" src="../graph/23.12.04.png"/></a></p>
+</div>
 <p>For more information about <code>argv</code> and <code>argc</code>, see <a href="https://en.cppreference.com/w/c/language/main_function">cppreference-argc, argv</a>.</p>
 </details>
 <!-- prettier-ignore-end -->
@@ -1431,7 +1431,6 @@ World!
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.11.30.drawio.svg"><img align="right" alt="" src="../graph/23.11.30.drawio.svg"/></a></p>
 <ol>
 <li><code>list</code></li>
 <li><code>list-&gt;next</code></li>
@@ -1439,9 +1438,12 @@ World!
 <li><code>node</code></li>
 <li><code>list-&gt;next</code></li>
 </ol>
+<div class="admonition note inline end">
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.11.30.drawio.svg"><img alt="" src="../graph/23.11.30.drawio.svg"/></a></p>
+</div>
 <p>Notice this is a doubly linked list <strong>with a dummy node</strong>. The dummy node is a special node that does not store any data. It is used to simplify the implementation of the linked list. In this case, the dummy node is <code>list</code>.</p>
 <p>The <code>insertFront</code> function inserts a new node with <code>data</code> at the front of the list. The new node is inserted between the dummy node and the first node of the list. The <code>insertFront</code> function takes two steps:</p>
-<ol>
+<ol start="6">
 <li>Create a new node and set its <code>data</code> to <code>data</code>.</li>
 <li>Insert the new node between the dummy node and the first node of the list.</li>
 </ol>
@@ -1668,8 +1670,10 @@ daily_problem
 <details class="note">
 <summary>Answer</summary>
 <p>A.</p>
-<p><code>a[]</code> is an array of pointers, which stores the addresses of three strings, and <code>pa</code> points to the address of the first element of <code>a</code>, as shown below:</p>
+<div class="admonition note inline end">
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.11.24.jpg"><img alt="" src="../graph/23.11.24.jpg"/></a></p>
+</div>
+<p><code>a[]</code> is an array of pointers, which stores the addresses of three strings, and <code>pa</code> points to the address of the first element of <code>a</code>, as shown below:</p>
 <p>Pointer operations take precedence over addition, so <code>*(*pa + 1)</code> equals to <code>n</code>.</p>
 <p>In summary, the code fragment prints out <code>none</code>.</p>
 </details>
