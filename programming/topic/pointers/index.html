@@ -930,7 +930,7 @@
 <!-- prettier-ignore-start -->
 <details class="info">
 <summary><span>C<span class="heti-spacing"> </span></span>语言中只有值传递</summary>
-<p>如果你学习过<span><span class="heti-spacing"> </span>C++</span>，你可能会想到在形参类型中添加 <code>&amp;</code> 运算符，以将其声明为实参的引用。然而，<span>C<span class="heti-spacing"> </span></span>语言中并没有引用语法，<code>&amp;</code> 运算符在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中仅用于取址。</p>
+<p>如果你学习过<span><span class="heti-spacing"> </span>C++</span>，你可能会想到将形参的类型声明为引用，随后通过引用改变实参的值。然而，<span>C<span class="heti-spacing"> </span></span>语言中没有引用类型，在形参类型中添加 <code>&amp;</code> 是语法错误。</p>
 </details>
 <!-- prettier-ignore-end -->
 <p>不过，如果我们期望函数产生副作用，值传递的方式便无法满足需求。为解决这一问题，我们可以引入指针类型的参数，以达到修改其他对象的目的。</p>
@@ -996,11 +996,11 @@
 <!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">数组类型与指针类型的区别</p>
-<p>尽管在程序中数组经常退化为指针，我们仍应该区分这两个类型。举例来说，考虑如下的程序片段（<span>C<span class="heti-spacing"> </span></span>标准规定 <code>sizeof</code> 的返回值类型为 <code>size_t</code>，应使用 <code>%zd</code> 格式指示符输出<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
-<div class="highlight"><pre><span></span><code><span class="kt">long</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%zd %zd"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">));</span>
+<p>尽管在程序中数组经常退化为指针，我们仍应该区分这两个类型。举例来说，考虑如下的程序片段（<span>C<span class="heti-spacing"> </span></span>标准规定 <code>sizeof</code> 的返回值类型为无符号整型 <code>size_t</code>，应使用 <code>%zu</code> 格式指示符输出<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%zu %zu"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">p</span><span class="p">));</span>
 </code></pre></div>
-<p>它将会输出 <code>12 8</code>。这是因为，<code>a</code> 是一个元素类型为 <code>long</code> 且长度为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的数组对象，在多数系统中 <code>long</code> 类型长度为<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>字节，因此 <code>a</code> 的长度为<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>字节；而 <code>p</code> 是一个指针，在常用的<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统中长度为<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>字节。</p>
+<p>它将会输出 <code>12 8</code>。这是因为，<code>a</code> 是一个元素类型为 <code>int</code> 且长度为<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>的数组对象，在多数系统中 <code>int</code> 类型长度为<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>字节，因此 <code>a</code> 的长度为<span class="heti-skip"><span class="heti-spacing"> </span>12<span class="heti-spacing"> </span></span>字节；而 <code>p</code> 是一个指针，在常用的<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统中长度为<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>字节。</p>
 <p>另外，指针的值可在任意时刻通过赋值修改，而数组不能被赋值。</p>
 </div>
 <!-- prettier-ignore-end -->
@@ -1262,7 +1262,7 @@
 <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 30, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 6, 2023</span>
 </small>
 </div>
 </article>
