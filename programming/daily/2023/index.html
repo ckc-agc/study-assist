@@ -420,6 +420,13 @@
 <nav aria-label="December" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#6-stack-and-queue-adapted-from-fds-mid-term-exam">
+<span class="md-ellipsis">
+      「6」 Stack and Queue (adapted from FDS mid-term exam)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#4-command-line-arguments">
 <span class="md-ellipsis">
       「4」 Command Line Arguments
@@ -788,6 +795,13 @@
 <nav aria-label="December" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#6-stack-and-queue-adapted-from-fds-mid-term-exam">
+<span class="md-ellipsis">
+      「6」 Stack and Queue (adapted from FDS mid-term exam)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#4-command-line-arguments">
 <span class="md-ellipsis">
       「4」 Command Line Arguments
@@ -1007,6 +1021,39 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="december">December<a class="headerlink" href="#december" title="Permanent link">¶</a></h2>
+<h3 id="6-stack-and-queue-adapted-from-fds-mid-term-exam">「6」 Stack and Queue (adapted from FDS mid-term exam)<a class="headerlink" href="#6-stack-and-queue-adapted-from-fds-mid-term-exam" title="Permanent link">¶</a></h3>
+<p>Given an empty stack <code>S</code> and an empty queue <code>Q</code>. Push elements <code>{1, 2, 3, 4, 5, 6, 7}</code> one by one onto <code>S</code>. If each element that is popped from <code>S</code> is enqueued onto <code>Q</code> immediately, and if the dequeue sequence is <code>{3, 2, 4, 6, 7, 5, 1}</code>, then the minimum size of <code>S</code> should be:</p>
+<div style="display: flex">
+<div style="width: 100%">A. 5</div>
+<div style="width: 100%">B. 4</div>
+<div style="width: 100%">C. 3</div>
+<div style="width: 100%">D. 7</div>
+</div>
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">Answer</p>
+<p>C.</p>
+<p>Stack is LIFO (Last In, First Out), queue is FIFO (First In, First Out). So dequeue sequence of queue is also the enqueue sequence. If enqueue sequence of Q is {3, 2, 4, 6, 7, 5, 1}, all operation of stack S must be the following:</p>
+<ul>
+<li>Push 1 and 2 and 3 into stack sequentially. Stack S now contains 3 nodes.</li>
+<li>Pop 3, stack contains 2 nodes</li>
+<li>Pop 2, stack contains 1 node</li>
+<li>Push 4, stack contains 2 nodes</li>
+<li>Pop 4, stack contains 1 node</li>
+<li>Push 5, stack contains 2 nodes</li>
+<li>Push 6, stack contains 3 nodes</li>
+<li>Pop 6, stack contains 2 nodes</li>
+<li>Push 7, stack contains 3 nodes</li>
+<li>Pop 7, stack contains 2 nodes</li>
+<li>Pop 5, stack contains 1 node</li>
+<li>Pop 1, stack is empty</li>
+</ul>
+<p>In the process, there are at most 3 nodes in stack S, so the minimum size of S should be 3.</p>
+</div>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：姚雪涛</p>
+</blockquote>
 <h3 id="4-command-line-arguments">「4」 Command Line Arguments<a class="headerlink" href="#4-command-line-arguments" title="Permanent link">¶</a></h3>
 <p>If you run the following command in the terminal:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./a.out this is a test
