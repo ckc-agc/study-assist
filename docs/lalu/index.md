@@ -63,7 +63,12 @@ W 代表适配吴志祥班，T 代表适配谈之奕班，H 代表合班上课�
 
 LALU 课程的讲义存放在下面的仓库中，你可以**点击图片**跳转到仓库页面。欢迎提出 issue 和 pull request。
 
-[![](graph/pixel.jpg#only-light)![](graph/code.jpg#only-dark)](https://github.com/yhwu-is/Linear-Algebra-Left-Undone/)
+<div class="github-card" data-github="yhwu-is/Linear-Algebra-Left-Undone" data-width="400" data-height="" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
+
+<!--[![yhwu-is/Linear-Algebra-Left-Undone - GitHub](https://gh-card.dev/repos/yhwu-is/Linear-Algebra-Left-Undone.svg?fullname=)](https://github.com/yhwu-is/Linear-Algebra-Left-Undone)-->
+
+<!--[![](graph/pixel.jpg#only-light)![](graph/code.jpg#only-dark)](https://github.com/yhwu-is/Linear-Algebra-Left-Undone/)-->
 
 点击下面的链接可以下载讲义的最新 Release 版本：
 
