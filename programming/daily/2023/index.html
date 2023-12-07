@@ -1050,7 +1050,6 @@ h5:before {content: unset;}
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="december">December<a class="headerlink" href="#december" title="Permanent link">¶</a></h2>
 <h3 id="7-the-differance-between-strlen-and-sizeof">「7」 The differance between <code>strlen</code> and <code>sizeof</code>.<a class="headerlink" href="#7-the-differance-between-strlen-and-sizeof" title="Permanent link">¶</a></h3>
-<p>Read the following code, then give the possible result.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1066,38 +1065,33 @@ h5:before {content: unset;}
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">arr1</span><span class="p">[]</span><span class="o">=</span><span class="s">"abcd"</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">arr2</span><span class="p">[]</span><span class="o">=</span><span class="p">{</span><span class="sc">'a'</span><span class="p">,</span><span class="sc">'b'</span><span class="p">,</span><span class="sc">'c'</span><span class="p">,</span><span class="sc">'d'</span><span class="p">};</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"strlen1=%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">strlen</span><span class="p">(</span><span class="n">arr1</span><span class="p">));</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"strlen2=%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">strlen</span><span class="p">(</span><span class="n">arr2</span><span class="p">));</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"sizeof1=%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">arr1</span><span class="p">));</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"sizeof2=%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">arr2</span><span class="p">));</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">arr1</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"abcd"</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">arr2</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'a'</span><span class="p">,</span><span class="w"> </span><span class="sc">'b'</span><span class="p">,</span><span class="w"> </span><span class="sc">'c'</span><span class="p">,</span><span class="w"> </span><span class="sc">'d'</span><span class="p">};</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">arr1</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">arr2</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">arr1</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">arr2</span><span class="p">));</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
-<p>Result:</p>
-<div class="highlight"><pre><span></span><code>strlen1=____
-strlen2=____
-sizeof1=____
-sizeof2=____
-</code></pre></div>
+<p>What are the results?</p>
 <div style="display: flex">
-<div style="width: 100%">A. 4 4 5 4</div>
-<div style="width: 100%">B. 4 4 4 4</div>
-<div style="width: 100%">C. 5 4 5 4</div>
-<div style="width: 100%">D. 5 5 4 4</div>
+<div style="width: 100%">A. 4, 4, 4, 4</div>
+<div style="width: 100%">B. 5, 4, 4, 4</div>
+<div style="width: 100%">C. 4, 4, 4, indeterminable</div>
+<div style="width: 100%">D. 5, 4, 4, indeterminable</div>
 </div>
 <!-- prettier-ignore-start -->
 <details class="note">
 <summary>Answer</summary>
-<p>A.</p>
+<p>D.</p>
 <p><code>arr1</code> has <code>\0</code> at the end, but <code>arr2</code> doesn't.</p>
-<p>The function <code>strlen</code> means the number of steps from the given address to the first byte which includes <code>\0</code>. But the other one means total bytes in front of <code>\0</code>(<code>\0</code> is not included). We just gave <code>\0</code> in <code>arr1</code>, but didn't do so in <code>arr2</code>.</p>
-<p>So indeed, the second num is totally random, because we can't know where we can find <code>\0</code>. <code>4</code> is just one possibility.</p>
+<p>The <code>sizeof</code> operator returns the size of its operand in bytes. In this case, the size of <code>arr1</code> is 5, because it contains 4 characters and a null character <code>\0</code>. The size of <code>arr2</code> is 4, because it contains just 4 characters. The <code>\0</code> is absent in <code>arr2</code>.</p>
+<p>The <code>strlen</code> function returns the length of the string, that is, the number of characters in the string before the null character <code>\0</code>. In this case, the length of <code>arr1</code> is 4, because it contains 4 characters before the null character <code>\0</code>. But the length of <code>arr2</code> is indeterminable, because it does not contain a null character <code>\0</code>. The <code>strlen</code> function will continue to read memory until it finds a null character <code>\0</code>, resulting totally random result. If there is no null character <code>\0</code> in the memory, the behavior is undefined.</p>
 </details>
 <!-- prettier-ignore-end -->
 <blockquote>
-<p>供题人：华展辉</p>
+<p>供题人：华展辉，李英琦</p>
 </blockquote>
 <h3 id="6-stack-and-queue-adapted-from-fds-mid-term-exam">「6」 Stack and Queue (adapted from FDS mid-term exam)<a class="headerlink" href="#6-stack-and-queue-adapted-from-fds-mid-term-exam" title="Permanent link">¶</a></h3>
 <p>Given an empty stack <code>S</code> and an empty queue <code>Q</code>. Push elements <code>{1, 2, 3, 4, 5, 6, 7}</code> one by one onto <code>S</code>. If each element that is popped from <code>S</code> is enqueued onto <code>Q</code> immediately, and if the dequeue sequence is <code>{3, 2, 4, 6, 7, 5, 1}</code>, then the minimum size of <code>S</code> should be:</p>
@@ -1305,7 +1299,7 @@ argv[4] = "test"
 <details class="note">
 <summary>Answer</summary>
 <p><code>sizeof(A)</code> is 16, and <code>sizeof(B)</code> is 8 (on a 64-bit modern system).</p>
-<p>The <code>sizeof</code> operator returns the size of its operand in bytes. The size of a structure type is as large as the sum of the sizes of its members. </p>
+<p>The <code>sizeof</code> operator returns the size of its operand in bytes. The size of a structure type is as large as the sum of the sizes of its members.</p>
 <p>You may think the size of <code>A</code> is 14, because the size of <code>char[10]</code> is 10, and the size of <code>int</code> is 4. However, to improve performance of memory access, C standard allows the compiler to add padding bytes after each member of a structure, and the padding strategy is <strong>implementation specific</strong>. A common strategy is to align each member to the size of its type, that is to say, make their memory address to be a multiple of the size of the member. For example, on a 64-bit system, the address of a 4-byte integer must be a multiple of 4.</p>
 <p>Therefore, The size of <code>A</code> is 16. The compiler will add 2 padding bytes after <code>char[10]</code>, to make the address of <code>int</code> a multiple of 4 in <code>struct A</code>.</p>
 <p>The size of <code>B</code> is 8, because <code>B</code> is a pointer and the size of pointer is 8. The size of type to which <code>B</code> points does not affect the size of <code>B</code>. Notice that type <code>B</code> is not equivalent to type <code>struct B</code>.</p>
@@ -1366,7 +1360,7 @@ World!
 <span class="w">            </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'0'</span><span class="p">);</span>
 <span class="w">            </span><span class="n">putchar</span><span class="p">(</span><span class="sc">'x'</span><span class="p">);</span>
 <span class="w">            </span><span class="n">putchar</span><span class="p">(</span><span class="n">hex_digits</span><span class="p">[</span><span class="n">temp</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">4</span><span class="p">]);</span>
-<span class="w">            </span><span class="n">putchar</span><span class="p">(</span><span class="n">hex_digits</span><span class="p">[</span><span class="n">temp</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xf</span><span class="p">]);</span><span class="w">                </span>
+<span class="w">            </span><span class="n">putchar</span><span class="p">(</span><span class="n">hex_digits</span><span class="p">[</span><span class="n">temp</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0xf</span><span class="p">]);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -1782,17 +1776,17 @@ daily_problem
 ok
 oo
 </code></pre></div>
-<p>The address pointed to by <code>library[0]-&gt;book[0]</code> plus <code>(strlen(library[0]-&gt;book[0])-i-1) * sizeof(char)</code> will be eventually passed to <code>%.2s</code> and placed into the output stream. </p>
-<p>Thus, when <code>i=0</code>, <code>i=1</code>, and <code>i=2</code>, the strings passed to <code>%.2s</code> are "k\0", "ok\0", and "ook\0", respectively. Among these, the length of the third string "ook\0" exceeds 2, so only the first two characters "oo" will be output. </p>
+<p>The address pointed to by <code>library[0]-&gt;book[0]</code> plus <code>(strlen(library[0]-&gt;book[0])-i-1) * sizeof(char)</code> will be eventually passed to <code>%.2s</code> and placed into the output stream.</p>
+<p>Thus, when <code>i=0</code>, <code>i=1</code>, and <code>i=2</code>, the strings passed to <code>%.2s</code> are "k\0", "ok\0", and "ook\0", respectively. Among these, the length of the third string "ook\0" exceeds 2, so only the first two characters "oo" will be output.</p>
 <p>This question involves multiple concepts, primarily focusing on both the proper usage of <code>typedef</code> and issues related to pointer output with <code>char*</code> in C. The analysis will be divided into two parts: <code>typedef</code> and <code>char*</code>. If you are already familiar with <code>typedef</code>, you can directly skip this section.</p>
 <details class="note">
 <summary><code>typedef</code></summary>
 <p>In the C language, <code>typedef</code> is used to create new names for existing data types.</p>
 <p>When using <code>typedef</code>, errors can occur in the specification of its usage. One common misunderstanding is to interpret <code>typedef (type_name) (new_name)</code>, which is correct only in a few cases, such as <code>typedef int Integer</code>.</p>
-<p>However, the correct understanding should be: if you need to redefine a type, first write the declaration statement of that type: <code>type variable_name</code>, then replace <code>variable_name</code> with the alias you want, and finally add <code>typedef</code> in front of the entire statement. </p>
+<p>However, the correct understanding should be: if you need to redefine a type, first write the declaration statement of that type: <code>type variable_name</code>, then replace <code>variable_name</code> with the alias you want, and finally add <code>typedef</code> in front of the entire statement.</p>
 <p>For example, after <code>int array[10]</code>, where the type of the variable <code>array</code> is <code>int [10]</code>, you can rename <code>array</code> to the alias <code>IntegerList</code> and add <code>typedef</code> at the front, resulting in <code>typedef int IntegerList[10]</code>.</p>
 <p>After this, you can directly use the alias <code>IntegerList</code> to define variables of type <code>int [10]</code>, such as <code>IntegerList a;</code>, which is equivalent to decelaration: <code>int a[10]</code>.</p>
-<p>Returning to the question, let's analyze the two <code>typedef</code> statements in the question. </p>
+<p>Returning to the question, let's analyze the two <code>typedef</code> statements in the question.</p>
 <p>The first one creates an alias for a structure variable. If we initially want to declare a variable of type <code>struct Bookcase*</code>, we would write it like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Bookcase</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">book</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
@@ -1804,19 +1798,19 @@ oo
 <span class="p">}</span><span class="w"> </span><span class="o">*</span><span class="n">PtrToBookcase</span><span class="p">;</span>
 </code></pre></div>
 <p>This statement means giving an alias, <code>PtrToBookcase</code>, to the type <code>struct Bookcase*</code>.</p>
-<p>The second <code>typedef</code> is very similar to the example we mentioned earlier, <code>typedef int IntegerList[10];</code>. 
+<p>The second <code>typedef</code> is very similar to the example we mentioned earlier, <code>typedef int IntegerList[10];</code>.
 It first declares <code>PtrToBookcase Ptr1[MAX_SIZE]</code>, then replaces the variable name <code>Ptr1</code> with the alias <code>Lib_data_base</code>, and adds <code>typedef</code> at the front.
-Therefore, its meaning is to give an alias, <code>Lib_data_base</code>, to the type <code>PtrToBookcase [MAX_SIZE]</code>. 
+Therefore, its meaning is to give an alias, <code>Lib_data_base</code>, to the type <code>PtrToBookcase [MAX_SIZE]</code>.
 Consequently, the subsequent <code>Lib_data_base library</code> actually creates an array of <code>PtrToBookcase</code>, named <code>library</code>, with <code>MAX_SIZE</code> elements.</p>
 </details>
 <details class="note">
 <summary><code>char*</code></summary>
-<p>After understanding <code>typedef</code>, let's now explore the issue related to string output in this program. 
+<p>After understanding <code>typedef</code>, let's now explore the issue related to string output in this program.
 There are two potentially confusing elements in this code: <code>%.2s</code> and <code>library[0]-&gt;book[0]+strlen(library[0]-&gt;book[0])-i-1</code>.</p>
-<p><code>%.2s</code> is relatively straightforward: It is used to control the output of strings. <code>%s</code> would directly output the characters stored at the memory location pointed to by a <code>char*</code> type pointer and all characters in consecutive memory until encountering the '\0' character. 
+<p><code>%.2s</code> is relatively straightforward: It is used to control the output of strings. <code>%s</code> would directly output the characters stored at the memory location pointed to by a <code>char*</code> type pointer and all characters in consecutive memory until encountering the '\0' character.
 The additional <code>.2</code> in <code>%.2s</code> is used to limit the length of the output string. If the string length is less than or equal to 2, it will be output normally. If it exceeds 2, only the first two characters will be output.</p>
-<p><code>library[0]-&gt;book[0]+strlen(library[0]-&gt;book[0])-i-1</code> involves operations on a <code>char*</code> type pointer. 
-<code>library[0]-&gt;book[0]</code> is a <code>char*</code> type pointer. Adding <code>n</code> to it effectively shifts the pointer to a position <code>n * sizeof(char)</code> bytes forward from the current address. Subtracting <code>n</code> from it shifts the pointer to a position <code>n * sizeof(char)</code> bytes backward from the current address. </p>
+<p><code>library[0]-&gt;book[0]+strlen(library[0]-&gt;book[0])-i-1</code> involves operations on a <code>char*</code> type pointer.
+<code>library[0]-&gt;book[0]</code> is a <code>char*</code> type pointer. Adding <code>n</code> to it effectively shifts the pointer to a position <code>n * sizeof(char)</code> bytes forward from the current address. Subtracting <code>n</code> from it shifts the pointer to a position <code>n * sizeof(char)</code> bytes backward from the current address.</p>
 </details>
 </details>
 <!-- prettier-ignore-end -->
@@ -1891,8 +1885,8 @@ The additional <code>.2</code> in <code>%.2s</code> is used to limit the length 
 <details class="note">
 <summary>Answer</summary>
 <p><code>D</code>.</p>
-<p>The compiler will tell you that <code>case label value has already appeared in this switch</code>.<br/>
-There are many problems in this code fragment, and the most important one is that <code>0 || 2 || 4 || 6 || 8</code> will not behave as expected in <code>case</code> statement. It will be evaluated as <code>1</code> because <code>0 || 2 || 4 || 6 || 8</code> is equivalent to <code>((((0 || 2) || 4) || 6) || 8)</code>. The result of <code>0 || 2</code> is <code>1</code>, so the result of <code>0 || 2 || 4</code> is <code>1</code>, and so on. Therefore, the <code>case</code> statement will be evaluated as <code>case 1</code>. The same problem exists in <code>case 1 || 3 || 5 || 7 || 9</code>, which will also be evaluated as <code>case 1</code>.<br/>
+<p>The compiler will tell you that <code>case label value has already appeared in this switch</code>.
+There are many problems in this code fragment, and the most important one is that <code>0 || 2 || 4 || 6 || 8</code> will not behave as expected in <code>case</code> statement. It will be evaluated as <code>1</code> because <code>0 || 2 || 4 || 6 || 8</code> is equivalent to <code>((((0 || 2) || 4) || 6) || 8)</code>. The result of <code>0 || 2</code> is <code>1</code>, so the result of <code>0 || 2 || 4</code> is <code>1</code>, and so on. Therefore, the <code>case</code> statement will be evaluated as <code>case 1</code>. The same problem exists in <code>case 1 || 3 || 5 || 7 || 9</code>, which will also be evaluated as <code>case 1</code>.
 The correct way to write this code fragment is:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="p">;</span>
 <span class="n">scanf</span><span class="p">(</span><span class="s">"%c"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ch</span><span class="p">);</span>
@@ -1923,7 +1917,7 @@ Note that <code>^</code> represents <code>XOR</code> operation. For binary numbe
 <summary>Answer</summary>
 <p><code>A</code>.</p>
 <ul>
-<li><code>B</code> will always be <code>0</code> when <code>x==y</code>. </li>
+<li><code>B</code> will always be <code>0</code> when <code>x==y</code>.</li>
 <li><code>C</code> and <code>D</code> is not logically correct.</li>
 </ul>
 </details>
