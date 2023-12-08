@@ -9,7 +9,7 @@
 <link href="../../" rel="prev"/>
 <link href="../../topic/pointers/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.0" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.1" name="generator"/>
 <title>2023-2024 - 浙江大学竺可桢学院辅学计划站点</title>
 <link href="../../../assets/stylesheets/main.45e1311d.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -420,9 +420,16 @@
 <nav aria-label="December" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#7-the-differance-between-strlen-and-sizeof">
+<a class="md-nav__link" href="#8-j-lost">
 <span class="md-ellipsis">
-      「7」 The differance between strlen and sizeof.
+      「8」 J lost
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7-the-difference-between-strlen-and-sizeof">
+<span class="md-ellipsis">
+      「7」 The difference between strlen and sizeof.
     </span>
 </a>
 </li>
@@ -809,9 +816,16 @@
 <nav aria-label="December" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#7-the-differance-between-strlen-and-sizeof">
+<a class="md-nav__link" href="#8-j-lost">
 <span class="md-ellipsis">
-      「7」 The differance between strlen and sizeof.
+      「8」 J lost
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7-the-difference-between-strlen-and-sizeof">
+<span class="md-ellipsis">
+      「7」 The difference between strlen and sizeof.
     </span>
 </a>
 </li>
@@ -1049,7 +1063,67 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="december">December<a class="headerlink" href="#december" title="Permanent link">¶</a></h2>
-<h3 id="7-the-differance-between-strlen-and-sizeof">「7」 The differance between <code>strlen</code> and <code>sizeof</code>.<a class="headerlink" href="#7-the-differance-between-strlen-and-sizeof" title="Permanent link">¶</a></h3>
+<h3 id="8-j-lost">「8」 J lost<a class="headerlink" href="#8-j-lost" title="Permanent link">¶</a></h3>
+<p>Given the following program:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">xqc</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"I am a Man of Fortune"</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">d</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"and I must seek my Fortune"</span><span class="p">;</span>
+
+<span class="hll"><span class="w">    </span><span class="n">xqc</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="mi">1694</span><span class="p">);</span>
+</span><span class="w">    </span><span class="n">xqc</span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">~</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">-65</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s, %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">xqc</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">[],</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="hll"><span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span class="w">    </span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">' '</span><span class="p">;</span>
+<span class="w">    </span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="sc">'I'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Which of the following is correct?</p>
+<p>A. This program fails to compile, because you cannot assign to an array in line 13.</p>
+<p>B. Because of the call-by-value, function <code>xqc</code> cannot modify the character arrays in function <code>main</code>.</p>
+<p>C. Change <code>1694</code> in line 7 to <code>1994</code>, and the result of the program is the same.</p>
+<p>D. This program outputs <code>I am a Man of Fortune, and J must seek my Fortune</code>.</p>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<p>C.</p>
+<p>A: Inside function <code>xqc</code>, <code>c</code> is a pointer type <code>char *</code> rather than an array type, because when an array type is used in a function parameter list, it actually is the corresponding pointer type. Therefore, the assignment in line 13 is valid, and it means "to move the pointer <code>c</code> one position backward".</p>
+<p>B: The function <code>xqc</code> can modify the character arrays in function <code>main</code>, because it takes the address of the character arrays as parameters. The function <code>xqc</code> can modify the contents of the character arrays through the pointers.</p>
+<p>C: The <code>~</code> operator is the bitwise NOT operator. The <code>~1694</code> is equivalent to <code>-1695</code>. The <code>~3</code> is equivalent to <code>-4</code>. Therefore, the calls to function <code>xqc</code> are equivalent to:</p>
+<div class="highlight"><pre><span></span><code><span class="n">xqc</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1695</span><span class="p">);</span>
+<span class="n">xqc</span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">-4</span><span class="p">,</span><span class="w"> </span><span class="mi">-65</span><span class="p">);</span>
+</code></pre></div>
+<p>And <code>i &amp; 1</code> gets the last bit of <code>i</code>. Both <code>-1695</code> and <code>-65</code> are odd numbers, so <code>i &amp; 1</code> is <code>1</code>, and the character <code>1 + 'I'</code>, which is <code>'J'</code>, is assigned. Changing <code>1694</code> to <code>1994</code> does not change the result of the program, because <code>~1994</code> is <code>-1995</code>, and <code>-1995</code> is also an odd number.</p>
+<p>D: This program outputs <code> Jam a Man of Fortune, and J must seek my Fortune</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You don't need to calculate the exact value of <code>~1694</code>. All you need to know is that the last bit of <code>1694</code> is 0 (since it is an even number), and the bitwise NOT operator will reverse that last bit. Therefore, <code>~1694</code> is an odd number, and <code>i &amp; 1</code> is <code>1</code>. Ditto for <code>~1994</code>.</p>
+</div>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：李英琦</p>
+</blockquote>
+<h3 id="7-the-difference-between-strlen-and-sizeof">「7」 The difference between <code>strlen</code> and <code>sizeof</code>.<a class="headerlink" href="#7-the-difference-between-strlen-and-sizeof" title="Permanent link">¶</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -2265,7 +2339,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 7, 2023</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 8, 2023</span>
 </span>
 </aside>
 </article>
