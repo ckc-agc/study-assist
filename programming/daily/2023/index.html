@@ -420,6 +420,13 @@
 <nav aria-label="December" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#10-i-love-pointer">
+<span class="md-ellipsis">
+      「10」 I Love pointer
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#9-sizeof-all-in-one">
 <span class="md-ellipsis">
       「9」 sizeof All in One
@@ -823,6 +830,13 @@
 <nav aria-label="December" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#10-i-love-pointer">
+<span class="md-ellipsis">
+      「10」 I Love pointer
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#9-sizeof-all-in-one">
 <span class="md-ellipsis">
       「9」 sizeof All in One
@@ -1077,6 +1091,35 @@ h5:before {content: unset;}
 </style>
 <p>为了让同学们适应期末考试，每日一题的题面都将使用英文描述。</p>
 <h2 id="december">December<a class="headerlink" href="#december" title="Permanent link">¶</a></h2>
+<h3 id="10-i-love-pointer">「10」 I Love pointer<a class="headerlink" href="#10-i-love-pointer" title="Permanent link">¶</a></h3>
+<p>What is the output of the following program on a 64-bit system?</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">10</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="s">""</span><span class="p">,</span><span class="s">"ILoveCKC"</span><span class="p">,</span><span class="s">"ILoveZJU"</span><span class="p">};</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%lu#%lu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span><span class="k">sizeof</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%lu#%lu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">strlen</span><span class="p">(</span><span class="n">str</span><span class="p">),</span><span class="k">sizeof</span><span class="p">(</span><span class="n">str</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d#%c</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">-10</span><span class="p">],</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">10</span><span class="p">]);</span><span class="w"> </span><span class="c1">// Don't write this in your own code.</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s</span><span class="se">\n</span><span class="s">"</span><span class="p">,(</span><span class="o">**</span><span class="n">str</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">str</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"True"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">"False"</span><span class="p">));</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%s"</span><span class="p">,</span><span class="o">&amp;</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">9</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="p">((</span><span class="o">*</span><span class="p">(</span><span class="n">str</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">"True"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">"False"</span><span class="p">);</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="note">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="m">0</span><span class="c1">#10</span>
+<span class="w">    </span><span class="m">0</span><span class="c1">#30</span>
+<span class="w">    </span><span class="m">0</span><span class="c1">#I</span>
+<span class="w">    </span>True
+<span class="w">    </span>True
+</code></pre></div>
+<ol>
+<li><code>strlen(str[0])</code> returns the length of the string pointed to by <code>str[0]</code>, which is 0. <code>sizeof(str[0])</code> returns the size of the array <code>str[0]</code>, which is 10.</li>
+<li><code>strlen(str)</code> returns the length of the string pointed to by <code>str</code>, which is 0. <code>sizeof(str)</code> returns the size of the array <code>str</code>, which is 30. In fact, <code>str[0]</code>'s value is same as <code>str</code>'s value.</li>
+<li><code>str[1][-10]</code> is equivalent to <code>*(str[1] - 10)</code> which is equivalent to <code>**(str + 1 * 10 - 10)</code> which is equivalent to <code>** str</code>. So <code>str[1][-10]</code>'s value is <code>'\0'</code>. <code>str[1][10]</code> is equivalent to <code>*(str[1] + 10)</code> which is equivalent to <code>**(str + 1 * 10 + 10)</code> which is equivalent to <code>** (str + 20)</code> So <code>str[1][10]</code>'s value is <code>'I'</code>.</li>
+<li><code>(*(str + 1) + 8)[1]</code> is the same as <code>str[1][9]</code>. So <code>**str == (*(str + 1) + 8)[1]</code> is true.</li>
+</ol>
+</details>
+<!-- prettier-ignore-end -->
+<blockquote>
+<p>供题人：胡育玮</p>
+</blockquote>
 <h3 id="9-sizeof-all-in-one">「9」 <code>sizeof</code> All in One<a class="headerlink" href="#9-sizeof-all-in-one" title="Permanent link">¶</a></h3>
 <p>What is the output of the following program on a 64-bit system?</p>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">str</span><span class="p">[][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'L'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'v'</span><span class="p">,</span><span class="w"> </span><span class="sc">'e'</span><span class="p">,</span><span class="w"> </span><span class="sc">'C'</span><span class="p">,</span><span class="w"> </span><span class="sc">'K'</span><span class="p">,</span><span class="w"> </span><span class="sc">'C'</span><span class="p">};</span>
@@ -2383,7 +2426,7 @@ Therefore <code>d % i == 0</code> evaluates to 1, reporting composite for every 
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 9, 2023</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 11, 2023</span>
 </span>
 </aside>
 </article>
