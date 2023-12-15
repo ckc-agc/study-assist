@@ -1127,7 +1127,7 @@ s:    "ab\0"     "cd\0"
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">一个细节</p>
-<p>注意，<code>malloc</code> 函数内部需要开的节点大小是 <code>sizeof(Node)</code> 而不是 <code>sizeof(Node*)*</code>，想想为什么？</p>
+<p>注意，<code>malloc</code> 函数内部需要开的节点大小是 <code>sizeof(Node)</code> 而不是 <code>sizeof(Node*)</code>，想想为什么？</p>
 </div>
 </div>
 <div class="admonition example">
@@ -1136,7 +1136,7 @@ s:    "ab\0"     "cd\0"
 <p>首先，特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span>，原先链表是空的，那肯定是把 <code>head</code> 赋值为新节点嘛。</p>
 <p>发现只剩下特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(2\)</span></span>，那 <code>head</code> 也要赋值为新节点，然后新节点连向老 <code>head</code> 。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">insertAtHead</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// 可以发现，这句话不写也没有影响 </span>
 <span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1147,7 +1147,7 @@ s:    "ab\0"     "cd\0"
 </div>
 <p>然后是尾部插入。首先还是特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span>，处理完以后只剩下特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(3\)</span></span> ，那么我们只需要找到尾节点，就可以直接插入了，最后返回的也只是原本的 <code>head</code>。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">insertAtEnd</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="w">    </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">last</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">last</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
@@ -1158,7 +1158,7 @@ s:    "ab\0"     "cd\0"
 </code></pre></div>
 </div>
 <div class="admonition example">
-<p class="admonition-title">删除权值为 <code>w</code> 的节点，如果有多个，则删除最靠近开头的，没有则不删除，返回新链表的头部</p>
+<p class="admonition-title">删除权值为 <code>key</code> 的节点，如果有多个，则删除最靠近开头的，没有则不删除，返回新链表的头部</p>
 <p>最繁琐最复杂的一个操作，也是新手的噩梦。不过按照三步走就好了。</p>
 <p>先处理一下特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span> 。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">deleteNode</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1184,7 +1184,7 @@ s:    "ab\0"     "cd\0"
 <span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">node</span><span class="o">*</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">    </span><span class="n">node</span><span class="o">*</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
 <span class="w">        </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
@@ -1199,7 +1199,7 @@ s:    "ab\0"     "cd\0"
 <div class="admonition info">
 <p class="admonition-title">注意！</p>
 <p>理论考试写代码的时候，<strong>一定不要忘记 <code>free</code> 被删除的节点！！！小心扣分！！！</strong></p>
-<p>上机不<span class="heti-skip"><span class="heti-spacing"> </span>free<span class="heti-spacing"> </span></span>倒是没关系（指还能通过<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，但还是建议养成良好的习惯，防止内存泄漏！</p>
+<p>上机不 <code>free</code> 倒是没关系（指还能通过<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，但还是建议养成良好的习惯，防止内存泄漏！</p>
 </div>
 <h3 id="_16">双向链表<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>其实没什么可以讲的，也就是在 <code>struct</code> 的定义中加入了 <code>prev</code>，可以让我们方便的获取上一个节点的指针，这样删除过程中就不需要单独开变量记录了。</p>
