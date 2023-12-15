@@ -1087,11 +1087,14 @@ s:    "ab\0"     "cd\0"
 <h2 id="_13">链表<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_14">基础知识和总结<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>链表是一种常用的数据结构，它通过节点的形式存储数据。每个节点包含数据部分和指向下一个节点的指针。链表可以是单向的也可以是双向的，我们先看看单向链表：</p>
+<div class="admonition example">
+<p class="admonition-title">单向链表的一种定义方式</p>
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
 <span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
 </code></pre></div>
+</div>
 <p>好了，我们已经把链表给定义出来了。但是你会好奇，我们不是只定义出了节点吗？怎么已经定义完了？事实上，这几乎就已经是链表的完整结构了——因为链表就是简单的<strong>链表节点的串联</strong>。</p>
 <p>大家都已经知道了链表的结构，是类似于下面这样的：</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/linkedlist.png"><img alt="" src="../graph/linkedlist.png"/></a></p>
@@ -1112,9 +1115,8 @@ s:    "ab\0"     "cd\0"
 </ul>
 <p>这些情况如果没有考虑清楚，很可能在写代码的过程中出现 <code>segmentation fault</code>，也就是段错误。这极大概率是因为，你<strong>访问了 <code>NULL</code> 位置的一些信息</strong>。比如当前节点指针 <code>p</code> 指向了 <code>NULL</code>，但是你却访问了 <code>p-&gt;data</code> 或者 <code>p-&gt;next</code>，就会报错了。</p>
 <h3 id="_15">单向链表的各种经典操作<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<ul>
-<li><strong>1、创建一个节点 <code>p</code>，其权值为 <code>w</code>，并返回这个节点的指针<span><span class="heti-spacing"> </span>.</span></strong></li>
-</ul>
+<div class="admonition example">
+<p class="admonition-title">创建一个节点 <code>p</code>，其权值为 <code>w</code>，并返回这个节点的指针</p>
 <p>只需要使用 <code>malloc</code> 即可。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">create</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">){</span>
 <span class="w">    </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
@@ -1123,12 +1125,13 @@ s:    "ab\0"     "cd\0"
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">newNode</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<blockquote>
-<p>请注意，<code>malloc</code> 函数内部需要开的节点大小是 <code>sizeof(Node)</code> 而不是 <code>sizeof(Node*)*</code>，想想为什么？</p>
-</blockquote>
-<ul>
-<li><strong>2、在链表的头部<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>尾部插入一个节点 <code>p</code>，并返回新链表的头部<span><span class="heti-spacing"> </span>.</span></strong></li>
-</ul>
+<div class="admonition note">
+<p class="admonition-title">一个细节</p>
+<p>注意，<code>malloc</code> 函数内部需要开的节点大小是 <code>sizeof(Node)</code> 而不是 <code>sizeof(Node*)*</code>，想想为什么？</p>
+</div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">在链表的头部<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>尾部插入一个节点 <code>p</code>，并返回新链表的头部</p>
 <p>先看头部插入。</p>
 <p>首先，特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span>，原先链表是空的，那肯定是把 <code>head</code> 赋值为新节点嘛。</p>
 <p>发现只剩下特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(2\)</span></span>，那 <code>head</code> 也要赋值为新节点，然后新节点连向老 <code>head</code> 。</p>
@@ -1138,9 +1141,10 @@ s:    "ab\0"     "cd\0"
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<blockquote>
-<p>思考：为什么是 <code>!head</code>？</p>
-</blockquote>
+<div class="admonition question">
+<p class="admonition-title">一个细节</p>
+<p>为什么 <code>if</code> 里是 <code>!head</code>？</p>
+</div>
 <p>然后是尾部插入。首先还是特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span>，处理完以后只剩下特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(3\)</span></span> ，那么我们只需要找到尾节点，就可以直接插入了，最后返回的也只是原本的 <code>head</code>。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">insertAtEnd</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
@@ -1152,9 +1156,9 @@ s:    "ab\0"     "cd\0"
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<ul>
-<li><strong>3、删除权值为 <code>w</code> 的节点，如果有多个，则删除最靠近开头的，没有则不删除，返回新链表的头部<span><span class="heti-spacing"> </span>.</span></strong></li>
-</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">删除权值为 <code>w</code> 的节点，如果有多个，则删除最靠近开头的，没有则不删除，返回新链表的头部</p>
 <p>最繁琐最复杂的一个操作，也是新手的噩梦。不过按照三步走就好了。</p>
 <p>先处理一下特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span> 。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">deleteNode</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1191,49 +1195,75 @@ s:    "ab\0"     "cd\0"
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<blockquote>
+</div>
+<div class="admonition info">
+<p class="admonition-title">注意！</p>
 <p>理论考试写代码的时候，<strong>一定不要忘记 <code>free</code> 被删除的节点！！！小心扣分！！！</strong></p>
 <p>上机不<span class="heti-skip"><span class="heti-spacing"> </span>free<span class="heti-spacing"> </span></span>倒是没关系（指还能通过<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，但还是建议养成良好的习惯，防止内存泄漏！</p>
-</blockquote>
+</div>
 <h3 id="_16">双向链表<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>其实没什么可以讲的，也就是在 <code>struct</code> 的定义中加入了 <code>prev</code>，可以让我们方便的获取上一个节点的指针，这样删除过程中就不需要单独开变量记录了。</p>
+<div class="admonition example">
+<p class="admonition-title">双向链表的一种定义方式</p>
 <div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
 <span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">prev</span><span class="p">,</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
 </code></pre></div>
+</div>
 <p>特别的，头结点的 <code>prev</code> 是 <code>NULL</code>。</p>
 <p>看一个简单的例题吧<span><span class="heti-spacing"> </span>~</span></p>
-<blockquote>
+<div class="admonition question">
+<p class="admonition-title">题目<span><span class="heti-spacing"> </span>3</span></p>
+</div>
 <p>To delete <code>p</code> from a <strong>doubly linked list</strong>, we must do:</p>
-<p>A. <code>p-&gt;prev=p-&gt;prev-&gt;prev; p-&gt;prev-&gt;next=p;</code></p>
-<p>B. <code>p-&gt;next-&gt;prev=p; p-&gt;next=p-&gt;next-&gt;next;</code></p>
-<p>C. <code>p-&gt;prev-&gt;next=p-&gt;next; p-&gt;next-&gt;prev=p-&gt;prev;</code></p>
-<p>D. <code>p-&gt;next=p-&gt;prev-&gt;prev; p-&gt;prev=p-&gt;next-&gt;next;</code></p>
-</blockquote>
+<div class="highlight"><pre><span></span><code>A. `p-&gt;prev=p-&gt;prev-&gt;prev; p-&gt;prev-&gt;next=p;`
+
+B. `p-&gt;next-&gt;prev=p; p-&gt;next=p-&gt;next-&gt;next;`
+
+C. `p-&gt;prev-&gt;next=p-&gt;next; p-&gt;next-&gt;prev=p-&gt;prev;`
+
+D. `p-&gt;next=p-&gt;prev-&gt;prev; p-&gt;prev=p-&gt;next-&gt;next;`
+
+??? answer
+
+    C.
+</code></pre></div>
 <h2 id="_17">栈和队列<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>这一部分的内容相信大家在课上已经有很好的理解了，但是会出一些和链表结合的有难度的理论题和编程题，所以简单带过一下：</p>
 <p>通常题目会使用<strong>单向链表</strong>来实现栈和队列。不过很多题目其实会不告诉你，链表哪一段表示栈顶，哪一段表示队头，哪一段表示队尾。</p>
+<div class="admonition question">
+<p class="admonition-title">一个问题</p>
 <p>如果是双向链表其实没有这么多烦恼，但是现在是单向的。怎么判断链表的头代表栈<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>队列的哪个部分呢？</p>
 <p>栈顶其实很简单，我们只需要记录一下链表的头指针 <code>head</code>，在上面操作，可以直接完成对栈的模拟，所以链表的头代表栈顶。</p>
-<p>那队列呢？我们不妨试一下，假设链表头部代表队头，那么队列的入队操作很好实现，但是，出队需要在链表尾部进行操作。有一个很直观的方法就是同时记录并维护链表的尾指针 <code>tail</code>，但是，删除的话，我们需要知道尾指针的前驱节点<span><span class="heti-spacing"> </span>...</span></p>
-<p>所以一些题目的实现，默认了<strong>链表的头部代表队尾</strong>。看一下这个题目：</p>
-<blockquote>
+<p>那队列呢？我们不妨试一下，假设链表头部代表队尾，那么队列的入队操作很好实现，但是，出队需要在链表尾部进行操作。有一个很直观的方法就是同时记录并维护链表的尾指针 <code>tail</code>，但是，删除的话，我们需要知道尾指针的前驱节点<span><span class="heti-spacing"> </span>...</span></p>
+</div>
+<p>所以一些题目的实现，默认了<strong>链表的头部代表队头</strong>。看一下这个题目：</p>
+<div class="admonition question">
+<p class="admonition-title">题目<span><span class="heti-spacing"> </span>4</span></p>
 <p>Represent a queue by a singly linked list. Given the current status of the linked list as <code>1-&gt;2-&gt;3</code> where <code>x-&gt;y</code> means <code>y</code> is linked after <code>x</code>. Now if <code>4</code> is enqueued and then a dequeue is done, the resulting status must be:</p>
 <p>A. <code>1-&gt;2-&gt;3</code></p>
 <p>B. <code>2-&gt;3-&gt;4</code></p>
 <p>C. <code>4-&gt;1-&gt;2</code></p>
 <p>D. the solution is not unique</p>
-</blockquote>
+<details class="answer">
+<summary>Answer</summary>
+<p>B.</p>
+</details>
+</div>
 <p>这里需要额外提一个叫做<strong>循环队列</strong>的东西。它是队列的一种变体，通常使用数组来实现，用来节约队列的空间。 循环队列是把顺序队列首尾相连，把存储队列元素的表从逻辑上看成一个环。通常用两个变量代表当前循环队列存储的空间：一个是尾 <code>rear</code>，一个是头<code>front</code>。不过这个是开区间还是闭区间呢，还得看具体实现方式和题干要求，大家最好翻翻老师的<span><span class="heti-spacing"> </span>PPT</span>，看看上课是怎么实现的，万一题目没有给出实现方式就按照老师讲的为主吧。</p>
-<p>来一个题目：</p>
-<blockquote>
+<div class="admonition question">
+<p class="admonition-title">题目<span><span class="heti-spacing"> </span>5</span></p>
 <p>Suppose that an array of size 6 is used to store a circular queue, and the values of front and rear are 0 and 4, respectively. Now after 2 dequeues and 2 enqueues, what will the values of front and rear be?</p>
 <p>A. <code>2 and 0</code></p>
 <p>B. <code>2 and 2</code></p>
 <p>C. <code>2 and 4</code></p>
 <p>D. <code>2 and 6</code></p>
-</blockquote>
+<details class="answer">
+<summary>Answer</summary>
+<p>A.</p>
+</details>
+</div>
 <p>关于编程部分，我们来看一下这个<a href="https://ckc-agc.bowling233.top/programming/daily/2023/#5-monotonic-stacks">每日一题</a>。</p>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
