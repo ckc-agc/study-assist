@@ -9,9 +9,9 @@
 <link href="../../lecture4/after_class/" rel="prev"/>
 <link href="../../../chemistry/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-9.5.1" name="generator"/>
-<title>数据结构与算法 - 浙江大学竺可桢学院辅学计划站点</title>
-<link href="../../../assets/stylesheets/main.45e1311d.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.2" name="generator"/>
+<title>指针及链表相关知识点复习 - 浙江大学竺可桢学院辅学计划站点</title>
+<link href="../../../assets/stylesheets/main.50c56a3b.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -61,7 +61,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              数据结构与算法
+              指针及链表相关知识点复习
             
           </span>
 </div>
@@ -465,23 +465,115 @@
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_8_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_8_6" id="__nav_8_6_label" tabindex="0">
 <span class="md-ellipsis">
-    5. 数据结构与算法
+    5. 期末重点知识复习
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="true" aria-labelledby="__nav_8_6_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_8_6">
 <span class="md-nav__icon md-icon"></span>
-            5. 数据结构与算法
+            5. 期末重点知识复习
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    指针及链表相关知识点复习
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    数据结构与算法
+    指针及链表相关知识点复习
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      指针的基本操作
+    </span>
+</a>
+<nav aria-label="指针的基本操作" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      指针的声明
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      指针的使用
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+<span class="md-ellipsis">
+      指针的值与指针的地址
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+<span class="md-ellipsis">
+      一些题目
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+<span class="md-ellipsis">
+      链表
+    </span>
+</a>
+<nav aria-label="链表" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      基础知识和总结
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+<span class="md-ellipsis">
+      单向链表的各种经典操作
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_16">
+<span class="md-ellipsis">
+      双向链表
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_17">
+<span class="md-ellipsis">
+      栈和队列
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -552,6 +644,90 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      指针的基本操作
+    </span>
+</a>
+<nav aria-label="指针的基本操作" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      指针的声明
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      指针的使用
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+<span class="md-ellipsis">
+      指针的值与指针的地址
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+<span class="md-ellipsis">
+      一些题目
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+<span class="md-ellipsis">
+      链表
+    </span>
+</a>
+<nav aria-label="链表" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      基础知识和总结
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_15">
+<span class="md-ellipsis">
+      单向链表的各种经典操作
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_16">
+<span class="md-ellipsis">
+      双向链表
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_17">
+<span class="md-ellipsis">
+      栈和队列
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -561,19 +737,510 @@
 <a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming_lecture/lecture5/lecture5.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="_1">数据结构与算法<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h1 id="_1">指针及链表相关知识点复习<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <!-- prettier-ignore-start -->
-<div class="admonition danger">
-<p class="admonition-title">施工中</p>
-<p>本页面正在编辑中。</p>
+<div class="admonition abstract">
+<p class="admonition-title">摘要</p>
+<p>考虑到本次辅学时间已近期末，原先安排的介绍数据结构与算法的内容已经不太合适，因此本次辅学时间将主要介绍期末考试的部分重点知识，以讲解指针与链表为主。</p>
+<p>本次辅学的主要内容：</p>
+<ul>
+<li>结合历年卷复习指针的使用</li>
+<li>链表相关知识的复习</li>
+</ul>
+<p>其中我们辅学学长写的专题笔记 —— <a href="https://ckc-agc.bowling233.top/programming/topic/pointers/">专题笔记<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>指针概览</a> 已经对指针进行了详细的介绍。本次辅学不会深挖指针的内存模型等细节，主要是针对历年卷题目，以及辅学群中同学们所问的指针相关的问题，进行以备考为目的的复习。</p>
 </div>
 <!-- prettier-ignore-end -->
+<h2 id="_2">指针的基本操作<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_3">指针的声明<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>声明一个指针：</p>
+<div class="highlight"><pre><span></span><code><span class="n">VariableType</span><span class="w"> </span><span class="o">*</span><span class="n">pointerName</span><span class="p">;</span>
+</code></pre></div>
+<p>其中 <code>VariableType</code> 为指针指向的变量类型，<code>pointerName</code> 为指针的名称。</p>
+<p>例如：<code>int *p;</code> 声明了一个指向 <code>int</code> 类型变量的指针，指针的名称为 <code>p</code>。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">注意</p>
+<ul>
+<li><code>VariableType</code> 代表类型说明符，如 <code>int</code>、<code>char</code> 或者自己定义的 <code>struct</code> 等。</li>
+<li><code>*</code> 在指针声明中代表声明指针类型。注意：<strong><code>*</code> 在指针声明和指针使用中代表的含义不相同！！！！！</strong></li>
+<li><code>pointerName</code> 代表指针的名称，需要符合<a href="https://zh.cppreference.com/w/c/language/identifier">标识符命名规范</a>。</li>
+</ul>
+</div>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<div class="admonition note">
+<p class="admonition-title">限定符对指针的限定</p>
+<p>限定符在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中用于限定变量的类型，最常用的为 <code>const</code> 限定符。</p>
+<p>在指针声明中，限定符出现的位置决定了限定符是对指针本身的限定，还是对指针指向的变量的限定。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="c1">// pc 是指向 const int 的非 const 指针</span>
+<span class="c1">// *pc = 2; // 错误：不能通过不带转型的 pc 修改 n</span>
+<span class="n">pc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK：pc 自身可修改</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="c1">// cp 是一个指向非 const 的 int 的 const 指针</span>
+<span class="o">*</span><span class="n">cp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK：通过 cp 修改 n</span>
+<span class="c1">// cp = NULL; // 错误：cp 自身不能修改</span>
+</code></pre></div>
+<p>大体只需要记住：限定符会对紧随其后的对象进行限定即可。</p>
+<p>进阶一点的例子：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cp</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向指向非 const 的 int 的 const 指针的非 const 指针</span>
+</code></pre></div>
+</div>
+<!-- prettier-ignore-end -->
+<h4 id="_4">多级指针的声明<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>对多级指针的声明，可以用递归的方式理解。</p>
+<p>对于指向 <code>int</code> 类型的一级指针，其 <code>VariableType</code> 为 <code>int</code>；对于二级指针 <code>int **p</code>，即指向指向 <code>int</code> 类型的指针的指针，其 <code>VariableType</code> 为 <code>int *</code>。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition example">
+<p class="admonition-title">例</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">var</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">**</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
+</code></pre></div>
+<p>他们的指向关系是：</p>
+<div class="highlight"><pre><span></span><code>(int **)p -&gt; (int *)p1 -&gt; (int)var
+</code></pre></div>
+</div>
+<!-- prettier-ignore-end -->
+<h4 id="_5">指针数组与数组指针<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>很容易搞混，需要技巧来识别。</p>
+<p>比如下面两条声明：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span><span class="w"> </span><span class="c1">// 大小为 10 的数组，数组元素是指向 char 类型的指针</span>
+
+<span class="kt">char</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)[</span><span class="mi">10</span><span class="p">];</span><span class="w"> </span><span class="c1">// 指针，指向大小为 10 的 char 数组</span>
+</code></pre></div>
+<p>牢记顺时针螺旋法则（Clockwise/Spiral Rule<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>（详见辅学群群文件中的“浅谈<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的数据类型<span><span class="heti-spacing"> </span>.pdf</span>”<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<p>于是，上面的两条声明就可以公式化地解释：</p>
+<ul>
+<li><code>char *p[10];</code>: p is an array 10 of pointers to char.</li>
+<li><code>char (*p)[10];</code>: p is a pointer to an array 10 of char.</li>
+</ul>
+<p>上一节的多级指针声明同样可以用这个法则进行解释。</p>
+<h3 id="_6">指针的使用<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<h4 id="_7">指针的解引用<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>解引用运算符 <code>*</code> 的一般形式为：</p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span><span class="w"> </span><span class="n">指针表达式</span>
+</code></pre></div>
+<p>结果为指代被指向对象的左值表达式，即可以被赋值。</p>
+<p>记住 <code>a[b]</code> 等价于 <code>*(a + b)</code>。这个<span class="heti-skip"><span class="heti-spacing"> </span>trick<span class="heti-spacing"> </span></span>在一些题目中很有用。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition example">
+<p class="admonition-title">例题</p>
+<p>Given the declaration: <code>int a[3][3]={1,2,3,4,5,6,7,8,9};</code> , the value of <code>a[-1][5]</code> is _____.</p>
+<details class="answer">
+<summary>Answer</summary>
+<p><em>解答来自：xg —— 程序设计辅学常问题目及解析<span><span class="heti-spacing"> </span>v1.1.pdf</span></em></p>
+<p><code>a[-1]</code> 等价于 <code>*(a - 1)</code>，<code>a - 1</code> 会以<span class="heti-skip"><span class="heti-spacing"> </span>3<span class="heti-spacing"> </span></span>个 <code>int</code> 为单位向左移动，即</p>
+<div class="highlight"><pre><span></span><code>    0 0 0 1 2 3 4 5 6 7 8 9
+    ^
+    |
+p = *(a - 1)
+</code></pre></div>
+<p>令 <code>p = *(a - 1)</code>，则要求的值变为 <code>p[5]</code>，等价于 <code>*(p + 5)</code>。将上述指针右移<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>个 <code>int</code> 单位，得到<span><span class="heti-spacing"> </span>3</span>。</p>
+</details>
+</div>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<div class="admonition warning">
+<p class="admonition-title">野指针</p>
+<p>当指针声明时未初始化，且还未被赋值，则这个指针指向无法确定，被称为 <strong>野指针</strong>。</p>
+<p>野指针可能指向任意内存，对其进行访问可能会导致非法内存访问，产生段错误。</p>
+<p>在考题中，尝试访问野指针是错误的操作。在自己写代码时也绝不能出现野指针访问。</p>
+<div class="admonition example">
+<p class="admonition-title">例题</p>
+<p>For the declarations: <code>char *s, str[10];</code> , statement _____ is completely correct.</p>
+<p>A. <code>strcpy(s, "hello");</code></p>
+<p>B. <code>str="hello"+1</code></p>
+<p>C. <code>s=*&amp;(str+1)</code></p>
+<p>D. <code>s=str+1</code></p>
+<p>选项<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>就是经典的野指针访问。</p>
+</div>
+</div>
+<!-- prettier-ignore-end -->
+<h4 id="_8">取址操作<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>取址运算符 <code>&amp;</code> 早在大家学习输入输出的时候就已经接触过了。在使用 <code>scanf</code> 对 <code>int</code> 等类型的变量进行读入的时候，使用的是如下形式：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div>
+<p>这里的 <code>&amp;</code> 对 <code>a</code> 进行取址操作，对 <code>a</code> 的地址而不是 <code>a</code> 的值进行读入。</p>
+<p>一般地，取址运算符有如下几种形式：</p>
+<ul>
+<li><code>&amp; &lt;function&gt;</code>：取函数的地址。这个不做要求。</li>
+<li>
+<p><code>&amp; 左值表达式</code>：取左值表达式的地址。结果为指向左值表达式的指针。</p>
+<div class="admonition info">
+<p class="admonition-title">左值表达式</p>
+<p>左值，简单来说可以看作是在内存中有对应存储空间的表达式，如变量、数组元素、结构体成员等。</p>
+<p>相反，若表达式在内存中没有对应存储空间，则不能取址，比如 <code>&amp;a</code>、<code>1+2</code> 等。</p>
+</div>
+</li>
+<li>
+<p><code>&amp; * 表达式</code>：<code>&amp;</code> 和 <code>*</code> 彼此抵消，均不求值。这个仅作了解。</p>
+</li>
+<li><code>&amp; 表达式 [表达式]</code>：等价于 <code>&amp; *(表达式 + 表达式)</code> 等价于 <code>表达式 + 表达式</code>。这个仅作了解。</li>
+</ul>
+<!-- prettier-ignore-start -->
+<div class="admonition example">
+<p class="admonition-title">解引用与取址操作的应用</p>
+<p>输入一个<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位无符号整数 <code>x</code>，求 <code>x</code> 的二进制表示的<span class="heti-skip"><span class="heti-spacing"> </span>01<span class="heti-spacing"> </span></span>串所表示的 <code>double</code> 类型变量的值。</p>
+<details class="answer">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">"%llu"</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%lf</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">((</span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">x</span><span class="p">));</span>
+</code></pre></div>
+</details>
+</div>
+<h4 id="_9">通过指针进行成员访问<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>对于结构体类型的指针，<span>C<span class="heti-spacing"> </span></span>语言提供了一个运算符 <code>-&gt;</code>，用于通过指针访问结构体成员。</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// 定义结构体 Point</span>
+<span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="n">point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// 定义结构体变量 point</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">point</span><span class="p">;</span><span class="w"> </span><span class="c1">// p 指向 point 结构体</span>
+<span class="n">p</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">// 通过指针 p 访问结构体成员 x</span>
+<span class="c1">// 等价于 (*p).x = 3;</span>
+</code></pre></div>
+<h4 id="_10">数组到指针的隐式转换<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<!-- https://zh.cppreference.com/w/c/language/conversion -->
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">隐式转换</p>
+<p><strong>数组到指针转换</strong></p>
+<p>任何数组类型的左值表达式，在用于异于下列语境时</p>
+<ul>
+<li>作为取址运算符的操作数</li>
+<li>作为 <code>sizeof</code> 的操作数</li>
+<li>作为 <code>typeof</code> 和 <code>typeof_unqual</code> 的操作数</li>
+<li>作为用于数组初始化的字符串字面量</li>
+</ul>
+<p>会经历到指向其首元素的非左值指针的转换。</p>
+<p>—— <a href="https://zh.cppreference.com/w/c/language/conversion"><span>cppreference-<span class="heti-spacing"> </span></span>隐式转换</a></p>
+</div>
+<!-- prettier-ignore-end -->
+<p>简单来说：牢记数组名 <strong>不等于</strong> 指向数组首元素的指针，当数组名被取址运算符 <code>&amp;</code> 作用，或者作为 <code>sizeof</code> 的操作数时，不会发生隐式转换。</p>
+<p>这里要注意的一点是，将数组作为参数传给函数时，函数的形参只能是指针，而不能是数组，此时数组名会发生隐式转换。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">数组类型用于函数形参</p>
+<p>当数组类型用于函数形参列表时，它会转换成对应的指针类型：<code>int f(int a[2])</code>、<code>int f(int a[])</code>、<code>int f(int *a)</code> 声明同一个函数。</p>
+<p>因为函数实际参数类型为指针类型，使用数组实参的函数调用会进行一个数组到指针转换；被调用函数无法获得实参数组的大小，必须显式传递。</p>
+<p>见 <a href="https://ckc-agc.bowling233.top/programming/daily/2023/#29-soyo-size">每日一题<span><span class="heti-spacing"> </span>-29</span></a>。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>只有数组类型用于函数形参列表时，<code>a[]</code> 和 <code>*a</code> 才是等价的。</p>
+<p>比如使用字符串常量初始化字符串：</p>
+<p>创建指向字符串常量的指针，内容不能更改，</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="p">;</span><span class="w"> </span><span class="c1">// s 类型为 char * ，指向字符串常量</span>
+<span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"he11o"</span><span class="p">;</span><span class="w"> </span><span class="c1">// OK</span>
+</code></pre></div>
+<p>创建<span class="heti-skip"><span class="heti-spacing"> </span>char<span class="heti-spacing"> </span></span>数组，内容被字符串常量初始化，内容可以更改，</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="p">;</span><span class="w"> </span><span class="c1">// s 类型为 char [6] ，数组内容是 "hello\0" 的拷贝</span>
+<span class="c1">// s[] = "he11o"; // wrong</span>
+</code></pre></div>
+</div>
+<!-- prettier-ignore-end -->
+</div>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>下列代码的 <code>val_x</code> 和 <code>val_y</code> 的类型一样吗？</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="n">Type1</span><span class="w"> </span><span class="n">val_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+<span class="n">Type2</span><span class="w"> </span><span class="n">val_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>下列代码的 <code>size_x</code> 和 <code>size_y</code> 大小一样吗？</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="kt">size_t</span><span class="w"> </span><span class="n">size_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<span class="kt">size_t</span><span class="w"> </span><span class="n">size_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="_11">指针的值与指针的地址<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<!-- 指针之间的比较。指针本质是数据类型，可以取址 -->
+<p>指针的值，又称为指针所指向的内存区。</p>
+<p>在计算机中，内存中的所有字节都拥有一个唯一编号，也即内存地址。指针指向某一数据的地址，即指针变量存储了这个数据的内存地址的编号。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">指针所占的字节数</p>
+<p>现在一般的计算机基本都是<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统，使用<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位长的内存地址，即内存地址的编号是一个<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位整数。在<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统中使用 <code>sizeof</code> 运算符求指针的大小时，得到的结果为<span><span class="heti-spacing"> </span>8</span>。</p>
+</div>
+<!-- prettier-ignore-end -->
+<p>注意，一般来说无法预测地址的值，因为内存地址取决于系统的内存分配情况。但部分情况下可以确定内存地址的相对位置，比如同一数组中元素在内存中连续。</p>
+<p>此外，指针同样也是一个在内存中有对应存储空间的变量，也有自己的内存地址。在指针的内存地址中，存储的内容是其指向的内容的内存地址。</p>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">类比理解</p>
+<p>假如有一个很长的数组，存储了一些数据，我们可以使用数组下标去访问数据。将数组下标当作数据存储在数组中，那么我们就可以从数组中的某一位置去访问其存储的数组下标的位置的数据，这就可以看作是简单的指针。</p>
+<div class="highlight"><pre><span></span><code>下标    31       32       33       34      ...     X
+arr   data0    data1    data2    data3    ....    32
+                 ^                                |
+                 +--------------------------------+
+</code></pre></div>
+</div>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>那么就有同学问了：既然指针的值是<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位整数，那能用关系运算符比较大小吗？</p>
+<p>答案是：部分情况下可以。</p>
+<details class="info">
+<summary>关系运算符进行指针比较</summary>
+<p>根据<a href="https://zh.cppreference.com/w/c/language/operator_comparison"><span class="heti-skip"><span class="heti-spacing"> </span>cppreference-<span class="heti-spacing"> </span></span>比较运算符</a>，当进行指针比较的时候，有以下要求：</p>
+<p>两指针必须是兼容类型的指针。且满足以下条件之一：</p>
+<ul>
+<li>两个指针指向同一对象，或指向同一数组的尾后一位置，则相等。</li>
+<li>两个指针指向同一数组中的不同元素，则指向有较大下标的元素的指针比较大<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>（同一数组中，指向数组尾后一位置的指针最大）</li>
+<li>两个指针指向同一结构体的成员，则指向结构体声明中较后声明的成员的指针更大。</li>
+<li>指向同一联合体成员的指针比较相等。这个不做要求。</li>
+</ul>
+<p>除此之外，指针的比较结果是未定义的。</p>
+</details>
+</div>
+<!-- prettier-ignore-end -->
+<div class="admonition info">
+<p class="admonition-title">指针的计算</p>
+<p>涉及指针的加减只有两种情况：</p>
+<ul>
+<li>
+<p>指针类型<span class="heti-skip"><span class="heti-spacing"> </span>±<span class="heti-spacing"> </span></span>整数类型 <code>p + a</code> 或 <code>p - a</code></p>
+<p>结果为指针 <code>p</code> 右移<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>左移 <code>a</code> 个单位，单位由指针的类型决定。</p>
+<p>比如读入数组时可以使用：<code>scanf("%d", arr + i)</code>。</p>
+</li>
+<li>
+<p>相同类型的指针相减</p>
+<p>结果为两指针之间差了多少单位距离，而不是指针的值相减。</p>
+</li>
+</ul>
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">例题</p>
+<p>以下代码的输出为<span><span class="heti-spacing"> </span>_____</span>。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%lu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<!-- prettier-ignore-end -->
+</div>
+<!-- prettier-ignore-end -->
+<h3 id="_12">一些题目<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">题目<span><span class="heti-spacing"> </span>1</span></p>
+<p>The following code fragment will output _____.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">week</span><span class="p">[]</span><span class="o">=</span><span class="p">{</span><span class="s">"Mon"</span><span class="p">,</span><span class="w"> </span><span class="s">"Tue"</span><span class="p">,</span><span class="w"> </span><span class="s">"Wed"</span><span class="p">,</span><span class="w"> </span><span class="s">"Thu"</span><span class="p">,</span><span class="w"> </span><span class="s">"Fri"</span><span class="p">,</span><span class="w"> </span><span class="s">"Sat"</span><span class="p">,</span><span class="w"> </span><span class="s">"Sun"</span><span class="p">},</span><span class="w"> </span><span class="o">**</span><span class="n">pw</span><span class="o">=</span><span class="n">week</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="p">;</span>
+<span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">*++</span><span class="n">pw</span><span class="p">)[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*++</span><span class="n">pw</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">"%c#%c#"</span><span class="p">,</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="p">);</span>
+</code></pre></div>
+<!-- prettier-ignore-start -->
+<details class="answer">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>       "Mon\0"   "Tue\0"   "Wed\0"   "Thu\0"   "Fri\0"   "Sat\0"   "Sun\0"
+        ^         ^         ^         ^         ^         ^         ^
+        |         |         |         |         |         |         |
+week: week[0]   week[1]   week[2]   week[3]   week[4]   week[5]   week[6]
+        ^
+        |
+       pw
+</code></pre></div>
+</details>
+<!-- prettier-ignore-end -->
+</div>
+<!-- prettier-ignore-end -->
+<!-- prettier-ignore-start -->
+<div class="admonition question">
+<p class="admonition-title">题目<span><span class="heti-spacing"> </span>2</span></p>
+<p>For definitions:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">"ab"</span><span class="p">,</span><span class="w"> </span><span class="s">"cd"</span><span class="p">},</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">s</span><span class="p">;</span>
+</code></pre></div>
+<p>the expression _____ is correct and its value is equivalent to the element <code>s[1][1]</code>.</p>
+<p>A. <code>*(s + 3)</code></p>
+<p>B. <code>*s + 2</code></p>
+<p>C. <code>p[1][1]</code></p>
+<p>D. <code>*++p + 2</code></p>
+<!-- prettier-ignore-start -->
+<details class="answer">
+<summary>Answer</summary>
+<div class="highlight"><pre><span></span><code>s:    "ab\0"     "cd\0"
+      ^
+      |
+s(隐式转换)(char *[3])
+
+s:    "ab\0"     "cd\0"
+       ^
+       |
+  p = (char *)s
+</code></pre></div>
+</details>
+<!-- prettier-ignore-end -->
+</div>
+<!-- prettier-ignore-end -->
+<h2 id="_13">链表<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<h3 id="_14">基础知识和总结<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>链表是一种常用的数据结构，它通过节点的形式存储数据。每个节点包含数据部分和指向下一个节点的指针。链表可以是单向的也可以是双向的，我们先看看单向链表：</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
+</code></pre></div>
+<p>好了，我们已经把链表给定义出来了。但是你会好奇，我们不是只定义出了节点吗？怎么已经定义完了？事实上，这几乎就已经是链表的完整结构了——因为链表就是简单的<strong>链表节点的串联</strong>。</p>
+<p>大家都已经知道了链表的结构，是类似于下面这样的：</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/linkedlist.png"><img alt="" src="../graph/linkedlist.png"/></a></p>
+<p>所以，链表其实就是以下的东西的结合：</p>
+<ul>
+<li>一个指向头结点的<strong>指针</strong> <code>head</code> ，告诉我们从哪里开始遍历整个链表。</li>
+<li>头节点指向的下一个节点 <code>head-&gt;next</code> 。注意这也是一个<strong>指针</strong>。</li>
+<li>头节点指向的下一个节点的下一个节点 <code>head-&gt;next-&gt;next</code>。</li>
+<li>...</li>
+<li>最后一个节点。</li>
+</ul>
+<p>我们怎么知道最后一个节点是什么呢？我们规定，最后一个节点指向的位置就是 <code>NULL</code>，也就是 <code>0</code>。这样，只要判断节点的 <code>.next</code> 是否是 <code>NULL</code>，就可以知道这个节点是不是尾节点了。好了，所以我们只需要若干个 <code>Node</code>，然后将他们串联——也就是通过 <code>next</code> 连接，就得到了一个完整的链表。</p>
+<p>接下来让我们回忆一下链表的各种操作的实现吧！不过大家在平时做题的时候应该都感觉到了，链表有很多很多难以琢磨的细节和特殊情况！怎么办呢？冷静下来总结，无非就是这几种：</p>
+<ul>
+<li>特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span>：如果头指针指向的是<code>NULL</code>，也就是链表本身就为空了。</li>
+<li>特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(2\)</span></span>：如果当前操作在头节点进行。</li>
+<li>特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(3\)</span></span>：如果当前操作在尾节点进行。</li>
+</ul>
+<p>这些情况如果没有考虑清楚，很可能在写代码的过程中出现 <code>segmentation fault</code>，也就是段错误。这极大概率是因为，你<strong>访问了 <code>NULL</code> 位置的一些信息</strong>。比如当前节点指针 <code>p</code> 指向了 <code>NULL</code>，但是你却访问了 <code>p-&gt;data</code> 或者 <code>p-&gt;next</code>，就会报错了。</p>
+<h3 id="_15">单向链表的各种经典操作<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<ul>
+<li><strong>1、创建一个节点 <code>p</code>，其权值为 <code>w</code>，并返回这个节点的指针<span><span class="heti-spacing"> </span>.</span></strong></li>
+</ul>
+<p>只需要使用 <code>malloc</code> 即可。</p>
+<div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">create</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">){</span>
+<span class="w">    </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">newNode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">Node</span><span class="p">));</span>
+<span class="w">    </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="n">newNode</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">w</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">newNode</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>请注意，<code>malloc</code> 函数内部需要开的节点大小是 <code>sizeof(Node)</code> 而不是 <code>sizeof(Node*)*</code>，想想为什么？</p>
+</blockquote>
+<ul>
+<li><strong>2、在链表的头部<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>尾部插入一个节点 <code>p</code>，并返回新链表的头部<span><span class="heti-spacing"> </span>.</span></strong></li>
+</ul>
+<p>先看头部插入。</p>
+<p>首先，特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span>，原先链表是空的，那肯定是把 <code>head</code> 赋值为新节点嘛。</p>
+<p>发现只剩下特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(2\)</span></span>，那 <code>head</code> 也要赋值为新节点，然后新节点连向老 <code>head</code> 。</p>
+<div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">insertAtHead</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="n">p</span><span class="o">-&gt;</span><span class="n">Next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>思考：为什么是 <code>!head</code>？</p>
+</blockquote>
+<p>然后是尾部插入。首先还是特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span>，处理完以后只剩下特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(3\)</span></span> ，那么我们只需要找到尾节点，就可以直接插入了，最后返回的也只是原本的 <code>head</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">insertAtEnd</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">last</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">last</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">last</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>3、删除权值为 <code>w</code> 的节点，如果有多个，则删除最靠近开头的，没有则不删除，返回新链表的头部<span><span class="heti-spacing"> </span>.</span></strong></li>
+</ul>
+<p>最繁琐最复杂的一个操作，也是新手的噩梦。不过按照三步走就好了。</p>
+<p>先处理一下特殊情况<span><span class="heti-spacing"> </span><span class="arithmatex">\(1\)</span></span> 。</p>
+<div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">deleteNode</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>然后情况<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(2\)</span><span class="heti-spacing"> </span></span>呢，头结点会发生变化。</p>
+<div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">deleteNode</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">key</span><span class="p">){</span>
+<span class="w">        </span><span class="n">node</span><span class="o">*</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"> </span><span class="c1">//这么做是因为 free 以后，head-&gt;next 就不能获取了。</span>
+<span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>剩下情况<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(3\)</span><span class="heti-spacing"> </span></span>还要特殊判断。我们先找到要删除的位置。回忆一下删除的过程，我们需要记录当前需要被删除的节点的指针 <code>prev</code>：</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/linkedlistdelete.png"><img alt="img" src="../graph/linkedlistdelete.png"/></a></p>
+<div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">deleteNode</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">key</span><span class="p">){</span>
+<span class="w">        </span><span class="n">node</span><span class="o">*</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"> </span><span class="c1">//这么做是因为 free 以后，head-&gt;next 就不能获取了。</span>
+<span class="w">        </span><span class="n">free</span><span class="p">(</span><span class="n">head</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">node</span><span class="o">*</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+<span class="w">        </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">temp</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="w">    </span><span class="n">prev</span><span class="o">-&gt;</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span><span class="w"> </span><span class="c1">//事实上直接删除就好了，不需要关系情况 3 了，不过特判一下也不错。</span>
+<span class="w">    </span><span class="n">free</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">head</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>理论考试写代码的时候，<strong>一定不要忘记 <code>free</code> 被删除的节点！！！小心扣分！！！</strong></p>
+<p>上机不<span class="heti-skip"><span class="heti-spacing"> </span>free<span class="heti-spacing"> </span></span>倒是没关系（指还能通过<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，但还是建议养成良好的习惯，防止内存泄漏！</p>
+</blockquote>
+<h3 id="_16">双向链表<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>其实没什么可以讲的，也就是在 <code>struct</code> 的定义中加入了 <code>prev</code>，可以让我们方便的获取上一个节点的指针，这样删除过程中就不需要单独开变量记录了。</p>
+<div class="highlight"><pre><span></span><code><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Node</span><span class="o">*</span><span class="w"> </span><span class="n">prev</span><span class="p">,</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">Node</span><span class="p">;</span>
+</code></pre></div>
+<p>特别的，头结点的 <code>prev</code> 是 <code>NULL</code>。</p>
+<p>看一个简单的例题吧<span><span class="heti-spacing"> </span>~</span></p>
+<blockquote>
+<p>To delete <code>p</code> from a <strong>doubly linked list</strong>, we must do:</p>
+<p>A. <code>p-&gt;prev=p-&gt;prev-&gt;prev; p-&gt;prev-&gt;next=p;</code></p>
+<p>B. <code>p-&gt;next-&gt;prev=p; p-&gt;next=p-&gt;next-&gt;next;</code></p>
+<p>C. <code>p-&gt;prev-&gt;next=p-&gt;next; p-&gt;next-&gt;prev=p-&gt;prev;</code></p>
+<p>D. <code>p-&gt;next=p-&gt;prev-&gt;prev; p-&gt;prev=p-&gt;next-&gt;next;</code></p>
+</blockquote>
+<h2 id="_17">栈和队列<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>这一部分的内容相信大家在课上已经有很好的理解了，但是会出一些和链表结合的有难度的理论题和编程题，所以简单带过一下：</p>
+<p>通常题目会使用<strong>单向链表</strong>来实现栈和队列。不过很多题目其实会不告诉你，链表哪一段表示栈顶，哪一段表示队头，哪一段表示队尾。</p>
+<p>如果是双向链表其实没有这么多烦恼，但是现在是单向的。怎么判断链表的头代表栈<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>队列的哪个部分呢？</p>
+<p>栈顶其实很简单，我们只需要记录一下链表的头指针 <code>head</code>，在上面操作，可以直接完成对栈的模拟，所以链表的头代表栈顶。</p>
+<p>那队列呢？我们不妨试一下，假设链表头部代表队头，那么队列的入队操作很好实现，但是，出队需要在链表尾部进行操作。有一个很直观的方法就是同时记录并维护链表的尾指针 <code>tail</code>，但是，删除的话，我们需要知道尾指针的前驱节点<span><span class="heti-spacing"> </span>...</span></p>
+<p>所以一些题目的实现，默认了<strong>链表的头部代表队尾</strong>。看一下这个题目：</p>
+<blockquote>
+<p>Represent a queue by a singly linked list. Given the current status of the linked list as <code>1-&gt;2-&gt;3</code> where <code>x-&gt;y</code> means <code>y</code> is linked after <code>x</code>. Now if <code>4</code> is enqueued and then a dequeue is done, the resulting status must be:</p>
+<p>A. <code>1-&gt;2-&gt;3</code></p>
+<p>B. <code>2-&gt;3-&gt;4</code></p>
+<p>C. <code>4-&gt;1-&gt;2</code></p>
+<p>D. the solution is not unique</p>
+</blockquote>
+<p>这里需要额外提一个叫做<strong>循环队列</strong>的东西。它是队列的一种变体，通常使用数组来实现，用来节约队列的空间。 循环队列是把顺序队列首尾相连，把存储队列元素的表从逻辑上看成一个环。通常用两个变量代表当前循环队列存储的空间：一个是尾 <code>rear</code>，一个是头<code>front</code>。不过这个是开区间还是闭区间呢，还得看具体实现方式和题干要求，大家最好翻翻老师的<span><span class="heti-spacing"> </span>PPT</span>，看看上课是怎么实现的，万一题目没有给出实现方式就按照老师讲的为主吧。</p>
+<p>来一个题目：</p>
+<blockquote>
+<p>Suppose that an array of size 6 is used to store a circular queue, and the values of front and rear are 0 and 4, respectively. Now after 2 dequeues and 2 enqueues, what will the values of front and rear be?</p>
+<p>A. <code>2 and 0</code></p>
+<p>B. <code>2 and 2</code></p>
+<p>C. <code>2 and 4</code></p>
+<p>D. <code>2 and 6</code></p>
+</blockquote>
+<p>关于编程部分，我们来看一下这个<a href="https://ckc-agc.bowling233.top/programming/daily/2023/#5-monotonic-stacks">每日一题</a>。</p>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 26, 2023</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2023</span>
 </span>
 </aside>
 </article>
