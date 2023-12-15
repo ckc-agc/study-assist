@@ -493,7 +493,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
 
     !!! note "一个细节"
     
-        注意，`malloc` 函数内部需要开的节点大小是 `sizeof(Node)` 而不是 `sizeof(Node*)*`，想想为什么？
+        注意，`malloc` 函数内部需要开的节点大小是 `sizeof(Node)` 而不是 `sizeof(Node*)`，想想为什么？
 
 
 !!! example "在链表的头部/尾部插入一个节点 `p`，并返回新链表的头部"
@@ -506,7 +506,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
     
     ```c
     Node *insertAtHead(Node* head, Node* p) {
-        if (!head) return p;
+        if (!head) return p; // 可以发现，这句话不写也没有影响 
         p->Next = head;
         return p;
     }
@@ -519,7 +519,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
 
     ```c
     Node *insertAtEnd(Node* head, Node* p) {
-        if (!head == NULL) return p;
+        if (!head) return p;
         Node* last = head;
         while (last->next) {
             last = last->next;
@@ -529,7 +529,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
     }
     ```
 
-!!! example "删除权值为 `w` 的节点，如果有多个，则删除最靠近开头的，没有则不删除，返回新链表的头部"
+!!! example "删除权值为 `key` 的节点，如果有多个，则删除最靠近开头的，没有则不删除，返回新链表的头部"
 
     最繁琐最复杂的一个操作，也是新手的噩梦。不过按照三步走就好了。
     
@@ -566,7 +566,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
             free(head);
             return tmp;
         }
-        node* temp = head;
+        node* temp = head, prev = NULL;
         while (temp && temp->data != key) {
             prev = temp;
             temp = temp->next;
@@ -582,7 +582,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
 
     理论考试写代码的时候，**一定不要忘记 `free` 被删除的节点！！！小心扣分！！！**
     
-    上机不 free 倒是没关系（指还能通过），但还是建议养成良好的习惯，防止内存泄漏！
+    上机不 `free` 倒是没关系（指还能通过），但还是建议养成良好的习惯，防止内存泄漏！
 
 ### 双向链表
 
