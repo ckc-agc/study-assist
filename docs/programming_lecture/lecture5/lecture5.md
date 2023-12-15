@@ -603,7 +603,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
 
 !!! question "题目 3"
 
-To delete `p` from a **doubly linked list**, we must do:
+    To delete `p` from a **doubly linked list**, we must do:
 
     A. `p->prev=p->prev->prev; p->prev->next=p;`
     
