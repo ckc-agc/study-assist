@@ -444,12 +444,13 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
 
 链表是一种常用的数据结构，它通过节点的形式存储数据。每个节点包含数据部分和指向下一个节点的指针。链表可以是单向的也可以是双向的，我们先看看单向链表：
 
-```c
-typedef struct Node {
-    int data;
-    struct Node* next;
-} Node;
-```
+!!! example "单向链表的一种定义方式"
+    ```c
+    typedef struct Node {
+        int data;
+        struct Node* next;
+    } Node;
+    ```
 
 好了，我们已经把链表给定义出来了。但是你会好奇，我们不是只定义出了节点吗？怎么已经定义完了？事实上，这几乎就已经是链表的完整结构了——因为链表就是简单的**链表节点的串联**。
 
@@ -477,130 +478,144 @@ typedef struct Node {
 
 ### 单向链表的各种经典操作
 
-- **1、创建一个节点 `p`，其权值为 `w`，并返回这个节点的指针.**
+!!! example "创建一个节点 `p`，其权值为 `w`，并返回这个节点的指针"
+    
+    只需要使用 `malloc` 即可。
 
-只需要使用 `malloc` 即可。
-
-```c
-Node *create(int w){
-    Node* newNode = (Node*)malloc(sizeof(Node));
-    newNode->next = NULL;
-    newNode->data = w;
-    return newNode;
-}
-```
-
-> 请注意，`malloc` 函数内部需要开的节点大小是 `sizeof(Node)` 而不是 `sizeof(Node*)*`，想想为什么？
-
-- **2、在链表的头部/尾部插入一个节点 `p`，并返回新链表的头部.**
-
-先看头部插入。
-
-首先，特殊情况 $1$，原先链表是空的，那肯定是把 `head` 赋值为新节点嘛。
-
-发现只剩下特殊情况 $2$，那 `head` 也要赋值为新节点，然后新节点连向老 `head` 。
-
-```c
-Node *insertAtHead(Node* head, Node* p) {
-    if (!head) return p;
-    p->Next = head;
-    return p;
-}
-```
-
-> 思考：为什么是 `!head`？
-
-然后是尾部插入。首先还是特殊情况 $1$，处理完以后只剩下特殊情况 $3$ ，那么我们只需要找到尾节点，就可以直接插入了，最后返回的也只是原本的 `head`。
-
-```c
-Node *insertAtEnd(Node* head, Node* p) {
-    if (!head == NULL) return p;
-    Node* last = head;
-    while (last->next) {
-        last = last->next;
+    ```c
+    Node *create(int w){
+        Node* newNode = (Node*)malloc(sizeof(Node));
+        newNode->next = NULL;
+        newNode->data = w;
+        return newNode;
     }
-    last->next = p;
-    return head;
-}
-```
+    ```
 
-- **3、删除权值为 `w` 的节点，如果有多个，则删除最靠近开头的，没有则不删除，返回新链表的头部.**
+    !!! note "一个细节"
+    
+        注意，`malloc` 函数内部需要开的节点大小是 `sizeof(Node)` 而不是 `sizeof(Node*)*`，想想为什么？
 
-最繁琐最复杂的一个操作，也是新手的噩梦。不过按照三步走就好了。
 
-先处理一下特殊情况 $1$ 。
+!!! example "在链表的头部/尾部插入一个节点 `p`，并返回新链表的头部"
 
-```c
-Node *deleteNode(Node* head, int key) {
-    if (!head) return NULL;
-}
-```
-
-然后情况 $2$ 呢，头结点会发生变化。
-
-```c
-Node *deleteNode(Node* head, int key) {
-    if (!head) return NULL;
-    if (head->data == key){
-        node* tmp = head->next; //这么做是因为 free 以后，head->next 就不能获取了。
-        free(head);
-        return tmp;
+    先看头部插入。
+    
+    首先，特殊情况 $1$，原先链表是空的，那肯定是把 `head` 赋值为新节点嘛。
+    
+    发现只剩下特殊情况 $2$，那 `head` 也要赋值为新节点，然后新节点连向老 `head` 。
+    
+    ```c
+    Node *insertAtHead(Node* head, Node* p) {
+        if (!head) return p;
+        p->Next = head;
+        return p;
     }
-}
-```
+    ```
+    
+    !!! question "一个细节"
+        为什么 `if` 里是 `!head`？
+    
+    然后是尾部插入。首先还是特殊情况 $1$，处理完以后只剩下特殊情况 $3$ ，那么我们只需要找到尾节点，就可以直接插入了，最后返回的也只是原本的 `head`。
 
-剩下情况 $3$ 还要特殊判断。我们先找到要删除的位置。回忆一下删除的过程，我们需要记录当前需要被删除的节点的指针 `prev`：
-
-![img](graph/linkedlistdelete.png)
-
-```c
-Node *deleteNode(Node* head, int key) {
-    if (!head) return NULL;
-    if (head->data == key){
-        node* temp = head->next; //这么做是因为 free 以后，head->next 就不能获取了。
-        free(head);
-        return tmp;
+    ```c
+    Node *insertAtEnd(Node* head, Node* p) {
+        if (!head == NULL) return p;
+        Node* last = head;
+        while (last->next) {
+            last = last->next;
+        }
+        last->next = p;
+        return head;
     }
-    node* temp = head;
-    while (temp && temp->data != key) {
-        prev = temp;
-        temp = temp->next;
-    }
-    if (!temp) return head;
-    prev->next = temp->next; //事实上直接删除就好了，不需要关系情况 3 了，不过特判一下也不错。
-    free(temp);
-    return head;
-}
-```
+    ```
 
-> 理论考试写代码的时候，**一定不要忘记 `free` 被删除的节点！！！小心扣分！！！**
->
-> 上机不 free 倒是没关系（指还能通过），但还是建议养成良好的习惯，防止内存泄漏！
+!!! example "删除权值为 `w` 的节点，如果有多个，则删除最靠近开头的，没有则不删除，返回新链表的头部"
+
+    最繁琐最复杂的一个操作，也是新手的噩梦。不过按照三步走就好了。
+    
+    先处理一下特殊情况 $1$ 。
+    
+    ```c
+    Node *deleteNode(Node* head, int key) {
+        if (!head) return NULL;
+    }
+    ```
+    
+    然后情况 $2$ 呢，头结点会发生变化。
+    
+    ```c
+    Node *deleteNode(Node* head, int key) {
+        if (!head) return NULL;
+        if (head->data == key){
+            node* tmp = head->next; //这么做是因为 free 以后，head->next 就不能获取了。
+            free(head);
+            return tmp;
+        }
+    }
+    ```
+    
+    剩下情况 $3$ 还要特殊判断。我们先找到要删除的位置。回忆一下删除的过程，我们需要记录当前需要被删除的节点的指针 `prev`：
+    
+    ![img](graph/linkedlistdelete.png)
+    
+    ```c
+    Node *deleteNode(Node* head, int key) {
+        if (!head) return NULL;
+        if (head->data == key){
+            node* temp = head->next; //这么做是因为 free 以后，head->next 就不能获取了。
+            free(head);
+            return tmp;
+        }
+        node* temp = head;
+        while (temp && temp->data != key) {
+            prev = temp;
+            temp = temp->next;
+        }
+        if (!temp) return head;
+        prev->next = temp->next; //事实上直接删除就好了，不需要关系情况 3 了，不过特判一下也不错。
+        free(temp);
+        return head;
+    }
+    ```
+
+!!! info "注意！"
+
+    理论考试写代码的时候，**一定不要忘记 `free` 被删除的节点！！！小心扣分！！！**
+    
+    上机不 free 倒是没关系（指还能通过），但还是建议养成良好的习惯，防止内存泄漏！
 
 ### 双向链表
 
 其实没什么可以讲的，也就是在 `struct` 的定义中加入了 `prev`，可以让我们方便的获取上一个节点的指针，这样删除过程中就不需要单独开变量记录了。
 
-```c
-typedef struct Node {
-    int data;
-    struct Node* prev, next;
-} Node;
-```
+
+!!! example "双向链表的一种定义方式"
+    ```c
+    typedef struct Node {
+        int data;
+        struct Node* prev, next;
+    } Node;
+    ```
 
 特别的，头结点的 `prev` 是 `NULL`。
 
 看一个简单的例题吧~
 
-> To delete `p` from a **doubly linked list**, we must do:
->
-> A. `p->prev=p->prev->prev; p->prev->next=p;`
->
-> B. `p->next->prev=p; p->next=p->next->next;`
->
-> C. `p->prev->next=p->next; p->next->prev=p->prev;`
-> 
-> D. `p->next=p->prev->prev; p->prev=p->next->next;`
+!!! question "题目 3"
+
+To delete `p` from a **doubly linked list**, we must do:
+
+    A. `p->prev=p->prev->prev; p->prev->next=p;`
+    
+    B. `p->next->prev=p; p->next=p->next->next;`
+    
+    C. `p->prev->next=p->next; p->next->prev=p->prev;`
+     
+    D. `p->next=p->prev->prev; p->prev=p->next->next;`
+
+    ??? answer
+
+        C.
 
 ## 栈和队列
 
@@ -608,36 +623,50 @@ typedef struct Node {
 
 通常题目会使用**单向链表**来实现栈和队列。不过很多题目其实会不告诉你，链表哪一段表示栈顶，哪一段表示队头，哪一段表示队尾。
 
-如果是双向链表其实没有这么多烦恼，但是现在是单向的。怎么判断链表的头代表栈/队列的哪个部分呢？
+!!! question "一个问题"
 
-栈顶其实很简单，我们只需要记录一下链表的头指针 `head`，在上面操作，可以直接完成对栈的模拟，所以链表的头代表栈顶。
+    如果是双向链表其实没有这么多烦恼，但是现在是单向的。怎么判断链表的头代表栈/队列的哪个部分呢？
+    
+    栈顶其实很简单，我们只需要记录一下链表的头指针 `head`，在上面操作，可以直接完成对栈的模拟，所以链表的头代表栈顶。
+    
+    那队列呢？我们不妨试一下，假设链表头部代表队尾，那么队列的入队操作很好实现，但是，出队需要在链表尾部进行操作。有一个很直观的方法就是同时记录并维护链表的尾指针 `tail`，但是，删除的话，我们需要知道尾指针的前驱节点...
 
-那队列呢？我们不妨试一下，假设链表头部代表队头，那么队列的入队操作很好实现，但是，出队需要在链表尾部进行操作。有一个很直观的方法就是同时记录并维护链表的尾指针 `tail`，但是，删除的话，我们需要知道尾指针的前驱节点...
+所以一些题目的实现，默认了**链表的头部代表队头**。看一下这个题目：
 
-所以一些题目的实现，默认了**链表的头部代表队尾**。看一下这个题目：
 
-> Represent a queue by a singly linked list. Given the current status of the linked list as `1->2->3` where `x->y` means `y` is linked after `x`. Now if `4` is enqueued and then a dequeue is done, the resulting status must be:
->
-> A. `1->2->3`
->
-> B. `2->3->4`
->
-> C. `4->1->2`
->
-> D. the solution is not unique
+!!! question "题目 4"
+
+    Represent a queue by a singly linked list. Given the current status of the linked list as `1->2->3` where `x->y` means `y` is linked after `x`. Now if `4` is enqueued and then a dequeue is done, the resulting status must be:
+    
+    A. `1->2->3`
+    
+    B. `2->3->4`
+    
+    C. `4->1->2`
+    
+    D. the solution is not unique
+
+    ??? answer
+
+        B.
 
 这里需要额外提一个叫做**循环队列**的东西。它是队列的一种变体，通常使用数组来实现，用来节约队列的空间。 循环队列是把顺序队列首尾相连，把存储队列元素的表从逻辑上看成一个环。通常用两个变量代表当前循环队列存储的空间：一个是尾 `rear`，一个是头` front`。不过这个是开区间还是闭区间呢，还得看具体实现方式和题干要求，大家最好翻翻老师的 PPT，看看上课是怎么实现的，万一题目没有给出实现方式就按照老师讲的为主吧。
 
-来一个题目：
+!!! question "题目 5"
 
-> Suppose that an array of size 6 is used to store a circular queue, and the values of front and rear are 0 and 4, respectively. Now after 2 dequeues and 2 enqueues, what will the values of front and rear be?
->
-> A. `2 and 0`
->
-> B. `2 and 2`
->
-> C. `2 and 4`
->
-> D. `2 and 6`
+    Suppose that an array of size 6 is used to store a circular queue, and the values of front and rear are 0 and 4, respectively. Now after 2 dequeues and 2 enqueues, what will the values of front and rear be?
+    
+    A. `2 and 0`
+    
+    B. `2 and 2`
+    
+    C. `2 and 4`
+    
+    D. `2 and 6`
+    
+    ??? answer
+
+        A.
+
 
 关于编程部分，我们来看一下这个[每日一题](https://ckc-agc.bowling233.top/programming/daily/2023/#5-monotonic-stacks)。
