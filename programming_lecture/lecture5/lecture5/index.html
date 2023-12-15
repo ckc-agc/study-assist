@@ -1215,20 +1215,16 @@ s:    "ab\0"     "cd\0"
 <p>看一个简单的例题吧<span><span class="heti-spacing"> </span>~</span></p>
 <div class="admonition question">
 <p class="admonition-title">题目<span><span class="heti-spacing"> </span>3</span></p>
-</div>
 <p>To delete <code>p</code> from a <strong>doubly linked list</strong>, we must do:</p>
-<div class="highlight"><pre><span></span><code>A. `p-&gt;prev=p-&gt;prev-&gt;prev; p-&gt;prev-&gt;next=p;`
-
-B. `p-&gt;next-&gt;prev=p; p-&gt;next=p-&gt;next-&gt;next;`
-
-C. `p-&gt;prev-&gt;next=p-&gt;next; p-&gt;next-&gt;prev=p-&gt;prev;`
-
-D. `p-&gt;next=p-&gt;prev-&gt;prev; p-&gt;prev=p-&gt;next-&gt;next;`
-
-??? answer
-
-    C.
-</code></pre></div>
+<p>A. <code>p-&gt;prev=p-&gt;prev-&gt;prev; p-&gt;prev-&gt;next=p;</code></p>
+<p>B. <code>p-&gt;next-&gt;prev=p; p-&gt;next=p-&gt;next-&gt;next;</code></p>
+<p>C. <code>p-&gt;prev-&gt;next=p-&gt;next; p-&gt;next-&gt;prev=p-&gt;prev;</code></p>
+<p>D. <code>p-&gt;next=p-&gt;prev-&gt;prev; p-&gt;prev=p-&gt;next-&gt;next;</code></p>
+<details class="answer">
+<summary>Answer</summary>
+<p>C.</p>
+</details>
+</div>
 <h2 id="_17">栈和队列<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>这一部分的内容相信大家在课上已经有很好的理解了，但是会出一些和链表结合的有难度的理论题和编程题，所以简单带过一下：</p>
 <p>通常题目会使用<strong>单向链表</strong>来实现栈和队列。不过很多题目其实会不告诉你，链表哪一段表示栈顶，哪一段表示队头，哪一段表示队尾。</p>
