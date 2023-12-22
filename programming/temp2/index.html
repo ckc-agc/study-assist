@@ -539,6 +539,20 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      算法复杂度分析
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      后缀表达式
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#2020-2021">
 <span class="md-ellipsis">
       2020-2021 年卷
@@ -596,6 +610,58 @@
 <p class="admonition-title">页面正在施工中</p>
 </div>
 <!-- prettier-ignore-end -->
+<h2 id="_1">算法复杂度分析<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ul>
+<li>
+<p>记住：排序算法的时间复杂度与两项操作的次数有关：<strong>比较</strong>和<strong>交换</strong>。</p>
+<ul>
+<li>
+<p>你可以这样想：创建一个全局变量作为计数器，在所有涉及比较和交换的地方让它 <code>++</code>，运行完的结果就是其时间复杂度。比如：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>运行完这段代码，<code>count = n*n*m</code>，则其时间复杂度为<span><span class="heti-spacing"> </span><span class="arithmatex">\(O(n^2m)\)</span></span>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>记住并理解一些常见的算法的平均时间复杂度、最优、最差情况复杂度：<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="https://cdn.bowling233.top/images/2023/06/202306232248681.png"><img alt="image-20230623223659304" src="https://cdn.bowling233.top/images/2023/06/202306232248681.png"/></a></p>
+<p>来源：<a href="https://zq99299.github.io/dsalg-tutorial/dsalg-java-hsp/07/10.html">常用排序算法总结对比<span class="heti-skip"><span class="heti-spacing"> </span>|<span class="heti-spacing"> </span></span>数据结构与算法 系列教程（笔记） (zq99299.github.io)</a></p>
+</li>
+</ul>
+<h2 id="_2">后缀表达式<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>这东西前两三年都考了，需要了解一下。关于表达式树的相关内容请参见：</p>
+<ul>
+<li><a href="https://oi-wiki.org/misc/expression/">表达式求值<span><span class="heti-spacing"> </span>- OI Wiki (oi-wiki.org)</span></a></li>
+<li><a href="https://oi-wiki.org/graph/tree-basic/#树的遍历">树基础<span><span class="heti-spacing"> </span>- OI Wiki (oi-wiki.org)</span></a></li>
+</ul>
+<p>在前缀、中缀、后缀表达式之间进行转换的最好方法是将其想象成一个树状结构。</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="https://cdn.bowling233.top/images/2023/06/202306232250141.png"><img alt="" src="https://cdn.bowling233.top/images/2023/06/202306232250141.png"/></a></p>
+<ul>
+<li>中缀表达式：对这棵树进行中序遍历，即<strong>左、根、右</strong><ul>
+<li>a+b*(c-d)-(e/f)</li>
+</ul>
+</li>
+<li>前缀表达式：对这棵树进行先序遍历，即<strong>根、左、右</strong><ul>
+<li>-+a*b-cd/ef</li>
+</ul>
+</li>
+<li>后缀表达式：对这棵树进行后序遍历，即<strong>左、右、根</strong>。注意到左右子节点都比根先遍历，所以可以一路往下找到最深的子节点，然后向上解析。<ul>
+<li>abcd-*+ef/-</li>
+</ul>
+</li>
+</ul>
+<p>值得一提的是后缀表达式具有几个方便的性质：</p>
+<ul>
+<li>计算后缀表达式，只需要维护一个数字栈，每次遇到一个运算符，就取出两个栈顶元素，将运算结果重新压入栈中。</li>
+<li>后缀表达式与表达式树一一对应。后缀表达式不需要括号表示，它的运算顺序是唯一确定的。</li>
+</ul>
 <h2 id="2020-2021"><span>2020-2021<span class="heti-spacing"> </span></span>年卷<a class="headerlink" href="#2020-2021" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <ul>
 <li>选择题<span><span class="heti-spacing"> </span>1</span> <code>typedef</code></li>
@@ -1203,7 +1269,7 @@
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 22, 2023</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 23, 2023</span>
 </span>
 </aside>
 </article>
