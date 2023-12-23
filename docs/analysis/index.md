@@ -8,9 +8,9 @@
 
 | 节次 |  时间  |          内容          |       主讲       |                                 讲义                                  |                        录播地址                         |
 | :--: | :----: | :--------------------: | :--------------: | :-------------------------------------------------------------------: | :-----------------------------------------------------: |
-|  1   | Oct.14 |        数列极限        | 混合 2206 <br /> 胡育玮 |     [讲义](2024/analysis_lecture1_sequence_limits.md)<br />[答案](2024/analysis_lecture1_sequence_limits_answer.pdf)     | [Bilibili](https://www.bilibili.com/video/BV1Qw411c7bM) |
-|  2   | Oct.28 | 一元函数的极限与连续性 | 图灵 2102 <br /> 潘昶皓 | [讲义](2024/analysis_lecture2_function.pdf) | [Bilibili](https://www.bilibili.com/video/BV1BM411D7rJ) |
-| 3    | Nov.26 | 微分中值定理和Taylor公式拓展应用 | 混合 2206 <br /> 谢集 | [讲义](2024/analysis_lecture3.pdf)<br />[答案](2024/analysis_lecture3_answer.pdf) | [Bilibili](https://www.bilibili.com/video/BV1ij411L7NU/) |
+|  1   | Oct.14 |        数列极限        | 混合 2206 <br /> 胡育玮 |     [讲义](2023-2024/analysis_lecture1_sequence_limits.md)<br />[答案](2023-2024/analysis_lecture1_sequence_limits_answer.pdf)     | [Bilibili](https://www.bilibili.com/video/BV1Qw411c7bM) |
+|  2   | Oct.28 | 一元函数的极限与连续性 | 图灵 2102 <br /> 潘昶皓 | [讲义](2023-2024/analysis_lecture2_function.pdf) | [Bilibili](https://www.bilibili.com/video/BV1BM411D7rJ) |
+| 3    | Nov.26 | 微分中值定理和Taylor公式拓展应用 | 混合 2206 <br /> 谢集 | [讲义](2023-2024/analysis_lecture3.pdf)<br />[答案](2023-2024/analysis_lecture3_answer.pdf) | [Bilibili](https://www.bilibili.com/video/BV1ij411L7NU/) |
 | 4    | Dec.9/10 | 不定积分 | 混合 2203 <br /> 何兆平 | | |
 
 ## 历年卷
@@ -40,8 +40,8 @@
 
 |                                                授课内容                                                |      主讲人      |
 | :----------------------------------------------------------------------------------------------------: | :--------------: |
-|                                [不定积分](2023/indefinite_integral.pdf)                                | 图灵 2101 陆晶宇 |
-|                          [数学分析 I 考前复习 1](2023/analysis1_review1.pdf)                           | 混合 2003 邱日宏 |
-| [数学分析 I 考前复习 2](2023/analysis1_review2.pdf) <br> [讲义答案](2023/analysis1_review2_answer.pdf) | 图灵 2102 潘昶皓 |
-|                    [级数](2023/series.pdf) <br> [讲义答案](2023/series_answer.pdf)                     | 混合 2102 刘志炜 |
-|                     [曲线、曲面、含参变量积分](2023/curves_surfaces_integrals.pdf)                     | 强物 2101 王宸昊 |
+|                                [不定积分](old/indefinite_integral.pdf)                                | 图灵 2101 陆晶宇 |
+|                          [数学分析 I 考前复习 1](old/analysis1_review1.pdf)                           | 混合 2003 邱日宏 |
+| [数学分析 I 考前复习 2](old/analysis1_review2.pdf) <br> [讲义答案](old/analysis1_review2_answer.pdf) | 图灵 2102 潘昶皓 |
+|                    [级数](old/series.pdf) <br> [讲义答案](old/series_answer.pdf)                     | 混合 2102 刘志炜 |
+|                     [曲线、曲面、含参变量积分](old/curves_surfaces_integrals.pdf)                     | 强物 2101 王宸昊 |

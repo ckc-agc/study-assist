@@ -75,6 +75,10 @@
 
 在竺院全媒体的人员和设备支持下，大部分辅学授课都有了优质的录播。一般情况下录播都将上传到竺院学指的 Bilibili 账号中，点击卡片即可跳转到 Bilibili 页面。
 
+## 贡献
+
+如果您愿意参与该网站的建设，请到 GitHub 中本项目的[仓库](https://github.com/ckc-agc/study-assist)进行贡献。向仓库提交前，请查看[贡献](contribute.md)页面。
+
 ## 大文件存放处
 
 超过 20MB 的大文件都放置在学业指导中心公共网盘的分享链接中，同学们可以点击下面的链接查看。如果有需要放置的大文件，请联系学业指导中心的同学上传。
@@ -86,25 +90,3 @@
 -   [浙江大学图灵班课程学习指南](https://github.com/ZJU-Turing/TuringCourses)
 -   [浙江大学课程攻略共享计划](https://qsctech.github.io/zju-icicles/)
 
-## 贡献
-
-如果您愿意参与该网站的建设，请到 GitHub 中本项目的[仓库](https://github.com/ckc-agc/study-assist)进行贡献。
-
-每个辅学科目的文件夹组织如下：
-
-```text
-subject
-├── year
-│   ├── some_file.md
-│   └── some_file.pdf
-├── exam
-│   ├── some_paper.pdf
-│   └── some_paper_answer.pdf
-└── index.md
-```
-
--   每个辅学科目的主页放置是 `index.md`，包含了该科目文件夹内各个资料的链接。页面侧边栏不需要有东西，不需要在 `mkdocs.yml` 中再为这些文件添加索引。
--   每年的辅学资料放置在同一个文件夹中，依次命名为 `lecture1_contents.pdf` 等。
--   所有历年卷及其答案放置在 `exam` 文件夹中，文件命名为 `subject_year_exam.pdf` 等，答案添加后缀 `_answer`。
-
-精品课程的文件夹由该课程组自行组织和维护。
