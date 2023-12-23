@@ -114,7 +114,8 @@ plugins:
 nav:
   - 首页:
     - index.md
-    - 测试: test.md
+    - test.md
+    - contribute.md
   - 📚微积分:
     - calculus/index.md
   - 📚数学分析:
