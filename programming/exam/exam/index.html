@@ -877,6 +877,12 @@
 </a>
 <h1 id="_1">历年卷经典题目解析<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <h2 id="_2">程序设计基础常问题目集及解析<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>本篇笔记来自<span><span class="heti-spacing"> </span>[]</span></p>
+</div>
+<!-- prettier-ignore-end -->
 <p>这里是作为<span class="heti-skip"><span class="heti-spacing"> </span>2022<span class="heti-spacing"> </span></span>年竺院团委学研部程序设计辅学答疑学长时整合的群里经常问到的一些问题，包括解析，也有一些相关知识点的整理。大部分题目是<span class="heti-skip"><span class="heti-spacing"> </span>13-18<span class="heti-spacing"> </span></span>的期末真题，小部分中文题目是群里我不清楚来源的<span class="heti-skip"><span class="heti-spacing"> </span>PTA<span class="heti-spacing"> </span></span>上的题目或者我自己编的小题。一共五十道题，已经按照考点<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>易错点分开了。</p>
 <h3 id="_3">标识符<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>关键字<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>这类题目一般是问哪些是合法的标识符、哪些是关键字。对于标识符，只需要考虑 <code>int &lt;identifier&gt;;</code> 是否合法，如果合法，那 <code>&lt;identifier&gt;</code> 就是合法的标识符（或者考虑是不是关键字，如果是关键字，那肯定不是合法的标识符<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。至于关键字，可以看<a href="https://en.cppreference.com/w/c/keyword"><span><span class="heti-spacing"> </span>cppreference</span></a>。 </p>
@@ -1535,6 +1541,12 @@ C "hello"[1] 表示 *("hello"+1) 即 'e'，还算有点意义，最优选 C</p>
 </li>
 </ol>
 <h2 id="_12">程序设计专题历年卷经典题目解析<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<!-- prettier-ignore-start -->
+<div class="admonition warning">
+<p class="admonition-title">图形库相关内容已不再出现在课程中</p>
+<p>目前，课改已经删去了图形库相关内容，这部分内容不会再出现在教学和考试中，我们也会逐步将其移除。</p>
+</div>
+<!-- prettier-ignore-end -->
 <h3 id="_13">算法复杂度分析<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>
@@ -1567,7 +1579,7 @@ C "hello"[1] 表示 *("hello"+1) 即 'e'，还算有点意义，最优选 C</p>
 <li><a href="https://oi-wiki.org/graph/tree-basic/#树的遍历">树基础<span><span class="heti-spacing"> </span>- OI Wiki (oi-wiki.org)</span></a></li>
 </ul>
 <p>在前缀、中缀、后缀表达式之间进行转换的最好方法是将其想象成一个树状结构。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="https://cdn.bowling233.top/images/2023/06/202306232250141.png"><img alt="" src="https://cdn.bowling233.top/images/2023/06/202306232250141.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/exp_tree.png"><img alt="" src="../graph/exp_tree.png"/></a></p>
 <ul>
 <li>中缀表达式：对这棵树进行中序遍历，即<strong>左、根、右</strong><ul>
 <li>a+b*(c-d)-(e/f)</li>
@@ -2010,14 +2022,6 @@ C "hello"[1] 表示 *("hello"+1) 即 'e'，还算有点意义，最优选 C</p>
 <p>其实这个函数的作用是：调用后保证数组 <code>a[k]</code> 左侧的元素都比 <code>a[k]</code> 小，右侧都比 <code>a[k]</code> 大。最后返回 <code>a[k]</code> 上的元素。<strong>但不会保证其他元素之间的相对顺序</strong>。</p>
 <p>具体的操作就是：每轮循环把第 <code>a[k]</code> 位置上的元素提出来作为 <code>x</code>，然后用 <code>i</code> 和 <code>j</code> 分别从左右遍历并交换两侧不符合要求的数。交换完成后，数组中比 <code>x</code> 小的数都在相对左边的位置，比 <code>x</code> 大的数都在相对右边的位置。</p>
 <p>如果你对快排比较熟悉，那么这就是“如果目标位置不在的一边直接舍弃”的快排。相当于本来快排区间形成一颗树，但是现在就只走一条路，只排 <code>a[k]</code> 所在的那些区间套。</p>
-</blockquote>
-<ul>
-<li>程序填空<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>分型</li>
-</ul>
-<blockquote>
-<p>画个坐标轴，一切都清晰起来了。然后 <code>Main()</code> 里最开始对大三角形三个顶点的求值可能会引起困惑，其实可以不用管它，它不影响你分析递归调用过程。它只是在用三角函数计算位置使这个大三角形的中心在屏幕中央罢了。给个很草的草稿示意图：</p>
-<p>画这个分形的步骤就是：先画大三角，然后各边取中点。大三角的每个顶点和相邻两边中点构成两个小三角。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="https://cdn.bowling233.top/images/2023/06/202306241632120.png"><img alt="" src="https://cdn.bowling233.top/images/2023/06/202306241632120.png"/></a></p>
 </blockquote>
 <ul>
 <li>程序填空<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>循环队列实现</li>
