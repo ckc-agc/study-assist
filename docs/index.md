@@ -30,15 +30,16 @@
   },
   {
     "title": "[线性代数 I/II（H）](algebra/index.md)",
-    "content": "23-24辅学群：913067714<br>
+    "content": "23-24辅学群：913067714<br />
                 [🏫线性代数：未竟之美](lalu/index.md)",
     "image": "graph/algebra.jpg"
   },
   {
     "title": "[程序设计（H）](programming/index.md)",
-    "content": "23-24辅学群：728919863<br>
-                [每日一题](programming/daily/2023.md)<br>
-                [🏫系统知识拾遗](programming_lecture/index.md)<br>
+    "content": "23-24辅学群：728919863<br />
+                [历年卷题解](programming/exam/exam.md)<br />
+                [每日一题](programming/daily/2023.md)<br />
+                [🏫系统知识拾遗](programming_lecture/index.md)<br />
                 [🏫实用技能拾遗](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/)",
     "image": "graph/programming.jpg"
   },
@@ -69,7 +70,6 @@
 ## 录播/回放
 
 [![](https://stats.justsong.cn/api/bilibili/?id=3546574332365752&lang=zh-CN&theme=vue#only-light){align=right}![](https://stats.justsong.cn/api/bilibili/?id=3546574332365752&lang=zh-CN&theme=dracula#only-dark){align=right}](https://space.bilibili.com/3546574332365752)
-
 
 > 致谢：竺可桢学院全媒体工作室
 
