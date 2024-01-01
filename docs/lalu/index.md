@@ -27,8 +27,8 @@ W 代表适配吴志祥班，T 代表适配谈之奕班，H 代表合班上课�
 | T1 | Oct.29 | 引入：线性空间 | 吴一航 | [Bilibili](https://www.bilibili.com/video/BV1iG411X7Bv) | LALU |
 | H2 | Nov.18 | 线性映射及其矩阵表示 | 吴一航 | [Bilibili](https://www.bilibili.com/video/BV1ZC4y1j7kL/) | LALU  |
 | H3 | Dec.3 | 矩阵的秩与分块矩阵 | 潘邹纬 | [Bilibili](https://www.bilibili.com/video/BV1YC4y197u1/) | [讲义](./lecH3.pdf) |
-| H4 | Dec.16 | 行列式和线性方程组 | 薛辰立 | [Bilibili](https://www.bilibili.com/video/BV1me411B7AX) | LALU |
-| h5 | Dec.30 | 期末复习 | 吴一航 | [Bilibili](1) (待上传) | [PPT](./LALU_23fa_review.pdf) |
+| H4 | Dec.16 | 行列式和线性方程组 | 薛辰立 | [Bilibili](https://www.bilibili.com/video/BV1me411B7AX/) | LALU |
+| H5 | Dec.30 | 期末复习 | 吴一航 | [Bilibili](https://www.bilibili.com/video/BV1qT4y1p7ZA/) | [PPT](./LALU_23fa_review.pdf) |
 
 ## 课程安排
 
