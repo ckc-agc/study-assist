@@ -1435,7 +1435,7 @@ argv[4] = "test"
 <p>The <code>argc</code> is 5, because there are 5 strings in <code>argv</code>.</p>
 <p>The <code>argv</code> array is terminated by a null pointer, so <code>argv[5]</code> is a null pointer.</p>
 <div class="admonition note inline end">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.12.04.png"><img alt="" src="../graph/23.12.04.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/23.12.04.png"><img alt="" src="../graph/23.12.04.png"/></a></p>
 </div>
 <p>For more information about <code>argv</code> and <code>argc</code>, see <a href="https://en.cppreference.com/w/c/language/main_function">cppreference-argc, argv</a>.</p>
 </details>
@@ -1586,7 +1586,7 @@ World!
 <p><code>C</code>.</p>
 <p>The <code>strcat</code> function appends a copy of the string pointed to by <code>s4</code> to the end of the string pointed to by <code>s3</code>. The <code>s3</code> and <code>s4</code> pointers point to the third character of <code>s1</code> and the fourth character of <code>s2</code>, respectively. Therefore, the <code>strcat</code> function appends the string <code>"ld"</code> to the end of the string <code>"Hellold"</code>, resulting in <code>"Helloldld"</code>, and the <code>printf</code> function prints <code>"Hellold, world; llold, ld."</code>.</p>
 <p>When the <code>strcat</code> function appends the string <code>"ld"</code> after "Hello", it overwrites the null character <code>'\0'</code> at the end of the string <code>"Hello"</code> and write a new null character <code>'\0'</code> at the end of the string <code>"Helloldld"</code>. Therefore, the character <code>w</code> and <code>&lt;</code> after the null character <code>'\0'</code> in <code>s1</code> are not printed.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.12.01.png"><img alt="" src="../graph/23.12.01.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/23.12.01.png"><img alt="" src="../graph/23.12.01.png"/></a></p>
 </details>
 <!-- prettier-ignore-end -->
 <blockquote>
@@ -1672,7 +1672,7 @@ World!
 <li><code>list-&gt;next</code></li>
 </ol>
 <div class="admonition note inline end">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.11.30.drawio.svg"><img alt="" src="../graph/23.11.30.drawio.svg"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/23.11.30.drawio.svg"><img alt="" src="../graph/23.11.30.drawio.svg"/></a></p>
 </div>
 <p>Notice this is a doubly linked list <strong>with a dummy node</strong>. The dummy node is a special node that does not store any data. It is used to simplify the implementation of the linked list. In this case, the dummy node is <code>list</code>.</p>
 <p>The <code>insertFront</code> function inserts a new node with <code>data</code> at the front of the list. The new node is inserted between the dummy node and the first node of the list. The <code>insertFront</code> function takes two steps:</p>
@@ -1904,7 +1904,7 @@ daily_problem
 <summary>Answer</summary>
 <p>A.</p>
 <div class="admonition note inline end">
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/23.11.24.jpg"><img alt="" src="../graph/23.11.24.jpg"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/23.11.24.jpg"><img alt="" src="../graph/23.11.24.jpg"/></a></p>
 </div>
 <p><code>a[]</code> is an array of pointers, which stores the addresses of three strings, and <code>pa</code> points to the address of the first element of <code>a</code>, as shown below:</p>
 <p>Pointer operations take precedence over addition, so <code>*(*pa + 1)</code> equals to <code>n</code>.</p>

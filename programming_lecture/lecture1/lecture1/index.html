@@ -972,7 +972,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/risc_cpu.png"><img src="../graph/risc_cpu.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/risc_cpu.png"><img src="../graph/risc_cpu.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">RISC CPU</p>
 <p class="nt-card-text">这是一个非常简单的<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>的电路，它能够执行你用<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>编写的机器指令。</p>
@@ -983,7 +983,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/cpu.png"><img src="../graph/cpu.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/cpu.png"><img src="../graph/cpu.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title"><span>CPU<span class="heti-spacing"> </span></span>基本结构</p>
 <p class="nt-card-text"><span>CPU<span class="heti-spacing"> </span></span>主要由控制单元、算术逻辑单元和寄存器组成。控制单元中有程序计数器和指令寄存器。</p>
@@ -1011,7 +1011,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/machine_code.png"><img src="../graph/machine_code.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/machine_code.png"><img src="../graph/machine_code.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">机器语言 <br/> Machine Code</p>
 <p class="nt-card-text">这是<strong>第一代编程语言</strong>，也是计算机唯一能识别的语言。上图展示了世界上第一个计算机程序，它用来找出一个数最大的因数。</p>
@@ -1022,7 +1022,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/assembly.png"><img src="../graph/assembly.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/assembly.png"><img src="../graph/assembly.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">汇编语言 <br/> Assembly Language</p>
 <p class="nt-card-text">这是<strong>第二代编程语言</strong>，其实就是机器语言的助记符。它使得程序员不用再直接与<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>打交道，程序的可读性也更强了。上图显示了将两个整数相加的汇编代码。</p>
@@ -1033,7 +1033,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/high_level_language.png"><img src="../graph/high_level_language.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/high_level_language.png"><img src="../graph/high_level_language.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">高级语言 <br/> High-level Language</p>
 <p class="nt-card-text">这是<strong>第三代编程语言</strong>，它让程序员们不用再关注计算机结构上的细节，而是将注意力转移到要解决的问题上来。</p>
@@ -1362,7 +1362,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%d:%d is %d minutes after 00:00</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">hour</span><span class="p">,</span><span class="w"> </span><span class="n">minute</span><span class="p">,</span><span class="w"> </span><span class="n">hour</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">minute</span><span class="p">);</span>
 </code></pre></div>
 <p>编译器在翻译这条语句时，首先根据上述语法规则把这个语句解析成下图所示的语法树，然后再根据语法树生成相应的指令。语法树的末端的是一个个<span><span class="heti-spacing"> </span>Token</span>，每一步展开利用一条语法规则。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="https://box.kancloud.cn/2016-04-02_56ff80d067d7a.png"><img alt="" src="https://box.kancloud.cn/2016-04-02_56ff80d067d7a.png"/></a> </p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="https://box.kancloud.cn/2016-04-02_56ff80d067d7a.png"><img alt="" src="https://box.kancloud.cn/2016-04-02_56ff80d067d7a.png"/></a> </p>
 <p>理解组合（Composition）规则是理解语法规则的关键所在，正因为可以根据语法规则任意组合，我们才可以用简单的常量、变量、表达式、语句搭建出任意复杂的程序，以后我们学习新的语法规则时会进一步体会到这一点。从上面的例子可以看出，表达式不宜过度组合，否则会给阅读和调试带来困难。</p>
 </details>
 <details class="note" open="open">
@@ -1446,7 +1446,7 @@
 </details>
 <!-- prettier-ignore-end -->
 <p>当我们使用命令 <code>gcc -o test test.c</code> 编译一个<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言程序时，<span>GCC<span class="heti-spacing"> </span></span>会调用一系列的程序将源代码翻译成汇编语言、再翻译成机器语言，最后经过链接产生可执行文件。下图展示了这个过程。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/gcc_process.png"><img alt="" src="../graph/gcc_process.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/gcc_process.png"><img alt="" src="../graph/gcc_process.png"/></a></p>
 <ol>
 <li>预处理：由<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>预处理器（C Preprocessor）完成，它将源代码中的宏定义展开，将头文件中的内容插入到源代码中，删除注释等。预处理后的代码文件以 <code>.i</code> 为后缀。</li>
 <li>编译：由<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>编译器（C Compiler）完成，它将预处理后的文件翻译成汇编语言。编译后得到的汇编代码文件以 <code>.s</code> 为后缀。</li>
@@ -1638,7 +1638,7 @@ warning.c:8:18: warning: format ‘%d’ expects argument of type ‘int’, but
 </details>
 <!-- prettier-ignore-end -->
 <p><code>hello.o</code> 中包含了 <code>hello.c</code> 中的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言代码翻译成的<strong>二进制代码以及一些数据</strong>，比如字符串 <code>Hello, world.\n</code>。如果使用文本编辑器打开 <code>hello.o</code>，你会看见一堆乱码，其中夹杂着一些字符。因为字符在源文件和内存中都是用<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>编码的，所以<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>字符仍能被文本编辑器识别，但其他的机器指令和数据只会被解读为乱码。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/object_file.png"><img alt="" src="../graph/object_file.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/object_file.png"><img alt="" src="../graph/object_file.png"/></a></p>
 <p>如果运行 <code>./hello.o</code>，终端会告诉你这个文件<strong>不能被操作系统执行</strong>。</p>
 <div class="highlight"><pre><span></span><code>exec: Failed to execute process: './hello.o' the file could not be run by the operating system.
 </code></pre></div>
@@ -1702,7 +1702,7 @@ fish: Job 1, './hello' terminated by signal SIGSEGV (Address boundary error)
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/undefined_reference.png"><img src="../graph/undefined_reference.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/undefined_reference.png"><img src="../graph/undefined_reference.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">未定义的引用</p>
 <p class="nt-card-text">当同学们开始使用其他库构建大型项目时，这或许会成为最头疼的问题。首先应当阅读库的使用说明，接下来搜索缺失的符号可能位于哪些库文件中。</p>
@@ -1713,7 +1713,7 @@ fish: Job 1, './hello' terminated by signal SIGSEGV (Address boundary error)
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/lose_dll.png"><img src="../graph/lose_dll.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/lose_dll.png"><img src="../graph/lose_dll.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">缺失 <code>.dll</code></p>
 <p class="nt-card-text">常用<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>的同学多多少少见过这个报错，可以去网上搜索相应 <code>.dll</code> 文件放置到正确的目录。</p>
@@ -1724,7 +1724,7 @@ fish: Job 1, './hello' terminated by signal SIGSEGV (Address boundary error)
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/missing_library.webp"><img src="../graph/missing_library.webp"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/missing_library.webp"><img src="../graph/missing_library.webp"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">缺失 <code>.so</code></p>
 <p class="nt-card-text"><span>Linux<span class="heti-spacing"> </span></span>上的动态库一般通过 <code>apt</code> 管理，<a href="https://fostips.com/tell-package-name-contains-specific-file-ubuntu-linux-mint/">搜索相应的包</a>并安装即可。</p>

@@ -709,7 +709,7 @@
 <!-- prettier-ignore-start -->
 <div class="admonition note inline end">
 <p class="admonition-title"><span>Linux<span class="heti-spacing"> </span></span>进程的虚拟地址空间</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/vm.png"><img alt="" src="../graph/vm.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/vm.png"><img alt="" src="../graph/vm.png"/></a></p>
 </div>
 <!-- prettier-ignore-end -->
 <p>为了更加有效地管理内存并减少出错，现代操作系统将主存抽象为<strong>虚拟内存（Vitrual Memory）</strong>。右图展示了<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>系统中进程的虚拟地址空间设计。</p>
@@ -724,7 +724,7 @@
 <h3 id="_4">虚拟内存的基本思想<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>一个进程虚拟内存的内容存储在磁盘上，然后用主存作为磁盘的高速缓存。</p>
 <p>磁盘上的数据被分割成<strong>虚拟页（Virtual Page）</strong>，主存被分割成<strong>物理页（Physical Page）</strong>。虚拟页和物理页的大小相同，通常为<span><span class="heti-spacing"> </span>4KB</span>。这些页是磁盘和主存之间的传输单元。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/page.png"><img align="right" alt="" src="../graph/page.png" width="40%"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/page.png"><img align="right" alt="" src="../graph/page.png" width="40%"/></a></p>
 <p>任意时刻，虚拟页面可能处于以下三种状态之中：</p>
 <ul>
 <li>未分配：未分配，不占用任何磁盘空间</li>
@@ -763,7 +763,7 @@
 <p>虚拟地址空间的大小由<strong>表示最大地址所需要的位数决定</strong>。现代系统通常支持<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位。比如<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位操作系统支持的虚拟地址空间大小为<span><span class="heti-spacing"> </span>2^32 = 4GB</span>。</p>
 <h3 id="_6">虚拟内存的工作原理<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <h4 id="_7">虚拟寻址<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/va.png"><img align="right" alt="" src="../graph/va.png" width="40%"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/va.png"><img align="right" alt="" src="../graph/va.png" width="40%"/></a></p>
 <p><span>CPU<span class="heti-spacing"> </span></span>不会直接使用物理地址（Physical Address）访问主存，而是使用虚拟地址（Virtual Address<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
 <ul>
 <li>主存中存放了一个查询表，用于动态地翻译虚拟地址。该表由操作系统管理。</li>

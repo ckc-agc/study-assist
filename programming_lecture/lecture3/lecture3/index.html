@@ -1115,7 +1115,7 @@ $<span class="w"> </span>echo_eof<span class="w"> </span>&lt;<span class="w"> </
 <li><span>(<span class="heti-spacing"> </span></span>可选<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>指定参数大小的长度修饰符</li>
 <li>转换格式指示符</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/printf.png"><img alt="printf" src="../graph/printf.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/printf.png"><img alt="printf" src="../graph/printf.png"/></a></p>
 <h4 id="printf"><code>printf()</code>中转换说明的意义<a class="headerlink" href="#printf" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>转换说明实际上是在将以二进制存存储在计算机中的值转换成一些列字符便于显示。转换实际上是一种翻译说明。</p>
 <blockquote>
@@ -1348,13 +1348,13 @@ $<span class="w"> </span>objdump<span class="w"> </span>-h<span class="w"> </spa
 <li><span>UTF(UTF-8,UTF-16<span class="heti-spacing"> </span></span>等<span><span class="heti-spacing"> </span>)</span>：
     Unicode Transformation Format，可变长度编码，通常使用1~4字节为每个字符编码，兼容ASCII编码，这是一种Unicode的一种转换格式。</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/utf-8.png"><img alt="utf-8" src="../graph/utf-8.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/utf-8.png"><img alt="utf-8" src="../graph/utf-8.png"/></a></p>
 <p>现在在内存中通常以<span class="heti-skip"><span class="heti-spacing"> </span>UTF-16(Windows API<span class="heti-spacing"> </span></span>大量偏好<span class="heti-skip"><span class="heti-spacing"> </span>UTF-16 LE<span class="heti-spacing"> </span></span>编码的字符串作为参数<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>来储存，保存到文件中替换为<span class="heti-skip"><span class="heti-spacing"> </span>UTF-8<span class="heti-spacing"> </span></span>等格式，可以压缩空间。</p>
 <h4 id="_16">文本模式和二进制模式<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>所有文件的内容都以二进制形式存储。但是，如果文件最初使用二进制编码的字符<span class="heti-skip"><span class="heti-spacing"> </span>(<span class="heti-spacing"> </span></span>例如<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>码<span class="heti-skip"><span class="heti-spacing"> </span>)<span class="heti-spacing"> </span></span>表示文本，该文件就是文本文件，其中包含文本内容。如果文件中的二进制值代表及其语言代码或数值数据，该文件是二进制文件，其中包含二进制内容。</p>
 <p><span>Unix<span class="heti-spacing"> </span></span>使用同一种文件格式处理文本文件和二进制文件的内容。<span>Unix<span class="heti-spacing"> </span></span>目录中有一个统计文件大小的计数，程序可以根据该计数确定是否读到文件尾。</p>
 <p><span>C<span class="heti-spacing"> </span></span>语言提供两种访问文件的途径：二进制模式和文本模式。在二进制模式中，程序可以访问文件的每个字节，而在文本模式中，程序所见的内容和文件的实际内容不同。程序以文本模式读取文件时，把本地环境表示的行末尾或文件结尾映射成<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>模式。</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/c_file_mode.png"><img alt="mode" src="../graph/c_file_mode.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/c_file_mode.png"><img alt="mode" src="../graph/c_file_mode.png"/></a></p>
 <p>这告诉我们文本和二进制模式不能随意混用，否则可能会出现正确性上的问题。</p>
 <!-- prettier-ignore-start -->
 <details class="note">

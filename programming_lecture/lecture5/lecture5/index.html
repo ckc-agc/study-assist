@@ -1111,7 +1111,7 @@ s:    "ab\0"     "cd\0"
 </div>
 <p>好了，我们已经把链表给定义出来了。但是你会好奇，我们不是只定义出了节点吗？怎么已经定义完了？事实上，这几乎就已经是链表的完整结构了——因为链表就是简单的<strong>链表节点的串联</strong>。</p>
 <p>大家都已经知道了链表的结构，是类似于下面这样的：</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/linkedlist.png"><img alt="" src="../graph/linkedlist.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/linkedlist.png"><img alt="" src="../graph/linkedlist.png"/></a></p>
 <p>所以，链表其实就是以下的东西的结合：</p>
 <ul>
 <li>一个指向头结点的<strong>指针</strong> <code>head</code> ，告诉我们从哪里开始遍历整个链表。</li>
@@ -1190,7 +1190,7 @@ s:    "ab\0"     "cd\0"
 <span class="p">}</span>
 </code></pre></div>
 <p>剩下情况<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\(3\)</span><span class="heti-spacing"> </span></span>还要特殊判断。我们先找到要删除的位置。回忆一下删除的过程，我们需要记录当前需要被删除的节点的指针 <code>prev</code>：</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../graph/linkedlistdelete.png"><img alt="img" src="../graph/linkedlistdelete.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/linkedlistdelete.png"><img alt="img" src="../graph/linkedlistdelete.png"/></a></p>
 <div class="highlight"><pre><span></span><code><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="nf">deleteNode</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">head</span><span class="o">-&gt;</span><span class="n">data</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">key</span><span class="p">){</span>
