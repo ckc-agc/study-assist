@@ -19,7 +19,7 @@
 
 | 年份 | 试卷 |
 | :--: | :--: |
-| 2023-2024 | [小测1](analysis1_paper/23test1.pdf) <br />[期末试卷](analysis1_paper/23exam.pdf)|
+| 2023-2024 | [小测1](analysis1_paper/23test1.pdf) <br />[期末试卷](analysis1_paper/23exam.pdf)/[答案](analysis1_paper/23exam_answer.pdf)|
 | 2022-2023 | [小测1](analysis1_paper/22test1.pdf)/[答案](analysis1_paper/22test1_answer.md)<br />[小测2](analysis1_paper/22test2.pdf)/[答案](analysis1_paper/22test2_answer.pdf)<br />[期末试卷](analysis1_paper/22exam.pdf)/[答案（zhw）](analysis1_paper/22exam_answer.pdf)/[答案（hz）](analysis1_paper/22exam_answer_hz.pdf)|
 | 2021-2022 | [小测](analysis1_paper/21test.pdf)/[答案](analysis1_paper/21test_answer.pdf)<br />[期末试卷](analysis1_paper/21exam.pdf)/[答案（lzw）](analysis1_paper/21exam_answer.pdf)/[答案（hz）](analysis1_paper/21exam_answer_hz.pdf) |
 | 2020-2021 | [期末试卷（部分）](analysis1_paper/20exam.pdf) |
