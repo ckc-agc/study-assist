@@ -4,13 +4,19 @@
 
 ## 2023-2024 学年 辅学资料
 
-### 授课
+### 春夏学期 数学分析 II（H）
 
 | 节次 |  时间  |          内容          |       主讲       |                                 讲义                                  |                        录播地址                         |
 | :--: | :----: | :--------------------: | :--------------: | :-------------------------------------------------------------------: | :-----------------------------------------------------: |
-|  1   | Oct.14 |        数列极限        | 混合 2206 <br /> 胡育玮 |     [讲义](2023-2024/analysis_lecture1_sequence_limits.md)<br />[答案](2023-2024/analysis_lecture1_sequence_limits_answer.pdf)     | [Bilibili](https://www.bilibili.com/video/BV1Qw411c7bM) |
-|  2   | Oct.28 | 一元函数的极限与连续性 | 图灵 2102 <br /> 潘昶皓 | [讲义](2023-2024/analysis_lecture2_function.pdf) | [Bilibili](https://www.bilibili.com/video/BV1BM411D7rJ) |
-| 3    | Nov.26 | 微分中值定理和Taylor公式拓展应用 | 混合 2206 <br /> 谢集 | [讲义](2023-2024/analysis_lecture3.pdf)<br />[答案](2023-2024/analysis_lecture3_answer.pdf) | [Bilibili](https://www.bilibili.com/video/BV1ij411L7NU/) |
+|  1   | Mar.31 |         级数与第一次小测复习        | 混合 2206 <br /> 谢集 |     [讲义](2023-2024Spring/analysis_lecture1.pdf)<br />[答案](2023-2024Spring/analysis_lecture1_answer.pdf)     | [Bilibili]() |
+
+### 秋冬学期 数学分析 I（H）
+
+| 节次 |  时间  |          内容          |       主讲       |                                 讲义                                  |                        录播地址                         |
+| :--: | :----: | :--------------------: | :--------------: | :-------------------------------------------------------------------: | :-----------------------------------------------------: |
+|  1   | Oct.14 |        数列极限        | 混合 2206 <br /> 胡育玮 |     [讲义](2023-2024Fall/analysis_lecture1_sequence_limits.md)<br />[答案](2023-2024Fall/analysis_lecture1_sequence_limits_answer.pdf)     | [Bilibili](https://www.bilibili.com/video/BV1Qw411c7bM) |
+|  2   | Oct.28 | 一元函数的极限与连续性 | 图灵 2102 <br /> 潘昶皓 | [讲义](2023-2024Fall/analysis_lecture2_function.pdf) | [Bilibili](https://www.bilibili.com/video/BV1BM411D7rJ) |
+| 3    | Nov.26 | 微分中值定理和Taylor公式拓展应用 | 混合 2206 <br /> 谢集 | [讲义](2023-2024Fall/analysis_lecture3.pdf)<br />[答案](2023-2024Fall/analysis_lecture3_answer.pdf) | [Bilibili](https://www.bilibili.com/video/BV1ij411L7NU/) |
 | 4    | Dec.9/10 | 不定积分 | 混合 2203 <br /> 何兆平 | | |
 
 ## 历年卷
