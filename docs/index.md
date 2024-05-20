@@ -50,7 +50,7 @@
   },
   {
     "title": "[普通物理学 I（H）](physics/index.md)",
-    "content": "22-23辅学群：727382522 ",
+    "content": "23-24辅学群：906774937 ",
     "image": "graph/physics.png"
   },
 ]
