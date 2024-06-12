@@ -8,8 +8,11 @@
 
 | 节次 |  时间  |          内容          |       主讲       |                                 讲义                                  |                        录播地址                         |
 | :--: | :----: | :--------------------: | :--------------: | :-------------------------------------------------------------------: | :-----------------------------------------------------: |
-|  1   | Mar.31 |         级数与第一次小测复习        | 混合 2206 <br /> 谢集 |     [讲义](2023-2024Spring/analysis_lecture1.pdf)<br />[答案](2023-2024Spring/analysis_lecture1_answer.pdf)     | [Bilibili](https://www.bilibili.com/video/BV1Ez42117GA) |
-|  2   | May.12 |         多元函数微分学             | 图灵 2202 <br /> 梅敏炫 |   [讲义](2023-2024Spring/analysis_lecture2.pdf)                                                               | [Bilibili](https://b23.tv/z0nDYCM) |
+|  1   | Mar.31 |         级数与第一次小测复习        | 混合 2206 <br /> 谢集   |     [讲义](2023-2024Spring/analysis_lecture1.pdf)<br />[答案](2023-2024Spring/analysis_lecture1_answer.pdf)     | [Bilibili](https://www.bilibili.com/video/BV1Ez42117GA) |
+|  2   | May.12 |         多元函数微分学             | 图灵 2202 <br /> 梅敏炫 |   [讲义](2023-2024Spring/analysis_lecture2.pdf)                                              | [Bilibili](https://b23.tv/z0nDYCM) |
+|  3   | Jun.2 |         多元函数积分学             | 混合 2201 <br /> 韩越  |   [讲义](2023-2024Spring/analysis_lecture3.pdf)<br />[答案](2023-2024Spring/analysis_lecture3_sol.pdf)                        | [Bilibili](https://www.bilibili.com/video/BV1Vz421Y76A) |
+|  4   | Jun.9 |         期末复习                  | 强物 2201 <br /> 潘成喆 |   [讲义](2023-2024Spring/analysis_lecture4.pdf)<br />[补充](2023-2024Spring/analysis_lecture4_supp.pdf)                     | [Bilibili](https://space.bilibili.com/3546574332365752/channel/collectiondetail?sid=2673814&spm_id_from=333.788.0.0) |
+|  4   | Jun.12 |         专题课                   | 强物 2201 <br /> 潘成喆 |   [Rn的数学结构](2023-2024Spring/analysis_topic1.pdf)<br />[重积分](2023-2024Spring/analysis_topic2.pdf)                     | [Bilibili](https://space.bilibili.com/3546574332365752/channel/collectiondetail?sid=2673814&spm_id_from=333.788.0.0) |
 
 ### 秋冬学期 数学分析 I（H）
 
