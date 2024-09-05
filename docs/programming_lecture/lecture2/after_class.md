@@ -1,6 +1,5 @@
 # 课后拓展：程序和数据在计算机中是如何存储的？
 
-<!-- prettier-ignore-start -->
 !!! danger "施工中"
 
     本页面正在施工中，内容可能不完整。
@@ -8,23 +7,19 @@
 !!! abstract "内容摘要"
 
     本节内容对应 CSAPP 第 6 章「存储器层次结构」与第 9 章「虚拟内存」。
-<!-- prettier-ignore-end -->
 
 ## 存储器层次结构
 
-<!-- prettier-ignore-start -->
 !!! danger "待完善"
-<!-- prettier-ignore-end -->
 
 ## 虚拟内存
 
 系统中的进程间共享 CPU 和主存资源。然而，共享主存会造成许多问题，比如一个进程不小心写入了另一个进程使用的内存。
 
-<!-- prettier-ignore-start -->
 !!! note inline end "Linux 进程的虚拟地址空间"
 
     ![](graph/vm.png)
-<!-- prettier-ignore-end -->
+
 
 为了更加有效地管理内存并减少出错，现代操作系统将主存抽象为**虚拟内存（Vitrual Memory）**。右图展示了 Linux 系统中进程的虚拟地址空间设计。
 

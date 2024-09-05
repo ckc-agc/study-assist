@@ -2,17 +2,15 @@
 
 ## 程序设计基础常问题目集及解析
 
-<!-- prettier-ignore-start -->
 !!! info
 
     本篇笔记来自 []
-<!-- prettier-ignore-end -->
 
 这里是作为 2022 年竺院团委学研部程序设计辅学答疑学长时整合的群里经常问到的一些问题，包括解析，也有一些相关知识点的整理。大部分题目是 13-18 的期末真题，小部分中文题目是群里我不清楚来源的 PTA 上的题目或者我自己编的小题。一共五十道题，已经按照考点/易错点分开了。
 
 ### 标识符/关键字
 
-这类题目一般是问哪些是合法的标识符、哪些是关键字。对于标识符，只需要考虑 `int <identifier>;` 是否合法，如果合法，那 `<identifier>` 就是合法的标识符（或者考虑是不是关键字，如果是关键字，那肯定不是合法的标识符）。至于关键字，可以看 [cppreference](https://en.cppreference.com/w/c/keyword)。 
+这类题目一般是问哪些是合法的标识符、哪些是关键字。对于标识符，只需要考虑 `int <identifier>;` 是否合法，如果合法，那 `<identifier>` 就是合法的标识符（或者考虑是不是关键字，如果是关键字，那肯定不是合法的标识符）。至于关键字，可以看 [cppreference](https://en.cppreference.com/w/c/keyword)。
 
 1. (C13A) Which one below is NOT a keyword of the C programming language? _____
     <div style="display: flex">
@@ -37,6 +35,7 @@
         显然选择 C，因为 `int "char";` 肯定是非法的，标识符**必须以字母或下划线开头**。对于 A，printf 只是一个函数名，不是关键字，所以是合法的。对于 D，C 语言中 true 并不是关键字，也可以使用。
 
 ### "加括号"问题
+
 即指表达式中运算符优先级等问题，例如给一个复杂的没有括号的表达式，这时严格按照优先级规则给表达式各个部分加上括号，结果就清晰了。
 
 关于优先级的题目这里就不列了，可以去查阅[修佬的 note](https://note.isshikih.top/cour_note/D1QD_CXiaoCheng/#%E8%BF%90%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7%E5%90%8C%E7%BA%A7%E9%81%B5%E5%BE%AA%E7%BB%93%E5%90%88%E6%96%B9%E5%90%91%E8%A7%84%E5%BE%8B)，里面写的很清晰了。
@@ -61,12 +60,13 @@
             +-----------+
         ```
         知道了 ? 和 : 配对关系之后就能正确划分结构了：
-        ```c 
+        ```c
         a>b? (c>a?c-3:c-1) : (b==c?d-a:d-c)
         ```
         所以 a>b 不成立，选择后者，b==c 不成立，再选择后者，答案是 d-c=1
 
 ### 数据类型及字面量
+
 几个常见的数据类型一定要知道它们占几个字节的大小。并且在表达式中也要时刻注意常量的类型（如第九题）。
 
 字面量即一个值的表示方法：
@@ -79,10 +79,12 @@
     - \x 后面接 0-9A-F 字符通过十六进制来表示一个字符。不过并不会有长度限制，比如 '\x00000041' 也是一个字符，同样遇到范围外的字符就结束。
 
 5. (C13A) For code below:
+
     ```c
     unsigned short sht = 0;
     sht--;
     ```
+
     What will be the value of `sht` after the execution? _____
     <div style="display: flex">
     <div style="width: 100%">A. -1</div>
@@ -117,7 +119,7 @@
     !!! success ""
         A. '\x100' 是十六进制表示法，但是超出了一个字节的范围，是语法错误的；B. 125 通过一个整数表示一个字符，而且在 ASCII 码范围内，肯定是合法的（实际上表示的就是字符 '}'）；C. '\08' 前面说过了，\0 8 是两个字符，挤到了一个单引号里，是错误的用法；D. '\\' 中 \ 会将 ' 转义，所以相当于这个单引号没有闭合，是语法错误的。所以选 B。
 
-8. (C17A) In the following notations, _____ can NOT express a single-character constant(单字符常量) correctly. 
+8. (C17A) In the following notations, _____ can NOT express a single-character constant(单字符常量) correctly.
     <div style="display: flex">
     <div style="width: 100%">A. '%c'</div>
     <div style="width: 100%">B. 127</div>
@@ -138,7 +140,6 @@
 
     !!! success ""
         要注意运算符两侧的数据类型，只有 D 的 == 两侧都是 int，是合法的。而 ABC 的操作数都出现了 double 类型，% & << 运算符不能用在 double 上，语法错误。
-
 
 ### 数组与指针
 
@@ -168,7 +169,7 @@
 11. (C13A) Given the declaration: `int a[3][3]={1,2,3,4,5,6,7,8,9};`, the value of `a[-1][5]` is _____.
 
     !!! success ""
-        首先来看 a[-1]，即 *(a-1)，a-1 会以三个 int 为单位向左移动，即 *(a-1) 是一个指向如下位置的指针：
+        首先来看 a[-1]，即 *(a-1)，a-1 会以三个 int 为单位向左移动，即*(a-1) 是一个指向如下位置的指针：
         ```text
            0 0 0 1 2 3 4 5 6 7 8 9
            ^
@@ -190,7 +191,7 @@
         a[2] -> {5, 6}
              }
         ```
-        所以 (a[1]+1)[0] 就是 \*(a[1]+1) = 4
+        所以 [a[1]+1](0) 就是 \*(a[1]+1) = 4
 
 13. (C15A/C16A) For the declarations: `char *s, str[10];`, statement _____ is completely correct.
     <div style="display: flex">
@@ -211,26 +212,27 @@
         D. str+1 表示的就是 str 数组中第二个元素的地址，将其赋值给 s，是正确的
 
 14. (C16A) Given: `double a[]={1, 2, 3, 4, 5};`, the value of expression `(int)&a[3] - (int)&a[0]` is _____
-    
+
     !!! success ""
         由于数组中的元素都是连续存储的，所以 a[3] 的地址减去 a[0] 的地址就是 a[3] 与 a[0] 之间的距离，也就是 3 个 double 类型的大小，即 3 * sizeof(double) = 24
 
         这里需要和 17 题进行一下对比，17 题里我们再详细说明
 
 15. (C17A) The following code fragment will output _____.
-    ```c 
+
+    ```c
     char *week[]={"Mon", "Tue","Wed","Thu","Fri","Sat","Sun"}, **pw=week;
     char c1, c2;
     c1 = (*++pw)[1];
     c2 = *++pw[1];
     printf("%c#%c#", c1, c2);
     ```
-    
+
     !!! success ""
-        首先 c1 = (\*++pw)[1]，++pw 使 pw 指向了 week[1]，然后 (\*++pw) 就是 week[1]，再 [1] 就是 week[1][1] 也就是 'u'  
+        首先 c1 = [\*++pw](1)，++pw 使 pw 指向了 week[1]，然后 (\*++pw) 就是 week[1]，再 [1] 就是 week[1][1] 也就是 'u'  
         然后 c2 = \*++pw[1]，这里的理解方式一定是对 pw[1] 进行 ++，pw[1] 此时是 week[2]，然后将其自增得到指向 week[2][1] 的指针，再解引用得到 'e'
 
-16. (C17A) For the declaration: `int a[3][4]={{0,1,2},{4,5,6},{7,8}};`, the value of the element of `a[1][-2]` is _____. 
+16. (C17A) For the declaration: `int a[3][4]={{0,1,2},{4,5,6},{7,8}};`, the value of the element of `a[1][-2]` is _____.
 
     !!! success ""
         和 11、12 题类似分析即可
@@ -245,12 +247,13 @@
         ```
 
 17. 以下代码的输出为 _____.
-    ```c 
+
+    ```c
     int a[] = {1, 2, 3, 4, 5};
     int *p = a, *q = &a[2];
     printf("%lu", q-p);
     ```
-    
+
     !!! success ""
         首先这道题的输出是 2 而不是 2*sizeof(int)=8，因为 q、p 指针相减的意义实际上是计算两个指针差了几个“单位”的距离，这里一个单位就是一个 int 的长度，它们差了两个 int，所以是 2
 
@@ -262,7 +265,7 @@
 
 18. 以下哪个定义中 p 不是指针 _____.  
     A. char \*\*p;  
-    B. char (\*p)[10];  
+    B. char [\*p](10);  
     C. char \*p[6];  
     D. 前三项中 p 都是指针
 
@@ -305,7 +308,6 @@
         C. p 此时是 char\* 类型，不能进行两次解引用，语法错误  
         D. ++p 将 p 指到了 'b' 头上，解引用得到 'b' 再加二得到 'd' 等于 s[1][1]，选 D
 
-
 ### 字符串相关
 
 字符串也是一个很容易出错的考点，我推荐的理解方式是：C 语言中不存在字符串，只有字符数组，而字符串是一种对于字符数组的人为理解方式，即从开头直到第一个 '\0' 标志了一个字符串。所以 "abc" 和 {'a', 'b', 'c', '\0'} 是等价的。
@@ -321,17 +323,19 @@
 
 22. (C14A/C15A) Given the following code fragment, the loop condition `str[i]!='\0'` could be replaced by
 which choice? _____.
+
     ```c
     char str[20]="hello, world";
     for (i = 0; str[i] != '\0'; i++) putchar(str[i]);
     ```
+
     <div style="display: flex">
     <div style="width: 100%">A. str[i]</div>
     <div style="width: 100%">B. i < 20</div>
     <div style="width: 100%">C. !(str[i] = '\0')</div>
     <div style="width: 100%">D. i <= 20</div>
     </div>
-    
+
     !!! success ""
         还要记住的一点是，'\0' 就是 0，所以这题里 str[i] != '\0' 和 A 是完全等价的。（C 差了一个等号）  
         B 错误的原因是，'\0' 也是字符，这样就一定会输出 20 个字符来，即使实际上你看不见 '\0' 这个字符，但它们确实被输出了
@@ -344,6 +348,7 @@ which choice? _____.
         一定要区分清楚 '0' 和 '\0'，'0'==48 而 '\0'==0，所以 !'0' 是 !48 即 0
 
 24. (C14A) The output of the code below is _____.
+
     ```c
     char x[] = "hello,world\012345";
     printf("%d#%d#"，sizeof(x)，strlen(x));
@@ -377,7 +382,8 @@ which choice? _____.
         同 23 题，这里相当于 !\*("01/24/2019"+10)。其中字符串加 10 后指向了结尾隐藏的 '\0'，而 '\0' 就是 0，所以取反为 1
 
 29. 以下代码段的输出为 _____.
-    ```c 
+
+    ```c
     char c[] = "I\t\r\\\0will\n";
     printf("%d", strlen(c));
     ```
@@ -386,6 +392,7 @@ which choice? _____.
         同 24 题，这里 c 字符数组相当于 'I', '\t', '\r', '\\', '\0', 'w', 'i', 'l', 'l', '\n', '\0'，第一个 '\0' 前有 4 个，所以 strlen(c) 为 4。
 
 30. 以下代码段的输出为 _____.
+
     ```c
     char a[] = "abc";
     char b[] = {'a', 'b', 'c'};
@@ -396,6 +403,7 @@ which choice? _____.
         "abc" 可以当作 {'a', 'b', 'c', '\0'}，所以 sizeof(a) 为 4，sizeof(b) 为 3。
 
 31. 以下代码是否存在错误，如果有请指出哪里有问题 _____.
+
     ```c
     char *a = "hello";
     char b[] = "hello";
@@ -406,7 +414,6 @@ which choice? _____.
     !!! success ""
         这里我们要区分的是 a 和 b。a 就是一个字符指针，它指向了 "hello" 的开头，而这个 "hello" 存在于静态存储区中，是只读的，不能进行修改，所以 a[0] = 'H' 会在运行时产生错误（可以通过编译，但是运行会报错）  
         而 b 是一个字符数组，它自带了栈上空间，在初始化赋值的时候 "hello" 会被复制到 b 的空间中，所以 b[0] = 'H' 是合法的。
-
 
 ### 野指针相关
 
@@ -460,6 +467,7 @@ which choice? _____.
         一个经典问题，'A' <= c <= 'Z' 并不是判断 c 在不在 A-Z 范围内，而是等价于 ('A' <= c) <= 'Z'。其中 'A' <= c 一定是 0 或 1，无论如何都小于 'Z'，所以结果为 1。
 
 35. (C13A) After executing the code below, the value of y is _____.
+
     ```c
     int x = 0, y = 0, z = 0;
     z = (x==1) && (y=2);
@@ -471,7 +479,8 @@ which choice? _____.
         这里 x==1 已经为假，所以右侧的 y=2 不再执行，y 仍然为 0。 
 
 36. (C17A) After executing the following code fragment, the output is _____.
-    ```c 
+
+    ```c
     int i, b; i = b = 1;
     switch (i) {
         case 0: b += 1;
@@ -487,11 +496,12 @@ which choice? _____.
 
     !!! success ""
         case 只规定了起点，而何时退出 switch 块则由 break 决定，只要没有遇到 break，则一直向下执行（即使碰到了下一个 case）
-        
+
         这题里 i 为 1，进入了 case 1 中，b 变为了 3，紧接着因为没有 break 还会进入到 case 3 中，此时 b 为 3 进入了 case 3 执行了 i++，然后进入 default 执行了 break，退出后又执行了 i+=1，所以最终 i 和 b 都为 3。
 
 37. 下列代码执行后 m 和 n 的值分别为 _____.
-    ```c 
+
+    ```c
     int a=1, b=2, c=3, d=4, m=1, n=2, v;
     v = (m=a>b) && (n=c>d);
     ```
@@ -529,21 +539,23 @@ sizeof 是 C 语言中的一个**运算符**，而不是函数，它的作用是
     !!! success ""
         一个 short 占两个字节，301 的存储方式是存储 0x2d 0x01 两个字节（小端序），所以 s 数组在内存中为：
         ```text
-        2d 01 2e 01 2f 01 30 01 31 01 32 01 33 01 34 01 35 01 00 00 
+        2d 01 2e 01 2f 01 30 01 31 01 32 01 33 01 34 01 35 01 00 00
         ```
         一共 20 个字节，所以 sizeof(s) = 20，而 strlen((char \*)s) = 18（第一个 00 前的字节数）
 
 42. 以下代码的输出为 _____.
-    ```c 
+
+    ```c
     char c[100] = "1234";
     printf("%d#%d#", sizeof(c), strlen(c));
     ```
-    
+
     !!! success ""
         sizeof(c) = 100，strlen(c) = 4，不多解释
 
 43. 以下代码的输出为 _____.
-    ```c 
+
+    ```c
     void func(int a[5]) {
         printf("%d", sizeof(a));
     }
@@ -564,10 +576,12 @@ sizeof 是 C 语言中的一个**运算符**，而不是函数，它的作用是
 关于 scanf 的返回值，它返回正常读取的变量个数，如果遇到了文件结尾，则返回 EOF 即 -1。
 
 44. (C16A) For the code below:
+
     ```c
     int a, b; char c;
     scanf("%d%c%d",&a,&c,&b);
     ```
+
     If let `a=1,b=2,c='+'`, the input _____ is NOT correct.  
     A. 1+2<b><ENTER\></b>  
     B. <b><BLANK\></b><b><ENTER\></b>1+<b><ENTER\></b>2<b><ENTER\></b>  
@@ -587,7 +601,8 @@ sizeof 是 C 语言中的一个**运算符**，而不是函数，它的作用是
         格式化字符串中，%% 表示输出一个 %，接下来 d 字符原样输出，然后 %d 输出 012（八进制，转为十进制为 10），所以输出为 %d10
 
 46. 以下代码的输出为 _____.
-    ```c 
+
+    ```c
     int x = -1;
     printf("%d", (unsigned int)x);
     ```
@@ -596,7 +611,8 @@ sizeof 是 C 语言中的一个**运算符**，而不是函数，它的作用是
         unsigned int 的转换并不会改变 x 的二进制值（而是以无符号的方式来理解这段数据），而对于 printf 来说，它要输出的是一个 %d，即有符号数（无符号用 %u），所以输出时还是会当作有符号整型来理解，即输出 -1。
 
 47. 以下代码的输出为 _____.
-    ```c 
+
+    ```c
     char str[100] = "ZhejiangU 1 3 5", s[10];
     int n;
     sscanf(str, "%s %*d %d %*d", s, &n);
@@ -620,8 +636,7 @@ sizeof 是 C 语言中的一个**运算符**，而不是函数，它的作用是
     <div style="width: 100%">C. "hello"+10/4</div>
     <div style="width: 100%">D. 'a'+3/2</div>
     </div>
-    
-    
+
     !!! success ""
         A 字符串常量相减相当于两个字符串首地址相减，没有意义  
         BCD 都能说出点意义来，所以最优选 A。
@@ -639,7 +654,8 @@ sizeof 是 C 语言中的一个**运算符**，而不是函数，它的作用是
         C "hello"[1] 表示 *("hello"+1) 即 'e'，还算有点意义，最优选 C
 
 50. (C17A) Which of the following is correct？ _____.
-    ```c 
+
+    ```c
     int main() {
         int n[10];
         ...
@@ -650,10 +666,11 @@ sizeof 是 C 语言中的一个**运算符**，而不是函数，它的作用是
         ...
     }
     ```
+
     A. Within the function fun, a is an initial address of an array, whose value cannot be changed.  
     B. Within the function main, the reference such as &n is invalid.  
     C. Because of call-by-value, the elements of the array n cannot be changed within the fun.  
-    D. Within the function fun, the reference such as &a is invalid. 
+    D. Within the function fun, the reference such as &a is invalid.
 
     !!! success ""
         AC 肯定是错的，A. fun 函数里 a 是一个局部指针变量（数组退化了），它的值可以改变；C. main 函数把 n 的地址传给了 fun 函数作为 a 的值，所以可以通过 a 指针来访问 n 数组处的内存，可以改变 n 数组的元素。
@@ -662,11 +679,10 @@ sizeof 是 C 语言中的一个**运算符**，而不是函数，它的作用是
 
 ## 程序设计专题历年卷经典题目解析
 
-<!-- prettier-ignore-start -->
 !!! warning "图形库相关内容已不再出现在课程中"
 
     目前，课改已经删去了图形库相关内容，这部分内容不会再出现在教学和考试中，我们也会逐步将其移除。
-<!-- prettier-ignore-end -->
+
 
 ### 算法复杂度分析
 
