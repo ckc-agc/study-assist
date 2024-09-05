@@ -1,11 +1,11 @@
 # 讲义：I/O 与文件
-
+<!-- prettier-ignore-start -->
 !!! abstract "内容提要"
 
     - C 的输入输出模型：缓冲与流的概念
     - C 标准 I/O 函数
     - 文件编码与文件输入输出
-
+<!-- prettier-ignore-end -->
 
 ## C 的输入输出模型
 
@@ -13,10 +13,13 @@
 
 广义的缓冲区是内存空间的一部分，在内存中预留了一定的存储空间，用来暂时保存输入和输出等I/O操作的一些数据，这些预留的空间就叫做缓冲区；而buffer缓冲区和Cache缓存区都属于缓冲区的一种。
 
+<!-- prettier-ignore-start -->
 !!! note "buffer缓冲区和cache缓存区"
 
     - buffer缓冲区存储速度不同步的设备或者优先级不同的设备之间的传输数据，比如键盘、鼠标等；此外，buffer一般是用在写入磁盘的；
     - Cache缓存区是位于CPU和主内存之间的容量较小但速度很快的存储器，Cache保存着CPU刚用过的数据或循环使用的数据；Cache缓存区的运用一般是在I/O的请求上
+
+<!-- prettier-ignore-start -->
 
 C语言中，用户输入的字符被收集并储存在缓冲区（buffer）中，**按下 ++enter++ 键后**程序才能使用用户输入的字符。
 
@@ -25,36 +28,49 @@ C语言中，用户输入的字符被收集并储存在缓冲区（buffer）中�
 
 与之对应地，无缓冲输入的程序能够立即使用用户输入的内容。
 
+<!-- prettier-ignore-start -->
 !!! note "stdin,stdout,stderr的缓冲类型"
 
     Unix约定stdin与stdout若与终端关联则为行缓冲，而stderr为无缓冲。
 
+<!-- prettier-ignore-start -->
+
+<!-- prettier-ignore-start -->
 !!! tip "为什么要有缓冲区？"
 
     - 系统层面，减少CPU对磁盘的读写次数：CPU读取磁盘中的数据并不是直接读取磁盘，而是先将磁盘的内容读入到内存，也就是Cache，然后CPU对Cache进行读取，进而操作数据；计算机对Cache的操作时间远远小于对磁盘的操作时间，大大的加快了运行速度，提高CPU的使用效率。
 
     - 在C语言输入中，把若干字符作为一个块进行传输比逐个发送这些字符节省时间，打错字符可以直接通过键盘修正错误。
 
+<!-- prettier-ignore-start -->
+
 虽然缓冲输入好处很多，但是某些交互式程序也需要无缓冲输入。例如在游戏中，玩家的输入需要立即反应在屏幕上，而不是等待用户按下 ++enter++ 键。
 
 C 标准规定：**输入是缓冲的**。你能解释为什么C 标准要规定输入是缓冲的吗？
 
+<!-- prettier-ignore-start -->
 ??? tip "为什么C标准规定输入是缓冲的？"
 
     一些计算机不允许无缓冲输入。ANSI没有提供调用无缓冲输入的标准方式，这意味着是否能进行无缓冲输入取决于计算机系统。
 
     如果你的计算机允许无缓冲输入，那么你所用的C编译器很可能会提供一个无缓冲输入的选项。例如，许多IBM PC兼容机的编译器都为支持无缓冲输入提供一系列特殊函数，其原型在`conio.h`中。在Unix系统中，可以使用`iotcl()`函数指定待输入的类型，然后使用`getchar()`执行相应操作。在ANSI C中，用`setbuf()`和`setbufv()`控制缓冲，但是这两个函数可能不起作用。
 
+<!-- prettier-ignore-end -->
+
+<!-- prettier-ignore-start -->
 ??? info "我可以更改输入方式吗？"
 
     UNIX 库中有 `ioctl()` 函数用于指定待输入的类型，但这不属于 C 标准。
 
     ANSI C 中，可以使用 `setbuf()` 和 `setvbuf()` 控制缓冲，但受限于系统的设置。
 
+<!-- prettier-ignore-end -->
+
 ### 流
 
 C 库提供的输入输出方式称为**标准 I/O**，它们是建立在操作系统提供的**底层 I/O** 上的。底层 I/O 之间常常会有一些差异：
 
+<!-- prettier-ignore-start -->
 !!! note "各个系统的文件差异"
 
     | 差异 | UNIX | Windows | MacOS |
@@ -65,26 +81,32 @@ C 库提供的输入输出方式称为**标准 I/O**，它们是建立在操作�
     注：如 `^Z` 代表 `Ctrl+Z`，你可以使用该组合键结束键盘输入。
 
     文件结尾也不一定由文件结束符标记。事实上，UNIX 系统储存文件大小信息，依据文件大小信息决定文件末尾。
+<!-- prettier-ignore-end -->
 
 从概念上看，C 处理的是**流**而不是文件。不同属性和不同种类的输入，由属性更统一的**流**来表示。流告诉我们，我们可以用处理文件的方式来处理键盘输入。
 
 C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类型的指针访问及操作。每个流都与外部的物理设备相关联。
 
+<!-- prettier-ignore-start -->
 !!! note "流"
 
     流就是一系列连续的字节。
 
     打开文件的过程就是把**流与文件相关联**，读写都通过流来完成。
+<!-- prettier-ignore-end -->
 
 `getchar()` 和 `scanf()` 等函数读取到文件结尾时会返回一个特殊的值 `EOF`，在 `stdio.h` 中定义了：
 
-```C
+```C 
 #define EOF (-1) 
 ```
 
+<!-- prettier-ignore-start -->
 ??? tip "你能解释为什么要把它定为 `-1` 吗？"
 
     The value of `EOF` is -1 because it has to be different from any return value from `getchar` that is an actual character. So `getchar` returns any character value as an unsigned char, converted to int, which will therefore be non-negative.
+
+<!-- prettier-ignore-end -->
 
 因此，如果你在终端中进行输入，可以使用`Ctrl+Z(Windows)`或者`Ctrl+D(unix-style systems)`作为`EOF`结束输入。
 
@@ -106,6 +128,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 2. 与标准输出流关联，用于写入传统的输出。程序启动时，当且仅当能确定流不引用交互式设备时该流为完全缓冲。
 3. 与标准错误流关联，用于写入诊断输出。程序启动时，该流不为完全缓冲。
 
+<!-- prettier-ignore-start -->
 !!! note "文件描述符"
 
     当一个程序成功向操作系统请求访问一个打开的文件, 内核会返回一个指向内核中全局文件表(global file table)中的入口点(entry)的文件描述符. 文件表入口点包含如: 文件的inode(硬盘中的位置), 字节偏移量(byte offset), 以及对这个数据流的访问限制(只读, 只写等)。
@@ -113,6 +136,8 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
     文件描述符: 是计算机操作系统中被打开文件的唯一标识. 它用来描述一种数据资源, 以及这个数据资源可以如何被访问到。
 
     在 Unix 系统当中, 前三个文件描述符0, 1, 2 默认为 stdin stdout stderr
+
+<!-- prettier-ignore-end -->
 
 ## 字符输入输出
 
@@ -136,6 +161,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
 在字符I/O中，我们常使用以下函数来处理字符，这些函数位于`<stdio.h>`头文件中。`<wchar.h>` 头文件提供了具有宽字符输入/输出功能的函数。
 
+<!-- prettier-ignore-start -->
 !!! info "e.g."
 
     ```C title="echo_eof.c"
@@ -159,6 +185,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
     $ echo_eof < echo_eof.c > echo_eof.txt
     $ echo_eof < echo_eof.c | cat
     ```
+<!-- prettier-ignore-end -->
 
 窄字符无格式输入输出函数，定义于 `<stdio.h>` 头文件中：
 
@@ -170,16 +197,22 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 | `int putchar(int c)`<br /> `int putc(int c, FILE *stream)` <br /> `int fputc(int c, FILE *stream)` | 单字符输出 | EOF |
 | `int puts(const char *s)`<br /> `int fputs(const char *s, FILE *stream)` | 字符串输出 | EOF |
 
+<!-- prettier-ignore-start -->
+
 !!! note "注意"
     - 以上函数都将字符从缓冲区中的 `unsigned char` 类型转换为 `int` 类型。
 
     - `getchar()`它的返回值是 `int` 类型而非 `char` 类型，值得注意。所以为什么可以使用`char c = getchar()`?
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 ??? tip "那么这是否会造成 EOF 不能被识别，而是被看作字符呢？"
 
     ```C 
     #define EOF (-1) // unsigned char转换成int后，值都大于等于0
     ```
+
+<!-- prettier-ignore-end -->
 
 宽字符输入输出定义于 `<wchar.h>` 头文件中，区别在于其一个字符的长度不同。C语言中有一种类型`wchar_t`,其长度取决于编译器：
 
@@ -231,6 +264,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
     转换说明与待打印的值不匹配可能导致数据错误或者出现未定义的行为。
 
+    <!-- prettier-ignore-start -->
     !!! info "e.g."
 
         ```C title="wrong_cnv.c"
@@ -265,6 +299,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
             0 1074266112 0 1074266112
         ```
         你能解释为什么使用%ld输出long类型的值时，也会出现错误吗？
+    <!-- prettier-ignore-end -->
 
 2. `printf()`的返回值
 
@@ -274,6 +309,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
     不能在双引号括起来的字符串中间断行。
 
+    <!-- prettier-ignore-start -->
     !!! info "e.g."
 
         ```C title="longstrg.c"
@@ -293,6 +329,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
             return 0;
         }
         ```
+    <!-- prettier-ignore-end -->
 
 #### `scanf()`
 
@@ -304,6 +341,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
 1. `scanf()`要将读取的内容存储到对应变量地址中，而不是变量名。因此，`scanf()`的参数应该是变量的地址。
 
+    <!-- prettier-ignore-start -->
     ??? info "e.g."
 
         ```C title="scanf.c"
@@ -322,11 +360,12 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
             return 0;
         }
         ```
+    <!-- prettier-ignore-end -->
 
 2. `scanf()` 函数，除了 `%c` 以外的转换说明，都不会读取空白字符（空格、制表符和回车）。
 
     **典型问题：换行符问题**
-
+    <!-- prettier-ignore-start -->
     !!! info "e.g."
 
         ```C title="confusing_scanf.c"
@@ -338,6 +377,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
             printf("%s",c);
         }
         ```
+    <!-- prettier-ignore-end -->
 
 3. `scanf()`中的输入过程
 
@@ -353,6 +393,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 
     除了`%c`其他转换说明都会自动跳过待输入值前面的所有空白。
 
+    <!-- prettier-ignore-start -->
     !!! tip "以下代码有什么区别？"
 
         ```C
@@ -362,6 +403,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
         scanf("%c", &c);
         scanf(" %c", &c);
         ```
+    <!-- prettier-ignore-end -->
 
 5. `scanf()`的返回值
 
@@ -370,7 +412,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
 ### 实例
 
 #### 安全的输入函数
-
+<!-- prettier-ignore-start -->
 !!! note "写一个安全的输入函数"
 
     众所周知，C语言的`gets`函数是一个非常不安全的函数(请参考系统知识拾遗1)，在C11中被弃用，转为`gets_s()`。`gets()`极有可能造成缓冲区溢出，所以我们需要写一个安全的输入函数。
@@ -399,6 +441,7 @@ C语言中I/O流由`File`类型的对象表示，该对象只能通过`FILE*`类
     这个函数来自《C Primer Plus》，也是书中 13 章以后一直使用的输入函数。这个函数示范了如何使用安全的 `fgets()` 函数，并**将输入统一**，并处理剩余的字符。
 
     在涉及行的输入时，一定要注意统一行结尾的形式。这对于换行符，特别是**文件结尾处薛定谔的换行符**，有很大作用。
+<!-- prettier-ignore-end -->
 
 #### 检查输入
 
@@ -441,11 +484,11 @@ int main(int argc, char *argv[]){
 ```
 
 ```bash
-file c_file.c
-file c_file.o
-file c_file
-objdump -h -s -d c_file.o
-objdump -h -s c_file
+$ file c_file.c
+$ file c_file.o
+$ file c_file
+$ objdump -h -s -d c_file.o
+$ objdump -h -s c_file
 ```
 
 对于C语言来说，C把文件看作连续的字节，每个字节都能被单独读取。这与UNIX环境中的文件结构相对应。便于其他操作系统，C提供两种文件模式：文本模式和二进制模式。
@@ -485,10 +528,13 @@ C语言提供两种访问文件的途径：二进制模式和文本模式。在�
 
 这告诉我们文本和二进制模式不能随意混用，否则可能会出现正确性上的问题。
 
+<!-- prettier-ignore-start -->
 ??? note "I/O级别"
 
     事实上我们除了选择处理文件的模式，还能够选择I/O的级别。底层I/O使用操作系统提供的I/O服务。标准高级I/O使用C库的标准包和`stdio.h`头文件定义。标准高级I/O使用底层I/O服务，但是它们提供了更高级别的接口。因为无法保证所有的操作系统都适用相同的底层I/O模型，C标准只支持标准I/O包。
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 ??? note "标准文件"
 
     C程序会自动打开3个文件，它们被称为标准输入（standard input）、标准输出（standard output）和标准错误输出（standard error output）。在默认情况下，标准输入是系统的普通输入设备，通常为键盘；标准输出和标准错误输出是系统的普通输出设备，通常为显示屏。
@@ -496,7 +542,7 @@ C语言提供两种访问文件的途径：二进制模式和文本模式。在�
     通常，标准输入为程序提供输入，它是 `getchar()`和 `scanf()`使用的文件。程序通常输出到标准输出，它是`putchar()`、`puts()`和`printf()`使用的文件。前文提到的重定向把其他文件视为标准输入或标准输出。标准错误输出提供了一个逻辑上不同的地方来发送错误消息。例如，如果使用重定向把输出发送给文件而不是屏幕，那么发送至标准错误输出的内容仍然会被发送到屏幕上。这样很好，因为如果把错误消息发送至文件，就只能打开文件才能看到。
 
     理解：标准I/O中用FILE（流）表示一个打开的文件
-
+<!-- prettier-ignore-end -->
 
 ### 流和文件
 

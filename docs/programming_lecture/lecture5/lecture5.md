@@ -1,5 +1,6 @@
 # 指针及链表相关知识点复习
 
+<!-- prettier-ignore-start -->
 !!! abstract "摘要"
 
     考虑到本次辅学时间已近期末，原先安排的介绍数据结构与算法的内容已经不太合适，因此本次辅学时间将主要介绍期末考试的部分重点知识，以讲解指针与链表为主。
@@ -10,6 +11,7 @@
     - 链表相关知识的复习
 
     其中我们辅学学长写的专题笔记 —— [专题笔记-指针概览](https://ckc-agc.bowling233.top/programming/topic/pointers/) 已经对指针进行了详细的介绍。本次辅学不会深挖指针的内存模型等细节，主要是针对历年卷题目，以及辅学群中同学们所问的指针相关的问题，进行以备考为目的的复习。
+<!-- prettier-ignore-end -->
 
 ## 指针的基本操作
 
@@ -25,12 +27,15 @@ VariableType *pointerName;
 
 例如：`int *p;` 声明了一个指向 `int` 类型变量的指针，指针的名称为 `p`。
 
+<!-- prettier-ignore-start -->
 !!! info "注意"
 
     - `VariableType` 代表类型说明符，如 `int`、`char` 或者自己定义的 `struct` 等。
     - `*` 在指针声明中代表声明指针类型。注意：**`*` 在指针声明和指针使用中代表的含义不相同！！！！！**
     - `pointerName` 代表指针的名称，需要符合[标识符命名规范](https://zh.cppreference.com/w/c/language/identifier)。
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 !!! note "限定符对指针的限定"
 
     限定符在 C 语言中用于限定变量的类型，最常用的为 `const` 限定符。
@@ -55,6 +60,7 @@ VariableType *pointerName;
     ```c
     int * const * pcp = &cp; // 指向指向非 const 的 int 的 const 指针的非 const 指针
     ```
+<!-- prettier-ignore-end -->
 
 #### 多级指针的声明
 
@@ -62,6 +68,7 @@ VariableType *pointerName;
 
 对于指向 `int` 类型的一级指针，其 `VariableType` 为 `int`；对于二级指针 `int **p`，即指向指向 `int` 类型的指针的指针，其 `VariableType` 为 `int *`。
 
+<!-- prettier-ignore-start -->
 !!! example "例"
 
     ```c
@@ -75,6 +82,7 @@ VariableType *pointerName;
     ```text
     (int **)p -> (int *)p1 -> (int)var
     ```
+<!-- prettier-ignore-end -->
 
 #### 指针数组与数组指针
 
@@ -111,6 +119,7 @@ char (*p)[10]; // 指针，指向大小为 10 的 char 数组
 
 记住 `a[b]` 等价于 `*(a + b)`。这个 trick 在一些题目中很有用。
 
+<!-- prettier-ignore-start -->
 !!! example "例题"
 
     Given the declaration: `int a[3][3]={1,2,3,4,5,6,7,8,9};` , the value of `a[-1][5]` is _____.
@@ -129,7 +138,9 @@ char (*p)[10]; // 指针，指向大小为 10 的 char 数组
         ```
 
         令 `p = *(a - 1)`，则要求的值变为 `p[5]`，等价于 `*(p + 5)`。将上述指针右移 5 个 `int` 单位，得到 3。
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 !!! warning "野指针"
 
     当指针声明时未初始化，且还未被赋值，则这个指针指向无法确定，被称为 **野指针**。
@@ -151,6 +162,8 @@ char (*p)[10]; // 指针，指向大小为 10 的 char 数组
         D. `s=str+1`
 
         选项 A 就是经典的野指针访问。
+<!-- prettier-ignore-end -->
+
 
 #### 取址操作
 
@@ -176,6 +189,7 @@ scanf("%d", &a);
 - `& * 表达式`：`&` 和 `*` 彼此抵消，均不求值。这个仅作了解。
 - `& 表达式 [表达式]`：等价于 `& *(表达式 + 表达式)` 等价于 `表达式 + 表达式`。这个仅作了解。
 
+<!-- prettier-ignore-start -->
 !!! example "解引用与取址操作的应用"
 
     输入一个 64 位无符号整数 `x`，求 `x` 的二进制表示的 01 串所表示的 `double` 类型变量的值。
@@ -205,9 +219,10 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
 
 <!-- https://zh.cppreference.com/w/c/language/conversion -->
 
+<!-- prettier-ignore-start -->
 !!! info "隐式转换"
     **数组到指针转换**
-
+    
     任何数组类型的左值表达式，在用于异于下列语境时
     
     - 作为取址运算符的操作数
@@ -218,11 +233,13 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
     会经历到指向其首元素的非左值指针的转换。
     
     —— [cppreference-隐式转换](https://zh.cppreference.com/w/c/language/conversion)
+<!-- prettier-ignore-end -->
 
 简单来说：牢记数组名 **不等于** 指向数组首元素的指针，当数组名被取址运算符 `&` 作用，或者作为 `sizeof` 的操作数时，不会发生隐式转换。
 
 这里要注意的一点是，将数组作为参数传给函数时，函数的形参只能是指针，而不能是数组，此时数组名会发生隐式转换。
 
+<!-- prettier-ignore-start -->
 !!! info "数组类型用于函数形参"
 
     当数组类型用于函数形参列表时，它会转换成对应的指针类型：`int f(int a[2])`、`int f(int a[])`、`int f(int *a)` 声明同一个函数。
@@ -231,7 +248,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
 
     见 [每日一题-29](https://ckc-agc.bowling233.top/programming/daily/2023/#29-soyo-size)。
 
-    
+    <!-- prettier-ignore-start -->
     !!! warning
 
         只有数组类型用于函数形参列表时，`a[]` 和 `*a` 才是等价的。
@@ -251,7 +268,10 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
         char s[] = "hello"; // s 类型为 char [6] ，数组内容是 "hello\0" 的拷贝
         // s[] = "he11o"; // wrong
         ```
+    <!-- prettier-ignore-end -->
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 !!! question
     下列代码的 `val_x` 和 `val_y` 的类型一样吗？
 
@@ -260,7 +280,9 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
     Type1 val_x = &a;
     Type2 val_y = &p;
     ```
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 !!! question
     下列代码的 `size_x` 和 `size_y` 大小一样吗？
 
@@ -269,6 +291,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
     size_t size_x = sizeof a;
     size_t size_y = sizeof p;
     ```
+<!-- prettier-ignore-end -->
 
 ### 指针的值与指针的地址
 
@@ -278,14 +301,17 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
 
 在计算机中，内存中的所有字节都拥有一个唯一编号，也即内存地址。指针指向某一数据的地址，即指针变量存储了这个数据的内存地址的编号。
 
+<!-- prettier-ignore-start -->
 !!! info "指针所占的字节数"
 
     现在一般的计算机基本都是 64 位系统，使用 64 位长的内存地址，即内存地址的编号是一个 64 位整数。在 64 位系统中使用 `sizeof` 运算符求指针的大小时，得到的结果为 8。
+<!-- prettier-ignore-end -->
 
 注意，一般来说无法预测地址的值，因为内存地址取决于系统的内存分配情况。但部分情况下可以确定内存地址的相对位置，比如同一数组中元素在内存中连续。
 
 此外，指针同样也是一个在内存中有对应存储空间的变量，也有自己的内存地址。在指针的内存地址中，存储的内容是其指向的内容的内存地址。
 
+<!-- prettier-ignore-start -->
 !!! info "类比理解"
 
     假如有一个很长的数组，存储了一些数据，我们可以使用数组下标去访问数据。将数组下标当作数据存储在数组中，那么我们就可以从数组中的某一位置去访问其存储的数组下标的位置的数据，这就可以看作是简单的指针。
@@ -296,7 +322,9 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
                      ^                                |
                      +--------------------------------+
     ```
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 !!! question
 
     那么就有同学问了：既然指针的值是 64 位整数，那能用关系运算符比较大小吗？
@@ -315,6 +343,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
         - 指向同一联合体成员的指针比较相等。这个不做要求。
 
         除此之外，指针的比较结果是未定义的。
+<!-- prettier-ignore-end -->
 
 !!! info "指针的计算"
 
@@ -330,7 +359,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
 
         结果为两指针之间差了多少单位距离，而不是指针的值相减。
 
-    
+    <!-- prettier-ignore-start -->
     !!! question "例题"
 
         以下代码的输出为 _____。
@@ -340,9 +369,12 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
         int *p = a, *q = &a[2];
         printf("%lu\n", q - p);
         ```
+    <!-- prettier-ignore-end -->
+<!-- prettier-ignore-end -->
 
 ### 一些题目
 
+<!-- prettier-ignore-start -->
 !!! question "题目 1"
 
     The following code fragment will output _____.
@@ -355,7 +387,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
     printf("%c#%c#", c1, c2);
     ```
 
-    
+    <!-- prettier-ignore-start -->
     ??? answer
 
         ```text
@@ -367,7 +399,10 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
                 |
                pw
         ```
+    <!-- prettier-ignore-end -->
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 !!! question "题目 2"
 
     For definitions:
@@ -386,7 +421,7 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
 
     D. `*++p + 2`
 
-    
+    <!-- prettier-ignore-start -->
     ??? answer
 
         ```text
@@ -400,7 +435,8 @@ p->x = 3; // 通过指针 p 访问结构体成员 x
                |
           p = (char *)s
         ```
-
+    <!-- prettier-ignore-end -->
+<!-- prettier-ignore-end -->
 
 ## 链表
 

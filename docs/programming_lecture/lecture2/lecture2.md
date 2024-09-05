@@ -1,5 +1,6 @@
 # 讲义：C 语言的类型系统与内存模型
 
+<!-- prettier-ignore-start -->
 !!! danger "施工中"
 
     本页面正在施工：
@@ -15,6 +16,7 @@
 
 !!! tip
     在本节讲义中，若无特别说明，我们默认采用 C99 标准。
+<!-- prettier-ignore-end -->
 
 ## 前置：数、进制与数据
 
@@ -70,15 +72,20 @@ MAGIC_R(0x20231029);
 
 ### 大端序与小端序
 
+<!-- prettier-ignore-start -->
 ??? info "大端和小端名称的来源"
 
     来源于《格列佛游记》中的大小端之争：
 
     > 我下面要告诉你的是，Lilliput 和 Blefuscu 这两大强国在过去 36 个月里一直在苦战。战争开始是由于以下的原因：我们大家都认为，吃鸡蛋前，原始的方法是打破鸡蛋较大的一端，可是当今皇帝的祖父小时候吃鸡蛋，一次按古法打鸡蛋时碰巧将一个手指弄破了。因此他的父亲，当时的皇帝，就下了一道敕令，命令全体臣民吃鸡蛋时打破鸡蛋较小的一端，违令者重罚。老百姓们对这项命令极其反感。历史告诉我们，由此曾经发生过6次叛乱，其中一个皇帝送了命，另一个丢了王位。这些叛乱大多都是由 Blefuscu 的国王大臣们煽动起来的。叛乱平息后，流亡的人总是逃到那个帝国去寻求避难。据估计，先后几次有 11000 人情愿受死也不肯去打破鸡蛋较小的一端。关于这一争端，曾出版过几百本大部著作，不过大端派的书一直是受禁的，法律也规定该派任何人不得做官。”
 
+<!-- prettier-ignore-end -->
+
+
+
 主流架构（如 x86、AMD64、ARM）使用**小端序**。一些不常见的架构（如 SPARC）使用**大端序**。网络协议使用**大端序**。
 
-### 先来练练手
+### 先来练练手！
 
 你应当已经知道，不同类型的变量一般占据不同的字节数。
 
@@ -105,6 +112,7 @@ MAGIC_R((short)ll);
 MAGIC("Hello world! I am a l" "ong string.");
 ```
 
+<!-- prettier-ignore-start -->
 ??? info "在小端序计算机上可能的运行结果"
     ```html
     =====
@@ -136,6 +144,7 @@ MAGIC("Hello world! I am a l" "ong string.");
     ```
 
     1. 其类型为 `#!c int`，故占用 4 字节。
+<!-- prettier-ignore-end -->
 
 ### 基本类型
 
@@ -145,10 +154,13 @@ MAGIC("Hello world! I am a l" "ong string.");
 
 其中，除了 `#!c char` 以外的类型默认为 `#!c signed`，即有符号数。也就是说，`#!c int` 就是 `#!c signed int`。将 `#!c signed` 换为 `#!c unsigned`，就得到了无符号数。
 
+<!-- prettier-ignore-start -->
 !!! tip "那么 `#!c char` 呢？"
 
     `#!c char` `#!c signed char` `#!c unsigned char` 是**三个不同的类型**，尽管在大多数实现中，`#!c char` 表现为有符号数。
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 ??? tip "字符类型解惑"
 
     或许你会和我同样对以下几个问题感到困惑：
@@ -183,6 +195,7 @@ MAGIC("Hello world! I am a l" "ong string.");
     > - [字符常量 - cppreference.com](https://zh.cppreference.com/w/c/language/character_constant)
     > - [`#!c int c = getchar()`? Why `#!c int`? : C_Programming (reddit.com)](https://www.reddit.com/r/C_Programming/comments/5a9sv1/int_c_getchar_why_int)
     > - [隐式转换 - cppreference.com](https://zh.cppreference.com/w/c/language/conversion)
+<!-- prettier-ignore-end -->
 
 浮点类型：`#!c float` `#!c double` `#!c long double`
 
@@ -199,6 +212,7 @@ MAGIC("Hello world! I am a l" "ong string.");
 
 在 `stddef.h` 中定义，`#!c ptrdiff_t` 表示两个指针相减的结果。常被定义为 `#!c long`。
 
+<!-- prettier-ignore-start -->
 ??? tip "如何输出这些整数类型？"
 
     在 `inttypes.h` 中定义了一系列格式化字符串，如 `PRId32` 一般展开为 `#!c "d"`，而 `PRIu64` 可能展开为 `#!c "llu"`。
@@ -211,6 +225,7 @@ MAGIC("Hello world! I am a l" "ong string.");
     ```
 
     对于 `#!c size_t` 和 `#!c ptrdiff_t`，可以使用 `#!c %zu` 和 `#!c %td`。
+<!-- prettier-ignore-end -->
 
 ### 结构体、联合体、枚举类型
 
@@ -244,6 +259,7 @@ MAGIC_PTR(&un.l);
 MAGIC_PTR(&un.d);
 ```
 
+<!-- prettier-ignore-start -->
 ??? info "在小端序计算机上可能的运行结果"
     ```text
     =====
@@ -263,6 +279,7 @@ MAGIC_PTR(&un.d);
     &un.l: 0x16d3cee10
     &un.d: 0x16d3cee10
     ```
+<!-- prettier-ignore-end -->
 
 ### 字符串，数组，函数，指针类型
 
@@ -279,7 +296,6 @@ MAGIC(str2);
 ```
 
 以 `main` 函数为例，其有两种（标准规定的）形式：
-
 ```c
 int main(void);                   // 类型为 int(void)
 int main(int argc, char *argv[]); // 类型为 int(int, char *[])
@@ -302,6 +318,7 @@ void g(void) {
 }
 ```
 
+<!-- prettier-ignore-start -->
 ??? info "那么 `#!c void *` 呢？"
 
     `#!c void *` 是一个**完整类型**，它表示一个指针，指向未知类型的对象（即，“舍弃”了类型信息的指针）。
@@ -314,7 +331,9 @@ void g(void) {
     printf("%p\n", p);
     printf("%d\n", *(int *)p);
     ```
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 ??? tip "什么是不完整类型？"
 
     **不完整类型**是指**只知道其存在，但无法知道其大小**的类型。比如：
@@ -326,6 +345,7 @@ void g(void) {
     我们只知道 `#!c struct incomp` 存在，但是不知道它的大小（因为没有给出其定义）。因此，`#!c struct incomp` 是一个**不完整类型**。但是可以声明指向 `#!c struct incomp` 类型的指针。
 
     **`#!c void` 类型是唯一可作为函数返回类型的不完整类型。**这是 C 语法的一条特殊规定，其意义就是标定“函数没有返回值”。
+<!-- prettier-ignore-end -->
 
 ### 使用 `#!c typedef` 为现有的类型定义别名
 
@@ -349,6 +369,7 @@ a b; // 等价于 int b;
 
 考试中还会要求你阅读代码片段，为形参等位置填写类型声明。请参考历年卷总结中的例题。
 
+<!-- prettier-ignore-start -->
 !!! info "C 与 C++ 的 `#!c struct` 并不完全一致"
     对于结构体
 
@@ -368,6 +389,7 @@ a b; // 等价于 int b;
     ```
 
     此即定义了一个类型名 `point`，其为 `#!c struct point` 的别名。
+<!-- prettier-ignore-end -->
 
 ## 内存模型
 
@@ -396,13 +418,14 @@ MAGIC_PTR(&i);
 每个被存储的值都占用一定的物理内存，这样的一块内存称为**对象**。对象可以储存一个或多个值。声明变量时，创建了一个**标识符**（identifier），其与对象相关联。
 
 所以，定义一个变量时实际上做了两件事：
-
 - 为对象分配内存
 - 将标识符与对象关联
 
+<!-- prettier-ignore-start -->
 !!! tip "对象的其他含义"
 
     “面向对象编程”中的对象指的是“类对象”。C 语言中没有“类对象”这一概念。
+<!-- prettier-ignore-end -->
 
 思维训练：
 
@@ -415,7 +438,7 @@ MAGIC(psi);
 MAGIC_PTR(&i);
 MAGIC_PTR(&psi);
 ```
-
+<!-- prettier-ignore-start -->
 ??? info "在小端序计算机上可能的运行结果"
     ```text hl_lines="3 6 8-10"
     =====
@@ -430,6 +453,7 @@ MAGIC_PTR(&psi);
     &i: 0x16fdbae4c
     &psi: 0x16fdbae08
     ```
+<!-- prettier-ignore-end -->
 
 我们可以观察到什么？
 
@@ -437,6 +461,7 @@ MAGIC_PTR(&psi);
 - 通过 `psi` 可以访问 `i` 关联的对象（`*psi`）
 - `psi` 本身作为一个变量，也有自己的地址（`0x16fdbae08`）
 
+<!-- prettier-ignore-start -->
 !!! note "左值与右值"
 
     指代对象的表达式被称为**左值**。这个术语来自于赋值语句，因为赋值语句的左边必须是一个对象。
@@ -455,6 +480,7 @@ MAGIC_PTR(&psi);
     - `*pc` 是不可修改的左值
 
     参考：[值类别 - cppreference.com](https://zh.cppreference.com/w/c/language/value_category)
+<!-- prettier-ignore-end -->
 
 ### 内存管理
 
@@ -476,6 +502,7 @@ int main() {
 
 在这里 `pfi` 称为**悬垂指针**（dangling pointer），它指向了一个已经被销毁的对象。使用悬垂指针是未定义行为，可能会导致程序崩溃。
 
+<!-- prettier-ignore-start -->
 !!! note "常见变式"
 
     ```c hl_lines="2"
@@ -505,6 +532,7 @@ int main() {
       printf("%s\n", str);
     }
     ```
+<!-- prettier-ignore-end -->
 
 ---
 
@@ -542,6 +570,7 @@ int main() {
 
 ##### 块作用域
 
+<!-- prettier-ignore-start -->
 ??? note
 
     在 C99 之前，块作用域的变量必须在块的开头声明。
@@ -570,6 +599,7 @@ int main() {
 !!! tip
 
     同名的变量，内部覆盖外部。
+<!-- prettier-ignore-end -->
 
 ##### 函数作用域
 
@@ -591,6 +621,7 @@ void use_VLA(int n, int m, ar[n][m]);
 
 这样的变量称为全局变量。
 
+<!-- prettier-ignore-start -->
 !!! note "翻译单元"
 
     你所认为的多个文件对于编译器来说可能是一个文件。比如头文件：预处理时，头文件被插入。对于编译器来说，它看到的是单个文件。
@@ -599,6 +630,7 @@ void use_VLA(int n, int m, ar[n][m]);
 
     刚才我们说的**文件作用域**其实是在**整个翻译单元可见**。
 
+<!-- prettier-ignore-end -->
 
 ---
 

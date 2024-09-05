@@ -6,9 +6,11 @@
     }
 </style>
 
+<!-- prettier-ignore-start -->
 ???+ info "直播回放"
 
     [Bilibili](https://www.bilibili.com/video/BV1Pu411T7GT/)
+
 
 ???+ abstract "内容提要"
 
@@ -22,6 +24,7 @@
     作为在线讲义，我会尽量写得详细一些，为同学们提供复习和进一步扩展的指引。因为时间有限，在课上我无法覆盖讲义中所有的内容。同学们可以根据自己的习惯选择在课前课后浏览本讲义～
 
     本次课的核心内容从「程序的编译过程」开始。前面的内容作为预备知识，在课上将会快速带过。
+<!-- prettier-ignore-end -->
 
 ## 课程导言
 
@@ -29,8 +32,8 @@ Hi，欢迎各位同学来到竺院程设辅学「系统知识拾遗」的第一
 
 在前几周的程序设计课程中，老师们应该已经为同学们讲解了 C 语言的基础语法等知识。但是同学们或许会有下面这些疑问：
 
-- 计算机是如何读懂我写的代码的？
-- 我的程序总是出问题，我该如何快速找到错误的根源？
+-   计算机是如何读懂我写的代码的？
+-   我的程序总是出问题，我该如何快速找到错误的根源？
 
 辅学课程的目的就是帮助同学们解决这些进一步的问题。实质上 C 语言是一门很难的编程语言，不懂编译原理、操作系统和计算机体系结构无法获得深入的理解。我们希望通过线下授课，为同学们提供语言之外的进一步的知识扩展和技能训练。让同学们在计算机（而非算法题）的语境下理解 C 语言，理解程序设计。
 
@@ -44,6 +47,7 @@ Hi，欢迎各位同学来到竺院程设辅学「系统知识拾遗」的第一
 
 现代计算机由多种部件构成，比如中央处理单元（Central Processing Unit，CPU）、随机存取内存（Random Access Memory，RAM）、硬盘（Hard Disk）等。其中 CPU 负责处理程序。
 
+<!-- prettier-ignore-start -->
 ::cards:: cols=2
 
 [
@@ -61,14 +65,15 @@ Hi，欢迎各位同学来到竺院程设辅学「系统知识拾遗」的第一
 ]
 
 ::/cards::
+<!-- prettier-ignore-end -->
 
-- CPU 能读懂什么？
+-   CPU 能读懂什么？
 
 CPU 无法直接读懂你写的 C 语言代码，它是由数字电路构成的。**数字电路只能处理 0 和 1，因此计算机中的任何数据都必须使用二进制表示，程序也是如此。**
 
 在计算机刚刚诞生的阶段，工程师们不得不使用 0 和 1 构成的指令序列和计算机打交道，这就是**机器语言**。因为具体电路设计不同，每种 CPU 所能理解的指令有限，这些指令的集合叫做**指令集**。
 
-- CPU 都做些什么？
+-   CPU 都做些什么？
 
 CPU 的工作非常简单：从内存中读取并执行一条指令，再从内存中读取并执行下一条指令……1 GHz 的 CPU 每秒能重复这一操作约十亿次。
 
@@ -80,6 +85,7 @@ CPU 还有自己的小工作区——由若干寄存器（Register）组成的�
 
 现代计算机的结构与 70 年前并没有本质上的不同，但是程序设计语言取得了很大的发展，产生了汇编语言和高级语言。我们仍然不能直接对 CPU 说：为我计算 $1 + 1$，但我们可以用高级语言简洁的表达它，让**编译器（compiler）和汇编器（assembler）**将其翻译成 `0101` 的机器语言。下图展示了程序设计语言的发展历史，编译过程其实就是这一历史的反向。
 
+<!-- prettier-ignore-start -->
 ::cards::
 
 [
@@ -102,11 +108,13 @@ CPU 还有自己的小工作区——由若干寄存器（Register）组成的�
 ]
 
 ::/cards::
+<!-- prettier-ignore-end -->
 
 下面三行代码分别是用 C 语言、汇编语言和机器语言（十六进制）描述的同一件事：
 
+<!-- prettier-ignore-start -->
 === "简单的例子"
-
+    
     ```c
     c = a + b;
     ```
@@ -140,19 +148,26 @@ CPU 还有自己的小工作区——由若干寄存器（Register）组成的�
     ```
     53 48 89 d3 48 83 ec 08 e8 00 00 00 00 48 89 03 5b c3
     ```
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 ???+ question "为什么需要高级语言？"
 
     1. 机器语言和汇编语言都是非常底层的语言，程序员需要关注计算机的细节，这使得程序的**可读性很差**。使用高级语言，程序员能**将注意力转移到要解决的问题上来**。
     2. 机器语言和汇编语言都是与具体 CPU 相关的，程序员需要为不同的 CPU 编写不同的程序，**可移植性差**。使用高级语言，程序员只需要写一次程序，再使用编译器就能将其翻译成能在特定 CPU 的机器语言。
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 ???+ info "前瞻：第四代和第五代编程语言"
 
     编程语言仍在发展演化。目前已经有了第四代和第五代编程语言的概念。第三代的编程语言虽然是用语句编程而不直接用指令编程，但语句也分为输入、输出、基本运算、测试分支和循环等几种，和指令有直接的对应关系。而第四代以后的编程语言更多是描述要做什么（Declarative）而不描述具体一步一步怎么做（Imperative），具体一步一步怎么做完全由编译器或解释器决定，例如SQL语言（SQL，Structured Query Language，结构化查询语言）就是这样的例子。
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 ???+ info "对机器语言有兴趣？"
 
     [这里](https://eng.libretexts.org/Bookshelves/Computer_Science/Programming_Languages/Introduction_To_MIPS_Assembly_Language_Programming_(Kann)/04%3A_Translating_Assembly_Language_into_Machine_Code)提供了一些将汇编语言转换为 MIPS 指令集机器语言的基础例子，有兴趣可以了解一下。
+<!-- prettier-ignore-end -->
 
 ## 程序的基本语法结构
 
@@ -164,11 +179,11 @@ CPU 还有自己的小工作区——由若干寄存器（Register）组成的�
 
 程序由一系列指令（Instruction）组成，指令是指示计算机做某种运算的命令，通常包括以下几类：
 
-- 输入（Input）：从键盘、文件或者其它设备获取数据。
-- 输出（Output）：把数据显示到屏幕，或者存入一个文件，或者发送到其它设备。
-- 基本运算：执行最基本的数学运算（加减乘除）和数据存取。
-- 测试和分支：测试某个条件，然后根据不同的测试结果执行不同的后续指令。
-- 循环：重复执行一系列操作。
+-   输入（Input）：从键盘、文件或者其它设备获取数据。
+-   输出（Output）：把数据显示到屏幕，或者存入一个文件，或者发送到其它设备。
+-   基本运算：执行最基本的数学运算（加减乘除）和数据存取。
+-   测试和分支：测试某个条件，然后根据不同的测试结果执行不同的后续指令。
+-   循环：重复执行一系列操作。
 
 对于程序来说，有上面这几类指令就足够了。你曾用过的任何一个程序，不管它有多么复杂，都是由这几类指令组成的。**程序是那么的复杂，而编写程序可以用的指令却只有这么简单的几种，这中间巨大的落差就要由程序员去填了，所以编写程序理应是一件相当复杂的工作。编写程序可以说就是这样一个过程：把复杂的任务分解成子任务，把子任务再分解成更简单的任务，层层分解，直到最后简单得可以用以上指令来完成。**
 
@@ -176,6 +191,7 @@ CPU 还有自己的小工作区——由若干寄存器（Register）组成的�
 
 词法（Lexical）和语法（Syntax）是编程语言的两个基本概念。词法规则定义了编程语言中的基本符号，语法规则定义了这些符号如何组成合法的表达式、语句和程序。
 
+<!-- prettier-ignore-start -->
 ???+ note "C 的词法规则：贪心法"
 
     术语 **token** （符号）是语言的基本表意单元。字符组成符号。例子: `->`、`file` 都是符号。同一组字符序列在**不同上下文**中可能属于不同符号。
@@ -212,7 +228,10 @@ CPU 还有自己的小工作区——由若干寄存器（Register）组成的�
     7. 等价于 `(n--) > 0`
     8. 等价于 `(n-) -> 0`。这是一个无效的语句，`n-` 本身不是一个合法的表达式，也无法用作 `->` 的操作数。
     9. 等价于 `((a++)++) + b`。请思考一下，这个语句有效吗？
+    
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 ???+ note "语法：标识符、表达式和语句"
 
     为了便于初学者理解，我们采用一套简化的语法规则：
@@ -284,12 +303,15 @@ CPU 还有自己的小工作区——由若干寄存器（Register）组成的�
     -   [CPPReference：表达式](https://zh.cppreference.com/w/c/language/expressions)
     -   [CPPReference: 语句](https://zh.cppreference.com/w/c/language/statements)
 
+<!-- prettier-ignore-end -->
+
 语法将在后续课程中作深入讲解（第 2 讲涉及类型相关的语法，第 4 讲涉及函数指针）。
 
 ### 函数：C 程序的基本模块
 
 「指令」是第一、二代编程语言的基本结构。C 语言是面向过程的高级语言，它的基本模块是**函数（Function）**。
 
+<!-- prettier-ignore-start -->
 ???+ note "关键概念：函数"
 
     **从外面看**，函数就像一个黑盒子，只能看到函数的三大要素：
@@ -306,6 +328,7 @@ CPU 还有自己的小工作区——由若干寄存器（Register）组成的�
     ```
 
     **从里面看**，函数是一组指令的集合，它们按照一定的顺序执行，完成某个特定的功能。
+<!-- prettier-ignore-end -->
 
 当我们调用一个函数时，我们应当按照函数签名中的要求传入参数，并可以获得它的返回值。在函数签名的语境下，`void` 表示空，即不存在。下面的这个函数没有参数，也没有返回值。
 
@@ -315,6 +338,7 @@ void MyFunc(void);
 
 因为我们比较关心函数返回值的类型，有时会把函数的返回值类型称为这个函数的“类型”，比如会说 `MyFunc` 这个函数是一个 `void` 函数。
 
+<!-- prettier-ignore-start -->
 ???+ note "关于 `void`"
 
     Q：`void` 到底有哪些含义？
@@ -330,11 +354,12 @@ void MyFunc(void);
     Q：所以 `void` 是一种类型吗？
     
     A：C 标准从概念上将 `void` 作为一种类型。但是 `void` 类型的变量是不存在的，因为它没有大小，编译器也不允许你写下 `void a;`。这会引起一些困惑。
+<!-- prettier-ignore-end -->
 
 函数有两个功能：
 
-- 返回值：函数调用本身就是一个表达式，它的值就是函数的返回值。
-- 副作用：除了返回值以外的功能统称为副作用。
+-   返回值：函数调用本身就是一个表达式，它的值就是函数的返回值。
+-   副作用：除了返回值以外的功能统称为副作用。
 
 一些例子：
 
@@ -359,14 +384,15 @@ int main(int argc, char *argv[]); //以后学命令行参数就会用到这种�
 ```c
 void print_logarithm(double x)
 {
- if (x <= 0.0) {
-  printf("Positive numbers only, please.\n");
-  return;
- }
- printf("The log of x is %f", log(x));
+	if (x <= 0.0) {
+		printf("Positive numbers only, please.\n");
+		return;
+	}
+	printf("The log of x is %f", log(x));
 }
 ```
 
+<!-- prettier-ignore-start -->
 ??? info "其他建议"
 
     每个函数都应该设计得尽可能简单，简单的函数才容易维护。应遵循以下原则：
@@ -392,11 +418,13 @@ void print_logarithm(double x)
     C 语言是典型的编译型语言，源代码需要经过编译后才能运行，而编译阶段并不会执行程序。Python 则是典型的解释型语言，逐句执行源代码，不需要产生可执行文件。
 
     这些描述的都是一种语言的典型用法。事实上 C 语言也开发出了相应的解释器，Python 也开发出了相应的编译器。两种翻译方式各有优劣。
+<!-- prettier-ignore-end -->
 
 ### 现在你是编译器
 
 接下来我们将化身 C 语言编译器，解读一些代码。相信经过下面的训练，你对代码和程序执行的理解会更加深入。
 
+<!-- prettier-ignore-start -->
 ???+ example "例子：语法树"
 
     ```c
@@ -410,13 +438,13 @@ void print_logarithm(double x)
     理解组合（Composition）规则是理解语法规则的关键所在，正因为可以根据语法规则任意组合，我们才可以用简单的常量、变量、表达式、语句搭建出任意复杂的程序，以后我们学习新的语法规则时会进一步体会到这一点。从上面的例子可以看出，表达式不宜过度组合，否则会给阅读和调试带来困难。
 
 ???+ note "表达式不宜过度组合"
-
+    
     这涉及代码可读性问题。看看下面这段代码：
 
     ```c
     double distance(double x1, double y1, double x2, double y2)
     {
-      return sqrt((x2-x1) * (x2-x1) + (y2-y1) * (y2-y1));
+	     return sqrt((x2-x1) * (x2-x1) + (y2-y1) * (y2-y1));
     }
     ```
 
@@ -425,16 +453,17 @@ void print_logarithm(double x)
     ```c
     double distance(double x1, double y1, double x2, double y2)
     {
-     double dx = x2 - x1;
-     double dy = y2 - y1;
-     double dsquared = dx * dx + dy * dy;
-     double result = sqrt(dsquared);
+    	double dx = x2 - x1;
+    	double dy = y2 - y1;
+    	double dsquared = dx * dx + dy * dy;
+    	double result = sqrt(dsquared);
 
-     return result;
+    	return result;
     }
     ```
 
     码风不是死的，请同学们视情况切换码风。
+<!-- prettier-ignore-end -->
 
 ## Lap：关于做题目
 
@@ -442,9 +471,10 @@ void print_logarithm(double x)
 
 简单提一些 Tips：
 
-- 考试是全英文。如果平常不太看英文文档/没怎么学/英语很差的同学，至少你考前做历年卷的时候要把生词全部抄下来记一遍。
-- 一定一定一定要做历年卷。**不要以为自己会写点代码就能应付考试了**，其实考试和你写代码水平并不呈正相关。考试的题目都是很细节的，很多都是你平常不会注意到的，所以一定要做历年卷，做完了还要看看答案，看看自己哪里做错了，哪里没注意到。这里展示一个去年 C 小考试干碎一片人的选择题：
+-   考试是全英文。如果平常不太看英文文档/没怎么学/英语很差的同学，至少你考前做历年卷的时候要把生词全部抄下来记一遍。
+-   一定一定一定要做历年卷。**不要以为自己会写点代码就能应付考试了**，其实考试和你写代码水平并不呈正相关。考试的题目都是很细节的，很多都是你平常不会注意到的，所以一定要做历年卷，做完了还要看看答案，看看自己哪里做错了，哪里没注意到。这里展示一个去年 C 小考试干碎一片人的选择题：
 
+<!-- prettier-ignore-start -->
 ???+ example "干碎一片人的选择题"
 
     Suppose `T` is a type name and `t` is a variable of type `T`. Which of the following is **NOT** a valid expression?
@@ -476,9 +506,11 @@ void print_logarithm(double x)
         sizeof(int)*p
         sizeof int * + 1
         ```
+<!-- prettier-ignore-end -->
 
 如果你想的话，可以再来两道：
 
+<!-- prettier-ignore-start -->
 ??? example "C 大 16 年选择题"
 
     In the following notations, _____ can express a character constant( 字符常量 ) correctly.
@@ -493,14 +525,17 @@ void print_logarithm(double x)
     ??? note "答案"
 
         B
+<!-- prettier-ignore-end -->
 
 ## 程序的编译过程
 
 接下来，我们将了解编译器和汇编器是如何一步步把你的程序编译成机器码的。我们以最经典的 C 语言编译系统 GCC 为例。
 
+<!-- prettier-ignore-start -->
 ???+ note "什么是 GCC？"
 
     简单地说，GNU 项目旨在开发一个完全自由的操作系统以及配套的软件。GCC 最早是 GNU C Compiler 的简称，现在**代表 GNU Compiler Collection**。这表明它不是单个程序，而是一系列编译工具的集合，包括了 C、C++、Objective-C、Fortran、Ada、Go、D 等语言的前端，以及汇编器、链接器等后端，和这些语言的库文件。
+<!-- prettier-ignore-end -->
 
 当我们使用命令 `gcc -o test test.c` 编译一个 C 语言程序时，GCC 会调用一系列的程序将源代码翻译成汇编语言、再翻译成机器语言，最后经过链接产生可执行文件。下图展示了这个过程。
 
@@ -514,6 +549,8 @@ void print_logarithm(double x)
 ### 解读 `gcc` 显示的详细信息
 
 下面这些文本是 `gcc -v -o prog main.c sum.c` 命令的输出结果。
+
+<!-- prettier-ignore-start -->
 
 ???+ info "gcc 的输出信息"
 
@@ -533,7 +570,7 @@ void print_logarithm(double x)
     COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
     <!--(2)!--> /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu main.c -quiet -dumpdir prog- -dumpbase main.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccClT5M4.s
     GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-     compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+    	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
 
     GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
     ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
@@ -547,7 +584,7 @@ void print_logarithm(double x)
      /usr/include
     End of search list.
     GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-     compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+    	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
 
     GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
     Compiler executable checksum: d9353c3f0a32d3e91a16ba312e2a9024
@@ -557,7 +594,7 @@ void print_logarithm(double x)
     COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
     <!--(5)!--> /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu sum.c -quiet -dumpdir prog- -dumpbase sum.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccClT5M4.s
     GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-     compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+    	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
 
     GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
     ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
@@ -571,7 +608,7 @@ void print_logarithm(double x)
      /usr/include
     End of search list.
     GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-     compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+    	compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
 
     GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
     Compiler executable checksum: d9353c3f0a32d3e91a16ba312e2a9024
@@ -591,10 +628,13 @@ void print_logarithm(double x)
     4.  这里调用了 `as` 完成汇编阶段，将汇编文件 `/tmp/ccCWi0p2.s` 翻译成了机器语言文件 `/tmp/ccAnKDEo.o`。
     5.  接下来又对 `sum.c` 重复预处理、编译和汇编的过程，得到了 `/tmp/ccgMFTqK.o`。
     6.  最后调用 `collect2` （这是 `ld` 的包装程序）完成链接阶段，将两个源代码生成的目标文件 `/tmp/ccAnKDEo.o` 和 `/tmp/ccgMFTqK.o` 与其他很多目标文件链接成了可执行文件 `prog`。这就是你能在操作系统上运行的程序。
+<!-- prettier-ignore-end -->
 
+<!-- prettier-ignore-start -->
 ???+ question "为什么没有看见预处理器 `cpp` 的执行呢？"
 
     某些版本的 `gcc` 会将预处理器 `cpp` 和编译器 `gcc` 合并成一个指令，比如上面的 `cc1`，这样就不用单独调用 `cpp` 了。
+<!-- prettier-ignore-end -->
 
 接下来，我们详解其中的每一个阶段以及可能会发生的问题。
 
@@ -610,8 +650,8 @@ cpp hello.c > hello.i
 
 预处理阶段最经常产生的问题是**找不到头文件**。C 语言头文件搜索规则如下：
 
-- 用双引号 `#include "..."` 包含的头文件，编译器会先在当前目录下查找，再在系统目录下查找。
-- 用尖括号 `#include <...>` 包含的头文件，编译器只会在系统目录下查找。
+-   用双引号 `#include "..."` 包含的头文件，编译器会先在当前目录下查找，再在系统目录下查找。
+-   用尖括号 `#include <...>` 包含的头文件，编译器只会在系统目录下查找。
 
 如果你的头文件不在当前目录下，那么你需要使用 `-I` 选项告诉编译器头文件的位置。比如你的头文件在 `include` 目录下：
 
@@ -660,7 +700,7 @@ gcc -S hello.i
 
 在这个阶段，编译器会检查一些问题，并抛出不同等级的信息：
 
-- 错误（Error）：编译器无法继续进行编译。比如：提供的参数列表不匹配、使用了未定义的变量、函数等。
+-   错误（Error）：编译器无法继续进行编译。比如：提供的参数列表不匹配、使用了未定义的变量、函数等。
 
 ```text
 error.c: In function ‘main’:
@@ -672,7 +712,7 @@ error.c:4:6: note: declared here
       |      ^~~~~~~~
 ```
 
-- 警告（Warning）：违反了语法，但能够继续编译，编译出来的程序运行结果很可能与你想象的不一样。比如：转义字符与数据类型不匹配、发生了隐式转换等。
+-   警告（Warning）：违反了语法，但能够继续编译，编译出来的程序运行结果很可能与你想象的不一样。比如：转义字符与数据类型不匹配、发生了隐式转换等。
 
 ```text
 warning.c: In function ‘main’:
@@ -698,6 +738,7 @@ gcc -Wall -Wextra -Werror -o hello hello.c
 as -o hello.o hello.s
 ```
 
+<!-- prettier-ignore-start -->
 ???+ note "目标文件"
 
     目标文件中包含计算机能读懂的机器代码和数据，有三种形式：
@@ -707,6 +748,7 @@ as -o hello.o hello.s
     | 可重定位目标文件 | 编译器或汇编器 | 只包含编译器为你编写的代码翻译的机器语言代码，需要与其他目标文件链接合并为可执行目标文件 |
     | 可执行目标文件 | 链接器 | 包含你编写的程序中使用的库函数和启动代码的机器代码，能够被操作系统正确运行 |
     | 共享目标文件 | 编译器或汇编器 | 给其他程序用的代码，可以在程序加载或运行时链接 |
+<!-- prettier-ignore-end -->
 
 `hello.o` 中包含了 `hello.c` 中的 C 语言代码翻译成的**二进制代码以及一些数据**，比如字符串 `Hello, world.\n`。如果使用文本编辑器打开 `hello.o`，你会看见一堆乱码，其中夹杂着一些字符。因为字符在源文件和内存中都是用 ASCII 编码的，所以 ASCII 字符仍能被文本编辑器识别，但其他的机器指令和数据只会被解读为乱码。
 
@@ -720,8 +762,9 @@ exec: Failed to execute process: './hello.o' the file could not be run by the op
 
 它还缺少一些东西，如：
 
-- 启动代码：启动程序时，操作系统会将控制权交给程序的入口点，但这个入口点不是 `main` 函数，而是一些启动代码。启动代码在执行 `main` 前进行一些初始化工作，并在退出 `main` 后做一些扫尾工作。
+-   启动代码：启动程序时，操作系统会将控制权交给程序的入口点，但这个入口点不是 `main` 函数，而是一些启动代码。启动代码在执行 `main` 前进行一些初始化工作，并在退出 `main` 后做一些扫尾工作。
 
+<!-- prettier-ignore-start -->
 ???+ note "一个不带启动代码的例子"
 
     Linux 程序的入口点一般是 `_start`，它完成一些内存初始化的工作，然后跳转到 `main` 函数。我们在链接阶段不带上含有启动代码的目标文件，看看在缺少 `_start` 的情况下会发生什么。
@@ -760,8 +803,9 @@ exec: Failed to execute process: './hello.o' the file could not be run by the op
     ```bash
     ld crt1.o crti.o [user_objects] [system_libraries] crtn.o
     ```
+<!-- prettier-ignore-end -->
 
-- 库函数：几乎所有 C 程序都会用到标准库中的函数，比如 `printf`。标准库中的代码已经被预编译成目标文件，附在编译器的安装目录下。
+-   库函数：几乎所有 C 程序都会用到标准库中的函数，比如 `printf`。标准库中的代码已经被预编译成目标文件，附在编译器的安装目录下。
 
 在接下来的链接步骤，我们将这些目标文件链接到我们的程序中，生成可以执行的程序。
 
@@ -769,6 +813,7 @@ exec: Failed to execute process: './hello.o' the file could not be run by the op
 
 链接有两种类型：静态链接和动态链接。
 
+<!-- prettier-ignore-start -->
 ???+ note "静态链接"
 
     如果你的程序与静态库链接，那么链接器会将静态库中的代码复制到你的程序中。这样，你的程序就不再依赖静态库了，可以在任何地方运行。但是，如果静态库中的代码发生了变化，你的程序并不会自动更新，你需要重新编译你的程序。
@@ -782,12 +827,14 @@ exec: Failed to execute process: './hello.o' the file could not be run by the op
     与静态链接相比，动态链接使程序文件更小，因为一个动态库可以被多个程序共享，节省磁盘空间。部分操作系统还允许动态库代码在内存中的共享，还能够节省内存。动态库升级时，也不需要重写编译你的程序。
 
     在 Linux 系统上，动态库的文件名以 `.so` 结尾，比如 `libm.so`。在 Window 上，动态库的文件名以 `.dll` 结尾，比如 `libm.dll`。
+<!-- prettier-ignore-end -->
 
 动态链接具有上面描述的优点，因此 GCC 尽可能地执行动态链接。
 
 链接相关的问题可能出现在链接时（静态链接）、程序运行前和运行中（动态链接）。下面时一些常见的问题。
 
-::cards::
+<!-- prettier-ignore-start -->
+::cards:: 
 
 [
   {
@@ -808,6 +855,7 @@ exec: Failed to execute process: './hello.o' the file could not be run by the op
 ]
 
 ::/cards::
+<!-- prettier-ignore-end -->
 
 下面这行命令在我的系统上完成了 `hello` 程序的正确链接，不一定能在你的系统上运行。你可以尝试查找库文件的路径，让它成功运行。
 
@@ -858,8 +906,8 @@ Program Headers:
 
 进行静态链接时需要注意命令行中文件的顺序。
 
-- 如果是目标文件，链接器将记录其中的符号定义和引用。
-- 如果是库文件，链接器将尝试匹配前面记录的未解析的符号定义和引用。解析完成后，该库中没有被使用的符号将被丢弃。
+-   如果是目标文件，链接器将记录其中的符号定义和引用。
+-   如果是库文件，链接器将尝试匹配前面记录的未解析的符号定义和引用。解析完成后，该库中没有被使用的符号将被丢弃。
 
 看看下面的命令行发生了什么？
 
@@ -875,9 +923,11 @@ main2.c:(.text+0x1a): undefined reference to `vector_add'
 
 ## 程序调试技术
 
+<!-- prettier-ignore-start -->
 ???+ info "杂谈：Bug 的典故"
 
     编程是一件复杂的工作，因为是人做的事情，所以难免经常出错。据说有这样一个典故：早期的计算机体积都很大，有一次一台计算机不能正常工作，工程师们找了半天原因最后发现是一只臭虫钻进计算机中造成的。从此以后，程序中的错误被叫做臭虫（Bug），而找到这些Bug并加以纠正的过程就叫做调试（Debug）。有时候调试是一件非常复杂的工作，要求程序员概念明确、逻辑清晰、性格沉稳，还需要一点运气。
+<!-- prettier-ignore-end -->
 
 ### Bug 的类型
 
@@ -897,8 +947,9 @@ main2.c:(.text+0x1a): undefined reference to `vector_add'
 
 通过本节你将掌握的最重要的技巧就是调试。调试的过程可能会让你感到一些沮丧，但**调试也是编程中最需要动脑的、最有挑战和乐趣的部分**。从某种角度看调试就像侦探工作，根据掌握的线索来推断是什么原因和过程导致了你所看到的结果。调试也像是一门实验科学，每次想到哪里可能有错，就修改程序然后再试一次。如果假设是对的，就能得到预期的正确结果，就可以接着调试下一个 Bug，一步一步逼近正确的程序；如果假设错误，只好另外再找思路再做假设。“当你把不可能的全部剔除，剩下的——即使看起来再怎么不可能——就一定是事实。”（即使你没看过福尔摩斯也该看过柯南吧）。
 
-也有一种观点认为，编程和调试是一回事，编程的过程就是逐步调试直到获得期望的结果为止。你应该总是从一个能正确运行的小规模程序开始，每做一步小的改动就立刻进行调试，这样的好处是总有一个正确的程序做参考：如果正确就继续编程，如果不正确，那么一定是刚才的小改动出了问题。例如，Linux 操作系统包含了成千上万行代码，但它也不是一开始就规划好了内存管理、设备管理、文件系统、网络等等大的模块，一开始它仅仅是 Linus Torvalds 用来琢磨 Intel 80386 芯片而写的小程序。据 Larry Greenfield 说，“Linus 的早期工程之一是编写一个交替打印 AAAA 和 BBBB 的程序，这玩意儿后来进化成了 Linux。”（引自 *The Linux User's Guide Beta1* 版）在后续的课程中会给出更多关于调试和编程实践的建议。
+也有一种观点认为，编程和调试是一回事，编程的过程就是逐步调试直到获得期望的结果为止。你应该总是从一个能正确运行的小规模程序开始，每做一步小的改动就立刻进行调试，这样的好处是总有一个正确的程序做参考：如果正确就继续编程，如果不正确，那么一定是刚才的小改动出了问题。例如，Linux 操作系统包含了成千上万行代码，但它也不是一开始就规划好了内存管理、设备管理、文件系统、网络等等大的模块，一开始它仅仅是 Linus Torvalds 用来琢磨 Intel 80386 芯片而写的小程序。据 Larry Greenfield 说，“Linus 的早期工程之一是编写一个交替打印 AAAA 和 BBBB 的程序，这玩意儿后来进化成了 Linux。”（引自 _The Linux User's Guide Beta1_ 版）在后续的课程中会给出更多关于调试和编程实践的建议。
 
+<!-- prettier-ignore-start -->
 ???+ note "杂谈：为什么很多同学感觉调试的过程十分煎熬？"
 
     或许你也会在后续的学习中亲身体会或看到，同学们被程序的 Bug（最典型的是段错误）折磨得焦头烂额。这可能有以下原因：
@@ -906,6 +957,7 @@ main2.c:(.text+0x1a): undefined reference to `vector_add'
     - C 语言基础知识不牢：编译都过不了，不开 `-Wall` 和 `-Werror`，编译出来的程序中有很多坑，比如隐式类型转换。
     - 没有事先想好程序的逻辑：建议在动手写代码前，先想好自己程序的逻辑和步骤。边写边想的后果大概率是代码写得一坨（除非你非常熟练）。
     - 不了解基本的调试技术，不会使用调试工具：本节课我们将为大家解决这个问题。
+<!-- prettier-ignore-end -->
 
 ### `fprintf(stderr)` 是你最好的朋友
 
@@ -939,7 +991,7 @@ fprintf fish: Job 1, './debug' terminated by signal SIGABRT (Abort)
 此外，将错误信息导向标准错误流还有另一个好处，就是你可以分别收集调试信息和正常输出。比如你可以将调试信息重定向到一个文件，而将正常输出重定向到另一个文件。
 
 ```text
-./debug 2> debug.log 1> output.log
+$ ./debug 2> debug.log 1> output.log
 ```
 
 ### 使用 gdb 调试程序
@@ -994,23 +1046,23 @@ Reading symbols from ./hello...
 
 命令行的提示符从 `$` 变成了 `(gdb)`，这意味着你已经进入了 `gdb` 的交互界面。`gdb` 中常用的命令如下：
 
-- `file <filename>`：加载可执行文件。
-- `r` 或 `run [args]`：运行程序。`[args]` 是可选的命令行参数。
-- `b` 或 `break <line>`：在指定行设置断点。
-- `b` 或 `break <function>`：在指定函数设置断点。
-- `b` 或 `break *<address>`：在指定地址设置断点。
-- `info breakpoints`：查看断点信息。
-- `delete breakpoints <number>`：删除指定编号的断点。
-- `continue`：继续执行程序。
-- `next`：执行下一行。
-- `step`：执行下一行，如果遇到函数调用，进入函数内部。
-- `print <variable>`：打印变量的值。
-- `print <expression>`：打印表达式的值。
-- `watch <expression>`：监视表达式的值，当值发生变化时，程序会停下来。
-- `backtrace`：查看函数调用栈。
-- `finish`：执行完当前函数后停下来。
-- `q` 或 `quit`：退出 `gdb`。
-- `help`：查看帮助信息。
+-   `file <filename>`：加载可执行文件。
+-   `r` 或 `run [args]`：运行程序。`[args]` 是可选的命令行参数。
+-   `b` 或 `break <line>`：在指定行设置断点。
+-   `b` 或 `break <function>`：在指定函数设置断点。
+-   `b` 或 `break *<address>`：在指定地址设置断点。
+-   `info breakpoints`：查看断点信息。
+-   `delete breakpoints <number>`：删除指定编号的断点。
+-   `continue`：继续执行程序。
+-   `next`：执行下一行。
+-   `step`：执行下一行，如果遇到函数调用，进入函数内部。
+-   `print <variable>`：打印变量的值。
+-   `print <expression>`：打印表达式的值。
+-   `watch <expression>`：监视表达式的值，当值发生变化时，程序会停下来。
+-   `backtrace`：查看函数调用栈。
+-   `finish`：执行完当前函数后停下来。
+-   `q` 或 `quit`：退出 `gdb`。
+-   `help`：查看帮助信息。
 
 #### 检查程序情况
 
@@ -1107,18 +1159,23 @@ Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
 $5 = 23
 ```
 
+<!-- prettier-ignore-start -->
 ???+ tip "调试技巧"
 
     直接按 ++enter++ 键，`gdb` 会重复上一条命令。这样就不用一直输入 `next` 或 `step` 了。
+<!-- prettier-ignore-end -->
 
 在一些更为复杂的程序中，使用 `gdb` 调试的优越性就逐渐显现出来了。你不用频繁更改源代码插入 `printf` 语句，只需要在 `gdb` 中设置断点，然后逐步执行程序，查看变量的值，就能找到错误所在。
 
+<!-- prettier-ignore-start -->
 !!! note "进一步学习"
 
     由于个人水平不足以及时间有限，没能写出一个体验较好的 GDB 调试实验。十分希望同学们在课后去看看这篇文章[Linux C 一站式编程：第 10 章 gdb](https://www.kancloud.cn/wizardforcel/linux-c-book/134935)，把这边的调试实例都过一遍～
+<!-- prettier-ignore-end -->
 
 ## 参考资料
 
+<!-- prettier-ignore-start -->
 ???+ info "参考资料"
 
     - [GCC and Make - A Tutorial on how to compile, link and build C/C++ applications](https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html)
@@ -1127,4 +1184,4 @@ $5 = 23
     - [What Is /lib64/ld-linux-x86-64.so.2?](https://www.baeldung.com/linux/dynamic-linker)
     - [GDB Tutorial: A Walkthrough with Examples](https://www.cs.umd.edu/~srhuang/teaching/cmsc212/gdb-tutorial-handout.pdf)
     - [看云：Linux C 一站式学习](https://www.kancloud.cn/wizardforcel/linux-c-book/intro.naturalformal.html)
-
+<!-- prettier-ignore-end -->
