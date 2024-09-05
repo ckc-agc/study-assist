@@ -4,7 +4,6 @@
 
 ## 基本数据类型、运算符、表达式和语句
 
-<!-- prettier-ignore-start -->
 ??? question "有布尔类型吗？"
 
     > Author：朱宝林
@@ -42,8 +41,6 @@
       // a 和 b 相等
     }
     ```
-
-<!-- prettier-ignore-end -->
 
 ## 数组、字符串
 

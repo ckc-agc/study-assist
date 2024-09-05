@@ -1,6 +1,5 @@
 # 课前：准备开发与调试环境
 
-<!-- prettier-ignore-start -->
 !!! info
 
     本文档更改自周健均学长为图灵程算课程准备的[资料](https://zhoutimemachine.github.io/2023_FPA/)，感谢周健均学长的付出。
@@ -23,7 +22,7 @@
 下面的块以 Online GDB 为例，展示在线 IDE 的用法。配好环境的同学也可以看一看，因为你可能偶尔临时用到一个没有配置环境的电脑，这时使用在线 IDE 最为便捷。
 
 !!! note "Online GDB 的使用"
-    
+
     - 打开这个网址：[www.onlinegdb.com](https://www.onlinegdb.com/)。
     - 它已经为你写好 C 语言的 Hello World 程序源码。
     - 在右上角选择 C 语言，然后点击左上角的 `Run`。
@@ -46,7 +45,6 @@
 
     - 点击页面中的图片可以放大查看。
     - 如果安装过程遇到困难，可以在辅学群提问，或私戳授课学长～
-<!-- prettier-ignore-end -->
 
 ## Shell 使用拾遗
 
@@ -57,7 +55,6 @@
 - Prompt 提示符：Shell 会给你一个提示符，告诉你它已经准备好接收你的命令了。在 Linux 中，提示符一般是 `$`。下面的图中，`bowling` 那一块就是提示符（我做了一些美化）。
 - Command Line Interface 命令行交互界面：当我们使用文本命令与计算机交互时，我们就在使用 CLI。这与我们日常生活中使用鼠标的图形交互界面（Graphical User Interface，GUI）不同。
 
-<!-- prettier-ignore-start -->
 ::cards:: cols=3
 
 [
@@ -80,9 +77,7 @@
 ]
 
 ::/cards::
-<!-- prettier-ignore-end -->
 
-<!-- prettier-ignore-start -->
 !!! tip "杂谈：为什么要使用命令行交互界面呢？"
 
     很简单，因为我们不仅是在使用计算机，而且是在**学习计算机**。GUI 自然是最适合与人交互的，但它也是由 CLI 搭建起来的。比如，你可能在使用 Dev-C++ 或 Visual Studio 等 IDE 进行编程，只需要点一下按钮就能自动完成程序编译步骤。这固然方便，但是它本质上是帮你写好并执行了一系列编译命令，帮你完成了命令行的操作。**当你开始构建大型项目时，这当然是最适合的方法。但作为初学者，我们应当趁此机会了解其背后的原理。**
@@ -94,13 +89,11 @@
     -  可远程：你可以通过网络连接到远程计算机，使用命令行与其交互。
 
     最主要的是，你今后会用到的很多工具不一定会提供图形界面，但一定会提供命令行界面。学习 CLI 一开始确实有些难度，但只要学了，就会受益无穷。
-<!-- prettier-ignore-end -->
 
 ### 运行与终端
 
 在 Windows 上如何打开 Terminal 呢？
 
-<!-- prettier-ignore-start -->
 ::cards:: cols=2
 
 [
@@ -127,7 +120,6 @@
 ]
 
 ::/cards::
-<!-- prettier-ignore-end -->
 
 在比较新版本的 Windows 中，Win 键打开菜单之后输入字符能够搜索到对应程序，除了常用的应用程序以外，启动 `cmd.exe` 也可以这样进行，效果和 Win + R 相同。
 
@@ -167,12 +159,10 @@ wsl --install
 
 这样就完成了 WSL2 Ubuntu 的安装。
 
-<!-- prettier-ignore-start -->
 !!! failure "错误：0x80370114"
 
     - 首先检查自己是否为 Windows 10 或者 Windows 11 家庭版。这两个版本可能缺失 Hyper-V 服务（WSL 背后的虚拟化支持技术）。请按照[知乎：如何在 Windows 11 Home 中启用 Hyper-V](https://zhuanlan.zhihu.com/p/558063980)这篇文章的方法启用 Hyper-V。
-    - 如果仍无法解决，再按照[知乎：win10使用wsl2安装ubuntu遇到0x80370114问题的解决方法](https://zhuanlan.zhihu.com/p/361310073)这篇文章重新启动虚拟机平台。
-<!-- prettier-ignore-end -->
+    - 如果仍无法解决，再按照[知乎：win10 使用 wsl2 安装 ubuntu 遇到 0x80370114 问题的解决方法](https://zhuanlan.zhihu.com/p/361310073)这篇文章重新启动虚拟机平台。
 
 使用终端的一大好处是方便打开 WSL。如下图所示，点击 Ubuntu 22.04.2 LTS 或者使用 Ctrl + Shift + 5 组合键就可以方便地打开 Ubuntu 22.04。当然这是因为我安装的是 `Ubuntu 22.04` 的缘故，在你们的电脑中显示的应该就是 `Ubuntu`。
 
@@ -190,7 +180,7 @@ wsl --install
 
 写完了 C 语言代码，我们需要让它变成能跑的程序，这就需要准备 C 语言的编译器支持。以下主要介绍 Windows 系统的配置。
 
-### 就决定是你了，gcc！
+### 就决定是你了，gcc
 
 > 自由软件 (free software)，根据自由软件基金会对其的定义，是一类可以不受限制地自由使用、复制、研究、修改和分发的，尊重用户自由的软件。——维基百科
 
@@ -206,7 +196,6 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
 
 需要判断自己的 Windows 是 64 位系统还是 32 位系统（现在一般都是 64 位系统）。
 
-<!-- prettier-ignore-start -->
 !!! note ""
 
     === "Windows 11"
@@ -230,9 +219,6 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
         <div style="text-align:center;">
             <img src="../graph/win10_x64.png" alt="win10_x64" style="margin: 0 auto; zoom: 60%;"/>
         </div>
-
-<!-- prettier-ignore-end -->
-
 
 64 位系统直接下载 tdm64-gcc-10.3.0-2.exe 安装即可，32 位则选择 tdm-gcc-10.3.0.exe。
 
@@ -268,7 +254,6 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
 
 ### 测试 gcc 是否正确安装
 
-<!-- prettier-ignore-start -->
 !!! note ""
 
     === "Windows"
@@ -328,19 +313,17 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
 
         gcc 和 clang 都是 C 语言编译器，只是特性上存在差异。在作业和实验中，一个好的遵从标准的 C 代码，由不同的编译器编译后不应当产生不同的运行结果。因此如果你使用 clang 编译 C 代码运行不符合预期，代码出问题的概率比 clang 特性出问题的概率大很多。
 
-<!-- prettier-ignore-end -->
-
 ### Windows 修改环境变量
 
 > Windows 用户环境变量配置出现问题了才需要看这一小节
 
-检查一下环境变量，Win + R 键输入 `sysdm.cpl` 后回车，会出现 “系统属性” 界面，选择 “高级”，如下图所示：
+检查一下环境变量，Win + R 键输入 `sysdm.cpl` 后回车，会出现“系统属性”界面，选择“高级”，如下图所示：
 
 <div style="text-align:center;">
 <img src="../graph/env_var.png" alt="env_var" style="margin: 0 auto; zoom: 80%;"/>
 </div>
 
-打开环境变量，在 “系统变量” 或者 “用户变量” 中找到 PATH 变量，在其中增加一项 tdm-gcc 的路径。例如你如果默认安装 tdm-gcc，那么路径可能就是 `C:\TDM-GCC-64\bin`。
+打开环境变量，在“系统变量”或者“用户变量”中找到 PATH 变量，在其中增加一项 tdm-gcc 的路径。例如你如果默认安装 tdm-gcc，那么路径可能就是 `C:\TDM-GCC-64\bin`。
 
 ## VSCode 安装与配置
 
@@ -354,7 +337,6 @@ gcc，全称 GNU Compiler Collection，著名的自由软件，被许多现代�
 
 VSCode 直接从[官网](https://code.visualstudio.com/)选择自己平台对应的安装包下载就行
 
-<!-- prettier-ignore-start -->
 !!! note ""
 
     === "Windows"
@@ -362,7 +344,7 @@ VSCode 直接从[官网](https://code.visualstudio.com/)选择自己平台对应
     
         - 安装目录
             - 推荐默认 C 盘，可能运行速度更快，也可以避免一些权限问题
-        - 将 “通过 Code 打开” 操作添加到 Windows 资源管理器文件/目录上下文菜单
+        - 将“通过 Code 打开”操作添加到 Windows 资源管理器文件/目录上下文菜单
             - 选中该项后，选中文件或者文件夹，右键菜单中会出现 `通过 Code 打开` 的选项
             - 如果希望右键菜单不那么臃肿的话可以不选这一项
             - 本人没有选择该选项，可以自行思考选择
@@ -378,8 +360,6 @@ VSCode 直接从[官网](https://code.visualstudio.com/)选择自己平台对应
             - 打开 VSCode 界面
             - 使用 Shift + Command + P 打开命令面板
             - 输入 `shell command`，选择 `Shell Command: Install ‘code’ command in PATH` 回车执行
-
-<!-- prettier-ignore-end -->
 
 ### 插件安装
 
@@ -409,7 +389,7 @@ VSCode 直接从[官网](https://code.visualstudio.com/)选择自己平台对应
     <img src="../graph/config_language.png" alt="config_language" style="margin: 0 auto; zoom: 50%;"/>
 </div>
 
-随后再选择“中文(简体)”就可以完成界面汉化了。
+随后再选择“中文 (简体)”就可以完成界面汉化了。
 
 <div style="text-align:center;">
     <img src="../graph/chinese_english.png" alt="chinese_english" style="margin: 0 auto; zoom: 50%;"/>
@@ -442,6 +422,7 @@ VSCode 直接从[官网](https://code.visualstudio.com/)选择自己平台对应
 </div>
 
 创建 `test.c`，输入 Hello World 的代码并**保存文件**。然后在终端输入以下命令并执行：
+
 ```
 gcc test.c
 ```
@@ -478,12 +459,15 @@ gcc test.c
     - 工作目录 `编程`
     - 工作目录叫 `Coding`，但是绝对路径是 `D:/学习资料/Coding`
 - 可以指定编译生成的文件名，比如你想要输出文件名为 `hello.exe`，就可以执行
+
 ```
 gcc test.c -o hello.exe
 ```
+
 - 更多的 gcc 选项和 VSCode 扩展功能留待你们探索
 
 ### VSCode + WSL（可选）
+>
 > 前面选择安装了 WSL 的使用 Windows 主力机的同学可以参考一下，非常有用的功能
 
 以下引导主要按照 [Microsoft 的官方文档](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode)，也可以参考其[中文版](https://learn.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-vscode)。
@@ -518,6 +502,7 @@ gcc test.c -o hello.exe
 #### 从 WSL 启动 VSCode
 
 **确保你已经将 VSCode 添加到 PATH 环境变量中**。如果已经添加，那么直接在 WSL 的命令行中你所希望作为工作目录的位置执行
+
 ```
 code .
 ```

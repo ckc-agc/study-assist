@@ -53,7 +53,6 @@ W 代表适配吴志祥班，T 代表适配谈之奕班，H 代表合班上课�
 
 ## 课程讲义
 
-<!-- prettier-ignore-start -->
 === "讲义（v0.3）"
 
     <embed src="./LALU_v0.3.pdf" style="width:100%; height:80vh;" type="application/pdf">     
@@ -62,7 +61,6 @@ W 代表适配吴志祥班，T 代表适配谈之奕班，H 代表合班上课�
     
     <embed src="./LALU_v0.3_answer.pdf" style="width:100%; height:80vh;" type="application/pdf"> 
 
-<!-- prettier-ignore-end -->
 
 LALU 课程的讲义存放在下面的仓库中，你可以**点击图片**跳转到仓库页面。欢迎提出 issue 和 pull request。
 

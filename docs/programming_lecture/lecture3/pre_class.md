@@ -19,9 +19,9 @@
     ```
 
     ```bash
-    $ echo_eof < echo_eof.c
-    $ echo_eof < echo_eof.c > echo_eof.txt
-    $ echo_eof < echo_eof.c | cat
+    echo_eof < echo_eof.c
+    echo_eof < echo_eof.c > echo_eof.txt
+    echo_eof < echo_eof.c | cat
     ```
 
 2. 关于*格式化字符串*
@@ -32,14 +32,14 @@
     int main()
     {
         // 类型
-        printf("%5d\n", 1000);  // 默认右对齐,左边补空格
-        printf("%-5d\n", 1000); // 左对齐,右边补空格
+        printf("%5d\n", 1000);  // 默认右对齐，左边补空格
+        printf("%-5d\n", 1000); // 左对齐，右边补空格
         printf("%+d %+d\n", 1000, -1000); // 输出正负号
         printf("% d % d\n", 1000, -1000); // 正号用空格替代，负号输出
-        printf("%x %#x\n", 1000, 1000); // 输出0x
+        printf("%x %#x\n", 1000, 1000); // 输出 0x
         printf("%.0f %#.0f\n", 1000.0, 1000.0); // 当小数点后不输出值时依然输出小数点
-        printf("%g %#g\n", 1000.0, 1000.0); // 保留小数点后后的0
-        printf("%05d\n", 1000); // 前面补0
+        printf("%g %#g\n", 1000.0, 1000.0); // 保留小数点后后的 0
+        printf("%05d\n", 1000); // 前面补 0
 
         // 宽度
         double a = 3.141592653589;
@@ -47,19 +47,19 @@
         printf("%.*f", x, a);
 
         // 精度
-        printf("%.8d\n", 1000);           // 不足指定宽度补前导0，效果等同于%06d
+        printf("%.8d\n", 1000);           // 不足指定宽度补前导 0，效果等同于%06d
         printf("%.8f\n", 1000.123456789); // 超过精度，截断
-        printf("%.8f\n", 1000.123456);    // 不足精度，补后置0
-        printf("%.8g\n", 1000.123456);    // 最大有效数字为8位
+        printf("%.8f\n", 1000.123456);    // 不足精度，补后置 0
+        printf("%.8g\n", 1000.123456);    // 最大有效数字为 8 位
         printf("%.8s\n", "abcdefghij");   // 超过指定长度截断
 
         // 类型长度
-        printf("%hhd\n", 'A');               // 输出有符号char
-        printf("%hhu\n", 'A' + 128);         // 输出无符号char
-        printf("%hd\n", 32767);              // 输出有符号短整型short int
-        printf("%hu\n", 65535);              // 输出无符号短整型unsigned short int
-        printf("%ld\n", 0x7fffffffffffffff); // 输出有符号长整型long int
-        printf("%lu\n", 0xffffffffffffffff); // 输出有符号长整型unsigned long int
+        printf("%hhd\n", 'A');               // 输出有符号 char
+        printf("%hhu\n", 'A' + 128);         // 输出无符号 char
+        printf("%hd\n", 32767);              // 输出有符号短整型 short int
+        printf("%hu\n", 65535);              // 输出无符号短整型 unsigned short int
+        printf("%ld\n", 0x7fffffffffffffff); // 输出有符号长整型 long int
+        printf("%lu\n", 0xffffffffffffffff); // 输出有符号长整型 unsigned long int
     }
 
     ```
@@ -88,7 +88,7 @@
     }
     ```
 
-    该程序的输出结果为(**由于实现是未定义的，部分结果因系统和编译器而异**)：
+    该程序的输出结果为 (**由于实现是未定义的，部分结果因系统和编译器而异**)：
 
     ```bash
     num as short and unsigned short:  336 336
@@ -145,9 +145,9 @@
     ```
 
     ```bash
-    $ file c_file.c
-    $ file c_file.o
-    $ file c_file
-    $ objdump -h -s -d c_file.o
-    $ objdump -h -s c_file
+    file c_file.c
+    file c_file.o
+    file c_file
+    objdump -h -s -d c_file.o
+    objdump -h -s c_file
     ```
