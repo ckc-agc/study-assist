@@ -9,9 +9,9 @@
 <link href="../pre_class/" rel="prev"/>
 <link href="../../lecture2/pre_class/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.26" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.34" name="generator"/>
 <title>讲义：程序编译过程与调试技术 - 浙江大学竺可桢学院辅学计划站点</title>
-<link href="../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.35f28582.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -19,7 +19,7 @@
 <link href="../../../css/heti.css" rel="stylesheet"/>
 <link href="../../../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
 <link href="../../../stylesheets/custom.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
@@ -47,7 +47,7 @@
 <img alt="logo" src="../../../graph/ckc.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
 </label>
 <div class="md-header__title" data-md-component="header-title">
 <div class="md-header__ellipsis">
@@ -68,16 +68,16 @@
 <form class="md-header__option" data-md-component="palette">
 <input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
 </label>
 <input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
 </label>
 </form>
-<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
 </label>
 <div class="md-search" data-md-component="search" role="dialog">
 <label class="md-search__overlay" for="__search"></label>
@@ -85,12 +85,12 @@
 <form class="md-search__form" name="search">
 <input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
 <label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </label>
 <nav aria-label="Search" class="md-search__options">
 <button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
 </button>
 </nav>
 </form>
@@ -109,7 +109,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </div>
 <div class="md-source__repository">
     浙江大学竺可桢学院辅学计划站点
@@ -250,7 +250,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </div>
 <div class="md-source__repository">
     浙江大学竺可桢学院辅学计划站点
@@ -784,7 +784,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming_lecture/lecture1/lecture1.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
 </a>
 <h1 id="_1">讲义：程序编译过程与调试技术<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <style>
@@ -792,7 +792,6 @@
       white-space : pre-wrap !important;
     }
 </style>
-<!-- prettier-ignore-start -->
 <details class="info" open="open">
 <summary>直播回放</summary>
 <p><a href="https://www.bilibili.com/video/BV1Pu411T7GT/">Bilibili</a></p>
@@ -811,7 +810,6 @@
 <p>作为在线讲义，我会尽量写得详细一些，为同学们提供复习和进一步扩展的指引。因为时间有限，在课上我无法覆盖讲义中所有的内容。同学们可以根据自己的习惯选择在课前课后浏览本讲义～</p>
 <p>本次课的核心内容从「程序的编译过程」开始。前面的内容作为预备知识，在课上将会快速带过。</p>
 </details>
-<!-- prettier-ignore-end -->
 <h2 id="_2">课程导言<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>Hi，欢迎各位同学来到竺院程设辅学「系统知识拾遗」的第一节课。</p>
 <p>在前几周的程序设计课程中，老师们应该已经为同学们讲解了<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的基础语法等知识。但是同学们或许会有下面这些疑问：</p>
@@ -825,12 +823,11 @@
 <p>首先，我们来了解一下我们学习的对象——计算机的基本知识。它是如何工作的？我们如何与它交流？</p>
 <h3 id="_4">计算机能做什么？<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <p>现代计算机由多种部件构成，比如中央处理单元（Central Processing Unit，CPU<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、随机存取内存（Random Access Memory，RAM<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、硬盘（Hard Disk）等。其中<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>负责处理程序。</p>
-<!-- prettier-ignore-start -->
 <div class="nt-cards nt-grid cols-2">
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/risc_cpu.png"><img src="../graph/risc_cpu.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/risc_cpu.png"><img alt="RISC CPU" src="../graph/risc_cpu.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">RISC CPU</p>
 <p class="nt-card-text">这是一个非常简单的<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>的电路，它能够执行你用<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>编写的机器指令。</p>
@@ -841,7 +838,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/cpu.png"><img src="../graph/cpu.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/cpu.png"><img alt="CPU 基本结构" src="../graph/cpu.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title"><span>CPU<span class="heti-spacing"> </span></span>基本结构</p>
 <p class="nt-card-text"><span>CPU<span class="heti-spacing"> </span></span>主要由控制单元、算术逻辑单元和寄存器组成。控制单元中有程序计数器和指令寄存器。</p>
@@ -850,7 +847,6 @@
 </div>
 </div>
 </div>
-<!-- prettier-ignore-end -->
 <ul>
 <li><span>CPU<span class="heti-spacing"> </span></span>能读懂什么？</li>
 </ul>
@@ -864,12 +860,11 @@
 <p><span>CPU<span class="heti-spacing"> </span></span>还有自己的小工作区——由若干寄存器（Register）组成的寄存器组。每个寄存器能存储一个数字。</p>
 <h3 id="_5">从机器语言、汇编语言到高级语言<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>现代计算机的结构与<span class="heti-skip"><span class="heti-spacing"> </span>70<span class="heti-spacing"> </span></span>年前并没有本质上的不同，但是程序设计语言取得了很大的发展，产生了汇编语言和高级语言。我们仍然不能直接对<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>说：为我计算<span><span class="heti-spacing"> </span><span class="arithmatex">\(1 + 1\)</span></span>，但我们可以用高级语言简洁的表达它，让<strong>编译器（compiler）和汇编器（assembler）</strong>将其翻译成 <code>0101</code> 的机器语言。下图展示了程序设计语言的发展历史，编译过程其实就是这一历史的反向。</p>
-<!-- prettier-ignore-start -->
 <div class="nt-cards nt-grid cols-3">
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/machine_code.png"><img src="../graph/machine_code.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/machine_code.png"><img alt="机器语言 &lt;br&gt; Machine Code" src="../graph/machine_code.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">机器语言 <br/> Machine Code</p>
 <p class="nt-card-text">这是<strong>第一代编程语言</strong>，也是计算机唯一能识别的语言。上图展示了世界上第一个计算机程序，它用来找出一个数最大的因数。</p>
@@ -880,7 +875,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/assembly.png"><img src="../graph/assembly.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/assembly.png"><img alt="汇编语言 &lt;br&gt; Assembly Language" src="../graph/assembly.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">汇编语言 <br/> Assembly Language</p>
 <p class="nt-card-text">这是<strong>第二代编程语言</strong>，其实就是机器语言的助记符。它使得程序员不用再直接与<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>打交道，程序的可读性也更强了。上图显示了将两个整数相加的汇编代码。</p>
@@ -891,7 +886,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/high_level_language.png"><img src="../graph/high_level_language.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/high_level_language.png"><img alt="高级语言 &lt;br&gt; High-level Language" src="../graph/high_level_language.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">高级语言 <br/> High-level Language</p>
 <p class="nt-card-text">这是<strong>第三代编程语言</strong>，它让程序员们不用再关注计算机结构上的细节，而是将注意力转移到要解决的问题上来。</p>
@@ -900,9 +895,7 @@
 </div>
 </div>
 </div>
-<!-- prettier-ignore-end -->
 <p>下面三行代码分别是用<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言、汇编语言和机器语言（十六进制）描述的同一件事：</p>
-<!-- prettier-ignore-start -->
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">简单的例子</label><label for="__tabbed_1_2">复杂的例子</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -932,8 +925,6 @@
 </div>
 </div>
 </div>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <details class="question" open="open">
 <summary>为什么需要高级语言？</summary>
 <ol>
@@ -941,19 +932,14 @@
 <li>机器语言和汇编语言都是与具体<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>相关的，程序员需要为不同的<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>编写不同的程序，<strong>可移植性差</strong>。使用高级语言，程序员只需要写一次程序，再使用编译器就能将其翻译成能在特定<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>的机器语言。</li>
 </ol>
 </details>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <details class="info" open="open">
 <summary>前瞻：第四代和第五代编程语言</summary>
 <p>编程语言仍在发展演化。目前已经有了第四代和第五代编程语言的概念。第三代的编程语言虽然是用语句编程而不直接用指令编程，但语句也分为输入、输出、基本运算、测试分支和循环等几种，和指令有直接的对应关系。而第四代以后的编程语言更多是描述要做什么（Declarative）而不描述具体一步一步怎么做（Imperative<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，具体一步一步怎么做完全由编译器或解释器决定，例如<span class="heti-skip"><span class="heti-spacing"> </span>SQL<span class="heti-spacing"> </span></span>语言（SQL，Structured Query Language，结构化查询语言）就是这样的例子。</p>
 </details>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <details class="info" open="open">
 <summary>对机器语言有兴趣？</summary>
 <p><a href="https://eng.libretexts.org/Bookshelves/Computer_Science/Programming_Languages/Introduction_To_MIPS_Assembly_Language_Programming_(Kann)/04%3A_Translating_Assembly_Language_into_Machine_Code">这里</a>提供了一些将汇编语言转换为<span class="heti-skip"><span class="heti-spacing"> </span>MIPS<span class="heti-spacing"> </span></span>指令集机器语言的基础例子，有兴趣可以了解一下。</p>
 </details>
-<!-- prettier-ignore-end -->
 <h2 id="_6">程序的基本语法结构<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>经过了<span class="heti-skip"><span class="heti-spacing"> </span>2-3<span class="heti-spacing"> </span></span>周课程的学习，相信同学们多少都写过了一些代码，对语言有了一些基本认识。本节将系统地梳理程序的语法和结构知识，帮助大家理清思路，为后续理解程序编译过程和调试技术作铺垫。</p>
 <h3 id="_7">写程序的目标是什么？<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
@@ -969,7 +955,6 @@
 <p>对于程序来说，有上面这几类指令就足够了。你曾用过的任何一个程序，不管它有多么复杂，都是由这几类指令组成的。<strong>程序是那么的复杂，而编写程序可以用的指令却只有这么简单的几种，这中间巨大的落差就要由程序员去填了，所以编写程序理应是一件相当复杂的工作。编写程序可以说就是这样一个过程：把复杂的任务分解成子任务，把子任务再分解成更简单的任务，层层分解，直到最后简单得可以用以上指令来完成。</strong></p>
 <h3 id="_8">词法和语法规则<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>词法（Lexical）和语法（Syntax）是编程语言的两个基本概念。词法规则定义了编程语言中的基本符号，语法规则定义了这些符号如何组成合法的表达式、语句和程序。</p>
-<!-- prettier-ignore-start -->
 <details class="note" open="open">
 <summary><span>C<span class="heti-spacing"> </span></span>的词法规则：贪心法</summary>
 <p>术语 <strong>token</strong> （符号）是语言的基本表意单元。字符组成符号。例子<span><span class="heti-spacing"> </span>:</span> <code>-&gt;</code>、<code>file</code> 都是符号。同一组字符序列在<strong>不同上下文</strong>中可能属于不同符号。</p>
@@ -1018,8 +1003,6 @@
 <li>等价于 <code>((a++)++) + b</code>。请思考一下，这个语句有效吗？</li>
 </ol>
 </details>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <details class="note" open="open">
 <summary>语法：标识符、表达式和语句</summary>
 <p>为了便于初学者理解，我们采用一套简化的语法规则：</p>
@@ -1086,11 +1069,9 @@
 <li><a href="https://zh.cppreference.com/w/c/language/statements"><span>CPPReference:<span class="heti-spacing"> </span></span>语句</a></li>
 </ul>
 </details>
-<!-- prettier-ignore-end -->
 <p>语法将在后续课程中作深入讲解（第<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>讲涉及类型相关的语法，第<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>讲涉及函数指针<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
 <h3 id="c">函数：<span>C<span class="heti-spacing"> </span></span>程序的基本模块<a class="headerlink" href="#c" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>「指令」是第一、二代编程语言的基本结构。<span>C<span class="heti-spacing"> </span></span>语言是面向过程的高级语言，它的基本模块是<strong>函数（Function）</strong>。</p>
-<!-- prettier-ignore-start -->
 <details class="note" open="open">
 <summary>关键概念：函数</summary>
 <p><strong>从外面看</strong>，函数就像一个黑盒子，只能看到函数的三大要素：</p>
@@ -1107,12 +1088,10 @@
 </code></pre></div>
 <p><strong>从里面看</strong>，函数是一组指令的集合，它们按照一定的顺序执行，完成某个特定的功能。</p>
 </details>
-<!-- prettier-ignore-end -->
 <p>当我们调用一个函数时，我们应当按照函数签名中的要求传入参数，并可以获得它的返回值。在函数签名的语境下，<code>void</code> 表示空，即不存在。下面的这个函数没有参数，也没有返回值。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">MyFunc</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 </code></pre></div>
 <p>因为我们比较关心函数返回值的类型，有时会把函数的返回值类型称为这个函数的“类型”，比如会说 <code>MyFunc</code> 这个函数是一个 <code>void</code> 函数。</p>
-<!-- prettier-ignore-start -->
 <details class="note" open="open">
 <summary>关于 <code>void</code></summary>
 <p>Q：<code>void</code> 到底有哪些含义？</p>
@@ -1126,7 +1105,6 @@
 <p>Q：所以 <code>void</code> 是一种类型吗？</p>
 <p>A：<span>C<span class="heti-spacing"> </span></span>标准从概念上将 <code>void</code> 作为一种类型。但是 <code>void</code> 类型的变量是不存在的，因为它没有大小，编译器也不允许你写下 <code>void a;</code>。这会引起一些困惑。</p>
 </details>
-<!-- prettier-ignore-end -->
 <p>函数有两个功能：</p>
 <ul>
 <li>返回值：函数调用本身就是一个表达式，它的值就是函数的返回值。</li>
@@ -1172,14 +1150,13 @@
 <p>没有返回值的函数也可以使用 <code>return</code> 语句，此时它没有返回值的作用，而是结束当前函数的执行并返回。例子：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">print_logarithm</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">"Positive numbers only, please.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
-<span class="w">        </span><span class="k">return</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"The log of x is %f"</span><span class="p">,</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">"Positive numbers only, please.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"The log of x is %f"</span><span class="p">,</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
-<!-- prettier-ignore-start -->
 <details class="info">
 <summary>其他建议</summary>
 <p>每个函数都应该设计得尽可能简单，简单的函数才容易维护。应遵循以下原则：</p>
@@ -1211,10 +1188,8 @@
 <p><span>C<span class="heti-spacing"> </span></span>语言是典型的编译型语言，源代码需要经过编译后才能运行，而编译阶段并不会执行程序。<span>Python<span class="heti-spacing"> </span></span>则是典型的解释型语言，逐句执行源代码，不需要产生可执行文件。</p>
 <p>这些描述的都是一种语言的典型用法。事实上<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言也开发出了相应的解释器，<span>Python<span class="heti-spacing"> </span></span>也开发出了相应的编译器。两种翻译方式各有优劣。</p>
 </details>
-<!-- prettier-ignore-end -->
 <h3 id="_9">现在你是编译器<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>接下来我们将化身<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编译器，解读一些代码。相信经过下面的训练，你对代码和程序执行的理解会更加深入。</p>
-<!-- prettier-ignore-start -->
 <details class="example" open="open">
 <summary>例子：语法树</summary>
 <div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%d:%d is %d minutes after 00:00</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">hour</span><span class="p">,</span><span class="w"> </span><span class="n">minute</span><span class="p">,</span><span class="w"> </span><span class="n">hour</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">minute</span><span class="p">);</span>
@@ -1228,23 +1203,22 @@
 <p>这涉及代码可读性问题。看看下面这段代码：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">distance</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y2</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="n">sqrt</span><span class="p">((</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">));</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sqrt</span><span class="p">((</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">));</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>这样写很简洁，但如果写错了呢？只知道是这一长串表达式有错，根本不知道错在哪，而且整个函数就一个语句，插<span class="heti-skip"><span class="heti-spacing"> </span>printf<span class="heti-spacing"> </span></span>都没地方插。所以用临时变量有它的好处，使程序更清晰，调试更方便，而且有时候可以避免不必要的计算，例如上面这一行表达式要把<span class="heti-skip"><span class="heti-spacing"> </span>(x2-x1)<span class="heti-spacing"> </span></span>计算两遍，如果算完<span class="heti-skip"><span class="heti-spacing"> </span>(x2-x1)<span class="heti-spacing"> </span></span>把结果存在一个临时变量<span class="heti-skip"><span class="heti-spacing"> </span>dx<span class="heti-spacing"> </span></span>里，就不需要再算第二遍了（虽然这些优化现代编译器都会替你自动完成<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。下面这个版本是可读性高的代码：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">distance</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y2</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x1</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y1</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">dsquared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dy</span><span class="p">;</span>
-<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">dsquared</span><span class="p">);</span>
+<span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x1</span><span class="p">;</span>
+<span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y1</span><span class="p">;</span>
+<span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dsquared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dy</span><span class="p">;</span>
+<span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">dsquared</span><span class="p">);</span>
 
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>码风不是死的，请同学们视情况切换码风。</p>
 </details>
-<!-- prettier-ignore-end -->
 <h2 id="lap">Lap：关于做题目<a class="headerlink" href="#lap" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>如果想做题的话，有基础的同学可以早点开始做<a href="../../../programming/#历年卷">历年卷</a>，了解一下程设考试都考些啥。</p>
 <p>简单提一些<span><span class="heti-spacing"> </span>Tips</span>：</p>
@@ -1252,7 +1226,6 @@
 <li>考试是全英文。如果平常不太看英文文档<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>没怎么学<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>英语很差的同学，至少你考前做历年卷的时候要把生词全部抄下来记一遍。</li>
 <li>一定一定一定要做历年卷。<strong>不要以为自己会写点代码就能应付考试了</strong>，其实考试和你写代码水平并不呈正相关。考试的题目都是很细节的，很多都是你平常不会注意到的，所以一定要做历年卷，做完了还要看看答案，看看自己哪里做错了，哪里没注意到。这里展示一个去年<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>小考试干碎一片人的选择题：</li>
 </ul>
-<!-- prettier-ignore-start -->
 <details class="example" open="open">
 <summary>干碎一片人的选择题</summary>
 <p>Suppose <code>T</code> is a type name and <code>t</code> is a variable of type <code>T</code>. Which of the following is <strong>NOT</strong> a valid expression?</p>
@@ -1277,9 +1250,7 @@
 </code></pre></div>
 </details>
 </details>
-<!-- prettier-ignore-end -->
 <p>如果你想的话，可以再来两道：</p>
-<!-- prettier-ignore-start -->
 <details class="example">
 <summary><span>C<span class="heti-spacing"> </span></span>大<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>年选择题</summary>
 <p><span>In the following notations, _____ can express a character constant(<span class="heti-spacing"> </span></span>字符常量<span><span class="heti-spacing"> </span>) correctly.</span></p>
@@ -1294,15 +1265,12 @@
 <p>B</p>
 </details>
 </details>
-<!-- prettier-ignore-end -->
 <h2 id="_10">程序的编译过程<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>接下来，我们将了解编译器和汇编器是如何一步步把你的程序编译成机器码的。我们以最经典的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编译系统<span class="heti-skip"><span class="heti-spacing"> </span>GCC<span class="heti-spacing"> </span></span>为例。</p>
-<!-- prettier-ignore-start -->
 <details class="note" open="open">
 <summary>什么是<span><span class="heti-spacing"> </span>GCC</span>？</summary>
 <p>简单地说，<span>GNU<span class="heti-spacing"> </span></span>项目旨在开发一个完全自由的操作系统以及配套的软件。<span>GCC<span class="heti-spacing"> </span></span>最早是<span class="heti-skip"><span class="heti-spacing"> </span>GNU C Compiler<span class="heti-spacing"> </span></span>的简称，现在<strong>代表<span><span class="heti-spacing"> </span>GNU Compiler Collection</span></strong>。这表明它不是单个程序，而是一系列编译工具的集合，包括了<span><span class="heti-spacing"> </span>C</span>、C++、Objective-C、Fortran、Ada、Go、<span>D<span class="heti-spacing"> </span></span>等语言的前端，以及汇编器、链接器等后端，和这些语言的库文件。</p>
 </details>
-<!-- prettier-ignore-end -->
 <p>当我们使用命令 <code>gcc -o test test.c</code> 编译一个<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言程序时，<span>GCC<span class="heti-spacing"> </span></span>会调用一系列的程序将源代码翻译成汇编语言、再翻译成机器语言，最后经过链接产生可执行文件。下图展示了这个过程。</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/gcc_process.png"><img alt="" src="../graph/gcc_process.png"/></a></p>
 <ol>
@@ -1313,7 +1281,6 @@
 </ol>
 <h3 id="gcc">解读 <code>gcc</code> 显示的详细信息<a class="headerlink" href="#gcc" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>下面这些文本是 <code>gcc -v -o prog main.c sum.c</code> 命令的输出结果。</p>
-<!-- prettier-ignore-start -->
 <details class="info" open="open">
 <summary><span>gcc<span class="heti-spacing"> </span></span>的输出信息</summary>
 <p>点击文本中带圆圈的 <code>+</code> 号可以展开详细信息，高亮的行是运行某个编译工具的具体命令。</p>
@@ -1330,7 +1297,7 @@ gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~23.04)
 COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
 <span class="hll"><span class="cm">&lt;!--(2)!--&gt;</span> /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu main.c -quiet -dumpdir prog- -dumpbase main.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccClT5M4.s
 </span>GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-    compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+ compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
@@ -1344,7 +1311,7 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86
  /usr/include
 End of search list.
 GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-    compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+ compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: d9353c3f0a32d3e91a16ba312e2a9024
@@ -1354,7 +1321,7 @@ COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir'
 COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
 <span class="hll"><span class="cm">&lt;!--(5)!--&gt;</span> /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu sum.c -quiet -dumpdir prog- -dumpbase sum.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccClT5M4.s
 </span>GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-    compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+ compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
@@ -1368,7 +1335,7 @@ ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86
  /usr/include
 End of search list.
 GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
-    compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+ compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: d9353c3f0a32d3e91a16ba312e2a9024
@@ -1390,13 +1357,10 @@ COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir'
 <li>最后调用 <code>collect2</code> （这是 <code>ld</code> 的包装程序）完成链接阶段，将两个源代码生成的目标文件 <code>/tmp/ccAnKDEo.o</code> 和 <code>/tmp/ccgMFTqK.o</code> 与其他很多目标文件链接成了可执行文件 <code>prog</code>。这就是你能在操作系统上运行的程序。</li>
 </ol>
 </details>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <details class="question" open="open">
 <summary>为什么没有看见预处理器 <code>cpp</code> 的执行呢？</summary>
 <p>某些版本的 <code>gcc</code> 会将预处理器 <code>cpp</code> 和编译器 <code>gcc</code> 合并成一个指令，比如上面的 <code>cc1</code>，这样就不用单独调用 <code>cpp</code> 了。</p>
 </details>
-<!-- prettier-ignore-end -->
 <p>接下来，我们详解其中的每一个阶段以及可能会发生的问题。</p>
 <h3 id="_11">预处理<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>执行以下命令，查看预处理后的文件 <code>hello.i</code>：</p>
@@ -1463,7 +1427,6 @@ warning.c:8:18: warning: format ‘%d’ expects argument of type ‘int’, but
 <p>执行以下命令，汇编器将汇编指令翻译为机器码，产生<strong>可重定位目标文件</strong> <code>hello.o</code>：</p>
 <div class="highlight"><pre><span></span><code>as<span class="w"> </span>-o<span class="w"> </span>hello.o<span class="w"> </span>hello.s
 </code></pre></div>
-<!-- prettier-ignore-start -->
 <details class="note" open="open">
 <summary>目标文件</summary>
 <p>目标文件中包含计算机能读懂的机器代码和数据，有三种形式：</p>
@@ -1494,7 +1457,6 @@ warning.c:8:18: warning: format ‘%d’ expects argument of type ‘int’, but
 </tbody>
 </table>
 </details>
-<!-- prettier-ignore-end -->
 <p><code>hello.o</code> 中包含了 <code>hello.c</code> 中的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言代码翻译成的<strong>二进制代码以及一些数据</strong>，比如字符串 <code>Hello, world.\n</code>。如果使用文本编辑器打开 <code>hello.o</code>，你会看见一堆乱码，其中夹杂着一些字符。因为字符在源文件和内存中都是用<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>编码的，所以<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>字符仍能被文本编辑器识别，但其他的机器指令和数据只会被解读为乱码。</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/object_file.png"><img alt="" src="../graph/object_file.png"/></a></p>
 <p>如果运行 <code>./hello.o</code>，终端会告诉你这个文件<strong>不能被操作系统执行</strong>。</p>
@@ -1504,7 +1466,6 @@ warning.c:8:18: warning: format ‘%d’ expects argument of type ‘int’, but
 <ul>
 <li>启动代码：启动程序时，操作系统会将控制权交给程序的入口点，但这个入口点不是 <code>main</code> 函数，而是一些启动代码。启动代码在执行 <code>main</code> 前进行一些初始化工作，并在退出 <code>main</code> 后做一些扫尾工作。</li>
 </ul>
-<!-- prettier-ignore-start -->
 <details class="note" open="open">
 <summary>一个不带启动代码的例子</summary>
 <p><span>Linux<span class="heti-spacing"> </span></span>程序的入口点一般是 <code>_start</code>，它完成一些内存初始化的工作，然后跳转到 <code>main</code> 函数。我们在链接阶段不带上含有启动代码的目标文件，看看在缺少 <code>_start</code> 的情况下会发生什么。</p>
@@ -1533,14 +1494,12 @@ fish: Job 1, './hello' terminated by signal SIGSEGV (Address boundary error)
 <div class="highlight"><pre><span></span><code>ld<span class="w"> </span>crt1.o<span class="w"> </span>crti.o<span class="w"> </span><span class="o">[</span>user_objects<span class="o">]</span><span class="w"> </span><span class="o">[</span>system_libraries<span class="o">]</span><span class="w"> </span>crtn.o
 </code></pre></div>
 </details>
-<!-- prettier-ignore-end -->
 <ul>
 <li>库函数：几乎所有<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>程序都会用到标准库中的函数，比如 <code>printf</code>。标准库中的代码已经被预编译成目标文件，附在编译器的安装目录下。</li>
 </ul>
 <p>在接下来的链接步骤，我们将这些目标文件链接到我们的程序中，生成可以执行的程序。</p>
 <h3 id="_14">链接<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>链接有两种类型：静态链接和动态链接。</p>
-<!-- prettier-ignore-start -->
 <details class="note" open="open">
 <summary>静态链接</summary>
 <p>如果你的程序与静态库链接，那么链接器会将静态库中的代码复制到你的程序中。这样，你的程序就不再依赖静态库了，可以在任何地方运行。但是，如果静态库中的代码发生了变化，你的程序并不会自动更新，你需要重新编译你的程序。</p>
@@ -1552,15 +1511,13 @@ fish: Job 1, './hello' terminated by signal SIGSEGV (Address boundary error)
 <p>与静态链接相比，动态链接使程序文件更小，因为一个动态库可以被多个程序共享，节省磁盘空间。部分操作系统还允许动态库代码在内存中的共享，还能够节省内存。动态库升级时，也不需要重写编译你的程序。</p>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>系统上，动态库的文件名以 <code>.so</code> 结尾，比如 <code>libm.so</code>。在<span class="heti-skip"><span class="heti-spacing"> </span>Window<span class="heti-spacing"> </span></span>上，动态库的文件名以 <code>.dll</code> 结尾，比如 <code>libm.dll</code>。</p>
 </details>
-<!-- prettier-ignore-end -->
 <p>动态链接具有上面描述的优点，因此<span class="heti-skip"><span class="heti-spacing"> </span>GCC<span class="heti-spacing"> </span></span>尽可能地执行动态链接。</p>
 <p>链接相关的问题可能出现在链接时（静态链接<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、程序运行前和运行中（动态链接<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。下面时一些常见的问题。</p>
-<!-- prettier-ignore-start -->
 <div class="nt-cards nt-grid cols-3">
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/undefined_reference.png"><img src="../graph/undefined_reference.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/undefined_reference.png"><img alt="未定义的引用" src="../graph/undefined_reference.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">未定义的引用</p>
 <p class="nt-card-text">当同学们开始使用其他库构建大型项目时，这或许会成为最头疼的问题。首先应当阅读库的使用说明，接下来搜索缺失的符号可能位于哪些库文件中。</p>
@@ -1571,7 +1528,7 @@ fish: Job 1, './hello' terminated by signal SIGSEGV (Address boundary error)
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/lose_dll.png"><img src="../graph/lose_dll.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/lose_dll.png"><img alt="缺失 `.dll`" src="../graph/lose_dll.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">缺失 <code>.dll</code></p>
 <p class="nt-card-text">常用<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>的同学多多少少见过这个报错，可以去网上搜索相应 <code>.dll</code> 文件放置到正确的目录。</p>
@@ -1582,7 +1539,7 @@ fish: Job 1, './hello' terminated by signal SIGSEGV (Address boundary error)
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/missing_library.webp"><img src="../graph/missing_library.webp"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/missing_library.webp"><img alt="缺失 `.so`" src="../graph/missing_library.webp"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">缺失 <code>.so</code></p>
 <p class="nt-card-text"><span>Linux<span class="heti-spacing"> </span></span>上的动态库一般通过 <code>apt</code> 管理，<a href="https://fostips.com/tell-package-name-contains-specific-file-ubuntu-linux-mint/">搜索相应的包</a>并安装即可。</p>
@@ -1591,7 +1548,6 @@ fish: Job 1, './hello' terminated by signal SIGSEGV (Address boundary error)
 </div>
 </div>
 </div>
-<!-- prettier-ignore-end -->
 <p>下面这行命令在我的系统上完成了 <code>hello</code> 程序的正确链接，不一定能在你的系统上运行。你可以尝试查找库文件的路径，让它成功运行。</p>
 <div class="highlight"><pre><span></span><code>ld<span class="w"> </span>--output<span class="w"> </span>hello<span class="w"> </span>--dynamic-linker<span class="w"> </span>/lib64/ld-linux-x86-64.so.2<span class="w">  </span>/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o<span class="w"> </span>/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o<span class="w"> </span>-lc<span class="w"> </span>hello.o<span class="w"> </span>/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o
 </code></pre></div>
@@ -1640,12 +1596,10 @@ main2.c:(.text+0x1a): undefined reference to `vector_add'
 <p>链接器检查 <code>libvector.a</code> 库文件时，还没有记录任何符号定义和引用，因此它被整个丢弃了。当链接器开始检查 <code>main2.c</code> 时，不会再回去找 <code>libvector.a</code> 了。</p>
 <p>总而言之，静态链接时，库文件一般放在末尾。如果库文件之间有相互依赖，也需要对它们进行排序。</p>
 <h2 id="_17">程序调试技术<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<!-- prettier-ignore-start -->
 <details class="info" open="open">
 <summary>杂谈：<span>Bug<span class="heti-spacing"> </span></span>的典故</summary>
 <p>编程是一件复杂的工作，因为是人做的事情，所以难免经常出错。据说有这样一个典故：早期的计算机体积都很大，有一次一台计算机不能正常工作，工程师们找了半天原因最后发现是一只臭虫钻进计算机中造成的。从此以后，程序中的错误被叫做臭虫（Bug<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，而找到这些<span class="heti-skip"><span class="heti-spacing"> </span>Bug<span class="heti-spacing"> </span></span>并加以纠正的过程就叫做调试（Debug<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。有时候调试是一件非常复杂的工作，要求程序员概念明确、逻辑清晰、性格沉稳，还需要一点运气。</p>
 </details>
-<!-- prettier-ignore-end -->
 <h3 id="bug"><span>Bug<span class="heti-spacing"> </span></span>的类型<a class="headerlink" href="#bug" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>调试的技能我们在后续的学习中慢慢培养，但首先我们要区分清楚程序中的<span class="heti-skip"><span class="heti-spacing"> </span>Bug<span class="heti-spacing"> </span></span>分为哪几类。</p>
 <h4 id="_18">编译时错误<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -1656,7 +1610,6 @@ main2.c:(.text+0x1a): undefined reference to `vector_add'
 <p>第三类错误是逻辑错误和语义错误。如果程序里有逻辑错误，编译和运行都会很顺利，看上去也不产生任何错误信息，但是程序没有干它该干的事情，而是干了别的事情。当然不管怎么样，计算机只会按你写的程序去做，问题在于你写的程序不是你真正想要的，这意味着程序的意思（即语义）是错的。找到逻辑错误在哪需要十分清醒的头脑，要通过观察程序的输出回过头来判断它到底在做什么。</p>
 <p>通过本节你将掌握的最重要的技巧就是调试。调试的过程可能会让你感到一些沮丧，但<strong>调试也是编程中最需要动脑的、最有挑战和乐趣的部分</strong>。从某种角度看调试就像侦探工作，根据掌握的线索来推断是什么原因和过程导致了你所看到的结果。调试也像是一门实验科学，每次想到哪里可能有错，就修改程序然后再试一次。如果假设是对的，就能得到预期的正确结果，就可以接着调试下一个<span><span class="heti-spacing"> </span>Bug</span>，一步一步逼近正确的程序；如果假设错误，只好另外再找思路再做假设<heti-adjacent class="heti-adjacent-quarter">。</heti-adjacent>“当你把不可能的全部剔除，剩下的——即使看起来再怎么不可能——就一定是事实<heti-adjacent class="heti-adjacent-quarter">。</heti-adjacent>”（即使你没看过福尔摩斯也该看过柯南吧<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
 <p>也有一种观点认为，编程和调试是一回事，编程的过程就是逐步调试直到获得期望的结果为止。你应该总是从一个能正确运行的小规模程序开始，每做一步小的改动就立刻进行调试，这样的好处是总有一个正确的程序做参考：如果正确就继续编程，如果不正确，那么一定是刚才的小改动出了问题。例如，<span>Linux<span class="heti-spacing"> </span></span>操作系统包含了成千上万行代码，但它也不是一开始就规划好了内存管理、设备管理、文件系统、网络等等大的模块，一开始它仅仅是<span class="heti-skip"><span class="heti-spacing"> </span>Linus Torvalds<span class="heti-spacing"> </span></span>用来琢磨<span class="heti-skip"><span class="heti-spacing"> </span>Intel 80386<span class="heti-spacing"> </span></span>芯片而写的小程序。据<span class="heti-skip"><span class="heti-spacing"> </span>Larry Greenfield<span class="heti-spacing"> </span></span>说<heti-adjacent class="heti-adjacent-quarter">，</heti-adjacent>“<span>Linus<span class="heti-spacing"> </span></span>的早期工程之一是编写一个交替打印<span class="heti-skip"><span class="heti-spacing"> </span>AAAA<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>BBBB<span class="heti-spacing"> </span></span>的程序，这玩意儿后来进化成了<span><span class="heti-spacing"> </span>Linux</span><heti-adjacent class="heti-adjacent-quarter">。</heti-adjacent>”（引自 <em>The Linux User's Guide Beta1</em> 版）在后续的课程中会给出更多关于调试和编程实践的建议。</p>
-<!-- prettier-ignore-start -->
 <details class="note" open="open">
 <summary>杂谈：为什么很多同学感觉调试的过程十分煎熬？</summary>
 <p>或许你也会在后续的学习中亲身体会或看到，同学们被程序的<span><span class="heti-spacing"> </span>Bug</span>（最典型的是段错误）折磨得焦头烂额。这可能有以下原因：</p>
@@ -1666,7 +1619,6 @@ main2.c:(.text+0x1a): undefined reference to `vector_add'
 <li>不了解基本的调试技术，不会使用调试工具：本节课我们将为大家解决这个问题。</li>
 </ul>
 </details>
-<!-- prettier-ignore-end -->
 <h3 id="fprintfstderr"><code>fprintf(stderr)</code> 是你最好的朋友<a class="headerlink" href="#fprintfstderr" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>虽然接下来要介绍的 <code>gdb</code> 功能强大，但大多数情况下简单地打印变量就能帮你定位问题所在。</p>
 <p>在程序中使用 <code>fprintf(stderr, ...)</code> 打印调试信息，可以帮助你定位到程序中的错误。<code>fprintf</code> 向指定的流输出格式化字符串，<code>stderr</code> 是标准错误流，它不会被缓冲，因此你可以在程序崩溃时看到最后的调试信息（这些输入输出的知识会在后面的课程中学到<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
@@ -1687,7 +1639,7 @@ fprintf fish: Job 1, './debug' terminated by signal SIGABRT (Abort)
 </code></pre></div>
 <p>可以看到只有 <code>fprintf</code> 函数的输出。如果在 <code>printf</code> 语句后面加上换行符，你会发现 <code>printf</code> 的输出也被打印出来了。因为当输出缓冲区遇到 <code>\n</code> 时也会立即输出。</p>
 <p>此外，将错误信息导向标准错误流还有另一个好处，就是你可以分别收集调试信息和正常输出。比如你可以将调试信息重定向到一个文件，而将正常输出重定向到另一个文件。</p>
-<div class="highlight"><pre><span></span><code>$ ./debug 2&gt; debug.log 1&gt; output.log
+<div class="highlight"><pre><span></span><code>./debug 2&gt; debug.log 1&gt; output.log
 </code></pre></div>
 <h3 id="gdb">使用<span class="heti-skip"><span class="heti-spacing"> </span>gdb<span class="heti-spacing"> </span></span>调试程序<a class="headerlink" href="#gdb" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>接下来，我们以被<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准弃用的库函数 <code>gets</code> 为例，用 <code>gdb</code> 对其进行调试：</p>
@@ -1817,21 +1769,16 @@ Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
 (gdb) print dest - s
 $5 = 23
 </code></pre></div>
-<!-- prettier-ignore-start -->
 <details class="tip" open="open">
 <summary>调试技巧</summary>
 <p>直接按<span class="keys"><kbd class="key-enter"><span class="heti-skip"><span class="heti-spacing"> </span>Enter<span class="heti-spacing"> </span></span></kbd></span>键，<code>gdb</code> 会重复上一条命令。这样就不用一直输入 <code>next</code> 或 <code>step</code> 了。</p>
 </details>
-<!-- prettier-ignore-end -->
 <p>在一些更为复杂的程序中，使用 <code>gdb</code> 调试的优越性就逐渐显现出来了。你不用频繁更改源代码插入 <code>printf</code> 语句，只需要在 <code>gdb</code> 中设置断点，然后逐步执行程序，查看变量的值，就能找到错误所在。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">进一步学习</p>
 <p>由于个人水平不足以及时间有限，没能写出一个体验较好的<span class="heti-skip"><span class="heti-spacing"> </span>GDB<span class="heti-spacing"> </span></span>调试实验。十分希望同学们在课后去看看这篇文章<a href="https://www.kancloud.cn/wizardforcel/linux-c-book/134935"><span class="heti-skip"><span class="heti-spacing"> </span>Linux C<span class="heti-spacing"> </span></span>一站式编程：第<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>章<span><span class="heti-spacing"> </span>gdb</span></a>，把这边的调试实例都过一遍～</p>
 </div>
-<!-- prettier-ignore-end -->
 <h2 id="_24">参考资料<a class="headerlink" href="#_24" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
-<!-- prettier-ignore-start -->
 <details class="info" open="open">
 <summary>参考资料</summary>
 <ul>
@@ -1843,13 +1790,12 @@ $5 = 23
 <li><a href="https://www.kancloud.cn/wizardforcel/linux-c-book/intro.naturalformal.html">看云：<span>Linux C<span class="heti-spacing"> </span></span>一站式学习</a></li>
 </ul>
 </details>
-<!-- prettier-ignore-end -->
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 22, 2023</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2024</span>
 </span>
 </aside>
 </article>
@@ -1857,7 +1803,7 @@ $5 = 23
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
 <button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
 </main>
@@ -1865,7 +1811,7 @@ $5 = 23
 <nav aria-label="Footer" class="md-footer__inner md-grid">
 <a aria-label="Previous: 课前：准备开发与调试环境" class="md-footer__link md-footer__link--prev" href="../pre_class/">
 <div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
 <div class="md-footer__title">
 <span class="md-footer__direction">
@@ -1886,7 +1832,7 @@ $5 = 23
               </div>
 </div>
 <div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
 </div>
 </a>
 </nav>
@@ -1899,10 +1845,10 @@ $5 = 23
 </div>
 <div class="md-social">
 <a class="md-social__link" href="https://space.bilibili.com/3546574332365752" rel="noopener" target="_blank" title="space.bilibili.com">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"></path></svg>
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"></path></svg>
 </a>
 <a class="md-social__link" href="https://github.com/ckc-agc" rel="noopener" target="_blank" title="github.com">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </a>
 </div>
 </div>
@@ -1912,8 +1858,8 @@ $5 = 23
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.footer", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.footer", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
 <script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

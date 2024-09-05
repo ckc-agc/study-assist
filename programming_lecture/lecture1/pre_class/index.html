@@ -9,9 +9,9 @@
 <link href="../../" rel="prev"/>
 <link href="../lecture1/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.26" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.34" name="generator"/>
 <title>课前：准备开发与调试环境 - 浙江大学竺可桢学院辅学计划站点</title>
-<link href="../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.35f28582.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -19,7 +19,7 @@
 <link href="../../../css/heti.css" rel="stylesheet"/>
 <link href="../../../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
 <link href="../../../stylesheets/custom.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
@@ -47,7 +47,7 @@
 <img alt="logo" src="../../../graph/ckc.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
 </label>
 <div class="md-header__title" data-md-component="header-title">
 <div class="md-header__ellipsis">
@@ -68,16 +68,16 @@
 <form class="md-header__option" data-md-component="palette">
 <input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
 </label>
 <input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
 </label>
 </form>
-<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
 </label>
 <div class="md-search" data-md-component="search" role="dialog">
 <label class="md-search__overlay" for="__search"></label>
@@ -85,12 +85,12 @@
 <form class="md-search__form" name="search">
 <input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
 <label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </label>
 <nav aria-label="Search" class="md-search__options">
 <button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
 </button>
 </nav>
 </form>
@@ -109,7 +109,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </div>
 <div class="md-source__repository">
     浙江大学竺可桢学院辅学计划站点
@@ -250,7 +250,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </div>
 <div class="md-source__repository">
     浙江大学竺可桢学院辅学计划站点
@@ -400,7 +400,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#gcc">
 <span class="md-ellipsis">
-      就决定是你了，gcc！
+      就决定是你了，gcc
     </span>
 </a>
 </li>
@@ -589,7 +589,7 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#gcc">
 <span class="md-ellipsis">
-      就决定是你了，gcc！
+      就决定是你了，gcc
     </span>
 </a>
 </li>
@@ -664,10 +664,9 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming_lecture/lecture1/pre_class.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
 </a>
 <h1 id="_1">课前：准备开发与调试环境<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<!-- prettier-ignore-start -->
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>本文档更改自周健均学长为图灵程算课程准备的<a href="https://zhoutimemachine.github.io/2023_FPA/">资料</a>，感谢周健均学长的付出。</p>
@@ -719,7 +718,6 @@
 <li>如果安装过程遇到困难，可以在辅学群提问，或私戳授课学长～</li>
 </ul>
 </div>
-<!-- prettier-ignore-end -->
 <h2 id="shell"><span>Shell<span class="heti-spacing"> </span></span>使用拾遗<a class="headerlink" href="#shell" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <p>本节我们要认识一个即将成为你的老朋友的东西——Shell。下面是同学们接下来会经常见到的几个名词：</p>
 <ul>
@@ -728,12 +726,11 @@
 <li><span>Prompt<span class="heti-spacing"> </span></span>提示符：<span>Shell<span class="heti-spacing"> </span></span>会给你一个提示符，告诉你它已经准备好接收你的命令了。在<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>中，提示符一般是 <code>$</code>。下面的图中，<code>bowling</code> 那一块就是提示符（我做了一些美化<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
 <li><span>Command Line Interface<span class="heti-spacing"> </span></span>命令行交互界面：当我们使用文本命令与计算机交互时，我们就在使用<span><span class="heti-spacing"> </span>CLI</span>。这与我们日常生活中使用鼠标的图形交互界面（Graphical User Interface，GUI）不同。</li>
 </ul>
-<!-- prettier-ignore-start -->
 <div class="nt-cards nt-grid cols-3">
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/terminal.jpg"><img src="../graph/terminal.jpg"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/terminal.jpg"><img alt="真正意义上的 Terminal" src="../graph/terminal.jpg"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">真正意义上的<span><span class="heti-spacing"> </span>Terminal</span></p>
 <p class="nt-card-text">在计算机发展的早期阶段，还没有像现在的<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>这样的图形用户界面。那时人们使用终端与计算机交互。</p>
@@ -744,7 +741,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/win_and_pwsh.png"><img src="../graph/win_and_pwsh.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/win_and_pwsh.png"><img alt="Terminal 和 Shell 的例子" src="../graph/win_and_pwsh.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title"><span>Terminal<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Shell<span class="heti-spacing"> </span></span>的例子</p>
 <p class="nt-card-text">这张图展示了<span class="heti-skip"><span class="heti-spacing"> </span>Windows Terminal<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>Powershell</span>。</p>
@@ -755,7 +752,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/you_and_shell.png"><img src="../graph/you_and_shell.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/you_and_shell.png"><img alt="Terminal 和 Shell 的关系" src="../graph/you_and_shell.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title"><span>Terminal<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>Shell<span class="heti-spacing"> </span></span>的关系</p>
 <p class="nt-card-text">可以将<span class="heti-skip"><span class="heti-spacing"> </span>Terminal<span class="heti-spacing"> </span></span>理解成显示器，将<span class="heti-skip"><span class="heti-spacing"> </span>Shell<span class="heti-spacing"> </span></span>理解成电脑主机。</p>
@@ -764,8 +761,6 @@
 </div>
 </div>
 </div>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <div class="admonition tip">
 <p class="admonition-title">杂谈：为什么要使用命令行交互界面呢？</p>
 <p>很简单，因为我们不仅是在使用计算机，而且是在<strong>学习计算机</strong>。<span>GUI<span class="heti-spacing"> </span></span>自然是最适合与人交互的，但它也是由<span class="heti-skip"><span class="heti-spacing"> </span>CLI<span class="heti-spacing"> </span></span>搭建起来的。比如，你可能在使用<span class="heti-skip"><span class="heti-spacing"> </span>Dev-C++<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>Visual Studio<span class="heti-spacing"> </span></span>等<span class="heti-skip"><span class="heti-spacing"> </span>IDE<span class="heti-spacing"> </span></span>进行编程，只需要点一下按钮就能自动完成程序编译步骤。这固然方便，但是它本质上是帮你写好并执行了一系列编译命令，帮你完成了命令行的操作。<strong>当你开始构建大型项目时，这当然是最适合的方法。但作为初学者，我们应当趁此机会了解其背后的原理。</strong></p>
@@ -777,15 +772,13 @@
 </ul>
 <p>最主要的是，你今后会用到的很多工具不一定会提供图形界面，但一定会提供命令行界面。学习<span class="heti-skip"><span class="heti-spacing"> </span>CLI<span class="heti-spacing"> </span></span>一开始确实有些难度，但只要学了，就会受益无穷。</p>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="_2">运行与终端<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>上如何打开<span class="heti-skip"><span class="heti-spacing"> </span>Terminal<span class="heti-spacing"> </span></span>呢？</p>
-<!-- prettier-ignore-start -->
 <div class="nt-cards nt-grid cols-2">
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/WinR.png"><img src="../graph/WinR.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/WinR.png"><img alt="运行窗口" src="../graph/WinR.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">运行窗口</p>
 <p class="nt-card-text">使用<span class="keys"><kbd class="key-windows"><span class="heti-skip"><span class="heti-spacing"> </span>Win<span class="heti-spacing"> </span></span></kbd><span><span class="heti-skip"><span class="heti-spacing"> </span>+<span class="heti-spacing"> </span></span></span><kbd class="key-r"><span class="heti-skip"><span class="heti-spacing"> </span>R<span class="heti-spacing"> </span></span></kbd></span>组合键，将会出现图中的窗口。可以在其中输入命令运行，即使是<span class="heti-skip"><span class="heti-spacing"> </span>Windows XP<span class="heti-spacing"> </span></span>都可以使用。</p>
@@ -796,7 +789,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/cmd.png"><img src="../graph/cmd.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/cmd.png"><img alt="命令提示符 CMD" src="../graph/cmd.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">命令提示符<span><span class="heti-spacing"> </span>CMD</span></p>
 <p class="nt-card-text">在运行窗口中输入 <code>cmd</code> 后回车，就会出现<strong>命令提示符</strong>。命令提示符是<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>最基本的<span><span class="heti-spacing"> </span>Shell</span>（与<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>bash<span class="heti-spacing"> </span></span>同等地位<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，但是功能及其有限，一般不用。</p>
@@ -807,7 +800,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/pwsh.jpeg"><img src="../graph/pwsh.jpeg"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/pwsh.jpeg"><img alt="Powershell" src="../graph/pwsh.jpeg"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">Powershell</p>
 <p class="nt-card-text"><span>Powershell<span class="heti-spacing"> </span></span>简称 <code>pwsh</code>，是<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>的新一代命令解释器。它的功能强大，但语法和我们将要学习且最常用的<span class="heti-skip"><span class="heti-spacing"> </span>Linux Shell<span class="heti-spacing"> </span></span>大不相同。我们在<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>上经常使用 <code>pwsh</code>，但不用花时间去学习它。</p>
@@ -818,7 +811,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/windows_terminal.png"><img src="../graph/windows_terminal.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/windows_terminal.png"><img alt="Windows Terminal" src="../graph/windows_terminal.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title">Windows Terminal</p>
 <p class="nt-card-text">这是<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>上最好的<span><span class="heti-spacing"> </span>Terminal</span>，对各种<span class="heti-skip"><span class="heti-spacing"> </span>Shell<span class="heti-spacing"> </span></span>的显示效果都支持的很好。在<span class="heti-skip"><span class="heti-spacing"> </span>Microsoft Store<span class="heti-spacing"> </span></span>中搜索<span><span class="heti-spacing"> </span>Terminal</span>，出现图中的选项，然后选择安装即可。它对应于<span class="heti-skip"><span class="heti-spacing"> </span>macOS<span class="heti-spacing"> </span></span>上的<span><span class="heti-spacing"> </span>iTerm</span>。今后学习 <code>ssh</code> 时，你还可能会接触到<span><span class="heti-spacing"> </span>Termius</span>。</p>
@@ -827,7 +820,6 @@
 </div>
 </div>
 </div>
-<!-- prettier-ignore-end -->
 <p>在比较新版本的<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>中，<span>Win<span class="heti-spacing"> </span></span>键打开菜单之后输入字符能够搜索到对应程序，除了常用的应用程序以外，启动 <code>cmd.exe</code> 也可以这样进行，效果和<span class="heti-skip"><span class="heti-spacing"> </span>Win + R<span class="heti-spacing"> </span></span>相同。</p>
 <h3 id="wsl"><span>WSL<span class="heti-spacing"> </span></span>安装简单引导（可选）<a class="headerlink" href="#wsl" title="Permanent link">¶</a></h3>
 <blockquote>
@@ -864,7 +856,6 @@
 </li>
 </ul>
 <p>这样就完成了<span class="heti-skip"><span class="heti-spacing"> </span>WSL2 Ubuntu<span class="heti-spacing"> </span></span>的安装。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition failure">
 <p class="admonition-title">错误：0x80370114</p>
 <ul>
@@ -872,7 +863,6 @@
 <li>如果仍无法解决，再按照<a href="https://zhuanlan.zhihu.com/p/361310073">知乎：<span>win10<span class="heti-spacing"> </span></span>使用<span class="heti-skip"><span class="heti-spacing"> </span>wsl2<span class="heti-spacing"> </span></span>安装<span class="heti-skip"><span class="heti-spacing"> </span>ubuntu<span class="heti-spacing"> </span></span>遇到<span class="heti-skip"><span class="heti-spacing"> </span>0x80370114<span class="heti-spacing"> </span></span>问题的解决方法</a>这篇文章重新启动虚拟机平台。</li>
 </ul>
 </div>
-<!-- prettier-ignore-end -->
 <p>使用终端的一大好处是方便打开<span><span class="heti-spacing"> </span>WSL</span>。如下图所示，点击<span class="heti-skip"><span class="heti-spacing"> </span>Ubuntu 22.04.2 LTS<span class="heti-spacing"> </span></span>或者使用<span class="heti-skip"><span class="heti-spacing"> </span>Ctrl + Shift + 5<span class="heti-spacing"> </span></span>组合键就可以方便地打开<span><span class="heti-spacing"> </span>Ubuntu 22.04</span>。当然这是因为我安装的是 <code>Ubuntu 22.04</code> 的缘故，在你们的电脑中显示的应该就是 <code>Ubuntu</code>。</p>
 <div style="text-align:center;">
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/wsl_terminal.png"><img alt="wsl_terminal" src="../graph/wsl_terminal.png" style="margin: 0 auto; zoom: 80%;"/></a>
@@ -886,7 +876,7 @@
 <p class="admonition-title">本篇相对比较复杂，如果在本篇配置遇到难以解决的困难，而作业<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>实验截止日期快要到了，可以跳过本篇安装<span class="heti-skip"><span class="heti-spacing"> </span>Dev-C++<span class="heti-spacing"> </span></span>进行临时开发。</p>
 </div>
 <p>写完了<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言代码，我们需要让它变成能跑的程序，这就需要准备<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的编译器支持。以下主要介绍<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>系统的配置。</p>
-<h3 id="gcc">就决定是你了，gcc！<a class="headerlink" href="#gcc" title="Permanent link">¶</a></h3>
+<h3 id="gcc">就决定是你了，gcc<a class="headerlink" href="#gcc" title="Permanent link">¶</a></h3>
 <blockquote>
 <p>自由软件<span><span class="heti-spacing"> </span>(free software)</span>，根据自由软件基金会对其的定义，是一类可以不受限制地自由使用、复制、研究、修改和分发的，尊重用户自由的软件。——维基百科</p>
 </blockquote>
@@ -900,7 +890,6 @@
 </blockquote>
 <p>可以按照老师的视频教程下载<a href="https://jmeubank.github.io/tdm-gcc/download/"><span><span class="heti-spacing"> </span>tdm-gcc</span></a>，目前最新版为<span><span class="heti-spacing"> </span>gcc 10.3.0</span>。</p>
 <p>需要判断自己的<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>是<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统还是<span class="heti-skip"><span class="heti-spacing"> </span>32<span class="heti-spacing"> </span></span>位系统（现在一般都是<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition note">
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Windows 11</label><label for="__tabbed_1_2">Windows 10</label></div>
 <div class="tabbed-content">
@@ -923,7 +912,6 @@
 </div>
 </div>
 </div>
-<!-- prettier-ignore-end -->
 <p><span>64<span class="heti-spacing"> </span></span>位系统直接下载<span class="heti-skip"><span class="heti-spacing"> </span>tdm64-gcc-10.3.0-2.exe<span class="heti-spacing"> </span></span>安装即可，<span>32<span class="heti-spacing"> </span></span>位则选择<span><span class="heti-spacing"> </span>tdm-gcc-10.3.0.exe</span>。</p>
 <p>准备安装。对于零基础的同学，电脑里应该还没装过<span><span class="heti-spacing"> </span>tdm-gcc</span>，选择<span class="heti-skip"><span class="heti-spacing"> </span>create<span class="heti-spacing"> </span></span>即可。</p>
 <div style="text-align:center;">
@@ -959,7 +947,6 @@
 <p>如果希望用更新版本的<span class="heti-skip"><span class="heti-spacing"> </span>gcc<span class="heti-spacing"> </span></span>可以使用<a href="https://winlibs.com/"><span class="heti-skip"><span class="heti-spacing"> </span>winlibs<span class="heti-spacing"> </span></span>编译的<span><span class="heti-spacing"> </span>mingw-gcc</span></a>，或者你可以自己选择。</p>
 </blockquote>
 <h3 id="gcc_1">测试<span class="heti-skip"><span class="heti-spacing"> </span>gcc<span class="heti-spacing"> </span></span>是否正确安装<a class="headerlink" href="#gcc_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<!-- prettier-ignore-start -->
 <div class="admonition note">
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Windows</label><label for="__tabbed_2_2">WSL</label><label for="__tabbed_2_3">macOS</label></div>
 <div class="tabbed-content">
@@ -1008,16 +995,15 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 </div>
 </div>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="windows"><span>Windows<span class="heti-spacing"> </span></span>修改环境变量<a class="headerlink" href="#windows" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <blockquote>
 <p><span>Windows<span class="heti-spacing"> </span></span>用户环境变量配置出现问题了才需要看这一小节</p>
 </blockquote>
-<p>检查一下环境变量，<span>Win + R<span class="heti-spacing"> </span></span>键输入 <code>sysdm.cpl</code> 后回车，会出现 “系统属性” 界面，选择 “高级”，如下图所示：</p>
+<p>检查一下环境变量，<span>Win + R<span class="heti-spacing"> </span></span>键输入 <code>sysdm.cpl</code> 后回车，会出现“系统属性”界面，选择“高级”，如下图所示：</p>
 <div style="text-align:center;">
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/env_var.png"><img alt="env_var" src="../graph/env_var.png" style="margin: 0 auto; zoom: 80%;"/></a>
 </div>
-<p>打开环境变量，在 “系统变量” 或者 “用户变量” 中找到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>变量，在其中增加一项<span class="heti-skip"><span class="heti-spacing"> </span>tdm-gcc<span class="heti-spacing"> </span></span>的路径。例如你如果默认安装<span><span class="heti-spacing"> </span>tdm-gcc</span>，那么路径可能就是 <code>C:\TDM-GCC-64\bin</code>。</p>
+<p>打开环境变量，在“系统变量”或者“用户变量”中找到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>变量，在其中增加一项<span class="heti-skip"><span class="heti-spacing"> </span>tdm-gcc<span class="heti-spacing"> </span></span>的路径。例如你如果默认安装<span><span class="heti-spacing"> </span>tdm-gcc</span>，那么路径可能就是 <code>C:\TDM-GCC-64\bin</code>。</p>
 <h2 id="vscode"><span>VSCode<span class="heti-spacing"> </span></span>安装与配置<a class="headerlink" href="#vscode" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <blockquote>
 <p><span>VSCode<span class="heti-spacing"> </span></span>的全称是<span><span class="heti-spacing"> </span>Visual Studio Code</span>，注意它和<span class="heti-skip"><span class="heti-spacing"> </span>Visual Studio<span class="heti-spacing"> </span></span>完全是两个东西</p>
@@ -1028,7 +1014,6 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 <p>在这里仅介绍<span class="heti-skip"><span class="heti-spacing"> </span>Visual Studio Code<span class="heti-spacing"> </span></span>的安装。除了老师的视频之外，大家安装配置时还可以参考<a href="https://blog.gztime.cc/posts/2020/6b9b4626/"><span class="heti-skip"><span class="heti-spacing"> </span>GZTime<span class="heti-spacing"> </span></span>的教程</a>，对于初学者来说还不错。</p>
 <h3 id="_3">安装<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><span>VSCode<span class="heti-spacing"> </span></span>直接从<a href="https://code.visualstudio.com/">官网</a>选择自己平台对应的安装包下载就行</p>
-<!-- prettier-ignore-start -->
 <div class="admonition note">
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Windows</label><label for="__tabbed_3_2">Mac</label></div>
 <div class="tabbed-content">
@@ -1039,7 +1024,7 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 <li>推荐默认<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>盘，可能运行速度更快，也可以避免一些权限问题</li>
 </ul>
 </li>
-<li>将 “通过<span class="heti-skip"><span class="heti-spacing"> </span>Code<span class="heti-spacing"> </span></span>打开” 操作添加到<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>资源管理器文件<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>目录上下文菜单<ul>
+<li>将“通过<span class="heti-skip"><span class="heti-spacing"> </span>Code<span class="heti-spacing"> </span></span>打开”操作添加到<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>资源管理器文件<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>目录上下文菜单<ul>
 <li>选中该项后，选中文件或者文件夹，右键菜单中会出现 <code>通过 Code 打开</code> 的选项</li>
 <li>如果希望右键菜单不那么臃肿的话可以不选这一项</li>
 <li>本人没有选择该选项，可以自行思考选择</li>
@@ -1069,7 +1054,6 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 </div>
 </div>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="_4">插件安装<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>打开<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>后，在左侧竖栏寻找下面这个图标：</p>
 <div style="text-align:center;">
@@ -1116,8 +1100,8 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 <div style="text-align:center;">
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/newfile.png"><img alt="newfile" src="../graph/newfile.png" style="margin: 0 auto; zoom: 60%;"/></a>
 </div>
-<p>创建 <code>test.c</code>，输入<span class="heti-skip"><span class="heti-spacing"> </span>Hello World<span class="heti-spacing"> </span></span>的代码并<strong>保存文件</strong>。然后在终端输入以下命令并执行：
-</p><div class="highlight"><pre><span></span><code>gcc test.c
+<p>创建 <code>test.c</code>，输入<span class="heti-skip"><span class="heti-spacing"> </span>Hello World<span class="heti-spacing"> </span></span>的代码并<strong>保存文件</strong>。然后在终端输入以下命令并执行：</p>
+<div class="highlight"><pre><span></span><code>gcc test.c
 </code></pre></div>
 <p>在不同的系统将会生成不同的编译产物。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Windows</label><label for="__tabbed_4_2">WSL/macOS</label></div>
@@ -1153,9 +1137,11 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 <li>工作目录叫 <code>Coding</code>，但是绝对路径是 <code>D:/学习资料/Coding</code></li>
 </ul>
 </li>
-<li>可以指定编译生成的文件名，比如你想要输出文件名为 <code>hello.exe</code>，就可以执行
+<li>可以指定编译生成的文件名，比如你想要输出文件名为 <code>hello.exe</code>，就可以执行</li>
+</ul>
 <div class="highlight"><pre><span></span><code>gcc test.c -o hello.exe
-</code></pre></div></li>
+</code></pre></div>
+<ul>
 <li>更多的<span class="heti-skip"><span class="heti-spacing"> </span>gcc<span class="heti-spacing"> </span></span>选项和<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>扩展功能留待你们探索</li>
 </ul>
 <h3 id="vscode-wsl">VSCode + WSL（可选）<a class="headerlink" href="#vscode-wsl" title="Permanent link">¶</a></h3>
@@ -1184,17 +1170,17 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/vscode_wsl_connected.png"><img alt="vscode_wsl_connected" src="../graph/vscode_wsl_connected.png"/></a></p>
 <p>注意上图左下角所显示的状态，表明已经连接到<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>所安装的<span><span class="heti-spacing"> </span>Ubuntu-22.04</span>，接下来的开发操作和<a href="#vscode_1">上一节</a>就区别不大了。</p>
 <h4 id="wsl-vscode">从<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>启动<span><span class="heti-spacing"> </span>VSCode</span><a class="headerlink" href="#wsl-vscode" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p><strong>确保你已经将<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>添加到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>环境变量中</strong>。如果已经添加，那么直接在<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>的命令行中你所希望作为工作目录的位置执行
-</p><div class="highlight"><pre><span></span><code>code .
+<p><strong>确保你已经将<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>添加到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>环境变量中</strong>。如果已经添加，那么直接在<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>的命令行中你所希望作为工作目录的位置执行</p>
+<div class="highlight"><pre><span></span><code>code .
 </code></pre></div>
 <p>就可以打开<span><span class="heti-spacing"> </span>VSCode</span>，连接到<span class="heti-skip"><span class="heti-spacing"> </span>WSL<span class="heti-spacing"> </span></span>并且打开该目录作为工作目录。<code>.</code> 在这里表示当前目录即 <code>pwd</code>，如果将它替换成其他目录的路径也是可以将其打开作为工作目录的。</p>
 <p>如果你还未将<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>添加到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>环境变量中，那该功能将无法使用，需要你手动添加<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>环境变量。例如你的<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>用户名是<span><span class="heti-spacing"> </span>ZTM</span>，并把<span class="heti-skip"><span class="heti-spacing"> </span>VSCode<span class="heti-spacing"> </span></span>安装在默认目录，那么需要将 <code>C:\Users\ZTM\AppData\Local\Programs\Microsoft VS Code\bin</code> 加入到<span class="heti-skip"><span class="heti-spacing"> </span>PATH<span class="heti-spacing"> </span></span>环境变量，参考<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>修改环境变量章节。</p>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 11, 2023</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2024</span>
 </span>
 </aside>
 </article>
@@ -1202,7 +1188,7 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
 <button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
 </main>
@@ -1210,7 +1196,7 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 <nav aria-label="Footer" class="md-footer__inner md-grid">
 <a aria-label="Previous: 程设辅学课程 系统知识拾遗" class="md-footer__link md-footer__link--prev" href="../../">
 <div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
 <div class="md-footer__title">
 <span class="md-footer__direction">
@@ -1231,7 +1217,7 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
               </div>
 </div>
 <div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
 </div>
 </a>
 </nav>
@@ -1244,10 +1230,10 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 </div>
 <div class="md-social">
 <a class="md-social__link" href="https://space.bilibili.com/3546574332365752" rel="noopener" target="_blank" title="space.bilibili.com">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"></path></svg>
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"></path></svg>
 </a>
 <a class="md-social__link" href="https://github.com/ckc-agc" rel="noopener" target="_blank" title="github.com">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </a>
 </div>
 </div>
@@ -1257,8 +1243,8 @@ InstalledDir: /Library/Developer/CommandLineTools/usr/bin
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.footer", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.footer", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
 <script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

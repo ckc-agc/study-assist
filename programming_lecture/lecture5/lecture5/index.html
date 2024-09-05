@@ -9,9 +9,9 @@
 <link href="../../lecture4/after_class/" rel="prev"/>
 <link href="../../../chemistry/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.26" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.34" name="generator"/>
 <title>指针及链表相关知识点复习 - 浙江大学竺可桢学院辅学计划站点</title>
-<link href="../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.35f28582.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -19,7 +19,7 @@
 <link href="../../../css/heti.css" rel="stylesheet"/>
 <link href="../../../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
 <link href="../../../stylesheets/custom.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
@@ -47,7 +47,7 @@
 <img alt="logo" src="../../../graph/ckc.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
 </label>
 <div class="md-header__title" data-md-component="header-title">
 <div class="md-header__ellipsis">
@@ -68,16 +68,16 @@
 <form class="md-header__option" data-md-component="palette">
 <input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
 </label>
 <input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
 </label>
 </form>
-<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
 </label>
 <div class="md-search" data-md-component="search" role="dialog">
 <label class="md-search__overlay" for="__search"></label>
@@ -85,12 +85,12 @@
 <form class="md-search__form" name="search">
 <input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
 <label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </label>
 <nav aria-label="Search" class="md-search__options">
 <button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
 </button>
 </nav>
 </form>
@@ -109,7 +109,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </div>
 <div class="md-source__repository">
     浙江大学竺可桢学院辅学计划站点
@@ -250,7 +250,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </div>
 <div class="md-source__repository">
     浙江大学竺可桢学院辅学计划站点
@@ -607,10 +607,9 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming_lecture/lecture5/lecture5.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
 </a>
 <h1 id="_1">指针及链表相关知识点复习<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<!-- prettier-ignore-start -->
 <div class="admonition abstract">
 <p class="admonition-title">摘要</p>
 <p>考虑到本次辅学时间已近期末，原先安排的介绍数据结构与算法的内容已经不太合适，因此本次辅学时间将主要介绍期末考试的部分重点知识，以讲解指针与链表为主。</p>
@@ -621,7 +620,6 @@
 </ul>
 <p>其中我们辅学学长写的专题笔记 —— <a href="https://ckc-agc.bowling233.top/programming/topic/pointers/">专题笔记<span class="heti-skip"><span class="heti-spacing"> </span>-<span class="heti-spacing"> </span></span>指针概览</a> 已经对指针进行了详细的介绍。本次辅学不会深挖指针的内存模型等细节，主要是针对历年卷题目，以及辅学群中同学们所问的指针相关的问题，进行以备考为目的的复习。</p>
 </div>
-<!-- prettier-ignore-end -->
 <h2 id="_2">指针的基本操作<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_3">指针的声明<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>声明一个指针：</p>
@@ -629,7 +627,6 @@
 </code></pre></div>
 <p>其中 <code>VariableType</code> 为指针指向的变量类型，<code>pointerName</code> 为指针的名称。</p>
 <p>例如：<code>int *p;</code> 声明了一个指向 <code>int</code> 类型变量的指针，指针的名称为 <code>p</code>。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition info">
 <p class="admonition-title">注意</p>
 <ul>
@@ -638,8 +635,6 @@
 <li><code>pointerName</code> 代表指针的名称，需要符合<a href="https://zh.cppreference.com/w/c/language/identifier">标识符命名规范</a>。</li>
 </ul>
 </div>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">限定符对指针的限定</p>
 <p>限定符在<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中用于限定变量的类型，最常用的为 <code>const</code> 限定符。</p>
@@ -658,11 +653,9 @@
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pcp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cp</span><span class="p">;</span><span class="w"> </span><span class="c1">// 指向指向非 const 的 int 的 const 指针的非 const 指针</span>
 </code></pre></div>
 </div>
-<!-- prettier-ignore-end -->
 <h4 id="_4">多级指针的声明<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>对多级指针的声明，可以用递归的方式理解。</p>
 <p>对于指向 <code>int</code> 类型的一级指针，其 <code>VariableType</code> 为 <code>int</code>；对于二级指针 <code>int **p</code>，即指向指向 <code>int</code> 类型的指针的指针，其 <code>VariableType</code> 为 <code>int *</code>。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition example">
 <p class="admonition-title">例</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -673,7 +666,6 @@
 <div class="highlight"><pre><span></span><code>(int **)p -&gt; (int *)p1 -&gt; (int)var
 </code></pre></div>
 </div>
-<!-- prettier-ignore-end -->
 <h4 id="_5">指针数组与数组指针<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>很容易搞混，需要技巧来识别。</p>
 <p>比如下面两条声明：</p>
@@ -695,7 +687,6 @@
 </code></pre></div>
 <p>结果为指代被指向对象的左值表达式，即可以被赋值。</p>
 <p>记住 <code>a[b]</code> 等价于 <code>*(a + b)</code>。这个<span class="heti-skip"><span class="heti-spacing"> </span>trick<span class="heti-spacing"> </span></span>在一些题目中很有用。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition example">
 <p class="admonition-title">例题</p>
 <p>Given the declaration: <code>int a[3][3]={1,2,3,4,5,6,7,8,9};</code> , the value of <code>a[-1][5]</code> is _____.</p>
@@ -711,8 +702,6 @@ p = *(a - 1)
 <p>令 <code>p = *(a - 1)</code>，则要求的值变为 <code>p[5]</code>，等价于 <code>*(p + 5)</code>。将上述指针右移<span class="heti-skip"><span class="heti-spacing"> </span>5<span class="heti-spacing"> </span></span>个 <code>int</code> 单位，得到<span><span class="heti-spacing"> </span>3</span>。</p>
 </details>
 </div>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <div class="admonition warning">
 <p class="admonition-title">野指针</p>
 <p>当指针声明时未初始化，且还未被赋值，则这个指针指向无法确定，被称为 <strong>野指针</strong>。</p>
@@ -728,7 +717,6 @@ p = *(a - 1)
 <p>选项<span class="heti-skip"><span class="heti-spacing"> </span>A<span class="heti-spacing"> </span></span>就是经典的野指针访问。</p>
 </div>
 </div>
-<!-- prettier-ignore-end -->
 <h4 id="_8">取址操作<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>取址运算符 <code>&amp;</code> 早在大家学习输入输出的时候就已经接触过了。在使用 <code>scanf</code> 对 <code>int</code> 等类型的变量进行读入的时候，使用的是如下形式：</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
@@ -751,7 +739,6 @@ p = *(a - 1)
 </li>
 <li><code>&amp; 表达式 [表达式]</code>：等价于 <code>&amp; *(表达式 + 表达式)</code> 等价于 <code>表达式 + 表达式</code>。这个仅作了解。</li>
 </ul>
-<!-- prettier-ignore-start -->
 <div class="admonition example">
 <p class="admonition-title">解引用与取址操作的应用</p>
 <p>输入一个<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位无符号整数 <code>x</code>，求 <code>x</code> 的二进制表示的<span class="heti-skip"><span class="heti-spacing"> </span>01<span class="heti-spacing"> </span></span>串所表示的 <code>double</code> 类型变量的值。</p>
@@ -774,7 +761,6 @@ p = *(a - 1)
 </code></pre></div>
 <h4 id="_10">数组到指针的隐式转换<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <!-- https://zh.cppreference.com/w/c/language/conversion -->
-<!-- prettier-ignore-start -->
 <div class="admonition info">
 <p class="admonition-title">隐式转换</p>
 <p><strong>数组到指针转换</strong></p>
@@ -788,16 +774,13 @@ p = *(a - 1)
 <p>会经历到指向其首元素的非左值指针的转换。</p>
 <p>—— <a href="https://zh.cppreference.com/w/c/language/conversion"><span>cppreference-<span class="heti-spacing"> </span></span>隐式转换</a></p>
 </div>
-<!-- prettier-ignore-end -->
 <p>简单来说：牢记数组名 <strong>不等于</strong> 指向数组首元素的指针，当数组名被取址运算符 <code>&amp;</code> 作用，或者作为 <code>sizeof</code> 的操作数时，不会发生隐式转换。</p>
 <p>这里要注意的一点是，将数组作为参数传给函数时，函数的形参只能是指针，而不能是数组，此时数组名会发生隐式转换。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition info">
 <p class="admonition-title">数组类型用于函数形参</p>
 <p>当数组类型用于函数形参列表时，它会转换成对应的指针类型：<code>int f(int a[2])</code>、<code>int f(int a[])</code>、<code>int f(int *a)</code> 声明同一个函数。</p>
 <p>因为函数实际参数类型为指针类型，使用数组实参的函数调用会进行一个数组到指针转换；被调用函数无法获得实参数组的大小，必须显式传递。</p>
 <p>见 <a href="https://ckc-agc.bowling233.top/programming/daily/2023/#29-soyo-size">每日一题<span><span class="heti-spacing"> </span>-29</span></a>。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>只有数组类型用于函数形参列表时，<code>a[]</code> 和 <code>*a</code> 才是等价的。</p>
@@ -811,10 +794,7 @@ p = *(a - 1)
 <span class="c1">// s[] = "he11o"; // wrong</span>
 </code></pre></div>
 </div>
-<!-- prettier-ignore-end -->
 </div>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>下列代码的 <code>val_x</code> 和 <code>val_y</code> 的类型一样吗？</p>
@@ -823,8 +803,6 @@ p = *(a - 1)
 <span class="n">Type2</span><span class="w"> </span><span class="n">val_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>
 </code></pre></div>
 </div>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>下列代码的 <code>size_x</code> 和 <code>size_y</code> 大小一样吗？</p>
@@ -833,20 +811,16 @@ p = *(a - 1)
 <span class="kt">size_t</span><span class="w"> </span><span class="n">size_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="w"> </span><span class="n">p</span><span class="p">;</span>
 </code></pre></div>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="_11">指针的值与指针的地址<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <!-- 指针之间的比较。指针本质是数据类型，可以取址 -->
 <p>指针的值，又称为指针所指向的内存区。</p>
 <p>在计算机中，内存中的所有字节都拥有一个唯一编号，也即内存地址。指针指向某一数据的地址，即指针变量存储了这个数据的内存地址的编号。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition info">
 <p class="admonition-title">指针所占的字节数</p>
 <p>现在一般的计算机基本都是<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统，使用<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位长的内存地址，即内存地址的编号是一个<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位整数。在<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位系统中使用 <code>sizeof</code> 运算符求指针的大小时，得到的结果为<span><span class="heti-spacing"> </span>8</span>。</p>
 </div>
-<!-- prettier-ignore-end -->
 <p>注意，一般来说无法预测地址的值，因为内存地址取决于系统的内存分配情况。但部分情况下可以确定内存地址的相对位置，比如同一数组中元素在内存中连续。</p>
 <p>此外，指针同样也是一个在内存中有对应存储空间的变量，也有自己的内存地址。在指针的内存地址中，存储的内容是其指向的内容的内存地址。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition info">
 <p class="admonition-title">类比理解</p>
 <p>假如有一个很长的数组，存储了一些数据，我们可以使用数组下标去访问数据。将数组下标当作数据存储在数组中，那么我们就可以从数组中的某一位置去访问其存储的数组下标的位置的数据，这就可以看作是简单的指针。</p>
@@ -856,8 +830,6 @@ arr   data0    data1    data2    data3    ....    32
                  +--------------------------------+
 </code></pre></div>
 </div>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <div class="admonition question">
 <p class="admonition-title">Question</p>
 <p>那么就有同学问了：既然指针的值是<span class="heti-skip"><span class="heti-spacing"> </span>64<span class="heti-spacing"> </span></span>位整数，那能用关系运算符比较大小吗？</p>
@@ -875,7 +847,6 @@ arr   data0    data1    data2    data3    ....    32
 <p>除此之外，指针的比较结果是未定义的。</p>
 </details>
 </div>
-<!-- prettier-ignore-end -->
 <div class="admonition info">
 <p class="admonition-title">指针的计算</p>
 <p>涉及指针的加减只有两种情况：</p>
@@ -890,7 +861,6 @@ arr   data0    data1    data2    data3    ....    32
 <p>结果为两指针之间差了多少单位距离，而不是指针的值相减。</p>
 </li>
 </ul>
-<!-- prettier-ignore-start -->
 <div class="admonition question">
 <p class="admonition-title">例题</p>
 <p>以下代码的输出为<span><span class="heti-spacing"> </span>_____</span>。</p>
@@ -899,11 +869,8 @@ arr   data0    data1    data2    data3    ....    32
 <span class="n">printf</span><span class="p">(</span><span class="s">"%lu</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
 </code></pre></div>
 </div>
-<!-- prettier-ignore-end -->
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="_12">一些题目<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<!-- prettier-ignore-start -->
 <div class="admonition question">
 <p class="admonition-title">题目<span><span class="heti-spacing"> </span>1</span></p>
 <p>The following code fragment will output _____.</p>
@@ -913,7 +880,6 @@ arr   data0    data1    data2    data3    ....    32
 <span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*++</span><span class="n">pw</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">"%c#%c#"</span><span class="p">,</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="w"> </span><span class="n">c2</span><span class="p">);</span>
 </code></pre></div>
-<!-- prettier-ignore-start -->
 <details class="answer">
 <summary>Answer</summary>
 <div class="highlight"><pre><span></span><code>       "Mon\0"   "Tue\0"   "Wed\0"   "Thu\0"   "Fri\0"   "Sat\0"   "Sun\0"
@@ -925,10 +891,7 @@ week: week[0]   week[1]   week[2]   week[3]   week[4]   week[5]   week[6]
        pw
 </code></pre></div>
 </details>
-<!-- prettier-ignore-end -->
 </div>
-<!-- prettier-ignore-end -->
-<!-- prettier-ignore-start -->
 <div class="admonition question">
 <p class="admonition-title">题目<span><span class="heti-spacing"> </span>2</span></p>
 <p>For definitions:</p>
@@ -939,7 +902,6 @@ week: week[0]   week[1]   week[2]   week[3]   week[4]   week[5]   week[6]
 <p>B. <code>*s + 2</code></p>
 <p>C. <code>p[1][1]</code></p>
 <p>D. <code>*++p + 2</code></p>
-<!-- prettier-ignore-start -->
 <details class="answer">
 <summary>Answer</summary>
 <div class="highlight"><pre><span></span><code>s:    "ab\0"     "cd\0"
@@ -953,9 +915,7 @@ s:    "ab\0"     "cd\0"
   p = (char *)s
 </code></pre></div>
 </details>
-<!-- prettier-ignore-end -->
 </div>
-<!-- prettier-ignore-end -->
 <h2 id="_13">链表<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
 <h3 id="_14">基础知识和总结<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>链表是一种常用的数据结构，它通过节点的形式存储数据。每个节点包含数据部分和指向下一个节点的指针。链表可以是单向的也可以是双向的，我们先看看单向链表：</p>
@@ -1119,7 +1079,7 @@ s:    "ab\0"     "cd\0"
 <p>B.</p>
 </details>
 </div>
-<p>这里需要额外提一个叫做<strong>循环队列</strong>的东西。它是队列的一种变体，通常使用数组来实现，用来节约队列的空间。 循环队列是把顺序队列首尾相连，把存储队列元素的表从逻辑上看成一个环。通常用两个变量代表当前循环队列存储的空间：一个是尾 <code>rear</code>，一个是头<code>front</code>。不过这个是开区间还是闭区间呢，还得看具体实现方式和题干要求，大家最好翻翻老师的<span><span class="heti-spacing"> </span>PPT</span>，看看上课是怎么实现的，万一题目没有给出实现方式就按照老师讲的为主吧。</p>
+<p>这里需要额外提一个叫做<strong>循环队列</strong>的东西。它是队列的一种变体，通常使用数组来实现，用来节约队列的空间。循环队列是把顺序队列首尾相连，把存储队列元素的表从逻辑上看成一个环。通常用两个变量代表当前循环队列存储的空间：一个是尾 <code>rear</code>，一个是头<code>front</code>。不过这个是开区间还是闭区间呢，还得看具体实现方式和题干要求，大家最好翻翻老师的<span><span class="heti-spacing"> </span>PPT</span>，看看上课是怎么实现的，万一题目没有给出实现方式就按照老师讲的为主吧。</p>
 <div class="admonition question">
 <p class="admonition-title">题目<span><span class="heti-spacing"> </span>5</span></p>
 <p>Suppose that an array of size 6 is used to store a circular queue, and the values of front and rear are 0 and 4, respectively. Now after 2 dequeues and 2 enqueues, what will the values of front and rear be?</p>
@@ -1136,9 +1096,9 @@ s:    "ab\0"     "cd\0"
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 15, 2023</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2024</span>
 </span>
 </aside>
 </article>
@@ -1146,7 +1106,7 @@ s:    "ab\0"     "cd\0"
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
 <button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
 </main>
@@ -1154,7 +1114,7 @@ s:    "ab\0"     "cd\0"
 <nav aria-label="Footer" class="md-footer__inner md-grid">
 <a aria-label="Previous: 课后扩展：C 标准库的实现" class="md-footer__link md-footer__link--prev" href="../../lecture4/after_class/">
 <div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
 <div class="md-footer__title">
 <span class="md-footer__direction">
@@ -1175,7 +1135,7 @@ s:    "ab\0"     "cd\0"
               </div>
 </div>
 <div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
 </div>
 </a>
 </nav>
@@ -1188,10 +1148,10 @@ s:    "ab\0"     "cd\0"
 </div>
 <div class="md-social">
 <a class="md-social__link" href="https://space.bilibili.com/3546574332365752" rel="noopener" target="_blank" title="space.bilibili.com">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"></path></svg>
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"></path></svg>
 </a>
 <a class="md-social__link" href="https://github.com/ckc-agc" rel="noopener" target="_blank" title="github.com">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </a>
 </div>
 </div>
@@ -1201,8 +1161,8 @@ s:    "ab\0"     "cd\0"
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.footer", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.footer", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
 <script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

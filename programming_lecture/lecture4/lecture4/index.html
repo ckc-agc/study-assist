@@ -9,9 +9,9 @@
 <link href="../../lecture3/lecture3/" rel="prev"/>
 <link href="../after_class/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-9.5.26" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.34" name="generator"/>
 <title>简明 C 标准库 - 浙江大学竺可桢学院辅学计划站点</title>
-<link href="../../../assets/stylesheets/main.6543a935.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.35f28582.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -19,7 +19,7 @@
 <link href="../../../css/heti.css" rel="stylesheet"/>
 <link href="../../../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
 <link href="../../../stylesheets/custom.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
@@ -47,7 +47,7 @@
 <img alt="logo" src="../../../graph/ckc.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
 </label>
 <div class="md-header__title" data-md-component="header-title">
 <div class="md-header__ellipsis">
@@ -68,16 +68,16 @@
 <form class="md-header__option" data-md-component="palette">
 <input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
 </label>
 <input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
 <label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
 </label>
 </form>
-<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
 </label>
 <div class="md-search" data-md-component="search" role="dialog">
 <label class="md-search__overlay" for="__search"></label>
@@ -85,12 +85,12 @@
 <form class="md-search__form" name="search">
 <input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
 <label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </label>
 <nav aria-label="Search" class="md-search__options">
 <button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
 </button>
 </nav>
 </form>
@@ -109,7 +109,7 @@
 <div class="md-header__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </div>
 <div class="md-source__repository">
     浙江大学竺可桢学院辅学计划站点
@@ -250,7 +250,7 @@
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
 <div class="md-source__icon md-icon">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </div>
 <div class="md-source__repository">
     浙江大学竺可桢学院辅学计划站点
@@ -856,7 +856,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming_lecture/lecture4/lecture4.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
 </a>
 <h1 id="c">简明<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库<a class="headerlink" href="#c" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
 <style>
@@ -864,7 +864,6 @@
       white-space : pre-wrap !important;
     }
 </style>
-<!-- prettier-ignore-start -->
 <div class="admonition abstract">
 <p class="admonition-title">摘要</p>
 <p>考虑到课程教学进度，本节课不再讲解<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准库的实现。</p>
@@ -882,7 +881,6 @@
 <li><code>math.h</code></li>
 </ul>
 </div>
-<!-- prettier-ignore-end -->
 <h2 id="c_1">导引：<span>C<span class="heti-spacing"> </span></span>标准库，学些什么？<a class="headerlink" href="#c_1" title="Permanent link">¶</a></h2>
 <h3 id="_1">为什么要学标准库？<a class="headerlink" href="#_1" title="Permanent link">¶</a></h3>
 <p>有一个粗浅的理由，就是图方便。假设有下面这个声明在 <code>main</code> 函数中数组：</p>
@@ -908,24 +906,19 @@
 <span class="w">        </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">toupper</span><span class="p">(</span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
 </code></pre></div>
 <p>下面的这段代码，是不是比上面的代码简洁，并且一眼看过去就能明白意思呢？</p>
-<!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">总而言之，<span>C<span class="heti-spacing"> </span></span>标准库功能强大，它的重要性和语言本身一样。学会使用标准库，让你少造轮子，提高代码的可读性、简洁性和正确性。</p>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="_2">标准库里有什么？<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
-<!-- prettier-ignore-start -->
 <div class="admonition question">
 <p class="admonition-title">💡在你的印象中，标准库是什么样的？里面有什么东西？</p>
 </div>
-<!-- prettier-ignore-end -->
 <p>每一个标准库会定义这些内容：</p>
 <ul>
 <li>类型定义</li>
 <li>宏</li>
 <li>函数</li>
 </ul>
-<!-- prettier-ignore-start -->
 <div class="admonition example">
 <p class="admonition-title">几个耳熟能详的例子，你能说说它们是什么吗？</p>
 <ul>
@@ -934,14 +927,15 @@
 <li><code>FILE</code></li>
 </ul>
 </div>
-<!-- prettier-ignore-end -->
-<p>接下来的每一节是一个标准库，会分为<strong>背景、内容、使用</strong>三个部分。其中「背景」部分会介绍一些前置知识<heti-adjacent class="heti-adjacent-half">，</heti-adjacent>「内容」部分会介绍标准库中的内容<heti-adjacent class="heti-adjacent-half">，</heti-adjacent>「使用」部分会介绍一些使用的例子<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>「内容」 模块中代码段内被注释掉的内容，表示不作要求。</p>
+<p>接下来的每一节是一个标准库，会分为<strong>背景、内容、使用</strong>三个部分。其中「背景」部分会介绍一些前置知识<heti-adjacent class="heti-adjacent-half">，</heti-adjacent>「内容」部分会介绍标准库中的内容<heti-adjacent class="heti-adjacent-half">，</heti-adjacent>「使用」部分会介绍一些使用的例子<heti-adjacent class="heti-adjacent-half">。</heti-adjacent>「内容」模块中代码段内被注释掉的内容，表示不作要求。</p>
 <h3 id="_3">背景知识<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>为了能跟上接下来的内容，确认一下大家都有的知识：</p>
 <ul>
-<li>会阅读函数原型<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>函数声明<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>函数签名（它们说的是一个东西<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：
-    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-</code></pre></div></li>
+<li>
+<p>会阅读函数原型<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>函数声明<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>函数签名（它们说的是一个东西<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</code></pre></div>
+</li>
 <li>
 <p><a href="../../../programming/topic/pointers/">指针</a> 的概念</p>
 <ul>
@@ -949,7 +943,6 @@
 <li>指针也是一个对象，它的值是一个内存地址</li>
 <li>
 <p>指针具有类型信息，决定了指针的运算方式</p>
-<!-- prettier-ignore-start -->
 <div class="admonition example">
 <p class="admonition-title">例子</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
@@ -960,11 +953,9 @@
 <p>请问，<code>p1 + 1</code>、<code>p2 - p1</code>、<code>q1 + 1</code>、<code>q2 - q1</code> 的值是多少？类型是什么？</p>
 <p>如果直接对他们的值进行加减，结果应当是多少？</p>
 </div>
-<!-- prettier-ignore-end -->
 </li>
 <li>
-<p>数组与指针
-    <!-- prettier-ignore-start --></p>
+<p>数组与指针</p>
 <div class="admonition example">
 <p class="admonition-title">例子</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
@@ -976,7 +967,6 @@
 </code></pre></div>
 <p>是什么原因？</p>
 </div>
-<!-- prettier-ignore-end -->
 </li>
 <li>
 <p>多维数组比较复杂，等正文讲完还有时间再回来讲</p>
@@ -993,19 +983,18 @@
 <li>控制字符：<code>0x00</code> <span>~<span class="heti-spacing"> </span></span><code>0x1F</code>和 <code>0x7F</code></li>
 </ul>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/ascii.png"><img alt="" src="../graph/ascii.png"/></a></p>
-<!-- prettier-ignore-start -->
 <div class="admonition tip">
 <p class="admonition-title">小提示</p>
 <p>你真的需要去记这些字符的编码吗？</p>
 <p>选择填空之类的题目可能会考到，但也是有技巧的。你最多需要记忆的是大小写字母之间相差<span><span class="heti-spacing"> </span>32</span>，但只要题目不是让你必须填数字，你就可以用 <code>'a' - 'A'</code> 来代替。</p>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="_4">内容<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>这个头文件中只有函数，没有特别的类型和宏。</p>
 <p>这些函数的意义和用法非常显然，因此我也不做注释。</p>
 <ul>
-<li>字符判断函数
-    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">isalnum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+<li>
+<p>字符判断函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">isalnum</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">isalpha</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 <span class="c1">// int iscntrl(int c);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">isdigit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
@@ -1016,21 +1005,21 @@
 <span class="kt">int</span><span class="w"> </span><span class="nf">isspace</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">isupper</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 <span class="c1">// int isxdigit(int c);</span>
-</code></pre></div></li>
-<li>字符转换函数
-    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">tolower</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</code></pre></div>
+</li>
+<li>
+<p>字符转换函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">tolower</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">toupper</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
-</code></pre></div></li>
+</code></pre></div>
+</li>
 </ul>
 <h3 id="_5">使用<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p><code>&lt;ctype.h&gt;</code> 中的函数对<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>字符大致作了如下划分：</p>
-<!-- prettier-ignore-start -->
 <div class="admonition note">
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/character_types.png"><img alt="" src="../graph/character_types.png"/></a></p>
 </div>
-<!-- prettier-ignore-end -->
 <p>控制字符那些不用管，不要求的函数不用管。只要记得 <code>isspace</code> 和 <code>isblank</code> 的区别就行了。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title"><code>isspace</code> 和 <code>isblank</code> 的区别</p>
 <ul>
@@ -1038,9 +1027,7 @@
 <li><strong>空白</strong>字符：<code>isspace</code> 判断空格 <code></code>、水平制表符 <code>\t</code>、换行符 <code>\n</code>、回车符 <code>\r</code>、换页符 <code>\f</code>、垂直制表符 <code>\v</code>。</li>
 </ul>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="ctypeh_1"><code>&lt;ctype.h&gt;</code> 的实现：宏与位运算<a class="headerlink" href="#ctypeh_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<!-- prettier-ignore-start -->
 <div class="admonition tip">
 <p class="admonition-title">阅读本节需要具备的知识</p>
 <ul>
@@ -1080,13 +1067,11 @@
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 </div>
-<!-- prettier-ignore-end -->
 <p><code>&lt;ctype.h&gt;</code> 中的函数通常使用宏来实现。使用宏实现时需要注意以下因素：</p>
 <ul>
 <li>虽然宏可能比函数快，但是它们通常会产生更大的代码。如果在很多地方扩展，这个程序可能大到让你无法想象。</li>
 <li>
-<p>宏的参数可能会被求值多次，具有副作用的宏参数会导致意外。
-    <!-- prettier-ignore-start --></p>
+<p>宏的参数可能会被求值多次，具有副作用的宏参数会导致意外。</p>
 <div class="admonition example">
 <p class="admonition-title">举个例子</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#define SQUARE(X) ((X) * (X))</span>
@@ -1098,7 +1083,6 @@
 <p class="admonition-title">会产生不安全行为的宏</p>
 <p>标准库中，只有 <code>getc</code> 和 <code>putc</code> 可能会产生这种不安全行为。</p>
 </div>
-<!-- prettier-ignore-end -->
 </li>
 </ul>
 <p><code>&lt;ctype.h&gt;</code> 中定义了一个查找表 <code>_Ctype</code>，两个映射表 <code>_Tolower</code> 和 <code>_Toupper</code>。每个字符都被编入查找表中，使用位运算就能判断出字符的类型。</p>
@@ -1110,7 +1094,6 @@
 <span class="cp">#define isalnum(c) (_Ctype[(int)(c)] &amp; (_DI|_LO|_UP|_XA))</span>
 <span class="cp">#define tolower(c) _ToLower[(int)(c)]</span>
 </code></pre></div>
-<!-- prettier-ignore-start -->
 <div class="admonition question">
 <p class="admonition-title">读一下上面的代码，想象一下 <code>_Ctype</code> 这个查找表的样子。</p>
 </div>
@@ -1120,7 +1103,6 @@
 <div class="admonition question">
 <p class="admonition-title">你能想一想映射表的实现吗？</p>
 </div>
-<!-- prettier-ignore-end -->
 <p>同样，给出函数版本的实现：</p>
 <div class="highlight"><span class="filename">isalnum.c</span><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctype.h&gt;</span>
 
@@ -1130,12 +1112,11 @@
 <span class="w">    </span><span class="p">}</span>
 </code></pre></div>
 <p>下面两幅图分别展示了 <code>_Ctype</code> 和 <code>_Toupper</code> 的样子：</p>
-<!-- prettier-ignore-start -->
 <div class="nt-cards nt-grid cols-2">
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/ctype.png"><img src="../graph/ctype.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/ctype.png"><img alt="`_Ctype`" src="../graph/ctype.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title"><code>_Ctype</code></p>
 </div>
@@ -1145,7 +1126,7 @@
 <div class="nt-card">
 <div class="nt-card-wrap">
 <div>
-<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/toupper.png"><img src="../graph/toupper.png"/></a></div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/toupper.png"><img alt="`_Toupper`" src="../graph/toupper.png"/></a></div>
 <div class="nt-card-content">
 <p class="nt-card-title"><code>_Toupper</code></p>
 </div>
@@ -1153,11 +1134,9 @@
 </div>
 </div>
 </div>
-<!-- prettier-ignore-end -->
 <p>非常地简单，对吧？这可比 <code>'a' &lt;= c &amp;&amp; c &lt;= 'z'</code> 这样的判断要快得多。</p>
 <h2 id="mathh"><code>&lt;math.h&gt;</code><a class="headerlink" href="#mathh" title="Permanent link">¶</a></h2>
 <h3 id="_6">背景知识：函数的定义域与值域<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<!-- prettier-ignore-start -->
 <div class="admonition question">
 <p class="admonition-title">还记得 <code>double</code> 表示的范围吗？</p>
 <p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../graph/float_range.png"><img alt="" src="../graph/float_range.png"/></a></p>
@@ -1168,24 +1147,20 @@
 <li>最小正值：<span class="arithmatex">\(2.2250738585072014 \times 10^{-307}\)</span></li>
 </ul>
 </div>
-<!-- prettier-ignore-end -->
 <p>我们都知道数学函数有定义域和值域，<code>&lt;math.h&gt;</code> 中的函数也有，只是大家平常使用的时候可能不太关注罢了。</p>
 <ul>
 <li>如果函数的输入参数位于定义域外（比如 <code>asin</code> 输入了不在<span class="heti-skip"><span class="heti-spacing"> </span><span class="arithmatex">\([-1, 1]\)</span><span class="heti-spacing"> </span></span>的值<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，会发生定义域错误。</li>
 <li>如果结果不能被表示为 <code>double</code> 值，发生值域错误。上溢返回 <code>HUGE_VAL</code>，下溢返回 <code>0</code>。</li>
 </ul>
-<!-- prettier-ignore-start -->
 <div class="admonition info">
 <p class="admonition-title">因为我们没有学<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>的错误处理，所以我们不知道怎么捕获这些错误。有兴趣的同学可以学习 <code>&lt;error.h&gt;</code> 中的内容。</p>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="_7">内容<a class="headerlink" href="#_7" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
 <li>
 <p>宏</p>
 <div class="highlight"><pre><span></span><code><span class="n">HUGE_VAL</span>
 </code></pre></div>
-<!-- prettier-ignore-start -->
 <div class="admonition danger">
 <p class="admonition-title"><span>GCC<span class="heti-spacing"> </span></span>定义的宏</p>
 <div class="highlight"><pre><span></span><code><span class="n">INFINITY</span>
@@ -1196,11 +1171,10 @@
 <p>据说在<span class="heti-skip"><span class="heti-spacing"> </span>C99<span class="heti-spacing"> </span></span>以后，<code>INFINITY</code> 被标准库纳入，我没有查证。</p>
 </blockquote>
 </div>
-<!-- prettier-ignore-end -->
 </li>
 <li>
-<p>函数（仅举一些常用的
-    </p><div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">acos</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<p>函数（仅举一些常用的</p>
+<div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">acos</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 <span class="kt">double</span><span class="w"> </span><span class="nf">asin</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 <span class="kt">double</span><span class="w"> </span><span class="nf">atan</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
 <span class="kt">double</span><span class="w"> </span><span class="nf">cos</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
@@ -1233,7 +1207,6 @@
 <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"StudyTonight"</span><span class="p">;</span>
 <span class="kt">char</span><span class="w"> </span><span class="n">name</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'c'</span><span class="p">,</span><span class="sc">'o'</span><span class="p">,</span><span class="sc">'d'</span><span class="p">,</span><span class="sc">'e'</span><span class="p">,</span><span class="sc">'\0'</span><span class="p">};</span>
 </code></pre></div>
-<!-- prettier-ignore-start -->
 <div class="admonition danger">
 <p class="admonition-title"><code>&lt;string.h&gt;</code> 的函数只负责操作字符串，不负责操作字符数组！</p>
 <p>还记得数组传入函数的时候会退化成指针吗？函数无法获知数组的长度，因此空字符是帮助函数判断字符串结束、避免越界的<strong>唯一方法</strong>。</p>
@@ -1247,33 +1220,45 @@
 <li>......</li>
 </ul>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="_10">内容<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>类型
-    <div class="highlight"><pre><span></span><code><span class="kt">size_t</span>
-</code></pre></div></li>
-<li>宏
-    <div class="highlight"><pre><span></span><code><span class="nb">NULL</span>
-</code></pre></div></li>
-<li>函数<ul>
-<li>复制函数
-    <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+<li>
+<p>类型</p>
+<div class="highlight"><pre><span></span><code><span class="kt">size_t</span>
+</code></pre></div>
+</li>
+<li>
+<p>宏</p>
+<div class="highlight"><pre><span></span><code><span class="nb">NULL</span>
+</code></pre></div>
+</li>
+<li>
+<p>函数</p>
+<ul>
+<li>
+<p>复制函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memcpy</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memmove</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strcpy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strncpy</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
-</code></pre></div></li>
-<li>连接函数
-    <div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strcat</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
+</code></pre></div>
+</li>
+<li>
+<p>连接函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strcat</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">);</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strncat</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
-</code></pre></div></li>
-<li>比较函数
-    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">memcmp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</code></pre></div>
+</li>
+<li>
+<p>比较函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">memcmp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">strcmp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">strncmp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
-</code></pre></div></li>
-<li>查找函数
-    <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memchr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</code></pre></div>
+</li>
+<li>
+<p>查找函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memchr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strchr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 <span class="c1">// size_t strcspn(const char *s1, const char *s2);</span>
 <span class="c1">// char *strpbrk(const char *s1, const char *s2);</span>
@@ -1281,21 +1266,22 @@
 <span class="c1">// size_t strspn(const char *s1, const char *s2);</span>
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">strstr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s2</span><span class="p">);</span>
 <span class="c1">// char *strtok(char *s1, const char *s2);</span>
-</code></pre></div></li>
-<li>其他函数
-    <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memset</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</code></pre></div>
+</li>
+<li>
+<p>其他函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">memset</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="c1">// char *strerror(int errnum);</span>
 <span class="kt">size_t</span><span class="w"> </span><span class="nf">strlen</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">);</span>
-</code></pre></div></li>
+</code></pre></div>
+</li>
 </ul>
 </li>
 </ul>
 <h3 id="_11">使用<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<!-- prettier-ignore-start -->
 <div class="admonition warning">
 <p class="admonition-title">使用前，自己计算字符串长度和剩余空间，这是编程者的责任。或者使用带 <code>n</code> 的函数。</p>
 </div>
-<!-- prettier-ignore-end -->
 <ul>
 <li>有些函数可能返回空指针，记得测试返回的指针。</li>
 </ul>
@@ -1304,7 +1290,6 @@
 <h3 id="_12">背景：指针的概念<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>请看<a href="../../../programming/topic/pointers/">指针笔记</a>。</p>
 <p>这里再强调一下声明和 <code>malloc</code> 的区别：</p>
-<!-- prettier-ignore-start -->
 <div class="admonition question">
 <p class="admonition-title">你能解释一下声明的时候内存发生了什么变动吗？</p>
 <p>下面的代码段，每一行执行时，发生了什么？有内存被分配吗？</p>
@@ -1339,46 +1324,57 @@
 <span class="p">}</span>
 </code></pre></div>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="_13">内容<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>宏
-    <div class="highlight"><pre><span></span><code><span class="n">RAND_MAX</span>
+<li>
+<p>宏</p>
+<div class="highlight"><pre><span></span><code><span class="n">RAND_MAX</span>
 <span class="n">EXIT_FAILURE</span>
 <span class="n">EXIT_SUCCESS</span>
-</code></pre></div></li>
+</code></pre></div>
+</li>
 <li>
 <p>函数</p>
 <ul>
-<li>伪随机序列产生函数
-    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">rand</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<li>
+<p>伪随机序列产生函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">rand</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">srand</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">seed</span><span class="p">);</span>
-</code></pre></div></li>
-<li>整数算术函数
-    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
+</code></pre></div>
+</li>
+<li>
+<p>整数算术函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">abs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="kt">div_t</span><span class="w"> </span><span class="nf">div</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numer</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">denom</span><span class="p">);</span>
 <span class="kt">long</span><span class="w"> </span><span class="nf">labs</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <span class="kt">ldiv_t</span><span class="w"> </span><span class="nf">ldiv</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">numer</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">denom</span><span class="p">);</span>
-</code></pre></div></li>
-<li>查找和排序函数
-    <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">bsearch</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">compar</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">));</span>
+</code></pre></div>
+</li>
+<li>
+<p>查找和排序函数</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">bsearch</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">compar</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">));</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">qsort</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">compar</span><span class="p">)(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="p">));</span>
-</code></pre></div></li>
-<li>文本转换（好用的）
-    <div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">atof</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
+</code></pre></div>
+</li>
+<li>
+<p>文本转换（好用的）</p>
+<div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">atof</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">atoi</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
 <span class="kt">long</span><span class="w"> </span><span class="nf">atol</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
 <span class="kt">double</span><span class="w"> </span><span class="nf">strtod</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">endptr</span><span class="p">);</span>
 <span class="kt">long</span><span class="w"> </span><span class="nf">strtol</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">endptr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">base</span><span class="p">);</span>
 <span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">strtoul</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">endptr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">base</span><span class="p">);</span>
-</code></pre></div></li>
-<li>环境通信（不介绍）
-    <div class="highlight"><pre><span></span><code><span class="c1">// void abort(void);</span>
+</code></pre></div>
+</li>
+<li>
+<p>环境通信（不介绍）</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// void abort(void);</span>
 <span class="c1">// int atexit(void (*func)(void));</span>
 <span class="c1">// void exit(int status);</span>
 <span class="c1">// char *getenv(const char *name);</span>
 <span class="c1">// int system(const char *string);</span>
-</code></pre></div></li>
+</code></pre></div>
+</li>
 <li>
 <p>内存管理（重难点）</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">calloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">nobj</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
@@ -1386,11 +1382,9 @@
 <span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">malloc</span><span class="p">(</span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="nf">realloc</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
 </code></pre></div>
-<!-- prettier-ignore-start -->
 <div class="admonition danger">
 <p class="admonition-title">注意，内存拷贝函数却在 <code>&lt;string.h&gt;</code> 中。</p>
 </div>
-<!-- prettier-ignore-end -->
 </li>
 </ul>
 </li>
@@ -1405,46 +1399,46 @@
 <ul>
 <li><code>rand</code> 和 <code>srand</code> 用于产生伪随机数。<code>srand</code> 用于设置随机数种子，<code>rand</code> 用于产生随机数。<code>rand</code> 产生的随机数范围是<span><span class="heti-spacing"> </span><span class="arithmatex">\([0, RAND\_MAX]\)</span></span>。</li>
 <li><code>abs</code> 和 <code>labs</code> 用于求绝对值。<code>div</code> 和 <code>ldiv</code> 用于求商和余数。</li>
-<li><code>qsort</code> 的用例：
-    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">cmpfunc</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<li>
+<p><code>qsort</code> 的用例：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">cmpfunc</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">b</span><span class="w"> </span><span class="p">);</span>
 <span class="p">}</span>
 <span class="n">qsort</span><span class="p">(</span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span><span class="w"> </span><span class="n">cmpfunc</span><span class="p">);</span>
-</code></pre></div></li>
-<li>文本转换函数非常好用。你再也不用写这样的代码了（当然 <code>atoi</code> 函数的具体实现要比这复杂得多<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：
-    <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">atoi</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</code></pre></div>
+</li>
+<li>
+<p>文本转换函数非常好用。你再也不用写这样的代码了（当然 <code>atoi</code> 函数的具体实现要比这复杂得多<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">atoi</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
 <span class="w">        </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">'0'</span><span class="p">;</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></li>
-<li><code>malloc</code> 记得参数是<strong>字节数</strong>，千万记得乘上 <code>sizeof</code>。为了防止自己忘记，也可以坚持使用 <code>calloc</code>。且它会自动初始化内存为<span><span class="heti-spacing"> </span>0</span>。</li>
+</code></pre></div>
+</li>
+<li>
+<p><code>malloc</code> 记得参数是<strong>字节数</strong>，千万记得乘上 <code>sizeof</code>。为了防止自己忘记，也可以坚持使用 <code>calloc</code>。且它会自动初始化内存为<span><span class="heti-spacing"> </span>0</span>。</p>
+</li>
 <li><code>realloc</code> 相当于结合了 <code>malloc</code>、<code>memcpy</code> 和 <code>free</code> 的功能。</li>
 </ul>
 <h2 id="stdioh"><code>&lt;stdio.h&gt;</code><a class="headerlink" href="#stdioh" title="Permanent link">¶</a></h2>
-<!-- prettier-ignore-start -->
 <div class="admonition warning">
 <p class="admonition-title">关于文件输入输出<span><span class="heti-spacing"> </span>......</span></p>
 <p>这边列出了文件输入输出的内容，给大家复习的时候参考用。咱们这节课不讲。</p>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="_15">背景知识：流<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<!-- prettier-ignore-start -->
 <details class="info">
 <summary>背景故事：早期计算机混乱的输入输出模型</summary>
 <p>早期程序的<strong>输入输出无法独立于设备</strong>。比如，在上个世纪<span class="heti-skip"><span class="heti-spacing"> </span>60<span class="heti-spacing"> </span></span>年代的<span class="heti-skip"><span class="heti-spacing"> </span>FORTRAN IV<span class="heti-spacing"> </span></span>中，在磁带机上需要用 <code>READ INPUT TAPE 5</code>，读取磁盘上需要用 <code>READ INPUT DISK 1</code>。这样的<strong>代码在不同的设备上需要修改</strong>，非常不方便。<span>UNIX<span class="heti-spacing"> </span></span>系统将这些<strong>混乱的设备交互封装</strong>在设备处理程序中。在<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>系统看来，外围设备有三种类型：字符设备（Character devices<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、块设备（Block devices）和网络设备（Network devices<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。这三种设备都被抽象为<strong>文件</strong>，使用统一的文件操作接口。</p>
 <p>在<span class="heti-skip"><span class="heti-spacing"> </span>Ken Thompson<span class="heti-spacing"> </span></span>为<span class="heti-skip"><span class="heti-spacing"> </span>UNIX<span class="heti-spacing"> </span></span>设计统一的内部文本形式前，文本表示也是十分混乱的。结束一行是使用回车还是回车加换行，还是换行符，还是更神奇的字符？终端能不能识别和展开制表符？怎样用键盘标志文件结束？<strong>这些问题的答案和终端的生产厂商一样多</strong>。<span>UNIX<span class="heti-spacing"> </span></span>使用系统调用 <code>ioctl</code> 来设置一个设备的各种参数，负责<strong>对内部换行约定和各种终端之间的需要转换的字符进行处理</strong>。</p>
 </details>
-<!-- prettier-ignore-end -->
 <h4 id="_16">流的概念<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>各种输入输出设备实在是太多了（终端、磁带驱动器、结构化存储设备<span><span class="heti-spacing"> </span>......</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。为了统一概念，<span>C<span class="heti-spacing"> </span></span>语言中的输入和输出设备全都和逻辑数据<strong>流</strong>相对应。</p>
-<!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">流就是字符序列。</p>
 <p>不管系统、硬件是怎么实现的。输入输出到了<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>程序这里，就统一为逻辑上的<strong>流</strong>了。</p>
 </div>
-<!-- prettier-ignore-end -->
 <p><strong>流</strong>关联到一个特定的文件。</p>
 <h4 id="_17">操作系统中的文件<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>计算机系统中的文件可以分为两类：</p>
@@ -1478,7 +1472,6 @@
 </tr>
 </tbody>
 </table>
-<!-- prettier-ignore-start -->
 <div class="admonition danger">
 <p class="admonition-title">都是历史的锅！</p>
 <p>甚至有的操作系统这样处理文本文件：</p>
@@ -1487,14 +1480,12 @@
 <li>在每行开始标出行的长度。</li>
 </ul>
 </div>
-<!-- prettier-ignore-end -->
 <h4 id="_18">流的类型<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><span>C<span class="heti-spacing"> </span></span>语言提供两种流：文本流和二进制流。</p>
 <ul>
 <li>文本流：程序所见的内容可能和实际内容不同。如果将文件以文本模式打开，那么在读取文件时，会把本地环境表示的换行符或文件结尾映射为<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中的 <code>\n</code> 和 <code>EOF</code>。</li>
 <li>二进制流：程序所见的内容和实际内容一致。如果将文件以二进制模式打开，那么在读取文件时，会把文件中的每一个字节都映射为<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言中的 <code>char</code>。</li>
 </ul>
-<!-- prettier-ignore-start -->
 <div class="admonition example">
 <p class="admonition-title">举个例子</p>
 <p>这是一个<span class="heti-skip"><span class="heti-spacing"> </span>MS-DOS<span class="heti-spacing"> </span></span>上的文本文件。如果作为二进制流打开，程序会看见以下字节：</p>
@@ -1509,16 +1500,18 @@ jewel-encrusted scarab\n
 to her heaving bosom.\n
 </code></pre></div>
 </div>
-<!-- prettier-ignore-end -->
 <h3 id="_19">内容<a class="headerlink" href="#_19" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <ul>
-<li>类型
-    <div class="highlight"><pre><span></span><code><span class="kt">size_t</span>
+<li>
+<p>类型</p>
+<div class="highlight"><pre><span></span><code><span class="kt">size_t</span>
 <span class="kt">FILE</span>
 <span class="kt">fpos_t</span>
-</code></pre></div></li>
-<li>宏
-    <div class="highlight"><pre><span></span><code><span class="n">stderr</span>
+</code></pre></div>
+</li>
+<li>
+<p>宏</p>
+<div class="highlight"><pre><span></span><code><span class="n">stderr</span>
 <span class="n">stdin</span>
 <span class="n">stdout</span>
 <span class="nb">NULL</span>
@@ -1529,22 +1522,30 @@ to her heaving bosom.\n
 <span class="c1">// BUFSIZ</span>
 <span class="c1">// FOPEN_MAX</span>
 <span class="c1">// FILENAME_MAX</span>
-</code></pre></div></li>
-<li>函数<ul>
-<li>文件操作函数（不做要求）
+</code></pre></div>
+</li>
+<li>
+<p>函数</p>
+<ul>
+<li>文件操作函数（不做要求）</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="c1">// int remove(const char *filename);</span>
 <span class="c1">// int rename(const char *old, const char *new);</span>
 <span class="c1">// FILE *tmpfile(void);</span>
-</code></pre></div></li>
-<li>文件访问函数
+</code></pre></div>
+<ul>
+<li>文件访问函数</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">fclose</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
 <span class="c1">// int fflush(FILE *stream);</span>
 <span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="nf">fopen</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">mode</span><span class="p">);</span>
 <span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="nf">freopen</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
 <span class="c1">// void setbuf(FILE *stream, char *buf);</span>
 <span class="c1">// int setvbuf(FILE *stream, char *buf, int mode, size_t size);</span>
-</code></pre></div></li>
-<li>格式化的输入输出函数
+</code></pre></div>
+<ul>
+<li>格式化的输入输出函数</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">fprintf</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">fscanf</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">printf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
@@ -1552,8 +1553,10 @@ to her heaving bosom.\n
 <span class="kt">int</span><span class="w"> </span><span class="nf">sprintf</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">sscanf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span>
 <span class="c1">// int vfprintf(FILE *stream, const char *format, va_list arg);</span>
-</code></pre></div></li>
-<li>字符输入输出函数
+</code></pre></div>
+<ul>
+<li>字符输入输出函数</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="c1">// int fgetc(FILE *stream);</span>
 <span class="c1">// char *fgets(char *str, int n, FILE *stream);</span>
 <span class="c1">// int fputc(int c, FILE *stream);</span>
@@ -1565,25 +1568,30 @@ to her heaving bosom.\n
 <span class="kt">int</span><span class="w"> </span><span class="nf">putchar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">puts</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">str</span><span class="p">);</span>
 <span class="c1">// int ungetc(int c, FILE *stream);</span>
-</code></pre></div></li>
-<li>直接输入输出函数（考试不管）
+</code></pre></div>
+<ul>
+<li>直接输入输出函数（考试不管）</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="kt">size_t</span><span class="w"> </span><span class="nf">fread</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">nobj</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
 <span class="kt">size_t</span><span class="w"> </span><span class="nf">fwrite</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">nobj</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
-</code></pre></div></li>
-<li>文件定位函数（考试不管）
+</code></pre></div>
+<ul>
+<li>文件定位函数（考试不管）</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="c1">//int fgetpos(FILE *stream, fpos_t *pos);</span>
 <span class="kt">int</span><span class="w"> </span><span class="nf">fseek</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">origin</span><span class="p">);</span>
 <span class="c1">//int fsetpos(FILE *stream, const fpos_t *pos);</span>
 <span class="kt">long</span><span class="w"> </span><span class="nf">ftell</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
 <span class="kt">void</span><span class="w"> </span><span class="nf">rewind</span><span class="p">(</span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">);</span>
-</code></pre></div></li>
-<li>错误处理函数（不做要求）
+</code></pre></div>
+<ul>
+<li>错误处理函数（不做要求）</li>
+</ul>
 <div class="highlight"><pre><span></span><code><span class="c1">// void clearerr(FILE *stream);</span>
 <span class="c1">// int feof(FILE *stream);</span>
 <span class="c1">// int ferror(FILE *stream);</span>
 <span class="c1">// void perror(const char *str);</span>
-</code></pre></div></li>
-</ul>
+</code></pre></div>
 </li>
 </ul>
 <h3 id="_20">使用<a class="headerlink" href="#_20" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -1600,7 +1608,6 @@ to her heaving bosom.\n
 </li>
 </ul>
 <p>下面对几个知识点作一点规范介绍：</p>
-<!-- prettier-ignore-start -->
 <div class="admonition note">
 <p class="admonition-title">转换说明</p>
 <p>规范的说明请看这里：</p>
@@ -1705,13 +1712,12 @@ to her heaving bosom.\n
 </li>
 </ul>
 </details>
-<!-- prettier-ignore-end -->
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 2, 2023</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2024</span>
 </span>
 </aside>
 </article>
@@ -1719,7 +1725,7 @@ to her heaving bosom.\n
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
 <button class="md-top md-icon" data-md-component="top" hidden="" type="button">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
 </main>
@@ -1727,7 +1733,7 @@ to her heaving bosom.\n
 <nav aria-label="Footer" class="md-footer__inner md-grid">
 <a aria-label="Previous: 讲义：I/O 与文件" class="md-footer__link md-footer__link--prev" href="../../lecture3/lecture3/">
 <div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
 <div class="md-footer__title">
 <span class="md-footer__direction">
@@ -1748,7 +1754,7 @@ to her heaving bosom.\n
               </div>
 </div>
 <div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
 </div>
 </a>
 </nav>
@@ -1761,10 +1767,10 @@ to her heaving bosom.\n
 </div>
 <div class="md-social">
 <a class="md-social__link" href="https://space.bilibili.com/3546574332365752" rel="noopener" target="_blank" title="space.bilibili.com">
-<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"></path></svg>
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"></path></svg>
 </a>
 <a class="md-social__link" href="https://github.com/ckc-agc" rel="noopener" target="_blank" title="github.com">
-<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
 </a>
 </div>
 </div>
@@ -1774,8 +1780,8 @@ to her heaving bosom.\n
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.footer", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["search.highlight", "navigation.footer", "navigation.tracking", "navigation.tabs", "navigation.prune", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
 <script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
