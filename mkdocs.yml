@@ -25,10 +25,12 @@ theme:
   features:
     - search.highlight
 #    - navigation.instant
+    - navigation.expand
     - navigation.footer
     - navigation.tracking
     - navigation.tabs
-    - navigation.prune
+    - navigation.sections
+#    - navigation.prune
     - navigation.indexes
     - navigation.top
     - header.autohide
@@ -107,53 +109,63 @@ plugins:
         - arithmatex
       disable_serve: false
   - git-revision-date-localized
-#  - git-authors
+  - git-authors
 #  - git-committers
-
 
 nav:
   - 首页:
     - index.md
     - test.md
     - contribute.md
-  - 📚微积分:
+    - senior.md
+  - 微积分:
     - calculus/index.md
-  - 📚数学分析:
+  - 数学分析:
     - analysis/index.md
-  - 📚线性代数:
+  - 线性代数:
     - algebra/index.md
-  - 🏫线性代数：未竟之美:
-    - lalu/index.md
-  - 📚程序设计:
+    - 线性代数：未竟之美:
+      - algebra/lalu/index.md
+  - 程序设计:
     - programming/index.md
-    - programming/exam/exam.md
-    - 每日一题:
-      - programming/daily/2023.md
-    - 专题笔记:
-      - programming/topic/pointers.md
-      - programming/topic/funcptr.md
-    - programming/faq.md
-  - 🏫实用技能拾遗: https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/
-  - 🏫系统知识拾遗:
-    - programming_lecture/index.md
-    - 1. 程序编译过程与调试技术:
-      - programming_lecture/lecture1/pre_class.md
-      - programming_lecture/lecture1/lecture1.md
-    - 2. 类型系统与内存模型:
-      - programming_lecture/lecture2/pre_class.md
-      - programming_lecture/lecture2/lecture2.md
-      - programming_lecture/lecture2/after_class.md
-    - 3. I/O 与文件:
-      - programming_lecture/lecture3/pre_class.md
-      - programming_lecture/lecture3/lecture3.md
-    - 4. C 标准库:
-      - programming_lecture/lecture4/lecture4.md
-      - programming_lecture/lecture4/after_class.md
-    - 5. 期末重点知识复习:
-      - programming_lecture/lecture5/lecture5.md
-  - 📚普通化学:
+    - （24-25）程设辅学:
+      - programming/24fall/index.md
+      - programming/24fall/lec1.md
+      - programming/24fall/lec2.md
+      - programming/24fall/lec3.md
+      - programming/24fall/lec4.md
+      - programming/24fall/lec5.md
+    - 通用资料:
+      - 历年卷:
+        - programming/common/exam/index.md
+        - programming/common/exam/exam.md
+      - 每日一题:
+        - programming/common/daily/2023.md
+      - 专题笔记:
+        - programming/common/notes/pointers.md
+        - programming/common/notes/funcptr.md
+      - programming/common/faq.md
+    - 归档:
+      - （23-24）实用技能拾遗: https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/
+      - （23-24）系统知识拾遗:
+        - programming/archive/23fall/index.md
+        - 1. 程序编译过程与调试技术:
+          - programming/archive/23fall/lec1/pre.md
+          - programming/archive/23fall/lec1/lec1.md
+        - 2. 类型系统与内存模型:
+          - programming/archive/23fall/lec2/pre.md
+          - programming/archive/23fall/lec2/lec2.md
+        - 3. I/O 与文件:
+          - programming/archive/23fall/lec3/pre.md
+          - programming/archive/23fall/lec3/lec3.md
+        - 4. C 标准库:
+          - programming/archive/23fall/lec4/lec4.md
+          - programming/archive/23fall/lec4/after.md
+        - 5. 期末重点知识复习:
+          - programming/archive/23fall/lec5/lec5.md
+  - 普通化学:
     - chemistry/index.md
-  - 📚普通物理学:
+  - 普通物理学:
     - physics/index.md
-  - 📦其他资源:
+  - 其他资源:
     - other/index.md
