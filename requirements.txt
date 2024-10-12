@@ -3,4 +3,4 @@ mkdocs-heti-plugin
 neoteroi-mkdocs
 mkdocs-glightbox
 mkdocs-git-revision-date-localized-plugin
-mkdocs-git-author
+mkdocs-git-authors-plugin
