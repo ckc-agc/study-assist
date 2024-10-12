@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="浙江大学竺可桢学院辅学计划站点" name="description"/>
+<meta content="竺可桢学院学业指导中心" name="author"/>
+<link href="https://ckc-agc.bowling233.top/programming/archive/23fall/lec1/lec1/" rel="canonical"/>
+<link href="../pre/" rel="prev"/>
+<link href="../../lec2/pre/" rel="next"/>
+<link href="../../../../../graph/ckc.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.40" name="generator"/>
+<title>讲义：程序编译过程与调试技术 - 浙江大学竺可桢学院辅学计划站点</title>
+<link href="../../../../../assets/stylesheets/main.8c3ca2c6.min.css" rel="stylesheet"/>
+<link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../../../css/heti.css" rel="stylesheet"/>
+<link href="../../../../../stylesheets/neoteroi-mkdocs.css" rel="stylesheet"/>
+<link href="../../../../../stylesheets/custom.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-header__button md-logo" data-md-component="logo" href="../../../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../../../graph/ckc.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            浙江大学竺可桢学院辅学计划站点
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              讲义：程序编译过程与调试技术
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</div>
+<div class="md-source__repository">
+    浙江大学竺可桢学院辅学计划站点
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../..">
+          
+  
+    
+  
+  首页
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../../calculus/">
+          
+  
+    
+  
+  微积分
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../../analysis/">
+          
+  
+    
+  
+  数学分析
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../../algebra/">
+          
+  
+    
+  
+  线性代数
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../../../">
+          
+  
+    
+  
+  程序设计
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../../chemistry/">
+          
+  
+    
+  
+  普通化学
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../../physics/">
+          
+  
+    
+  
+  普通物理学
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../../other/">
+          
+  
+    
+  
+  其他资源
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="浙江大学竺可桢学院辅学计划站点" class="md-nav__button md-logo" data-md-component="logo" href="../../../../.." title="浙江大学竺可桢学院辅学计划站点">
+<img alt="logo" src="../../../../../graph/ckc.png"/>
+</a>
+    浙江大学竺可桢学院辅学计划站点
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ckc-agc/study-assist" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</div>
+<div class="md-source__repository">
+    浙江大学竺可桢学院辅学计划站点
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../..">
+<span class="md-ellipsis">
+    首页
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            首页
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../test/">
+<span class="md-ellipsis">
+    测试
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../contribute/">
+<span class="md-ellipsis">
+    贡献
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../senior/">
+<span class="md-ellipsis">
+    辅学学长须知
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../calculus/">
+<span class="md-ellipsis">
+    微积分
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            微积分
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../analysis/">
+<span class="md-ellipsis">
+    数学分析
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            数学分析
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../algebra/">
+<span class="md-ellipsis">
+    线性代数
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            线性代数
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../algebra/lalu/">
+<span class="md-ellipsis">
+    线性代数：未竟之美
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            线性代数：未竟之美
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../">
+<span class="md-ellipsis">
+    程序设计
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            程序设计
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../24fall/">
+<span class="md-ellipsis">
+    （24-25）程设辅学
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+            （24-25）程设辅学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../24fall/lec1/">
+<span class="md-ellipsis">
+    1. 通往 Pro 的第一步：Linux 命令行与 AI 工具
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../24fall/lec2/">
+<span class="md-ellipsis">
+    2. 开源世界生存基础：许可证与 Git
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../24fall/lec3/">
+<span class="md-ellipsis">
+    3. 你不需要担心格式：Markdown 与 LaTeX
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../24fall/lec4/">
+<span class="md-ellipsis">
+    4. 期末复习（上）
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../24fall/lec5/">
+<span class="md-ellipsis">
+    5. 期末复习（下）
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+<span class="md-ellipsis">
+    通用资料
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_3">
+<span class="md-nav__icon md-icon"></span>
+            通用资料
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5_3_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../common/exam/">
+<span class="md-ellipsis">
+    历年卷
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5_3_1" id="__nav_5_3_1_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_3_1">
+<span class="md-nav__icon md-icon"></span>
+            历年卷
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../common/exam/exam/">
+<span class="md-ellipsis">
+    历年卷经典题目解析
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3_2" id="__nav_5_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    每日一题
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_3_2">
+<span class="md-nav__icon md-icon"></span>
+            每日一题
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../common/daily/2023/">
+<span class="md-ellipsis">
+    2023-2024
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3_3" id="__nav_5_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    专题笔记
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_3_3">
+<span class="md-nav__icon md-icon"></span>
+            专题笔记
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../common/notes/pointers/">
+<span class="md-ellipsis">
+    指针概览
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../common/notes/funcptr/">
+<span class="md-ellipsis">
+    函数指针认读
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../common/faq/">
+<span class="md-ellipsis">
+    常见问题
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+<span class="md-ellipsis">
+    归档
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_5_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+            归档
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/">
+<span class="md-ellipsis">
+    （23-24）实用技能拾遗
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    （23-24）系统知识拾遗
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5_4_2" id="__nav_5_4_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_5_4_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_5_4_2">
+<span class="md-nav__icon md-icon"></span>
+            （23-24）系统知识拾遗
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5_4_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4_2_2" id="__nav_5_4_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    1. 程序编译过程与调试技术
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_5_4_2_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_4_2_2">
+<span class="md-nav__icon md-icon"></span>
+            1. 程序编译过程与调试技术
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pre/">
+<span class="md-ellipsis">
+    课前：准备开发与调试环境
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    讲义：程序编译过程与调试技术
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    讲义：程序编译过程与调试技术
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      课程导言
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      基础知识
+    </span>
+</a>
+<nav aria-label="基础知识" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      计算机能做什么？
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      从机器语言、汇编语言到高级语言
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      程序的基本语法结构
+    </span>
+</a>
+<nav aria-label="程序的基本语法结构" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      写程序的目标是什么？
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      词法和语法规则
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c">
+<span class="md-ellipsis">
+      函数：C 程序的基本模块
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      现在你是编译器
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lap">
+<span class="md-ellipsis">
+      Lap：关于做题目
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+<span class="md-ellipsis">
+      程序的编译过程
+    </span>
+</a>
+<nav aria-label="程序的编译过程" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gcc">
+<span class="md-ellipsis">
+      解读 gcc 显示的详细信息
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+<span class="md-ellipsis">
+      预处理
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+<span class="md-ellipsis">
+      编译
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+<span class="md-ellipsis">
+      汇编
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      链接
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_17">
+<span class="md-ellipsis">
+      程序调试技术
+    </span>
+</a>
+<nav aria-label="程序调试技术" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bug">
+<span class="md-ellipsis">
+      Bug 的类型
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fprintfstderr">
+<span class="md-ellipsis">
+      fprintf(stderr) 是你最好的朋友
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gdb">
+<span class="md-ellipsis">
+      使用 gdb 调试程序
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_24">
+<span class="md-ellipsis">
+      参考资料
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4_2_3" id="__nav_5_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    2. 类型系统与内存模型
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_4_2_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            2. 类型系统与内存模型
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../lec2/pre/">
+<span class="md-ellipsis">
+    课前：MAGIC 函数
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../lec2/lec2/">
+<span class="md-ellipsis">
+    讲义：C 语言的类型系统与内存模型
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5_4_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4_2_4" id="__nav_5_4_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    3. I/O 与文件
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_4_2_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_4_2_4">
+<span class="md-nav__icon md-icon"></span>
+            3. I/O 与文件
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../lec3/pre/">
+<span class="md-ellipsis">
+    课前：一些样例
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../lec3/lec3/">
+<span class="md-ellipsis">
+    讲义：I/O 与文件
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5_4_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4_2_5" id="__nav_5_4_2_5_label" tabindex="0">
+<span class="md-ellipsis">
+    4. C 标准库
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_4_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_4_2_5">
+<span class="md-nav__icon md-icon"></span>
+            4. C 标准库
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../lec4/lec4/">
+<span class="md-ellipsis">
+    简明 C 标准库
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../lec4/after/">
+<span class="md-ellipsis">
+    课后扩展：C 标准库的实现
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5_4_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4_2_6" id="__nav_5_4_2_6_label" tabindex="0">
+<span class="md-ellipsis">
+    5. 期末重点知识复习
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_4_2_6_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_5_4_2_6">
+<span class="md-nav__icon md-icon"></span>
+            5. 期末重点知识复习
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../lec5/lec5/">
+<span class="md-ellipsis">
+    指针及链表相关知识点复习
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../chemistry/">
+<span class="md-ellipsis">
+    普通化学
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            普通化学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../physics/">
+<span class="md-ellipsis">
+    普通物理学
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            普通物理学
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_8" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../../other/">
+<span class="md-ellipsis">
+    其他资源
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            其他资源
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      课程导言
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      基础知识
+    </span>
+</a>
+<nav aria-label="基础知识" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      计算机能做什么？
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      从机器语言、汇编语言到高级语言
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      程序的基本语法结构
+    </span>
+</a>
+<nav aria-label="程序的基本语法结构" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      写程序的目标是什么？
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+<span class="md-ellipsis">
+      词法和语法规则
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c">
+<span class="md-ellipsis">
+      函数：C 程序的基本模块
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+<span class="md-ellipsis">
+      现在你是编译器
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lap">
+<span class="md-ellipsis">
+      Lap：关于做题目
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+<span class="md-ellipsis">
+      程序的编译过程
+    </span>
+</a>
+<nav aria-label="程序的编译过程" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gcc">
+<span class="md-ellipsis">
+      解读 gcc 显示的详细信息
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+<span class="md-ellipsis">
+      预处理
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+<span class="md-ellipsis">
+      编译
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+<span class="md-ellipsis">
+      汇编
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+<span class="md-ellipsis">
+      链接
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_17">
+<span class="md-ellipsis">
+      程序调试技术
+    </span>
+</a>
+<nav aria-label="程序调试技术" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bug">
+<span class="md-ellipsis">
+      Bug 的类型
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fprintfstderr">
+<span class="md-ellipsis">
+      fprintf(stderr) 是你最好的朋友
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gdb">
+<span class="md-ellipsis">
+      使用 gdb 调试程序
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_24">
+<span class="md-ellipsis">
+      参考资料
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming/archive/23fall/lec1/lec1.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
+</a>
+<h1 id="_1">讲义：程序编译过程与调试技术<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<style>
+    code {
+      white-space : pre-wrap !important;
+    }
+</style>
+<details class="info" open="open">
+<summary>直播回放</summary>
+<p><a href="https://www.bilibili.com/video/BV1Pu411T7GT/">Bilibili</a></p>
+</details>
+<details class="abstract" open="open">
+<summary>内容提要</summary>
+<ul>
+<li><span>C<span class="heti-spacing"> </span></span>语言程序基本结构</li>
+<li>编译过程：从源代码到可执行文件</li>
+<li>编译器和开发套件：<code>gcc</code>、<code>clang</code> 和 <code>llvm</code> 究竟是什么？</li>
+<li>调试器：如何使用 <code>gdb</code> 或 <code>lldb</code> 设置断点、找到段错误的根源？</li>
+</ul>
+</details>
+<details class="tip" open="open">
+<summary>如何食用本讲义</summary>
+<p>作为在线讲义，我会尽量写得详细一些，为同学们提供复习和进一步扩展的指引。因为时间有限，在课上我无法覆盖讲义中所有的内容。同学们可以根据自己的习惯选择在课前课后浏览本讲义～</p>
+<p>本次课的核心内容从「程序的编译过程」开始。前面的内容作为预备知识，在课上将会快速带过。</p>
+</details>
+<h2 id="_2">课程导言<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>Hi，欢迎各位同学来到竺院程设辅学「系统知识拾遗」的第一节课。</p>
+<p>在前几周的程序设计课程中，老师们应该已经为同学们讲解了<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的基础语法等知识。但是同学们或许会有下面这些疑问：</p>
+<ul>
+<li>计算机是如何读懂我写的代码的？</li>
+<li>我的程序总是出问题，我该如何快速找到错误的根源？</li>
+</ul>
+<p>辅学课程的目的就是帮助同学们解决这些进一步的问题。实质上<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言是一门很难的编程语言，不懂编译原理、操作系统和计算机体系结构无法获得深入的理解。我们希望通过线下授课，为同学们提供语言之外的进一步的知识扩展和技能训练。让同学们在计算机（而非算法题）的语境下理解<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言，理解程序设计。</p>
+<p>那么在本节课，我们将为大家系统讲解程序编译过程与调试技术，为后续的课程做铺垫。接下来，让我们一起进入计算机的世界吧！</p>
+<h2 id="_3">基础知识<a class="headerlink" href="#_3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>首先，我们来了解一下我们学习的对象——计算机的基本知识。它是如何工作的？我们如何与它交流？</p>
+<h3 id="_4">计算机能做什么？<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>现代计算机由多种部件构成，比如中央处理单元（Central Processing Unit，CPU<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、随机存取内存（Random Access Memory，RAM<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、硬盘（Hard Disk）等。其中<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>负责处理程序。</p>
+<div class="nt-cards nt-grid cols-2">
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec1.assets/risc_cpu.png"><img alt="RISC CPU" src="../lec1.assets/risc_cpu.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">RISC CPU</p>
+<p class="nt-card-text">这是一个非常简单的<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>的电路，它能够执行你用<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>编写的机器指令。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec1.assets/cpu.png"><img alt="CPU 基本结构" src="../lec1.assets/cpu.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title"><span>CPU<span class="heti-spacing"> </span></span>基本结构</p>
+<p class="nt-card-text"><span>CPU<span class="heti-spacing"> </span></span>主要由控制单元、算术逻辑单元和寄存器组成。控制单元中有程序计数器和指令寄存器。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><span>CPU<span class="heti-spacing"> </span></span>能读懂什么？</li>
+</ul>
+<p><span>CPU<span class="heti-spacing"> </span></span>无法直接读懂你写的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言代码，它是由数字电路构成的。<strong>数字电路只能处理<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>和<span><span class="heti-spacing"> </span>1</span>，因此计算机中的任何数据都必须使用二进制表示，程序也是如此。</strong></p>
+<p>在计算机刚刚诞生的阶段，工程师们不得不使用<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>构成的指令序列和计算机打交道，这就是<strong>机器语言</strong>。因为具体电路设计不同，每种<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>所能理解的指令有限，这些指令的集合叫做<strong>指令集</strong>。</p>
+<ul>
+<li><span>CPU<span class="heti-spacing"> </span></span>都做些什么？</li>
+</ul>
+<p><span>CPU<span class="heti-spacing"> </span></span>的工作非常简单：从内存中读取并执行一条指令，再从内存中读取并执行下一条指令……<span>1 GHz<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>每秒能重复这一操作约十亿次。</p>
+<p>这些指令都相当具体，比如把一个数字从一个位置移动到另一个位置，把两个数字相加并把结果存储再某个地方。是的，你的<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>也在疯狂做着这些事情。但是<strong>通过精巧的设计，这些简单的指令就能构建起程序的控制逻辑，实现复杂的功能</strong>。</p>
+<p><span>CPU<span class="heti-spacing"> </span></span>还有自己的小工作区——由若干寄存器（Register）组成的寄存器组。每个寄存器能存储一个数字。</p>
+<h3 id="_5">从机器语言、汇编语言到高级语言<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>现代计算机的结构与<span class="heti-skip"><span class="heti-spacing"> </span>70<span class="heti-spacing"> </span></span>年前并没有本质上的不同，但是程序设计语言取得了很大的发展，产生了汇编语言和高级语言。我们仍然不能直接对<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>说：为我计算<span><span class="heti-spacing"> </span><span class="arithmatex">\(1 + 1\)</span></span>，但我们可以用高级语言简洁的表达它，让<strong>编译器（compiler）和汇编器（assembler）</strong>将其翻译成 <code>0101</code> 的机器语言。下图展示了程序设计语言的发展历史，编译过程其实就是这一历史的反向。</p>
+<div class="nt-cards nt-grid cols-3">
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec1.assets/machine_code.png"><img alt="机器语言 &lt;br&gt; Machine Code" src="../lec1.assets/machine_code.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">机器语言 <br/> Machine Code</p>
+<p class="nt-card-text">这是<strong>第一代编程语言</strong>，也是计算机唯一能识别的语言。上图展示了世界上第一个计算机程序，它用来找出一个数最大的因数。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec1.assets/assembly.png"><img alt="汇编语言 &lt;br&gt; Assembly Language" src="../lec1.assets/assembly.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">汇编语言 <br/> Assembly Language</p>
+<p class="nt-card-text">这是<strong>第二代编程语言</strong>，其实就是机器语言的助记符。它使得程序员不用再直接与<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>1<span class="heti-spacing"> </span></span>打交道，程序的可读性也更强了。上图显示了将两个整数相加的汇编代码。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec1.assets/high_level_language.png"><img alt="高级语言 &lt;br&gt; High-level Language" src="../lec1.assets/high_level_language.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">高级语言 <br/> High-level Language</p>
+<p class="nt-card-text">这是<strong>第三代编程语言</strong>，它让程序员们不用再关注计算机结构上的细节，而是将注意力转移到要解决的问题上来。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>下面三行代码分别是用<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言、汇编语言和机器语言（十六进制）描述的同一件事：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">简单的例子</label><label for="__tabbed_1_2">复杂的例子</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nf">add</span><span class="w"> </span><span class="no">$t0</span><span class="p">,</span><span class="w"> </span><span class="no">$t1</span><span class="p">,</span><span class="w"> </span><span class="no">$t2</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>01 2a 40 20
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">multstore</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mult2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<span class="w">    </span><span class="o">*</span><span class="n">dest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nl">multstore:</span>
+<span class="w">    </span><span class="nf">pushq</span><span class="w">   </span><span class="nv">%rbx</span>
+<span class="w">    </span><span class="nf">movq</span><span class="w">    </span><span class="nv">%rdx</span><span class="p">,</span><span class="w"> </span><span class="nv">%rbx</span>
+<span class="w">    </span><span class="nf">call</span><span class="w">    </span><span class="no">mult2</span>
+<span class="w">    </span><span class="nf">movq</span><span class="w">    </span><span class="nv">%rax</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nv">%rbx</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">popq</span><span class="w">    </span><span class="nv">%rbx</span>
+<span class="w">    </span><span class="nf">ret</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>53 48 89 d3 48 83 ec 08 e8 00 00 00 00 48 89 03 5b c3
+</code></pre></div>
+</div>
+</div>
+</div>
+<details class="question" open="open">
+<summary>为什么需要高级语言？</summary>
+<ol>
+<li>机器语言和汇编语言都是非常底层的语言，程序员需要关注计算机的细节，这使得程序的<strong>可读性很差</strong>。使用高级语言，程序员能<strong>将注意力转移到要解决的问题上来</strong>。</li>
+<li>机器语言和汇编语言都是与具体<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>相关的，程序员需要为不同的<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>编写不同的程序，<strong>可移植性差</strong>。使用高级语言，程序员只需要写一次程序，再使用编译器就能将其翻译成能在特定<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>的机器语言。</li>
+</ol>
+</details>
+<details class="info" open="open">
+<summary>前瞻：第四代和第五代编程语言</summary>
+<p>编程语言仍在发展演化。目前已经有了第四代和第五代编程语言的概念。第三代的编程语言虽然是用语句编程而不直接用指令编程，但语句也分为输入、输出、基本运算、测试分支和循环等几种，和指令有直接的对应关系。而第四代以后的编程语言更多是描述要做什么（Declarative）而不描述具体一步一步怎么做（Imperative<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，具体一步一步怎么做完全由编译器或解释器决定，例如<span class="heti-skip"><span class="heti-spacing"> </span>SQL<span class="heti-spacing"> </span></span>语言（SQL，Structured Query Language，结构化查询语言）就是这样的例子。</p>
+</details>
+<details class="info" open="open">
+<summary>对机器语言有兴趣？</summary>
+<p><a href="https://eng.libretexts.org/Bookshelves/Computer_Science/Programming_Languages/Introduction_To_MIPS_Assembly_Language_Programming_(Kann)/04%3A_Translating_Assembly_Language_into_Machine_Code">这里</a>提供了一些将汇编语言转换为<span class="heti-skip"><span class="heti-spacing"> </span>MIPS<span class="heti-spacing"> </span></span>指令集机器语言的基础例子，有兴趣可以了解一下。</p>
+</details>
+<h2 id="_6">程序的基本语法结构<a class="headerlink" href="#_6" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>经过了<span class="heti-skip"><span class="heti-spacing"> </span>2-3<span class="heti-spacing"> </span></span>周课程的学习，相信同学们多少都写过了一些代码，对语言有了一些基本认识。本节将系统地梳理程序的语法和结构知识，帮助大家理清思路，为后续理解程序编译过程和调试技术作铺垫。</p>
+<h3 id="_7">写程序的目标是什么？<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<p>从根本上说，计算机是由数字电路组成的运算机器，只能对数字做运算，程序之所以能做符号运算，是因为符号在计算机内部也是用数字表示的。此外，程序还可以处理声音和图像，声音和图像在计算机内部必然也是用数字表示的，这些数字经过专门的硬件设备转换成人可以听到、看到的声音和图像。</p>
+<p>程序由一系列指令（Instruction）组成，指令是指示计算机做某种运算的命令，通常包括以下几类：</p>
+<ul>
+<li>输入（Input<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：从键盘、文件或者其它设备获取数据。</li>
+<li>输出（Output<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：把数据显示到屏幕，或者存入一个文件，或者发送到其它设备。</li>
+<li>基本运算：执行最基本的数学运算（加减乘除）和数据存取。</li>
+<li>测试和分支：测试某个条件，然后根据不同的测试结果执行不同的后续指令。</li>
+<li>循环：重复执行一系列操作。</li>
+</ul>
+<p>对于程序来说，有上面这几类指令就足够了。你曾用过的任何一个程序，不管它有多么复杂，都是由这几类指令组成的。<strong>程序是那么的复杂，而编写程序可以用的指令却只有这么简单的几种，这中间巨大的落差就要由程序员去填了，所以编写程序理应是一件相当复杂的工作。编写程序可以说就是这样一个过程：把复杂的任务分解成子任务，把子任务再分解成更简单的任务，层层分解，直到最后简单得可以用以上指令来完成。</strong></p>
+<h3 id="_8">词法和语法规则<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>词法（Lexical）和语法（Syntax）是编程语言的两个基本概念。词法规则定义了编程语言中的基本符号，语法规则定义了这些符号如何组成合法的表达式、语句和程序。</p>
+<details class="note" open="open">
+<summary><span>C<span class="heti-spacing"> </span></span>的词法规则：贪心法</summary>
+<p>术语 <strong>token</strong> （符号）是语言的基本表意单元。字符组成符号。例子<span><span class="heti-spacing"> </span>:</span> <code>-&gt;</code>、<code>file</code> 都是符号。同一组字符序列在<strong>不同上下文</strong>中可能属于不同符号。</p>
+<p>如果该字符可能组成符号，那么再读入下一个字符，直到读入的字符串已经不可能再组成一个有意义的符号。</p>
+</details>
+<details class="example" open="open">
+<summary>词法练习：请思考下面这些表达式的行为</summary>
+<p>点击「+」号展开答案。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">a</span><span class="o">---</span><span class="n">b</span><span class="w"> </span><span class="cm">/*(1)!*/</span>
+<span class="n">a</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="cm">/*(2)!*/</span>
+<span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="cm">/*(3)!*/</span>
+
+<span class="c1">//下面的 p 指向除数。</span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="cm">/*p     </span>
+<span class="cm">/*(4)!*/</span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="cm">/*(5)!*/</span>
+
+<span class="n">n</span><span class="o">--&gt;</span><span class="mi">0</span><span class="w"> </span><span class="cm">/*(6)!*/</span>
+<span class="n">n</span><span class="o">--</span><span class="w"> </span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="cm">/*(7)!*/</span>
+<span class="n">n</span><span class="o">-</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="cm">/*(8)!*/</span>
+
+<span class="n">a</span><span class="o">+++++</span><span class="n">b</span><span class="w"> </span><span class="cm">/*(9)!*/</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>等价于 <code>(a--) - b</code>。按照贪心法，编译器读入两个连续的 <code>-</code> 号后，已经不可能再组成一个有意义的符号，因此这个符号被确定为后缀递减运算符。接着读取下一个符号。</li>
+<li>等价于 <code>(a--) - b</code></li>
+<li>等价于 <code>a - (--b)</code></li>
+<li>等价于 <code>y = x</code>。<code>/*</code> 被贪心法解释为注释的开头。</li>
+<li>等价于 <code>y = x / (*p)</code></li>
+<li>等价于 <code>(n--) &gt; 0</code></li>
+<li>等价于 <code>(n--) &gt; 0</code></li>
+<li>等价于 <code>(n-) -&gt; 0</code>。这是一个无效的语句，<code>n-</code> 本身不是一个合法的表达式，也无法用作 <code>-&gt;</code> 的操作数。</li>
+<li>等价于 <code>((a++)++) + b</code>。请思考一下，这个语句有效吗？</li>
+</ol>
+</details>
+<details class="note" open="open">
+<summary>语法：标识符、表达式和语句</summary>
+<p>为了便于初学者理解，我们采用一套简化的语法规则：</p>
+<ul>
+<li>标识符（Identifier<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：就是「名字<heti-adjacent class="heti-adjacent-half">」</heti-adjacent>，用于指代各种实体，比如：对象、类型、函数、标签、宏等等。</li>
+</ul>
+<details class="warning" open="open">
+<summary>对象的不同含义</summary>
+<p>在这里，对象（Object）的含义与<span class="heti-skip"><span class="heti-spacing"> </span>C++<span class="heti-spacing"> </span></span>中不同。这里的对象指数据存储的一个区域，其内容可以表示<em>值</em>。比如下面的语句创建了一个对象：</p>
+<div class="highlight"><pre><span></span><code>int a;
+</code></pre></div>
+<p>创建一个对象的意思就是分配了一块存储空间。标识符 <code>a</code> 用于指代这个对象。每个对象都有大小、生存期、存储器、值等属性，我们将在下节课详细展开。</p>
+</details>
+<ul>
+<li>表达式（Expression<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：由运算符（<code>+-*/%</code> 等等）和操作数（常量、变量、函数返回值<span><span class="heti-spacing"> </span>......</span>）组成的式子，可以计算出一个值。</li>
+<li>
+<p>语句（Statement<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：<span>C<span class="heti-spacing"> </span></span>标准确定了五种语句类型。除了复合语句，其它语句都以分号 <code>;</code> 结尾。下面是语句的定义，你可以发现<strong>语句是递归定义的</strong>。</p>
+<ul>
+<li>
+<p>复合语句：由花括号包围的一组语句。</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="n">语句或声明</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>表达式语句：表达式加上分号就是表达式语句。<span>C<span class="heti-spacing"> </span></span>程序中大部分语句都是表达式语句。空语句也算作表达式语句。</p>
+<div class="highlight"><pre><span></span><code><span class="n">表达式</span><span class="p">;</span>
+</code></pre></div>
+<p>例子：</p>
+<div class="highlight"><pre><span></span><code><span class="n">puts</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span><span class="w"> </span><span class="c1">// 表达式语句</span>
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">;</span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">s</span><span class="o">++</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">)</span>
+<span class="w">  </span><span class="p">;</span><span class="w"> </span><span class="c1">// 空语句</span>
+</code></pre></div>
+</li>
+<li>
+<p>选择语句：</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">表达式</span><span class="p">)</span><span class="w"> </span><span class="n">语句</span>
+<span class="k">if</span><span class="p">(</span><span class="n">表达式</span><span class="p">)</span><span class="w"> </span><span class="n">语句</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">语句</span>
+<span class="k">switch</span><span class="p">(</span><span class="n">表达式</span><span class="p">)</span><span class="w"> </span><span class="n">语句</span>
+</code></pre></div>
+</li>
+<li>
+<p>循环语句：</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="p">(</span><span class="n">表达式</span><span class="p">)</span><span class="w"> </span><span class="n">语句</span>
+<span class="k">do</span><span class="w"> </span><span class="n">语句</span><span class="w"> </span><span class="k">while</span><span class="p">(</span><span class="n">表达式</span><span class="p">);</span>
+<span class="k">for</span><span class="p">(</span><span class="n">初始化子句</span><span class="p">;</span><span class="n">表达式</span><span class="p">;</span><span class="n">表达式</span><span class="p">)</span><span class="w"> </span><span class="n">语句</span>
+</code></pre></div>
+</li>
+<li>
+<p>跳转语句：</p>
+<div class="highlight"><pre><span></span><code><span class="k">goto</span><span class="w"> </span><span class="n">标识符</span><span class="p">;</span>
+<span class="k">continue</span><span class="p">;</span>
+<span class="k">break</span><span class="p">;</span>
+<span class="k">return</span><span class="w"> </span><span class="n">表达式</span><span class="p">;</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<p>完整的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语法规则请参考：</p>
+<ul>
+<li><a href="https://zh.cppreference.com/w/c/language/identifier">CPPReference：标识符</a></li>
+<li><a href="https://zh.cppreference.com/w/c/language/expressions">CPPReference：表达式</a></li>
+<li><a href="https://zh.cppreference.com/w/c/language/statements"><span>CPPReference:<span class="heti-spacing"> </span></span>语句</a></li>
+</ul>
+</details>
+<p>语法将在后续课程中作深入讲解（第<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>讲涉及类型相关的语法，第<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>讲涉及函数指针<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<h3 id="c">函数：<span>C<span class="heti-spacing"> </span></span>程序的基本模块<a class="headerlink" href="#c" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>「指令」是第一、二代编程语言的基本结构。<span>C<span class="heti-spacing"> </span></span>语言是面向过程的高级语言，它的基本模块是<strong>函数（Function）</strong>。</p>
+<details class="note" open="open">
+<summary>关键概念：函数</summary>
+<p><strong>从外面看</strong>，函数就像一个黑盒子，只能看到函数的三大要素：</p>
+<ul>
+<li>函数名：函数的名字，用来调用函数。<ul>
+<li>函数名与变量名的命名规则相同。</li>
+</ul>
+</li>
+<li>参数：函数的输入，可以有<strong>多个</strong>。</li>
+<li>返回值：函数的输出，只能有<strong>一个</strong>。</li>
+</ul>
+<p>下面这行语句被称为函数签名（Function Signature）或函数原型（Function Prototype<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。它给出了函数对外的一切信息：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">MyFunc</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>从里面看</strong>，函数是一组指令的集合，它们按照一定的顺序执行，完成某个特定的功能。</p>
+</details>
+<p>当我们调用一个函数时，我们应当按照函数签名中的要求传入参数，并可以获得它的返回值。在函数签名的语境下，<code>void</code> 表示空，即不存在。下面的这个函数没有参数，也没有返回值。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">MyFunc</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</code></pre></div>
+<p>因为我们比较关心函数返回值的类型，有时会把函数的返回值类型称为这个函数的“类型”，比如会说 <code>MyFunc</code> 这个函数是一个 <code>void</code> 函数。</p>
+<details class="note" open="open">
+<summary>关于 <code>void</code></summary>
+<p>Q：<code>void</code> 到底有哪些含义？</p>
+<p><span>A:<span class="heti-spacing"> </span></span>下面是 <code>void</code> 的一般用法</p>
+<ul>
+<li><code>void</code> 作为函数参数，表示函数不接受参数。</li>
+<li><code>void</code> 作为函数返回值，表示函数不返回值。</li>
+<li><code>void*</code> 是一种指针类型，表示不知道指向的类型是什么。</li>
+</ul>
+<p>从这些用法来看，似乎 <code>void</code> 是一种类型，但这会引起下面问题中的矛盾。另一种看待方式是：上面的用法都是特殊的语法，不过是恰好用了同一个关键字 <code>void</code> 罢了。</p>
+<p>Q：所以 <code>void</code> 是一种类型吗？</p>
+<p>A：<span>C<span class="heti-spacing"> </span></span>标准从概念上将 <code>void</code> 作为一种类型。但是 <code>void</code> 类型的变量是不存在的，因为它没有大小，编译器也不允许你写下 <code>void a;</code>。这会引起一些困惑。</p>
+</details>
+<p>函数有两个功能：</p>
+<ul>
+<li>返回值：函数调用本身就是一个表达式，它的值就是函数的返回值。</li>
+<li>副作用：除了返回值以外的功能统称为副作用。</li>
+</ul>
+<p>一些例子：</p>
+<table>
+<thead>
+<tr>
+<th>函数签名</th>
+<th>返回值的含义</th>
+<th>副作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int printf(const char *format, ...);</code></td>
+<td>打印的字符数</td>
+<td>打印字符串到标准输出</td>
+</tr>
+<tr>
+<td><code>int scanf(const char *format, ...);</code></td>
+<td>读取的字符数</td>
+<td>从标准输入读取字符串</td>
+</tr>
+<tr>
+<td><code>int rand(void);</code></td>
+<td>生成的随机数</td>
+<td>无</td>
+</tr>
+<tr>
+<td><code>void exit(int status);</code></td>
+<td>无</td>
+<td>退出程序</td>
+</tr>
+</tbody>
+</table>
+<p>每个<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言程序都必须包含一个 <code>main</code> 函数，它是程序的入口。<code>main</code> 的函数签名一般是这样的：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[]);</span><span class="w"> </span><span class="c1">//以后学命令行参数就会用到这种形式</span>
+</code></pre></div>
+<p><code>main</code> 的调用者是操作系统。操作系统看到 <code>main</code> 的签名中说返回值为 <code>int</code>，因此系统会等待 <code>main</code> 返回一个整数。这个整数一般被用于告知操作系统程序的执行状态，<code>0</code> 表示正常结束，其他值可以传递其他信息。这就是为什么 <code>main</code> 的末尾应当写 <code>return 0</code>。如果 <code>main</code> 函数中没有 <code>return</code> 语句，有些编译器会为你补全（其他函数不会<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。<strong>但请记得写上，这是你的责任。</strong></p>
+<p>没有返回值的函数也可以使用 <code>return</code> 语句，此时它没有返回值的作用，而是结束当前函数的执行并返回。例子：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">print_logarithm</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">printf</span><span class="p">(</span><span class="s">"Positive numbers only, please.</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="p">;</span>
+<span class="w"> </span><span class="p">}</span>
+<span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="s">"The log of x is %f"</span><span class="p">,</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+<details class="info">
+<summary>其他建议</summary>
+<p>每个函数都应该设计得尽可能简单，简单的函数才容易维护。应遵循以下原则：</p>
+<ol>
+<li>
+<p>实现一个函数只是为了做好一件事情，不要把函数设计成用途广泛、面面俱到的，这样的函数肯定会超长，而且往往不可重用，维护困难。</p>
+</li>
+<li>
+<p>函数内部的缩进层次不宜过多，一般以少于<span class="heti-skip"><span class="heti-spacing"> </span>4<span class="heti-spacing"> </span></span>层为宜。如果缩进层次太多就说明设计得太复杂了，应考虑分割成更小的函数（Helper Function）来调用。</p>
+</li>
+<li>
+<p>函数不要写得太长，建议在<span class="heti-skip"><span class="heti-spacing"> </span>24<span class="heti-spacing"> </span></span>行的标准终端上不超过两屏，太长会造成阅读困难，如果一个函数超过两屏就应该考虑分割函数了。<span>[CodingStyle]<span class="heti-spacing"> </span></span>中特别说明，如果一个函数在概念上是简单的，只是长度很长，这倒没关系。例如函数由一个大的 <code>switch</code> 组成，其中有非常多的 <code>case</code>，这是可以的，因为各 <code>case</code> 分支互不影响，整个函数的复杂度只等于其中一个 <code>case</code> 的复杂度，这种情况很常见，例如<span class="heti-skip"><span class="heti-spacing"> </span>TCP<span class="heti-spacing"> </span></span>协议的状态机实现。</p>
+</li>
+<li>
+<p>执行函数就是执行一个动作，函数名通常应包含动词，例如 <code>get_current</code>、<code>radix_tree_insert</code>。</p>
+</li>
+<li>
+<p>比较重要的函数定义上侧必须加注释，说明此函数的功能、参数、返回值、错误码等。</p>
+</li>
+<li>
+<p>另一种度量函数复杂度的办法是看有多少个局部变量，<span>5<span class="heti-spacing"> </span></span>到<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>个局部变量已经很多了，再多就很难维护了，应该考虑分割成多个函数。</p>
+</li>
+</ol>
+</details>
+<details class="note">
+<summary>扩展：编译和解释</summary>
+<p>简单了解一下就好。</p>
+<p>将高级语言编写的<strong>源代码</strong>转化成机器语言的<strong>目标程序</strong>的过程统称为翻译（Translation<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。翻译的方式有两种：编译（Compile）和解释（Interpret<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。编译将整个程序翻译成机器语言，解释则是边翻译边执行。</p>
+<p><span>C<span class="heti-spacing"> </span></span>语言是典型的编译型语言，源代码需要经过编译后才能运行，而编译阶段并不会执行程序。<span>Python<span class="heti-spacing"> </span></span>则是典型的解释型语言，逐句执行源代码，不需要产生可执行文件。</p>
+<p>这些描述的都是一种语言的典型用法。事实上<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言也开发出了相应的解释器，<span>Python<span class="heti-spacing"> </span></span>也开发出了相应的编译器。两种翻译方式各有优劣。</p>
+</details>
+<h3 id="_9">现在你是编译器<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>接下来我们将化身<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编译器，解读一些代码。相信经过下面的训练，你对代码和程序执行的理解会更加深入。</p>
+<details class="example" open="open">
+<summary>例子：语法树</summary>
+<div class="highlight"><pre><span></span><code><span class="n">printf</span><span class="p">(</span><span class="s">"%d:%d is %d minutes after 00:00</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">hour</span><span class="p">,</span><span class="w"> </span><span class="n">minute</span><span class="p">,</span><span class="w"> </span><span class="n">hour</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">minute</span><span class="p">);</span>
+</code></pre></div>
+<p>编译器在翻译这条语句时，首先根据上述语法规则把这个语句解析成下图所示的语法树，然后再根据语法树生成相应的指令。语法树的末端的是一个个<span><span class="heti-spacing"> </span>Token</span>，每一步展开利用一条语法规则。</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="https://box.kancloud.cn/2016-04-02_56ff80d067d7a.png"><img alt="" src="https://box.kancloud.cn/2016-04-02_56ff80d067d7a.png"/></a> </p>
+<p>理解组合（Composition）规则是理解语法规则的关键所在，正因为可以根据语法规则任意组合，我们才可以用简单的常量、变量、表达式、语句搭建出任意复杂的程序，以后我们学习新的语法规则时会进一步体会到这一点。从上面的例子可以看出，表达式不宜过度组合，否则会给阅读和调试带来困难。</p>
+</details>
+<details class="note" open="open">
+<summary>表达式不宜过度组合</summary>
+<p>这涉及代码可读性问题。看看下面这段代码：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">distance</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y2</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">sqrt</span><span class="p">((</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">y2</span><span class="o">-</span><span class="n">y1</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>这样写很简洁，但如果写错了呢？只知道是这一长串表达式有错，根本不知道错在哪，而且整个函数就一个语句，插<span class="heti-skip"><span class="heti-spacing"> </span>printf<span class="heti-spacing"> </span></span>都没地方插。所以用临时变量有它的好处，使程序更清晰，调试更方便，而且有时候可以避免不必要的计算，例如上面这一行表达式要把<span class="heti-skip"><span class="heti-spacing"> </span>(x2-x1)<span class="heti-spacing"> </span></span>计算两遍，如果算完<span class="heti-skip"><span class="heti-spacing"> </span>(x2-x1)<span class="heti-spacing"> </span></span>把结果存在一个临时变量<span class="heti-skip"><span class="heti-spacing"> </span>dx<span class="heti-spacing"> </span></span>里，就不需要再算第二遍了（虽然这些优化现代编译器都会替你自动完成<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。下面这个版本是可读性高的代码：</p>
+<div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="nf">distance</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y2</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x1</span><span class="p">;</span>
+<span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y1</span><span class="p">;</span>
+<span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">dsquared</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dy</span><span class="p">;</span>
+<span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">dsquared</span><span class="p">);</span>
+
+<span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>码风不是死的，请同学们视情况切换码风。</p>
+</details>
+<h2 id="lap">Lap：关于做题目<a class="headerlink" href="#lap" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>如果想做题的话，有基础的同学可以早点开始做历年卷，了解一下程设考试都考些啥。</p>
+<p>简单提一些<span><span class="heti-spacing"> </span>Tips</span>：</p>
+<ul>
+<li>考试是全英文。如果平常不太看英文文档<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>没怎么学<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>英语很差的同学，至少你考前做历年卷的时候要把生词全部抄下来记一遍。</li>
+<li>一定一定一定要做历年卷。<strong>不要以为自己会写点代码就能应付考试了</strong>，其实考试和你写代码水平并不呈正相关。考试的题目都是很细节的，很多都是你平常不会注意到的，所以一定要做历年卷，做完了还要看看答案，看看自己哪里做错了，哪里没注意到。这里展示一个去年<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>小考试干碎一片人的选择题：</li>
+</ul>
+<details class="example" open="open">
+<summary>干碎一片人的选择题</summary>
+<p>Suppose <code>T</code> is a type name and <code>t</code> is a variable of type <code>T</code>. Which of the following is <strong>NOT</strong> a valid expression?</p>
+<p></p><div style="display: flex">
+<div style="width: 100%">A. <code>sizeof(T)</code></div>
+<div style="width: 100%">B. <code>sizeof(t)</code></div>
+<div style="width: 100%">C. <code>sizeof T</code></div>
+<div style="width: 100%">D. <code>sizeof t</code></div>
+</div>
+<details class="note">
+<summary>答案</summary>
+<p>答案是<span><span class="heti-spacing"> </span>C</span>，不知道你猜对了吗？</p>
+<p>大家一般写代码 <code>sizeof</code> 后面都会加括号的对吧，但你知道为什么吗？想要知道为什么，需要回顾前面学习的语法知识。</p>
+<p><code>sizeof</code> 是一个运算符，它有两种使用方式：</p>
+<div class="highlight"><pre><span></span><code><span class="k">sizeof</span><span class="p">(</span><span class="n">类型</span><span class="p">)</span>
+<span class="k">sizeof</span><span class="w"> </span><span class="n">表达式</span>
+</code></pre></div>
+<p>我们知道，<code>t</code> 是表达式，<code>(t)</code> 也是表达式。<code>sizeof(T)</code> 的使用符合规范。因此<span><span class="heti-spacing"> </span>A</span>、B、<span>D<span class="heti-spacing"> </span></span>都是正确的。为什么不规定 <code>sizeof 类型</code> 的用法呢？因为这可能引起歧义，有些类型名就携带空格，比如：<code>short int</code>、<code>struct node</code> 等等。了解了这些知识，你能说说下面的语句是否合法吗？如果合法，你能解释它的含义吗？如果不规定类型必须带括号，可能会产生哪些二义性？</p>
+<div class="highlight"><pre><span></span><code><span class="k">sizeof</span><span class="w"> </span><span class="kt">int</span><span class="o">***</span><span class="n">p</span>
+<span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">*</span><span class="n">p</span>
+<span class="k">sizeof</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</code></pre></div>
+</details>
+</details>
+<p>如果你想的话，可以再来两道：</p>
+<details class="example">
+<summary><span>C<span class="heti-spacing"> </span></span>大<span class="heti-skip"><span class="heti-spacing"> </span>16<span class="heti-spacing"> </span></span>年选择题</summary>
+<p><span>In the following notations, _____ can express a character constant(<span class="heti-spacing"> </span></span>字符常量<span><span class="heti-spacing"> </span>) correctly.</span></p>
+<p></p><div style="display: flex">
+<div style="width: 100%">A. <code>'\x100'</code></div>
+<div style="width: 100%">B. <code>125</code></div>
+<div style="width: 100%">C. <code>'\08'</code></div>
+<div style="width: 100%">D. <code>'\'</code></div>
+</div>
+<details class="note">
+<summary>答案</summary>
+<p>B</p>
+</details>
+</details>
+<h2 id="_10">程序的编译过程<a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>接下来，我们将了解编译器和汇编器是如何一步步把你的程序编译成机器码的。我们以最经典的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言编译系统<span class="heti-skip"><span class="heti-spacing"> </span>GCC<span class="heti-spacing"> </span></span>为例。</p>
+<details class="note" open="open">
+<summary>什么是<span><span class="heti-spacing"> </span>GCC</span>？</summary>
+<p>简单地说，<span>GNU<span class="heti-spacing"> </span></span>项目旨在开发一个完全自由的操作系统以及配套的软件。<span>GCC<span class="heti-spacing"> </span></span>最早是<span class="heti-skip"><span class="heti-spacing"> </span>GNU C Compiler<span class="heti-spacing"> </span></span>的简称，现在<strong>代表<span><span class="heti-spacing"> </span>GNU Compiler Collection</span></strong>。这表明它不是单个程序，而是一系列编译工具的集合，包括了<span><span class="heti-spacing"> </span>C</span>、C++、Objective-C、Fortran、Ada、Go、<span>D<span class="heti-spacing"> </span></span>等语言的前端，以及汇编器、链接器等后端，和这些语言的库文件。</p>
+</details>
+<p>当我们使用命令 <code>gcc -o test test.c</code> 编译一个<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言程序时，<span>GCC<span class="heti-spacing"> </span></span>会调用一系列的程序将源代码翻译成汇编语言、再翻译成机器语言，最后经过链接产生可执行文件。下图展示了这个过程。</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec1.assets/gcc_process.png"><img alt="" src="../lec1.assets/gcc_process.png"/></a></p>
+<ol>
+<li>预处理：由<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>预处理器（C Preprocessor）完成，它将源代码中的宏定义展开，将头文件中的内容插入到源代码中，删除注释等。预处理后的代码文件以 <code>.i</code> 为后缀。</li>
+<li>编译：由<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>编译器（C Compiler）完成，它将预处理后的文件翻译成汇编语言。编译后得到的汇编代码文件以 <code>.s</code> 为后缀。</li>
+<li>汇编：由汇编器（Assembler）完成，它将汇编代码翻译成机器语言。汇编后得到的机器代码文件以 <code>.o</code> 为后缀。</li>
+<li>链接：由链接器（Linker）完成，它将多个目标文件链接成一个可执行文件。链接后得到的可执行文件以 <code>.exe</code> 为后缀。</li>
+</ol>
+<h3 id="gcc">解读 <code>gcc</code> 显示的详细信息<a class="headerlink" href="#gcc" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>下面这些文本是 <code>gcc -v -o prog main.c sum.c</code> 命令的输出结果。</p>
+<details class="info" open="open">
+<summary><span>gcc<span class="heti-spacing"> </span></span>的输出信息</summary>
+<p>点击文本中带圆圈的 <code>+</code> 号可以展开详细信息，高亮的行是运行某个编译工具的具体命令。</p>
+<div class="highlight"><pre><span></span><code><span class="cm">&lt;!--(1)!--&gt;</span>Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper
+OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+OFFLOAD_TARGET_DEFAULT=1
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 12.3.0-1ubuntu1~23.04' --with-bugurl=file:///usr/share/doc/gcc-12/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-12 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --enable-cet --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-12-DAPbBt/gcc-12-12.3.0/debian/tmp-nvptx/usr,amdgcn-amdhsa=/build/gcc-12-DAPbBt/gcc-12-12.3.0/debian/tmp-gcn/usr --enable-offload-defaulted --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~23.04) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
+<span class="hll"><span class="cm">&lt;!--(2)!--&gt;</span> /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu main.c -quiet -dumpdir prog- -dumpbase main.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccClT5M4.s
+</span>GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
+ compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"
+<span class="cm">&lt;!--(3)!--&gt;</span>#include "..." search starts here:
+#include <span class="p">&lt;</span><span class="nt">...</span><span class="p">&gt;</span> search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/12/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
+ compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: d9353c3f0a32d3e91a16ba312e2a9024
+COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
+<span class="hll"><span class="cm">&lt;!--(4)!--&gt;</span> as -v --64 -o /tmp/ccEgqpgY.o /tmp/ccClT5M4.s
+</span>GNU assembler version 2.40 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.40
+COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
+<span class="hll"><span class="cm">&lt;!--(5)!--&gt;</span> /usr/lib/gcc/x86_64-linux-gnu/12/cc1 -quiet -v -imultiarch x86_64-linux-gnu sum.c -quiet -dumpdir prog- -dumpbase sum.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccClT5M4.s
+</span>GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
+ compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/include-fixed"
+ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/12/../../../../x86_64-linux-gnu/include"
+#include "..." search starts here:
+#include <span class="p">&lt;</span><span class="nt">...</span><span class="p">&gt;</span> search starts here:
+ /usr/lib/gcc/x86_64-linux-gnu/12/include
+ /usr/local/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+GNU C17 (Ubuntu 12.3.0-1ubuntu1~23.04) version 12.3.0 (x86_64-linux-gnu)
+ compiled by GNU C version 12.3.0, GMP version 6.2.1, MPFR version 4.2.0, MPC version 1.3.1, isl version isl-0.25-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: d9353c3f0a32d3e91a16ba312e2a9024
+COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog-'
+<span class="hll"> as -v --64 -o /tmp/ccxMA26W.o /tmp/ccClT5M4.s
+</span>GNU assembler version 2.40 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.40
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/12/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/12/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog.'
+<span class="hll"><span class="cm">&lt;!--(6)!--&gt;</span> /usr/lib/gcc/x86_64-linux-gnu/12/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/12/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/12/lto-wrapper -plugin-opt=-fresolution=/tmp/ccyzC2ZB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o prog /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/12/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/12 -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/12/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/12/../../.. /tmp/ccEgqpgY.o /tmp/ccxMA26W.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/12/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o
+</span>COLLECT_GCC_OPTIONS='-v' '-o' 'prog' '-mtune=generic' '-march=x86-64' '-dumpdir' 'prog.'
+</code></pre></div>
+<ol>
+<li>最开头是 <code>gcc</code> 的相关信息，包括它运行的平台、配置的选项等。</li>
+<li>这里调用了 <code>cc1</code> 完成预处理和编译阶段，将源代码文件 <code>main.c</code> 编译成了<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>编码的汇编文件 <code>/tmp/ccCWi0p2.s</code>。</li>
+<li>这里显示了头文件搜索路径，如果你编译时报错缺少头文件，可以检查一下这里有没有包含对应的路径。</li>
+<li>这里调用了 <code>as</code> 完成汇编阶段，将汇编文件 <code>/tmp/ccCWi0p2.s</code> 翻译成了机器语言文件 <code>/tmp/ccAnKDEo.o</code>。</li>
+<li>接下来又对 <code>sum.c</code> 重复预处理、编译和汇编的过程，得到了 <code>/tmp/ccgMFTqK.o</code>。</li>
+<li>最后调用 <code>collect2</code> （这是 <code>ld</code> 的包装程序）完成链接阶段，将两个源代码生成的目标文件 <code>/tmp/ccAnKDEo.o</code> 和 <code>/tmp/ccgMFTqK.o</code> 与其他很多目标文件链接成了可执行文件 <code>prog</code>。这就是你能在操作系统上运行的程序。</li>
+</ol>
+</details>
+<details class="question" open="open">
+<summary>为什么没有看见预处理器 <code>cpp</code> 的执行呢？</summary>
+<p>某些版本的 <code>gcc</code> 会将预处理器 <code>cpp</code> 和编译器 <code>gcc</code> 合并成一个指令，比如上面的 <code>cc1</code>，这样就不用单独调用 <code>cpp</code> 了。</p>
+</details>
+<p>接下来，我们详解其中的每一个阶段以及可能会发生的问题。</p>
+<h3 id="_11">预处理<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>执行以下命令，查看预处理后的文件 <code>hello.i</code>：</p>
+<div class="highlight"><pre><span></span><code>cpp<span class="w"> </span>hello.c<span class="w"> </span>&gt;<span class="w"> </span>hello.i
+</code></pre></div>
+<p>你会发现，原来 <code>hello.c</code> 中 <code>#include</code> 预处理指令的地方被替换为完整的 <code>stdio.h</code> 文件内容，这些内容包括 <code>printf</code> 等函数的原型。其他预处理指令（在后续课程会学习到）比如 <code>#define</code> 也会在这一阶段生效。至于为什么只插入了函数原型而没有定义，接下来的链接阶段会解答。</p>
+<p>预处理阶段最经常产生的问题是<strong>找不到头文件</strong>。<span>C<span class="heti-spacing"> </span></span>语言头文件搜索规则如下：</p>
+<ul>
+<li>用双引号 <code>#include "..."</code> 包含的头文件，编译器会先在当前目录下查找，再在系统目录下查找。</li>
+<li>用尖括号 <code>#include &lt;...&gt;</code> 包含的头文件，编译器只会在系统目录下查找。</li>
+</ul>
+<p>如果你的头文件不在当前目录下，那么你需要使用 <code>-I</code> 选项告诉编译器头文件的位置。比如你的头文件在 <code>include</code> 目录下：</p>
+<div class="highlight"><pre><span></span><code>.
+├── hello.c
+└── include
+    └── header.h
+</code></pre></div>
+<p>你可以使用以下命令编译：</p>
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-Iinclude<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c
+</code></pre></div>
+<p>路径可以是相对路径或绝对路径，比如：</p>
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-I../include<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c
+gcc<span class="w"> </span>-I/home/user/include<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c
+</code></pre></div>
+<p>另一种方式是设置环境变量 <code>CPATH</code> 指定搜索路径。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CPATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/.local:</span><span class="nv">$CPATH</span><span class="s2">"</span>
+</code></pre></div>
+<p>设置后，你应当能在编译器的输出信息中看到新增的路径。</p>
+<div class="highlight"><pre><span></span><code>#include &lt;...&gt; search starts here:
+ /home/bowling/.local
+</code></pre></div>
+<h3 id="_12">编译<a class="headerlink" href="#_12" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>执行以下命令，查看编译后的文件 <code>hello.s</code>：</p>
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-S<span class="w"> </span>hello.i
+</code></pre></div>
+<p>所有高级语言层面的类型、控制结构等，都被与特定<span class="heti-skip"><span class="heti-spacing"> </span>CPU<span class="heti-spacing"> </span></span>指令集相关的汇编指令代替。在汇编语言中，所有数据都是字节块，没有类型的概念。</p>
+<p>在这个阶段，编译器会检查一些问题，并抛出不同等级的信息：</p>
+<ul>
+<li>错误（Error<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：编译器无法继续进行编译。比如：提供的参数列表不匹配、使用了未定义的变量、函数等。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>error.c: In function ‘main’:
+error.c:9:5: error: too many arguments to function ‘my_print’
+    9 |     my_print(1);
+      |     ^~~~~~~~
+error.c:4:6: note: declared here
+    4 | void my_print(void)
+      |      ^~~~~~~~
+</code></pre></div>
+<ul>
+<li>警告（Warning<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：违反了语法，但能够继续编译，编译出来的程序运行结果很可能与你想象的不一样。比如：转义字符与数据类型不匹配、发生了隐式转换等。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>warning.c: In function ‘main’:
+warning.c:8:18: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘double’ [-Wformat=]
+    8 |     printf("a = %d\n", a);
+      |                 ~^     ~
+      |                  |     |
+      |                  int   double
+      |                 %f
+</code></pre></div>
+<p>大部分警告信息默认不会输出，使用 <code>-Wall</code> 和 <code>-Wextra</code> 选项可以打开更多的警告信息。你也可以使用 <code>-Werror</code> 选项将警告信息视为错误，这样编译器就会停止编译。在编译时带上这些参数是一个好习惯。</p>
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-Wall<span class="w"> </span>-Wextra<span class="w"> </span>-Werror<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c
+</code></pre></div>
+<h3 id="_13">汇编<a class="headerlink" href="#_13" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>执行以下命令，汇编器将汇编指令翻译为机器码，产生<strong>可重定位目标文件</strong> <code>hello.o</code>：</p>
+<div class="highlight"><pre><span></span><code>as<span class="w"> </span>-o<span class="w"> </span>hello.o<span class="w"> </span>hello.s
+</code></pre></div>
+<details class="note" open="open">
+<summary>目标文件</summary>
+<p>目标文件中包含计算机能读懂的机器代码和数据，有三种形式：</p>
+<table>
+<thead>
+<tr>
+<th>形式</th>
+<th>由谁产生</th>
+<th>有什么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可重定位目标文件</td>
+<td>编译器或汇编器</td>
+<td>只包含编译器为你编写的代码翻译的机器语言代码，需要与其他目标文件链接合并为可执行目标文件</td>
+</tr>
+<tr>
+<td>可执行目标文件</td>
+<td>链接器</td>
+<td>包含你编写的程序中使用的库函数和启动代码的机器代码，能够被操作系统正确运行</td>
+</tr>
+<tr>
+<td>共享目标文件</td>
+<td>编译器或汇编器</td>
+<td>给其他程序用的代码，可以在程序加载或运行时链接</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p><code>hello.o</code> 中包含了 <code>hello.c</code> 中的<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言代码翻译成的<strong>二进制代码以及一些数据</strong>，比如字符串 <code>Hello, world.\n</code>。如果使用文本编辑器打开 <code>hello.o</code>，你会看见一堆乱码，其中夹杂着一些字符。因为字符在源文件和内存中都是用<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>编码的，所以<span class="heti-skip"><span class="heti-spacing"> </span>ASCII<span class="heti-spacing"> </span></span>字符仍能被文本编辑器识别，但其他的机器指令和数据只会被解读为乱码。</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec1.assets/object_file.png"><img alt="" src="../lec1.assets/object_file.png"/></a></p>
+<p>如果运行 <code>./hello.o</code>，终端会告诉你这个文件<strong>不能被操作系统执行</strong>。</p>
+<div class="highlight"><pre><span></span><code>exec: Failed to execute process: './hello.o' the file could not be run by the operating system.
+</code></pre></div>
+<p>它还缺少一些东西，如：</p>
+<ul>
+<li>启动代码：启动程序时，操作系统会将控制权交给程序的入口点，但这个入口点不是 <code>main</code> 函数，而是一些启动代码。启动代码在执行 <code>main</code> 前进行一些初始化工作，并在退出 <code>main</code> 后做一些扫尾工作。</li>
+</ul>
+<details class="note" open="open">
+<summary>一个不带启动代码的例子</summary>
+<p><span>Linux<span class="heti-spacing"> </span></span>程序的入口点一般是 <code>_start</code>，它完成一些内存初始化的工作，然后跳转到 <code>main</code> 函数。我们在链接阶段不带上含有启动代码的目标文件，看看在缺少 <code>_start</code> 的情况下会发生什么。</p>
+<div class="highlight"><pre><span></span><code>$ ld hello.o -o hello -lc --dynamic-linker /lib64/ld-linux-x86-64.so.2
+ld: warning: cannot find entry symbol _start; defaulting to 0000000000401030
+$ ./hello
+Hello World.
+fish: Job 1, './hello' terminated by signal SIGSEGV (Address boundary error)
+</code></pre></div>
+<p>这个程序源代码正常，为什么会出现段错误呢？</p>
+<p>在链接阶段，<code>ld</code> 的输出表明找不到入口点 <code>_start</code>，因此把入口点默认放在了 <code>0000000000401030</code> 处的函数。这个函数是 <code>main</code> 函数。因此，当程序执行到 <code>main</code> 函数的最后一条指令时，会继续往下执行，但此时栈已经被清空，因此会发生段错误。</p>
+<p>使用 <code>gdb</code> 查看错误位置：</p>
+<div class="highlight"><pre><span></span><code>Program received signal SIGSEGV, Segmentation fault.
+0x0000000000000001 in ?? ()
+</code></pre></div>
+<p>证实了上面的分析。</p>
+<p><code>crt</code> 是<span class="heti-skip"><span class="heti-spacing"> </span>C Runtime<span class="heti-spacing"> </span></span>的缩写。<span>C<span class="heti-spacing"> </span></span>语言相关启动代码在这些目标文件中：</p>
+<ul>
+<li><code>crt1.o</code>：负责启动，包含 <code>_start</code> 和未定义的 <code>__libc_start_main</code> 和 <code>main</code>。</li>
+<li><code>crti.o</code>：初始化</li>
+<li><code>crtbegin.o</code>：构造（<span>C++<span class="heti-spacing"> </span></span>依赖）</li>
+<li><code>crtend.o</code>：析构（<span>C++<span class="heti-spacing"> </span></span>依赖）</li>
+<li><code>crtn.o</code>：结束</li>
+</ul>
+<p><span>Linux<span class="heti-spacing"> </span></span>平台下，它们的链接顺序为：</p>
+<div class="highlight"><pre><span></span><code>ld<span class="w"> </span>crt1.o<span class="w"> </span>crti.o<span class="w"> </span><span class="o">[</span>user_objects<span class="o">]</span><span class="w"> </span><span class="o">[</span>system_libraries<span class="o">]</span><span class="w"> </span>crtn.o
+</code></pre></div>
+</details>
+<ul>
+<li>库函数：几乎所有<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>程序都会用到标准库中的函数，比如 <code>printf</code>。标准库中的代码已经被预编译成目标文件，附在编译器的安装目录下。</li>
+</ul>
+<p>在接下来的链接步骤，我们将这些目标文件链接到我们的程序中，生成可以执行的程序。</p>
+<h3 id="_14">链接<a class="headerlink" href="#_14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>链接有两种类型：静态链接和动态链接。</p>
+<details class="note" open="open">
+<summary>静态链接</summary>
+<p>如果你的程序与静态库链接，那么链接器会将静态库中的代码复制到你的程序中。这样，你的程序就不再依赖静态库了，可以在任何地方运行。但是，如果静态库中的代码发生了变化，你的程序并不会自动更新，你需要重新编译你的程序。</p>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>系统上，静态库的文件名以 <code>.a</code> 结尾，比如 <code>libm.a</code>。在<span class="heti-skip"><span class="heti-spacing"> </span>Window<span class="heti-spacing"> </span></span>上，静态库的文件名以 <code>.lib</code> 结尾，比如 <code>libm.lib</code>。静态库可以使用 <code>ar</code> （archive program）工具创建。</p>
+</details>
+<details class="note" open="open">
+<summary>动态链接</summary>
+<p>当你的程序与动态库链接时，程序中创建了一个表。在程序运行前，操作系统将需要的外部函数的机器码加载到内存中，这就是<strong>动态链接过程</strong>。</p>
+<p>与静态链接相比，动态链接使程序文件更小，因为一个动态库可以被多个程序共享，节省磁盘空间。部分操作系统还允许动态库代码在内存中的共享，还能够节省内存。动态库升级时，也不需要重写编译你的程序。</p>
+<p>在<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>系统上，动态库的文件名以 <code>.so</code> 结尾，比如 <code>libm.so</code>。在<span class="heti-skip"><span class="heti-spacing"> </span>Window<span class="heti-spacing"> </span></span>上，动态库的文件名以 <code>.dll</code> 结尾，比如 <code>libm.dll</code>。</p>
+</details>
+<p>动态链接具有上面描述的优点，因此<span class="heti-skip"><span class="heti-spacing"> </span>GCC<span class="heti-spacing"> </span></span>尽可能地执行动态链接。</p>
+<p>链接相关的问题可能出现在链接时（静态链接<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>、程序运行前和运行中（动态链接<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。下面时一些常见的问题。</p>
+<div class="nt-cards nt-grid cols-3">
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec1.assets/undefined_reference.png"><img alt="未定义的引用" src="../lec1.assets/undefined_reference.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">未定义的引用</p>
+<p class="nt-card-text">当同学们开始使用其他库构建大型项目时，这或许会成为最头疼的问题。首先应当阅读库的使用说明，接下来搜索缺失的符号可能位于哪些库文件中。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec1.assets/lose_dll.png"><img alt="缺失 `.dll`" src="../lec1.assets/lose_dll.png"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">缺失 <code>.dll</code></p>
+<p class="nt-card-text">常用<span class="heti-skip"><span class="heti-spacing"> </span>Windows<span class="heti-spacing"> </span></span>的同学多多少少见过这个报错，可以去网上搜索相应 <code>.dll</code> 文件放置到正确的目录。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="nt-card">
+<div class="nt-card-wrap">
+<div>
+<div class="nt-card-image tags"><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec1.assets/missing_library.webp"><img alt="缺失 `.so`" src="../lec1.assets/missing_library.webp"/></a></div>
+<div class="nt-card-content">
+<p class="nt-card-title">缺失 <code>.so</code></p>
+<p class="nt-card-text"><span>Linux<span class="heti-spacing"> </span></span>上的动态库一般通过 <code>apt</code> 管理，<a href="https://fostips.com/tell-package-name-contains-specific-file-ubuntu-linux-mint/">搜索相应的包</a>并安装即可。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>下面这行命令在我的系统上完成了 <code>hello</code> 程序的正确链接，不一定能在你的系统上运行。你可以尝试查找库文件的路径，让它成功运行。</p>
+<div class="highlight"><pre><span></span><code>ld<span class="w"> </span>--output<span class="w"> </span>hello<span class="w"> </span>--dynamic-linker<span class="w"> </span>/lib64/ld-linux-x86-64.so.2<span class="w">  </span>/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o<span class="w"> </span>/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crti.o<span class="w"> </span>-lc<span class="w"> </span>hello.o<span class="w"> </span>/usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/crtn.o
+</code></pre></div>
+<h4 id="_15">动态链接过程<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>如果一个可执行文件依赖于动态库，那么程序运行前，动态链接器（interpreter）会被先加载运行。它将寻找需要的动态库，加载到内存中，然后将控制权交给程序的入口点。</p>
+<p><code>ld</code> 的选项 <code>--dynamic-linker</code> 就指定了动态链接器的路径。目前<span class="heti-skip"><span class="heti-spacing"> </span>Linux<span class="heti-spacing"> </span></span>系统使用的动态链接器一般是 <code>/lib64/ld-linux-x86-64.so.2</code>。它也是一个可以直接运行的程序，你可以试试运行它：</p>
+<div class="highlight"><pre><span></span><code>$ /lib64/ld-linux-x86-64.so.2 --help
+You have invoked 'ld.so', the program interpreter for dynamically-linked ELF programs.  Usually, the program interpreter is invoked automatically when a dynamically-linked executable is started.
+
+You may invoke the program interpreter program directly from the command line to load and run an ELF executable file; this is like executing that file itself, but always uses the program interpreter you invoked, instead of the program interpreter specified in the executable file you run.  Invoking the program interpreter directly provides access to additional diagnostics, and changing the dynamic linker behavior without setting environment variables (which would be inherited by subprocesses).
+</code></pre></div>
+<p>该选项将会在可执行目标文件前面加上对动态链接器的请求。使用<span class="heti-skip"><span class="heti-spacing"> </span>readelf<span class="heti-spacing"> </span></span>可以查看<span class="heti-skip"><span class="heti-spacing"> </span>ELF<span class="heti-spacing"> </span></span>格式可执行目标文件的头部信息。</p>
+<div class="highlight"><pre><span></span><code>$ readelf -l /usr/bin/ls | head -20
+
+Elf file type is DYN (Shared object file)
+Entry point 0x6b10
+There are 13 program headers, starting at offset 64
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000000040 0x0000000000000040
+                 0x00000000000002d8 0x00000000000002d8  R      0x8
+  INTERP         0x0000000000000318 0x0000000000000318 0x0000000000000318
+                 0x000000000000001c 0x000000000000001c  R      0x1
+<span class="hll">      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+</span>  LOAD           0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000003510 0x0000000000003510  R      0x1000
+  LOAD           0x0000000000004000 0x0000000000004000 0x0000000000004000
+                 0x0000000000013111 0x0000000000013111  R E    0x1000
+  LOAD           0x0000000000018000 0x0000000000018000 0x0000000000018000
+                 0x0000000000007530 0x0000000000007530  R      0x1000
+  LOAD           0x000000000001ff70 0x0000000000020f70 0x0000000000020f70
+</code></pre></div>
+<h4 id="_16">静态链接过程<a class="headerlink" href="#_16" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>进行静态链接时需要注意命令行中文件的顺序。</p>
+<ul>
+<li>如果是目标文件，链接器将记录其中的符号定义和引用。</li>
+<li>如果是库文件，链接器将尝试匹配前面记录的未解析的符号定义和引用。解析完成后，该库中没有被使用的符号将被丢弃。</li>
+</ul>
+<p>看看下面的命令行发生了什么？</p>
+<div class="highlight"><pre><span></span><code>$ gcc -static ./libvector.a main2.c
+/tmp/cc9XH6Rp.o: In function `main':
+main2.c:(.text+0x1a): undefined reference to `vector_add'
+</code></pre></div>
+<p>链接器检查 <code>libvector.a</code> 库文件时，还没有记录任何符号定义和引用，因此它被整个丢弃了。当链接器开始检查 <code>main2.c</code> 时，不会再回去找 <code>libvector.a</code> 了。</p>
+<p>总而言之，静态链接时，库文件一般放在末尾。如果库文件之间有相互依赖，也需要对它们进行排序。</p>
+<h2 id="_17">程序调试技术<a class="headerlink" href="#_17" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<details class="info" open="open">
+<summary>杂谈：<span>Bug<span class="heti-spacing"> </span></span>的典故</summary>
+<p>编程是一件复杂的工作，因为是人做的事情，所以难免经常出错。据说有这样一个典故：早期的计算机体积都很大，有一次一台计算机不能正常工作，工程师们找了半天原因最后发现是一只臭虫钻进计算机中造成的。从此以后，程序中的错误被叫做臭虫（Bug<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，而找到这些<span class="heti-skip"><span class="heti-spacing"> </span>Bug<span class="heti-spacing"> </span></span>并加以纠正的过程就叫做调试（Debug<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。有时候调试是一件非常复杂的工作，要求程序员概念明确、逻辑清晰、性格沉稳，还需要一点运气。</p>
+</details>
+<h3 id="bug"><span>Bug<span class="heti-spacing"> </span></span>的类型<a class="headerlink" href="#bug" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>调试的技能我们在后续的学习中慢慢培养，但首先我们要区分清楚程序中的<span class="heti-skip"><span class="heti-spacing"> </span>Bug<span class="heti-spacing"> </span></span>分为哪几类。</p>
+<h4 id="_18">编译时错误<a class="headerlink" href="#_18" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>编译器只能翻译语法正确的程序，否则将导致编译失败，无法生成可执行文件。对于自然语言来说，一点语法错误不是很严重的问题，因为我们仍然可以读懂句子。而编译器就没那么宽容了，只要有哪怕一个很小的语法错误，编译器就会输出一条错误提示信息然后罢工，你就得不到你想要的结果。虽然大部分情况下编译器给出的错误提示信息就是你出错的代码行，但也有个别时候编译器给出的错误提示信息帮助不大，甚至会误导你。在开始学习编程的前几个星期，你可能会花大量的时间来纠正语法错误。等到有了一些经验之后，还是会犯这样的错误，不过会少得多，而且你能更快地发现错误原因。等到经验更丰富之后你就会觉得，语法错误是最简单最低级的错误，编译器的错误提示也就那么几种，即使错误提示是有误导的也能够立刻找出真正的错误原因是什么。相比下面两种错误，语法错误解决起来要容易得多。</p>
+<h4 id="_19">运行时错误<a class="headerlink" href="#_19" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>编译器检查不出这类错误，仍然可以生成可执行文件，但在运行时会出错而导致程序崩溃。对于我们接下来的几章将编写的简单程序来说，运行时错误很少见，到了后面的章节你会遇到越来越多的运行时错误。读者在以后的学习中要时刻<em>注意区分编译时和运行时（Run-time）这两个概念</em>，不仅在调试时需要区分这两个概念，在学习<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>语言的很多语法时都需要区分这两个概念，有些事情在编译时做，有些事情则在运行时做。</p>
+<h4 id="_20">逻辑错误和语义错误<a class="headerlink" href="#_20" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>第三类错误是逻辑错误和语义错误。如果程序里有逻辑错误，编译和运行都会很顺利，看上去也不产生任何错误信息，但是程序没有干它该干的事情，而是干了别的事情。当然不管怎么样，计算机只会按你写的程序去做，问题在于你写的程序不是你真正想要的，这意味着程序的意思（即语义）是错的。找到逻辑错误在哪需要十分清醒的头脑，要通过观察程序的输出回过头来判断它到底在做什么。</p>
+<p>通过本节你将掌握的最重要的技巧就是调试。调试的过程可能会让你感到一些沮丧，但<strong>调试也是编程中最需要动脑的、最有挑战和乐趣的部分</strong>。从某种角度看调试就像侦探工作，根据掌握的线索来推断是什么原因和过程导致了你所看到的结果。调试也像是一门实验科学，每次想到哪里可能有错，就修改程序然后再试一次。如果假设是对的，就能得到预期的正确结果，就可以接着调试下一个<span><span class="heti-spacing"> </span>Bug</span>，一步一步逼近正确的程序；如果假设错误，只好另外再找思路再做假设<heti-adjacent class="heti-adjacent-quarter">。</heti-adjacent>“当你把不可能的全部剔除，剩下的——即使看起来再怎么不可能——就一定是事实<heti-adjacent class="heti-adjacent-quarter">。</heti-adjacent>”（即使你没看过福尔摩斯也该看过柯南吧<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<p>也有一种观点认为，编程和调试是一回事，编程的过程就是逐步调试直到获得期望的结果为止。你应该总是从一个能正确运行的小规模程序开始，每做一步小的改动就立刻进行调试，这样的好处是总有一个正确的程序做参考：如果正确就继续编程，如果不正确，那么一定是刚才的小改动出了问题。例如，<span>Linux<span class="heti-spacing"> </span></span>操作系统包含了成千上万行代码，但它也不是一开始就规划好了内存管理、设备管理、文件系统、网络等等大的模块，一开始它仅仅是<span class="heti-skip"><span class="heti-spacing"> </span>Linus Torvalds<span class="heti-spacing"> </span></span>用来琢磨<span class="heti-skip"><span class="heti-spacing"> </span>Intel 80386<span class="heti-spacing"> </span></span>芯片而写的小程序。据<span class="heti-skip"><span class="heti-spacing"> </span>Larry Greenfield<span class="heti-spacing"> </span></span>说<heti-adjacent class="heti-adjacent-quarter">，</heti-adjacent>“<span>Linus<span class="heti-spacing"> </span></span>的早期工程之一是编写一个交替打印<span class="heti-skip"><span class="heti-spacing"> </span>AAAA<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>BBBB<span class="heti-spacing"> </span></span>的程序，这玩意儿后来进化成了<span><span class="heti-spacing"> </span>Linux</span><heti-adjacent class="heti-adjacent-quarter">。</heti-adjacent>”（引自 <em>The Linux User's Guide Beta1</em> 版）在后续的课程中会给出更多关于调试和编程实践的建议。</p>
+<details class="note" open="open">
+<summary>杂谈：为什么很多同学感觉调试的过程十分煎熬？</summary>
+<p>或许你也会在后续的学习中亲身体会或看到，同学们被程序的<span><span class="heti-spacing"> </span>Bug</span>（最典型的是段错误）折磨得焦头烂额。这可能有以下原因：</p>
+<ul>
+<li><span>C<span class="heti-spacing"> </span></span>语言基础知识不牢：编译都过不了，不开 <code>-Wall</code> 和 <code>-Werror</code>，编译出来的程序中有很多坑，比如隐式类型转换。</li>
+<li>没有事先想好程序的逻辑：建议在动手写代码前，先想好自己程序的逻辑和步骤。边写边想的后果大概率是代码写得一坨（除非你非常熟练<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</li>
+<li>不了解基本的调试技术，不会使用调试工具：本节课我们将为大家解决这个问题。</li>
+</ul>
+</details>
+<h3 id="fprintfstderr"><code>fprintf(stderr)</code> 是你最好的朋友<a class="headerlink" href="#fprintfstderr" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>虽然接下来要介绍的 <code>gdb</code> 功能强大，但大多数情况下简单地打印变量就能帮你定位问题所在。</p>
+<p>在程序中使用 <code>fprintf(stderr, ...)</code> 打印调试信息，可以帮助你定位到程序中的错误。<code>fprintf</code> 向指定的流输出格式化字符串，<code>stderr</code> 是标准错误流，它不会被缓冲，因此你可以在程序崩溃时看到最后的调试信息（这些输入输出的知识会在后面的课程中学到<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<p>以一个异常终止的程序为例：</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"printf "</span><span class="p">);</span>
+<span class="w">    </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">"fprintf "</span><span class="p">);</span>
+<span class="w">    </span><span class="n">abort</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>运行结果如下：</p>
+<div class="highlight"><pre><span></span><code>$ ./debug
+fprintf fish: Job 1, './debug' terminated by signal SIGABRT (Abort)
+</code></pre></div>
+<p>可以看到只有 <code>fprintf</code> 函数的输出。如果在 <code>printf</code> 语句后面加上换行符，你会发现 <code>printf</code> 的输出也被打印出来了。因为当输出缓冲区遇到 <code>\n</code> 时也会立即输出。</p>
+<p>此外，将错误信息导向标准错误流还有另一个好处，就是你可以分别收集调试信息和正常输出。比如你可以将调试信息重定向到一个文件，而将正常输出重定向到另一个文件。</p>
+<div class="highlight"><pre><span></span><code>./debug 2&gt; debug.log 1&gt; output.log
+</code></pre></div>
+<h3 id="gdb">使用<span class="heti-skip"><span class="heti-spacing"> </span>gdb<span class="heti-spacing"> </span></span>调试程序<a class="headerlink" href="#gdb" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
+<p>接下来，我们以被<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准弃用的库函数 <code>gets</code> 为例，用 <code>gdb</code> 对其进行调试：</p>
+<div class="highlight"><span class="filename">gets.c</span><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">gets</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">dest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="p">((</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getchar</span><span class="p">())</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">'\n'</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">EOF</span><span class="p">)</span>
+<span class="w">        </span><span class="o">*</span><span class="n">dest</span><span class="o">++</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EOF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dest</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span>
+<span class="w">    </span><span class="o">*</span><span class="n">dest</span><span class="o">++</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">echo</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+<span class="w">    </span><span class="n">gets</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span>
+<span class="w">    </span><span class="n">puts</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="_21">编译时开启调试信息<a class="headerlink" href="#_21" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>在编译时，使用 <code>-g</code> 选项在可执行文件中加入源代码的信息，比如可执行文件中第几条机器指令对应源代码的第几行，但并不是把整个源文件嵌入到可执行文件中，所以在调试时必须保证<span class="heti-skip"><span class="heti-spacing"> </span>gdb<span class="heti-spacing"> </span></span>能找到源文件。这些信息可以帮助调试器定位到源代码的位置。</p>
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-g<span class="w"> </span>-o<span class="w"> </span>gets<span class="w"> </span>gets.c
+</code></pre></div>
+<p>有时，因为<span class="heti-skip"><span class="heti-spacing"> </span>GCC<span class="heti-spacing"> </span></span>的特性，可能导致允许某些不符合<span class="heti-skip"><span class="heti-spacing"> </span>C<span class="heti-spacing"> </span></span>标准的事情发生。这时你可以使用 <code>-ansi -pedantic-errors</code> 来关闭<span class="heti-skip"><span class="heti-spacing"> </span>GCC<span class="heti-spacing"> </span></span>特性，严格遵守<span><span class="heti-spacing"> </span>ANSI C</span>。这构成了常用的编译选项。</p>
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-Wall<span class="w"> </span>-Werror<span class="w"> </span>-ansi<span class="w"> </span>-pedantic-errors<span class="w"> </span>-g<span class="w"> </span>prog1.c<span class="w"> </span>-o<span class="w"> </span>prog1
+</code></pre></div>
+<h4 id="gdb_1"><code>gdb</code> 的基本使用<a class="headerlink" href="#gdb_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>启动 <code>gdb</code> 程序：</p>
+<div class="highlight"><pre><span></span><code>GNU gdb (Ubuntu 10.2-6ubuntu1) 10.2
+...
+Reading symbols from ./hello...
+(gdb)
+</code></pre></div>
+<p>命令行的提示符从 <code>$</code> 变成了 <code>(gdb)</code>，这意味着你已经进入了 <code>gdb</code> 的交互界面。<code>gdb</code> 中常用的命令如下：</p>
+<ul>
+<li><code>file &lt;filename&gt;</code>：加载可执行文件。</li>
+<li><code>r</code> 或 <code>run [args]</code>：运行程序。<code>[args]</code> 是可选的命令行参数。</li>
+<li><code>b</code> 或 <code>break &lt;line&gt;</code>：在指定行设置断点。</li>
+<li><code>b</code> 或 <code>break &lt;function&gt;</code>：在指定函数设置断点。</li>
+<li><code>b</code> 或 <code>break *&lt;address&gt;</code>：在指定地址设置断点。</li>
+<li><code>info breakpoints</code>：查看断点信息。</li>
+<li><code>delete breakpoints &lt;number&gt;</code>：删除指定编号的断点。</li>
+<li><code>continue</code>：继续执行程序。</li>
+<li><code>next</code>：执行下一行。</li>
+<li><code>step</code>：执行下一行，如果遇到函数调用，进入函数内部。</li>
+<li><code>print &lt;variable&gt;</code>：打印变量的值。</li>
+<li><code>print &lt;expression&gt;</code>：打印表达式的值。</li>
+<li><code>watch &lt;expression&gt;</code>：监视表达式的值，当值发生变化时，程序会停下来。</li>
+<li><code>backtrace</code>：查看函数调用栈。</li>
+<li><code>finish</code>：执行完当前函数后停下来。</li>
+<li><code>q</code> 或 <code>quit</code>：退出 <code>gdb</code>。</li>
+<li><code>help</code>：查看帮助信息。</li>
+</ul>
+<h4 id="_22">检查程序情况<a class="headerlink" href="#_22" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p><span>Linux<span class="heti-spacing"> </span></span>系统有一个特殊的设备文件 <code>/dev/zero</code>，它能够作为输入，提供无穷无尽的 <code>0</code> 字节。我们将它作为输入，看看程序会发生什么。</p>
+<div class="highlight"><pre><span></span><code>(gdb) file gets
+Reading symbols from gets...
+(gdb) run &lt; /dev/zero
+Starting program: /mnt/f/Code/_repo/study-assist/docs/programming_lecture/lecture1/code/gets &lt; /dev/zero
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00005555555551b2 in gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+</code></pre></div>
+<p>因为程序访问了非法的地址空间，系统向程序发送信号 <code>SIGSEGV</code>，程序终止运行。<code>gdb</code> 会自动停在发生错误的位置，这里是 <code>gets.c</code> 的第<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>行。你可以使用 <code>backtrace</code> 命令查看函数调用栈。</p>
+<div class="highlight"><pre><span></span><code>(gdb) backtrace
+#0  0x00005555555551b2 in gets (s=0x7fffffffd760 "") at gets.c:8
+#1  0x000055555555521b in echo () at gets.c:18
+#2  0x0000000000000000 in ?? ()
+</code></pre></div>
+<p>使用 <code>print</code> 命令查看各个变量的值。<code>print/x</code> 能够指定以十六进制的形式打印变量的值。</p>
+<div class="highlight"><pre><span></span><code>(gdb) print dest
+$1 = 0x7ffffffff001 &lt;error: Cannot access memory at address 0x7ffffffff001&gt;
+(gdb) print s
+$2 = 0x7fffffffd760 ""
+(gdb) print dest - s
+$3 = 6305
+(gdb) print c
+$4 = 0
+</code></pre></div>
+<p><code>gdb</code> 为你做了一些提示，比如 <code>dest</code> 现在所指向的地址 <code>0x7ffffffff001</code> 是程序无法访问的。检查 <code>dest - s</code> 的值我们知道此时 <code>dest</code> 指向的地址已经是 <code>s</code> 后<span class="heti-skip"><span class="heti-spacing"> </span>6305<span class="heti-spacing"> </span></span>个字节，远远超出了数组 <code>s</code> 的空间。我们也可以检查当前输入的字符 <code>c</code>，它显然是 <code>0</code>。</p>
+<h4 id="_23">断点调试<a class="headerlink" href="#_23" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
+<p>使用 <code>break &lt;filename&gt;:&lt;line&gt;</code> 可以在指定文件指定行设置断点。对于单文件程序，可以省略源代码文件名。<code>break</code> 还可以接收函数名和地址作为参数，还可以使用条件表达式，请使用 <code>help break</code> 查看详细用法。</p>
+<p>我们在程序第<span class="heti-skip"><span class="heti-spacing"> </span>8<span class="heti-spacing"> </span></span>行 <code>*dest++=c</code> 处设置一个断点，然后运行程序。</p>
+<div class="highlight"><pre><span></span><code>(gdb) b 8
+Breakpoint 1 at 0x11a3: file gets.c, line 8.
+(gdb) r &lt; /dev/zero
+Starting program: /mnt/f/Code/_repo/study-assist/docs/programming_lecture/lecture1/code/gets &lt; /dev/zero
+
+Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+(gdb) print dest - s
+$1 = 0
+</code></pre></div>
+<p><code>next</code> 命令将会单行执行程序，且不会进入函数内部（即把整个函数当作一行<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。<code>step</code> 会进入函数内部一行一行执行。<code>continue</code> 命令将继续执行程序，直到下一个断点。</p>
+<div class="highlight"><pre><span></span><code>(gdb) next
+7               while((c = getchar()) != '\n' &amp;&amp; c != EOF)
+(gdb) next
+Breakpoint 1,gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+(gdb) print dest - s
+$2 =1
+(gdb) continue
+Continuing.
+Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+(gdb) print dest - s
+$3 = 2
+</code></pre></div>
+<p><code>next</code> 和 <code>step</code> 命令都可以接受一个参数，表示执行多少行，且会在断点处停下。<code>continue</code> 命令也可以接受一个参数，表示忽略接下来地多少个断点。</p>
+<div class="highlight"><pre><span></span><code>(gdb) next 20
+
+Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+(gdb) print dest - s
+$4 = 3
+(gdb) continue 20
+Will ignore next 19 crossings of breakpoint 1.  Continuing.
+
+Breakpoint 1, gets (s=0x7fffffffd760 "") at gets.c:8
+8               *dest++ = c;
+(gdb) print dest - s
+$5 = 23
+</code></pre></div>
+<details class="tip" open="open">
+<summary>调试技巧</summary>
+<p>直接按<span class="keys"><kbd class="key-enter"><span class="heti-skip"><span class="heti-spacing"> </span>Enter<span class="heti-spacing"> </span></span></kbd></span>键，<code>gdb</code> 会重复上一条命令。这样就不用一直输入 <code>next</code> 或 <code>step</code> 了。</p>
+</details>
+<p>在一些更为复杂的程序中，使用 <code>gdb</code> 调试的优越性就逐渐显现出来了。你不用频繁更改源代码插入 <code>printf</code> 语句，只需要在 <code>gdb</code> 中设置断点，然后逐步执行程序，查看变量的值，就能找到错误所在。</p>
+<div class="admonition note">
+<p class="admonition-title">进一步学习</p>
+<p>由于个人水平不足以及时间有限，没能写出一个体验较好的<span class="heti-skip"><span class="heti-spacing"> </span>GDB<span class="heti-spacing"> </span></span>调试实验。十分希望同学们在课后去看看这篇文章<a href="https://www.kancloud.cn/wizardforcel/linux-c-book/134935"><span class="heti-skip"><span class="heti-spacing"> </span>Linux C<span class="heti-spacing"> </span></span>一站式编程：第<span class="heti-skip"><span class="heti-spacing"> </span>10<span class="heti-spacing"> </span></span>章<span><span class="heti-spacing"> </span>gdb</span></a>，把这边的调试实例都过一遍～</p>
+</div>
+<h2 id="_24">参考资料<a class="headerlink" href="#_24" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<details class="info" open="open">
+<summary>参考资料</summary>
+<ul>
+<li><a href="https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html">GCC and Make - A Tutorial on how to compile, link and build C/C++ applications</a></li>
+<li><a href="https://developers.redhat.com/blog/2019/03/13/understanding-gcc-warnings">Understanding GCC warnings</a></li>
+<li><a href="https://medium.com/@costaparas/the-gcc-warning-flags-every-c-programmer-should-know-about-8846c4a9bc94">The GCC warning flags every C programmer should know about</a></li>
+<li><a href="https://www.baeldung.com/linux/dynamic-linker">What Is /lib64/ld-linux-x86-64.so.2?</a></li>
+<li><a href="https://www.cs.umd.edu/~srhuang/teaching/cmsc212/gdb-tutorial-handout.pdf">GDB Tutorial: A Walkthrough with Examples</a></li>
+<li><a href="https://www.kancloud.cn/wizardforcel/linux-c-book/intro.naturalformal.html">看云：<span>Linux C<span class="heti-spacing"> </span></span>一站式学习</a></li>
+</ul>
+</details>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 11, 2024</span>
+</span>
+<span class="md-source-file__fact">
+<span class="md-icon" title="Contributors">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"></path></svg>
+</span>
+<nav>
+<a href="mailto:zhubaolin228@gmail.com">bowling233</a>
+</nav>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: 课前：准备开发与调试环境" class="md-footer__link md-footer__link--prev" href="../pre/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                课前：准备开发与调试环境
+              </div>
+</div>
+</a>
+<a aria-label="Next: 课前：MAGIC 函数" class="md-footer__link md-footer__link--next" href="../../lec2/pre/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                课前：MAGIC 函数
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+<p xmlns:cc="http://creativecommons.org/ns#">This work is licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" rel="license noopener noreferrer" style="display:inline-block;" target="_blank">CC BY-NC-SA 4.0<img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/></a></p><p>Copyright © 2023 - 2024 CKC-AGC</p>
+</div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://space.bilibili.com/3546574332365752" rel="noopener" target="_blank" title="space.bilibili.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0q13.2 0 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0q13.2 0 21.9 8.603c5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1m-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8s9.7-14.3 10.1-23.5zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5s-17.5-3.2-23.6-9.5-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2s13.2-9.6 23.3-10c9.2.4 17 3.7 23.3 10m191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2s-14 9.5-23.6 9.5-17.4-3.2-23.6-9.5c-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2s14.1-9.6 23.3-10c9.2.4 17 3.7 23.3 10"></path></svg>
+</a>
+<a class="md-social__link" href="https://github.com/ckc-agc" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../../../..", "features": ["search.highlight", "navigation.expand", "navigation.footer", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "header.autohide", "content.code.copy", "content.code.annotate", "content.action.edit"], "search": "../../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../../../../assets/javascripts/bundle.525ec568.min.js"></script>
+<script src="../../../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://jsd.onmicrosoft.cn/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
