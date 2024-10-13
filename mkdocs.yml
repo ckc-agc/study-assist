@@ -128,7 +128,7 @@ nav:
       - algebra/lalu/index.md
   - 程序设计:
     - programming/index.md
-    - （24-25）程设辅学:
+    - （24 秋冬）程设辅学:
       - programming/24fall/index.md
       - programming/24fall/lec1.md
       - programming/24fall/lec2.md
@@ -146,8 +146,8 @@ nav:
         - programming/common/notes/funcptr.md
       - programming/common/faq.md
     - 归档:
-      - （23-24）实用技能拾遗: https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/
-      - （23-24）系统知识拾遗:
+      - （23 秋冬）实用技能拾遗: https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/
+      - （23 秋冬）系统知识拾遗:
         - programming/archive/23fall/index.md
         - 1. 程序编译过程与调试技术:
           - programming/archive/23fall/lec1/pre.md

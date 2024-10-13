@@ -1,5 +1,9 @@
 # 1. 通往 Pro 的第一步：Linux 命令行与 AI 工具
 
+!!! danger
+
+    本文档尚未完成。
+
 ## 先让同学们 VSCode 连上服务器
 
 - 让他们 gcc -o hello hello.c, ./hello
