@@ -18,27 +18,27 @@
 [
   {
     "title": "[微积分 I/II（H）](calculus/index.md)",
-    "content": "23-24 辅学群：204755170",
+    "content": "23-24 辅学群：869733089",
     "image": "graph/calculus.webp"
   },
   {
     "title": "[数学分析 I/II（H）](analysis/index.md)",
-    "content": "23-24 辅学群：618962803",
+    "content": "23-24 辅学群：879217934",
     "image": "graph/analysis.jpg"
   },
   {
     "title": "[线性代数 I/II（H）](algebra/index.md)",
-    "content": "23-24 辅学群：913067714",
+    "content": "23-24 辅学群：148964020",
     "image": "graph/algebra.jpg"
   },
   {
     "title": "[程序设计（H）](programming/index.md)",
-    "content": "23-24 辅学群：728919863",
+    "content": "23-24 辅学群：878442370",
     "image": "graph/programming.jpg"
   },
   {
     "title": "[普通化学（H）](chemistry/index.md)",
-    "content": "23-24 辅学群：635023447",
+    "content": "23-24 辅学群：875585843",
     "image": "graph/chem.jpg"
   },
   {
