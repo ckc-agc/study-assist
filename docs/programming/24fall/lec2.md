@@ -1,58 +1,45 @@
-# 2. 开源世界生存基础：许可证与 Git
+# 通往 Pro 的第一步
 
 !!! danger
 
     本文档尚未完成。
 
-## 许可证
+## 实用技能拾遗课程前瞻
 
-什么是开源软件 / 自由软件
+为什么要学习 Linux 和 AI 工具
 
-开源（Open Source）：公开源代码
-自由（Free）：遵循四项自由原则
-自由运行、自由修改、自由分发拷贝、自由分发修改
-See also: FSF、什么是自由软件 - GNU
-自由和开源是完全不同的概念
-自由软件也并不意味着不是商业软件
-关于 Copyright 和 Copyleft：
+计算机是一个日新月异的学科，新的工具和技能层出不穷。这些工具和技能对于计算机学科的学习和科研有着重要的意义。
 
-Copyright：版权所有，一切权利归软件作者所有
-Copyleft：版权归原作者所有，其他一切权利归任何人所有
-Copyleft 的一定是自由软件，GPL 是一种 Copyleft 许可证
-关于开源协议 / 许可证（LICENSE）
-没有许可证？原作者保留所有权利，不允许复制、分发、修改
-使用的话需要联系原作者，见 choosealicense.com/no-permission
+- 不学就挂：本学期可能用不上，但下学期数据结构开始就有老师要求使用 git 等工具，如果熟悉 Linux 环境，就可以少走很多弯路。以及，以后进老师实验室打工，要登 Linux 服务器，怎么用？从大一开始打好基础。
+- 对于学计算的同学来说，应该具有对自己系统的控制能力。Linux 可以锻炼你这一点。与 Windows 相比，[](展示一个蓝屏)
+- 与他人合作的事实标准：大家都是 UNIX 环境，如果你不学习，FDS 怎么把别人的作业跑起来？
+- 展示一下 AI 工具的方便之处：解释和生成代码、修正错误
 
-常见软件开源许可证
-GPL（GNU General Public License）
-Copyleft、有“传染性”
-GPLv3、AGPLv3、LGPLv3
-Unlicense：放弃权利，进入公共领域
-详见 choosealincense.com（appendix）
-在开源项目中使用许可证
-根目录下包含文件 LICENSE，其中附上许可证内容
-GitHub 可以从模板生成一些 LICENSE，也会根据内容识别并显示许可证
-采取多个许可证：都要放，并说明许可证作用范围
-非软件类许可证
-主要是 CC（Creative Commons）系列许可证，用于“知识共享”，不用于软件
-
-官网：<https://creativecommons.org/share-your-work/cclicenses/>
-CC 0：Public Domain，进入公共领域
-CC BY：Attribution，需要标明原作者
-CC BY-SA：*ShareAlike，需要采用相同许可证
-CC BY-NC：*NonCommercial，禁止用于商业用途
-CC BY-NC-SA：三个要求均有
-CC BY-ND / BY-NC-ND：*NoDerivs，禁止分发、修改  
-
-* 带有 NC/ND 的就不是自由协议，目前使用的都是 4.0 版本
-使用：
-同样把内容写在 LICENSE 里，官网找到对应许可证，进入 /legalcode.txt
-GitHub 目前只会识别 CC 0 / CC BY / CC BY-SA
-"... is licensed under a Creative Commons ... 4.0 License"
-
-## VSCode 插件
-
-## ZJU Git 创建仓库
+## 
 
 
+
+- 让他们 gcc -o hello hello.c, ./hello
+- 确保大部分同学跑成功了，没成功的当堂解决
+
+接下来解释在干什么。这是在 Linux 环境用 gcc 编译运行了一个程序。
+
+和 Dev-C++ 有什么不同
+
+## prompt 是什么
+
+(base) bowling@M600:~$
+
+command 
+
+PATH
+
+## 在命令行中操作文件
+
+- 文件系统结构：树状结构，家目录
+- sudo 是什么（有文件权限和用户，等之后讲或者自己了解）
+
+## gcc 干了什么，dev-c++ 没给你展示的
+
+## AI 工具
 
