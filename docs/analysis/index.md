@@ -2,7 +2,26 @@
 
 欢迎来到竺院辅学数学分析版块 🤗。本页面汇总了数学分析的辅学资料，包括历年试卷、讲义、录播等。
 
+## 2024-2025 学年 辅学资料
+
+### 秋冬学期 数学分析 I（H）
+
+| 节次 |  时间  |          内容          |       主讲       |                                 讲义                                  |                        录播地址                         |
+| :--: | :----: | :--------------------: | :--------------: | :-------------------------------------------------------------------: | :-----------------------------------------------------: |
+| 1 | Oct.19 | 实数系完备性与数列极限 | 强物 2201 <br /> 潘成喆 | [讲义](./2024-2025Fall/analysis_lecture1_real_numbers_and_convergence.pdf)<br />[思考题反馈](./2024-2025Fall/analysis_lecture1_real_numbers_and_convergence_feedback.pdf) | [Bilibili](https://www.bilibili.com/video/BV1TtyeYZExh) |
+| 2 | Oct.20 | 一元函数极限和连续与第一次小测复习哦 | 混合 2206 <br /> 谢集 | [讲义](./2024-2025Fall/analysis_lecture2_continuity_and_review.pdf)<br />[答案](./2024-2025Fall/analysis_lecture2_continuity_and_review_ans.pdf) | [Bilibili](https://www.bilibili.com/video/BV1fkyaYzEFm) |
+
+
 ## 2023-2024 学年 辅学资料
+
+### 秋冬学期 数学分析 I（H）
+
+| 节次 |  时间  |          内容          |       主讲       |                                 讲义                                  |                        录播地址                         |
+| :--: | :----: | :--------------------: | :--------------: | :-------------------------------------------------------------------: | :-----------------------------------------------------: |
+|  1   | Oct.14 |        数列极限        | 混合 2206 <br /> 胡育玮 |     [讲义](2023-2024Fall/analysis_lecture1_sequence_limits.md)<br />[答案](2023-2024Fall/analysis_lecture1_sequence_limits_answer.pdf)     | [Bilibili](https://www.bilibili.com/video/BV1Qw411c7bM) |
+|  2   | Oct.28 | 一元函数的极限与连续性 | 图灵 2102 <br /> 潘昶皓 | [讲义](2023-2024Fall/analysis_lecture2_function.pdf) | [Bilibili](https://www.bilibili.com/video/BV1BM411D7rJ) |
+| 3    | Nov.26 | 微分中值定理和Taylor公式拓展应用 | 混合 2206 <br /> 谢集 | [讲义](2023-2024Fall/analysis_lecture3.pdf)<br />[答案](2023-2024Fall/analysis_lecture3_answer.pdf) | [Bilibili](https://www.bilibili.com/video/BV1ij411L7NU/) |
+| 4    | Dec.9/10 | 不定积分 | 混合 2203 <br /> 何兆平 |
 
 ### 春夏学期 数学分析 II（H）
 
@@ -13,15 +32,6 @@
 |  3   | Jun.2 |         多元函数积分学             | 混合 2201 <br /> 韩越  |   [讲义](2023-2024Spring/analysis_lecture3.pdf)<br />[答案](2023-2024Spring/analysis_lecture3_sol.pdf)                        | [Bilibili](https://www.bilibili.com/video/BV1Vz421Y76A) |
 |  4   | Jun.9 |         期末复习                  | 强物 2201 <br /> 潘成喆 |   [讲义](2023-2024Spring/analysis_lecture4.pdf)<br />[补充](2023-2024Spring/analysis_lecture4_supp.pdf)                     | [Bilibili](https://space.bilibili.com/3546574332365752/channel/collectiondetail?sid=2673814&spm_id_from=333.788.0.0) |
 |  4   | Jun.12 |         专题课                   | 强物 2201 <br /> 潘成喆 |   [Rn的数学结构](2023-2024Spring/analysis_topic1.pdf)<br />[重积分](2023-2024Spring/analysis_topic2.pdf)                     | [Bilibili](https://space.bilibili.com/3546574332365752/channel/collectiondetail?sid=2673814&spm_id_from=333.788.0.0) |
-
-### 秋冬学期 数学分析 I（H）
-
-| 节次 |  时间  |          内容          |       主讲       |                                 讲义                                  |                        录播地址                         |
-| :--: | :----: | :--------------------: | :--------------: | :-------------------------------------------------------------------: | :-----------------------------------------------------: |
-|  1   | Oct.14 |        数列极限        | 混合 2206 <br /> 胡育玮 |     [讲义](2023-2024Fall/analysis_lecture1_sequence_limits.md)<br />[答案](2023-2024Fall/analysis_lecture1_sequence_limits_answer.pdf)     | [Bilibili](https://www.bilibili.com/video/BV1Qw411c7bM) |
-|  2   | Oct.28 | 一元函数的极限与连续性 | 图灵 2102 <br /> 潘昶皓 | [讲义](2023-2024Fall/analysis_lecture2_function.pdf) | [Bilibili](https://www.bilibili.com/video/BV1BM411D7rJ) |
-| 3    | Nov.26 | 微分中值定理和Taylor公式拓展应用 | 混合 2206 <br /> 谢集 | [讲义](2023-2024Fall/analysis_lecture3.pdf)<br />[答案](2023-2024Fall/analysis_lecture3_answer.pdf) | [Bilibili](https://www.bilibili.com/video/BV1ij411L7NU/) |
-| 4    | Dec.9/10 | 不定积分 | 混合 2203 <br /> 何兆平 | | |
 
 ## 历年卷
 

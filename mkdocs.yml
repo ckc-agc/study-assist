@@ -124,8 +124,9 @@ nav:
     - analysis/index.md
   - 线性代数:
     - algebra/index.md
-    - 线性代数：未竟之美:
-      - algebra/lalu/index.md
+    - 2023-2024 学年线代辅学: algebra/2023.md
+    - 2024-2025 学年线代辅学: algebra/2024.md
+    - 线性代数：未竟之美: algebra/lalu/index.md
   - 程序设计:
     - programming/index.md
     - （24 秋冬）程设辅学:
