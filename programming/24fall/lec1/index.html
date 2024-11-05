@@ -9,8 +9,8 @@
 <link href="../" rel="prev"/>
 <link href="../lec2/" rel="next"/>
 <link href="../../../graph/ckc.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.5.42" name="generator"/>
-<title>课程标题 - 浙江大学竺可桢学院辅学计划站点</title>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.5.43" name="generator"/>
+<title>编程入门 - 浙江大学竺可桢学院辅学计划站点</title>
 <link href="../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -59,7 +59,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              课程标题
+              编程入门
             
           </span>
 </div>
@@ -388,7 +388,7 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    课程标题
+    编程入门
   </span>
 </a>
 </li>
@@ -805,24 +805,224 @@
 <a class="md-content__button md-icon" href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming/24fall/lec1.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
 </a>
-<h1 id="_1">课程标题<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>本文档尚未完成。</p>
+<h1 id="_1">编程入门<a class="headerlink" href="#_1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<h1 id="_2">编程入门<a class="headerlink" href="#_2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h1>
+<p>本次课程定位为编程入门，希望主要向大家介绍一些基本的编程思想，并通过例题与讲解的形式加以渗透。
+例题参考自去年的PTA习题。</p>
+<hr/>
+<h2 id="1"><span>1<span class="heti-spacing"> </span></span>计算机基础知识<a class="headerlink" href="#1" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>冯诺依曼架构：输入、储存、计算、输出</p>
+<p>计算机如何储存数据？</p>
+<p>计算机如何运算数据？</p>
+<h2 id="2"><span>2<span class="heti-spacing"> </span></span>编程思路<a class="headerlink" href="#2" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>编程的过程可以是一种直观思考的抽象化。</p>
+<p>对于一般的编程问题，我一般把它分为两类，即：
+* 可以直接想出来的
+* 不知道算法做不出来的（或者想不到最优解）</p>
+<p>对于前者，我们还是可以有一定的思路去解决的，比如下面这个经典的例子：</p>
+<p><span>!!! e.g.<span class="heti-spacing"> </span></span>例子
+    公鸡 <span class="arithmatex">\(5\)</span> 元一只、母鸡 <span class="arithmatex">\(3\)</span> 元一只、小鸡 <span class="arithmatex">\(1\)</span> 元 <span class="arithmatex">\(3\)</span> 只；<span class="arithmatex">\(100\)</span> 元买了 <span class="arithmatex">\(100\)</span> 只鸡，问各多少只？</p>
+<p>对于后者，比如：</p>
+<p><span>!!! e.g.<span class="heti-spacing"> </span></span>例子
+    给定两个单词 word1 和 word2，计算出将 word1 转换成 word2 所使用的最少操作数 。
+    你可以对一个单词进行如下三种操作：
+    插入一个字符 删除一个字符 替换一个字符</p>
+<p>跳出做题的框架，我们一般把编程范式分为以下几种：
+- 面向过程
+- 面向对象
+- 函数式</p>
+<hr/>
+<h2 id="3"><span>3<span class="heti-spacing"> </span></span>基础知识复习<a class="headerlink" href="#3" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<ul>
+<li>变量</li>
+<li>语句</li>
+<li>数组</li>
+<li>指针</li>
+<li>栈</li>
+<li>队列</li>
+<li>递归</li>
+</ul>
+<h2 id="4"><span>4<span class="heti-spacing"> </span></span>基本输入输出<a class="headerlink" href="#4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p>可能这一节内容有些基础，但作为每道编程题必不可少的部分（有时甚至是通过的关键所在<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，我希望能为大家稍微总结一下怎样读数据，怎样输出数据。</p>
+<p>目前，我们一般使用<code>scanf()</code>读入数据，<code>printf()</code>输出数据。其中的<code>'f'</code>意为<span><span class="heti-spacing"> </span>"format"</span>，即格式化输入输出。</p>
+<div class="admonition note scanf">
+<p class="admonition-title">Note</p>
+<p><code>scanf()</code> 的定义如下：
+</p><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">scanf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span>
+</code></pre></div>
 </div>
+<p>即参数由两部分组成：格式化字符串、读入参数。简单来说，前面一半是告诉计算机怎么读，后面一半是告诉计算机读完了存在哪里。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">类型</th>
+<th style="text-align: center;">合格的输入</th>
+<th style="text-align: center;">参数的类型</th>
+<th style="text-align: center;">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">%c</td>
+<td style="text-align: center;">单个字符</td>
+<td style="text-align: center;">char *</td>
+<td style="text-align: center;">可以使其读取多个字符</td>
+</tr>
+<tr>
+<td style="text-align: center;">%d</td>
+<td style="text-align: center;">十进制整数</td>
+<td style="text-align: center;">int *</td>
+<td style="text-align: center;"><span>32<span class="heti-spacing"> </span></span>位整型</td>
+</tr>
+<tr>
+<td style="text-align: center;">%l</td>
+<td style="text-align: center;">十进制整数</td>
+<td style="text-align: center;">long *</td>
+<td style="text-align: center;"><span>32<span class="heti-spacing"> </span></span>位整型</td>
+</tr>
+<tr>
+<td style="text-align: center;">%ll</td>
+<td style="text-align: center;">十进制整数</td>
+<td style="text-align: center;">long long *</td>
+<td style="text-align: center;"><span>64<span class="heti-spacing"> </span></span>位整型</td>
+</tr>
+<tr>
+<td style="text-align: center;">%e、%E、%f <br/> %F、%g、%G</td>
+<td style="text-align: center;">单精度浮点数</td>
+<td style="text-align: center;">float *</td>
+<td style="text-align: center;">注意不能用来读<span><span class="heti-spacing"> </span>double</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">%lf</td>
+<td style="text-align: center;">双精度浮点数</td>
+<td style="text-align: center;">double *</td>
+<td style="text-align: center;"><span>64<span class="heti-spacing"> </span></span>位浮点型</td>
+</tr>
+<tr>
+<td style="text-align: center;">%i</td>
+<td style="text-align: center;">十、八、十六进制整数</td>
+<td style="text-align: center;">int *</td>
+<td style="text-align: center;">有的时候可以用来偷懒</td>
+</tr>
+<tr>
+<td style="text-align: center;">%o</td>
+<td style="text-align: center;">八进制整数</td>
+<td style="text-align: center;">int *</td>
+<td style="text-align: center;">同上</td>
+</tr>
+<tr>
+<td style="text-align: center;">%x、%X</td>
+<td style="text-align: center;">十六进制整数</td>
+<td style="text-align: center;">int *</td>
+<td style="text-align: center;">同上上</td>
+</tr>
+<tr>
+<td style="text-align: center;">%s</td>
+<td style="text-align: center;">字符串</td>
+<td style="text-align: center;">char *</td>
+<td style="text-align: center;">读取直到遇到第一个空白字符</td>
+</tr>
+<tr>
+<td style="text-align: center;">%p</td>
+<td style="text-align: center;">指针</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">%%</td>
+<td style="text-align: center;">读入<span class="heti-skip"><span class="heti-spacing"> </span>%<span class="heti-spacing"> </span></span>字符</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>一个很容易犯的错误：<code>scanf(%d,&amp;var)</code>写成<code>scanf(%d,var)</code>。此处使用<code>&amp;</code>运算符是因为我们要告诉计算机储存数据的位置<code>（&amp;var）</code>而不是<code>var</code>这个变量的值。</li>
+</ul>
+<p>而日常被忽略的<code>scanf()</code>返回值会告诉我们它成功读到了几个参数（可用于判定有没有读完<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<p><span>!!! note<span class="heti-spacing"> </span></span>试试看<span><span class="heti-spacing"> </span>!</span>（只需要写出读取输入的语句）
+    1. 输入仅有一行，共 <span class="arithmatex">\(7\)</span> 个用空格隔开的整数.
+    2. 第一行一个整数 <span class="arithmatex">\(N\)</span>（<span class="arithmatex">\(N\)</span> 是偶数且 <span class="arithmatex">\(1&lt;N&lt;100000\)</span>）;
+        第二行 <span class="arithmatex">\(N-1\)</span> 个用空格隔开的正整数 <span class="arithmatex">\(A_i (0&lt;Ai&lt;100000)\)</span>.
+    3. 输入的第一行是整数<span class="arithmatex">\(L\)</span>（<span class="arithmatex">\(1&lt; L &lt; 10000\)</span>）；
+        第二行是整数<span class="arithmatex">\(M\)</span>（<span class="arithmatex">\(0 &lt; M &lt; 100\)</span>）；
+        接下来的<span class="arithmatex">\(M\)</span>行，每行包含两个不同的整数，用一个空格隔开.
+    4. 输入由空格隔开的正数（可以是小数），直到输入 <span class="arithmatex">\(-1\)</span>.
+    5. 输入是 <span class="arithmatex">\(1\)</span> ~ <span class="arithmatex">\(5\)</span> 个正整数.</p>
+<div class="admonition note prinf">
+<p class="admonition-title">Note</p>
+<p><code>prinf()</code> 的定义如下：
+</p><div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">printf</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span>
+</code></pre></div>
+</div>
+<p>相对于<code>scanf()</code>的格式化字符串，<code>prinf()</code>更加复杂。
+<code>printf()</code>的格式化参数可以表达为以下形式：
+</p><div class="highlight"><pre><span></span><code><span class="o">%</span><span class="p">[</span><span class="n">flags</span><span class="p">][</span><span class="n">width</span><span class="p">][.</span><span class="n">precision</span><span class="p">][</span><span class="n">length</span><span class="p">]</span><span class="n">specifier</span>
+</code></pre></div>
+其中，specifier 即格式字符，与<code>scanf()</code>一致；
+其他参数如下所示：（来自 https://www.runoob.com/cprogramming/c-function-printf.html ）
+| flag  | 描述                                                                                                                                                                                                                                                                                               |
+| :---: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   -   | 在给定的字段宽度内左对齐，默认是右对齐                                                                                                                                                                                                                                                             |
+|   +   | 强制在结果之前显示加号或减号（+ 或 -），即正数前面会显示 + 号。默认情况下，只有负数前面会显示一个 - 号                                                                                                                                                                                             |
+| 空格  | 如果没有写入任何符号，则在该值前面插入一个空格。                                                                                                                                                                                                                                                   |
+|   #   | 与 o、x 或 X 说明符一起使用时，非零值前面会分别显示 0、0x 或 0X。<br/>与<span><span class="heti-spacing"> </span>e</span>、<span>E<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>f<span class="heti-spacing"> </span></span>一起使用时，会强制输出包含一个小数点（即使后边没有数字时也会显示小数点<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。<br/>默认情况下，如果后边没有数字时候，不会显示显示小数点。<br/>与<span class="heti-skip"><span class="heti-spacing"> </span>g<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>G<span class="heti-spacing"> </span></span>一起使用时，结果与使用<span class="heti-skip"><span class="heti-spacing"> </span>e<span class="heti-spacing"> </span></span>或<span class="heti-skip"><span class="heti-spacing"> </span>E<span class="heti-spacing"> </span></span>时相同，但是尾部的零不会被移除。 |
+|   0   | 在指定填充 padding 的数字左边放置零（0），而不是空格                                                                                                                                                                                                                                               |
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">width</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">(number)</td>
+<td style="text-align: left;">要输出的字符的最小数目。如果输出的值短于该数，结果会用空格填充。如果输出的值长于该数，结果不会被截断。</td>
+</tr>
+<tr>
+<td style="text-align: center;">*</td>
+<td style="text-align: left;">宽度在<span class="heti-skip"><span class="heti-spacing"> </span>format<span class="heti-spacing"> </span></span>字符串中未指定，但是会作为附加整数值参数放置于要被格式化的参数之前。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">.precision</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">.number</td>
+<td style="text-align: left;">对于整数说明符（d、i、o、u、x、X<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>：<span>precision<span class="heti-spacing"> </span></span>指定了要写入的数字的最小位数。如果写入的值短于该数，结果会用前导零来填充。如果写入的值长于该数，结果不会被截断。精度为<span class="heti-skip"><span class="heti-spacing"> </span>0<span class="heti-spacing"> </span></span>意味着不写入任何字符。<br/>对于<span><span class="heti-spacing"> </span>e</span>、<span>E<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>f<span class="heti-spacing"> </span></span>说明符：要在小数点后输出的小数位数。<br/>对于<span class="heti-skip"><span class="heti-spacing"> </span>g<span class="heti-spacing"> </span></span>和<span class="heti-skip"><span class="heti-spacing"> </span>G<span class="heti-spacing"> </span></span>说明符：要输出的最大有效位数。<br/>对于<span class="heti-skip"><span class="heti-spacing"> </span>s:<span class="heti-spacing"> </span></span>要输出的最大字符数。默认情况下，所有字符都会被输出，直到遇到末尾的空字符。<br/>对于<span class="heti-skip"><span class="heti-spacing"> </span>c<span class="heti-spacing"> </span></span>类型：没有任何影响。<br/>当未指定任何精度时，默认为<span><span class="heti-spacing"> </span>1</span>。如果指定时不带有一个显式值，则假定为<span><span class="heti-spacing"> </span>0</span>。</td>
+</tr>
+</tbody>
+</table>
+<p>而日常被忽略的<code>printf()</code>返回值会告诉我们写入的字符总数（如果有输出<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，否则会是一个负数（可用于判定有没有输出<heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。</p>
+<hr/>
+<h2 id="5"><span>5<span class="heti-spacing"> </span></span>一些题目<a class="headerlink" href="#5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h2>
+<p><span>!!! e.g.<span class="heti-spacing"> </span></span>水仙花数
+    找出 <span class="arithmatex">\(0\)</span> ~ <span class="arithmatex">\(999\)</span> 间所有的水仙花数。水仙花数是指一个三位数，它的各位数字的三次幂之和是其本身。</p>
+<p><span>!!! e.g.<span class="heti-spacing"> </span></span>完美数
+    实现一个计算整数因子和的简单函数，并利用其实现另一个函数，输出两正整数 <span class="arithmatex">\(m\)</span> 和 <span class="arithmatex">\(n\)</span>（<span class="arithmatex">\(0&lt;m&lt;n&lt;10000\)</span>）之间的所有完数。所谓完数就是该数恰好等于除自身外的因子之和。例如：<span class="arithmatex">\(6=1+2+3\)</span>，其中 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(3\)</span> 为 <span class="arithmatex">\(6\)</span> 的因子。</p>
+<p>!!! e.g. Gram-Schmidt Algorithm
+    （ 题目省略 ）</p>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Last update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 21, 2024</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 5, 2024</span>
 </span>
 <span class="md-source-file__fact">
 <span class="md-icon" title="Contributors">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"></path></svg>
 </span>
 <nav>
-<a href="mailto:zhubaolin228@gmail.com">bowling233</a>
+<a href="mailto:285424882@qq.com">V1CeVersaa</a>, 
+        <a href="mailto:zhubaolin228@gmail.com">bowling233</a>
 </nav>
 </span>
 </aside>
