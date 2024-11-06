@@ -73,7 +73,6 @@
     "content": "可以将 Terminal 理解成显示器，将 Shell 理解成电脑主机。",
     "image": "pre.assets/you_and_shell.png"
   },
-
 ]
 
 ::/cards::

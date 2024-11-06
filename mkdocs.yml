@@ -37,6 +37,7 @@ theme:
     - content.code.copy
     - content.code.annotate
     - content.action.edit
+    - content.tabs.link
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
