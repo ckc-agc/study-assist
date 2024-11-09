@@ -424,7 +424,7 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
       |
 ```
 
-- **问题的位置**：`erorr.c` 文件的第 6 行第 18 列。
+- **问题的位置**：`error.c` 文件的第 6 行第 18 列。
 - **问题的类型**：`error`，错误。错误会导致编译失败，而警告（`warning`）一般不会。
 - **问题的描述**：`subscripted value is neither array nor pointer nor vector`，下标的值既不是数组也不是指针也不是向量。
 
