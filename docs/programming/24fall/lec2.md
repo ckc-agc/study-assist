@@ -123,12 +123,26 @@ command [OPTIONS] arguments
 !!! note ""
 
     ```bash
+    touch [OPTION]... FILE...
+    ```
+
+    `touch` 命令用于创建空文件。它的名称来源于触摸（touch）文件的时间戳。
+
+!!! question "动手做 2.3.1"
+
+    在当前目录 `~/` 下创建一个空文件 `2.3.1`。
+
+    **接下来的每个动手做，请同学们完成后 `touch` 对应的文件，以便我们同步进度😉。**
+
+!!! note ""
+
+    ```bash
     ls [OPTION]... [FILE]...
     ```
 
     `ls` 命令用于列出目录中的文件和子目录。它的名称来源于 **l**i**s**t（列出）。
 
-!!! question "动手做"
+!!! question "动手做 2.3.2"
 
     使用 `ls` 命令看一看当前目录下有哪些文件和目录吧。
 
@@ -140,7 +154,7 @@ command [OPTIONS] arguments
 
     `cat` 命令用于查看文件内容。它的名称来源于 con**cat**enate（连接）。
 
-!!! question "动手做：尝试 `cat` 的几种用法"
+!!! question "动手做 2.3.3：尝试 `cat` 的几种用法"
 
     - 不带参数
     - 带一个参数
@@ -195,7 +209,7 @@ command [OPTIONS] arguments
 
     `pwd` 命令用于显示当前工作目录的路径。它的名称来源于 **p**rint **w**orking **d**irectory（打印工作目录）。
 
-!!! question "动手做"
+!!! question "动手做 2.4.1"
 
     看一看你现在在哪个目录。
 
@@ -207,7 +221,9 @@ command [OPTIONS] arguments
 
     `cd` 命令用于切换工作目录。它的名称来源于 **c**hange **d**irectory（改变目录）。
 
-!!! question "动手做：尝试 `cd` 的几种用法"
+!!! question "动手做 2.4.2"
+
+    尝试 `cd` 的几种用法
 
     - 不带参数
     - 带一个参数
@@ -220,7 +236,7 @@ command [OPTIONS] arguments
 
     `mkdir` 命令用于创建目录。它的名称来源于 **m**a**k**e **dir**ectory（创建目录）。
 
-!!! question "动手做"
+!!! question "动手做 2.4.3"
 
     尝试创建一个目录 `hello`。
 
@@ -232,7 +248,7 @@ command [OPTIONS] arguments
 
     `touch` 命令用于创建空文件。它的名称来源于触摸（touch）文件的时间戳。
 
-!!! question "动手做"
+!!! question "动手做 2.4.4"
 
     尝试在 `hello` 目录下创建一个空文件 `world`。
 
@@ -244,7 +260,7 @@ command [OPTIONS] arguments
 
     `rm` 命令用于删除文件或目录。它的名称来源于 **r**e**m**ove（删除）。
 
-!!! question "动手做"
+!!! question "动手做 2.4.5"
 
     尝试删除 `world` 文件。
 
@@ -256,7 +272,7 @@ command [OPTIONS] arguments
 
     `rmdir` 命令用于删除空目录。它的名称来源于 **r**e**m**ove **dir**ectory（删除目录）。
 
-!!! question "动手做"
+!!! question "动手做 2.4.6"
 
     尝试删除 `hello` 目录。
 
@@ -268,9 +284,9 @@ command [OPTIONS] arguments
 
     `cp` 命令用于复制文件或目录。它的名称来源于 **c**o**p**y（复制）。
 
-!!! question "动手做"
+!!! question "动手做 2.4.7"
 
-    尝试复制 `/public/lec2/hello.c` 文件到家目录。
+    尝试复制 `/share/hello.c` 文件到家目录。
 
 </div>
 
@@ -306,7 +322,7 @@ command [OPTIONS] arguments
 
     `echo` 命令用于打印字符串。它的名称来源于回声（echo）。
 
-!!! question "动手做"
+!!! question "动手做 2.5.1"
 
     - 打印字符串 `helloworld`。
     - 通过替换打印环境变量 `HOME` 和 `PATH` 的值。
@@ -319,7 +335,7 @@ command [OPTIONS] arguments
 
     `type` 命令用于显示命令的类型。它会告诉你命令是内建命令、别名、还是外部命令。
 
-!!! question "动手做"
+!!! question "动手做 2.5.2"
 
     尝试查看 `ls` 和 `echo` 命令的类型。
 
@@ -331,13 +347,13 @@ command [OPTIONS] arguments
 
 - 几乎所有命令都支持 `--help` 或 `-h` 选项，用于显示命令的帮助信息。
 
-    !!! question "动手做"
+    !!! question "动手做 2.6.1"
 
         尝试查看 `ls` 和 `echo` 命令的帮助信息。
 
 - `man` 命令用于显示命令的手册页（**Man**ual Page）。如果命令具有手册页，那么这几乎就是最权威最详细的帮助信息了。
 
-    !!! question "动手做"
+    !!! question "动手做 2.6.2"
 
         尝试查看 `ls` 和 `echo` 命令的手册页。
 
@@ -353,7 +369,7 @@ command [OPTIONS] arguments
 
         `curl` 命令用于传输数据。它的名称来源于 **c**lient for **URL**（URL 客户端）。
 
-    !!! question "动手做"
+    !!! question "动手做 2.6.3"
 
         试一试 `curl baidu.com`。
 
@@ -361,11 +377,11 @@ command [OPTIONS] arguments
 
         [`cht.sh`](https://cht.sh/)（**Ch**ea**t** **Sh**eet 的简写）是一个在线的命令行帮助工具，由社区维护，提供了大量命令的简洁帮助信息。
 
-    !!! question "动手做"
+    !!! question "动手做 2.6.4"
 
         试一试 `curl cht.sh`。
 
-    !!! question "动手做"
+    !!! question "动手做 2.6.5"
 
         尝试使用 `cht.sh` 查看 `ls` 和 `echo` 命令的帮助信息。
 
@@ -391,7 +407,7 @@ command [OPTIONS] arguments
 
     `gcc` 命令用于编译 C 程序。它的名称来源于 GNU Compiler Collection（GNU 编译器套件）。
 
-!!! question "动手做"
+!!! question "动手做 2.7.1"
 
     `-o outfile` 选项用于指定输出文件名。
 
@@ -401,7 +417,7 @@ command [OPTIONS] arguments
     gcc -o hello ~/hello.c
     ```
 
-    接下来再复制 `/share/lec2/error.c` 文件到家目录，尝试编译 `~/error.c` 程序。
+    接下来再复制 `/share/error.c` 文件到家目录，尝试编译 `~/error.c` 程序。
 
 </div>
 
@@ -447,17 +463,19 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
 
 ### 使用 VSCode 连接到远程服务器
 
-- 安装插件：
-    - Remote - SSH
-    - C/C++
-- 点击左下角的 `><`，选择 `Remote-SSH: Connect to Host...`。
-- 输入 `你的学号@clusters.zju.edu.cn:16145`，按提示输入密码。
+!!! question "动手做 3.2.1"
 
-    ![vscode_1](lec2.assets/vscode_1.png){ width=60% }
+    - 安装插件：
+        - Remote - SSH
+        - C/C++
+    - 点击左下角的 `><`，选择 `Remote-SSH: Connect to Host...`。
+    - 输入 `你的学号@clusters.zju.edu.cn:16145`，按提示输入密码。
 
-- 连接成功。点击 Open，打开自己的家目录。
-- 修改程序。
-- 打开命令行终端，再次编译运行 C 程序。
+        ![vscode_1](lec2.assets/vscode_1.png){ width=60% }
+
+    - 连接成功。点击 Open，打开自己的家目录。
+    - 修改程序。
+    - 打开命令行终端，再次编译运行 C 程序。
 
 ### 自动补全、代码格式化
 
@@ -514,16 +532,20 @@ target: dependencies
 
 对于上面的 `hello.c`，可以创建一个简单的 `Makefile`：
 
-```makefile
-hello: hello.c
-    gcc -o hello hello.c
-```
+!!! question "动手做 3.5.1"
 
-然后在终端中执行 `make` 命令：
+    创建一个 `Makefile` 文件，内容如下：
 
-```bash
-make
-```
+    ```makefile
+    hello: hello.c
+        gcc -o hello hello.c
+    ```
+
+    然后在终端中执行 `make` 命令：
+
+    ```bash
+    make
+    ```
 
 使用 Makefile 的好处：
 
@@ -630,6 +652,10 @@ make
 
 - 需要更改 `launch.json` 中的 `args` 为 `["<", "/dev/zero"]`。
 - 可以在左侧调试栏中看到断点、变量等信息。
+
+!!! question "动手做 3.6.1"
+
+    尝试调试 `gets` 程序。
 
 ## 结语
 
