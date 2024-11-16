@@ -1,9 +1,5 @@
 # 第二讲：通往 Pro 的第一步
 
-!!! warning
-
-    讲义预览中，内容可能发生变动。
-
 !!! tip
 
     本节课建议同学们携带笔记本电脑，以便实践。
@@ -45,7 +41,7 @@
 
     说了这么多可能没有什么实感，让我们简单举几个例子。
 
-    - 为了测试程序，我要随机生成 100 个随机数：
+    - 为了测试程序，我要随机生成 1000 个随机数：
 
         ```bash
         seq 1000 | shuf > /tmp/random.txt
@@ -500,6 +496,12 @@ VSCode 本身是一个简单的文本编辑器，但是通过插件可以实现�
 
 - [ChatGPT](https://chatgpt.com/)：不支持中国手机号、邮箱等。需要梯子。
 - [AIchatOS2](https://chat1.yqcloud.top/)：好心人提供的 ChatGPT 无门槛服务。需要梯子，低调使用。
+
+??? quote "一些参考"
+
+    就在开课的前一天，南大 C 程课助教恰好也发出了关于 AI 工具的视频：[:simple-bilibili: 【同学，你的代码又又又……哦，你失业了】20241114-Part 3-熊丘桓-LLM和算法竞赛](https://www.bilibili.com/video/BV15VmRYzE7E)，或许讲的更详细一些。
+
+    ![nju_2](lec2.assets/nju_2.png)
 
 ### 简单 Makefile
 
