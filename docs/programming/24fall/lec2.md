@@ -650,7 +650,9 @@ target: dependencies
 ./gets < /dev/zero
 ```
 
-- 需要更改 `launch.json` 中的 `args` 为 `["<", "/dev/zero"]`。
+- 将 `/share/gets.c` 复制到家目录。
+- 尝试编译它，然后运行 `./gets < /dev/zero`。你应该看到段错误。
+- 接下来我们需要调试上面的命令，这包括后面的 `< /dev/zero`。需要更改 `launch.json` 中的 `args` 为 `["<", "/dev/zero"]`。
 - 可以在左侧调试栏中看到断点、变量等信息。
 
 !!! question "动手做 3.6.1"
