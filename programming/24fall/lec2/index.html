@@ -1630,7 +1630,9 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
 <div class="highlight"><pre><span></span><code>./gets<span class="w"> </span>&lt;<span class="w"> </span>/dev/zero
 </code></pre></div>
 <ul>
-<li>需要更改 <code>launch.json</code> 中的 <code>args</code> 为 <code>["&lt;", "/dev/zero"]</code>。</li>
+<li>将 <code>/share/gets.c</code> 复制到家目录。</li>
+<li>尝试编译它，然后运行 <code>./gets &lt; /dev/zero</code>。你应该看到段错误。</li>
+<li>接下来我们需要调试上面的命令，这包括后面的 <code>&lt; /dev/zero</code>。需要更改 <code>launch.json</code> 中的 <code>args</code> 为 <code>["&lt;", "/dev/zero"]</code>。</li>
 <li>可以在左侧调试栏中看到断点、变量等信息。</li>
 </ul>
 <div class="admonition question">
