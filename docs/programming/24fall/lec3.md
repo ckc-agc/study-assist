@@ -574,7 +574,7 @@ cache
 
 !!! question "动手做：年轻人的第一个 PR！"
 
-    Fork 这个仓库：[lec3-git](https://git.zju.edu.cn/3230105731/lec-3-git-fork)。
+    Fork 这个仓库：[lec3-git](https://git.zju.edu.cn/3230105731/lec3-git)。
 
     然后 `cd` 到一个新的文件夹，使用 `git clone` 克隆你 Fork 的仓库。
 
