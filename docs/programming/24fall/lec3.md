@@ -118,7 +118,7 @@ Git 有一个特殊的指针叫做 **`HEAD`**，它指向**当前所在的分支
     <center>
     ![history_2](lec3.assets/history_2.png)
     </center>
-    <figcaption>指向快照的指针
+    <figcaption>指向分支的指针
     </figcaption>
 </figure>
 
