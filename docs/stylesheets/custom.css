@@ -44,4 +44,9 @@ h6:before {
 .md-typeset h3 {
   font-weight: 500;
 }
+.center-picture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
