@@ -13,7 +13,7 @@ int x;
 
 关键字如下:
 
-![Alt text](keyword.png)
+![Alt text](lec5.assets/keyword.png)
 
 > 例1.1-1 Which one below is NOT a valid identifier in the C programming language?
 A. printf
@@ -73,7 +73,7 @@ char f0 = '\x00041';// 和上面的是一样的
 `% & <<` 运算符不能用在 `double` 上
 
 运算顺序问题,简单来说:赋值运算符和位运算符较低,略高的是算术运算,再高的是自增/减
-<img src="priority.png" width="60%">
+<img src="lec5.assets/priority.png" width="60%">
 
 > 例1.3-1 若定义 `int a=1,b=2,c=3,d=4` 那么表达式 `(a>b?c>a?c-3:c-1:b==c?d-a:d-c)` 的值为
 
