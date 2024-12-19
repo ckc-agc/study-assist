@@ -6,8 +6,8 @@
 | ---- | ------ | ---------------- | ------------------------------------------------- | -------------------------------------------------------- |
 | 一   | 秋七周 | 混合 2301 倪晟翔 | 编程入门                                          | [Bilibili](https://www.bilibili.com/video/BV1DN1uY8EHH/) |
 | 二   | 冬二周 | 混合 2205 朱宝林 | 通往 Pro 的第一步<br>命令行交互、VSCode、AI 工具  | [Bilibili](https://www.bilibili.com/video/BV1G7UfYjEH2)  |
-| 三   | 冬四周 | 图灵 2302 黄哲   | 开源世界生存基础<br>SSH 密钥、ZJUGit、Git、许可证 |
-| 四   | 冬五周 | 图灵 2201 李英琦 | 如何写出简洁工整的报告<br>Markdown、LaTeX         |
+| 三   | 冬四周 | 图灵 2302 黄哲   | 开源世界生存基础<br>SSH 密钥、ZJUGit、Git、许可证 | [Bilibili](https://www.bilibili.com/video/BV1rfzoYTEjX/) |
+| 四   | 冬五周 | 图灵 2201 李英琦 | 如何写出简洁工整的报告<br>Markdown、LaTeX         | [Bilibili](https://www.bilibili.com/video/BV1DekzY3Ere)  |
 | 五   | 冬六周 | 图灵 2302 杨书华 | 期末复习（上）                                    |
 | 六   | 冬七周 | 混合 2301 司浩言 | 期末复习（下）                                    |
 
