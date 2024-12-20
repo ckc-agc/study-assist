@@ -1151,8 +1151,8 @@ p = &amp;a;
 <h3 id="14"><span>1.4.<span class="heti-spacing"> </span></span>指针的运算<a class="headerlink" href="#14" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>指针可以进行加减运算，得到的结果可以表示地址的差。
 <strong>但注意</strong> ，指针减法中涉及到的常数不是真正的地址之差，而是 <strong>地址差<span class="heti-skip"><span class="heti-spacing"> </span>/<span class="heti-spacing"> </span></span>该类型字节数</strong> ，如：</p>
-<div class="admonition example example1">
-<p class="admonition-title">Example</p>
+<div class="admonition example">
+<p class="admonition-title">Example1</p>
 <p></p><div class="highlight"><pre><span></span><code>int a[10];
 int *p = a, *q = &amp;a[1];
 printf("%d", q - p);
