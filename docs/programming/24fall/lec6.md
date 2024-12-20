@@ -3,7 +3,7 @@
 
 ### 1.1. 形象理解
 
-![](attachments/Pasted%20image%2020241219192741.png)
+<img class="center-picture" src="../lec6.assets/Pasted%20image%2020241219192741.png" width="90%">
 
 ### 1.2. 指针的声明
 
@@ -99,7 +99,7 @@ printf("%d = %d = %d", a, *p, **var);
 > **strncmp**
 
 > [!example] 例1.6.1
-> ![](attachments/8e7025d4f3dda3d7c2e1101b03fdd94a.png)
+> <img class="center-picture" src="../lec6.assets/8e7025d4f3dda3d7c2e1101b03fdd94a.png" width="90%">
 > **Answer:**
 > A
 
@@ -155,7 +155,7 @@ printf("%d = %d = %d", a, *p, **var);
 > 
 > **Answer:**
 > u e
-> ![](attachments/Pasted%20image%2020241220233919.png)
+> <img class="center-picture" src="../lec6.assets/Pasted%20image%2020241220233919.png" width="90%">
 
 ### 1.7. 空指针和野指针
 
@@ -256,7 +256,8 @@ printf("%d = %d = %d", a, *p, **var);
 
 大概的结构如下：
 
-![](attachments/Pasted%20image%2020241219194006.png)
+<img class="center-picture" src="../lec6.assets/Pasted%20image%2020241219194006.png" width="90%">
+
 
 其中，其中每一个点都是一个结构体，前后两个节点使用指针相连接。
 最基本的链表大概是下面这个样子：
@@ -442,7 +443,7 @@ return ;
 
 栈比较类似一摞碗，当我们需要拿碗或者放碗的时候，只能从最顶上开始拿或者放。
 
-![](attachments/Pasted%20image%2020241219215552.png)
+<img class="center-picture" src="../lec6.assets/Pasted%20image%2020241219215552.png" width="90%">
 
 使用数组或者链表都可以实现栈。
 
@@ -450,12 +451,12 @@ return ;
 
 想象许多人排队站在狭窄通道内部，此时人需要出去就只能从最前面走，人需要进来就只能从最后面进。
 
-![](attachments/Pasted%20image%2020241219220005.png)
+<img class="center-picture" src="../lec6.assets/Pasted%20image%2020241219220005.png" width="90%">
 
 同样的，使用数组或者链表都可以实现队列。
 
 > [!example] 例2.5.2.1
-> ![](attachments/Pasted%20image%2020241221000538.png)
+> <img class="center-picture" src="../lec6.assets/Pasted%20image%2020241221000538.png" width="90%">
 > 
 > **Answer:**
 > A
