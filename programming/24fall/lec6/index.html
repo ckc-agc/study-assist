@@ -1193,24 +1193,34 @@ printf("%d = %d = %d", a, *p, **var);
 此外，二维数组的地址分布和我们的直观感受并不相同，其有下面的规律：</p>
 <div class="admonition note">
 <p class="admonition-title">二维数组</p>
-<p>假设有：<code>int a[3][2];</code>
-1. 首先需要知道，二维数组中的地址是线性分布的。也就是说，<code>a[0][1]</code> 的下一个就是 <code>a[1][0]</code>
-2. 其次，二维数组是如何实现二维存储数据的呢？原因在于：<strong><span>a<span class="heti-spacing"> </span></span>是一个一维数组的指针</strong>。在上面的例子中，<span>a<span class="heti-spacing"> </span></span>是一个长度为<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>int<span class="heti-spacing"> </span></span>数组的指针，所以 <code>a[0]</code> 指向第一个一维数组，<code>a[1]</code> 指向第二个一维数组。
-3. 实际上，我们可以使用 <code>*(*(a + i) + j)</code> 来表示 <code>a[i][j]</code>。因为 <code>*(a + i)</code> 指向第 i 个数组（假设叫 b），而我们可以用 <code>*(b + j)</code> 来表示 <code>b[j]</code>。
-4. 另外，<strong>二维数组不能被隐式转换为二级指针</strong> 。我们不能肤浅的将二维数组理解为二级指针。实际上，无论我们定义多少维数组，其都是一级指针，只是指向的元素不同而已。</p>
+<p>假设有：<code>int a[3][2];</code></p>
+<ol>
+<li>
+<p>首先需要知道，二维数组中的地址是线性分布的。也就是说，<code>a[0][1]</code> 的下一个就是 <code>a[1][0]</code></p>
+</li>
+<li>
+<p>其次，二维数组是如何实现二维存储数据的呢？原因在于：<strong><span>a<span class="heti-spacing"> </span></span>是一个一维数组的指针</strong>。在上面的例子中，<span>a<span class="heti-spacing"> </span></span>是一个长度为<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>int<span class="heti-spacing"> </span></span>数组的指针，所以 <code>a[0]</code> 指向第一个一维数组，<code>a[1]</code> 指向第二个一维数组。</p>
+</li>
+<li>
+<p>实际上，我们可以使用 <code>*(*(a + i) + j)</code> 来表示 <code>a[i][j]</code>。因为 <code>*(a + i)</code> 指向第<span class="heti-skip"><span class="heti-spacing"> </span>i<span class="heti-spacing"> </span></span>个数组（假设叫<span><span class="heti-spacing"> </span>b</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>，而我们可以用 <code>*(b + j)</code> 来表示 <code>b[j]</code>。</p>
+</li>
+<li>
+<p>另外，<strong>二维数组不能被隐式转换为二级指针</strong> 。我们不能肤浅的将二维数组理解为二级指针。实际上，无论我们定义多少维数组，其都是一级指针，只是指向的元素不同而已。</p>
+</li>
+</ol>
 </div>
 <p>另外注意，<code>int *p[3]</code> 相当于定义了一个指针数组，其存储的数据都是<span class="heti-skip"><span class="heti-spacing"> </span>int<span class="heti-spacing"> </span></span>类型指针。
 值得一提的是，字符串相当于一个以 '\0' 结尾的 char 类型数组。</p>
 <div class="admonition note">
 <p class="admonition-title">字符串相关函数</p>
-<p>头文件：<code>&lt;string.h&gt;</code>
-<strong>strlen:</strong> 返回字符串长度（不包括末尾的<span><span class="heti-spacing"> </span>'\0'</span>）
-<strong>strcpy:</strong> 将<span class="heti-skip"><span class="heti-spacing"> </span>str2<span class="heti-spacing"> </span></span>直接拷贝到<span class="heti-skip"><span class="heti-spacing"> </span>str1<span class="heti-spacing"> </span></span>中（拷贝内容会包括<span class="heti-skip"><span class="heti-spacing"> </span>str2<span class="heti-spacing"> </span></span>末尾的<span><span class="heti-spacing"> </span>'\0'</span>）
-<strong>strcat:</strong> 将<span class="heti-skip"><span class="heti-spacing"> </span>str2<span class="heti-spacing"> </span></span>追加到<span class="heti-skip"><span class="heti-spacing"> </span>str1<span class="heti-spacing"> </span></span>的末尾（从<span class="heti-skip"><span class="heti-spacing"> </span>str1<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>'\0'<span class="heti-spacing"> </span></span>处开始追加）
-<strong>strcmp:</strong> 对两个字符串做差，返回差值（用于比较两个字符串）
-<strong>strncpy</strong>
-<strong>strncat</strong>
-<strong>strncmp</strong></p>
+<p>头文件：<code>&lt;string.h&gt;</code></p>
+<p><strong>strlen:</strong> 返回字符串长度（不包括末尾的<span><span class="heti-spacing"> </span>'\0'</span>）</p>
+<p><strong>strcpy:</strong> 将<span class="heti-skip"><span class="heti-spacing"> </span>str2<span class="heti-spacing"> </span></span>直接拷贝到<span class="heti-skip"><span class="heti-spacing"> </span>str1<span class="heti-spacing"> </span></span>中（拷贝内容会包括<span class="heti-skip"><span class="heti-spacing"> </span>str2<span class="heti-spacing"> </span></span>末尾的<span><span class="heti-spacing"> </span>'\0'</span>）</p>
+<p><strong>strcat:</strong> 将<span class="heti-skip"><span class="heti-spacing"> </span>str2<span class="heti-spacing"> </span></span>追加到<span class="heti-skip"><span class="heti-spacing"> </span>str1<span class="heti-spacing"> </span></span>的末尾（从<span class="heti-skip"><span class="heti-spacing"> </span>str1<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>'\0'<span class="heti-spacing"> </span></span>处开始追加）</p>
+<p><strong>strcmp:</strong> 对两个字符串做差，返回差值（用于比较两个字符串）</p>
+<p><strong>strncpy</strong></p>
+<p><strong>strncat</strong></p>
+<p><strong>strncmp</strong></p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">例<span><span class="heti-spacing"> </span>1.6.1</span></p>
@@ -1231,9 +1241,9 @@ for(int i = 0; i &lt; 10; ++ i)
 }
 </code></pre></div>
 最后的输出结果为什么？
-<p><strong>Answer:</strong>
-5 hello
-hello7890</p>
+<p><strong>Answer:</strong></p>
+<p>5 hello</p>
+<p>hello7890</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">例<span><span class="heti-spacing"> </span>1.6.3</span></p>
@@ -1265,8 +1275,8 @@ c2 = *++pw[1];
 printf("%c %c\n", c1, c2);
 </code></pre></div>
 输出结果为：
-<p><strong>Answer:</strong>
-u e
+<p><strong>Answer:</strong></p>
+<p>u e
 <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec6.assets/pic6.png"><img class="center-picture" src="../lec6.assets/pic6.png" width="100%"/></a></p>
 </div>
 <h3 id="_9">空指针和野指针<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
@@ -1285,11 +1295,11 @@ u e
 野指针也是初学者写相关程序最容易犯的错误（包括我）。因此，对指针进行初始化，防止指针乱指就变得非常有必要了。</p>
 <div class="admonition example">
 <p class="admonition-title">例<span><span class="heti-spacing"> </span>1.7.1</span></p>
-<p>给出 <code>char *s, str[10]</code>，下列选项中表达完全正确的是：
-A. <code>strcpy(s, "hello");</code>
-B. <code>str = "hello" + 1;</code>
-C. <code>s = *&amp;(str + 1);</code>
-D. <code>s = str + 1</code></p>
+<p>给出 <code>char *s, str[10]</code>，下列选项中表达完全正确的是：</p>
+<p>A. <code>strcpy(s, "hello");</code></p>
+<p>B. <code>str = "hello" + 1;</code></p>
+<p>C. <code>s = *&amp;(str + 1);</code></p>
+<p>D. <code>s = str + 1</code></p>
 <p><strong>Answer:</strong>
 D</p>
 </div>
@@ -1305,16 +1315,17 @@ int b = 20;//这也是实参
 </div>
 <div class="admonition note">
 <p class="admonition-title">形参</p>
-<p>形式参数。其不是真实存在的变量，而是用来接收调用函数时传入的参数而设置的变量。
-```
-int max(int a, int b)//这里的 a, b 都是形参
+<p>形式参数。其不是真实存在的变量，而是用来接收调用函数时传入的参数而设置的变量。</p>
+<div class="highlight"><pre><span></span><code>int max(int a, int b)//这里的 a, b 都是形参
 {
     return (a &gt; b ? a : b);
-}</p>
+}
+</code></pre></div>
 </div>
 <p>需要注意的是，当我们使用实参将数据传到函数内部之后，我们在函数内使用的变量就不是原来的变量了，而是为了在函数内保存这些数据而自动设置的形参。所以，当我们在函数内对形参进行运算时，<strong>并不会对原来的实参产生任何影响</strong> 。
 让我们来看下面的例子：</p>
 <div class="admonition example">
+<p class="admonition-title"><span>swap<span class="heti-spacing"> </span></span>函数</p>
 <div class="highlight"><pre><span></span><code>void swap(int a, int b)
 {
     int t = a;
@@ -1390,7 +1401,7 @@ p -&gt; credit = 2.5;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>当我们使用指针来描述结构体时，需要使用<span class="heti-skip"><span class="heti-spacing"> </span>'-&gt;'<span class="heti-spacing"> </span></span>符号而不是<span class="heti-skip"><span class="heti-spacing"> </span>'.'<span class="heti-spacing"> </span></span>符号。</p>
+<p>当我们使用指针来描述结构体时，需要使用 <code>-&gt;</code> 符号而不是 <code>.</code> 符号。</p>
 </div>
 <h4 id="_15">内存分配与释放<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>在实际使用时，我们通常都需要让一个结构体指针指向一个实际有内存的结构体（也就是让<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>指向<span><span class="heti-spacing"> </span>A</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。在上面的例子中，我们是先定义了结构体<span><span class="heti-spacing"> </span>A</span>，然后再设了一个结构体指针指向<span><span class="heti-spacing"> </span>A</span>。那么能否有一个更简便的做法呢？</p>
@@ -1527,6 +1538,7 @@ A</p>
 <p><code>#define</code> 的用法为：<code>define &lt;名字&gt; &lt;值&gt;</code> ，其最后不使用分号，
 在程序开始编译之前，编译器会将程序中所有设计宏定义的量进行替换。</p>
 <div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul>
 <li>若宏中嵌套其他的宏，则同样会被替换。</li>
 <li>若宏太长以至于一行放不下，则需要在行末使用<span class="heti-skip"><span class="heti-spacing"> </span>'\'<span class="heti-spacing"> </span></span>后再写下一行。</li>
@@ -1540,9 +1552,11 @@ A</p>
 此时，就相当于我们使用宏定义了一个简单的计算立方的函数。
 在编译时，编译器会将所有 cube(x) 替换为 ((x) * (x) * (x)) （其中 x 为一个参数，可以是 2、3.5、a 等数字或变量），然后计算得到结果。
 <div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>当使用宏定义一个有参数的式子时，一定要注意加上括号。不仅是给参数加上括号，还要给整体加上括号，否则会出现错误。</p>
 </div>
 <div class="admonition example">
+<p class="admonition-title">Example</p>
 <p><code>#define RADTODEG(x) (x * 57.29)</code>
 当我们写 <code>RADTODEG(4 - 3)</code> 时，编译器会替换为：<code>4 - 3 * 57.29</code> ，和我们的目的相悖。
 <code>#define RADTODEG(x) (x) * 57.29</code>
