@@ -1286,7 +1286,7 @@ printf("%c %c\n", c1, c2);
 <div class="admonition note">
 <p class="admonition-title">野指针</p>
 <p>当我们写
-</p><div class="highlight"><pre><span></span><code>int *p
+</p><div class="highlight"><pre><span></span><code>int *p;
 *p = 10;
 </code></pre></div>
 编译器就会报错。这是因为我们这里的 p 是一个 <strong>野指针</strong>。
@@ -1482,7 +1482,7 @@ free(p);//记得将 p 的空间释放掉
 假设我们定义了一个函数 <code>int check(Node p)</code> 用来检验该节点是否是我们需要找的节点（符合要求则返回 1），并假设头节点为哨兵节点：
 </p><div class="highlight"><pre><span></span><code>Node find(Node head)
 {
-    int p = head -&gt; next;//从第一个存有数据的节点开始找
+    Node p = head -&gt; next;//从第一个存有数据的节点开始找
     while(p != NULL)//一直找到整个链表全部遍历完为止
     {
         if(check(p))
