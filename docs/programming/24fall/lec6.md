@@ -198,7 +198,7 @@ printf("%d = %d = %d", a, *p, **var);
 
     当我们写
     ```
-    int *p
+    int *p;
     *p = 10;
     ```
     编译器就会报错。这是因为我们这里的 p 是一个 **野指针**。
@@ -447,7 +447,7 @@ free(p);//记得将 p 的空间释放掉
 ```
 Node find(Node head)
 {
-	int p = head -> next;//从第一个存有数据的节点开始找
+	Node p = head -> next;//从第一个存有数据的节点开始找
 	while(p != NULL)//一直找到整个链表全部遍历完为止
 	{
 		if(check(p))
