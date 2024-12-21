@@ -1184,16 +1184,16 @@ int **var = &amp;p;
 printf("%d = %d = %d", a, *p, **var);
 </code></pre></div>
 在上面的例子中，我们定义了一个 <strong>二级指针</strong> var。二级指针可以理解为 “指针的指针“。一级指针可以用来存储一般变量或其他常量的地址，而一级指针同样是变量，我们可以使用二级指针来存储一级指针的地址。
-<blockquote>
-<p><span>[!warning]<span class="heti-spacing"> </span></span>注意
-在程序中，最好不要混用不同级的指针。</p>
-</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>在程序中，最好不要混用不同级的指针。</p>
+</div>
 <h3 id="_8">数组和指针<a class="headerlink" href="#_8" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>数组名实际上就是一个指针，数组表示 <code>a[1]</code> 和指针表示 <code>&amp;(a + 1)</code> 实际上指的是同一个东西，两者也可以相互转化。
 此外，二维数组的地址分布和我们的直观感受并不相同，其有下面的规律：</p>
 <div class="admonition note">
 <p class="admonition-title">二维数组</p>
-<p><code>int a[3][2];</code> 
+<p><code>int a[3][2];</code>
 1. 首先需要知道，二维数组中的地址是线性分布的。也就是说，<code>a[0][1]</code> 的下一个就是 <code>a[1][0]</code>
 2. 其次，二维数组是如何实现二维存储数据的呢？原因在于：<strong><span>a<span class="heti-spacing"> </span></span>是一个一维数组的指针</strong>。在上面的例子中，<span>a<span class="heti-spacing"> </span></span>是一个长度为<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>int<span class="heti-spacing"> </span></span>数组的指针，所以 <code>a[0]</code> 指向第一个一维数组，<code>a[1]</code> 指向第二个一维数组。
 3. 实际上，我们可以使用 <code>*(*(a + i) + j)</code> 来表示 <code>a[i][j]</code>。因为 <code>*(a + i)</code> 指向第 i 个数组（假设叫 b），而我们可以用 <code>*(b + j)</code> 来表示 <code>b[j]</code>。
@@ -1393,7 +1393,7 @@ p -&gt; credit = 2.5;
 <p>当我们使用指针来描述结构体时，需要使用<span class="heti-skip"><span class="heti-spacing"> </span>'-&gt;'<span class="heti-spacing"> </span></span>符号而不是<span class="heti-skip"><span class="heti-spacing"> </span>'.'<span class="heti-spacing"> </span></span>符号。</p>
 </div>
 <h4 id="_15">内存分配与释放<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
-<p>在实际使用时，我们通常都需要让一个结构体指针指向一个实际有内存的结构体（也就是让<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>指向<span><span class="heti-spacing"> </span>A</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。在上面的例子中，我们是先定义了结构体<span><span class="heti-spacing"> </span>A</span>，然后再设了一个结构体指针指向<span><span class="heti-spacing"> </span>A</span>。那么能否有一个更简便的做法呢？\</p>
+<p>在实际使用时，我们通常都需要让一个结构体指针指向一个实际有内存的结构体（也就是让<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>指向<span><span class="heti-spacing"> </span>A</span><heti-adjacent class="heti-adjacent-half">）</heti-adjacent>。在上面的例子中，我们是先定义了结构体<span><span class="heti-spacing"> </span>A</span>，然后再设了一个结构体指针指向<span><span class="heti-spacing"> </span>A</span>。那么能否有一个更简便的做法呢？</p>
 <div class="admonition warning">
 <p class="admonition-title">小心野指针</p>
 <p>注意，千万不要定义一个结构体指针<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>后就直接进行相关赋值。因为此时我们还没有给指针<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>分配一个确定的空间，可以理解成<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>指向了一个虚无缥缈的地方，是一个 <strong>野指针</strong> 。</p>
