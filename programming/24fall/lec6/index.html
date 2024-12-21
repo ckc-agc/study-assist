@@ -1193,7 +1193,7 @@ printf("%d = %d = %d", a, *p, **var);
 此外，二维数组的地址分布和我们的直观感受并不相同，其有下面的规律：</p>
 <div class="admonition note">
 <p class="admonition-title">二维数组</p>
-<p><code>int a[3][2];</code>
+<p>假设有：<code>int a[3][2];</code>
 1. 首先需要知道，二维数组中的地址是线性分布的。也就是说，<code>a[0][1]</code> 的下一个就是 <code>a[1][0]</code>
 2. 其次，二维数组是如何实现二维存储数据的呢？原因在于：<strong><span>a<span class="heti-spacing"> </span></span>是一个一维数组的指针</strong>。在上面的例子中，<span>a<span class="heti-spacing"> </span></span>是一个长度为<span class="heti-skip"><span class="heti-spacing"> </span>2<span class="heti-spacing"> </span></span>的<span class="heti-skip"><span class="heti-spacing"> </span>int<span class="heti-spacing"> </span></span>数组的指针，所以 <code>a[0]</code> 指向第一个一维数组，<code>a[1]</code> 指向第二个一维数组。
 3. 实际上，我们可以使用 <code>*(*(a + i) + j)</code> 来表示 <code>a[i][j]</code>。因为 <code>*(a + i)</code> 指向第 i 个数组（假设叫 b），而我们可以用 <code>*(b + j)</code> 来表示 <code>b[j]</code>。
@@ -1214,7 +1214,7 @@ printf("%d = %d = %d", a, *p, **var);
 </div>
 <div class="admonition example">
 <p class="admonition-title">例<span><span class="heti-spacing"> </span>1.6.1</span></p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec6.assets/pic2.png"><img class="center-picture" src="../lec6.assets/pic2.png" width="90%"/></a>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec6.assets/pic2.png"><img class="center-picture" src="../lec6.assets/pic2.png" width="100%"/></a>
 <strong>Answer:</strong>
 A</p>
 </div>
@@ -1267,13 +1267,13 @@ printf("%c %c\n", c1, c2);
 输出结果为：
 <p><strong>Answer:</strong>
 u e
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec6.assets/pic6.png"><img class="center-picture" src="../lec6.assets/pic6.png" width="90%"/></a></p>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec6.assets/pic6.png"><img class="center-picture" src="../lec6.assets/pic6.png" width="100%"/></a></p>
 </div>
 <h3 id="_9">空指针和野指针<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在程序中，我们可以使用 <code>0</code> 或 <code>NULL</code> 来表示一个空指针，当一个指针是空指针时，我们无法使用 <code>*</code> 来对该指针进行读取，会出现段错误。
 因此，空指针在初始化和异常情况处理时非常重要。
 用来处理什么异常情况呢？</p>
-<div class="admonition tip">
+<div class="admonition note">
 <p class="admonition-title">野指针</p>
 <p>当我们写
 </p><div class="highlight"><pre><span></span><code>int *p
@@ -1296,14 +1296,14 @@ D</p>
 <h3 id="_10">函数指针<sup><span><span class="heti-spacing"> </span>*</span></sup><a class="headerlink" href="#_10" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>很少涉及，具体内容可以查看辅学网站。</p>
 <h3 id="_11">形参和实参<a class="headerlink" href="#_11" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
-<div class="admonition tip">
+<div class="admonition note">
 <p class="admonition-title">实参</p>
 <p>实际参数。其可以是常量、变量、表达式等等，在函数调用时，实参将具体的值传递给函数。
 </p><div class="highlight"><pre><span></span><code>int a = 10;//这是实参
 int b = 20;//这也是实参
 </code></pre></div>
 </div>
-<div class="admonition tip">
+<div class="admonition note">
 <p class="admonition-title">形参</p>
 <p>形式参数。其不是真实存在的变量，而是用来接收调用函数时传入的参数而设置的变量。
 ```
@@ -1388,8 +1388,8 @@ A.credit = 2.5;
 <div class="highlight"><pre><span></span><code>p -&gt; name = "FDS";//当然，也可以写 (*p).name = "FDS"
 p -&gt; credit = 2.5;
 </code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>当我们使用指针来描述结构体时，需要使用<span class="heti-skip"><span class="heti-spacing"> </span>'-&gt;'<span class="heti-spacing"> </span></span>符号而不是<span class="heti-skip"><span class="heti-spacing"> </span>'.'<span class="heti-spacing"> </span></span>符号。</p>
 </div>
 <h4 id="_15">内存分配与释放<a class="headerlink" href="#_15" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
@@ -1399,7 +1399,7 @@ p -&gt; credit = 2.5;
 <p>注意，千万不要定义一个结构体指针<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>后就直接进行相关赋值。因为此时我们还没有给指针<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>分配一个确定的空间，可以理解成<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>指向了一个虚无缥缈的地方，是一个 <strong>野指针</strong> 。</p>
 </div>
 <p>此时，就需要 <strong><span>malloc<span class="heti-spacing"> </span></span>函数</strong> 了。其用法如下：</p>
-<div class="admonition tip">
+<div class="admonition note">
 <p class="admonition-title">malloc</p>
 <div class="highlight"><pre><span></span><code>#include &lt;stdlib.h&gt;
 void* malloc (size_t size);
@@ -1430,7 +1430,7 @@ int main()
 </code></pre></div>
 </div>
 <p>此外，由于指针<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>指向的空间是我们使用<span class="heti-skip"><span class="heti-spacing"> </span>malloc<span class="heti-spacing"> </span></span>函数向电脑申请的，当我们不再需要使用这块内存后，需要将这块内存 “还给” 电脑，此时需要使用 <strong><span>free<span class="heti-spacing"> </span></span>函数</strong> 。</p>
-<div class="admonition tip">
+<div class="admonition note">
 <p class="admonition-title">free</p>
 <p>使用 <code>free(指针)</code> 即可。</p>
 </div>
@@ -1526,7 +1526,7 @@ A</p>
 <h4 id="_30">最基本的用法：定义一个常数<a class="headerlink" href="#_30" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p><code>#define</code> 的用法为：<code>define &lt;名字&gt; &lt;值&gt;</code> ，其最后不使用分号，
 在程序开始编译之前，编译器会将程序中所有设计宏定义的量进行替换。</p>
-<div class="admonition tip">
+<div class="admonition note">
 <ul>
 <li>若宏中嵌套其他的宏，则同样会被替换。</li>
 <li>若宏太长以至于一行放不下，则需要在行末使用<span class="heti-skip"><span class="heti-spacing"> </span>'\'<span class="heti-spacing"> </span></span>后再写下一行。</li>
