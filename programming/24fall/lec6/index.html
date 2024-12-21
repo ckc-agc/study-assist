@@ -1136,7 +1136,7 @@
 <h3 id="_4">指针的声明<a class="headerlink" href="#_4" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="highlight"><pre><span></span><code>int *p, q;
 </code></pre></div>
-<p>上面的代码中，<em> 用于修饰<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>变量，使其成为 </em><em><span>int<span class="heti-spacing"> </span></span>指针类型</em><em> 的变量；但是变量<span class="heti-skip"><span class="heti-spacing"> </span>q<span class="heti-spacing"> </span></span>并没有被<span class="heti-skip"><span class="heti-spacing"> </span>*<span class="heti-spacing"> </span></span>修饰，所以其还是 </em><em><span>int<span class="heti-spacing"> </span></span>类型</em><span>*<span class="heti-spacing"> </span></span>的变量。</p>
+<p>上面的代码中，<span>*<span class="heti-spacing"> </span></span>用于修饰<span class="heti-skip"><span class="heti-spacing"> </span>p<span class="heti-spacing"> </span></span>变量，使其成为 <strong><span>int<span class="heti-spacing"> </span></span>指针类型</strong> 的变量；但是变量<span class="heti-skip"><span class="heti-spacing"> </span>q<span class="heti-spacing"> </span></span>并没有被<span class="heti-skip"><span class="heti-spacing"> </span>*<span class="heti-spacing"> </span></span>修饰，所以其还是 <strong><span>int<span class="heti-spacing"> </span></span>类型</strong> 的变量。</p>
 <h3 id="_5">指针的赋值<a class="headerlink" href="#_5" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <div class="highlight"><pre><span></span><code>int a = 10;
 int *p, *q = &amp;a;
@@ -1165,7 +1165,7 @@ printf("%d", q - p);
 int *p = a;
 printf("%d %d", *p, *(p + 1));
 </code></pre></div>
-最后的输出结果为 1 2，所以可见，p + 1 指向的是 a 数组中的 a[1] 位置，而不是 a[0] 的下一个字节处。
+最后的输出结果为 <code>1 2</code>，所以可见，p + 1 指向的是 a 数组中的 a[1] 位置，而不是 a[0] 的下一个字节处。
 </div>
 <div class="admonition example">
 <p class="admonition-title">例<span><span class="heti-spacing"> </span>1.4.1</span></p>
@@ -1257,12 +1257,12 @@ printf("%d\n", a[-1][5]);
 <div class="admonition example">
 <p class="admonition-title">例<span><span class="heti-spacing"> </span>1.6.4</span></p>
 <p>给出：
-<code>char s[2][3] = {"ab", "cd"}, *p = (char *)s;</code>
-下面哪一项是正确且和 <code>s[1][1]</code> 的值相等？
-A. <code>*(s + 3)</code>
-B. <code>*s + 2</code>
-C. <code>p[1][1]</code>
-D. <code>*++p + 2</code></p>
+<code>char s[2][3] = {"ab", "cd"}, *p = (char *)s;</code></p>
+<p>下面哪一项是正确且和 <code>s[1][1]</code> 的值相等？</p>
+<p>A. <code>*(s + 3)</code></p>
+<p>B. <code>*s + 2</code></p>
+<p>C. <code>p[1][1]</code></p>
+<p>D. <code>*++p + 2</code></p>
 <p><strong>Answer:</strong>
 D</p>
 </div>
@@ -1276,8 +1276,8 @@ printf("%c %c\n", c1, c2);
 </code></pre></div>
 输出结果为：
 <p><strong>Answer:</strong></p>
-<p>u e
-<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec6.assets/pic6.png"><img class="center-picture" src="../lec6.assets/pic6.png" width="100%"/></a></p>
+<p>u e</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../lec6.assets/pic6.png"><img class="center-picture" src="../lec6.assets/pic6.png" width="100%"/></a></p>
 </div>
 <h3 id="_9">空指针和野指针<a class="headerlink" href="#_9" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h3>
 <p>在程序中，我们可以使用 <code>0</code> 或 <code>NULL</code> 来表示一个空指针，当一个指针是空指针时，我们无法使用 <code>*</code> 来对该指针进行读取，会出现段错误。
@@ -1497,7 +1497,7 @@ free(p);//记得将 p 的空间释放掉
 <h4 id="_25">输出链表<a class="headerlink" href="#_25" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>若我们需要将整个链表输出，只需要遍历整个链表，边遍历边打印即可。
 假设该链表有哨兵节点，同时我们定义 <code>void print(Node p)</code> 用来输出相关数据。
-</p><div class="highlight"><pre><span></span><code>int p = head -&gt; next;//从第一个存有数据的节点开始打印
+</p><div class="highlight"><pre><span></span><code>Node p = head -&gt; next;//从第一个存有数据的节点开始打印
 while(p != NULL)//一直打印直到遍历完整个链表为止
 {
     print(p);//打印相关内容
@@ -1508,11 +1508,12 @@ return ;
 <h4 id="_26">删除链表<a class="headerlink" href="#_26" title="Permanent link"><span><span class="heti-spacing"> </span>¶</span></a></h4>
 <p>当我们需要删除一个链表时，我们同样也需要遍历整个链表，一边遍历一边释放空间。
 假设该链表有哨兵节点：
-</p><div class="highlight"><pre><span></span><code>int p = head;//哨兵节点同样需要删除
+</p><div class="highlight"><pre><span></span><code>Node p = head, t;//哨兵节点同样需要删除
 while(p != NULL)//直到遍历完整个链表为止
 {
+    t = p -&gt; next;//记录后驱节点
     free(p);//释放空间
-    p = p -&gt; next;//更新 p
+    p = t;//更新 p
 }
 return ;
 </code></pre></div>
