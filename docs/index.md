@@ -7,7 +7,7 @@
 
 😉 你好，欢迎来到竺院辅学计划网站~
 
-这里是浙江大学竺可桢学院学业指导中心辅学计划的站点。辅学计划为大一新生提供数学分析（H）、线性代数（H）、微积分（H）、普通物理学（H）、普通化学（H）、程序设计（H）等**竺院荣誉课程**的学习指导与帮助。
+这里是浙江大学竺可桢学院学业指导中心辅学计划的站点。辅学计划为大一新生提供数学分析（H）、线性代数（H）、微积分（H）、普通物理学（H）、普通化学（H）、程序设计与算法基础等**竺院荣誉课程**的学习指导与帮助。
 
 我们服务的对象主要是竺院学子，但我们同样**欢迎院外同学参与我们的辅学活动，不论是听讲、答疑还是授课**。院内院外课程内容和难度方面可能存在差异，请自行斟酌。
 
@@ -18,32 +18,32 @@
 [
   {
     "title": "[微积分 I/II（H）](calculus/index.md)",
-    "content": "23-24 辅学群：869733089",
+    "content": "25-26 辅学群：1063535002",
     "image": "graph/calculus.webp"
   },
   {
     "title": "[数学分析 I/II（H）](analysis/index.md)",
-    "content": "23-24 辅学群：879217934",
+    "content": "25-26 辅学群：1058495067",
     "image": "graph/analysis.jpg"
   },
   {
     "title": "[线性代数 I/II（H）](algebra/index.md)",
-    "content": "23-24 辅学群：148964020",
+    "content": "25-26 辅学群：1055988442",
     "image": "graph/algebra.jpg"
   },
   {
-    "title": "[程序设计（H）](programming/index.md)",
-    "content": "23-24 辅学群：878442370",
+    "title": "[程序设计与算法基础](programming/index.md)",
+    "content": "25-26 辅学群：1065570961",
     "image": "graph/programming.jpg"
   },
   {
     "title": "[普通化学（H）](chemistry/index.md)",
-    "content": "23-24 辅学群：875585843",
+    "content": "25-26 辅学群：1067134340",
     "image": "graph/chem.jpg"
   },
   {
     "title": "[普通物理学 I（H）](physics/index.md)",
-    "content": "23-24 辅学群：906774937 ",
+    "content": "24-25 辅学群：1037874821 ",
     "image": "graph/physics.png"
   },
 ]
