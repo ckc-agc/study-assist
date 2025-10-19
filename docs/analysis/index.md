@@ -12,6 +12,14 @@
 |   2   | Oct.20 | 一元函数极限和连续与第一次小测复习 |  混合 2206 <br /> 谢集  |             [讲义](./2024-2025Fall/analysis_lecture2_continuity_and_review.pdf)<br />[答案](./2024-2025Fall/analysis_lecture2_continuity_and_review_ans.pdf)              | [Bilibili](https://www.bilibili.com/video/BV1fkyaYzEFm) |
 |   3   | Nov.10 |        导数、微分和中值定理        | 图灵 2302 <br /> 杨书华 |                                                        [讲义](./2024-2025Fall/analysis_lecture3_differential.pdf)                                                         | [Bilibili](https://www.bilibili.com/video/BV1j8mhY6EF3) |
 
+### 春夏学期 数学分析 I (H)
+
+| 节次  |  时间  |         内容         |          主讲           |                                                  讲义                                                   |                                                       录播地址                                                       |
+| :---: | :----: | :------------------: | :---------------------: | :-----------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
+|   1   | Apr.13 | 级数部分 |  混合 <br /> 2106 <br /> 张志心  | [讲义](2024-2025Spring/analysis_lecture1.pdf)<br />                             |                               [Bilibili]()                                |
+|   2   | May.14 |    多元函数微分学    | 计算数学 <br /> 2201 <br /> 吴浩天 |                              [讲义](2024-2025Spring/analysis_lecture2.pdf)                              |                                          [Bilibili](https://www.bilibili.com/video/BV134V8zWEfC)                                         |
+|   3   | May.24  |    多元函数积分学    |  混合 <br /> 2304 <br /> 周小灵  |  [讲义](2024-2025Spring/analysis_lecture3.pdf)<br />                                      |                               [Bilibili](https://www.bilibili.com/video/BV1anjvzCEhN)                                |
+
 
 ## 2023-2024 学年 辅学资料
 
@@ -40,6 +48,7 @@
 
 |   年份    |                                                                                                                                                        试卷                                                                                                                                                         |
 | :-------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| 2024-2025 |                                                                                             [小测1](analysis1_paper/24test1.pdf) <br />[小测2](analysis1_paper/24test2.pdf)<br />[期末试卷](analysis1_paper/24exam.pdf)/[答案](analysis1_paper/24exam_answer.pdf)                                                                                             |
 | 2023-2024 |                                                                                             [小测1](analysis1_paper/23test1.pdf) <br />[期末试卷](analysis1_paper/23exam.pdf)/[答案](analysis1_paper/23exam_answer.pdf)                                                                                             |
 | 2022-2023 | [小测1](analysis1_paper/22test1.pdf)/[答案](analysis1_paper/22test1_answer.md)<br />[小测2](analysis1_paper/22test2.pdf)/[答案](analysis1_paper/22test2_answer.pdf)<br />[期末试卷](analysis1_paper/22exam.pdf)/[答案（zhw）](analysis1_paper/22exam_answer.pdf)/[答案（hz）](analysis1_paper/22exam_answer_hz.pdf) |
 | 2021-2022 |                                            [小测](analysis1_paper/21test.pdf)/[答案](analysis1_paper/21test_answer.pdf)<br />[期末试卷](analysis1_paper/21exam.pdf)/[答案（lzw）](analysis1_paper/21exam_answer.pdf)/[答案（hz）](analysis1_paper/21exam_answer_hz.pdf)                                             |
