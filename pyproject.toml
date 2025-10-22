@@ -1,0 +1,16 @@
+[project]
+name = "study-assist"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "mkdocs-drawio>=1.11.2",
+    "mkdocs-git-committers-plugin-2>=2.5.0",
+    "mkdocs-git-revision-date-localized-plugin>=1.4.7",
+    "mkdocs-glightbox>=0.5.1",
+    "mkdocs-include-dir-to-nav>=1.2.0",
+    "mkdocs-material>=9.6.19",
+    "mkdocs-timetoread-plugin>=0.0.4",
+    "neoteroi-mkdocs>=1.1.3",
+]

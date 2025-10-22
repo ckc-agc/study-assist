@@ -92,6 +92,7 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - neoteroi.cards # install using `pip install neoteroi-mkdocs`
+  - pymdownx.critic
 
 
 extra_javascript:
@@ -105,12 +106,11 @@ extra_css:
 plugins:
   - search
   - glightbox # install using `pip install mkdocs-glightbox`
-  - heti:
-      extra_skipped_class:
-        - arithmatex
-      disable_serve: false
-  - git-revision-date-localized
-  - git-authors
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+      locale: zh
+  - timetoread
 #  - git-committers
 
 nav:
@@ -130,14 +130,9 @@ nav:
     - 线性代数：未竟之美: algebra/lalu/index.md
   - 程序设计:
     - programming/index.md
-    - （24 秋冬）程设辅学:
-      - programming/24fall/index.md
-      - programming/24fall/lec1.md
-      - programming/24fall/lec2.md
-      - programming/24fall/lec3.md
-      - programming/24fall/lec4.md
-      - programming/24fall/lec5.md
-      - programming/24fall/lec6.md
+    - （25 秋冬）程设辅学:
+      - programming/25fall/index.md
+      - programming/25fall/lec1.md
     - 通用资料:
       - 历年卷:
         - programming/common/exam/index.md
@@ -149,6 +144,14 @@ nav:
         - programming/common/notes/funcptr.md
       - programming/common/faq.md
     - 归档:
+      - （24 秋冬）程设辅学:
+        - programming/24fall/index.md
+        - programming/24fall/lec1.md
+        - programming/24fall/lec2.md
+        - programming/24fall/lec3.md
+        - programming/24fall/lec4.md
+        - programming/24fall/lec5.md
+        - programming/24fall/lec6.md
       - （23 秋冬）实用技能拾遗: https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/#/
       - （23 秋冬）系统知识拾遗:
         - programming/archive/23fall/index.md
