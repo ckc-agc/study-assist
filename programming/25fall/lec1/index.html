@@ -9,13 +9,13 @@
         <meta name="author" content="竺可桢学院学业指导中心">
       
       
-        <link rel="canonical" href="https://ckc-agc.bowling233.top/programming/24fall/lec5/">
+        <link rel="canonical" href="https://ckc-agc.bowling233.top/programming/25fall/lec1/">
       
       
-        <link rel="prev" href="../lec4/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../lec6/">
+        <link rel="next" href="../../common/exam/">
       
       
       <link rel="icon" href="../../../graph/ckc.png">
@@ -23,7 +23,7 @@
     
     
       
-        <title>第五讲：期末复习（上） - 浙江大学竺可桢学院辅学计划站点</title>
+        <title>Linux 与 Shell 基础和 VS Code 实战 - 浙江大学竺可桢学院辅学计划站点</title>
       
     
     
@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#linux-shell-vs-code" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              第五讲：期末复习（上）
+              Linux 与 Shell 基础和 VS Code 实战
             
           </span>
         </div>
@@ -932,8 +932,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -955,17 +957,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../25fall/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -984,7 +984,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             （25 秋冬）程设辅学
@@ -997,10 +997,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../25fall/lec1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Linux 与 Shell 基础和 VS Code 实战
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1011,6 +1033,200 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      实验环境
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1：为什么要学习实用技能？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2：初识命令行界面
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2：初识命令行界面">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      打开终端
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      连接到远程服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bash 命令语法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux 文件路径
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      环境变量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取帮助
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcc-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 gcc 编译 C 程序
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 VSCode 和 AI 工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用 VSCode 和 AI 工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dev-c-vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      尽快放弃 Dev-C++，拥抱 VSCode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 VSCode 连接到远程服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      自动补全、代码格式化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 AI 工具
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      简单 Makefile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vscode-gdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 VSCode 可视化 GDB 调试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      结语
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1395,8 +1611,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1420,11 +1634,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4">
         
           
           <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
@@ -1440,7 +1656,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             归档
@@ -1451,8 +1667,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1483,15 +1697,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4_1">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../24fall/" class="md-nav__link ">
               
   
   
@@ -1510,7 +1726,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_4_1">
             <span class="md-nav__icon md-icon"></span>
             （24 秋冬）程设辅学
@@ -1526,7 +1742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lec1/" class="md-nav__link">
+      <a href="../../24fall/lec1/" class="md-nav__link">
         
   
   
@@ -1549,7 +1765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lec2/" class="md-nav__link">
+      <a href="../../24fall/lec2/" class="md-nav__link">
         
   
   
@@ -1572,7 +1788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lec3/" class="md-nav__link">
+      <a href="../../24fall/lec3/" class="md-nav__link">
         
   
   
@@ -1595,7 +1811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lec4/" class="md-nav__link">
+      <a href="../../24fall/lec4/" class="md-nav__link">
         
   
   
@@ -1615,32 +1831,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    第五讲：期末复习（上）
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../24fall/lec5/" class="md-nav__link">
         
   
   
@@ -1651,161 +1845,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      变量与计算
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="变量与计算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      变量
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      数据类型和字面量
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      计算
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      分支和循环
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="分支和循环">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      分支
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      循环
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      数组
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      函数
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      排序
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      指针
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="指针">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      定义
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      用法
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1818,7 +1857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lec6/" class="md-nav__link">
+      <a href="../../24fall/lec6/" class="md-nav__link">
         
   
   
@@ -2671,19 +2710,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      变量与计算
+      实验环境
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="变量与计算">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 1：为什么要学习实用技能？
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Part 2：初识命令行界面
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2：初识命令行界面">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      打开终端
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      变量
+      连接到远程服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bash 命令语法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux 文件路径
     </span>
   </a>
   
@@ -2692,16 +2776,25 @@
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      数据类型和字面量
+      环境变量
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      计算
+      获取帮助
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcc-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 gcc 编译 C 程序
     </span>
   </a>
   
@@ -2713,28 +2806,64 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#vscode-ai" class="md-nav__link">
     <span class="md-ellipsis">
-      分支和循环
+      使用 VSCode 和 AI 工具
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="分支和循环">
+    <nav class="md-nav" aria-label="使用 VSCode 和 AI 工具">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#dev-c-vscode" class="md-nav__link">
     <span class="md-ellipsis">
-      分支
+      尽快放弃 Dev-C++，拥抱 VSCode
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#vscode" class="md-nav__link">
     <span class="md-ellipsis">
-      循环
+      使用 VSCode 连接到远程服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      自动补全、代码格式化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 AI 工具
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      简单 Makefile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vscode-gdb" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 VSCode 可视化 GDB 调试
     </span>
   </a>
   
@@ -2746,62 +2875,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      数组
+      结语
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      函数
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      排序
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      指针
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="指针">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      定义
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      用法
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2821,7 +2899,7 @@
 
 
   
-    <a href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming/24fall/lec5.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/ckc-agc/study-assist/tree/master/docs/programming/25fall/lec1.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
     </a>
@@ -2829,362 +2907,603 @@
   
 
 
-<h1 id="_1">第五讲：期末复习（上）<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1><p style="color:#bdbdbd"><i>Estimated time to read: 4 minutes</i></p>
+<h1 id="linux-shell-vs-code">Linux 与 Shell 基础和 VS Code 实战<a class="headerlink" href="#linux-shell-vs-code" title="Permanent link">¶</a></h1><p style="color:#bdbdbd"><i>Estimated time to read: 7 minutes</i></p>
 
-<h2 id="_2">变量与计算<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<h3 id="_3">变量<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">类型名</span><span class="w"> </span><span class="n">变量名</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-</code></pre></div>
+<ul>
+<li>时间：秋六周 10 月 25 日 10:00-12:00</li>
+<li>地点：北 3-210</li>
+<li>授课人：混合 2205 朱宝林</li>
+<li>难度：基础，面向未使用过命令行、VSCode 等工具的同学</li>
+</ul>
+<h2 id="_1">实验环境<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>请听课同学携带笔记本电脑，并在课前完成以下任务：</p>
+<ul>
+<li>提前安装好 <a href="https://code.visualstudio.com/">Visual Studio Code</a>。</li>
+<li>
+<p>打开命令行，输入 <code>ssh -V</code>，能看到版本号输出。</p>
 <ul>
 <li>
-<p>类型名：<code>long int</code> 与 <code>long</code> 等价，<code>short int</code> 与 <code>short</code> 等价，<code>unsigned int</code> 与 <code>unsigned</code> 等价，<strong>没有</strong> <code>string</code>，<code>bool</code></p>
-</li>
-<li>
-<p>变量名是一种<strong>标识符</strong>，标识符的命名规则是：由字母、数字和下划线、<strong>美元符号</strong>组成，且<strong>不能以数字开头</strong>，<strong>区分大小写</strong>，不能使用<strong>关键字</strong></p>
-</li>
-</ul>
-<p>关键字如下：</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../lec5.assets/keyword.png" data-desc-position="bottom"><img class="center-picture" src="../lec5.assets/keyword.png" width="90%"></a></p>
-<div class="admonition example">
-<p class="admonition-title">例1.1-1</p>
-<p>Which one below is <strong>NOT</strong> a valid identifier in the C programming language?</p>
-<p>A. printf<br>
-B. _m$<br>
-C. 114514<br>
-D. define</p>
-</div>
-<p>未初始化的变量的值是<strong>不确定</strong>的</p>
-<h3 id="_4">数据类型和字面量<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<h4 id="_5">数据类型<a class="headerlink" href="#_5" title="Permanent link">¶</a></h4>
-<p>不同的数据类型占据不同的大小，有不同的取值范围</p>
-<div class="highlight"><pre><span></span><code><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">sht</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="n">sht</span><span class="o">--</span><span class="p">;</span>
-</code></pre></div>
-<div class="admonition example">
-<p class="admonition-title">例1.2-1</p>
-<p>0.1 + 0.2 == 0.3 ?</p>
-</div>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">ch</span><span class="o">=</span><span class="sc">'\012'</span><span class="p">;</span><span class="w"> </span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="n">ch</span><span class="o">*</span><span class="n">n</span><span class="o">++</span><span class="p">);</span>
-<span class="c1">// printf("%d", ch*++n);</span>
-</code></pre></div>
-<p><code>sizeof</code> 可以获得某个类型或变量在内存中所占据的字节数，它的结果在编译时刻就决定了，是一个<strong>运算符</strong>而不是函数</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">a</span><span class="o">++</span><span class="p">));</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
-</code></pre></div>
-<h4 id="_6">字面量<a class="headerlink" href="#_6" title="Permanent link">¶</a></h4>
-<p>字面量即一个值的<strong>表示方法</strong>，同一个值可能有很多种表示方法</p>
-<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65</span><span class="p">;</span><span class="w">            </span><span class="c1">// 十进制</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mo">0101</span><span class="p">;</span><span class="w">          </span><span class="c1">// 0开头表示八进制</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x41</span><span class="p">;</span><span class="w">          </span><span class="c1">// 0x开头表示十六进制</span>
-
-<span class="kt">char</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'A'</span><span class="p">;</span><span class="w">           </span><span class="c1">// 单引号，字符常量</span>
-
-<span class="kt">char</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'\101'</span><span class="p">;</span><span class="w">        </span><span class="c1">// 单引号里面反斜杠转义最多三个数字，表示八进制，遇到0-7之外的就会结束</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">e0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">'\</span><span class="mi">08</span><span class="err">'</span><span class="p">;</span><span class="w">        </span><span class="c1">// 错误，这是两个字符放到了一个单引号里</span>
-
-<span class="kt">char</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'\x41'</span><span class="p">;</span><span class="w">        </span><span class="c1">// 十六进制，没有长度限制，遇到非十六进制字符就会结束</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">f0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">'\</span><span class="n">x00041</span><span class="err">'</span><span class="p">;</span><span class="w">    </span><span class="c1">// 和上面的是一样的</span>
-</code></pre></div>
-<h3 id="_7">计算<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<p>带运算符的式子是表达式，表达式有值和副作用</p>
-<h4 id="_8">运算符<a class="headerlink" href="#_8" title="Permanent link">¶</a></h4>
-<p><code>% &amp; &lt;&lt;</code> 运算符不能用在 <code>double</code> 上</p>
-<p>运算顺序问题，简单来说：赋值运算符和位运算符较低，略高的是算术运算，再高的是自增/减</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../lec5.assets/priority.png" data-desc-position="bottom"><img class="center-picture" src="../lec5.assets/priority.png" width="60%"></a></p>
-<div class="admonition example">
-<p class="admonition-title">例1.3-1</p>
-<p>若定义 <code>int a=1,b=2,c=3,d=4</code> 那么表达式 <code>(a&gt;b?c&gt;a?c-3:c-1:b==c?d-a:d-c)</code> 的值为</p>
-</div>
-<h4 id="_9">表达式的结果<a class="headerlink" href="#_9" title="Permanent link">¶</a></h4>
-<div class="admonition example">
-<p class="admonition-title">例1.3-2</p>
-<ul>
-<li>表达式 <code>(3&lt;x&lt;5)</code> 的值恒为 <code>1</code>？</li>
-<li>表达式 <code>(1&lt;=n&lt;=10)</code> 能正确地表示 <code>n</code> 属于 <code>[1, 10]</code>？</li>
-<li>表达式 <code>(3==x==3)</code> 的值恒为 <code>0</code>？</li>
-<li>表达式 <code>(x=4,y=3)</code> 的值恒为 <code>3</code>？</li>
-</ul>
-</div>
-<h2 id="_10">分支和循环<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
-<h3 id="_11">分支<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
-<p><code>else</code> 总是与最近的一个没有被匹配的 <code>if</code> 配对</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">-2</span><span class="p">){</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// do something</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">){</span>
-<span class="w">            </span><span class="c1">// do something</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="p">{</span>
-<span class="w">        </span><span class="c1">// do something</span>
-<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// do something</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>分支语句如包括有一个以上的语句，则必须用一对大括号 <code>{}</code> 括起来，组成复合语句，复合语句在语法上被认为是一条语句</p>
-<p><code>if</code> 语句执行的时候会先执行 <code>()</code> 里的表达式，如果该表达式的值非零，则执行 <code>{}</code> 里的语句</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"x is %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>设计测试用例来验证分支语句的正确性</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">10.5</span><span class="p">;</span>
-<span class="p">}</span><span class="w">   </span>
-</code></pre></div>
-<p>对于 <code>switch</code> 语句，<code>case</code> 只规定了起点，而何时退出 <code>switch</code> 块则由 <code>break</code> 决定，只要没有遇到 <code>break</code>，则一直向下执行（即使碰到了下一个 <code>case</code> 且不满足）</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="sc">'1'</span><span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
-<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
-<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">;</span>
-<span class="w">        </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%d#%d#"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
-</code></pre></div>
-<h3 id="_12">循环<a class="headerlink" href="#_12" title="Permanent link">¶</a></h3>
-<p>循环体如包括有一个以上的语句，则必须用一对大括号 <code>{}</code> 括起来，组成复合语句，复合语句在语法上被认为是一条语句。</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">-1</span><span class="p">;</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">a</span><span class="o">++</span><span class="p">;</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%2d"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%2d"</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
-</code></pre></div>
-<h2 id="_13">数组<a class="headerlink" href="#_13" title="Permanent link">¶</a></h2>
-<p>数组的定义</p>
-<div class="highlight"><pre><span></span><code><span class="n">类型名</span><span class="w"> </span><span class="n">数组名</span><span class="p">[</span><span class="n">数组长度</span><span class="p">];</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-</code></pre></div>
-<p>数组的初始化</p>
-<div class="highlight"><pre><span></span><code><span class="n">类型名</span><span class="w"> </span><span class="n">数组名</span><span class="p">[</span><span class="n">数组长度</span><span class="p">(</span><span class="n">可省略</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">元素1</span><span class="p">,</span><span class="w"> </span><span class="n">元素2</span><span class="p">,</span><span class="w"> </span><span class="p">...};</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w">        </span><span class="c1">// 其余元素为0</span>
-</code></pre></div>
-<p><strong>元素类型为数组</strong>的数组被称为<strong>高维数组</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[][];</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">][];</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">[][</span><span class="mi">4</span><span class="p">];</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="n">e</span><span class="p">[][]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">}</span>
-<span class="p">};</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="p">[][</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div>
-<h2 id="_14">函数<a class="headerlink" href="#_14" title="Permanent link">¶</a></h2>
-<ul>
-<li>类型：决定函数的<strong>返回值</strong>。若对函数类型未加显式说明，则函数的隐含类型为 <code>int</code></li>
-</ul>
-<div class="admonition example">
-<p class="admonition-title">例4-1</p>
-<p>C语言中，通过函数调用只能获得一个返回值？</p>
-</div>
-<ul>
-<li>函数名：用于标识函数</li>
-</ul>
-<div class="admonition example">
-<p class="admonition-title">例4-2</p>
-<p>函数可以嵌套调用但不能嵌套定义？</p>
-</div>
-<ul>
-<li>参数表：用逗号分隔的参数类型和参数名，声明时参数名可以省略</li>
-</ul>
-<div class="admonition example">
-<p class="admonition-title">例4-3</p>
-<p>若函数调用时的实参为变量，下列关于函数形参和实参的叙述中正确的是( )。</p>
-<p>A. 函数的实参和其对应的形参共占同一存储单元<br>
-B. 形参只是形式上的存在, 不占用具体存储单元<br>
-C. 同名的实参和形参占同一存储单元<br>
-D. 函数的形参和实参分别占用不同的存储单元</p>
-</div>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
-
-<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
-<span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span><span class="w"> </span><span class="c1">// 函数声明</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="w">    </span><span class="n">swap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">"%d,%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
-
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 函数定义</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
-<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
-<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<div class="admonition example">
-<p class="admonition-title">例4-4</p>
-<p>函数调用语句 <code>function((a,b),c)</code> 中含有的实参个数为？</p>
-</div>
-<h2 id="_15">排序<a class="headerlink" href="#_15" title="Permanent link">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">算法</th>
-<th style="text-align: center;">平均时间复杂度</th>
-<th style="text-align: center;">最好情况</th>
-<th style="text-align: center;">最坏情况</th>
-<th style="text-align: center;">稳定性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">冒泡排序</td>
-<td style="text-align: center;"><span class="arithmatex">\(O(n^2)\)</span></td>
-<td style="text-align: center;"><span class="arithmatex">\(O(n)\)</span></td>
-<td style="text-align: center;"><span class="arithmatex">\(O(n^2)\)</span></td>
-<td style="text-align: center;">稳定</td>
-</tr>
-<tr>
-<td style="text-align: center;">选择排序</td>
-<td style="text-align: center;"><span class="arithmatex">\(O(n^2)\)</span></td>
-<td style="text-align: center;"><span class="arithmatex">\(O(n^2)\)</span></td>
-<td style="text-align: center;"><span class="arithmatex">\(O(n^2)\)</span></td>
-<td style="text-align: center;">不稳定</td>
-</tr>
-<tr>
-<td style="text-align: center;">插入排序</td>
-<td style="text-align: center;"><span class="arithmatex">\(O(n^2)\)</span></td>
-<td style="text-align: center;"><span class="arithmatex">\(O(n)\)</span></td>
-<td style="text-align: center;"><span class="arithmatex">\(O(n^2)\)</span></td>
-<td style="text-align: center;">稳定</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_16">指针<a class="headerlink" href="#_16" title="Permanent link">¶</a></h2>
-<h3 id="_17">定义<a class="headerlink" href="#_17" title="Permanent link">¶</a></h3>
-<p>指针变量的值是变量的地址，指针变量本身也有自己的内存地址</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span><span class="w"> </span><span class="c1">// &amp;是取地址运算符</span>
-</code></pre></div>
-<p>指针变量 <code>p</code> 的值是 <code>a</code> 的地址，<code>*p</code> 表示 <code>p</code> 指向的变量，即 <code>a</code>，<code>*p</code> 的值是 <code>a</code> 的值，即 <code>1</code></p>
-<p>声明中 <code>*</code> 只对<strong>直接结合的标识符</strong>生效</p>
-<div class="admonition example">
-<p class="admonition-title">例6.1-1</p>
-<p>变量定义：<code>int *p, q;</code> 中，<code>p</code> 和 <code>q</code> 都是指针？</p>
-</div>
-<p><strong>指针允许指向一个不完整类型</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w">   </span><span class="c1">// a是一个数组，数组元素是指针</span>
-<span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">b</span><span class="p">)[</span><span class="mi">3</span><span class="p">];</span><span class="w"> </span><span class="c1">// b是一个指针，指向一个数组，数组元素是int,数组长度为3</span>
-<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">c</span><span class="p">[];</span><span class="w">    </span><span class="c1">// ?</span>
-<span class="kt">int</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">d</span><span class="p">)[];</span><span class="w">  </span><span class="c1">// d是一个指针，指向一个长度未知的数组，数组元素是int</span>
-</code></pre></div>
-<div class="admonition example">
-<p class="admonition-title">例6.1-2</p>
-<p>Among the following statements, __ is equivalent to the declaration: <code>int *p[4];</code></p>
-<p>A.<code>int  p[4];</code><br>
-B.<code>int  **p;</code><br>
-C.<code>int  *(p[4]);</code><br>
-D.<code>int  (*p)[4];</code></p>
-</div>
-<p><code>void *</code> 是合法的指针类型，指向一个类型未知的对象，可被隐式转换为任意其他类型的指针</p>
-<h3 id="_18">用法<a class="headerlink" href="#_18" title="Permanent link">¶</a></h3>
-<h4 id="_19">指针的运算<a class="headerlink" href="#_19" title="Permanent link">¶</a></h4>
-<ul>
-<li>
-<p>指针与整数可以加减，<code>p+n</code> 的值是 <code>p</code> 的值加上 <code>n</code> 乘以<strong>指针所指向的类型的字节数</strong>，同样地，指针的<strong>减法结果并不是地址的差值</strong></p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">};</span>
-<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%lu"</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="o">-</span><span class="n">p</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%d"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">q</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">p</span><span class="p">);</span>
+<p>Windows：按 <span class="keys"><kbd class="key-windows">Win</kbd><span>+</span><kbd class="key-r">R</kbd></span>，输入 <code>cmd</code> 或 <code>powershell</code>，回车打开终端。示例：</p>
+<div class="highlight"><pre><span></span><code><span class="go">C:\Users\user&gt;ssh -V</span>
+<span class="go">OpenSSH_for_Windows_9.5p2, LibreSSL 3.8.2</span>
 </code></pre></div>
 </li>
 <li>
-<p>指针与整数之间不可相互转换、比较；<code>0</code> 除外，可以直接把 <code>0</code> 赋给指针，此时 <code>0</code> 被视为空指针 <code>NULL</code></p>
+<p>macOS：按 <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-space">Space</kbd></span>，输入 <code>Terminal</code>，回车打开终端。示例：</p>
+<div class="highlight"><pre><span></span><code><span class="gp">user@MacBook-Pro ~ % </span>ssh<span class="w"> </span>-V
+<span class="go">OpenSSH_10.0p2, LibreSSL 3.3.6</span>
+</code></pre></div>
 </li>
 <li>
-<p>互相兼容的指针之间可以赋值、比较、加减</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
-<span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%x</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">));</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="p">);</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">));</span><span class="w"> </span><span class="c1">// 64位机器</span>
-<span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xdeadc0de</span><span class="p">;</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">"%d#%d"</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+<p>Linux：<del class="critic">（Linux 用户不需要上本次课）</del>打开终端，输入 <code>ssh -V</code>。示例：</p>
+<div class="highlight"><pre><span></span><code><span class="gp">user@linux:~$ </span>ssh<span class="w"> </span>-V
+<span class="go">OpenSSH_10.0p2 Debian-7, OpenSSL 3.5.1 1 Jul 2025</span>
 </code></pre></div>
 </li>
 </ul>
-<h4 id="_20">指针与数组<a class="headerlink" href="#_20" title="Permanent link">¶</a></h4>
-<p>指针和数组关系紧密：</p>
-<ul>
-<li>数组在很多情况下会进行到指针的<strong>隐式转换</strong></li>
-<li><code>p[n]</code> 和 <code>*(p+n)</code> 是<strong>完全等价</strong>的(你甚至可以写 <code>1[a]</code> 来访问数组的第一个元素)</li>
+</li>
 </ul>
-<div class="admonition example">
-<p class="admonition-title">例6.2-1</p>
-<p>Given the declaration: <code>int a[3][3]={1,2,3,4,5,6,7,8,9};</code>, the value of <code>a[-1][5]</code> is ?</p>
+<h2 id="part-1">Part 1：为什么要学习实用技能？<a class="headerlink" href="#part-1" title="Permanent link">¶</a></h2>
+<p>为什么程序设计辅学不严格按照课内内容，而是扩展学习课外的命令行和 AI 工具？为什么要学习各类实用技能？我想，用下面这句话来回答这个问题最为合适：</p>
+<div class="admonition quote">
+<p></p><center style="font-size: 1.5em;">
+    工欲善其事，必先利其器。
+</center><p></p>
+</div>
+<p>对于数学、物理等学科来说，纸笔就是工具，同学们都能用得很好。而对于计算机，如果只使用纸笔，那就只能做计算机<strong>科学</strong>，做不了计算机<strong>技术</strong>，但这两者又紧密关联。计算机软硬件对大部分同学来说<strong>相对陌生</strong>，而且<strong>没有专门的课程</strong>来教授这些知识。缺乏实用技能已经成为太多计算机系学生在学习、工作和科研路上的绊脚石。我们希望通过《实用技能拾遗》辅学课程，<strong>让更多同学在刚开始接触计算机专业时就掌握这些技能，这将为你们之后的学习和科研打下坚实的基础</strong>。</p>
+<ul>
+<li>
+<p><strong>不学就挂</strong>：事实上你很快就会开始运用这些实用技能。大一下学期<strong>《数据结构基础》</strong>开始就有老师要求使用 Git 等工具，信安和图灵班的<strong>计算机系统贯通课程</strong>更是直接以 Linux 为实验平台。</p>
+<p></p><figure markdown="span">
+    <center>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../24fall/lec2.assets/nju.png" data-desc-position="bottom"><img alt="nju" src="../../24fall/lec2.assets/nju.png"></a>
+    </center>
+    <figcaption>南京大学计算机实验课
+    </figcaption>
+</figure><p></p>
+</li>
+<li>
+<p><strong>与他人合作的事实标准</strong>：你会看到身边越来越多的同学开始使用 UNIX 环境。如果你不掌握相关工具，则无法与他人合作，在遇到问题时也<strong>难以得到帮助</strong>。</p>
+</li>
+<li><strong>提高效率</strong>：对于计算机学科中的大多数任务，<strong>命令行界面的效率远远高于图形界面</strong>。<strong>AI 工具极大地提高了生产力</strong>，这已经是一个不争的事实。请尽快抛弃 Dev-C++ 等严重过时的工具，积极拥抱 AI 赋能的新工具，让它们帮助你更高效地学习和工作。</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">实用技能拾遗课程</p>
+<p>最早由 21 级图灵王鹤翔学长开设，先后在计算机学院和竺可桢学院作为辅学课程。课程内容非常优质，你可以在 <a href="https://slides.tonycrane.cc/PracticalSkillsTutorial/">这里</a> 找到往年的课程资料。</p>
+<p>但由于难度较高，我们计划在下学期再复刻这门课程。如果你期待深入了解 Docker、Shell、Git 等内容，欢迎关注后续的辅学活动。</p>
+<p>在此，我们要向王鹤翔学长表示最诚挚的感谢🙏。</p>
 </div>
 <div class="admonition example">
-<p class="admonition-title">例6.2-2</p>
-<p>Given the declaration: <code>int a[3][2]={1,2,3,4,5,6};</code> what is the value of expression <code>(a[1]+1)[0]</code>?</p>
-</div>
-<p>隐式转换：C 语言规定任何数组类型的左值表达式，当用于异于</p>
+<p class="admonition-title">Example</p>
+<p>说了这么多可能没有什么实感，让我们简单举几个例子。</p>
 <ul>
-<li>作为取地址运算符的操作数</li>
-<li>作为 <code>sizeof</code> 的操作数</li>
-<li>作为用于数组初始化的字符串字面量</li>
+<li>
+<p>为了测试程序，我要随机生成 1000 个随机数：</p>
+<div class="highlight"><pre><span></span><code>seq<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>shuf<span class="w"> </span>&gt;<span class="w"> </span>/tmp/random.txt
+</code></pre></div>
+</li>
+<li>
+<p>我需要分割一个数据集（以刚刚生成的文件为例），每个文件 10 行：</p>
+<div class="highlight"><pre><span></span><code>split<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><span class="w"> </span>/tmp/random.txt<span class="w"> </span>/tmp/random-
+</code></pre></div>
+</li>
+<li>
+<p>VSCode 的自动代码补全、AI 解释不比 Dev-C++ 香多了吗？</p>
+</li>
 </ul>
-<p>的语境时，会经历到指向其<strong>首元素的指针</strong>的隐式转换，典型场景：</p>
+</div>
+<h2 id="part-2">Part 2：初识命令行界面<a class="headerlink" href="#part-2" title="Permanent link">¶</a></h2>
+<p>接下来进入本节课的前半部分，初识命令行界面。或许同学们现在接触命令行还比较少，但如果学习计算机科学专业，你的接下来的一生或许都离不开命令行界面。</p>
+<h3 id="_2">打开终端<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
+<p>当我们使用文本命令与计算机交互时，就是在使用<strong>命令行交互界面（Command Line Interface，CLI）</strong>。这与我们日常生活中使用的<strong>图形交互界面（Graphical User Interface，GUI）</strong>不同。</p>
+<div class="admonition question">
+<p class="admonition-title">动手做：在本地打开终端</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Windows</label><label for="__tabbed_1_2">macOS</label><label for="__tabbed_1_3">Linux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>按下 <span class="keys"><kbd class="key-windows">Win</kbd></span> 键，输入 <code>cmd</code> 或 <code>powershell</code>，回车。</p>
+</div>
+<div class="tabbed-block">
+<p>按下 <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-space">Space</kbd></span>，输入 <code>Terminal</code>，回车。</p>
+</div>
+<div class="tabbed-block">
+<p>你应该知道怎么做😉。</p>
+</div>
+</div>
+</div>
+</div>
+<p>CLI 的几个组成部分之间的关系如下图所示：</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="lec2.assets/cli_1.png" data-desc-position="bottom"><img alt="cli_1" src="lec2.assets/cli_1.png"></a></p>
+<ul>
+<li><strong>终端（Terminal）</strong>：就是现在你打开的这个窗口。它曾经的样子是一个物理设备（可以理解为显示器），现在是一个软件。</li>
+<li><strong>命令解释器（Shell）</strong>：终端连接到命令解释器，它负责解释你输入的命令并执行，与操作系统交互。</li>
+<li><strong>命令提示符（Prompt）</strong>：在终端中，你看到的 <code>$</code> 或者 <code>&gt;</code> 就是命令提示符。它表示 Shell 已经准备好接受你的命令了。命令提示符也会显示当前用户、主机名、当前目录等信息。</li>
+</ul>
+<h3 id="_3">连接到远程服务器<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<p>操作系统之间有显著的差别，不同 Shell 的命令语法也不同。大家今后接触最多的应该是 <strong>Linux 系统的 Bash 命令解释器</strong>，所以我们为大家准备了一个远程服务器，提供一个统一的环境来学习命令行。</p>
+<div class="admonition question">
+<p class="admonition-title">动手做：连接到远程服务器</p>
+<p>在终端中输入以下命令，并按提示输入密码，连接到远程服务器：</p>
+<div class="highlight"><pre><span></span><code>ssh 你的学号@clusters.zju.edu.cn -p 16145
+</code></pre></div>
+<p>初次连接时一般会出现</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="lec2.assets/cli_4.png" data-desc-position="bottom"><img alt="cli_4" src="lec2.assets/cli_4.png" width="70%"></a></p>
+<p>的提示，请输入 <code>yes</code> 并回车。</p>
+</div>
+<h3 id="bash">Bash 命令语法<a class="headerlink" href="#bash" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">command</span><span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>arguments
+</code></pre></div>
+<p>今后当你阅读各类资料时，经常会遇见上面这种格式的语法。其中几种括号的含义如下：</p>
+<ul>
+<li><code>[]</code>：表示可选项，可以省略。</li>
+<li><code>&lt;&gt;</code>：表示必选项，不可省略。</li>
+<li><code>|</code>：表示或，可以选择其中一个。</li>
+<li><code>...</code>：表示可以重复多次。</li>
+</ul>
+<p>让我们来看一看 <code>ls</code> 和 <code>cat</code> 命令🐱。</p>
+<div class="grid">
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code>touch<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span>FILE...
+</code></pre></div>
+<p><code>touch</code> 命令用于创建空文件。它的名称来源于触摸（touch）文件的时间戳。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.3.1</p>
+<p>在当前目录 <code>~/</code> 下创建一个空文件 <code>2.3.1</code>。</p>
+<p><strong>接下来的每个动手做，请同学们完成后 <code>touch</code> 对应的文件，以便我们同步进度😉。</strong></p>
+</div>
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span><span class="o">[</span>FILE<span class="o">]</span>...
+</code></pre></div>
+<p><code>ls</code> 命令用于列出目录中的文件和子目录。它的名称来源于 <strong>l</strong>i<strong>s</strong>t（列出）。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.3.2</p>
+<p>使用 <code>ls</code> 命令看一看当前目录下有哪些文件和目录吧。</p>
+</div>
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span><span class="o">[</span>FILE<span class="o">]</span>...
+</code></pre></div>
+<p><code>cat</code> 命令用于查看文件内容。它的名称来源于 con<strong>cat</strong>enate（连接）。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.3.3：尝试 <code>cat</code> 的几种用法</p>
+<ul>
+<li>不带参数</li>
+<li>带一个参数</li>
+<li>带两个参数</li>
+<li>带通配符</li>
+</ul>
+</div>
+</div>
+<h3 id="linux">Linux 文件路径<a class="headerlink" href="#linux" title="Permanent link">¶</a></h3>
+<p>与大家熟悉的 Windows 不同，Linux 文件系统没有盘符的概念。你可以想象 Windows 的文件系统是一片森林，而 Linux 的文件系统是一棵树。</p>
+<figure>
+    <center>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="lec2.assets/cli_2.png" data-desc-position="bottom"><img alt="cli_2" src="lec2.assets/cli_2.png"></a>
+    </center>
+    <figcaption>Windows 与 Linux 文件路径的对比
+    <br><small>图片来源：<a href="https://automatetheboringstuff.com/2e/chapter9/">Automate the Boring Stuff with Python</a></small>
+    </figcaption>
+</figure>
+<ul>
+<li><strong>根目录（Root Directory）</strong>：Linux 文件系统的根目录是 <code>/</code>，所有文件和目录都是从根目录开始的。</li>
+<li><strong>家目录（Home Directory）</strong>：每个用户都有一个家目录，一般是 <code>/home/用户名</code>。你可以在家目录下存放个人文件和目录。<strong>家目录可以用 <code>~</code> 表示。</strong></li>
+</ul>
+<p>在 Linux 系统中路径有两种表示方法：</p>
+<ul>
+<li><strong>绝对路径</strong>：从根目录 <code>/</code> 开始，一直到目标文件或目录的路径。</li>
+<li><strong>相对路径</strong>：相对于当前工作目录的路径。其中 <code>.</code> 表示当前目录，<code>..</code> 表示上一级目录。</li>
+</ul>
+<figure>
+    <center>
+    <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="lec2.assets/cli_3.png" data-desc-position="bottom"><img alt="cli_3" src="lec2.assets/cli_3.png" width="50%"></a>
+    </center>
+    <figcaption>绝对路径与相对路径
+    <br><small>图片来源：<a href="https://linuxsimply.com/absolute-path-in-linux/">An Overview of Absolute Path in Linux - The Complete Guide</a></small>
+    </figcaption>
+</figure>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>上图中，你在 <code>Current</code> 目录。写出 <code>Dest</code> 目录的相对路径和绝对路径。</p>
+</div>
+<p>让我们熟悉几个在 Linux 文件系统中常用的命令：</p>
+<div class="grid">
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code><span class="nb">pwd</span>
+</code></pre></div>
+<p><code>pwd</code> 命令用于显示当前工作目录的路径。它的名称来源于 <strong>p</strong>rint <strong>w</strong>orking <strong>d</strong>irectory（打印工作目录）。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.4.1</p>
+<p>看一看你现在在哪个目录。</p>
+</div>
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="o">[</span>DIRECTORY<span class="o">]</span>
+</code></pre></div>
+<p><code>cd</code> 命令用于切换工作目录。它的名称来源于 <strong>c</strong>hange <strong>d</strong>irectory（改变目录）。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.4.2</p>
+<p>尝试 <code>cd</code> 的几种用法</p>
+<ul>
+<li>不带参数</li>
+<li>带一个参数</li>
+</ul>
+</div>
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span>DIRECTORY...
+</code></pre></div>
+<p><code>mkdir</code> 命令用于创建目录。它的名称来源于 <strong>m</strong>a<strong>k</strong>e <strong>dir</strong>ectory（创建目录）。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.4.3</p>
+<p>尝试创建一个目录 <code>hello</code>。</p>
+</div>
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code>touch<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span>FILE...
+</code></pre></div>
+<p><code>touch</code> 命令用于创建空文件。它的名称来源于触摸（touch）文件的时间戳。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.4.4</p>
+<p>尝试在 <code>hello</code> 目录下创建一个空文件 <code>world</code>。</p>
+</div>
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span>FILE...
+</code></pre></div>
+<p><code>rm</code> 命令用于删除文件或目录。它的名称来源于 <strong>r</strong>e<strong>m</strong>ove（删除）。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.4.5</p>
+<p>尝试删除 <code>world</code> 文件。</p>
+</div>
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code>rmdir<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span>DIRECTORY...
+</code></pre></div>
+<p><code>rmdir</code> 命令用于删除空目录。它的名称来源于 <strong>r</strong>e<strong>m</strong>ove <strong>dir</strong>ectory（删除目录）。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.4.6</p>
+<p>尝试删除 <code>hello</code> 目录。</p>
+</div>
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span>SOURCE<span class="w"> </span>DEST
+</code></pre></div>
+<p><code>cp</code> 命令用于复制文件或目录。它的名称来源于 <strong>c</strong>o<strong>p</strong>y（复制）。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.4.7</p>
+<p>尝试复制 <code>/share/hello.c</code> 文件到家目录。</p>
+</div>
+</div>
+<h3 id="_4">环境变量<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>在命令行中输入命令时，Shell 是如何找到这个命令的呢？</p>
 <ol>
-<li>作为函数的参数时，数组名被转换成指向其首元素的指针</li>
-<li>更改数组元素时</li>
+<li><strong>内建命令（Built-in Command）</strong>：Shell 内置了一些命令，如 <code>cd</code>、<code>pwd</code> 等。</li>
+<li><strong>别名（Alias）</strong>：用户可以为命令设置别名，如 <code>alias ll='ls -l'</code>。</li>
+<li><strong>环境变量（Environment Variable）</strong>：Shell 会在环境变量 <code>PATH</code> 中列出的目录中查找命令。<code>PATH</code> 是一个包含目录路径的字符串，用冒号 <code>:</code> 分隔。</li>
 </ol>
-<div class="admonition example">
-<p class="admonition-title">例6.2-3</p>
-<p>According to the declaration: <code>int p[5], *a[5];</code> the expression ______ is correct.</p>
-<p>A. <code>p=a</code><br>
-B. <code>p[0]=a</code><br>
-C. <code>*(a+1)=p</code><br>
-D. <code>a[0]=2</code></p>
-</div>
-<p>二维数组不能隐式转换为二级指针</p>
-<div class="admonition example">
-<p class="admonition-title">例6.2-4</p>
-<p>For the function declaration <code>void f(char** p)</code>,the definition __ of var makes the function call <code>f(var)</code> incorrect.</p>
-<p>A. <code>char var[10][10];</code><br>
-B. <code>char *var[10];</code><br>
-C. <code>void *var = NULL;</code><br>
-D. <code>char *v=NULL, **var=&amp;v;</code><br>
-E. <code>char var[10][10], **p=var;</code></p>
-</div>
-<h4 id="_21">指针与字符串<a class="headerlink" href="#_21" title="Permanent link">¶</a></h4>
-<p>字符串常量在内存中是连续存储的，字符串常量在内存中的存储形式是字符数组的形式，字符串常量在内存中是连续存储的，字符串常量在内存中的存储形式是字符数组的形式</p>
-<div class="highlight"><pre><span></span><code><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="p">;</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">a</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"hello"</span><span class="p">;</span>
-<span class="kt">char</span><span class="w"> </span><span class="n">b</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">'h'</span><span class="p">,</span><span class="w"> </span><span class="sc">'e'</span><span class="p">,</span><span class="w"> </span><span class="sc">'l'</span><span class="p">,</span><span class="w"> </span><span class="sc">'l'</span><span class="p">,</span><span class="w"> </span><span class="sc">'o'</span><span class="p">,</span><span class="w"> </span><span class="sc">'\0'</span><span class="p">};</span>
+<div class="admonition note">
+<p class="admonition-title">环境变量</p>
+<p>我们已经在 C 语言课上学习过变量的概念。而环境变量由操作系统维护，用于存储进程运行时所需的一些信息。程序可以使用操作系统提供的函数来访问环境变量。比如在 Linux 系统中，可以使用 <code>getenv</code> 函数获取环境变量的值。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+
+<span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">getenv</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">);</span>
 </code></pre></div>
+<p>在 Bash 中，可以使用 <code>env</code> 或 <code>printenv</code> 命令查看当前环境变量。</p>
+</div>
+<p>命令解释器通常支持环境变量的替换。在 Bash 中，可以使用 <code>$</code> 符号引用环境变量的值。比如 <code>$HOME</code> 将被替换为家目录，<code>$PATH</code> 将被替换为命令搜索路径。这一替换发生在命令行被解释之前。</p>
+<div class="grid">
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>STRING<span class="o">]</span>
+</code></pre></div>
+<p><code>echo</code> 命令用于打印字符串。它的名称来源于回声（echo）。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.5.1</p>
+<ul>
+<li>打印字符串 <code>helloworld</code>。</li>
+<li>通过替换打印环境变量 <code>HOME</code> 和 <code>PATH</code> 的值。</li>
+</ul>
+</div>
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code><span class="nb">type</span><span class="w"> </span><span class="o">[</span>COMMAND<span class="o">]</span>
+</code></pre></div>
+<p><code>type</code> 命令用于显示命令的类型。它会告诉你命令是内建命令、别名、还是外部命令。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.5.2</p>
+<p>尝试查看 <code>ls</code> 和 <code>echo</code> 命令的类型。</p>
+</div>
+</div>
+<h3 id="_5">获取帮助<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<p>在命令行中可以方便地获取帮助，不要再去网上查 CSDN 等劣质资料了。或许帮助主要有 3 中方式：</p>
+<ul>
+<li>
+<p>几乎所有命令都支持 <code>--help</code> 或 <code>-h</code> 选项，用于显示命令的帮助信息。</p>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.6.1</p>
+<p>尝试查看 <code>ls</code> 和 <code>echo</code> 命令的帮助信息。</p>
+</div>
+</li>
+<li>
+<p><code>man</code> 命令用于显示命令的手册页（<strong>Man</strong>ual Page）。如果命令具有手册页，那么这几乎就是最权威最详细的帮助信息了。</p>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.6.2</p>
+<p>尝试查看 <code>ls</code> 和 <code>echo</code> 命令的手册页。</p>
+</div>
+</li>
+<li>
+<p><code>tldr</code>、<code>cht.sh</code> 等第三方工具，提供了更加简洁易懂的帮助信息。</p>
+<div class="grid" markdown>
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="o">[</span>options<span class="w"> </span>/<span class="w"> </span>URLs<span class="o">]</span>
+</code></pre></div>
+<p><code>curl</code> 命令用于传输数据。它的名称来源于 <strong>c</strong>lient for <strong>URL</strong>（URL 客户端）。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.6.3</p>
+<p>试一试 <code>curl baidu.com</code>。</p>
+</div>
+<div class="admonition note">
+<p><a href="https://cht.sh/"><code>cht.sh</code></a>（<strong>Ch</strong>ea<strong>t</strong> <strong>Sh</strong>eet 的简写）是一个在线的命令行帮助工具，由社区维护，提供了大量命令的简洁帮助信息。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.6.4</p>
+<p>试一试 <code>curl cht.sh</code>。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.6.5</p>
+<p>尝试使用 <code>cht.sh</code> 查看 <code>ls</code> 和 <code>echo</code> 命令的帮助信息。</p>
+</div>
+</div>
+</li>
+</ul>
+<h3 id="gcc-c">使用 <code>gcc</code> 编译 C 程序<a class="headerlink" href="#gcc-c" title="Permanent link">¶</a></h3>
+<p>接下来终于到了和课内知识有一点关联的部分了，让我们学习如何使用 <code>gcc</code> 编译 C 程序。</p>
+<div class="grid">
+<div class="admonition note">
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span><span class="o">[</span>-c<span class="p">|</span>-S<span class="p">|</span>-E<span class="o">]</span><span class="w"> </span><span class="o">[</span>-std<span class="o">=</span>standard<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>-g<span class="o">]</span><span class="w"> </span><span class="o">[</span>-pg<span class="o">]</span><span class="w"> </span><span class="o">[</span>-Olevel<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>-Wwarn...<span class="o">]</span><span class="w"> </span><span class="o">[</span>-Wpedantic<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>-Idir...<span class="o">]</span><span class="w"> </span><span class="o">[</span>-Ldir...<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>-Dmacro<span class="o">[=</span>defn<span class="o">]</span>...<span class="o">]</span><span class="w"> </span><span class="o">[</span>-Umacro<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>-foption...<span class="o">]</span><span class="w"> </span><span class="o">[</span>-mmachine-option...<span class="o">]</span>
+<span class="w">    </span><span class="o">[</span>-o<span class="w"> </span>outfile<span class="o">]</span><span class="w"> </span><span class="o">[</span>@file<span class="o">]</span><span class="w"> </span>infile...
+</code></pre></div>
+<p><code>gcc</code> 命令用于编译 C 程序。它的名称来源于 GNU Compiler Collection（GNU 编译器套件）。</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">动手做 2.7.1</p>
+<p><code>-o outfile</code> 选项用于指定输出文件名。</p>
+<p>刚才我们已经把 <code>hello.c</code> 文件复制到家目录了，尝试使用下面的命令编译 <code>~/hello.c</code> 程序：</p>
+<div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>~/hello.c
+</code></pre></div>
+<p>接下来再复制 <code>/share/error.c</code> 文件到家目录，尝试编译 <code>~/error.c</code> 程序。</p>
+</div>
+</div>
+<p>如果没出意外，<code>error.c</code> 程序爆了。你需要逐渐学会从错误信息中找到问题所在。以后遇到的错误信息只会越来越复杂，但也会为你提供更多的信息。</p>
+<div class="admonition tip">
+<p class="admonition-title">不要懒得读错误信息！</p>
+<p>很多人喜欢一遇到错误就把错误信息丢到中文搜索引擎然后对着各种网上的办法一通乱调。在这之前，至少应当认真读一读错误信息，尝试理解发生了什么，而不是<strong>盲从</strong>。常常错误信息本身给出的的信息就足以解决问题。</p>
+</div>
+<p>我们来看看错误信息：</p>
+<div class="highlight"><pre><span></span><code>error.c: In function ‘main’:
+error.c:6:18: error: subscripted value is neither array nor pointer nor vector
+    6 |     printf(num[2][1]);
+      |
+</code></pre></div>
+<ul>
+<li><strong>问题的位置</strong>：<code>error.c</code> 文件的第 6 行第 18 列。</li>
+<li><strong>问题的类型</strong>：<code>error</code>，错误。错误会导致编译失败，而警告（<code>warning</code>）一般不会。</li>
+<li><strong>问题的描述</strong>：<code>subscripted value is neither array nor pointer nor vector</code>，下标的值既不是数组也不是指针也不是向量。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">课后：Vim</p>
+<p>本节课我们不教大家使用命令行文本编辑器。有兴趣的同学可以学习 Vim，它的键位设计成为各类编辑器的黄金准则，能大幅提高你在各种地方的编辑效率。</p>
+<p>举例：VSCode、命令行、Overleaf 等都支持 Vim 模式。</p>
+</div>
+<h2 id="vscode-ai">使用 VSCode 和 AI 工具<a class="headerlink" href="#vscode-ai" title="Permanent link">¶</a></h2>
+<p>我们的命令行之旅到此告一段落。现在，让我们回到熟悉的图形界面，学习如何使用 VSCode 和 AI 工具。</p>
+<h3 id="dev-c-vscode">尽快放弃 Dev-C++，拥抱 VSCode<a class="headerlink" href="#dev-c-vscode" title="Permanent link">¶</a></h3>
+<p>2010 年的文章：<a href="https://uranusjr.com/blog/post/14/do-not-use-dev-cpp/">請不要用 Dev-C++ | Smaller Things</a>。</p>
+<blockquote>
+<ul>
+<li>上次版本更新是 2005 年，而且已經完全沒有繼續活動的跡象。</li>
+<li>Dev-C++ 附帶的編譯器版本也過時非常非常久。編譯器也同樣會有 bug，而更重要的是，程式語言標準會更新，因此舊的編譯器與新的程式標準不見得相容。</li>
+<li>Dev-C++ 的功能比起更新的 IDE 而言較弱。現在的 IDE 功能，不論是自動完成、自動縮排、以及格式檢查等等，都已經進步非常多。對於初學者而言這可能不太明顯，但使用功能較佳的編輯器，在建立良好程式設計習慣上有很大幫助，也可以在撰寫較複雜程式時省掉很多時間。當然另一方面來講，Dev-C++ 的環境是很簡單（因為功能少），但為了這個理由在初學時選擇它根本沒有意義，只是把問題放到以後煩惱而已。</li>
+<li>Dev-C++ 的 debugger 和現在的 IDE 根本是 LP 比雞腿…。這可能對初學者更不明顯，但選擇好的 debugger 對程式設計會有重要影響。</li>
+</ul>
+<p>如果這樣還不能說服你，嗯，事實上這四點已經完全充分構成理由，如果你完全不關心，那麼你的程式設計學習大概也不是很認真，所以或許繼續用 Dev-C++ 也沒差吧。</p>
+</blockquote>
+<h3 id="vscode">使用 VSCode 连接到远程服务器<a class="headerlink" href="#vscode" title="Permanent link">¶</a></h3>
+<div class="admonition question">
+<p class="admonition-title">动手做 3.2.1</p>
+<ul>
+<li>安装插件：<ul>
+<li>Remote - SSH</li>
+<li>C/C++</li>
+</ul>
+</li>
+<li>点击左下角的 <code>&gt;&lt;</code>，选择 <code>Remote-SSH: Connect to Host...</code>。</li>
+<li>
+<p>输入 <code>你的学号@clusters.zju.edu.cn:16145</code>，按提示输入密码。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="lec2.assets/vscode_1.png" data-desc-position="bottom"><img alt="vscode_1" src="lec2.assets/vscode_1.png" width="60%"></a></p>
+</li>
+<li>
+<p>连接成功。点击 Open，打开自己的家目录。</p>
+</li>
+<li>修改程序。</li>
+<li>打开命令行终端，再次编译运行 C 程序。</li>
+</ul>
+</div>
+<h3 id="_6">自动补全、代码格式化<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<p>VSCode 本身是一个简单的文本编辑器，但是通过插件可以实现强大的功能：</p>
+<ul>
+<li>语言插件，比如 C/C++ 插件。提供语法高亮、自动补全、代码格式化等功能。</li>
+<li>AI 插件，比如 Copilot。提供自动补全、代码解释和修复建议等功能。</li>
+</ul>
+<h3 id="ai">使用 AI 工具<a class="headerlink" href="#ai" title="Permanent link">¶</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">正确使用 AI 工具的态度</p>
+<ul>
+<li>处理重复性的工作，比如相似的代码段自动补全。</li>
+<li><strong>慎重让 AI 帮你完成原创性的工作</strong>，首先它常常表现得不好，其次这会导致你的学习效果大打折扣。你需要了解它生成的代码（做 Code Reviewer），而不是盲目使用。</li>
+</ul>
+</div>
+<h4 id="vscode_1">VSCode 插件<a class="headerlink" href="#vscode_1" title="Permanent link">¶</a></h4>
+<p>对于写代码，最好的 AI 工具应该是 <a href="https://github.com/features/copilot">GitHub Copilot</a>，但是获取条件对于新手可能有些困难：</p>
+<ul>
+<li>有一个梯子（不会有大学生不知道怎么用梯子吧）</li>
+<li>注册 GitHub 账号</li>
+<li>申请 GitHub 学生认证</li>
+</ul>
+<p>然后就可以使用 Copilot 了。</p>
+<div class="admonition example">
+<p class="admonition-title">课后：尝试获取 Copilot。可以让身边注册成功的同学帮忙。</p>
+</div>
+<p>国内有很多类似的工具，效果不比 Copilot 差，比如：</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=FittenTech.Fitten-Code">Fitten code</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=MarsCode.marscode-extension">marscode</a></li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">课后：自己选择一个 AI 插件尝试一下</p>
+</div>
+<h4 id="_7">其他<a class="headerlink" href="#_7" title="Permanent link">¶</a></h4>
+<ul>
+<li><a href="https://chatgpt.com/">ChatGPT</a>：不支持中国手机号、邮箱等。需要梯子。</li>
+<li><a href="https://chat1.yqcloud.top/">AIchatOS2</a>：好心人提供的 ChatGPT 无门槛服务。需要梯子，低调使用。</li>
+</ul>
+<details class="quote">
+<summary>一些参考</summary>
+<p>就在开课的前一天，南大 C 程课助教恰好也发出了关于 AI 工具的视频：<a href="https://www.bilibili.com/video/BV15VmRYzE7E"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.813 4.653h.854q2.266.08 3.773 1.574Q23.946 7.72 24 9.987v7.36q-.054 2.266-1.56 3.773c-1.506 1.507-2.262 1.524-3.773 1.56H5.333q-2.266-.054-3.773-1.56C.053 19.614.036 18.858 0 17.347v-7.36q.054-2.267 1.56-3.76t3.773-1.574h.774l-1.174-1.12a1.23 1.23 0 0 1-.373-.906q0-.534.373-.907l.027-.027q.4-.373.92-.373t.92.373L9.653 4.44q.107.106.187.213h4.267a.8.8 0 0 1 .16-.213l2.853-2.747q.4-.373.92-.373c.347 0 .662.151.929.4s.391.551.391.907q0 .532-.373.906zM5.333 7.24q-1.12.027-1.88.773-.76.748-.786 1.894v7.52q.026 1.146.786 1.893t1.88.773h13.334q1.12-.026 1.88-.773t.786-1.893v-7.52q-.026-1.147-.786-1.894t-1.88-.773zM8 11.107q.56 0 .933.373.375.374.4.96v1.173q-.025.586-.4.96-.373.375-.933.374c-.56-.001-.684-.125-.933-.374q-.375-.373-.4-.96V12.44q0-.56.386-.947.387-.386.947-.386m8 0q.56 0 .933.373.375.374.4.96v1.173q-.025.586-.4.96-.373.375-.933.374c-.56-.001-.684-.125-.933-.374q-.375-.373-.4-.96V12.44q.025-.586.4-.96.373-.373.933-.373"></path></svg></span> 【同学，你的代码又又又……哦，你失业了】20241114-Part 3-熊丘桓-LLM和算法竞赛</a>，或许讲的更详细一些。</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="lec2.assets/nju_2.png" data-desc-position="bottom"><img alt="nju_2" src="lec2.assets/nju_2.png"></a></p>
+</details>
+<h3 id="makefile">简单 Makefile<a class="headerlink" href="#makefile" title="Permanent link">¶</a></h3>
+<p><code>make</code> 是一个管理程序构建的工具，它通过读取一个叫做 <code>Makefile</code> 的文件来执行构建任务。<code>Makefile</code> 文件中包含了一系列规则，每个规则描述了一个构建任务的依赖关系和构建步骤。</p>
+<div class="highlight"><pre><span></span><code><span class="nf">target</span><span class="o">:</span><span class="w"> </span><span class="n">dependencies</span>
+<span class="w">    </span><span class="nb">command</span>
+</code></pre></div>
+<p>对于上面的 <code>hello.c</code>，可以创建一个简单的 <code>Makefile</code>：</p>
+<div class="admonition question">
+<p class="admonition-title">动手做 3.5.1</p>
+<p>创建一个 <code>Makefile</code> 文件，内容如下：</p>
+<div class="highlight"><pre><span></span><code><span class="nf">hello</span><span class="o">:</span><span class="w"> </span><span class="n">hello</span>.<span class="n">c</span>
+<span class="w">    </span>gcc<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c
+</code></pre></div>
+<p>然后在终端中执行 <code>make</code> 命令：</p>
+<div class="highlight"><pre><span></span><code>make
+</code></pre></div>
+</div>
+<p>使用 Makefile 的好处：</p>
+<ul>
+<li>不用重复输入冗长的编译命令。</li>
+<li>自动检查目标和依赖的时间戳，只编译需要更新的文件。</li>
+</ul>
+<h3 id="vscode-gdb">使用 VSCode 可视化 GDB 调试<a class="headerlink" href="#vscode-gdb" title="Permanent link">¶</a></h3>
+<p>要使用 VSCode 管理程序构建和调试，需要配置任务（task）和调试任务（launch）。我们让 VSCode 自动为我们生成模板。</p>
+<p>配置 Task：</p>
+<ul>
+<li>打开 <code>.c</code> 文件。</li>
+<li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span>，输入 <code>Task</code>，选中 <code>Configure Default Build Task</code>，再输入 <code>gcc</code>，选中列表中的第一个选项。</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="lec2.assets/vscode_3.png" data-desc-position="bottom"><img alt="vscode_3" src="lec2.assets/vscode_3.png" width="50%"></a><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="lec2.assets/vscode_2.png" data-desc-position="bottom"><img alt="vscode_2" src="lec2.assets/vscode_2.png" width="50%"></a></p>
+<p>然后就可以用 VSCode 一键运行程序了。简单解释一下生成的 <code>.vscode/tasks.json</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w"> </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cppbuild"</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"C/C++: gcc build active file"</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/bin/gcc"</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"-fdiagnostics-color=always"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"-g"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"${file}"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"-o"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"${fileDirname}/${fileBasenameNoExtension}"</span>
+<span class="w">   </span><span class="p">],</span>
+<span class="w">   </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${fileDirname}"</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">"problemMatcher"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"$gcc"</span>
+<span class="w">   </span><span class="p">],</span>
+<span class="w">   </span><span class="nt">"group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">   </span><span class="p">},</span>
+<span class="w">   </span><span class="nt">"detail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compiler: /usr/bin/gcc"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w"> </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>配置 Launch：</p>
+<ul>
+<li>打开 <code>.c</code> 文件。</li>
+<li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span>，输入 <code>Debug</code>，选中 <code>Add Configuration</code>，打开 <code>launch.json</code>。</li>
+<li>点击右下角的 <code>Add Configuration...</code>，选择 <code>C/C++: (gdb) Launch</code>。</li>
+<li>更改其中的 <code>program</code> 为 <code>${fileDirname}/${fileBasenameNoExtension}</code>。</li>
+</ul>
+<p>然后就可以用 VSCode 调试程序了。简单解释一下生成的 <code>.vscode/launch.json</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="c1">// Use IntelliSense to learn about possible attributes.</span>
+<span class="c1">// Hover to view descriptions of existing attributes.</span>
+<span class="c1">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span>
+<span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span>
+<span class="nt">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(gdb) Launch"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cppdbg"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${fileDirname}/${fileBasenameNoExtension}"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">"stopAtEntry"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${fileDirname}"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"environment"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">"externalConsole"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"MIMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gdb"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"setupCommands"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enable pretty-printing for gdb"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-enable-pretty-printing"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"ignoreFailures"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Set Disassembly Flavor to Intel"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-gdb-set disassembly-flavor intel"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"ignoreFailures"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>让我们尝试调试一下下面的命令：</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>/dev/zero</code> 是一个特殊的文件，它会返回无限多个 <code>0</code> 字节。</p>
+</div>
+<div class="highlight"><pre><span></span><code>./gets<span class="w"> </span>&lt;<span class="w"> </span>/dev/zero
+</code></pre></div>
+<ul>
+<li>将 <code>/share/gets.c</code> 复制到家目录。</li>
+<li>尝试编译它，然后运行 <code>./gets &lt; /dev/zero</code>。你应该看到段错误。</li>
+<li>接下来我们需要调试上面的命令，这包括后面的 <code>&lt; /dev/zero</code>。需要更改 <code>launch.json</code> 中的 <code>args</code> 为 <code>["&lt;", "/dev/zero"]</code>。</li>
+<li>可以在左侧调试栏中看到断点、变量等信息。</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">动手做 3.6.1</p>
+<p>尝试调试 <code>gets</code> 程序。</p>
+</div>
+<h2 id="_8">结语<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<p>通过今天的课程，你应该具备了不输于大佬们的自学资源：</p>
+<ul>
+<li>你有 AI 工具，遇到不熟的知识、不知道如何解决一个问题，都可以找他获得启发。</li>
+<li>你已经有了命令行操作经验，不会再惧怕黑框框。你会使用 <code>cht.sh</code>、<code>man</code> 等工具查找命令的帮助信息，不用担心记不住命令用法。</li>
+</ul>
 
 
 
@@ -3207,7 +3526,7 @@ E. <code>char var[10][10], **p=var;</code></p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2024年12月14日 15:21:15 UTC"><span class="timeago" datetime="2024-12-14T15:21:15+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2024年12月14日 15:21:15 UTC">2024-12-14</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025年10月22日 09:28:06 UTC"><span class="timeago" datetime="2025-10-22T09:28:06+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025年10月22日 09:28:06 UTC">2025-10-22</span>
   </span>
 
     
@@ -3217,7 +3536,7 @@ E. <code>char var[10][10], **p=var;</code></p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2024年10月11日 17:21:50 UTC"><span class="timeago" datetime="2024-10-11T17:21:50+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2024年10月11日 17:21:50 UTC">2024-10-11</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2024年10月11日 12:46:59 UTC"><span class="timeago" datetime="2024-10-11T12:46:59+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2024年10月11日 12:46:59 UTC">2024-10-11</span>
   </span>
 
     
@@ -3254,7 +3573,7 @@ E. <code>char var[10][10], **p=var;</code></p>
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../lec4/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 第四讲：如何写出简洁工整的报告">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: 25 秋冬 程序设计辅学">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -3264,20 +3583,20 @@ E. <code>char var[10][10], **p=var;</code></p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                第四讲：如何写出简洁工整的报告
+                25 秋冬 程序设计辅学
               </div>
             </div>
           </a>
         
         
           
-          <a href="../lec6/" class="md-footer__link md-footer__link--next" aria-label="Next: 第六讲：期末复习（下）">
+          <a href="../../common/exam/" class="md-footer__link md-footer__link--next" aria-label="Next: 历年卷">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                第六讲：期末复习（下）
+                历年卷
               </div>
             </div>
             <div class="md-footer__button md-icon">
