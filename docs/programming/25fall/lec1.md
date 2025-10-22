@@ -58,14 +58,6 @@
 - **与他人合作的事实标准**：你会看到身边越来越多的同学开始使用 UNIX 环境。如果你不掌握相关工具，则无法与他人合作，在遇到问题时也**难以得到帮助**。
 - **提高效率**：对于计算机学科中的大多数任务，**命令行界面的效率远远高于图形界面**。**AI 工具极大地提高了生产力**，这已经是一个不争的事实。请尽快抛弃 Dev-C++ 等严重过时的工具，积极拥抱 AI 赋能的新工具，让它们帮助你更高效地学习和工作。
 
-!!! info "实用技能拾遗课程"
-
-    最早由 21 级图灵王鹤翔学长开设，先后在计算机学院和竺可桢学院作为辅学课程。课程内容非常优质，你可以在 [这里](https://slides.tonycrane.cc/PracticalSkillsTutorial/) 找到往年的课程资料。
-
-    但由于难度较高，我们计划在下学期再复刻这门课程。如果你期待深入了解 Docker、Shell、Git 等内容，欢迎关注后续的辅学活动。
-
-    在此，我们要向王鹤翔学长表示最诚挚的感谢🙏。
-
 !!! example
 
     说了这么多可能没有什么实感，让我们简单举几个例子。
@@ -108,7 +100,7 @@
 
 CLI 的几个组成部分之间的关系如下图所示：
 
-![cli_1](lec2.assets/cli_1.png)
+![cli_1](../24fall/lec2.assets/cli_1.png)
 
 - **终端（Terminal）**：就是现在你打开的这个窗口。它曾经的样子是一个物理设备（可以理解为显示器），现在是一个软件。
 - **命令解释器（Shell）**：终端连接到命令解释器，它负责解释你输入的命令并执行，与操作系统交互。
@@ -128,7 +120,7 @@ CLI 的几个组成部分之间的关系如下图所示：
 
     初次连接时一般会出现
 
-    ![cli_4](lec2.assets/cli_4.png){ width=70% }
+    ![cli_4](../24fall/lec2.assets/cli_4.png){ width=70% }
 
     的提示，请输入 `yes` 并回车。
 
@@ -198,7 +190,7 @@ command [OPTIONS] arguments
 
 <figure markdown="span">
     <center>
-    ![cli_2](lec2.assets/cli_2.png)
+    ![cli_2](../24fall/lec2.assets/cli_2.png)
     </center>
     <figcaption>Windows 与 Linux 文件路径的对比
     <br><small>图片来源：[Automate the Boring Stuff with Python](https://automatetheboringstuff.com/2e/chapter9/)</small>
@@ -215,7 +207,7 @@ command [OPTIONS] arguments
 
 <figure markdown="span">
     <center>
-    ![cli_3](lec2.assets/cli_3.png){ width=50% }
+    ![cli_3](../24fall/lec2.assets/cli_3.png){ width=50% }
     </center>
     <figcaption>绝对路径与相对路径
     <br><small>图片来源：[An Overview of Absolute Path in Linux - The Complete Guide](https://linuxsimply.com/absolute-path-in-linux/)</small>
@@ -500,7 +492,7 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
     - 点击左下角的 `><`，选择 `Remote-SSH: Connect to Host...`。
     - 输入 `你的学号@clusters.zju.edu.cn:16145`，按提示输入密码。
 
-        ![vscode_1](lec2.assets/vscode_1.png){ width=60% }
+        ![vscode_1](../24fall/lec2.assets/vscode_1.png){ width=60% }
 
     - 连接成功。点击 Open，打开自己的家目录。
     - 修改程序。
@@ -548,7 +540,7 @@ VSCode 本身是一个简单的文本编辑器，但是通过插件可以实现�
 
     就在开课的前一天，南大 C 程课助教恰好也发出了关于 AI 工具的视频：[:simple-bilibili: 【同学，你的代码又又又……哦，你失业了】20241114-Part 3-熊丘桓-LLM和算法竞赛](https://www.bilibili.com/video/BV15VmRYzE7E)，或许讲的更详细一些。
 
-    ![nju_2](lec2.assets/nju_2.png)
+    ![nju_2](../24fall/lec2.assets/nju_2.png)
 
 ### 简单 Makefile
 
@@ -590,7 +582,7 @@ target: dependencies
 - 打开 `.c` 文件。
 - ++ctrl+shift+p++，输入 `Task`，选中 `Configure Default Build Task`，再输入 `gcc`，选中列表中的第一个选项。
 
-![vscode_3](lec2.assets/vscode_3.png){ width=50% }![vscode_2](lec2.assets/vscode_2.png){ width=50% }
+![vscode_3](../24fall/lec2.assets/vscode_3.png){ width=50% }![vscode_2](../24fall/lec2.assets/vscode_2.png){ width=50% }
 
 然后就可以用 VSCode 一键运行程序了。简单解释一下生成的 `.vscode/tasks.json`：
 
