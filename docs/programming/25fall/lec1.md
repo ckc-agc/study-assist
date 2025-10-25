@@ -106,27 +106,9 @@ CLI 的几个组成部分之间的关系如下图所示：
 - **命令解释器（Shell）**：终端连接到命令解释器，它负责解释你输入的命令并执行，与操作系统交互。
 - **命令提示符（Prompt）**：在终端中，你看到的 `$` 或者 `>` 就是命令提示符。它表示 Shell 已经准备好接受你的命令了。命令提示符也会显示当前用户、主机名、当前目录等信息。
 
-### 连接到远程服务器
+### 命令格式
 
-操作系统之间有显著的差别，不同 Shell 的命令语法也不同。大家今后接触最多的应该是 **Linux 系统的 Bash 命令解释器**，所以我们为大家准备了一个远程服务器，提供一个统一的环境来学习命令行。
-
-!!! question "动手做：连接到远程服务器"
-
-    在终端中输入以下命令，并按提示输入密码，连接到远程服务器：
-
-    ```command
-    ssh 你的学号@clusters.zju.edu.cn -p 16145
-    ```
-
-    初次连接时一般会出现
-
-    ![cli_4](../24fall/lec2.assets/cli_4.png){ width=70% }
-
-    的提示，请输入 `yes` 并回车。
-
-### Bash 命令语法
-
-```bash
+```shell
 command [OPTIONS] arguments
 ```
 
@@ -137,23 +119,54 @@ command [OPTIONS] arguments
 - `|`：表示或，可以选择其中一个。
 - `...`：表示可以重复多次。
 
-让我们来看一看 `ls` 和 `cat` 命令🐱。
+### 连接到远程服务器
 
-<div class="grid" markdown>
+因为同学们的环境各异，所以我们为大家准备了统一的环境来学习。
 
-!!! note ""
+我们将使用 **SSH（Secure Shell）** 连接到远程服务器，这是本节课学习的第一个命令：
+
+- SSH 命令格式：
 
     ```bash
-    touch [OPTION]... FILE...
+    ssh <user>@<host> -p <port>
     ```
 
-    `touch` 命令用于创建空文件。它的名称来源于触摸（touch）文件的时间戳。
+    - **用户名（user）**：`s++你的学号`，比如 `s12345678`。
+    - **主机名（host）**：`clusters.zju.edu.cn`。
+    - **端口号（port）**：`16145`。
 
-!!! question "动手做 2.3.1"
+- **密码**：与用户名相同。
 
-    在当前目录 `~/` 下创建一个空文件 `2.3.1`。
+!!! question "动手做：连接到远程服务器"
 
-    **接下来的每个动手做，请同学们完成后 `touch` 对应的文件，以便我们同步进度😉。**
+    按上面的格式输入命令，并按提示输入密码，连接到远程服务器。示例流程如下：
+
+    ```console hl_lines="7"
+    $ ssh s12345678@clusters.zju.edu.cn -p 16145
+    The authenticity of host '[clusters.zju.edu.cn]:16145 ([10.78.18.247]:16145)' can't be established.
+    ED25519 key fingerprint is SHA256:MpRywQEdNwj9HKR7D0wgR7umocW09HlrtHb4aje/+Dw.
+    This key is not known by any other names.
+    Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+    Warning: Permanently added '[clusters.zju.edu.cn]:16145' (ED25519) to the list of known hosts.
+    <s12345678@clusters.zju.edu.cn>'s password:
+    Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.12.43+deb13-amd64 x86_64)
+
+    - Documentation:  <https://help.ubuntu.com>
+    - Management:     <https://landscape.canonical.com>
+    - Support:        <https://ubuntu.com/pro>
+    Last login: Fri Oct 24 19:13:47 2025 from ***.***.***.***
+    Welcome to fish, the friendly interactive shell
+    Type help for instructions on how to use fish
+    s12345678@ckcagc ~>
+    ```
+
+
+    - 其中，提示 `password:` 时应当输入密码。注意密码输入时不会有任何显示，输入完成后按回车即可。
+    - 看到 Fish 的提示符 `user@ckcagc ~>`，表示已经成功连接到远程服务器。
+
+### 三个简单命令
+
+<div class="grid" markdown>
 
 !!! note ""
 
@@ -163,7 +176,7 @@ command [OPTIONS] arguments
 
     `ls` 命令用于列出目录中的文件和子目录。它的名称来源于 **l**i**s**t（列出）。
 
-!!! question "动手做 2.3.2"
+!!! question "动手做"
 
     使用 `ls` 命令看一看当前目录下有哪些文件和目录吧。
 
@@ -175,7 +188,7 @@ command [OPTIONS] arguments
 
     `cat` 命令用于查看文件内容。它的名称来源于 con**cat**enate（连接）。
 
-!!! question "动手做 2.3.3：尝试 `cat` 的几种用法"
+!!! question "动手做：尝试 `cat` 的几种用法"
 
     - 不带参数
     - 带一个参数
@@ -218,7 +231,7 @@ command [OPTIONS] arguments
 
     上图中，你在 `Current` 目录。写出 `Dest` 目录的相对路径和绝对路径。
 
-让我们熟悉几个在 Linux 文件系统中常用的命令：
+让我们熟悉几个在 Linux 中常用的文件命令：
 
 <div class="grid" markdown>
 
@@ -230,7 +243,7 @@ command [OPTIONS] arguments
 
     `pwd` 命令用于显示当前工作目录的路径。它的名称来源于 **p**rint **w**orking **d**irectory（打印工作目录）。
 
-!!! question "动手做 2.4.1"
+!!! question "动手做"
 
     看一看你现在在哪个目录。
 
@@ -242,7 +255,7 @@ command [OPTIONS] arguments
 
     `cd` 命令用于切换工作目录。它的名称来源于 **c**hange **d**irectory（改变目录）。
 
-!!! question "动手做 2.4.2"
+!!! question "动手做"
 
     尝试 `cd` 的几种用法
 
@@ -257,7 +270,7 @@ command [OPTIONS] arguments
 
     `mkdir` 命令用于创建目录。它的名称来源于 **m**a**k**e **dir**ectory（创建目录）。
 
-!!! question "动手做 2.4.3"
+!!! question "动手做"
 
     尝试创建一个目录 `hello`。
 
@@ -269,7 +282,7 @@ command [OPTIONS] arguments
 
     `touch` 命令用于创建空文件。它的名称来源于触摸（touch）文件的时间戳。
 
-!!! question "动手做 2.4.4"
+!!! question "动手做"
 
     尝试在 `hello` 目录下创建一个空文件 `world`。
 
@@ -281,7 +294,7 @@ command [OPTIONS] arguments
 
     `rm` 命令用于删除文件或目录。它的名称来源于 **r**e**m**ove（删除）。
 
-!!! question "动手做 2.4.5"
+!!! question "动手做"
 
     尝试删除 `world` 文件。
 
@@ -293,7 +306,7 @@ command [OPTIONS] arguments
 
     `rmdir` 命令用于删除空目录。它的名称来源于 **r**e**m**ove **dir**ectory（删除目录）。
 
-!!! question "动手做 2.4.6"
+!!! question "动手做"
 
     尝试删除 `hello` 目录。
 
@@ -305,19 +318,52 @@ command [OPTIONS] arguments
 
     `cp` 命令用于复制文件或目录。它的名称来源于 **c**o**p**y（复制）。
 
-!!! question "动手做 2.4.7"
+!!! question "动手做"
 
     尝试复制 `/share/hello.c` 文件到家目录。
 
 </div>
 
-### 环境变量
+### 不同的 Shell
 
-在命令行中输入命令时，Shell 是如何找到这个命令的呢？
+不同操作系统、Shell 之间的命令会有比较大的差异，例如：
 
-1. **内建命令（Built-in Command）**：Shell 内置了一些命令，如 `cd`、`pwd` 等。
+- Windows CMD:
+
+    ```cmd
+    dir /w
+    ```
+
+- Windows Powershell
+
+    ```powershell
+    Get-ChildItem -Width
+    ```
+
+- Linux Bash
+
+    ```bash
+    ls -w
+    ```
+
+同学们今后接触最多的应该是 **Linux 系统的 Shell**。Linux 系统有几种流行的 Shell：
+
+- Bash：所有 Linux 系统默认的 Shell，大部分命令行教程都基于 Bash。
+- Zsh：功能更强大的 Shell，macOS 默认的 Shell。
+- Fish：用户体验更好的 Shell，功能丰富但不完全兼容 Bash。
+
+我们来体验一下不同 Shell 的差异。
+
+!!! question "动手做"
+
+    - 尝试输入 `bash` 切换到 Bash，输入 `zsh` 切换到 Zsh，输入 `fish` 切换到 Fish。
+    - 试一试 Bash 的操作体验。
+
+### 命令类型
+
+1. **内建命令（Built-in Command）**：Shell 内置了一些命令，如 `cd`、`pwd` 等。这些命令直接由 Shell 解释执行，不需要调用外部程序。
 2. **别名（Alias）**：用户可以为命令设置别名，如 `alias ll='ls -l'`。
-3. **环境变量（Environment Variable）**：Shell 会在环境变量 `PATH` 中列出的目录中查找命令。`PATH` 是一个包含目录路径的字符串，用冒号 `:` 分隔。
+3. **可执行文件（Executable File）**：Shell 会在**环境变量** `PATH` 中列出的目录中查找对应名称的可执行文件。`PATH` 是一个包含目录路径的字符串，用冒号 `:` 分隔。
 
 !!! note "环境变量"
 
@@ -329,7 +375,7 @@ command [OPTIONS] arguments
     char *getenv(const char *name);
     ```
 
-    在 Bash 中，可以使用 `env` 或 `printenv` 命令查看当前环境变量。
+    可以使用 `env` 或 `printenv` 命令查看当前环境变量。
 
 命令解释器通常支持环境变量的替换。在 Bash 中，可以使用 `$` 符号引用环境变量的值。比如 `$HOME` 将被替换为家目录，`$PATH` 将被替换为命令搜索路径。这一替换发生在命令行被解释之前。
 
@@ -343,7 +389,7 @@ command [OPTIONS] arguments
 
     `echo` 命令用于打印字符串。它的名称来源于回声（echo）。
 
-!!! question "动手做 2.5.1"
+!!! question "动手做"
 
     - 打印字符串 `helloworld`。
     - 通过替换打印环境变量 `HOME` 和 `PATH` 的值。
@@ -356,7 +402,7 @@ command [OPTIONS] arguments
 
     `type` 命令用于显示命令的类型。它会告诉你命令是内建命令、别名、还是外部命令。
 
-!!! question "动手做 2.5.2"
+!!! question "动手做"
 
     尝试查看 `ls` 和 `echo` 命令的类型。
 
@@ -364,21 +410,21 @@ command [OPTIONS] arguments
 
 ### 获取帮助
 
-在命令行中可以方便地获取帮助，不要再去网上查 CSDN 等劣质资料了。或许帮助主要有 3 中方式：
+在命令行中可以方便地获取帮助，不要再去网上查 CSDN 等劣质资料了。获取帮助主要有 3 中方式：
 
 - 几乎所有命令都支持 `--help` 或 `-h` 选项，用于显示命令的帮助信息。
 
-    !!! question "动手做 2.6.1"
+    !!! question "动手做"
 
         尝试查看 `ls` 和 `echo` 命令的帮助信息。
 
 - `man` 命令用于显示命令的手册页（**Man**ual Page）。如果命令具有手册页，那么这几乎就是最权威最详细的帮助信息了。
 
-    !!! question "动手做 2.6.2"
+    !!! question "动手做"
 
         尝试查看 `ls` 和 `echo` 命令的手册页。
 
-- `tldr`、`cht.sh` 等第三方工具，提供了更加简洁易懂的帮助信息。
+- `cht.sh` 等第三方工具，提供了更加简洁易懂的帮助信息。
 
     <div class="grid" markdown>
 
@@ -390,7 +436,7 @@ command [OPTIONS] arguments
 
         `curl` 命令用于传输数据。它的名称来源于 **c**lient for **URL**（URL 客户端）。
 
-    !!! question "动手做 2.6.3"
+    !!! question "动手做"
 
         试一试 `curl baidu.com`。
 
@@ -398,11 +444,11 @@ command [OPTIONS] arguments
 
         [`cht.sh`](https://cht.sh/)（**Ch**ea**t** **Sh**eet 的简写）是一个在线的命令行帮助工具，由社区维护，提供了大量命令的简洁帮助信息。
 
-    !!! question "动手做 2.6.4"
+    !!! question "动手做"
 
         试一试 `curl cht.sh`。
 
-    !!! question "动手做 2.6.5"
+    !!! question "动手做"
 
         尝试使用 `cht.sh` 查看 `ls` 和 `echo` 命令的帮助信息。
 
@@ -428,7 +474,7 @@ command [OPTIONS] arguments
 
     `gcc` 命令用于编译 C 程序。它的名称来源于 GNU Compiler Collection（GNU 编译器套件）。
 
-!!! question "动手做 2.7.1"
+!!! question "动手做"
 
     `-o outfile` 选项用于指定输出文件名。
 
@@ -484,19 +530,18 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
 
 ### 使用 VSCode 连接到远程服务器
 
-!!! question "动手做 3.2.1"
+!!! question "动手做"
 
     - 安装插件：
         - Remote - SSH
-        - C/C++
     - 点击左下角的 `><`，选择 `Remote-SSH: Connect to Host...`。
-    - 输入 `你的学号@clusters.zju.edu.cn:16145`，按提示输入密码。
+    - 输入格式为 `<user>@<host>:<port>`，按提示输入密码。
 
         ![vscode_1](../24fall/lec2.assets/vscode_1.png){ width=60% }
 
     - 连接成功。点击 Open，打开自己的家目录。
     - 修改程序。
-    - 打开命令行终端，再次编译运行 C 程序。
+    - 按 ++ctrl+grave++ 打开命令行终端，再次编译运行 C 程序。
 
 ### 自动补全、代码格式化
 
@@ -504,6 +549,8 @@ VSCode 本身是一个简单的文本编辑器，但是通过插件可以实现�
 
 - 语言插件，比如 C/C++ 插件。提供语法高亮、自动补全、代码格式化等功能。
 - AI 插件，比如 Copilot。提供自动补全、代码解释和修复建议等功能。
+
+让我为同学们示范一下。
 
 ### 使用 AI 工具
 
@@ -526,8 +573,8 @@ VSCode 本身是一个简单的文本编辑器，但是通过插件可以实现�
 
 国内有很多类似的工具，效果不比 Copilot 差，比如：
 
+- [Trae](https://marketplace.visualstudio.com/items?itemName=MarsCode.marscode-extension)
 - [Fitten code](https://marketplace.visualstudio.com/items?itemName=FittenTech.Fitten-Code)
-- [marscode](https://marketplace.visualstudio.com/items?itemName=MarsCode.marscode-extension)
 
 !!! example "课后：自己选择一个 AI 插件尝试一下"
 
@@ -553,7 +600,7 @@ target: dependencies
 
 对于上面的 `hello.c`，可以创建一个简单的 `Makefile`：
 
-!!! question "动手做 3.5.1"
+!!! question "动手做"
 
     创建一个 `Makefile` 文件，内容如下：
 
@@ -575,7 +622,7 @@ target: dependencies
 
 ### 使用 VSCode 可视化 GDB 调试
 
-要使用 VSCode 管理程序构建和调试，需要配置任务（task）和调试任务（launch）。我们让 VSCode 自动为我们生成模板。
+要使用 VSCode 管理程序构建和调试，需要配置构建任务（build task）和调试任务（launch）。我们让 VSCode 自动为我们生成模板。
 
 配置 Task：
 
@@ -584,7 +631,7 @@ target: dependencies
 
 ![vscode_3](../24fall/lec2.assets/vscode_3.png){ width=50% }![vscode_2](../24fall/lec2.assets/vscode_2.png){ width=50% }
 
-然后就可以用 VSCode 一键运行程序了。简单解释一下生成的 `.vscode/tasks.json`：
+然后就 ++ctrl+shift+b++ 就可以编译当前打开的 C 文件了。简单解释一下生成的 `.vscode/tasks.json`：
 
 ```json
 {
@@ -624,7 +671,7 @@ target: dependencies
 - 点击右下角的 `Add Configuration...`，选择 `C/C++: (gdb) Launch`。
 - 更改其中的 `program` 为 `${fileDirname}/${fileBasenameNoExtension}`。
 
-然后就可以用 VSCode 调试程序了。简单解释一下生成的 `.vscode/launch.json`：
+然后 ++ctrl+shift+d++ 点击启动就可以用 VSCode 调试程序了。简单解释一下生成的 `.vscode/launch.json`：
 
 ```json
 {
@@ -676,7 +723,7 @@ target: dependencies
 - 接下来我们需要调试上面的命令，这包括后面的 `< /dev/zero`。需要更改 `launch.json` 中的 `args` 为 `["<", "/dev/zero"]`。
 - 可以在左侧调试栏中看到断点、变量等信息。
 
-!!! question "动手做 3.6.1"
+!!! question "动手做"
 
     尝试调试 `gets` 程序。
 
