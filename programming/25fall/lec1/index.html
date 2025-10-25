@@ -1089,6 +1089,15 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
+      命令格式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
       连接到远程服务器
     </span>
   </a>
@@ -1096,9 +1105,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bash" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Bash 命令语法
+      三个简单命令
     </span>
   </a>
   
@@ -1114,16 +1123,25 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#shell" class="md-nav__link">
     <span class="md-ellipsis">
-      环境变量
+      不同的 Shell
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       获取帮助
     </span>
@@ -1174,7 +1192,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       自动补全、代码格式化
     </span>
@@ -1215,7 +1233,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       结语
     </span>
@@ -2749,6 +2767,15 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
+      命令格式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
       连接到远程服务器
     </span>
   </a>
@@ -2756,9 +2783,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bash" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
-      Bash 命令语法
+      三个简单命令
     </span>
   </a>
   
@@ -2774,16 +2801,25 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#shell" class="md-nav__link">
     <span class="md-ellipsis">
-      环境变量
+      不同的 Shell
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      命令类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       获取帮助
     </span>
@@ -2834,7 +2870,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       自动补全、代码格式化
     </span>
@@ -2875,7 +2911,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
       结语
     </span>
@@ -2907,7 +2943,7 @@
   
 
 
-<h1 id="linux-shell-vs-code">Linux 与 Shell 基础和 VS Code 实战<a class="headerlink" href="#linux-shell-vs-code" title="Permanent link">¶</a></h1><p style="color:#bdbdbd"><i>Estimated time to read: 7 minutes</i></p>
+<h1 id="linux-shell-vs-code">Linux 与 Shell 基础和 VS Code 实战<a class="headerlink" href="#linux-shell-vs-code" title="Permanent link">¶</a></h1><p style="color:#bdbdbd"><i>Estimated time to read: 8 minutes</i></p>
 
 <ul>
 <li>时间：秋六周 10 月 25 日 10:00-12:00</li>
@@ -3013,18 +3049,7 @@
 <li><strong>命令解释器（Shell）</strong>：终端连接到命令解释器，它负责解释你输入的命令并执行，与操作系统交互。</li>
 <li><strong>命令提示符（Prompt）</strong>：在终端中，你看到的 <code>$</code> 或者 <code>&gt;</code> 就是命令提示符。它表示 Shell 已经准备好接受你的命令了。命令提示符也会显示当前用户、主机名、当前目录等信息。</li>
 </ul>
-<h3 id="_3">连接到远程服务器<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p>操作系统之间有显著的差别，不同 Shell 的命令语法也不同。大家今后接触最多的应该是 <strong>Linux 系统的 Bash 命令解释器</strong>，所以我们为大家准备了一个远程服务器，提供一个统一的环境来学习命令行。</p>
-<div class="admonition question">
-<p class="admonition-title">动手做：连接到远程服务器</p>
-<p>在终端中输入以下命令，并按提示输入密码，连接到远程服务器：</p>
-<div class="highlight"><pre><span></span><code>ssh 你的学号@clusters.zju.edu.cn -p 16145
-</code></pre></div>
-<p>初次连接时一般会出现</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../24fall/lec2.assets/cli_4.png" data-desc-position="bottom"><img alt="cli_4" src="../../24fall/lec2.assets/cli_4.png" width="70%"></a></p>
-<p>的提示，请输入 <code>yes</code> 并回车。</p>
-</div>
-<h3 id="bash">Bash 命令语法<a class="headerlink" href="#bash" title="Permanent link">¶</a></h3>
+<h3 id="_3">命令格式<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nb">command</span><span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>arguments
 </code></pre></div>
 <p>今后当你阅读各类资料时，经常会遇见上面这种格式的语法。其中几种括号的含义如下：</p>
@@ -3034,25 +3059,58 @@
 <li><code>|</code>：表示或，可以选择其中一个。</li>
 <li><code>...</code>：表示可以重复多次。</li>
 </ul>
-<p>让我们来看一看 <code>ls</code> 和 <code>cat</code> 命令🐱。</p>
-<div class="grid">
-<div class="admonition note">
-<div class="highlight"><pre><span></span><code>touch<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span>FILE...
+<h3 id="_4">连接到远程服务器<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>因为同学们的环境各异，所以我们为大家准备了统一的环境来学习。</p>
+<p>我们将使用 <strong>SSH（Secure Shell）</strong> 连接到远程服务器，这是本节课学习的第一个命令：</p>
+<ul>
+<li>
+<p>SSH 命令格式：</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>&lt;user&gt;@&lt;host&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;port&gt;
 </code></pre></div>
-<p><code>touch</code> 命令用于创建空文件。它的名称来源于触摸（touch）文件的时间戳。</p>
-</div>
+<ul>
+<li><strong>用户名（user）</strong>：<code>s++你的学号</code>，比如 <code>s12345678</code>。</li>
+<li><strong>主机名（host）</strong>：<code>clusters.zju.edu.cn</code>。</li>
+<li><strong>端口号（port）</strong>：<code>16145</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>密码</strong>：与用户名相同。</p>
+</li>
+</ul>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.3.1</p>
-<p>在当前目录 <code>~/</code> 下创建一个空文件 <code>2.3.1</code>。</p>
-<p><strong>接下来的每个动手做，请同学们完成后 <code>touch</code> 对应的文件，以便我们同步进度😉。</strong></p>
+<p class="admonition-title">动手做：连接到远程服务器</p>
+<p>按上面的格式输入命令，并按提示输入密码，连接到远程服务器。示例流程如下：</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ssh<span class="w"> </span>s12345678@clusters.zju.edu.cn<span class="w"> </span>-p<span class="w"> </span><span class="m">16145</span>
+<span class="go">The authenticity of host '[clusters.zju.edu.cn]:16145 ([10.78.18.247]:16145)' can't be established.</span>
+<span class="go">ED25519 key fingerprint is SHA256:MpRywQEdNwj9HKR7D0wgR7umocW09HlrtHb4aje/+Dw.</span>
+<span class="go">This key is not known by any other names.</span>
+<span class="go">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span>
+<span class="go">Warning: Permanently added '[clusters.zju.edu.cn]:16145' (ED25519) to the list of known hosts.</span>
+<span class="hll"><span class="go">&lt;s12345678@clusters.zju.edu.cn&gt;'s password:</span>
+</span><span class="go">Welcome to Ubuntu 24.04.3 LTS (GNU/Linux 6.12.43+deb13-amd64 x86_64)</span>
+
+<span class="go">- Documentation:  &lt;https://help.ubuntu.com&gt;</span>
+<span class="go">- Management:     &lt;https://landscape.canonical.com&gt;</span>
+<span class="go">- Support:        &lt;https://ubuntu.com/pro&gt;</span>
+<span class="go">Last login: Fri Oct 24 19:13:47 2025 from ***.***.***.***</span>
+<span class="go">Welcome to fish, the friendly interactive shell</span>
+<span class="go">Type help for instructions on how to use fish</span>
+<span class="go">s12345678@ckcagc ~&gt;</span>
+</code></pre></div>
+<ul>
+<li>其中，提示 <code>password:</code> 时应当输入密码。注意密码输入时不会有任何显示，输入完成后按回车即可。</li>
+<li>看到 Fish 的提示符 <code>user@ckcagc ~&gt;</code>，表示已经成功连接到远程服务器。</li>
+</ul>
 </div>
+<h3 id="_5">三个简单命令<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<div class="grid">
 <div class="admonition note">
 <div class="highlight"><pre><span></span><code>ls<span class="w"> </span><span class="o">[</span>OPTION<span class="o">]</span>...<span class="w"> </span><span class="o">[</span>FILE<span class="o">]</span>...
 </code></pre></div>
 <p><code>ls</code> 命令用于列出目录中的文件和子目录。它的名称来源于 <strong>l</strong>i<strong>s</strong>t（列出）。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.3.2</p>
+<p class="admonition-title">动手做</p>
 <p>使用 <code>ls</code> 命令看一看当前目录下有哪些文件和目录吧。</p>
 </div>
 <div class="admonition note">
@@ -3061,7 +3119,7 @@
 <p><code>cat</code> 命令用于查看文件内容。它的名称来源于 con<strong>cat</strong>enate（连接）。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.3.3：尝试 <code>cat</code> 的几种用法</p>
+<p class="admonition-title">动手做：尝试 <code>cat</code> 的几种用法</p>
 <ul>
 <li>不带参数</li>
 <li>带一个参数</li>
@@ -3101,7 +3159,7 @@
 <p class="admonition-title">Question</p>
 <p>上图中，你在 <code>Current</code> 目录。写出 <code>Dest</code> 目录的相对路径和绝对路径。</p>
 </div>
-<p>让我们熟悉几个在 Linux 文件系统中常用的命令：</p>
+<p>让我们熟悉几个在 Linux 中常用的文件命令：</p>
 <div class="grid">
 <div class="admonition note">
 <div class="highlight"><pre><span></span><code><span class="nb">pwd</span>
@@ -3109,7 +3167,7 @@
 <p><code>pwd</code> 命令用于显示当前工作目录的路径。它的名称来源于 <strong>p</strong>rint <strong>w</strong>orking <strong>d</strong>irectory（打印工作目录）。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.4.1</p>
+<p class="admonition-title">动手做</p>
 <p>看一看你现在在哪个目录。</p>
 </div>
 <div class="admonition note">
@@ -3118,7 +3176,7 @@
 <p><code>cd</code> 命令用于切换工作目录。它的名称来源于 <strong>c</strong>hange <strong>d</strong>irectory（改变目录）。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.4.2</p>
+<p class="admonition-title">动手做</p>
 <p>尝试 <code>cd</code> 的几种用法</p>
 <ul>
 <li>不带参数</li>
@@ -3131,7 +3189,7 @@
 <p><code>mkdir</code> 命令用于创建目录。它的名称来源于 <strong>m</strong>a<strong>k</strong>e <strong>dir</strong>ectory（创建目录）。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.4.3</p>
+<p class="admonition-title">动手做</p>
 <p>尝试创建一个目录 <code>hello</code>。</p>
 </div>
 <div class="admonition note">
@@ -3140,7 +3198,7 @@
 <p><code>touch</code> 命令用于创建空文件。它的名称来源于触摸（touch）文件的时间戳。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.4.4</p>
+<p class="admonition-title">动手做</p>
 <p>尝试在 <code>hello</code> 目录下创建一个空文件 <code>world</code>。</p>
 </div>
 <div class="admonition note">
@@ -3149,7 +3207,7 @@
 <p><code>rm</code> 命令用于删除文件或目录。它的名称来源于 <strong>r</strong>e<strong>m</strong>ove（删除）。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.4.5</p>
+<p class="admonition-title">动手做</p>
 <p>尝试删除 <code>world</code> 文件。</p>
 </div>
 <div class="admonition note">
@@ -3158,7 +3216,7 @@
 <p><code>rmdir</code> 命令用于删除空目录。它的名称来源于 <strong>r</strong>e<strong>m</strong>ove <strong>dir</strong>ectory（删除目录）。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.4.6</p>
+<p class="admonition-title">动手做</p>
 <p>尝试删除 <code>hello</code> 目录。</p>
 </div>
 <div class="admonition note">
@@ -3167,16 +3225,48 @@
 <p><code>cp</code> 命令用于复制文件或目录。它的名称来源于 <strong>c</strong>o<strong>p</strong>y（复制）。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.4.7</p>
+<p class="admonition-title">动手做</p>
 <p>尝试复制 <code>/share/hello.c</code> 文件到家目录。</p>
 </div>
 </div>
-<h3 id="_4">环境变量<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<p>在命令行中输入命令时，Shell 是如何找到这个命令的呢？</p>
+<h3 id="shell">不同的 Shell<a class="headerlink" href="#shell" title="Permanent link">¶</a></h3>
+<p>不同操作系统、Shell 之间的命令会有比较大的差异，例如：</p>
+<ul>
+<li>
+<p>Windows CMD:</p>
+<div class="highlight"><pre><span></span><code>dir /w
+</code></pre></div>
+</li>
+<li>
+<p>Windows Powershell</p>
+<div class="highlight"><pre><span></span><code><span class="nb">Get-ChildItem</span> <span class="n">-Width</span>
+</code></pre></div>
+</li>
+<li>
+<p>Linux Bash</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-w
+</code></pre></div>
+</li>
+</ul>
+<p>同学们今后接触最多的应该是 <strong>Linux 系统的 Shell</strong>。Linux 系统有几种流行的 Shell：</p>
+<ul>
+<li>Bash：所有 Linux 系统默认的 Shell，大部分命令行教程都基于 Bash。</li>
+<li>Zsh：功能更强大的 Shell，macOS 默认的 Shell。</li>
+<li>Fish：用户体验更好的 Shell，功能丰富但不完全兼容 Bash。</li>
+</ul>
+<p>我们来体验一下不同 Shell 的差异。</p>
+<div class="admonition question">
+<p class="admonition-title">动手做</p>
+<ul>
+<li>尝试输入 <code>bash</code> 切换到 Bash，输入 <code>zsh</code> 切换到 Zsh，输入 <code>fish</code> 切换到 Fish。</li>
+<li>试一试 Bash 的操作体验。</li>
+</ul>
+</div>
+<h3 id="_6">命令类型<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <ol>
-<li><strong>内建命令（Built-in Command）</strong>：Shell 内置了一些命令，如 <code>cd</code>、<code>pwd</code> 等。</li>
+<li><strong>内建命令（Built-in Command）</strong>：Shell 内置了一些命令，如 <code>cd</code>、<code>pwd</code> 等。这些命令直接由 Shell 解释执行，不需要调用外部程序。</li>
 <li><strong>别名（Alias）</strong>：用户可以为命令设置别名，如 <code>alias ll='ls -l'</code>。</li>
-<li><strong>环境变量（Environment Variable）</strong>：Shell 会在环境变量 <code>PATH</code> 中列出的目录中查找命令。<code>PATH</code> 是一个包含目录路径的字符串，用冒号 <code>:</code> 分隔。</li>
+<li><strong>可执行文件（Executable File）</strong>：Shell 会在<strong>环境变量</strong> <code>PATH</code> 中列出的目录中查找对应名称的可执行文件。<code>PATH</code> 是一个包含目录路径的字符串，用冒号 <code>:</code> 分隔。</li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">环境变量</p>
@@ -3185,7 +3275,7 @@
 
 <span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="nf">getenv</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">name</span><span class="p">);</span>
 </code></pre></div>
-<p>在 Bash 中，可以使用 <code>env</code> 或 <code>printenv</code> 命令查看当前环境变量。</p>
+<p>可以使用 <code>env</code> 或 <code>printenv</code> 命令查看当前环境变量。</p>
 </div>
 <p>命令解释器通常支持环境变量的替换。在 Bash 中，可以使用 <code>$</code> 符号引用环境变量的值。比如 <code>$HOME</code> 将被替换为家目录，<code>$PATH</code> 将被替换为命令搜索路径。这一替换发生在命令行被解释之前。</p>
 <div class="grid">
@@ -3195,7 +3285,7 @@
 <p><code>echo</code> 命令用于打印字符串。它的名称来源于回声（echo）。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.5.1</p>
+<p class="admonition-title">动手做</p>
 <ul>
 <li>打印字符串 <code>helloworld</code>。</li>
 <li>通过替换打印环境变量 <code>HOME</code> 和 <code>PATH</code> 的值。</li>
@@ -3207,29 +3297,29 @@
 <p><code>type</code> 命令用于显示命令的类型。它会告诉你命令是内建命令、别名、还是外部命令。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.5.2</p>
+<p class="admonition-title">动手做</p>
 <p>尝试查看 <code>ls</code> 和 <code>echo</code> 命令的类型。</p>
 </div>
 </div>
-<h3 id="_5">获取帮助<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>在命令行中可以方便地获取帮助，不要再去网上查 CSDN 等劣质资料了。或许帮助主要有 3 中方式：</p>
+<h3 id="_7">获取帮助<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<p>在命令行中可以方便地获取帮助，不要再去网上查 CSDN 等劣质资料了。获取帮助主要有 3 中方式：</p>
 <ul>
 <li>
 <p>几乎所有命令都支持 <code>--help</code> 或 <code>-h</code> 选项，用于显示命令的帮助信息。</p>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.6.1</p>
+<p class="admonition-title">动手做</p>
 <p>尝试查看 <code>ls</code> 和 <code>echo</code> 命令的帮助信息。</p>
 </div>
 </li>
 <li>
 <p><code>man</code> 命令用于显示命令的手册页（<strong>Man</strong>ual Page）。如果命令具有手册页，那么这几乎就是最权威最详细的帮助信息了。</p>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.6.2</p>
+<p class="admonition-title">动手做</p>
 <p>尝试查看 <code>ls</code> 和 <code>echo</code> 命令的手册页。</p>
 </div>
 </li>
 <li>
-<p><code>tldr</code>、<code>cht.sh</code> 等第三方工具，提供了更加简洁易懂的帮助信息。</p>
+<p><code>cht.sh</code> 等第三方工具，提供了更加简洁易懂的帮助信息。</p>
 <div class="grid" markdown>
 <div class="admonition note">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="o">[</span>options<span class="w"> </span>/<span class="w"> </span>URLs<span class="o">]</span>
@@ -3237,18 +3327,18 @@
 <p><code>curl</code> 命令用于传输数据。它的名称来源于 <strong>c</strong>lient for <strong>URL</strong>（URL 客户端）。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.6.3</p>
+<p class="admonition-title">动手做</p>
 <p>试一试 <code>curl baidu.com</code>。</p>
 </div>
 <div class="admonition note">
 <p><a href="https://cht.sh/"><code>cht.sh</code></a>（<strong>Ch</strong>ea<strong>t</strong> <strong>Sh</strong>eet 的简写）是一个在线的命令行帮助工具，由社区维护，提供了大量命令的简洁帮助信息。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.6.4</p>
+<p class="admonition-title">动手做</p>
 <p>试一试 <code>curl cht.sh</code>。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.6.5</p>
+<p class="admonition-title">动手做</p>
 <p>尝试使用 <code>cht.sh</code> 查看 <code>ls</code> 和 <code>echo</code> 命令的帮助信息。</p>
 </div>
 </div>
@@ -3269,7 +3359,7 @@
 <p><code>gcc</code> 命令用于编译 C 程序。它的名称来源于 GNU Compiler Collection（GNU 编译器套件）。</p>
 </div>
 <div class="admonition question">
-<p class="admonition-title">动手做 2.7.1</p>
+<p class="admonition-title">动手做</p>
 <p><code>-o outfile</code> 选项用于指定输出文件名。</p>
 <p>刚才我们已经把 <code>hello.c</code> 文件复制到家目录了，尝试使用下面的命令编译 <code>~/hello.c</code> 程序：</p>
 <div class="highlight"><pre><span></span><code>gcc<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>~/hello.c
@@ -3313,31 +3403,31 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
 </blockquote>
 <h3 id="vscode">使用 VSCode 连接到远程服务器<a class="headerlink" href="#vscode" title="Permanent link">¶</a></h3>
 <div class="admonition question">
-<p class="admonition-title">动手做 3.2.1</p>
+<p class="admonition-title">动手做</p>
 <ul>
 <li>安装插件：<ul>
 <li>Remote - SSH</li>
-<li>C/C++</li>
 </ul>
 </li>
 <li>点击左下角的 <code>&gt;&lt;</code>，选择 <code>Remote-SSH: Connect to Host...</code>。</li>
 <li>
-<p>输入 <code>你的学号@clusters.zju.edu.cn:16145</code>，按提示输入密码。</p>
+<p>输入格式为 <code>&lt;user&gt;@&lt;host&gt;:&lt;port&gt;</code>，按提示输入密码。</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../24fall/lec2.assets/vscode_1.png" data-desc-position="bottom"><img alt="vscode_1" src="../../24fall/lec2.assets/vscode_1.png" width="60%"></a></p>
 </li>
 <li>
 <p>连接成功。点击 Open，打开自己的家目录。</p>
 </li>
 <li>修改程序。</li>
-<li>打开命令行终端，再次编译运行 C 程序。</li>
+<li>按 <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-grave">`</kbd></span> 打开命令行终端，再次编译运行 C 程序。</li>
 </ul>
 </div>
-<h3 id="_6">自动补全、代码格式化<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<h3 id="_8">自动补全、代码格式化<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
 <p>VSCode 本身是一个简单的文本编辑器，但是通过插件可以实现强大的功能：</p>
 <ul>
 <li>语言插件，比如 C/C++ 插件。提供语法高亮、自动补全、代码格式化等功能。</li>
 <li>AI 插件，比如 Copilot。提供自动补全、代码解释和修复建议等功能。</li>
 </ul>
+<p>让我为同学们示范一下。</p>
 <h3 id="ai">使用 AI 工具<a class="headerlink" href="#ai" title="Permanent link">¶</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">正确使用 AI 工具的态度</p>
@@ -3359,13 +3449,13 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
 </div>
 <p>国内有很多类似的工具，效果不比 Copilot 差，比如：</p>
 <ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=MarsCode.marscode-extension">Trae</a></li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=FittenTech.Fitten-Code">Fitten code</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=MarsCode.marscode-extension">marscode</a></li>
 </ul>
 <div class="admonition example">
 <p class="admonition-title">课后：自己选择一个 AI 插件尝试一下</p>
 </div>
-<h4 id="_7">其他<a class="headerlink" href="#_7" title="Permanent link">¶</a></h4>
+<h4 id="_9">其他<a class="headerlink" href="#_9" title="Permanent link">¶</a></h4>
 <ul>
 <li><a href="https://chatgpt.com/">ChatGPT</a>：不支持中国手机号、邮箱等。需要梯子。</li>
 <li><a href="https://chat1.yqcloud.top/">AIchatOS2</a>：好心人提供的 ChatGPT 无门槛服务。需要梯子，低调使用。</li>
@@ -3382,7 +3472,7 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
 </code></pre></div>
 <p>对于上面的 <code>hello.c</code>，可以创建一个简单的 <code>Makefile</code>：</p>
 <div class="admonition question">
-<p class="admonition-title">动手做 3.5.1</p>
+<p class="admonition-title">动手做</p>
 <p>创建一个 <code>Makefile</code> 文件，内容如下：</p>
 <div class="highlight"><pre><span></span><code><span class="nf">hello</span><span class="o">:</span><span class="w"> </span><span class="n">hello</span>.<span class="n">c</span>
 <span class="w">    </span>gcc<span class="w"> </span>-o<span class="w"> </span>hello<span class="w"> </span>hello.c
@@ -3397,14 +3487,14 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
 <li>自动检查目标和依赖的时间戳，只编译需要更新的文件。</li>
 </ul>
 <h3 id="vscode-gdb">使用 VSCode 可视化 GDB 调试<a class="headerlink" href="#vscode-gdb" title="Permanent link">¶</a></h3>
-<p>要使用 VSCode 管理程序构建和调试，需要配置任务（task）和调试任务（launch）。我们让 VSCode 自动为我们生成模板。</p>
+<p>要使用 VSCode 管理程序构建和调试，需要配置构建任务（build task）和调试任务（launch）。我们让 VSCode 自动为我们生成模板。</p>
 <p>配置 Task：</p>
 <ul>
 <li>打开 <code>.c</code> 文件。</li>
 <li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-p">P</kbd></span>，输入 <code>Task</code>，选中 <code>Configure Default Build Task</code>，再输入 <code>gcc</code>，选中列表中的第一个选项。</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../24fall/lec2.assets/vscode_3.png" data-desc-position="bottom"><img alt="vscode_3" src="../../24fall/lec2.assets/vscode_3.png" width="50%"></a><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../24fall/lec2.assets/vscode_2.png" data-desc-position="bottom"><img alt="vscode_2" src="../../24fall/lec2.assets/vscode_2.png" width="50%"></a></p>
-<p>然后就可以用 VSCode 一键运行程序了。简单解释一下生成的 <code>.vscode/tasks.json</code>：</p>
+<p>然后就 <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-b">B</kbd></span> 就可以编译当前打开的 C 文件了。简单解释一下生成的 <code>.vscode/tasks.json</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w"> </span><span class="nt">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0.0"</span><span class="p">,</span>
 <span class="w"> </span><span class="nt">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -3441,7 +3531,7 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
 <li>点击右下角的 <code>Add Configuration...</code>，选择 <code>C/C++: (gdb) Launch</code>。</li>
 <li>更改其中的 <code>program</code> 为 <code>${fileDirname}/${fileBasenameNoExtension}</code>。</li>
 </ul>
-<p>然后就可以用 VSCode 调试程序了。简单解释一下生成的 <code>.vscode/launch.json</code>：</p>
+<p>然后 <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-d">D</kbd></span> 点击启动就可以用 VSCode 调试程序了。简单解释一下生成的 <code>.vscode/launch.json</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="c1">// Use IntelliSense to learn about possible attributes.</span>
 <span class="c1">// Hover to view descriptions of existing attributes.</span>
@@ -3489,10 +3579,10 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
 <li>可以在左侧调试栏中看到断点、变量等信息。</li>
 </ul>
 <div class="admonition question">
-<p class="admonition-title">动手做 3.6.1</p>
+<p class="admonition-title">动手做</p>
 <p>尝试调试 <code>gets</code> 程序。</p>
 </div>
-<h2 id="_8">结语<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<h2 id="_10">结语<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
 <p>通过今天的课程，你应该具备了不输于大佬们的自学资源：</p>
 <ul>
 <li>你有 AI 工具，遇到不熟的知识、不知道如何解决一个问题，都可以找他获得启发。</li>
@@ -3520,7 +3610,7 @@ error.c:6:18: error: subscripted value is neither array nor pointer nor vector
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025年10月22日 12:48:05 UTC"><span class="timeago" datetime="2025-10-22T12:48:05+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025年10月22日 12:48:05 UTC">2025-10-22</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025年10月25日 01:54:01 UTC"><span class="timeago" datetime="2025-10-25T01:54:01+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025年10月25日 01:54:01 UTC">2025-10-25</span>
   </span>
 
     
