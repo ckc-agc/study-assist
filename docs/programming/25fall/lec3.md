@@ -59,6 +59,18 @@ Git 就是为了解决这种问题而生的。通过高效的数据结构，它�
 
     尝试使用 `ls` 命令查看当前目录的内容，能找到 `.git` 文件夹吗？为什么？
 
+!!! question "动手做：安装 git 插件"
+
+    [Visual Studio Code](https://code.visualstudio.com/) 默认集成了 Git，点击左侧**源代码管理**（Source Control）按钮即可打开图形化的 Git 界面。
+
+
+
+    你需要在 VScode 中安装 Git Graph 扩展，这样你就可以在编辑器中看到 Git 的状态。
+
+    打开 VScode，在左侧的扩展商店中搜索 `Git Graph`，安装它。
+
+    用 VSCode 打开看看你刚刚创建的 Git 项目吧～
+
 #### 年轻人的第一个 Commit！
 
 现在我们已经有了一个空的 Git 版本库，接下来我们尝试往里面添加一些文件。
@@ -96,6 +108,8 @@ Git 就是为了解决这种问题而生的。通过高效的数据结构，它�
 
     运行 `git status` 命令，你看到了什么？你能够解释这些信息吗？
 
+    点击左侧的 Git Graph 扩展，你能看到什么？
+
 !!! note ""
 
     ```bash
@@ -107,6 +121,16 @@ Git 就是为了解决这种问题而生的。通过高效的数据结构，它�
 !!! question "动手做 2.4.2"
 
     把 `hello.c` 添加到暂存区。这个时候再次运行 `git status`，看看有什么变化。
+
+    点击左侧的 Git Graph 扩展，找到 `hello.c`，将鼠标移到它的上方，你能看到什么？
+
+    点击减号，将其移出暂存区。
+
+    再次运行 `git status`，你看到了什么？
+
+    点击加号，将 `hello.c` 移入暂存区。
+
+    再次运行 `git status`，你看到了什么？
 
     **思考**：如果我想一次性添加多个文件，或者说添加所有文件，应该怎么做呢？
 
@@ -134,6 +158,8 @@ Git 就是为了解决这种问题而生的。通过高效的数据结构，它�
 
     试一试 `git log` 命令，你能解释这些信息吗？
 
+    重新修改 `hello.c` 文件，再在 Git Graph 扩展中查看，在输入框中输入信息，点击提交按钮提交。
+
 </div>
 
 🎉 恭喜你完成了自己的第一个 Commit！下面让我们多添加一些文件。
@@ -152,9 +178,6 @@ Git 就是为了解决这种问题而生的。通过高效的数据结构，它�
 
 除此之外，还有一些其他常用的命令：
 
- - `git rm`：同时删除**本地**和**版本库**中的文件。（等价于 `rm` + `git add`）
- - `git rm --cached`：将一个已暂存的文件**取消暂存**。
- - `git mv`：**重命名**文件。（等价于 `mv` + `git rm` + `git add`）
  - `git log` 的一些参数：
      - `--oneline`：在**一行**中显示。
      - `--graph`：显示**分支结构**。
@@ -167,7 +190,13 @@ Git 就是为了解决这种问题而生的。通过高效的数据结构，它�
 
 !!! question "动手做：玩一玩"
 
-    试着使用上面提到的命令，玩一玩 Git 吧！如果有什么问题，欢迎随时提问。
+    试着使用 Git Graph 插件执行上面提到的功能，玩一玩 Git 吧！
+
+    在 Git Graph 扩展中，点开一个文件，你能看到什么？
+
+    点击 VScode 窗口左下角的 Git Graph 图标，你能看到什么？
+
+    点击某个具体节点，你能看到什么？
 
 #### 分支
 
@@ -200,6 +229,8 @@ Git 就是为了解决这种问题而生的。通过高效的数据结构，它�
     然后提交这个修改。再运行 `git log`（你可以同时试一试它的各种参数），你看到了什么？在脑海里想一想当前的分支结构。
 
     切换回主分支（`master` 或者 `main`），`hello.c` 里面有这个函数吗？为什么？
+
+    使用 Git Graph 插件，点开一个 commit，鼠标右击，完成相同的工作。
 
 ??? note "Answer"
 
@@ -263,20 +294,7 @@ git merge <BRANCH1> [<BRANCH2> ...] -m "<MESSAGE>"
 
     试着解决这个冲突，然后提交 merge。
 
-实际上，Merge 还有很多其他的策略。
 
- - **Squash Merge**：将多个 Commit 合并为一个。
- - **Rebase**：**变基**，将当前分支的历史平移到目标分支，可以使得历史更加**线性**。（会篡改历史，不推荐多人协作时使用）
- - **GitHub Rebase**，GitHub 提供的一种 Rebase 方式，将目标分支在当前分支上重放。
-
-<figure markdown="span">
-    <center>
-    ![merge_2](lec3.assets/merge_2.png)
-    </center>
-    <figcaption>
-    <small>图片来源：[TonyCrane 的讲义](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/lec2/#/2/10)</small>
-    </figcaption>
-</figure>
 
 
 
@@ -353,13 +371,6 @@ Git 的历史一般情况下是**不可篡改**的，但实际上还是有一些
 
 ![edit_history](lec3.assets/edit_history.png)
 
-### 在 VSCode 中使用 Git
-
-[Visual Studio Code](https://code.visualstudio.com/) 默认集成了 Git，点击左侧**源代码管理**（Source Control）按钮即可打开图形化的 Git 界面。
-
-!!! question "动手做：玩一玩"
-
-    用 VSCode 打开看看你刚刚创建的 Git 项目吧～
 
 ### .gitignore 文件
 
@@ -515,7 +526,7 @@ cache
 #### 多人协作
 
  - **Fork**：你可以**复制**一个仓库到你自己的账号下，这个操作叫做 Fork，你可以在这个仓库上自由地修改、提交。
- - **Pull Request**（**PR**）：当你修改完一个仓库后，你可以向原仓库提交一个 Pull Request，请求原仓库的所有者合并你的修改。
+ - **Pull Request**（**PR**，在基于 gitee 的 Git 服务器上叫做“Merge Request”）：当你修改完一个仓库后，你可以向原仓库提交一个 Pull Request，请求原仓库的所有者合并你的修改。
 
 !!! question "动手做：年轻人的第一个 PR！"
 
