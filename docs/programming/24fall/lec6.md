@@ -383,6 +383,7 @@ malloc 函数的返回值是 void* 也就是无类型指针，当我们给一个
     	p -> credit = 0;
     	p -> score = 0;
     	p -> point = 0;
+    	free(p);
     	return 0;
     }
     ```
