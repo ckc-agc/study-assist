@@ -320,7 +320,7 @@ struct List_Node{
 比如我们现在定义了以下结构体和其指针：
 ```
 struct course{
-	char name[100];
+	char *name;
 	float credit;
 	int score;
 	float point;
@@ -371,7 +371,7 @@ malloc 函数的返回值是 void* 也就是无类型指针，当我们给一个
     对上面的例子来说，我们可以写以下代码：
     ```
     struct course{
-    	char name[100];
+    	char *name;
     	float credit;
     	int score;
     	float point;
@@ -379,10 +379,11 @@ malloc 函数的返回值是 void* 也就是无类型指针，当我们给一个
     int main()
     {
     	struct course* p = (struct course*)malloc(sizeof(struct course));
-    	memset(p -> name, 0, sizeof(p -> name));
+    	p -> name = NULL;
     	p -> credit = 0;
     	p -> score = 0;
     	p -> point = 0;
+    	free(p);
     	return 0;
     }
     ```
