@@ -52,6 +52,8 @@ Git 就是为了解决这种问题而生的。通过高效的数据结构，它�
     通过 `ssh` 连接服务器，创建一个新的文件夹（`mkdir` 命令），然后进入这个文件夹（`cd` 命令），并使用 **`git init`** 初始化一个 Git 版本库。
 
     ```bash
+    ssh s<你的学号>@clusters.zju.edu.cn -p 16145
+    # 密码是你的学号
     mkdir my-repo
     cd my-repo
     git init
@@ -537,6 +539,8 @@ cache
     随便改一些东西吧～然后把这些修改提交到你 Fork 的仓库。
 
     最后，向原仓库提交一个 PR，请求合并你的修改。
+
+    注意，本仓库仅供展示，如果你想看到 PR 结果，请对这个仓库 [lec3-git-25](https://git.zju.edu.cn/3230102302/study_assist) 复习一遍相同操作。
 
 ### GitHub 简介
 
