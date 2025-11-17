@@ -9,6 +9,7 @@
 | 节次 | 时间 | 内容 | 主讲 | 讲义 | 录播地址 |
 | :---: | :----: | :---: | :---: | :---: | :---: |
 | 1 | Oct.25 | 极限与函数连续性 | 图灵 <br /> 2402 <br /> 郭名扬 | [讲义](2025-2026Fall/analysis_lecture1.pdf) <br /> [答案](2025-2026Fall/analysis_answer1.pdf) | [Bilibili](https://www.bilibili.com/video/BV1tHsUzfEMM/) |
+| 2 | Nov.15 | 一元函数微分学 | 求数 <br /> 2401 <br /> 岑瑜璠 | [讲义](2025-2026Fall/analysis_lecture2.pdf) | [Bilibili](https://www.bilibili.com/video/BV1DoCeBsEdU/) |
 
 
 ## 2024-2025 学年 辅学资料
