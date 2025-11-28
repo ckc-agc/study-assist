@@ -9,11 +9,11 @@ Matlab，全称"Matrix Laboratory"（矩阵实验室），是美国Mathworks公�
 
 学习Matlab语法，我们就能像在写C一样，完美地表达自己的思路和想法。
 
-<img src=lec4.assets/0.png></img>
+![0](lec4.assets/0.png)
 
 ## 初识Matlab
 
-<img src=lec4.assets/1.png></img>
+![1](lec4.assets/1.png)
 
 Matlab有两个重要文件格式：.m（脚本）和.mlx（实时脚本）。其中.m是和.c/.cpp差不多的纯文本文件格式，而.mlx是最近Matlab推荐的文件格式，不仅支持代码的编辑，同时支持富文本注释。本次课使用.mlx，即实时脚本。
 
@@ -40,14 +40,14 @@ a = 1; b = 2.5; c = 'a'; d = True;#该代码段正常工作
 
 Matlab软件界面由**工作区、编辑器、命令行、文件夹**组成。刚才在定义变量运行后，工作区就出现了变量和值
 
-<img src=lec4.assets/2.png></img>
+![2](lec4.assets/2.png)
 
 **实时脚本的实时性在哪呢？**
 
 !!! Question 动手做:1.3实时显示变量
     删掉分号并且在原分号处运行，并且另起一行修改a的值
 
-<img src=lec4.assets/3.png></img>
+![3](lec4.assets/3.png)
 
 当删去分号时，代码仍然正常运行，并且右侧的输出区显示了输出值。在mlx的编写中，一般都是不加分号的。我们实时观察变量在当前语句的值。因此，Matlab的调试十分方便。
 
@@ -183,7 +183,7 @@ Matlab对支持两个等长的向量进行绘图。如果定义向量x,y，那�
     s = [-1 5.5 11.8 19.0 25.9 32.2 39.0 45.8]
     ```
     以m为横坐标，s为纵坐标绘制折线图
-<img src=lec4.assets/4.png></img>
+![4](lec4.assets/4.png)
 如图，图像约等于一条直线。
 
 大家在高中学过**最小二乘法**拟合直线。在Matlab中有对应的求解函数``polyfit(x,y,n)``其中，x,y是对应横坐标、纵坐标的值，而n是拟合的多项式次数，缺省默认为1。得到的多项式记为p。
