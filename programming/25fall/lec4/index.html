@@ -3159,8 +3159,9 @@
 <h2 id="matlab_1">初识Matlab<a class="headerlink" href="#matlab_1" title="Permanent link">¶</a></h2>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../lec4.assets/1.png" data-desc-position="bottom"><img alt="1" src="../lec4.assets/1.png"></a></p>
 <p>Matlab有两个重要文件格式：.m（脚本）和.mlx（实时脚本）。其中.m是和.c/.cpp差不多的纯文本文件格式，而.mlx是最近Matlab推荐的文件格式，不仅支持代码的编辑，同时支持富文本注释。本次课使用.mlx，即实时脚本。</p>
-<p>!!! Question 动手做：1.1新建实时脚本
-    单击新建实时脚本，创建mlx文件</p>
+<p>!!! Question 动手做：1.1新建实时脚本</p>
+<div class="highlight"><pre><span></span><code>单击新建实时脚本，创建mlx文件
+</code></pre></div>
 <p>Matlab的变量有个特点：定义变量不需要事先声明。这点和C不同，与Python类似</p>
 <p></p><div class="highlight"><pre><span></span><code><span class="c1">//C语言</span>
 <span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.5</span><span class="p">;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'a'</span><span class="p">;</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="c1">//该代码段会报错</span>
@@ -3171,13 +3172,15 @@
 <div class="highlight"><pre><span></span><code><span class="c1">#python语言</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">;</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">'a'</span><span class="p">;</span> <span class="n">d</span> <span class="o">=</span> <span class="kc">True</span><span class="p">;</span><span class="c1">#该代码段正常工作</span>
 </code></pre></div><p></p>
-<p>!!! Question 动手做：1.2定义变量
-    在你的mlx文件中定义变量，并且单击运行</p>
+<p>!!! Question 动手做：1.2定义变量</p>
+<div class="highlight"><pre><span></span><code>在你的mlx文件中定义变量，并且单击运行
+</code></pre></div>
 <p>Matlab软件界面由<strong>工作区、编辑器、命令行、文件夹</strong>组成。刚才在定义变量运行后，工作区就出现了变量和值</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../lec4.assets/2.png" data-desc-position="bottom"><img alt="2" src="../lec4.assets/2.png"></a></p>
 <p><strong>实时脚本的实时性在哪呢？</strong></p>
-<p>!!! Question 动手做:1.3实时显示变量
-    删掉分号并且在原分号处运行，并且另起一行修改a的值</p>
+<p>!!! Question 动手做:1.3实时显示变量</p>
+<div class="highlight"><pre><span></span><code>删掉分号并且在原分号处运行，并且另起一行修改a的值
+</code></pre></div>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../lec4.assets/3.png" data-desc-position="bottom"><img alt="3" src="../lec4.assets/3.png"></a></p>
 <p>当删去分号时，代码仍然正常运行，并且右侧的输出区显示了输出值。在mlx的编写中，一般都是不加分号的。我们实时观察变量在当前语句的值。因此，Matlab的调试十分方便。</p>
 <h2 id="_2">矩阵的创建<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
@@ -3189,41 +3192,53 @@ $$\begin{pmatrix}
 \end{pmatrix}
 $$
 同一行元素之间使用逗号，换行使用分号。</p>
-<p>!!! Question 动手做:2.1生成矩阵
-    1) <code>[1,2,3;4,5,6;7,8,9]</code>会是什么？验证你的猜想！
-    2) 如果是<code>[1,2;3,4,5,6;7,8,9]</code>呢？</p>
+<p>!!! Question 动手做:2.1生成矩阵</p>
+<div class="highlight"><pre><span></span><code>1) ``[1,2,3;4,5,6;7,8,9]``会是什么？验证你的猜想！
+
+2) 如果是``[1,2;3,4,5,6;7,8,9]``呢？
+</code></pre></div>
 <p><strong>报错了！错误使用vertcat</strong>。vertcat是什么？我们等会儿再说。</p>
 <p>大家在C中一定学过数组。其实数组在Matlab的眼中是一个1 * n的矩阵。当然，列向量同理。</p>
 <p>如果我们要快速初始化一个矩阵，我们可以使用<code>zeros(rows,columns)</code>,<code>ones(rows,columns)</code>,<code>eye(rows,columns)</code>分别生成全0矩阵，全1矩阵，单位矩阵。</p>
-<p>!!! Question 动手做：2.2初始化矩阵
-    1.使用上面三个函数各生成三个2*3和3个3*2的矩阵
-    2.如果只给rows，缺省columns（例如<code>zeros(2)</code>,<code>ones(3)</code>）呢？
-<del>当然，Matlab没有twos,threes。万一哪个用户来了一句one_hundred_and_fourteen_thousand_five_hundred_and_fourteens那Matlab可咋办</del></p>
+<p>!!! Question 动手做：2.2初始化矩阵</p>
+<div class="highlight"><pre><span></span><code>1.使用上面三个函数各生成三个2\*3和3个3\*2的矩阵
+
+2.如果只给rows，缺省columns（例如``zeros(2)``,``ones(3)``）呢？
+</code></pre></div>
+<p><del>当然，Matlab没有twos,threes。万一哪个用户来了一句one_hundred_and_fourteen_thousand_five_hundred_and_fourteens那Matlab可咋办</del></p>
 <p>熟悉了矩阵，方阵的生成，我们肯定希望能够修改矩阵中的值。Matlab中元素的访问方式为
 <code>a( row , column )</code>。和C不同，Matlab的计数从1开始。因此，第一行第二列大家放心地写<code>a( 1 , 2 )</code>，而不用写<code>a( 0 , 1 )</code>。<del>更不能写a[0][1],*(*(a+0)+1)。</del></p>
-<p>!!! Question 动手做：2.3修改矩阵元素
-    将某一个<code>ones(3)</code>的中间值改成0</p>
+<p>!!! Question 动手做：2.3修改矩阵元素</p>
+<div class="highlight"><pre><span></span><code>将某一个``ones(3)``的中间值改成0
+</code></pre></div>
 <p>我们在矩阵中学过分块矩阵的概念。同样地，在Matlab中，我们可以对矩阵进行分块和组合。</p>
 <p>访问一段连续的元素，Matlab的基本语法为<code>( begin : step : end )</code>相当于C中的
 </p><div class="highlight"><pre><span></span><code><span class="w"> </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">begin</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">end</span><span class="p">;</span><span class="n">i</span><span class="o">+=</span><span class="n">step</span><span class="p">)</span>
 </code></pre></div>
 step可缺省默认为1。如果begin和end一起缺省，只打冒号，那么就代表访问所有元素。<p></p>
-<p>!!! Question 动手做：2.4访问矩阵连续元素
-    1.对于<code>a=[1,2,3;4,5,6;7,8,9]</code>，你认为<code>a( 1:2 , 1:2 )</code>是什么？验证你的猜想！
-    2.如果你想获得第二列的元素呢？
-    3.对于一个矩阵，当你不知道矩阵大小的时候，使用<code>end</code>可以获得最后一个元素。当然，<code>end - 1</code>就是倒数第二个。那么，<code>a(end,end-1)</code>是什么呢？如果要访问矩阵中行标和列标都为奇数的元素呢？</p>
+<p>!!! Question 动手做：2.4访问矩阵连续元素</p>
+<div class="highlight"><pre><span></span><code>1.对于``a=[1,2,3;4,5,6;7,8,9]``，你认为``a( 1:2 , 1:2 )``是什么？验证你的猜想！
+
+2.如果你想获得第二列的元素呢？
+
+3.对于一个矩阵，当你不知道矩阵大小的时候，使用``end``可以获得最后一个元素。当然，``end - 1``就是倒数第二个。那么，``a(end,end-1)``是什么呢？如果要访问矩阵中行标和列标都为奇数的元素呢？
+</code></pre></div>
 <p>矩阵的组合比较简单。还记得定义矩阵吗，我们用逗号分隔同一行的元素，而用分号分隔不同行的元素。其实这里的元素不一定是量，也可以是矩阵。Matlab中对于一个量，我们将其看作1*1的矩阵肯定没有问题。</p>
-<p>!!! Question 动手做:2.5矩阵的组合
-    1.将<code>ones(2)</code>和<code>eye(2)</code>水平和竖直组合。
-    2.如果是<code>ones(2)</code>和<code>eye(3)</code>呢？</p>
+<p>!!! Question 动手做:2.5矩阵的组合</p>
+<div class="highlight"><pre><span></span><code>1.将``ones(2)``和``eye(2)``水平和竖直组合。
+
+2.如果是``ones(2)``和``eye(3)``呢？
+</code></pre></div>
 <p><strong>又报错了！错误使用horzcat；错误使用vertcat</strong></p>
 <p><strong>很熟悉！在前面定义矩阵的时候就遇到了这样的问题。</strong> 事实上，矩阵的组合必须得满足行数/列数相等。如果2行的矩阵和3行的矩阵，Matlab不知道空余的1行应该放什么。</p>
 <p>这样的话，刚才的错误使用vertcat就好解释了。</p>
 <h2 id="_3">矩阵的运算<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>Matlab支持矩阵的加、减、乘。当然，要求做相应操作的矩阵符合条件。</p>
-<p>!!! Question 动手做：3.1矩阵的加、减、乘
-    1.定义两个2*3的矩阵，尝试加法和减法
-    2.对于矩阵A,A'表示其转置矩阵（对复数为共轭转置）。尝试将其中一个矩阵转置并完成乘法。</p>
+<p>!!! Question 动手做：3.1矩阵的加、减、乘</p>
+<div class="highlight"><pre><span></span><code>1.定义两个2*3的矩阵，尝试加法和减法
+
+2.对于矩阵A,A'表示其转置矩阵（对复数为共轭转置）。尝试将其中一个矩阵转置并完成乘法。
+</code></pre></div>
 <hr>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -3232,8 +3247,9 @@ step可缺省默认为1。如果begin和end一起缺省，只打冒号，那么�
 <hr>
 <p><del>各位的猩猩袋鼠学到行列式了没有？如果有，请把0打在公屏上；如果没有，请打出<span class="arithmatex">\(\sin x\)</span>的麦克劳林展开的二次项系数</del></p>
 <p>看来大家学过行列式是什么了。对于方阵A，我们使用<code>det(A)</code>表示A的行列式。当<span class="arithmatex">\(\det(A)\neq 0\)</span>，也就是A的秩等于行数列数，也就是A的行和列都线性无关，A存在逆矩阵为<code>inv(A)</code>。</p>
-<p>!!! Question 动手做：3.2矩阵的求逆
-    求<code>[1,2,3;4,5,6;7,8,9]</code>的行列式和逆矩阵</p>
+<p>!!! Question 动手做：3.2矩阵的求逆</p>
+<div class="highlight"><pre><span></span><code>求``[1,2,3;4,5,6;7,8,9]``的行列式和逆矩阵
+</code></pre></div>
 <hr>
 <p>!!!
     Warning解除</p>
@@ -3244,18 +3260,19 @@ step可缺省默认为1。如果begin和end一起缺省，只打冒号，那么�
 <span class="arithmatex">\(<span class="arithmatex">\(x=A^{-1}b\)</span>\)</span>
 然而，如果A不可逆呢？我们在Matlab中可以使用 <strong>左除(\)、右除(/)</strong> 进行计算。如果<span class="arithmatex">\(<span class="arithmatex">\(AB=C\)</span>\)</span>
 那么<span class="arithmatex">\(<span class="arithmatex">\(A=C/B,B=A \backslash C\)</span>\)</span></p>
-<p>!!! Question 动手做：3.3线性方程组的求解
-    （题目来源：2022-2023年吴志祥线代期中考试）使用左除命令求解方程：
-    $$
-    \begin{cases}
-    x_1+x_2+x_3+x_4+x_5=1\
-    3x_1+2x_2+x_3+x_4-3x_5=0\
-    x_2+2x_3+2x_4+6x_5=3\
-    5x_1+4x_2+3x_3+3x_4-x_5=2
-    \end{cases}
-    $$
-    尝试将第二个等式右端改成其他数，会发生什么？
-当第二个等式的右端改成其他数的时候，这个方程是无解的，但是Matlab仍然会给出一个答案（事实上大家使用<code>A*x</code>就会发现问题）。即使a=0，方程也有解组，但Matlab也只能给出一个答案。因此，Matlab目前能给出的只是一个<strong>最接近的数值特解</strong>。</p>
+<p>!!! Question 动手做：3.3线性方程组的求解</p>
+<div class="highlight"><pre><span></span><code>（题目来源：2022-2023年吴志祥线代期中考试）使用左除命令求解方程：
+$$
+\begin{cases}
+x_1+x_2+x_3+x_4+x_5=1\\
+3x_1+2x_2+x_3+x_4-3x_5=0\\
+x_2+2x_3+2x_4+6x_5=3\\
+5x_1+4x_2+3x_3+3x_4-x_5=2
+\end{cases}
+$$
+尝试将第二个等式右端改成其他数，会发生什么？
+</code></pre></div>
+<p>当第二个等式的右端改成其他数的时候，这个方程是无解的，但是Matlab仍然会给出一个答案（事实上大家使用<code>A*x</code>就会发现问题）。即使a=0，方程也有解组，但Matlab也只能给出一个答案。因此，Matlab目前能给出的只是一个<strong>最接近的数值特解</strong>。</p>
 <p>Matlab中矩阵的乘法除了正常的乘法以外，还有点乘。点乘不仅支持乘法的功能，同时支持<strong>矩阵对应位置元素的直接相乘。</strong> 例如，
 $$
 \begin{pmatrix}
@@ -3271,27 +3288,34 @@ $$
 $$
 当然，点除也就是矩阵对应位置元素的相除。
 如果是一个数点乘矩阵，那么结果就是每个元素的这个数的倍数。</p>
-<p>!!! Question 动手做：3.4点乘和点除
-    定义满足要求的矩阵，尝试点乘和点除运算</p>
+<p>!!! Question 动手做：3.4点乘和点除</p>
+<div class="highlight"><pre><span></span><code>定义满足要求的矩阵，尝试点乘和点除运算
+</code></pre></div>
 <h2 id="_4">绘图<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>Matlab对支持两个等长的向量进行绘图。如果定义向量x,y，那么<code>plot(x,y)</code>就是以x中元素为横坐标，y中元素为纵坐标画折线图。</p>
-<p>!!! Question 动手做：4.1基础绘图
-    </p><div class="highlight"><pre><span></span><code>m = [2:9]
+<p>!!! Question 动手做：4.1基础绘图</p>
+<div class="highlight"><pre><span></span><code>```
+m = [2:9]
 s = [-1 5.5 11.8 19.0 25.9 32.2 39.0 45.8]
+```
+
+以m为横坐标，s为纵坐标绘制折线图
 </code></pre></div>
-    以m为横坐标，s为纵坐标绘制折线图
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../lec4.assets/4.png" data-desc-position="bottom"><img alt="4" src="../lec4.assets/4.png"></a>
-如图，图像约等于一条直线。<p></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../lec4.assets/4.png" data-desc-position="bottom"><img alt="4" src="../lec4.assets/4.png"></a>
+如图，图像约等于一条直线。</p>
 <p>大家在高中学过<strong>最小二乘法</strong>拟合直线。在Matlab中有对应的求解函数<code>polyfit(x,y,n)</code>其中，x,y是对应横坐标、纵坐标的值，而n是拟合的多项式次数，缺省默认为1。得到的多项式记为p。</p>
-<p>!!! Question 动手做：4.2多项式拟合
-    将(m,s)拟合成一个一次多项式。结果是什么？</p>
+<p>!!! Question 动手做：4.2多项式拟合</p>
+<div class="highlight"><pre><span></span><code>将(m,s)拟合成一个一次多项式。结果是什么？
+</code></pre></div>
 <p>可以看到，p是一个1*2的向量，分别为一次项系数和常数项。使用<code>y=polyval(p,x)</code>即可将x通过该多项式映射到y</p>
-<p>!!! Question 动手做：4.3拟合图线的绘制
-    将m，s拟合成直线，画出拟合图像</p>
+<p>!!! Question 动手做：4.3拟合图线的绘制</p>
+<div class="highlight"><pre><span></span><code>将m，s拟合成直线，画出拟合图像
+</code></pre></div>
 <p>两张图长得很像，简直傻傻分不清。那要是把两条曲线放在一张图里面呢？</p>
 <p>在绘制完第一条曲线后加入<code>hold on</code>语句会使后续曲线都画在一张图里面。如果要解除限制则加入<code>hold off</code>。</p>
-<p>!!! Question 动手做：4.4将两条曲线画在同一张图
-    将两条曲线画在同一张图</p>
+<p>!!! Question 动手做：4.4将两条曲线画在同一张图</p>
+<div class="highlight"><pre><span></span><code>将两条曲线画在同一张图
+</code></pre></div>
 <p>也许大家仍然看不出区别在哪。那么找到图像右上角，鼠标点击会有“在图窗中打开”，那么图像将会放大，区别就比较明显。
 在图窗中，我们也可以添加横轴，纵轴，标题......这些可能需要涉及一点点latex知识。当然，也可以将图窗导出为图片。<del>不需要傻傻地将图像截图使用</del></p>
 <p>不仅如此，对这个图像我们还可以进行更精细的定制。我们可以规定图线的线型，颜色，线粗，数据点......</p>
@@ -3309,11 +3333,13 @@ s = [-1 5.5 11.8 19.0 25.9 32.2 39.0 45.8]
 |圆|加号|星号|点|叉号|正方形|菱形|无|</p>
 <p>其中线型缺省后的情形取决于数据点是否缺省。数据点缺省时为实现，不缺省为无。
 在<code>plot(x,y,LineSpec)</code>中LineSpec添加如上参数（如<code>'r-*'</code>）就可以改变线型、颜色等</p>
-<p>!!! Question 动手做：4.5改变线型
-    将原始图线设置为蓝色星号无线型，拟合图线设置为红色点线</p>
+<p>!!! Question 动手做：4.5改变线型</p>
+<div class="highlight"><pre><span></span><code>将原始图线设置为蓝色星号无线型，拟合图线设置为红色点线
+</code></pre></div>
 <p>我们还可以通过<code>LineWidth</code>（线宽）<code>MarkerSize</code>（数据点大小）<code>MarkerEdgeColor</code>（数据点边缘颜色）<code>MarkerFaceColor</code>(数据点填充颜色)更深度定制图线。语法为<code>plot(x,y,LineSpec,'LineWidth',10,'MarkerFaceColor','g'......)</code></p>
-<p>!!!Question 动手做：4.6更深度定制图线
-    改变原始数据点大小为8，拟合图线线宽为2</p>
+<p>!!!Question 动手做：4.6更深度定制图线</p>
+<div class="highlight"><pre><span></span><code>改变原始数据点大小为8，拟合图线线宽为2
+</code></pre></div>
 <h2 id="_5">结语<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <p>以上为Matlab的入门部分。大家移步官网，找到"自动进度课程"，我们差不多把Matlab入门部分过了一遍。</p>
 <p>Matlab为我们提供了很多自学课程。跟着他的教程，我们能学到很多好东西。</p>
@@ -3342,7 +3368,7 @@ s = [-1 5.5 11.8 19.0 25.9 32.2 39.0 45.8]
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025年11月28日 14:01:56 UTC"><span class="timeago" datetime="2025-11-28T14:01:56+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025年11月28日 14:01:56 UTC">2025-11-28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025年11月28日 14:12:28 UTC"><span class="timeago" datetime="2025-11-28T14:12:28+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025年11月28日 14:12:28 UTC">2025-11-28</span>
   </span>
 
     
