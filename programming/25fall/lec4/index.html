@@ -3332,18 +3332,83 @@ s = [-1 5.5 11.8 19.0 25.9 32.2 39.0 45.8]
 <p>也许大家仍然看不出区别在哪。那么找到图像右上角，鼠标点击会有“在图窗中打开”，那么图像将会放大，区别就比较明显。
 在图窗中，我们也可以添加横轴，纵轴，标题......这些可能需要涉及一点点latex知识。当然，也可以将图窗导出为图片。<del>不需要傻傻地将图像截图使用</del></p>
 <p>不仅如此，对这个图像我们还可以进行更精细的定制。我们可以规定图线的线型，颜色，线粗，数据点......</p>
-<p>简单的参数设置为<code>颜色+线型+数据点</code>。颜色有：
-| r | g | b | c | m | y | b | w |无|
-|--|--|--|--|--|--|--|--|--|
-|红|绿|蓝|青|品红|黄|黑|白|默认颜色|</p>
-<p>线型有
-|-|--|:|-.|无|
-|--|--|--|--|--|
-|实线|虚线|点|点划线|实线或无|</p>
-<p>数据点：
-|o|+|*|.|x|s|d|无|
-|--|--|--|--|--|--|--|--|
-|圆|加号|星号|点|叉号|正方形|菱形|无|</p>
+<p>简单的参数设置为<code>颜色+线型+数据点</code>。颜色有：</p>
+<table>
+<thead>
+<tr>
+<th>r</th>
+<th>g</th>
+<th>b</th>
+<th>c</th>
+<th>m</th>
+<th>y</th>
+<th>b</th>
+<th>w</th>
+<th>无</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>红</td>
+<td>绿</td>
+<td>蓝</td>
+<td>青</td>
+<td>品红</td>
+<td>黄</td>
+<td>黑</td>
+<td>白</td>
+<td>默认颜色</td>
+</tr>
+</tbody>
+</table>
+<p>线型有:</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>--</th>
+<th>:</th>
+<th>-.</th>
+<th>无</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>实线</td>
+<td>虚线</td>
+<td>点</td>
+<td>点划线</td>
+<td>实线或无</td>
+</tr>
+</tbody>
+</table>
+<p>数据点：</p>
+<table>
+<thead>
+<tr>
+<th>o</th>
+<th>+</th>
+<th>*</th>
+<th>.</th>
+<th>x</th>
+<th>s</th>
+<th>d</th>
+<th>无</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>圆</td>
+<td>加号</td>
+<td>星号</td>
+<td>点</td>
+<td>叉号</td>
+<td>正方形</td>
+<td>菱形</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
 <p>其中线型缺省后的情形取决于数据点是否缺省。数据点缺省时为实现，不缺省为无。
 在<code>plot(x,y,LineSpec)</code>中LineSpec添加如上参数（如<code>'r-*'</code>）就可以改变线型、颜色等</p>
 <div class="admonition question">
@@ -3383,7 +3448,7 @@ s = [-1 5.5 11.8 19.0 25.9 32.2 39.0 45.8]
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025年11月28日 14:38:33 UTC"><span class="timeago" datetime="2025-11-28T14:38:33+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025年11月28日 14:38:33 UTC">2025-11-28</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="2025年11月28日 14:41:22 UTC"><span class="timeago" datetime="2025-11-28T14:41:22+00:00" locale="zh"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="2025年11月28日 14:41:22 UTC">2025-11-28</span>
   </span>
 
     
