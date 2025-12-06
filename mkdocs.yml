@@ -93,6 +93,7 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - neoteroi.cards # install using `pip install neoteroi-mkdocs`
   - pymdownx.critic
+  - pymdownx.blocks.caption
 
 
 extra_javascript:
@@ -137,6 +138,7 @@ nav:
       - programming/25fall/lec2.md
       - programming/25fall/lec3.md
       - programming/25fall/lec4.md
+      - programming/25fall/lec5.md
     - 通用资料:
       - 历年卷:
         - programming/common/exam/index.md
