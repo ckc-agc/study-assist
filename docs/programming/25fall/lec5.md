@@ -20,7 +20,7 @@
 来源: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Arpanet_logical_map,_march_1977.png)
 ///
 
-> "We set up a telephone connection between us and the guys at SRI ...", Kleinrock ... said in an interview: "We typed > the L and we asked on the phone,
+> "We set up a telephone connection between us and the guys at SRI ...", Kleinrock ... said in an interview: "We typed the L and we asked on the phone,
 >
 > > "Do you see the L?"
 > >
@@ -40,9 +40,9 @@
     - v1 至 v3 主要作为实验用途，设计于 1973~1978 年间
 - 由 4 个<ruby>**段**<rp>(</rp><rt>octet</rt><rp>)</rp></ruby>组成，每个段 8 位，可以用任何表示 32 位整数的方式表示 IPv4 地址
 
-    - http://10.214.96.145
-    - http://0xad66091
-    - http://181821585
+    - <http://10.214.96.145>
+    - <http://0xad66091>
+    - <http://181821585>
 
 - 理论上有 2<sup>32</sup> 个不同的地址，但并非所有都可以使用，有复杂的地址分配机制
 - 2019 年 11 月 25 日，RIPE NCC 宣布 IPv4 地址耗尽
@@ -66,16 +66,16 @@ rtt min/avg/max/mdev = 0.077/0.110/0.143/0.033 ms
     - 1995 年发明
     - 不存在 IPv5：IPv4 的直接后继就是 IPv6
 - 由 8 个<ruby>段<rp>(</rp><rt>hextet</rt><rp>)</rp></ruby>组成，每个段 16 位
-    - <a href="http://[2001:da8:e000:1620:0:0:0:45]">2001:da8:e000:1620:0:0:0:45</a>
+    - [2001:da8:e000:1620:0:0:0:45](http://[2001:da8:e000:1620:0:0:0:45])
     - 理论上有 2<sup>128</sup> ≈ 3.4 × 10<sup>38</sup> 个不同的地址
     - 极大地简化了 IPv4 存在的地址分配问题
-    - 连续的全 0 段可以省略：<a href="http://[2001:da8:e000:1620::45]">2001:da8:e000:1620::45</a>
-    - 也有 IPv4-mapped IPv6 地址：<a href="http://[::ffff:10.214.96.145]">::ffff:10.214.96.145</a>
+    - 连续的全 0 段可以省略：
+        - [2001:da8:e000:1620::45](http://[2001:da8:e000:1620::45])
+    - 也有 IPv4-mapped IPv6 地址：[::ffff:10.214.96.145](http://[::ffff:10.214.96.145])
     - <https://test-ipv6.com> 测试你的 IPv6 连接
     - Linux 下有 ping6 命令
 
         ```console
-        $ ping6 -c2 2001:da8:e000:1620::45
         $ ping6 -c2 2001:da8:e000:1620::45
         PING 2001:da8:e000:1620::45 (2001:da8:e000:1620::45) 56 data bytes
         64 bytes from 2001:da8:e000:1620::45: icmp_seq=1 ttl=64 time=0.145 ms
@@ -268,13 +268,12 @@ Connection: close
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: text/html; charset=UTF-8
-Date: Wed, 08 May 2024 11:31:18 GMT
-Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
-Content-Length: 1256
+Content-Type: text/html
+Last-Modified: Thu, 09 Oct 2025 16:42:02 GMT
+Content-Length: 513
+Connection: close
 
-<!doctype html>
-...
+<!doctype html>...
 ```
 
 ### 客户端-服务器（C/S）架构
@@ -304,21 +303,15 @@ URL Syntax Diagram
 - URI（统一资源标识符）的一种，用于定位互联网上的资源
     - 格式如上图，重要性由左至右递减
 
-https://www.example.com:443/path/to/resource?query=1#frag
-
-<div class="grid" markdown>
-
 !!! example
+    https://www.example.com:443/path/to/resource?query=1#frag
+
     - 协议：https
     - 主机：www.example.com
     - 端口：443
-
-!!! example
     - 路径：/path/to/resource
     - 查询：query=1
     - 片段：frag
-
-</div>
 
 - URL 中只能包含 ASCII 字符，由**百分号编码**定义的字符集
     - 例如空格编码为 %20，或有些情况下编码为 +
@@ -405,7 +398,7 @@ HTML 不是编程语言！
 </html>
 ```
 
-<iframe src="data:text/html;base64,PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KICAgIDx0aXRsZT5QcmFjdGljYWwgU2tpbGxzIFR1dG9yaWFsPC90aXRsZT4KPC9oZWFkPgo8Ym9keT4KICAgIDxoMT5IZWxsbywgV29ybGQhPC9oMT4KPC9ib2R5Pgo8L2h0bWw+Cg==" width="100%" height="200"></iframe>
+<iframe src="data:text/html;base64,PCFET0NUWVBFIGh0bWw+PGh0bWw+PGhlYWQ+PHRpdGxlPkNLQyBDUyBGYWxsIDI1IExlYzU8L3RpdGxlPjwvaGVhZD48Ym9keT48aDE+SGVsbG8sIFdvcmxkITwvaDE+PC9ib2R5PjwvaHRtbD4K" width="100%" height="200"></iframe>
 
 ### HTML 的基本语法
 
@@ -487,7 +480,6 @@ body {
 - 用于处理 HTTP 请求的软件
     - 例如 Apache、Nginx、IIS 等
     - 也可以使用 Node.js、Python 等编程语言的库
-
 
 Further reading:
 
