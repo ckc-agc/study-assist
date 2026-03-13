@@ -11,16 +11,16 @@
 | 1 | Oct.25 | 极限与函数连续性 | 图灵 <br /> 2402 <br /> 郭名扬 | [讲义](2025-2026Fall/analysis_lecture1.pdf) <br /> [答案](2025-2026Fall/analysis_answer1.pdf) | [Bilibili](https://www.bilibili.com/video/BV1tHsUzfEMM/) |
 | 2 | Nov.15 | 一元函数微分学 | 求数 <br /> 2401 <br /> 岑瑜璠 | [讲义](2025-2026Fall/analysis_lecture2.pdf) | [Bilibili](https://www.bilibili.com/video/BV1DoCeBsEdU/) |
 | 3 | Dec.21 | 一元函数积分学 | 混合 <br /> 2408 <br /> 王睿 | 暂无 | 暂无 |
-| 4 | Dec.27 | 期末复习（上） | 数应 <br /> 2402 <br /> 刘耀升 | 暂无 | [Bilibili](https://www.bilibili.com/video/BV1UGBkBZE3f/) |
-| 5 | Dec.27 | 期末复习（下） | 图灵 <br /> 2402 <br /> 郭名扬 | 暂无 | [Bilibili](https://www.bilibili.com/video/BV1ZMBjBvEWM/) |
+| 4 | Dec.27 | 期末复习（上） | 数应 <br /> 2402 <br /> 刘耀升 | [讲义](2025-2026Fall/analysis_lecture4.pdf) | [Bilibili](https://www.bilibili.com/video/BV1UGBkBZE3f/) |
+| 5 | Dec.27 | 期末复习（下） | 图灵 <br /> 2402 <br /> 郭名扬 | [讲义](2025-2026Fall/analysis_lecture5.pdf) | [Bilibili](https://www.bilibili.com/video/BV1ZMBjBvEWM/) |
 
 ### 秋冬学期 专题课
 | 节次 | 内容 | 主讲 | 讲义 | 视频地址 |
 | :---: | :---: | :---: | :---: | :---: |
 | 1 | 连续函数与一致连续 | 图灵 <br /> 2402 <br /> 郭名扬 | [讲义](2025-2026Fall/topic1_lecture.pdf) | [Bilibili](https://www.bilibili.com/video/BV1XQCeBoETw/) |
-| 2 | 微分中值定理、泰勒公式与积分中值定理应用 | 数应 <br /> 2402 <br /> 刘耀升 | [讲义](2025-2026Fall/topic2_lecture.pdf) | [Bilibili](https://www.bilibili.com/video/BV1Wy2SBbEW2/) |
-| 3 | 实数完备性理论 | 求数 <br /> 2401 <br /> 岑瑜璠 | [讲义](2025-2026Fall/topic3_lecture.pdf) | [Bilibili](https://www.bilibili.com/video/BV1J1qHBQEqU/) |
-| 4 | 定积分、不定积分、反常积分、变上限积分计算 | 图灵 <br /> 2403 <br /> 袁楚涵 | [讲义](2025-2026Fall/topic4_lecture.pdf) | [Bilibili](https://www.bilibili.com/video/BV1kAv1BDE92/) |
+| 2 | 微分中值定理、泰勒公式与积分中值定理应用 | 数应 <br /> 2402 <br /> 刘耀升 | 暂无 | [Bilibili](https://www.bilibili.com/video/BV1Wy2SBbEW2/) |
+| 3 | 实数完备性理论 | 求数 <br /> 2401 <br /> 岑瑜璠 | 暂无 | [Bilibili](https://www.bilibili.com/video/BV1J1qHBQEqU/) |
+| 4 | 定积分、不定积分、反常积分、变上限积分计算 | 图灵 <br /> 2403 <br /> 袁楚涵 | [讲义](https://slides.jayi0908.cn/slides/MA1_online/) | [Bilibili](https://www.bilibili.com/video/BV1kAv1BDE92/) |
 
 
 ## 2024-2025 学年 辅学资料
