@@ -11,6 +11,9 @@
 |  1  | 2025.11.2 | 函数与极限 | 计科 2406 <br /> 季诗悦 | [讲义](2025-2026Fall/calculus1_lec1.pdf) | [Bilibili](https://www.bilibili.com/video/BV19g2uB8Evx/) |
 |  2  | 2025.11.5 | 期中复习 | 混合 2204 <br /> 胡卓 | [讲义](https://yuanhongyi.github.io/lecture/l02_1) | [Bilibili](https://www.bilibili.com/video/BV1Sc14BiELK/) |
 |  3  | 2025.11.16 | 微分与导数应用 | 数应 2402 <br /> 刘耀升 | [讲义](2025-2026Fall/calculus1_lec3.pdf) | [Bilibili](https://www.bilibili.com/video/BV1PaCiBJEeg/) |
+|  4  | 2025.11.22 | 不定积分 | 图灵 2403 <br /> 袁楚涵 | [讲义](2025-2026Fall/calculus1_lec4.pdf) | [Bilibili](https://www.bilibili.com/video/BV1N1SKBDESC/) |
+|  5  | 2025.12.20 | 定积分 | 混合 2408 <br /> 王睿 | [讲义](2025-2026Fall/calculus1_lec5.pdf) | 暂无 |
+|  6  | 2025.12.28 | 期末复习 | 信计 2201 <br /> 吴浩天 | [讲义](2025-2026Fall/calculus1_lec6.pdf) | [Bilibili](https://www.bilibili.com/video/BV1vsvmB5Ewi/) |
 
 ## 2024-2025 学年 辅学资料
 
