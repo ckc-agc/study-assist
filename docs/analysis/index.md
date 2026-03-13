@@ -10,7 +10,7 @@
 | :---: | :----: | :---: | :---: | :---: | :---: |
 | 1 | Oct.25 | 极限与函数连续性 | 图灵 <br /> 2402 <br /> 郭名扬 | [讲义](2025-2026Fall/analysis_lecture1.pdf) <br /> [答案](2025-2026Fall/analysis_answer1.pdf) | [Bilibili](https://www.bilibili.com/video/BV1tHsUzfEMM/) |
 | 2 | Nov.15 | 一元函数微分学 | 求数 <br /> 2401 <br /> 岑瑜璠 | [讲义](2025-2026Fall/analysis_lecture2.pdf) | [Bilibili](https://www.bilibili.com/video/BV1DoCeBsEdU/) |
-| 3 | Dec.21 | 一元函数积分学 | 混合 <br /> 2408 <br /> 王睿 | 暂无 | 暂无 |
+| 3 | Dec.21 | 一元函数积分学 | 混合 <br /> 2408 <br /> 王睿 | [讲义](2025-2026Fall/analysis_lecture3.pdf) | 暂无 |
 | 4 | Dec.27 | 期末复习（上） | 数应 <br /> 2402 <br /> 刘耀升 | [讲义](2025-2026Fall/analysis_lecture4.pdf) | [Bilibili](https://www.bilibili.com/video/BV1UGBkBZE3f/) |
 | 5 | Dec.27 | 期末复习（下） | 图灵 <br /> 2402 <br /> 郭名扬 | [讲义](2025-2026Fall/analysis_lecture5.pdf) | [Bilibili](https://www.bilibili.com/video/BV1ZMBjBvEWM/) |
 
