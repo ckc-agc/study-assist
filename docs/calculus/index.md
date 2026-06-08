@@ -15,6 +15,15 @@
 |  5  | 2025.12.20 | 定积分 | 混合 2408 <br /> 王睿 | [讲义](2025-2026Fall/calculus1_lec5.pdf) | 暂无 |
 |  6  | 2025.12.28 | 期末复习 | 信计 2201 <br /> 吴浩天 | [讲义](2025-2026Fall/calculus1_lec6.pdf) | [Bilibili](https://www.bilibili.com/video/BV1vsvmB5Ewi/) |
 
+### 春夏学期 微积分 II (H)
+
+| 节次 | 时间 | 内容 | 主讲 | 讲义 | 录播 |
+| :-: | :-: | :-: | :-: | :-: | :-: |
+|  1  | 2026.4.12 | 数项级数 | 强数 2401 <br /> 应凯诚 | [讲义](2025-2026Spring/calculus2_lec1.pdf) | [Bilibili](https://www.bilibili.com/video/BV1CsZFBEEfc/) |
+|  2  | 2026.5.23 | 多元微分 | 强化 2401 <br /> 张易博 | [讲义](2025-2026Spring/calculus2_lec2.pdf) | [Bilibili](https://www.bilibili.com/video/BV1Yn7D6kEFr/) |
+|  3  | 2026.5.30 | 多元积分 | 混合 2309 <br /> 宁郑立 | [讲义](2025-2026Spring/calculus2_lec3.pdf) | [Bilibili](https://www.bilibili.com/video/BV1hhE46rEg7/) |
+|  4  | 待定 | 期末复习 | 混合 2408 <br /> 王睿 | 暂无 | 暂无 |
+
 ## 2024-2025 学年 辅学资料
 
 ### 秋冬学期 微积分 I (H)
