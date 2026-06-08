@@ -22,6 +22,15 @@
 | 3 | 实数完备性理论 | 求数 <br /> 2401 <br /> 岑瑜璠 | 暂无 | [Bilibili](https://www.bilibili.com/video/BV1J1qHBQEqU/) |
 | 4 | 定积分、不定积分、反常积分、变上限积分计算 | 图灵 <br /> 2403 <br /> 袁楚涵 | [讲义](https://slides.jayi0908.cn/slides/MA1_online/) | [Bilibili](https://www.bilibili.com/video/BV1kAv1BDE92/) |
 
+### 春夏学期 数学分析 II (H)
+
+| 节次 | 时间 | 内容 | 主讲 | 讲义 | 录播地址 |
+| :---: | :----: | :---: | :---: | :---: | :---: |
+| 1 | Apr.19 | 级数 | 混合 <br /> 2309 <br /> 宁郑立 | [讲义](2025-2026Spring/analysis_lecture1.pdf) | [Bilibili](https://www.bilibili.com/video/BV131ovBZEGp/) |
+| 2 | May.16 | 多元函数微分学 | 图灵 <br /> 2402 <br /> 郭名扬 | [讲义](2025-2026Spring/analysis_lecture2.pdf) | [Bilibili](https://www.bilibili.com/video/BV1G8LJ6EE2E/) |
+| 3 | June.7 | 多元函数积分学 | 混合 <br /> 2408 <br /> 王睿 | [讲义](2025-2026Spring/analysis_lecture3.pdf) | 暂无 |
+| 4 | June.20/21 | 期末复习 | 强数 <br /> 2401 <br /> 应凯诚 | 暂无 | 暂无 |
+
 
 ## 2024-2025 学年 辅学资料
 
@@ -33,7 +42,7 @@
 |   2   | Oct.20 | 一元函数极限和连续与第一次小测复习 |  混合 2206 <br /> 谢集  |             [讲义](./2024-2025Fall/analysis_lecture2_continuity_and_review.pdf)<br />[答案](./2024-2025Fall/analysis_lecture2_continuity_and_review_ans.pdf)              | [Bilibili](https://www.bilibili.com/video/BV1fkyaYzEFm) |
 |   3   | Nov.10 |        导数、微分和中值定理        | 图灵 2302 <br /> 杨书华 |                                                        [讲义](./2024-2025Fall/analysis_lecture3_differential.pdf)                                                         | [Bilibili](https://www.bilibili.com/video/BV1j8mhY6EF3) |
 
-### 春夏学期 数学分析 I (H)
+### 春夏学期 数学分析 II (H)
 
 | 节次  |  时间  |         内容         |          主讲           |                                                  讲义                                                   |                                                       录播地址                                                       |
 | :---: | :----: | :------------------: | :---------------------: | :-----------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: |
