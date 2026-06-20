@@ -22,7 +22,7 @@
 |  1  | 2026.4.12 | 数项级数 | 强数 2401 <br /> 应凯诚 | [讲义](2025-2026Spring/calculus2_lec1.pdf) | [Bilibili](https://www.bilibili.com/video/BV1CsZFBEEfc/) |
 |  2  | 2026.5.23 | 多元微分 | 强化 2401 <br /> 张易博 | [讲义](2025-2026Spring/calculus2_lec2.pdf) | [Bilibili](https://www.bilibili.com/video/BV1Yn7D6kEFr/) |
 |  3  | 2026.5.30 | 多元积分 | 混合 2309 <br /> 宁郑立 | [讲义](2025-2026Spring/calculus2_lec3.pdf) | [Bilibili](https://www.bilibili.com/video/BV1hhE46rEg7/) |
-|  4  | 待定 | 期末复习 | 混合 2408 <br /> 王睿 | 暂无 | 暂无 |
+|  4  | 待定 | 期末复习 | 混合 2408 <br /> 王睿 | [讲义](2025-2026Spring/calculus2_lec4.pdf) | [Bilibili](https://www.bilibili.com/video/BV1uwjE6kETd) |
 
 ## 2024-2025 学年 辅学资料
 
