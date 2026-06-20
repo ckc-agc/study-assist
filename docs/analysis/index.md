@@ -28,8 +28,8 @@
 | :---: | :----: | :---: | :---: | :---: | :---: |
 | 1 | Apr.19 | 级数 | 混合 <br /> 2309 <br /> 宁郑立 | [讲义](2025-2026Spring/analysis_lecture1.pdf) | [Bilibili](https://www.bilibili.com/video/BV131ovBZEGp/) |
 | 2 | May.16 | 多元函数微分学 | 图灵 <br /> 2402 <br /> 郭名扬 | [讲义](2025-2026Spring/analysis_lecture2.pdf) | [Bilibili](https://www.bilibili.com/video/BV1G8LJ6EE2E/) |
-| 3 | June.7 | 多元函数积分学 | 混合 <br /> 2408 <br /> 王睿 | [讲义](2025-2026Spring/analysis_lecture3.pdf) | 暂无 |
-| 4 | June.20/21 | 期末复习 | 强数 <br /> 2401 <br /> 应凯诚 | 暂无 | 暂无 |
+| 3 | June.7 | 多元函数积分学 | 混合 <br /> 2408 <br /> 王睿 | [讲义](2025-2026Spring/analysis_lecture3.pdf) | [Bilibili](https://www.bilibili.com/video/BV1N7EZ6QEEC) |
+| 4 | June.20/21 | 期末复习 | 强数 <br /> 2401 <br /> 应凯诚 | [讲义](2025-2026Spring/analysis_lecture4.pdf) | [Bilibili](https://www.bilibili.com/video/BV1Eyj66pETh) |
 
 
 ## 2024-2025 学年 辅学资料
