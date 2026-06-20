@@ -10,8 +10,8 @@
 | :---: | :----: | :------------------: | :---------------------: | :------------------------------------: | :-----------------------------------------------------: |
 |   1   | 春六周 | 预备知识、动量、转动 | 图灵 2402 <br /> 方尉丞 | [讲义](2025-2026/physics1_lecture1.pdf) | [Bilibili](https://www.bilibili.com/video/BV1VyZFBeE8J/) |
 |   2   | 春七周 | 振动和波 | 混合 2305 <br /> 杨宏毅 | [讲义](2025-2026/physics1_lecture2.pdf) | [Bilibili](https://www.bilibili.com/video/BV1JgoiBrEed/) |
-|   3   | 夏五周 | 相对论 | 混合 2507 <br /> 王郑浩 | [讲义](2025-2026/physics1_lecture3.pdf) | 暂无 |
-|   4   | 夏七周 | 热学和期末复习 | 混合 2402 <br /> 高浩瑜 | 暂无 | 暂无 |
+|   3   | 夏五周 | 相对论 | 混合 2507 <br /> 王郑浩 | [讲义](2025-2026/physics1_lecture3.pdf) | [Bilibili](https://www.bilibili.com/video/BV1zyER6iESB/) |
+|   4   | 夏七周 | 热学和期末复习 | 混合 2402 <br /> 高浩瑜 | [讲义](2025-2026/physics1_lecture4.pdf) | [Bilibili](https://www.bilibili.com/video/BV1Jrj66sEPq/) |
 
 ### 秋冬学期 普通物理学 II（H）
 
