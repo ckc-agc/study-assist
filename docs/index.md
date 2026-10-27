@@ -18,32 +18,32 @@
 [
   {
     "title": "[微积分 I/II（H）](calculus/index.md)",
-    "content": "25-26 辅学群：1063535002",
+    "content": "26-27 辅学群：2162080368",
     "image": "graph/calculus.webp"
   },
   {
     "title": "[数学分析 I/II（H）](analysis/index.md)",
-    "content": "25-26 辅学群：1058495067",
+    "content": "26-27 辅学群：1129218224",
     "image": "graph/analysis.jpg"
   },
   {
     "title": "[线性代数 I/II（H）](algebra/index.md)",
-    "content": "25-26 辅学群：1055988442",
+    "content": "26-27 辅学群：1126816395",
     "image": "graph/algebra.jpg"
   },
   {
     "title": "[程序设计与算法基础](programming/index.md)",
-    "content": "25-26 辅学群：1065570961",
+    "content": "26-27 辅学群：1129228662",
     "image": "graph/programming.jpg"
   },
   {
     "title": "[普通化学（H）](chemistry/index.md)",
-    "content": "25-26 辅学群：1067134340",
+    "content": "26-27 辅学群：962499404",
     "image": "graph/chem.jpg"
   },
   {
     "title": "[普通物理学 I（H）](physics/index.md)",
-    "content": "24-25 辅学群：1037874821 ",
+    "content": "26-27 辅学群：1126832394",
     "image": "graph/physics.png"
   },
 ]
